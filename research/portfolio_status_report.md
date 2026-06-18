@@ -40,7 +40,7 @@ Overall audit: PASS
 - B IDs are B1..B10: True
 - Problem IDs match attack pack: True
 - All required fields present: True
-- Maturity scores: {'B1': 37, 'B2': 39, 'B3': 30, 'B4': 20, 'B5': 21, 'B6': 16, 'B7': 33, 'B8': 32, 'B9': 12, 'B10': 39}
+- Maturity scores: {'B1': 37, 'B2': 39, 'B3': 30, 'B4': 20, 'B5': 21, 'B6': 19, 'B7': 33, 'B8': 32, 'B9': 12, 'B10': 39}
 
 ## Technical Resolution Program
 
@@ -506,6 +506,14 @@ Overall audit: PASS
 - Curated discovery/mechanism/database claims: False / False / False
 - Curated validation errors: 0
 - Curated result/markdown exists: True / True
+- Formula descriptor screen status: formula_descriptor_screen_not_material_discovery_claim
+- Formula records / expanded negatives / families: 38 / 12 / 22
+- Formula AP@k / family-prior AP@k: 0.09999999999999999 / 1.0
+- Formula post-split AP / family-prior post-split AP: 0.5947278911564625 / 0.9821428571428571
+- Formula discovery/mechanism/database/computed-observable claims: False / False / False / False
+- Formula uses formula descriptors / B5-linked proxy: True / True
+- Formula validation errors: 0
+- Formula result/markdown exists: True / True
 
 ## B7 Fault-Tolerance Co-Design Status
 

@@ -372,15 +372,21 @@ curated retrospective leakage audit with 26 materials records across 12
 families, a post-2008 time split, high-Tc threshold 30 K, all-physics AP@10
 0.89 versus random AP@10 mean 0.5346, post-split physics AP 0.9094 versus
 family-prior AP 0.9379 and random AP mean 0.9030, family-holdout physics AP
-0.9722 versus random AP 0.8529, validation errors 0, and explicit non-claim of
-material discovery, solved mechanism, or complete database coverage.
+0.9722 versus random AP 0.8529. T-B6-002 adds a formula-derived descriptor
+screen with 38 records across 22 families, 12 expanded negative controls,
+embedded element-table descriptors, B5-linked correlation/screening proxies,
+formula AP@12 0.10, family-prior AP@12 1.0, post-split formula AP 0.5947,
+post-split family-prior AP 0.9821, validation errors 0, and explicit non-claim
+of material discovery, solved mechanism, complete database coverage, or
+computed quantum observable.
 
 **Remaining path to a serious solution:** replace qualitative descriptor values
-with computed structural/electronic descriptors; expand post-split negative
-controls; add structure and correlation descriptors; use B5 observables where
-available; produce a short candidate list.
+and formula-derived proxies with crystallographic, DFT, or B5-computed
+structural/electronic descriptors; expand post-split negative controls; add
+structure and correlation descriptors; use B5 observables where available;
+produce a short candidate list only after the technical gate passes.
 
-**Current internal maturity:** 16/100.
+**Current internal maturity:** 19/100.
 
 ## B7: Architecture-Level Fault-Tolerance Co-Design
 

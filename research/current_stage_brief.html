@@ -274,10 +274,13 @@
         目标顺序已纠正：当前主线是先推进 B1-B10 的技术解决；论文、专利、融资和工具只作为技术门槛通过后的后置转化结果。
       </p>
       <p style="margin-top: 10px;">
-        目录边界已最终封存：<code>research/problem_catalog_100.md</code> 已升级为 v1.0 frozen catalog，100 个问题均补入学科组群、来源脉络、约略未解时间、核心困难、前人路线/里程碑和项目定位；<code>research/problem_catalog_100.json</code> 逐条补入 <code>discipline_supergroup</code> 与 <code>source_lineage_group</code>，并新增 <code>metadata_completion_scope</code>、<code>source_confidence_labels</code> 与 <code>user_freeze_directive</code>。最终规则：以后不再扩展、重排、替换、重映射 Top 10 或反复润色这 100 个问题本身，只允许只读展示、引用、路由、翻译和审计锁检查。
+        100 问题目录已完成第一版元数据：<code>research/problem_catalog_100.md</code> 与 <code>research/problem_catalog_100.json</code> 均补入学科组群、来源脉络、约略未解时间、核心困难、前人路线/里程碑和项目定位。当前协作规则：目录可被展示、引用、路由和后续外部 agent 扩展，但本项目当前主攻资源集中在 B1-B10，不再把本轮工作耗在反复重排或润色 100 题本体上。
       </p>
       <p style="margin-top: 10px;">
         最新推进 26：B5/T-B5-003b 已完成 non-exact-state-seeded variational MPS/ALS pressure prototype。新工具覆盖同一组 9 个 B10 D5 Hubbard density-response rows，从产品态加随机扰动出发，使用 one-site generalized-eigenproblem sweeps，测试 bond dimensions 2/4、3 restarts x 8 sweeps；selected mean/max relative response error 为 0.01806/0.03907，selected mean/max energy error per site 为 0.00303/0.00853，min exact-state overlap 为 0.9626，0 行优于 exact-state-seeded MPS pressure reference，validation errors 为 0。它把 B5 从“精确态截断压力参考”推进到“非 exact-seeded 变分 MPS 原型”，但仍不是 canonical-environment production DMRG、不是 2D/doped correlated-matter solver、不是量子 response kernel，也不是 accuracy-per-resource win。
+      </p>
+      <p style="margin-top: 10px;">
+        最新推进 27：B6/T-B6-002 已完成 formula-derived descriptor screen。新工具把 curated materials 表扩到 38 records / 22 families，加入 12 个 expanded negative controls，用内置元素表解析化学式并生成 formula mass、electronegativity spread、valence spread、active pairing element fraction、anion layer fraction、B5-linked correlation/screening proxies 等描述符。结果很清楚：formula AP@12 只有 0.10，而 family-prior AP@12 为 1.0；post-split formula AP 为 0.5947，仍低于 family-prior 0.9821。这个结果不是材料发现、不是高温超导机制解决、不是完整数据库、也不是 computed quantum observable；它的价值是把“只看化学式”的路线关闭为边界证据，下一步必须进入 crystallographic/DFT/B5-computed descriptors。
       </p>
       <p style="margin-top: 10px;">
         T-B7-008 已完成 w8_21 same-skeleton exact small-block synthesis。它测试 55 个 one-fixed-angle exact/Clifford 候选、每个 16 个数值 seeds，0 个候选在 1e-8 容差内通过；最佳近似为 a=pi/2，residual norm 3.936e-02，max entry error 1.824e-02，finite-difference rank 为 5。这说明最直接的 same two-CNOT skeleton one-angle exact replacement 路线已关闭；后续 T-B7-009 已跳出同一骨架继续验证。
@@ -382,15 +385,15 @@
       <div class="metrics">
         <div class="metric">
           <strong>100</strong>
-          <span>困难问题目录已补全并冻结</span>
+          <span>困难问题目录已补全第一版元数据</span>
         </div>
         <div class="metric">
           <strong>10</strong>
           <span>Top 10 攻关方向已进入 execution board</span>
         </div>
         <div class="metric">
-          <strong>6</strong>
-          <span>当前重点推进线：B1 / B2 / B3 / B7 / B8 / B10</span>
+          <strong>10</strong>
+          <span>当前主攻线：B1-B10，其他 100 题开放给外部 agent 分流</span>
         </div>
         <div class="metric">
           <strong>PASS</strong>
@@ -398,8 +401,8 @@
         </div>
       </div>
       <p class="note">
-        冻结目录：<code>research/problem_catalog_100.md</code>；
-        机器可读冻结索引：<code>research/problem_catalog_100.json</code>，含 9 个学科超组、4 类来源组群、逐条学科/来源路由字段、A/B/C/D 来源置信标签、metadata completion scope、user freeze directive 与 freeze_lock；
+        100 题目录：<code>research/problem_catalog_100.md</code>；
+        机器可读索引：<code>research/problem_catalog_100.json</code>，含 9 个学科超组、4 类来源组群、逐条学科/来源路由字段、A/B/C/D 来源置信标签与 metadata completion scope；
         来源注册：<code>research/source_registry.md</code>。
         新增可追踪档案：<code>research/top10_problem_dossiers.md</code>、<code>research/top10_problem_dossiers.json</code>、
         <code>research/technical_resolution_program.md</code>、<code>research/technical_resolution_program.json</code>；
@@ -441,7 +444,7 @@
             <td>4</td>
             <td>B3/B5/B6 application spine</td>
             <td>化学和材料方向更接近未来价值，但现在证据还停在 proxy/toy，需要真实路径和强 classical baseline。</td>
-            <td>B3 已完成 proxy circuit、Hamiltonian Pauli mapper、sampled confidence boundary、selected-CI larger-basis grouped Pauli boundary、larger-basis Hamiltonian mapper、larger-basis QWC grouping、HF grouped covariance shot-floor、chemical state-prep derivative boundary、H2/cc-pVDZ one-parameter compiled UCC/ADAPT covariance pilot 和 H2/LiH/H2O/N2 cross-molecule pressure boundary；当前建议降级为 negative-boundary track，只有 T-B3-012 rescue 机制通过后才继续；B5 已补 oracle-tuned/non-oracle response denominators、exact-state-seeded MPS pressure reference 和 non-exact-state-seeded variational MPS/ALS prototype；下一步是真实 production DMRG/MPS reference 或 quantum response-kernel costed comparison；B6 已完成 curated retrospective materials leakage audit，下一步是 computed structural/electronic descriptors 与 B5-linked observables。</td>
+            <td>B3 已完成 proxy circuit、Hamiltonian Pauli mapper、sampled confidence boundary、selected-CI larger-basis grouped Pauli boundary、larger-basis Hamiltonian mapper、larger-basis QWC grouping、HF grouped covariance shot-floor、chemical state-prep derivative boundary、H2/cc-pVDZ one-parameter compiled UCC/ADAPT covariance pilot 和 H2/LiH/H2O/N2 cross-molecule pressure boundary；当前建议降级为 negative-boundary track，只有 T-B3-012 rescue 机制通过后才继续；B5 已补 oracle-tuned/non-oracle response denominators、exact-state-seeded MPS pressure reference 和 non-exact-state-seeded variational MPS/ALS prototype；下一步是真实 production DMRG/MPS reference 或 quantum response-kernel costed comparison；B6 已完成 curated retrospective materials leakage audit 与 formula-derived descriptor screen：38 records / 22 families、12 expanded negative controls、formula AP@12 0.10 vs family-prior 1.0；下一步必须进入 crystallographic/DFT/B5-computed descriptors。</td>
           </tr>
         </tbody>
       </table>
@@ -456,7 +459,7 @@
         <div class="step">
           <span class="tag done">完成</span>
           <h3>阶段 0：问题地图</h3>
-          <p>100 个困难问题目录已补全元数据并冻结；Top 20 证据图、Top 10 攻关包已建立。</p>
+          <p>100 个困难问题目录已补全元数据并保持开放协作；Top 20 证据图、Top 10 攻关包已建立，当前集中推进 B1-B10。</p>
         </div>
         <div class="step">
           <span class="tag done">完成</span>
@@ -466,7 +469,7 @@
         <div class="step">
           <span class="tag current">当前</span>
           <h3>阶段 1B：证据加固</h3>
-          <p>B1/B2/B3/B7/B8/B10 已从 toy/proxy 进入更强 baseline、真实 sweep、bridge、stress-test、circuit-vs-denominator comparison、Hamiltonian Pauli mapper cost boundary 或 source-backed boundary note。</p>
+          <p>B1/B2/B3/B6/B7/B8/B10 已从 toy/proxy 进入更强 baseline、真实 sweep、bridge、stress-test、formula boundary、circuit-vs-denominator comparison、Hamiltonian Pauli mapper cost boundary 或 source-backed boundary note。</p>
         </div>
         <div class="step">
           <span class="tag next">下一步</span>
@@ -535,7 +538,7 @@
           <tr><td>B3</td><td>分子反应动力学</td><td><span class="risk-text">已降级为 negative-boundary track</span>：T-B3-011 覆盖 H2/LiH/H2O/N2 bounded sampled covariance pressure，35 sampled groups、mean/max variance error 0.0833/0.5029；max optimizer-loop shots lower bound 475,043,013,690,000，denominator wins 为 0。只有 rescue-only multi-parameter UCCSD/ADAPT 或更强测量策略出现后才继续作为突破候选。</td></tr>
           <tr><td>B4</td><td>可验证量子优势</td><td><span class="warn">已有 B4/B8 CNOT hidden-projection circuit proxy</span>，但仍不是 quantum advantage 或硬件协议。</td></tr>
           <tr><td>B5</td><td>强关联物质</td><td><span class="warn">Hubbard exact/cluster proxy + denominators + MPS/ALS prototype</span>：variational MPS/ALS prototype 覆盖 9 个 B10 D5 density-response rows，bond dimensions 2/4，3 restarts x 8 sweeps，selected mean/max relative response error 0.01806/0.03907，min exact-state overlap 0.9626，0 行优于 seeded MPS pressure reference；仍需真实 production DMRG/MPS reference 或真实量子 response-kernel costed comparison。</td></tr>
-          <tr><td>B6</td><td>高温超导搜索</td><td><span class="ok">curated leakage audit</span>：26 records / 12 families，post-2008 split；下一步扩充负例并接入 computed descriptors 与 B5 observables。</td></tr>
+          <tr><td>B6</td><td>高温超导搜索</td><td><span class="warn">formula descriptor boundary</span>：38 records / 22 families，12 expanded negatives，formula AP@12 0.10 vs family-prior 1.0；下一步接入 crystallographic/DFT/B5-computed descriptors。</td></tr>
           <tr><td>B7</td><td>容错架构 co-design</td><td><span class="warn">已有 B1/B2 bridge、DAG/factory schedule、T-factory 边界测试和 post-1Q retest</span>，mean STV 变为 1.034x，但 min STV 仍需突破。</td></tr>
           <tr><td>B8</td><td>量子输出经典验证</td><td><span class="ok">已有 adaptive leakage 边界、toy repair baseline、B4/B8 circuit-refresh proxy、trained-spoofer boundary、B10-T2 proof gate、restricted lemma、transcript/device-noise bridge、ideal Qiskit/Aer verifier bridge、noisy Aer verifier bridge 和 GenericBackendV2 backend-calibrated-style verifier bridge</span>，下一步 real backend / hardware verifier。</td></tr>
           <tr><td>B9</td><td>Quantum PCP / Local Hamiltonian</td><td><span class="risk-text">高风险理论线</span>，已有 exact gap lab、finite-instance failed gap-amplification negative lemma、Lean-style symbolic skeleton 和 cluster-stabilizer named-family width/locality bound：n=4,5,6 全部 term 统一 1.35x 缩放，max locality 3，raw gap 放大但 normalized gap 不变；下一步 T-B9-004 做真正 proof-check。</td></tr>
@@ -643,10 +646,10 @@
               <td>前人路线包括 Hubbard/t-J/RVB、spin-fluctuation、DFT/DFT+DMFT、Eliashberg theory、materials informatics、晶体图神经网络。里程碑是 cuprates、iron pnictides、hydrides 和机器学习材料筛选。</td>
               <td>
                 我们的方案是 mechanism-aware descriptor ranking：不只预测 Tc，而要隔离会泄漏历史发现的 proxy，并把 B5 强关联 observables 纳入候选筛选。
-                已完成 toy descriptor ranking harness。
-                <span class="progress">内部成熟度：10/100</span>
+                已完成 toy descriptor ranking harness、curated retrospective leakage audit，以及 T-B6-002 formula-derived descriptor screen：38 records / 22 families，12 expanded negative controls，B5-linked correlation/screening proxies，formula AP@12 0.10 vs family-prior AP@12 1.0，post-split formula AP 0.5947 vs family-prior 0.9821；这不是 material discovery、mechanism solution、complete database 或 computed quantum observable claim。
+                <span class="progress">内部成熟度：19/100</span>
               </td>
-              <td>还需 6 步：接入真实材料表；建立时间切分和家族切分验证；做 leakage audit；加入结构/电子相关 descriptor；和 B5 observable 对齐；输出可实验验证的短名单。</td>
+              <td>还需 6 步：接入 crystallographic/DFT 数据；把 formula proxy 替换为 computed structural/electronic descriptors；扩展 post-2008 negatives；继续 family/time leakage audit；和 B5 computed observable 对齐；技术门槛通过后再输出可实验验证的短名单。</td>
             </tr>
             <tr>
               <td><strong>B7</strong><br>容错架构 co-design</td>

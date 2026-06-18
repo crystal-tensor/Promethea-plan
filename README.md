@@ -86,7 +86,11 @@ a completed DMRG result and not a quantum advantage claim.
 B6 has moved from a synthetic descriptor toy to a curated retrospective
 materials leakage audit: 26 records across 12 families, explicit post-2008
 time split, family-prior comparison, and no material-discovery or solved
-mechanism claim.
+mechanism claim. The latest B6 formula-derived descriptor screen extends this
+to 38 records across 22 families with 12 expanded negative controls and
+B5-linked correlation/screening proxies; formula AP@12 is 0.10 versus
+family-prior AP@12 of 1.0, so the next gate is computed structural/electronic
+descriptors rather than more formula-only scoring.
 
 B2 has moved past the closed reduced-round artifact into a leakage-flagged
 erasure analytic boundary: 480 configurations, 42 proxy target-volume improved

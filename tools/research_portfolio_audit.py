@@ -3665,8 +3665,10 @@ def audit(root: Path) -> dict:
     b6_results = b6_manifest.get("current_results", {})
     b6_descriptor = b6_results.get("toy_superconductivity_descriptor_ranker_v0")
     b6_curated = b6_results.get("b6_curated_materials_leakage_audit_v0")
+    b6_formula = b6_results.get("b6_formula_descriptor_screen_v0")
     b6_status = {}
     b6_curated_status = {}
+    b6_formula_status = {}
     if not b6_descriptor:
         warnings.append("B6 manifest has no superconductivity descriptor ranking result")
     else:
@@ -3777,6 +3779,112 @@ def audit(root: Path) -> dict:
             "material_discovery_claimed": b6_curated.get("material_discovery_claimed"),
             "mechanism_solved": b6_curated.get("mechanism_solved"),
             "complete_materials_database": b6_curated.get("complete_materials_database"),
+            "result_exists": result_exists,
+            "markdown_exists": markdown_exists,
+            "result": result_path,
+            "markdown": markdown_path,
+        }
+    if not b6_formula:
+        warnings.append("B6 manifest has no formula-derived descriptor screen result")
+    else:
+        result_path = b6_formula.get("result")
+        markdown_path = b6_formula.get("markdown")
+        result_exists = bool(result_path and path_exists_from(benchmarks, result_path))
+        markdown_exists = bool(markdown_path and path_exists_from(benchmarks, markdown_path))
+        if not result_exists:
+            errors.append(f"B6 formula descriptor screen result path missing: {result_path}")
+        if not markdown_exists:
+            errors.append(f"B6 formula descriptor screen markdown path missing: {markdown_path}")
+        if b6_formula.get("method") != "b6_formula_descriptor_screen_v0":
+            errors.append("B6 formula descriptor screen method mismatch")
+        if b6_formula.get("status") != "formula_descriptor_screen_not_material_discovery_claim":
+            errors.append("B6 formula descriptor screen status must be a non-discovery claim")
+        if b6_formula.get("model_status") != "formula_element_table_descriptors_with_b5_correlation_proxy_not_material_discovery":
+            errors.append("B6 formula descriptor screen model status mismatch")
+        if int(b6_formula.get("expanded_negative_control_count", 0)) < 10:
+            errors.append("B6 formula descriptor screen must contain at least 10 expanded negative controls")
+        if int(b6_formula.get("validation_error_count", -1)) != 0:
+            errors.append("B6 formula descriptor screen validation errors must be zero")
+        for claim_key in [
+            "material_discovery_claimed",
+            "mechanism_solved",
+            "complete_materials_database",
+            "computed_quantum_observable_claimed",
+        ]:
+            if b6_formula.get(claim_key) is not False:
+                errors.append(f"B6 formula descriptor screen must not claim {claim_key}")
+        if b6_formula.get("uses_formula_derived_descriptors") is not True:
+            errors.append("B6 formula descriptor screen must disclose formula-derived descriptors")
+        if b6_formula.get("uses_b5_linked_proxy") is not True:
+            errors.append("B6 formula descriptor screen must disclose B5-linked proxy usage")
+        if result_exists:
+            payload = json.loads(read((benchmarks / result_path).resolve()))
+            if payload.get("benchmark_id") != "B6":
+                errors.append(f"B6 formula descriptor screen benchmark_id={payload.get('benchmark_id')!r}, expected 'B6'")
+            if payload.get("method") != b6_formula.get("method"):
+                errors.append("B6 formula descriptor screen payload method differs from manifest")
+            if payload.get("status") != b6_formula.get("status"):
+                errors.append("B6 formula descriptor screen payload status differs from manifest")
+            if payload.get("model_status") != b6_formula.get("model_status"):
+                errors.append("B6 formula descriptor screen payload model status differs from manifest")
+            for field in [
+                "record_count",
+                "curated_record_count",
+                "expanded_negative_control_count",
+                "family_count",
+                "post_split_record_count",
+                "post_split_positive_count",
+                "top_k",
+            ]:
+                if payload.get(field) != b6_formula.get(field):
+                    errors.append(f"B6 formula descriptor screen {field} differs from manifest")
+            if len(payload.get("validation_errors", [])) != b6_formula.get("validation_error_count"):
+                errors.append("B6 formula descriptor screen validation-error count mismatch")
+            metrics = payload.get("metrics", {})
+            for metric in [
+                "formula_average_precision_at_k",
+                "family_prior_average_precision_at_k",
+                "post_split_formula_average_precision_at_k",
+                "post_split_family_prior_average_precision_at_k",
+            ]:
+                if metrics.get(metric) != b6_formula.get(metric):
+                    errors.append(f"B6 formula descriptor screen {metric} differs from manifest")
+            claim_boundary = payload.get("claim_boundary", {})
+            for claim_key in [
+                "material_discovery_claimed",
+                "mechanism_solved",
+                "complete_materials_database",
+                "computed_quantum_observable_claimed",
+            ]:
+                if claim_boundary.get(claim_key) is not False:
+                    errors.append(f"B6 formula descriptor screen payload claims {claim_key}")
+            if claim_boundary.get("uses_formula_derived_descriptors") is not True:
+                errors.append("B6 formula descriptor screen payload hides formula-derived descriptor status")
+            if claim_boundary.get("uses_b5_linked_proxy") is not True:
+                errors.append("B6 formula descriptor screen payload hides B5-linked proxy status")
+        b6_formula_status = {
+            "status": b6_formula.get("status"),
+            "method": b6_formula.get("method"),
+            "model_status": b6_formula.get("model_status"),
+            "record_count": b6_formula.get("record_count"),
+            "curated_record_count": b6_formula.get("curated_record_count"),
+            "expanded_negative_control_count": b6_formula.get("expanded_negative_control_count"),
+            "family_count": b6_formula.get("family_count"),
+            "split_year": b6_formula.get("split_year"),
+            "post_split_record_count": b6_formula.get("post_split_record_count"),
+            "post_split_positive_count": b6_formula.get("post_split_positive_count"),
+            "top_k": b6_formula.get("top_k"),
+            "formula_average_precision_at_k": b6_formula.get("formula_average_precision_at_k"),
+            "family_prior_average_precision_at_k": b6_formula.get("family_prior_average_precision_at_k"),
+            "post_split_formula_average_precision_at_k": b6_formula.get("post_split_formula_average_precision_at_k"),
+            "post_split_family_prior_average_precision_at_k": b6_formula.get("post_split_family_prior_average_precision_at_k"),
+            "validation_error_count": b6_formula.get("validation_error_count"),
+            "material_discovery_claimed": b6_formula.get("material_discovery_claimed"),
+            "mechanism_solved": b6_formula.get("mechanism_solved"),
+            "complete_materials_database": b6_formula.get("complete_materials_database"),
+            "computed_quantum_observable_claimed": b6_formula.get("computed_quantum_observable_claimed"),
+            "uses_formula_derived_descriptors": b6_formula.get("uses_formula_derived_descriptors"),
+            "uses_b5_linked_proxy": b6_formula.get("uses_b5_linked_proxy"),
             "result_exists": result_exists,
             "markdown_exists": markdown_exists,
             "result": result_path,
@@ -6530,6 +6638,7 @@ def audit(root: Path) -> dict:
             "manifest": str(b6_manifest_path),
             "descriptor_ranking": b6_status,
             "curated_materials_leakage_audit": b6_curated_status,
+            "formula_descriptor_screen": b6_formula_status,
         },
         "b7": {
             "manifest": str(b7_manifest_path),
@@ -6672,6 +6781,7 @@ def audit(root: Path) -> dict:
                 research / "B5_variational_mps_als_response_reference.md"
             ),
             "b6_curated_materials_leakage_audit": str(research / "B6_curated_materials_leakage_audit.md"),
+            "b6_formula_descriptor_screen": str(research / "B6_formula_descriptor_screen.md"),
             "b10_formal_theorem_targets": str(research / "B10_formal_theorem_targets.md"),
             "b10_t2_minimum_refresh_spoofer_boundary": str(research / "B8_generative_spoofer_refresh.md"),
             "b10_t2_refresh_proof_obligation_gate": str(research / "B10_t2_refresh_proof_obligation_gate.md"),
@@ -7250,6 +7360,14 @@ def markdown_report(report: dict) -> str:
             f"- Curated discovery/mechanism/database claims: {report['b6']['curated_materials_leakage_audit'].get('material_discovery_claimed')} / {report['b6']['curated_materials_leakage_audit'].get('mechanism_solved')} / {report['b6']['curated_materials_leakage_audit'].get('complete_materials_database')}",
             f"- Curated validation errors: {report['b6']['curated_materials_leakage_audit'].get('validation_error_count')}",
             f"- Curated result/markdown exists: {report['b6']['curated_materials_leakage_audit'].get('result_exists')} / {report['b6']['curated_materials_leakage_audit'].get('markdown_exists')}",
+            f"- Formula descriptor screen status: {report['b6']['formula_descriptor_screen'].get('status')}",
+            f"- Formula records / expanded negatives / families: {report['b6']['formula_descriptor_screen'].get('record_count')} / {report['b6']['formula_descriptor_screen'].get('expanded_negative_control_count')} / {report['b6']['formula_descriptor_screen'].get('family_count')}",
+            f"- Formula AP@k / family-prior AP@k: {report['b6']['formula_descriptor_screen'].get('formula_average_precision_at_k')} / {report['b6']['formula_descriptor_screen'].get('family_prior_average_precision_at_k')}",
+            f"- Formula post-split AP / family-prior post-split AP: {report['b6']['formula_descriptor_screen'].get('post_split_formula_average_precision_at_k')} / {report['b6']['formula_descriptor_screen'].get('post_split_family_prior_average_precision_at_k')}",
+            f"- Formula discovery/mechanism/database/computed-observable claims: {report['b6']['formula_descriptor_screen'].get('material_discovery_claimed')} / {report['b6']['formula_descriptor_screen'].get('mechanism_solved')} / {report['b6']['formula_descriptor_screen'].get('complete_materials_database')} / {report['b6']['formula_descriptor_screen'].get('computed_quantum_observable_claimed')}",
+            f"- Formula uses formula descriptors / B5-linked proxy: {report['b6']['formula_descriptor_screen'].get('uses_formula_derived_descriptors')} / {report['b6']['formula_descriptor_screen'].get('uses_b5_linked_proxy')}",
+            f"- Formula validation errors: {report['b6']['formula_descriptor_screen'].get('validation_error_count')}",
+            f"- Formula result/markdown exists: {report['b6']['formula_descriptor_screen'].get('result_exists')} / {report['b6']['formula_descriptor_screen'].get('markdown_exists')}",
             "",
             "## B7 Fault-Tolerance Co-Design Status",
             "",

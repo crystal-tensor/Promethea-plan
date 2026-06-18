@@ -48,6 +48,36 @@ next_actions:
   - add_random_and_family_prior_baselines
   - run_retrospective_validation_on_known_superconductor_families
 current_results:
+  b6_formula_descriptor_screen_v0:
+    status: formula_descriptor_screen_not_material_discovery_claim
+    method: b6_formula_descriptor_screen_v0
+    model_status: formula_element_table_descriptors_with_b5_correlation_proxy_not_material_discovery
+    result: ../results/B6_formula_descriptor_screen_v0.json
+    markdown: ../research/B6_formula_descriptor_screen.md
+    record_count: 38
+    curated_record_count: 26
+    expanded_negative_control_count: 12
+    family_count: 22
+    split_year: 2008
+    post_split_record_count: 10
+    post_split_positive_count: 7
+    high_tc_threshold_k: 30.0
+    top_k: 12
+    formula_precision_at_k: 0.3333333333333333
+    formula_average_precision_at_k: 0.09999999999999999
+    family_prior_precision_at_k: 1.0
+    family_prior_average_precision_at_k: 1.0
+    post_split_formula_precision_at_k: 0.7
+    post_split_formula_average_precision_at_k: 0.5947278911564625
+    post_split_family_prior_average_precision_at_k: 0.9821428571428571
+    validation_error_count: 0
+    material_discovery_claimed: false
+    mechanism_solved: false
+    complete_materials_database: false
+    computed_quantum_observable_claimed: false
+    uses_formula_derived_descriptors: true
+    uses_b5_linked_proxy: true
+    next_required_artifact: crystallographic/DFT/B5-computed descriptors with larger post-2008 negatives
   b6_curated_materials_leakage_audit_v0:
     status: curated_retrospective_leakage_audit
     model_status: curated_materials_table_with_time_family_leakage_audit

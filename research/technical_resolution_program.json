@@ -53,10 +53,10 @@
     {
       "b_id": "B6",
       "technical_solution_target": "Leakage-controlled high-Tc candidate ranking pipeline using physics descriptors, not family priors.",
-      "current_evidence": "Toy descriptor ranker plus T-B6-001 curated leakage audit: 26 records across 12 families, post-2008 time split, all-physics AP@10 0.89 vs random AP@10 mean 0.5346, post-split physics AP 0.9094 vs family-prior AP 0.9379 and random AP mean 0.9030, validation errors 0, and no material-discovery or solved-mechanism claim.",
-      "main_blocker": "Descriptors are still qualitative and hand-curated; the post-split set is small and positive-heavy, so random and family-prior baselines can saturate parts of the audit.",
-      "next_experiment": "Replace qualitative descriptors with computed structural/electronic descriptors and B5-linked observables, expand post-split negative controls, and rerun family/time leakage audit.",
-      "gate_status": "early"
+      "current_evidence": "Toy descriptor ranker plus T-B6-001 curated leakage audit, then T-B6-002 formula-derived descriptor screen: 38 records across 22 families, 12 expanded negative controls, embedded element-table descriptors, and B5-linked correlation/screening proxies. Formula AP@12 is 0.10 while family-prior AP@12 is 1.0; post-split formula AP is 0.5947 vs family-prior 0.9821. Validation errors 0, with explicit non-claim of material discovery, solved mechanism, complete database coverage, or computed quantum observable.",
+      "main_blocker": "Formula-derived descriptors expose a useful boundary but do not beat family-prior leakage. The table is still small, post-split negatives remain limited, and no crystallographic/DFT/B5-computed observables have been attached yet.",
+      "next_experiment": "Run T-B6-003: replace formula-derived proxies with crystallographic, DFT, or B5-computed structural/electronic observables, then expand the post-2008 negative set so family priors and random baselines cannot saturate.",
+      "gate_status": "early_negative_boundary"
     },
     {
       "b_id": "B7",

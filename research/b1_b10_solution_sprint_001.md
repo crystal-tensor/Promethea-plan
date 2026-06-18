@@ -284,23 +284,30 @@ it as a denominator for B10 rather than overclaiming quantum advantage.
 **Technical target:** rank candidate materials using mechanism-aware
 descriptors while controlling family-prior leakage.
 
-**Sprint hypothesis:** the toy descriptor ranker should be replaced by a
-retrospective table with time/family splits before any candidate claim.
+**Sprint hypothesis:** the curated table and formula-derived proxy screen are
+useful only as leakage controls; the next useful artifact must use
+crystallographic, DFT, or B5-computed observables.
 
-**Algorithmic move:** build a curated data schema with material family,
-discovery year, Tc label, structural descriptors, correlation descriptors, and
-explicit leakage flags.
+**Algorithmic move:** replace formula-derived proxies with computed
+structural/electronic descriptors, keep family/time leakage controls, and
+charge any B5 observable coupling as a separate evidence channel.
 
-**Next PR:** `T-B6-001`. Expected artifacts:
+**Current evidence:** `T-B6-002` adds 38 records / 22 families with 12 expanded
+negative controls, formula-derived descriptors, B5-linked correlation/screening
+proxies, formula AP@12 0.10, family-prior AP@12 1.0, post-split formula AP
+0.5947, and no discovery/mechanism/database/computed-observable claim.
 
-- `data/B6_materials_retrospective_schema.md`
-- `tools/b6_family_time_leakage_audit.py`
-- `results/B6_family_time_leakage_audit_v0.json`
-- `research/B6_family_time_leakage_audit.md`
+**Next PR:** `T-B6-003`. Expected artifacts:
 
-**Acceptance gate:** ranking metrics are reported under random split,
-time-forward split, and family-held-out split; leakage-driven features are
-listed separately from physics descriptors.
+- `benchmarks/B6_high_temperature_superconductivity.yaml`
+- `tools/b6_computed_descriptor_audit.py`
+- `results/B6_computed_descriptor_audit_v0.json`
+- `research/B6_computed_descriptor_audit.md`
+
+**Acceptance gate:** computed descriptors are reported separately from
+family-prior and formula-proxy baselines under random, time-forward, and
+family-held-out splits; B5-derived observables must disclose whether they are
+real computed observables or only proxies.
 
 **Failure value:** if performance collapses under family-held-out evaluation,
 the project avoids false discovery claims and moves toward data-quality work.
@@ -797,7 +804,7 @@ still identify which assumption is too strong or too weak.
 4. `verification-agent`: B4/B8 hidden task generator and adaptive spoofer.
 5. `chemistry-agent`: B3 reaction observable circuit vs FCI denominator.
 6. `theory-agent`: B10-T2 real-backend/hardware verifier bridge plus B9 negative lemma.
-7. `materials-agent`: B6 family/time leakage audit.
+7. `materials-agent`: B6 computed descriptor audit with expanded negatives.
 
 This sprint is complete only when at least one PR-quality artifact exists for
 each spine and the portfolio audit still passes.
