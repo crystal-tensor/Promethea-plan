@@ -1,0 +1,127 @@
+{
+  "benchmark_id": "B1",
+  "claim_boundary": {
+    "b7_ledger_improvement_claimed": false,
+    "next_gate": "Either produce occurrence-removing certificates for at least 30 cone_01 windows, or define and justify a new B7 cost model where theta sharing is physically countable.",
+    "physical_resource_reduction_claimed": false,
+    "resource_saving_claimed": false,
+    "rewrite_claimed": false,
+    "semantic_certificate_claimed": false,
+    "supported_claim": "The four theta groups create an optimistic cache-reuse signal, but under the current occurrence-based B7 ledger they remove zero physical arbitrary-rotation occurrences.",
+    "unsupported_claims": [
+      "No cone_01 rewrite certificate is produced.",
+      "No B7 FT ledger improvement is counted.",
+      "No shared-synthesis cache is accepted as a physical T-ledger reduction.",
+      "No hardware layout or factory throughput improvement is claimed."
+    ]
+  },
+  "last_updated": "2026-06-18",
+  "linked_b7_problem_id": 21,
+  "method": "b1_b7_cone01_theta_sharing_ledger_gate_v0",
+  "model_status": "theta_group_cache_accounting_not_occurrence_saving",
+  "problem_id": 25,
+  "source_b7_template_gate": "results/B7_template_priority_gate_v0.json",
+  "source_parameter_transfer_gate": "results/B1_B7_cone01_parameter_transfer_gate_v0.json",
+  "status": "cone01_theta_sharing_ledger_guardrail",
+  "summary": {
+    "additional_occurrence_certificates_required": 30,
+    "cache_model_not_accepted_as_ft_ledger": true,
+    "candidate_window_count": 35,
+    "distinct_theta_group_count": 4,
+    "duplicate_theta_occurrence_count": 31,
+    "occurrence_ledger_clears_target": false,
+    "occurrence_ledger_proxy_t_reduction": 0,
+    "occurrence_ledger_removed_occurrences": 0,
+    "optimistic_cache_model_clears_target": true,
+    "optimistic_cache_proxy_t_reuse": 620,
+    "physical_resource_reduction_claimed": false,
+    "proxy_t_cost_per_arbitrary_rotation": 20,
+    "resource_saving_claimed": false,
+    "rewrite_claimed": false,
+    "semantic_certificate_claimed": false,
+    "target_proxy_t_ledger_reduction_for_gcm_h6_1_20": 600,
+    "target_removed_arbitrary_occurrences_for_gcm_h6_1_20": 30,
+    "validation_error_count": 0
+  },
+  "theta_group_accounting_rows": [
+    {
+      "canonical_theta": 0.420540811611,
+      "line_numbers": [
+        94,
+        97,
+        252,
+        255,
+        345,
+        348,
+        427,
+        1254,
+        1257,
+        1310,
+        1313,
+        1366,
+        1369,
+        1422,
+        1543,
+        1546
+      ],
+      "occurrence_count": 16,
+      "occurrence_ledger_proxy_t_reduction": 0,
+      "occurrence_ledger_removed_occurrences": 0,
+      "optimistic_cache_proxy_t_reuse": 300,
+      "template_cache_duplicate_occurrences": 15
+    },
+    {
+      "canonical_theta": 0.364857351786,
+      "line_numbers": [
+        29,
+        87,
+        187,
+        245,
+        280,
+        338,
+        359,
+        417,
+        1478,
+        1536
+      ],
+      "occurrence_count": 10,
+      "occurrence_ledger_proxy_t_reduction": 0,
+      "occurrence_ledger_removed_occurrences": 0,
+      "optimistic_cache_proxy_t_reuse": 180,
+      "template_cache_duplicate_occurrences": 9
+    },
+    {
+      "canonical_theta": 0.99803486463,
+      "line_numbers": [
+        139,
+        152,
+        155,
+        1588,
+        1599,
+        1602
+      ],
+      "occurrence_count": 6,
+      "occurrence_ledger_proxy_t_reduction": 0,
+      "occurrence_ledger_removed_occurrences": 0,
+      "optimistic_cache_proxy_t_reuse": 100,
+      "template_cache_duplicate_occurrences": 5
+    },
+    {
+      "canonical_theta": 2.813468447841,
+      "line_numbers": [
+        462,
+        474,
+        477
+      ],
+      "occurrence_count": 3,
+      "occurrence_ledger_proxy_t_reduction": 0,
+      "occurrence_ledger_removed_occurrences": 0,
+      "optimistic_cache_proxy_t_reuse": 40,
+      "template_cache_duplicate_occurrences": 2
+    }
+  ],
+  "title": "B1/B7 cone_01 theta-sharing ledger gate",
+  "validation_errors": [],
+  "version": "0.1",
+  "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+}

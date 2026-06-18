@@ -179,6 +179,15 @@ theta carrier cannot clear the B7 30-window target. Future synthesis must
 explicitly carry, share, or eliminate theta with replayable certificates before
 any B7 ledger saving can be counted.
 
+B1/B7 now also has a `cone_01` theta-sharing ledger gate. The 4 theta groups
+create 31 duplicate theta occurrences and an optimistic cache-reuse signal of
+620 proxy-T units, which would clear the 600 proxy-T target only under a cache
+model. The current occurrence-based FT ledger does not accept that as a physical
+saving: counted occurrence removal is 0, counted proxy-T reduction is 0, and the
+B7 target remains uncleared. The next useful `T-B1-004` artifact must therefore
+produce at least 30 occurrence-removing certificates or justify a new physical
+theta-sharing cost model before B7 can count a resource delta.
+
 ## Repository Layout
 
 ```text

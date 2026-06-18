@@ -140,6 +140,7 @@ def audit(root: Path) -> dict:
     b1_b7_cone01_phase_removal_path = results / "B1_B7_cone01_phase_removal_gate_v0.json"
     b1_b7_cone01_euler_reabsorption_path = results / "B1_B7_cone01_euler_reabsorption_gate_v0.json"
     b1_b7_cone01_parameter_transfer_path = results / "B1_B7_cone01_parameter_transfer_gate_v0.json"
+    b1_b7_cone01_theta_sharing_path = results / "B1_B7_cone01_theta_sharing_ledger_gate_v0.json"
     b1_synthetic_noise_path = research / "B1_synthetic_noise_proxy_report.json"
     b1_manifest_path = benchmarks / "B1_circuit_compression.yaml"
     b2_manifest_path = benchmarks / "B2_qec_overhead.yaml"
@@ -611,6 +612,9 @@ def audit(root: Path) -> dict:
     )
     b1_b7_cone01_parameter_transfer_manifest = current_results.get(
         "b1_b7_cone01_parameter_transfer_gate_v0"
+    )
+    b1_b7_cone01_theta_sharing_manifest = current_results.get(
+        "b1_b7_cone01_theta_sharing_ledger_gate_v0"
     )
     synthetic_noise_manifest = current_results.get("b1_synthetic_heavyhex_noise_proxy_v0")
     b1_routing_diagnostic = {
@@ -1625,6 +1629,117 @@ def audit(root: Path) -> dict:
         errors.append(
             f"missing B1/B7 cone_01 parameter-transfer gate report: {b1_b7_cone01_parameter_transfer_path}"
         )
+
+    b1_b7_cone01_theta_sharing = {
+        "path": str(b1_b7_cone01_theta_sharing_path),
+        "exists": b1_b7_cone01_theta_sharing_path.exists(),
+    }
+    if not b1_b7_cone01_theta_sharing_manifest:
+        errors.append("B1 manifest missing current result: b1_b7_cone01_theta_sharing_ledger_gate_v0")
+    else:
+        if b1_b7_cone01_theta_sharing_manifest.get("status") != "cone01_theta_sharing_ledger_guardrail":
+            errors.append("B1/B7 cone_01 theta-sharing gate must remain a ledger guardrail")
+        for field in ["report", "markdown_report"]:
+            value = b1_b7_cone01_theta_sharing_manifest.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(f"B1/B7 cone_01 theta-sharing gate missing existing {field} path: {value}")
+    if b1_b7_cone01_theta_sharing_path.exists():
+        theta_payload = json.loads(read(b1_b7_cone01_theta_sharing_path))
+        theta_summary = theta_payload.get("summary", {})
+        theta_claims = theta_payload.get("claim_boundary", {})
+        b1_b7_cone01_theta_sharing.update(
+            {
+                "status": theta_payload.get("status"),
+                "model_status": theta_payload.get("model_status"),
+                "method": theta_payload.get("method"),
+                "workload": theta_payload.get("workload"),
+                "candidate_window_count": theta_summary.get("candidate_window_count"),
+                "distinct_theta_group_count": theta_summary.get("distinct_theta_group_count"),
+                "duplicate_theta_occurrence_count": theta_summary.get("duplicate_theta_occurrence_count"),
+                "proxy_t_cost_per_arbitrary_rotation": theta_summary.get("proxy_t_cost_per_arbitrary_rotation"),
+                "optimistic_cache_proxy_t_reuse": theta_summary.get("optimistic_cache_proxy_t_reuse"),
+                "target_removed_arbitrary_occurrences_for_gcm_h6_1_20": theta_summary.get(
+                    "target_removed_arbitrary_occurrences_for_gcm_h6_1_20"
+                ),
+                "target_proxy_t_ledger_reduction_for_gcm_h6_1_20": theta_summary.get(
+                    "target_proxy_t_ledger_reduction_for_gcm_h6_1_20"
+                ),
+                "optimistic_cache_model_clears_target": theta_summary.get("optimistic_cache_model_clears_target"),
+                "occurrence_ledger_removed_occurrences": theta_summary.get(
+                    "occurrence_ledger_removed_occurrences"
+                ),
+                "occurrence_ledger_proxy_t_reduction": theta_summary.get("occurrence_ledger_proxy_t_reduction"),
+                "occurrence_ledger_clears_target": theta_summary.get("occurrence_ledger_clears_target"),
+                "additional_occurrence_certificates_required": theta_summary.get(
+                    "additional_occurrence_certificates_required"
+                ),
+                "cache_model_not_accepted_as_ft_ledger": theta_summary.get("cache_model_not_accepted_as_ft_ledger"),
+                "rewrite_claimed": theta_claims.get("rewrite_claimed"),
+                "resource_saving_claimed": theta_claims.get("resource_saving_claimed"),
+                "semantic_certificate_claimed": theta_claims.get("semantic_certificate_claimed"),
+                "physical_resource_reduction_claimed": theta_claims.get("physical_resource_reduction_claimed"),
+                "b7_ledger_improvement_claimed": theta_claims.get("b7_ledger_improvement_claimed"),
+                "validation_error_count": theta_summary.get("validation_error_count"),
+            }
+        )
+        if theta_payload.get("benchmark_id") != "B1":
+            errors.append("B1/B7 cone_01 theta-sharing gate report must have benchmark_id B1")
+        if theta_payload.get("method") != "b1_b7_cone01_theta_sharing_ledger_gate_v0":
+            errors.append("B1/B7 cone_01 theta-sharing gate method mismatch")
+        if theta_payload.get("status") != "cone01_theta_sharing_ledger_guardrail":
+            errors.append("B1/B7 cone_01 theta-sharing gate status mismatch")
+        for field in [
+            "candidate_window_count",
+            "distinct_theta_group_count",
+            "duplicate_theta_occurrence_count",
+            "proxy_t_cost_per_arbitrary_rotation",
+            "optimistic_cache_proxy_t_reuse",
+            "target_removed_arbitrary_occurrences_for_gcm_h6_1_20",
+            "target_proxy_t_ledger_reduction_for_gcm_h6_1_20",
+            "optimistic_cache_model_clears_target",
+            "occurrence_ledger_removed_occurrences",
+            "occurrence_ledger_proxy_t_reduction",
+            "occurrence_ledger_clears_target",
+            "additional_occurrence_certificates_required",
+            "cache_model_not_accepted_as_ft_ledger",
+            "rewrite_claimed",
+            "resource_saving_claimed",
+            "semantic_certificate_claimed",
+            "physical_resource_reduction_claimed",
+        ]:
+            if theta_summary.get(field) != b1_b7_cone01_theta_sharing_manifest.get(field):
+                errors.append(f"B1/B7 cone_01 theta-sharing gate {field} mismatch")
+        if theta_summary.get("candidate_window_count") != 35:
+            errors.append("B1/B7 cone_01 theta-sharing gate must account for 35 windows")
+        if theta_summary.get("distinct_theta_group_count") != 4:
+            errors.append("B1/B7 cone_01 theta-sharing gate should preserve 4 theta groups")
+        if theta_summary.get("duplicate_theta_occurrence_count") != 31:
+            errors.append("B1/B7 cone_01 theta-sharing gate should record 31 duplicate occurrences")
+        if theta_summary.get("optimistic_cache_proxy_t_reuse") != 620:
+            errors.append("B1/B7 cone_01 theta-sharing gate optimistic cache proxy-T should be 620")
+        if theta_summary.get("optimistic_cache_model_clears_target") is not True:
+            errors.append("B1/B7 cone_01 theta-sharing gate optimistic cache model should clear target")
+        if theta_summary.get("occurrence_ledger_removed_occurrences") != 0:
+            errors.append("B1/B7 cone_01 theta-sharing gate occurrence ledger removed occurrences must be 0")
+        if theta_summary.get("occurrence_ledger_proxy_t_reduction") != 0:
+            errors.append("B1/B7 cone_01 theta-sharing gate occurrence ledger proxy-T reduction must be 0")
+        if theta_summary.get("occurrence_ledger_clears_target") is not False:
+            errors.append("B1/B7 cone_01 theta-sharing gate occurrence ledger must not clear target")
+        if theta_summary.get("cache_model_not_accepted_as_ft_ledger") is not True:
+            errors.append("B1/B7 cone_01 theta-sharing gate must reject cache model as FT ledger")
+        for field in [
+            "rewrite_claimed",
+            "resource_saving_claimed",
+            "semantic_certificate_claimed",
+            "physical_resource_reduction_claimed",
+            "b7_ledger_improvement_claimed",
+        ]:
+            if theta_claims.get(field) is not False:
+                errors.append(f"B1/B7 cone_01 theta-sharing gate must not claim {field}")
+        if theta_summary.get("validation_error_count") != 0:
+            errors.append("B1/B7 cone_01 theta-sharing gate validation errors must remain zero")
+    else:
+        errors.append(f"missing B1/B7 cone_01 theta-sharing gate report: {b1_b7_cone01_theta_sharing_path}")
 
     b1_synthetic_noise = {
         "path": str(b1_synthetic_noise_path),
@@ -9145,6 +9260,7 @@ def audit(root: Path) -> dict:
             "b7_cone01_phase_removal_gate": b1_b7_cone01_phase_removal,
             "b7_cone01_euler_reabsorption_gate": b1_b7_cone01_euler_reabsorption,
             "b7_cone01_parameter_transfer_gate": b1_b7_cone01_parameter_transfer,
+            "b7_cone01_theta_sharing_ledger_gate": b1_b7_cone01_theta_sharing,
             "synthetic_noise_proxy": b1_synthetic_noise,
         },
         "b2": {
@@ -9303,6 +9419,7 @@ def audit(root: Path) -> dict:
             "b1_b7_cone01_phase_removal_gate": str(b1_b7_cone01_phase_removal_path),
             "b1_b7_cone01_euler_reabsorption_gate": str(b1_b7_cone01_euler_reabsorption_path),
             "b1_b7_cone01_parameter_transfer_gate": str(b1_b7_cone01_parameter_transfer_path),
+            "b1_b7_cone01_theta_sharing_ledger_gate": str(b1_b7_cone01_theta_sharing_path),
             "b1_synthetic_noise_proxy": str(b1_synthetic_noise_path),
             "b2_phenomenological_decoder": str(research / "B2_phenomenological_repetition_decoder.md"),
             "b2_stim_surface_code_baseline": str(research / "B2_stim_surface_code_memory_baseline.md"),
@@ -9786,6 +9903,20 @@ def markdown_report(report: dict) -> str:
             f"- Deletion without parameter carrier clears B7 target: {report['b1']['b7_cone01_parameter_transfer_gate'].get('deletion_without_parameter_carrier_clears_b7_target')}",
             f"- Rewrite/resource/semantic/obstruction claims: {report['b1']['b7_cone01_parameter_transfer_gate'].get('rewrite_claimed')} / {report['b1']['b7_cone01_parameter_transfer_gate'].get('resource_saving_claimed')} / {report['b1']['b7_cone01_parameter_transfer_gate'].get('semantic_certificate_claimed')} / {report['b1']['b7_cone01_parameter_transfer_gate'].get('obstruction_theorem_claimed')}",
             f"- Validation errors: {report['b1']['b7_cone01_parameter_transfer_gate'].get('validation_error_count')}",
+            "",
+            "## B1/B7 cone_01 Theta-Sharing Ledger Gate",
+            "",
+            f"- Exists: {report['b1']['b7_cone01_theta_sharing_ledger_gate'].get('exists')}",
+            f"- Status: {report['b1']['b7_cone01_theta_sharing_ledger_gate'].get('status')}",
+            f"- Candidate windows / theta groups / duplicate theta occurrences: {report['b1']['b7_cone01_theta_sharing_ledger_gate'].get('candidate_window_count')} / {report['b1']['b7_cone01_theta_sharing_ledger_gate'].get('distinct_theta_group_count')} / {report['b1']['b7_cone01_theta_sharing_ledger_gate'].get('duplicate_theta_occurrence_count')}",
+            f"- Optimistic cache proxy-T reuse / target proxy-T: {report['b1']['b7_cone01_theta_sharing_ledger_gate'].get('optimistic_cache_proxy_t_reuse')} / {report['b1']['b7_cone01_theta_sharing_ledger_gate'].get('target_proxy_t_ledger_reduction_for_gcm_h6_1_20')}",
+            f"- Optimistic cache model clears target: {report['b1']['b7_cone01_theta_sharing_ledger_gate'].get('optimistic_cache_model_clears_target')}",
+            f"- Occurrence-ledger removed occurrences / proxy-T reduction: {report['b1']['b7_cone01_theta_sharing_ledger_gate'].get('occurrence_ledger_removed_occurrences')} / {report['b1']['b7_cone01_theta_sharing_ledger_gate'].get('occurrence_ledger_proxy_t_reduction')}",
+            f"- Occurrence-ledger clears target: {report['b1']['b7_cone01_theta_sharing_ledger_gate'].get('occurrence_ledger_clears_target')}",
+            f"- Additional occurrence certificates required: {report['b1']['b7_cone01_theta_sharing_ledger_gate'].get('additional_occurrence_certificates_required')}",
+            f"- Cache model accepted as FT ledger: {not report['b1']['b7_cone01_theta_sharing_ledger_gate'].get('cache_model_not_accepted_as_ft_ledger')}",
+            f"- Rewrite/resource/semantic/physical/B7-ledger claims: {report['b1']['b7_cone01_theta_sharing_ledger_gate'].get('rewrite_claimed')} / {report['b1']['b7_cone01_theta_sharing_ledger_gate'].get('resource_saving_claimed')} / {report['b1']['b7_cone01_theta_sharing_ledger_gate'].get('semantic_certificate_claimed')} / {report['b1']['b7_cone01_theta_sharing_ledger_gate'].get('physical_resource_reduction_claimed')} / {report['b1']['b7_cone01_theta_sharing_ledger_gate'].get('b7_ledger_improvement_claimed')}",
+            f"- Validation errors: {report['b1']['b7_cone01_theta_sharing_ledger_gate'].get('validation_error_count')}",
             "",
             "## B1 Synthetic Heavy-Hex Noise Proxy",
             "",

@@ -547,6 +547,34 @@ current_results:
     validation_error_count: 0
     report: ../results/B1_B7_cone01_parameter_transfer_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_parameter_transfer_gate.md
+  b1_b7_cone01_theta_sharing_ledger_gate_v0:
+    circuits: 1
+    status: cone01_theta_sharing_ledger_guardrail
+    model_status: theta_group_cache_accounting_not_occurrence_saving
+    method: b1_b7_cone01_theta_sharing_ledger_gate_v0
+    source_parameter_transfer_gate: b1_b7_cone01_parameter_transfer_gate_v0
+    source_b7_template_gate: B7_template_priority_gate_v0
+    workload: qasmbench_medium_exact/gcm_h6.qasm
+    candidate_window_count: 35
+    distinct_theta_group_count: 4
+    duplicate_theta_occurrence_count: 31
+    proxy_t_cost_per_arbitrary_rotation: 20
+    optimistic_cache_proxy_t_reuse: 620
+    target_removed_arbitrary_occurrences_for_gcm_h6_1_20: 30
+    target_proxy_t_ledger_reduction_for_gcm_h6_1_20: 600
+    optimistic_cache_model_clears_target: true
+    occurrence_ledger_removed_occurrences: 0
+    occurrence_ledger_proxy_t_reduction: 0
+    occurrence_ledger_clears_target: false
+    additional_occurrence_certificates_required: 30
+    cache_model_not_accepted_as_ft_ledger: true
+    rewrite_claimed: false
+    resource_saving_claimed: false
+    semantic_certificate_claimed: false
+    physical_resource_reduction_claimed: false
+    validation_error_count: 0
+    report: ../results/B1_B7_cone01_theta_sharing_ledger_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_theta_sharing_ledger_gate.md
   b1_synthetic_heavyhex_noise_proxy_v0:
     circuits: 30
     status: synthetic_noise_proxy_not_calibrated_device_claim

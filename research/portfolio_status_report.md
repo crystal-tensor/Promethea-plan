@@ -40,7 +40,7 @@ Overall audit: PASS
 - B IDs are B1..B10: True
 - Problem IDs match attack pack: True
 - All required fields present: True
-- Maturity scores: {'B1': 42, 'B2': 48, 'B3': 30, 'B4': 20, 'B5': 26, 'B6': 21, 'B7': 39, 'B8': 32, 'B9': 13, 'B10': 49}
+- Maturity scores: {'B1': 43, 'B2': 48, 'B3': 30, 'B4': 20, 'B5': 26, 'B6': 21, 'B7': 40, 'B8': 32, 'B9': 13, 'B10': 49}
 
 ## Technical Resolution Program
 
@@ -300,6 +300,20 @@ Overall audit: PASS
 - Minimum parameter-carrier obligation: 30
 - Deletion without parameter carrier clears B7 target: False
 - Rewrite/resource/semantic/obstruction claims: False / False / False / False
+- Validation errors: 0
+
+## B1/B7 cone_01 Theta-Sharing Ledger Gate
+
+- Exists: True
+- Status: cone01_theta_sharing_ledger_guardrail
+- Candidate windows / theta groups / duplicate theta occurrences: 35 / 4 / 31
+- Optimistic cache proxy-T reuse / target proxy-T: 620 / 600
+- Optimistic cache model clears target: True
+- Occurrence-ledger removed occurrences / proxy-T reduction: 0 / 0
+- Occurrence-ledger clears target: False
+- Additional occurrence certificates required: 30
+- Cache model accepted as FT ledger: False
+- Rewrite/resource/semantic/physical/B7-ledger claims: False / False / False / False / False
 - Validation errors: 0
 
 ## B1 Synthetic Heavy-Hex Noise Proxy

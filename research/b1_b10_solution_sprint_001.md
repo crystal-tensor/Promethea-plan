@@ -728,6 +728,18 @@ broader two-qubit synthesis or Clifford/KAK scaffold must explicitly carry,
 share, or eliminate theta with certificates before B7 can count a 30-occurrence
 or 600 proxy-T ledger reduction.
 
+**Sprint update 18g:** `T-B1-004f` is now merged as a theta-sharing ledger
+gate for `cone_01`. The new artifact
+`research/B1_B7_cone01_theta_sharing_ledger_gate.md` consumes the
+parameter-transfer gate and the B7 template-priority target. The 4 theta groups
+create 31 duplicate theta occurrences and an optimistic cache-reuse signal of
+620 proxy-T units, which would clear the 600 proxy-T target only under a cache
+model. Under the current occurrence-based FT ledger, however, counted
+occurrence removal remains 0, counted proxy-T reduction remains 0, and the
+ledger target remains uncleared. The next `T-B1-004` attempt must either produce
+30 occurrence-removing certificates or justify a new physical theta-sharing cost
+model before B7 can count a resource delta.
+
 ## B8: Classical Verification of Quantum Outputs
 
 **Technical target:** keep verifier soundness low under adaptive leakage by
