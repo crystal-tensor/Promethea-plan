@@ -415,6 +415,30 @@ current_results:
     before_metrics: ../results/b1_u3_phase_factored_optimizer/before_metrics.json
     after_metrics: ../results/b1_u3_phase_factored_optimizer/after_metrics.json
     aer_crosscheck: ../results/b1_u3_phase_factored_optimizer/aer_crosscheck.json
+  b1_b7_gcm_h6_target_selector_v0:
+    circuits: 1
+    status: gcm_h6_target_selector_not_rewrite_or_resource_claim
+    model_status: posthoc_b1_b7_target_selection_not_semantic_certificate
+    method: b1_b7_gcm_h6_target_selector_v0
+    source_qasm: ../results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/gcm_h6.qasm
+    source_b7_template_gate: ../results/B7_template_priority_gate_v0.json
+    workload: qasmbench_medium_exact/gcm_h6.qasm
+    arbitrary_rotation_count: 270
+    raw_unique_numeric_parameter_count: 26
+    canonical_unique_numeric_parameter_count: 17
+    target_removed_arbitrary_occurrences_for_gcm_h6_1_20: 30
+    target_proxy_t_ledger_reduction_for_gcm_h6_1_20: 600
+    top_canonical_angle_occurrences: 48
+    top_cone_occurrences: 45
+    cone_classes_meeting_target_if_one_removed_per_occurrence: 3
+    canonical_angle_classes_meeting_target_if_one_removed_per_occurrence: 2
+    qubit_classes_meeting_target_if_one_removed_per_occurrence: 4
+    rewrite_claimed: false
+    resource_saving_claimed: false
+    semantic_certificate_claimed: false
+    validation_error_count: 0
+    report: ../results/B1_B7_gcm_h6_target_selector_v0.json
+    markdown_report: ../research/B1_B7_gcm_h6_target_selector.md
   b1_synthetic_heavyhex_noise_proxy_v0:
     circuits: 30
     status: synthetic_noise_proxy_not_calibrated_device_claim
@@ -557,4 +581,5 @@ prototype_artifacts:
   native_t_resource_optimizer: ../tools/b1_native_t_resource_optimizer.py
   control_rz_commute_optimizer: ../tools/b1_control_rz_commute_optimizer.py
   u3_phase_factored_optimizer: ../tools/b1_u3_phase_factored_optimizer.py
+  b1_b7_gcm_h6_target_selector: ../tools/b1_b7_gcm_h6_target_selector.py
   synthetic_noise_proxy: ../tools/b1_synthetic_noise_proxy.py

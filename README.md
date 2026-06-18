@@ -130,6 +130,14 @@ claim, not a symbolic lower bound, and not a solved B7 result; it narrows the
 next useful work to a symbolic KAK/Clifford-scaffold proof, an alternate
 certified rewrite, or stronger B1 T-resource reduction.
 
+B1 now also has a `gcm_h6` target selector. It reads the current U3
+phase-factored B1 QASM, counts 270 arbitrary decimal rotations, and ranks
+families that could meet the B7 target if a future rewrite removes one rotation
+per occurrence: 3 local CNOT-cone classes, 2 canonical angle classes, and 4
+qubit classes meet the 30-occurrence target. This is a target-selection
+artifact only; it is not a rewrite, not a semantic certificate, and not a
+resource-saving claim.
+
 ## Repository Layout
 
 ```text

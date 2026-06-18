@@ -29,15 +29,15 @@
         "SABRE mapping"
       ],
       "our_solution": "Proof-logged local rewrites plus measurement-aware virtual-SWAP elimination, followed by post-virtual-SWAP 1Q resynthesis to test whether B1 can also touch non-Clifford/T-resource proxies.",
-      "completed": "30/30 circuits rewritten; 481 virtual SWAPs and 1443 CX gates removed; 37.18% two-qubit reduction; 32.65% exposure reduction; proof replay passed 481/481. A post-virtual-SWAP 1Q pass removed 60 additional gates, reduced the logical T-count proxy 1.018x and T-depth proxy 1.015x, passed 30/30 Aer cross-checks, and propagated to B7 as mean STV 1.034x while min STV stayed 1.0x.",
+      "completed": "30/30 circuits rewritten; 481 virtual SWAPs and 1443 CX gates removed; 37.18% two-qubit reduction; 32.65% exposure reduction; proof replay passed 481/481. A post-virtual-SWAP 1Q pass removed 60 additional gates, reduced the logical T-count proxy 1.018x and T-depth proxy 1.015x, and passed 30/30 Aer cross-checks. Later control-RZ and U3 phase-factored diagnostics exposed additional T-resource proxy improvements. The B1/B7 gcm_h6 target selector now counts 270 arbitrary decimal rotations and identifies 3 local CNOT-cone classes, 2 canonical angle classes, and 4 qubit classes that meet B7's 30-occurrence target if a future semantic rewrite removes one per occurrence. No such rewrite is claimed yet.",
       "remaining_steps": [
         "calibrated/live-like heavy-hex baseline",
         "dynamic circuit and measurement/reset semantics",
-        "native-basis-aware non-Clifford/T-depth optimizer that improves minimum B7 factory STV",
+        "replayable gcm_h6 semantic rewrite certificate removing at least 30 arbitrary rotation occurrences / 600 proxy-T units",
         "broader benchmarks",
         "independent certificate package"
       ],
-      "maturity_score": 37
+      "maturity_score": 38
     },
     {
       "b_id": "B2",
@@ -191,16 +191,16 @@
         "compiler-resource co-design"
       ],
       "our_solution": "Bridge B1 circuit savings and B2 target-volume assumptions into a workload-level dependency schedule, then add workload-DAG, factory-throughput, logical T-resource, FT synthesis, and occurrence-level rewrite-certification pressure tests.",
-      "completed": "Scalar planning model, B1/B2 dependency-schedule bridge, workload-DAG factory-throughput schedule, logical T-factory boundary tests, FT synthesis ledger, gcm_h6 min-row boundary, repeated-template/cache boundary, nonlocal template scan, w8_21 claim-boundary closure, and template-priority gate. The workload-DAG schedule has mean STV reduction 1.475x; the FT synthesis ledger exposes gcm_h6 as the current min row at 1.086008x; w8_21 was tested across same-skeleton, exhaustive two-CNOT Rz/Ry, target-informed Euler-local, and bounded three-CNOT families for 43480 optimizer runs, finding 0 exact four-arbitrary-angle replacements and 0 ledger removal. The template-priority gate evaluates 12 retained templates: 0 one-angle single-template routes clear the one-sided gcm_h6 1.20x target, and best w8_21 needs at least 2 arbitrary removals per occurrence.",
+      "completed": "Scalar planning model, B1/B2 dependency-schedule bridge, workload-DAG factory-throughput schedule, logical T-factory boundary tests, FT synthesis ledger, gcm_h6 min-row boundary, repeated-template/cache boundary, nonlocal template scan, w8_21 claim-boundary closure, template-priority gate, and B1-side gcm_h6 target selector. The workload-DAG schedule has mean STV reduction 1.475x; the FT synthesis ledger exposes gcm_h6 as the current min row at 1.086008x; w8_21 was tested across same-skeleton, exhaustive two-CNOT Rz/Ry, target-informed Euler-local, and bounded three-CNOT families for 43480 optimizer runs, finding 0 exact four-arbitrary-angle replacements and 0 ledger removal. The template-priority gate evaluates 12 retained templates: 0 one-angle single-template routes clear the one-sided gcm_h6 1.20x target, and best w8_21 needs at least 2 arbitrary removals per occurrence. The B1-side selector identifies concrete cone/angle/qubit families that meet the 30-occurrence target only if a future semantic rewrite certificate removes them.",
       "remaining_steps": [
         "symbolic KAK/Clifford-scaffold proof or alternate occurrence-removing rewrite for gcm_h6",
-        "strengthen B1 non-Clifford/T-depth optimization until min factory STV improves",
+        "strengthen B1 non-Clifford/T-depth optimization until a certified occurrence-removing rewrite improves min factory STV",
         "data-path versus T-factory claim separation",
         "physical layout constraints",
         "feed-forward modeling",
         "full algorithm resource ledger"
       ],
-      "maturity_score": 34
+      "maturity_score": 35
     },
     {
       "b_id": "B8",

@@ -40,7 +40,7 @@ Overall audit: PASS
 - B IDs are B1..B10: True
 - Problem IDs match attack pack: True
 - All required fields present: True
-- Maturity scores: {'B1': 37, 'B2': 48, 'B3': 30, 'B4': 20, 'B5': 26, 'B6': 21, 'B7': 34, 'B8': 32, 'B9': 12, 'B10': 49}
+- Maturity scores: {'B1': 38, 'B2': 48, 'B3': 30, 'B4': 20, 'B5': 26, 'B6': 21, 'B7': 35, 'B8': 32, 'B9': 12, 'B10': 49}
 
 ## Technical Resolution Program
 
@@ -241,6 +241,17 @@ Overall audit: PASS
 - Aer failures: 0
 - Aer pairs: 30
 - Aer max TVD: 0.0
+
+## B1/B7 gcm_h6 Target Selector
+
+- Exists: True
+- Status: gcm_h6_target_selector_not_rewrite_or_resource_claim
+- Arbitrary rotations / target removals / proxy-T target: 270 / 30 / 600
+- Raw/canonical unique numeric parameters: 26 / 17
+- Top angle / cone occurrences: 48 / 45
+- Cone/angle/qubit classes meeting target: 3 / 2 / 4
+- Rewrite/resource/semantic claims: False / False / False
+- Validation errors: 0
 
 ## B1 Synthetic Heavy-Hex Noise Proxy
 

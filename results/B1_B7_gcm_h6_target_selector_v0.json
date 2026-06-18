@@ -1,0 +1,695 @@
+{
+  "benchmark_id": "B1",
+  "claim_boundary": {
+    "interpretation": "ranked_target_selection_only_for_future_b1_rewrites",
+    "next_gate": "A future B1 PR must turn one ranked target family into a replayable semantic certificate that removes enough arbitrary rotations from gcm_h6 and then re-run the B7 FT ledger.",
+    "physical_layout_claimed": false,
+    "resource_saving_claimed": false,
+    "rewrite_claimed": false,
+    "semantic_certificate_claimed": false
+  },
+  "gate_counts": {
+    "ry": 144,
+    "rz": 126
+  },
+  "last_updated": "2026-06-18",
+  "linked_b7_problem_id": 21,
+  "method": "b1_b7_gcm_h6_target_selector_v0",
+  "model_status": "posthoc_b1_b7_target_selection_not_semantic_certificate",
+  "problem_id": 25,
+  "proxy_t_cost_per_arbitrary_rotation": 20,
+  "source_b7_template_gate": "results/B7_template_priority_gate_v0.json",
+  "source_qasm": "results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+  "status": "gcm_h6_target_selector_not_rewrite_or_resource_claim",
+  "summary": {
+    "arbitrary_rotation_count": 270,
+    "canonical_angle_classes_meeting_target_if_one_removed_per_occurrence": 2,
+    "canonical_unique_numeric_parameter_count": 17,
+    "cone_classes_meeting_target_if_one_removed_per_occurrence": 3,
+    "qubit_classes_meeting_target_if_one_removed_per_occurrence": 4,
+    "raw_unique_numeric_parameter_count": 26,
+    "resource_saving_claimed": false,
+    "rewrite_claimed": false,
+    "semantic_certificate_claimed": false,
+    "target_fraction_of_arbitrary_rotations": 0.1111111111111111,
+    "target_proxy_t_ledger_reduction_for_gcm_h6_1_20": 600,
+    "target_removed_arbitrary_occurrences_for_gcm_h6_1_20": 30,
+    "top_canonical_angle": "0.364857351786",
+    "top_canonical_angle_occurrences": 48,
+    "top_cone_occurrences": 45,
+    "top_qubit": 2,
+    "top_qubit_occurrences": 42,
+    "validation_error_count": 0
+  },
+  "title": "B1/B7 gcm_h6 target selector for T-resource rewrites",
+  "top_canonical_angle_targets": [
+    {
+      "key": "0.364857351786",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": true,
+      "occurrence_count": 48,
+      "target_shortfall": 0
+    },
+    {
+      "key": "0.420540811611",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": true,
+      "occurrence_count": 48,
+      "target_shortfall": 0
+    },
+    {
+      "key": "1.49225063839",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "occurrence_count": 24,
+      "target_shortfall": 6
+    },
+    {
+      "key": "2.18700743193",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "occurrence_count": 24,
+      "target_shortfall": 6
+    },
+    {
+      "key": "0.525385247129",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "occurrence_count": 24,
+      "target_shortfall": 6
+    },
+    {
+      "key": "2.53814206832",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "occurrence_count": 24,
+      "target_shortfall": 6
+    },
+    {
+      "key": "1.12543778965",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "occurrence_count": 24,
+      "target_shortfall": 6
+    },
+    {
+      "key": "0.288611075536",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "occurrence_count": 24,
+      "target_shortfall": 6
+    },
+    {
+      "key": "0.99803486463",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "occurrence_count": 8,
+      "target_shortfall": 22
+    },
+    {
+      "key": "2.81346844784",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "occurrence_count": 8,
+      "target_shortfall": 22
+    },
+    {
+      "key": "1.97981562699",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "occurrence_count": 8,
+      "target_shortfall": 22
+    },
+    {
+      "key": "1.46214639646",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "occurrence_count": 1,
+      "target_shortfall": 29
+    }
+  ],
+  "top_cnot_pair_incidence_targets": [
+    {
+      "incident_arbitrary_rotation_count": 30,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": true,
+      "pair": [
+        10,
+        14
+      ],
+      "target_shortfall": 0
+    },
+    {
+      "incident_arbitrary_rotation_count": 28,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "pair": [
+        10,
+        16
+      ],
+      "target_shortfall": 2
+    },
+    {
+      "incident_arbitrary_rotation_count": 26,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "pair": [
+        14,
+        16
+      ],
+      "target_shortfall": 4
+    },
+    {
+      "incident_arbitrary_rotation_count": 25,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "pair": [
+        4,
+        14
+      ],
+      "target_shortfall": 5
+    },
+    {
+      "incident_arbitrary_rotation_count": 24,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "pair": [
+        4,
+        15
+      ],
+      "target_shortfall": 6
+    },
+    {
+      "incident_arbitrary_rotation_count": 22,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "pair": [
+        2,
+        14
+      ],
+      "target_shortfall": 8
+    },
+    {
+      "incident_arbitrary_rotation_count": 22,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "pair": [
+        13,
+        16
+      ],
+      "target_shortfall": 8
+    },
+    {
+      "incident_arbitrary_rotation_count": 20,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "pair": [
+        2,
+        16
+      ],
+      "target_shortfall": 10
+    },
+    {
+      "incident_arbitrary_rotation_count": 20,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "pair": [
+        13,
+        14
+      ],
+      "target_shortfall": 10
+    },
+    {
+      "incident_arbitrary_rotation_count": 19,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "pair": [
+        1,
+        13
+      ],
+      "target_shortfall": 11
+    },
+    {
+      "incident_arbitrary_rotation_count": 18,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "pair": [
+        8,
+        14
+      ],
+      "target_shortfall": 12
+    },
+    {
+      "incident_arbitrary_rotation_count": 17,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "pair": [
+        2,
+        10
+      ],
+      "target_shortfall": 13
+    }
+  ],
+  "top_cone_targets": [
+    {
+      "cone_id": "cone_01",
+      "distinct_canonical_angles": [
+        "0.364857351786",
+        "0.420540811611",
+        "0.525385247129",
+        "0.99803486463",
+        "2.81346844784"
+      ],
+      "distinct_qubits": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        10,
+        12,
+        13,
+        15,
+        16
+      ],
+      "exact_rewrite_certificate_available": false,
+      "first_lines": [
+        29,
+        58,
+        87,
+        94,
+        97,
+        139,
+        152,
+        155
+      ],
+      "gate": "ry",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": true,
+      "next_cx_partner": 14,
+      "next_cx_role": "target",
+      "occurrence_count": 45,
+      "previous_cx_partner": 14,
+      "previous_cx_role": "target",
+      "target_shortfall": 0
+    },
+    {
+      "cone_id": "cone_02",
+      "distinct_canonical_angles": [
+        "0.364857351786",
+        "0.420540811611",
+        "0.525385247129",
+        "1.97981562699"
+      ],
+      "distinct_qubits": [
+        1,
+        2,
+        5,
+        10,
+        13,
+        14
+      ],
+      "exact_rewrite_certificate_available": false,
+      "first_lines": [
+        535,
+        563,
+        566,
+        591,
+        619,
+        622,
+        647,
+        675
+      ],
+      "gate": "ry",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": true,
+      "next_cx_partner": 16,
+      "next_cx_role": "target",
+      "occurrence_count": 34,
+      "previous_cx_partner": 16,
+      "previous_cx_role": "target",
+      "target_shortfall": 0
+    },
+    {
+      "cone_id": "cone_03",
+      "distinct_canonical_angles": [
+        "0.364857351786",
+        "0.420540811611",
+        "0.525385247129",
+        "1.97981562699",
+        "2.81346844784"
+      ],
+      "distinct_qubits": [
+        3,
+        8,
+        11,
+        12,
+        14,
+        15
+      ],
+      "exact_rewrite_certificate_available": false,
+      "first_lines": [
+        1647,
+        1676,
+        1705,
+        1712,
+        1715,
+        1739,
+        1768,
+        1798
+      ],
+      "gate": "ry",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": true,
+      "next_cx_partner": 4,
+      "next_cx_role": "target",
+      "occurrence_count": 32,
+      "previous_cx_partner": 4,
+      "previous_cx_role": "target",
+      "target_shortfall": 0
+    },
+    {
+      "cone_id": "cone_04",
+      "distinct_canonical_angles": [
+        "1.49225063839",
+        "2.18700743193"
+      ],
+      "distinct_qubits": [
+        1,
+        2,
+        8,
+        10,
+        13,
+        16
+      ],
+      "exact_rewrite_certificate_available": false,
+      "first_lines": [
+        55,
+        57,
+        213,
+        215,
+        306,
+        308,
+        384,
+        387
+      ],
+      "gate": "rz",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "next_cx_partner": 14,
+      "next_cx_role": "target",
+      "occurrence_count": 18,
+      "previous_cx_partner": 14,
+      "previous_cx_role": "target",
+      "target_shortfall": 12
+    },
+    {
+      "cone_id": "cone_05",
+      "distinct_canonical_angles": [
+        "1.49225063839",
+        "2.18700743193"
+      ],
+      "distinct_qubits": [
+        3,
+        8,
+        12,
+        14,
+        15
+      ],
+      "exact_rewrite_certificate_available": false,
+      "first_lines": [
+        1673,
+        1675,
+        1765,
+        1767,
+        1836,
+        1838,
+        2012,
+        2014
+      ],
+      "gate": "rz",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "next_cx_partner": 4,
+      "next_cx_role": "target",
+      "occurrence_count": 14,
+      "previous_cx_partner": 4,
+      "previous_cx_role": "target",
+      "target_shortfall": 16
+    },
+    {
+      "cone_id": "cone_06",
+      "distinct_canonical_angles": [
+        "1.49225063839",
+        "2.18700743193"
+      ],
+      "distinct_qubits": [
+        2,
+        10,
+        13,
+        14
+      ],
+      "exact_rewrite_certificate_available": false,
+      "first_lines": [
+        532,
+        534,
+        588,
+        590,
+        644,
+        646,
+        803,
+        806
+      ],
+      "gate": "rz",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "next_cx_partner": 16,
+      "next_cx_role": "target",
+      "occurrence_count": 14,
+      "previous_cx_partner": 16,
+      "previous_cx_role": "target",
+      "target_shortfall": 16
+    },
+    {
+      "cone_id": "cone_07",
+      "distinct_canonical_angles": [
+        "0.288611075536",
+        "0.364857351786",
+        "2.53814206832"
+      ],
+      "distinct_qubits": [
+        8,
+        15
+      ],
+      "exact_rewrite_certificate_available": false,
+      "first_lines": [
+        1745,
+        1771,
+        1774,
+        2119,
+        2139,
+        2148
+      ],
+      "gate": "rz",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "next_cx_partner": 14,
+      "next_cx_role": "target",
+      "occurrence_count": 6,
+      "previous_cx_partner": 4,
+      "previous_cx_role": "target",
+      "target_shortfall": 24
+    },
+    {
+      "cone_id": "cone_08",
+      "distinct_canonical_angles": [
+        "0.288611075536",
+        "0.364857351786",
+        "2.53814206832"
+      ],
+      "distinct_qubits": [
+        3,
+        14
+      ],
+      "exact_rewrite_certificate_available": false,
+      "first_lines": [
+        1822,
+        1842,
+        1851,
+        2063,
+        2090,
+        2092
+      ],
+      "gate": "rz",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "next_cx_partner": 15,
+      "next_cx_role": "target",
+      "occurrence_count": 6,
+      "previous_cx_partner": 4,
+      "previous_cx_role": "target",
+      "target_shortfall": 24
+    },
+    {
+      "cone_id": "cone_09",
+      "distinct_canonical_angles": [
+        "0.288611075536",
+        "0.364857351786",
+        "2.53814206832"
+      ],
+      "distinct_qubits": [
+        10,
+        13
+      ],
+      "exact_rewrite_certificate_available": false,
+      "first_lines": [
+        285,
+        312,
+        314,
+        630,
+        1341,
+        1350
+      ],
+      "gate": "rz",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "next_cx_partner": 2,
+      "next_cx_role": "target",
+      "occurrence_count": 6,
+      "previous_cx_partner": 14,
+      "previous_cx_role": "target",
+      "target_shortfall": 24
+    },
+    {
+      "cone_id": "cone_10",
+      "distinct_canonical_angles": [
+        "0.288611075536",
+        "0.364857351786",
+        "2.53814206832"
+      ],
+      "distinct_qubits": [
+        2,
+        16
+      ],
+      "exact_rewrite_certificate_available": false,
+      "first_lines": [
+        364,
+        391,
+        393,
+        574,
+        1285,
+        1294
+      ],
+      "gate": "rz",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "next_cx_partner": 10,
+      "next_cx_role": "target",
+      "occurrence_count": 6,
+      "previous_cx_partner": 14,
+      "previous_cx_role": "target",
+      "target_shortfall": 24
+    },
+    {
+      "cone_id": "cone_11",
+      "distinct_canonical_angles": [
+        "0.288611075536",
+        "0.364857351786",
+        "2.53814206832"
+      ],
+      "distinct_qubits": [
+        1,
+        2
+      ],
+      "exact_rewrite_certificate_available": false,
+      "first_lines": [
+        192,
+        219,
+        221,
+        686,
+        1397,
+        1406
+      ],
+      "gate": "rz",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "next_cx_partner": 13,
+      "next_cx_role": "target",
+      "occurrence_count": 6,
+      "previous_cx_partner": 14,
+      "previous_cx_role": "target",
+      "target_shortfall": 24
+    },
+    {
+      "cone_id": "cone_12",
+      "distinct_canonical_angles": [
+        "0.288611075536",
+        "0.364857351786",
+        "2.53814206832"
+      ],
+      "distinct_qubits": [
+        10,
+        13
+      ],
+      "exact_rewrite_certificate_available": false,
+      "first_lines": [
+        650,
+        659,
+        955,
+        982,
+        984,
+        1321
+      ],
+      "gate": "rz",
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "next_cx_partner": 2,
+      "next_cx_role": "target",
+      "occurrence_count": 6,
+      "previous_cx_partner": 16,
+      "previous_cx_role": "target",
+      "target_shortfall": 24
+    }
+  ],
+  "top_qubit_targets": [
+    {
+      "key": 2,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": true,
+      "occurrence_count": 42,
+      "target_shortfall": 0
+    },
+    {
+      "key": 10,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": true,
+      "occurrence_count": 42,
+      "target_shortfall": 0
+    },
+    {
+      "key": 13,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": true,
+      "occurrence_count": 41,
+      "target_shortfall": 0
+    },
+    {
+      "key": 14,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": true,
+      "occurrence_count": 36,
+      "target_shortfall": 0
+    },
+    {
+      "key": 15,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "occurrence_count": 24,
+      "target_shortfall": 6
+    },
+    {
+      "key": 1,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "occurrence_count": 20,
+      "target_shortfall": 10
+    },
+    {
+      "key": 8,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "occurrence_count": 20,
+      "target_shortfall": 10
+    },
+    {
+      "key": 16,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "occurrence_count": 14,
+      "target_shortfall": 16
+    },
+    {
+      "key": 3,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "occurrence_count": 12,
+      "target_shortfall": 18
+    },
+    {
+      "key": 12,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "occurrence_count": 10,
+      "target_shortfall": 20
+    },
+    {
+      "key": 5,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "occurrence_count": 4,
+      "target_shortfall": 26
+    },
+    {
+      "key": 4,
+      "meets_gcm_h6_one_sided_target_if_one_removed_per_occurrence": false,
+      "occurrence_count": 3,
+      "target_shortfall": 27
+    }
+  ],
+  "validation_errors": [],
+  "version": "0.1",
+  "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+}

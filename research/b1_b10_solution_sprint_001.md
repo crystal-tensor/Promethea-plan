@@ -670,6 +670,18 @@ not solve B7 and does not claim a physical resource reduction; it tightens
 `T-B7-010` so future work must be symbolic, certificate-producing, or return to
 B1 T-resource improvement.
 
+**Sprint update 18b:** `T-B1-004a` is now merged as the B1-side target
+selector for that same `gcm_h6` bottleneck. The new artifact
+`research/B1_B7_gcm_h6_target_selector.md` reads the current B1 U3
+phase-factored `gcm_h6` QASM and ranks the arbitrary-rotation families that can
+meet the B7 one-sided target if a future semantic rewrite removes one rotation
+per occurrence. Current counts are 270 arbitrary decimal rotations, 30 required
+removed occurrences, 600 proxy-T ledger units, 3 local CNOT-cone classes meeting
+the target, 2 canonical angle classes meeting the target, and 4 qubit classes
+meeting the target. This is not a rewrite and not a resource-saving claim; it
+turns `T-B1-004` into a sharper instruction: pick one ranked family, prove a
+replayable semantic rewrite, then re-run the B7 FT ledger.
+
 ## B8: Classical Verification of Quantum Outputs
 
 **Technical target:** keep verifier soundness low under adaptive leakage by

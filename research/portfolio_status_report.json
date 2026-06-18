@@ -16,6 +16,28 @@
     "path": "research/attack_pack_10.md"
   },
   "b1": {
+    "b7_gcm_h6_target_selector": {
+      "arbitrary_rotation_count": 270,
+      "canonical_angle_classes_meeting_target_if_one_removed_per_occurrence": 2,
+      "canonical_unique_numeric_parameter_count": 17,
+      "cone_classes_meeting_target_if_one_removed_per_occurrence": 3,
+      "exists": true,
+      "method": "b1_b7_gcm_h6_target_selector_v0",
+      "model_status": "posthoc_b1_b7_target_selection_not_semantic_certificate",
+      "path": "results/B1_B7_gcm_h6_target_selector_v0.json",
+      "qubit_classes_meeting_target_if_one_removed_per_occurrence": 4,
+      "raw_unique_numeric_parameter_count": 26,
+      "resource_saving_claimed": false,
+      "rewrite_claimed": false,
+      "semantic_certificate_claimed": false,
+      "status": "gcm_h6_target_selector_not_rewrite_or_resource_claim",
+      "target_proxy_t_ledger_reduction_for_gcm_h6_1_20": 600,
+      "target_removed_arbitrary_occurrences_for_gcm_h6_1_20": 30,
+      "top_canonical_angle_occurrences": 48,
+      "top_cone_occurrences": 45,
+      "validation_error_count": 0,
+      "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+    },
     "certificate_report": {
       "ablation_table_passed": true,
       "aggregate_hardware_exposure_reduction_passed": false,
@@ -2563,14 +2585,14 @@
     "markdown_exists": true,
     "markdown_path": "research/top10_problem_dossiers.md",
     "maturity_scores": {
-      "B1": 37,
+      "B1": 38,
       "B10": 49,
       "B2": 48,
       "B3": 30,
       "B4": 20,
       "B5": 26,
       "B6": 21,
-      "B7": 34,
+      "B7": 35,
       "B8": 32,
       "B9": 12
     },
@@ -2601,6 +2623,7 @@
     "b10_t2_restricted_soundness_lemma": "research/B10_t2_restricted_soundness_lemma.md",
     "b10_t2_transcript_leakage_simulator": "research/B10_t2_transcript_leakage_simulator.md",
     "b1_ablation_report": "research/B1_ablation_report.json",
+    "b1_b7_gcm_h6_target_selector": "results/B1_B7_gcm_h6_target_selector_v0.json",
     "b1_certificate_report": "research/B1_certificate_report.json",
     "b1_control_rz_commute_optimizer": "results/B1_control_rz_commute_optimizer_v0.json",
     "b1_heavyhex_diagnostic": "research/B1_heavyhex_routing_diagnostic.json",

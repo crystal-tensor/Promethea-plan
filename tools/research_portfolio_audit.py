@@ -135,6 +135,7 @@ def audit(root: Path) -> dict:
     b1_native_t_resource_path = results / "B1_native_t_resource_optimizer_v0.json"
     b1_control_rz_commute_path = results / "B1_control_rz_commute_optimizer_v0.json"
     b1_u3_phase_factored_path = results / "B1_u3_phase_factored_optimizer_v0.json"
+    b1_b7_gcm_h6_target_selector_path = results / "B1_B7_gcm_h6_target_selector_v0.json"
     b1_synthetic_noise_path = research / "B1_synthetic_noise_proxy_report.json"
     b1_manifest_path = benchmarks / "B1_circuit_compression.yaml"
     b2_manifest_path = benchmarks / "B2_qec_overhead.yaml"
@@ -594,6 +595,7 @@ def audit(root: Path) -> dict:
     native_t_resource_manifest = current_results.get("b1_native_t_resource_optimizer_v0")
     control_rz_commute_manifest = current_results.get("b1_control_rz_commute_optimizer_v0")
     u3_phase_factored_manifest = current_results.get("b1_u3_phase_factored_optimizer_v0")
+    b1_b7_gcm_h6_target_selector_manifest = current_results.get("b1_b7_gcm_h6_target_selector_v0")
     synthetic_noise_manifest = current_results.get("b1_synthetic_heavyhex_noise_proxy_v0")
     b1_routing_diagnostic = {
         "path": str(b1_routing_diagnostic_path),
@@ -1126,6 +1128,98 @@ def audit(root: Path) -> dict:
             errors.append("B1 U3 phase-factored optimizer should show a positive logical T-count proxy reduction")
     else:
         errors.append(f"missing B1 U3 phase-factored optimizer report: {b1_u3_phase_factored_path}")
+
+    b1_b7_gcm_h6_target_selector = {
+        "path": str(b1_b7_gcm_h6_target_selector_path),
+        "exists": b1_b7_gcm_h6_target_selector_path.exists(),
+    }
+    if not b1_b7_gcm_h6_target_selector_manifest:
+        errors.append("B1 manifest missing current result: b1_b7_gcm_h6_target_selector_v0")
+    else:
+        if b1_b7_gcm_h6_target_selector_manifest.get("status") != "gcm_h6_target_selector_not_rewrite_or_resource_claim":
+            errors.append("B1/B7 gcm_h6 target selector must remain a non-rewrite target selector")
+        for field in ["report", "markdown_report", "source_qasm", "source_b7_template_gate"]:
+            value = b1_b7_gcm_h6_target_selector_manifest.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(f"B1/B7 gcm_h6 target selector missing existing {field} path: {value}")
+    if b1_b7_gcm_h6_target_selector_path.exists():
+        selector_payload = json.loads(read(b1_b7_gcm_h6_target_selector_path))
+        selector_summary = selector_payload.get("summary", {})
+        selector_claims = selector_payload.get("claim_boundary", {})
+        b1_b7_gcm_h6_target_selector.update(
+            {
+                "status": selector_payload.get("status"),
+                "model_status": selector_payload.get("model_status"),
+                "method": selector_payload.get("method"),
+                "workload": selector_payload.get("workload"),
+                "arbitrary_rotation_count": selector_summary.get("arbitrary_rotation_count"),
+                "raw_unique_numeric_parameter_count": selector_summary.get(
+                    "raw_unique_numeric_parameter_count"
+                ),
+                "canonical_unique_numeric_parameter_count": selector_summary.get(
+                    "canonical_unique_numeric_parameter_count"
+                ),
+                "target_removed_arbitrary_occurrences_for_gcm_h6_1_20": selector_summary.get(
+                    "target_removed_arbitrary_occurrences_for_gcm_h6_1_20"
+                ),
+                "target_proxy_t_ledger_reduction_for_gcm_h6_1_20": selector_summary.get(
+                    "target_proxy_t_ledger_reduction_for_gcm_h6_1_20"
+                ),
+                "top_canonical_angle_occurrences": selector_summary.get("top_canonical_angle_occurrences"),
+                "top_cone_occurrences": selector_summary.get("top_cone_occurrences"),
+                "cone_classes_meeting_target_if_one_removed_per_occurrence": selector_summary.get(
+                    "cone_classes_meeting_target_if_one_removed_per_occurrence"
+                ),
+                "canonical_angle_classes_meeting_target_if_one_removed_per_occurrence": selector_summary.get(
+                    "canonical_angle_classes_meeting_target_if_one_removed_per_occurrence"
+                ),
+                "qubit_classes_meeting_target_if_one_removed_per_occurrence": selector_summary.get(
+                    "qubit_classes_meeting_target_if_one_removed_per_occurrence"
+                ),
+                "rewrite_claimed": selector_claims.get("rewrite_claimed"),
+                "resource_saving_claimed": selector_claims.get("resource_saving_claimed"),
+                "semantic_certificate_claimed": selector_claims.get("semantic_certificate_claimed"),
+                "validation_error_count": selector_summary.get("validation_error_count"),
+            }
+        )
+        if selector_payload.get("benchmark_id") != "B1":
+            errors.append("B1/B7 gcm_h6 target selector report must have benchmark_id B1")
+        if selector_payload.get("method") != "b1_b7_gcm_h6_target_selector_v0":
+            errors.append("B1/B7 gcm_h6 target selector method mismatch")
+        if selector_payload.get("status") != "gcm_h6_target_selector_not_rewrite_or_resource_claim":
+            errors.append("B1/B7 gcm_h6 target selector status mismatch")
+        for field in [
+            "arbitrary_rotation_count",
+            "raw_unique_numeric_parameter_count",
+            "canonical_unique_numeric_parameter_count",
+            "target_removed_arbitrary_occurrences_for_gcm_h6_1_20",
+            "target_proxy_t_ledger_reduction_for_gcm_h6_1_20",
+            "top_canonical_angle_occurrences",
+            "top_cone_occurrences",
+            "cone_classes_meeting_target_if_one_removed_per_occurrence",
+            "canonical_angle_classes_meeting_target_if_one_removed_per_occurrence",
+            "qubit_classes_meeting_target_if_one_removed_per_occurrence",
+        ]:
+            if selector_summary.get(field) != b1_b7_gcm_h6_target_selector_manifest.get(field):
+                errors.append(f"B1/B7 gcm_h6 target selector {field} mismatch")
+        if selector_summary.get("arbitrary_rotation_count") != 270:
+            errors.append("B1/B7 gcm_h6 target selector must count 270 arbitrary rotations")
+        if selector_summary.get("target_removed_arbitrary_occurrences_for_gcm_h6_1_20") != 30:
+            errors.append("B1/B7 gcm_h6 target selector target occurrence count must be 30")
+        if selector_summary.get("target_proxy_t_ledger_reduction_for_gcm_h6_1_20") != 600:
+            errors.append("B1/B7 gcm_h6 target selector target proxy-T reduction must be 600")
+        if selector_summary.get("top_cone_occurrences", 0) < 30:
+            errors.append("B1/B7 gcm_h6 target selector should expose at least one 30-occurrence cone")
+        if selector_claims.get("rewrite_claimed") is not False:
+            errors.append("B1/B7 gcm_h6 target selector must not claim a rewrite")
+        if selector_claims.get("resource_saving_claimed") is not False:
+            errors.append("B1/B7 gcm_h6 target selector must not claim resource savings")
+        if selector_claims.get("semantic_certificate_claimed") is not False:
+            errors.append("B1/B7 gcm_h6 target selector must not claim a semantic certificate")
+        if selector_summary.get("validation_error_count") != 0:
+            errors.append("B1/B7 gcm_h6 target selector validation errors must remain zero")
+    else:
+        errors.append(f"missing B1/B7 gcm_h6 target selector report: {b1_b7_gcm_h6_target_selector_path}")
 
     b1_synthetic_noise = {
         "path": str(b1_synthetic_noise_path),
@@ -8557,6 +8651,7 @@ def audit(root: Path) -> dict:
             "native_t_resource_optimizer": b1_native_t_resource,
             "control_rz_commute_optimizer": b1_control_rz_commute,
             "u3_phase_factored_optimizer": b1_u3_phase_factored,
+            "b7_gcm_h6_target_selector": b1_b7_gcm_h6_target_selector,
             "synthetic_noise_proxy": b1_synthetic_noise,
         },
         "b2": {
@@ -8709,6 +8804,7 @@ def audit(root: Path) -> dict:
             "b1_native_t_resource_optimizer": str(b1_native_t_resource_path),
             "b1_control_rz_commute_optimizer": str(b1_control_rz_commute_path),
             "b1_u3_phase_factored_optimizer": str(b1_u3_phase_factored_path),
+            "b1_b7_gcm_h6_target_selector": str(b1_b7_gcm_h6_target_selector_path),
             "b1_synthetic_noise_proxy": str(b1_synthetic_noise_path),
             "b2_phenomenological_decoder": str(research / "B2_phenomenological_repetition_decoder.md"),
             "b2_stim_surface_code_baseline": str(research / "B2_stim_surface_code_memory_baseline.md"),
@@ -9129,6 +9225,17 @@ def markdown_report(report: dict) -> str:
             f"- Aer failures: {report['b1']['u3_phase_factored_optimizer'].get('aer_failed')}",
             f"- Aer pairs: {report['b1']['u3_phase_factored_optimizer'].get('aer_pair_count')}",
             f"- Aer max TVD: {report['b1']['u3_phase_factored_optimizer'].get('aer_max_tvd')}",
+            "",
+            "## B1/B7 gcm_h6 Target Selector",
+            "",
+            f"- Exists: {report['b1']['b7_gcm_h6_target_selector'].get('exists')}",
+            f"- Status: {report['b1']['b7_gcm_h6_target_selector'].get('status')}",
+            f"- Arbitrary rotations / target removals / proxy-T target: {report['b1']['b7_gcm_h6_target_selector'].get('arbitrary_rotation_count')} / {report['b1']['b7_gcm_h6_target_selector'].get('target_removed_arbitrary_occurrences_for_gcm_h6_1_20')} / {report['b1']['b7_gcm_h6_target_selector'].get('target_proxy_t_ledger_reduction_for_gcm_h6_1_20')}",
+            f"- Raw/canonical unique numeric parameters: {report['b1']['b7_gcm_h6_target_selector'].get('raw_unique_numeric_parameter_count')} / {report['b1']['b7_gcm_h6_target_selector'].get('canonical_unique_numeric_parameter_count')}",
+            f"- Top angle / cone occurrences: {report['b1']['b7_gcm_h6_target_selector'].get('top_canonical_angle_occurrences')} / {report['b1']['b7_gcm_h6_target_selector'].get('top_cone_occurrences')}",
+            f"- Cone/angle/qubit classes meeting target: {report['b1']['b7_gcm_h6_target_selector'].get('cone_classes_meeting_target_if_one_removed_per_occurrence')} / {report['b1']['b7_gcm_h6_target_selector'].get('canonical_angle_classes_meeting_target_if_one_removed_per_occurrence')} / {report['b1']['b7_gcm_h6_target_selector'].get('qubit_classes_meeting_target_if_one_removed_per_occurrence')}",
+            f"- Rewrite/resource/semantic claims: {report['b1']['b7_gcm_h6_target_selector'].get('rewrite_claimed')} / {report['b1']['b7_gcm_h6_target_selector'].get('resource_saving_claimed')} / {report['b1']['b7_gcm_h6_target_selector'].get('semantic_certificate_claimed')}",
+            f"- Validation errors: {report['b1']['b7_gcm_h6_target_selector'].get('validation_error_count')}",
             "",
             "## B1 Synthetic Heavy-Hex Noise Proxy",
             "",

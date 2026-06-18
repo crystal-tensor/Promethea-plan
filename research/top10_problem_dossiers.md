@@ -59,16 +59,21 @@ gates removed; two-qubit count reduced by 37.18%; exposure reduced by 32.65%;
 proof replay passed on 481/481 events; local and end-to-end Aer failures are 0.
 A post-virtual-SWAP 1Q pass removed 60 additional gates, reduced the logical
 T-count proxy 1.018x and T-depth proxy 1.015x, and passed 30/30 Aer
-cross-checks. The B7 propagation retest gives mean STV 1.034x, while minimum
-STV remains 1.0x.
+cross-checks. Later control-RZ and U3 phase-factored diagnostics exposed
+additional T-resource proxy improvements. The B1/B7 `gcm_h6` target selector
+now counts 270 arbitrary decimal rotations and identifies 3 local CNOT-cone
+classes, 2 canonical angle classes, and 4 qubit classes that meet B7's
+30-occurrence target if a future semantic rewrite removes one per occurrence.
+No such rewrite is claimed yet.
 
 **Remaining path to a serious solution:** connect to calibrated/live-like
 heavy-hex baselines; cover dynamic circuits and reset/measurement semantics;
-add native-basis-aware non-Clifford/T-depth optimization that improves minimum
-B7 factory STV; broaden benchmarks; package certificates for independent
+turn one ranked `gcm_h6` target family into a replayable semantic rewrite
+certificate that removes at least 30 arbitrary rotation occurrences / 600
+proxy-T units; broaden benchmarks; package certificates for independent
 reproduction.
 
-**Current internal maturity:** 37/100.
+**Current internal maturity:** 38/100.
 
 ## B2: Low-Overhead Quantum Error Correction
 
@@ -491,16 +496,20 @@ Euler-local, and bounded three-CNOT families for 43480 optimizer runs, finding
 0 exact four-arbitrary-angle replacements and 0 ledger removal. The new
 template-priority gate evaluates 12 retained templates: 0 one-angle
 single-template routes clear the one-sided `gcm_h6` 1.20x target, and best
-`w8_21` needs at least 2 arbitrary removals per occurrence.
+`w8_21` needs at least 2 arbitrary removals per occurrence. The B1-side
+`gcm_h6` target selector now identifies concrete cone/angle/qubit families that
+meet the 30-occurrence target only if a future semantic rewrite certificate
+removes them.
 
 **Remaining path to a serious solution:** produce a symbolic KAK/Clifford-
 scaffold proof or alternate occurrence-removing rewrite for `gcm_h6`; strengthen
-B1 non-Clifford/T-depth optimization until minimum factory STV improves;
+B1 non-Clifford/T-depth optimization until a certified occurrence-removing
+rewrite improves minimum factory STV;
 separate claims by data-path versus T-factory dominated regimes; include
 physical layout, routing, and feed-forward constraints; run a full algorithm
 resource ledger.
 
-**Current internal maturity:** 34/100.
+**Current internal maturity:** 35/100.
 
 ## B8: Classical Verification of Quantum Outputs
 
