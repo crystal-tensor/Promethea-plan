@@ -155,7 +155,7 @@ hardware verifier runs, real-data benchmarks, and independent reproductions.
 Funding, sponsorship, and bounty coordination contact:
 
 ```text
-wave function61@gmail.com
+wavefunction61@gmail.com
 ```
 
 Use the bounty template in `.github/ISSUE_TEMPLATE/bounty_task.md` when
