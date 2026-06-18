@@ -40,7 +40,7 @@ Overall audit: PASS
 - B IDs are B1..B10: True
 - Problem IDs match attack pack: True
 - All required fields present: True
-- Maturity scores: {'B1': 37, 'B2': 41, 'B3': 30, 'B4': 20, 'B5': 24, 'B6': 19, 'B7': 33, 'B8': 32, 'B9': 12, 'B10': 48}
+- Maturity scores: {'B1': 37, 'B2': 41, 'B3': 30, 'B4': 20, 'B5': 24, 'B6': 19, 'B7': 33, 'B8': 32, 'B9': 12, 'B10': 49}
 
 ## Technical Resolution Program
 
@@ -925,6 +925,14 @@ Overall audit: PASS
 - B10-T1 B5 dequantization theorem / sampling-access theorem / BQP separation / quantum advantage: False / False / False / False
 - B10-T1 B5 same-access bridge validation errors: 0
 - B10-T1 B5 same-access bridge result/markdown exists: True / True
+- B10-T1 B5 response sampler stress status: b5_response_sampler_cost_stress_no_positive_same_access_route
+- B10-T1 B5 response sampler stress instances / confidence z: 9 / 2.576
+- B10-T1 B5 response sampler stress min/median/max shots to match seeded MPS: 3861425434 / 7644706432712 / 284916076006665507134714675200
+- B10-T1 B5 response sampler stress max seeded-target prep 2Q floor: 1139664304026662028538858700800
+- B10-T1 B5 response sampler stress rows beating D5 matvec ops for seeded target: 0
+- B10-T1 B5 response sampler stress sampling oracle / same-access positive route / quantum advantage: False / False / False
+- B10-T1 B5 response sampler stress validation errors: 0
+- B10-T1 B5 response sampler stress result/markdown exists: True / True
 
 ## Errors
 

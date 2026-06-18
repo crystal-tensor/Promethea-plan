@@ -81,9 +81,12 @@ Current evidence includes:
 
 The current B5/B10 line has recently moved from small-cluster denominators to
 seeded MPS pressure, non-seeded one-site MPS/ALS pressure, and a two-site
-finite-DMRG-style pressure prototype. This is progress, but it is not a
-production DMRG result, not a deployable tensor solver, and not a quantum
-advantage claim.
+finite-DMRG-style pressure prototype. The latest B10-T1 stress test adds an
+optimistic bounded-density response-sampler cost model on the same 9 B5/B10
+Hubbard rows; it still finds no positive same-access route because 0 rows beat
+explicit D5 matvec-equivalent costs by shots. This is progress, but it is not a
+production DMRG result, not a deployable tensor solver, not a sampling oracle,
+and not a quantum advantage claim.
 
 B6 has moved from a synthetic descriptor toy to a curated retrospective
 materials leakage audit: 26 records across 12 families, explicit post-2008

@@ -1,0 +1,441 @@
+{
+  "benchmark_id": "B10",
+  "claim_boundary": {
+    "bqp_separation_claimed": false,
+    "production_dmrg_available": false,
+    "quantum_advantage_claimed": false,
+    "same_access_positive_route_ready": false,
+    "sampling_oracle_constructed": false,
+    "what_is_not_supported": "This is not a constructed quantum response oracle, not a state-preparation algorithm, not production DMRG, not a sampling theorem, not quantum advantage, and not a BQP separation.",
+    "what_is_supported": "An optimistic finite-difference response sampler lower bound was costed against the same nine B5/B10 Hubbard response rows and denominator ladder."
+  },
+  "dependency_benchmarks": [
+    "B5",
+    "B10"
+  ],
+  "method": "b10_t1_b5_response_sampler_cost_stress_v0",
+  "problem_id": 11,
+  "rows": [
+    {
+      "confidence_z": 2.576,
+      "density_variance_upper_bound": 1.0,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 36,
+      "exact_d5_matvec_equivalent_ops": 1620,
+      "exact_response": 0.0836060986395423,
+      "optimistic_prep_two_qubit_gate_floor_per_circuit": 4,
+      "same_access_positive_route_ready": false,
+      "sampler_beats_seeded_mps_pressure_by_shots": false,
+      "sites": 4,
+      "targets": {
+        "match_exact_state_seeded_mps_pressure": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 1139664304026662028538858700800,
+          "shots_per_side": 142458038003332753567357337600,
+          "target_absolute_error": 1.930400284066991e-14,
+          "target_relative_error": 2.3089228124250614e-13,
+          "total_measurement_shots": 284916076006665507134714675200
+        },
+        "match_non_oracle_embedding": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 134589526870081318908629071429632,
+          "shots_per_side": 16823690858760164863578633928704,
+          "target_absolute_error": 1.7763568394002503e-15,
+          "target_relative_error": 2.124673759816016e-14,
+          "total_measurement_shots": 33647381717520329727157267857408
+        },
+        "match_one_site_variational_mps_als": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 94439959214536,
+          "shots_per_side": 11804994901817,
+          "target_absolute_error": 2.1205960604314678e-06,
+          "target_relative_error": 2.5364131264803592e-05,
+          "total_measurement_shots": 23609989803634
+        }
+      },
+      "u_over_t": 2.0
+    },
+    {
+      "confidence_z": 2.576,
+      "density_variance_upper_bound": 1.0,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 36,
+      "exact_d5_matvec_equivalent_ops": 1620,
+      "exact_response": 0.03622603032182597,
+      "optimistic_prep_two_qubit_gate_floor_per_circuit": 4,
+      "same_access_positive_route_ready": false,
+      "sampler_beats_seeded_mps_pressure_by_shots": false,
+      "sites": 4,
+      "targets": {
+        "match_exact_state_seeded_mps_pressure": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 10215033775701347317145665536,
+          "shots_per_side": 1276879221962668414643208192,
+          "target_absolute_error": 2.038993973663139e-13,
+          "target_relative_error": 5.6285327306057525e-12,
+          "total_measurement_shots": 2553758443925336829286416384
+        },
+        "match_non_oracle_embedding": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 745694234997820228003430400,
+          "shots_per_side": 93211779374727528500428800,
+          "target_absolute_error": 7.546671620950462e-13,
+          "target_relative_error": 2.0832179385671295e-11,
+          "total_measurement_shots": 186423558749455057000857600
+        },
+        "match_one_site_variational_mps_als": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 638613668091168,
+          "shots_per_side": 79826708511396,
+          "target_absolute_error": 8.154864344425694e-07,
+          "target_relative_error": 2.2511062548060744e-05,
+          "total_measurement_shots": 159653417022792
+        }
+      },
+      "u_over_t": 4.0
+    },
+    {
+      "confidence_z": 2.576,
+      "density_variance_upper_bound": 1.0,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 36,
+      "exact_d5_matvec_equivalent_ops": 1440,
+      "exact_response": 0.008377776428140199,
+      "optimistic_prep_two_qubit_gate_floor_per_circuit": 4,
+      "same_access_positive_route_ready": false,
+      "sampler_beats_seeded_mps_pressure_by_shots": false,
+      "sites": 4,
+      "targets": {
+        "match_exact_state_seeded_mps_pressure": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 18440967482385243164150595584,
+          "shots_per_side": 2305120935298155395518824448,
+          "target_absolute_error": 1.5175534440192706e-13,
+          "target_relative_error": 1.811403606954639e-11,
+          "total_measurement_shots": 4610241870596310791037648896
+        },
+        "match_non_oracle_embedding": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 8194358991280147854348607553536,
+          "shots_per_side": 1024294873910018481793575944192,
+          "target_absolute_error": 7.19910242530375e-15,
+          "target_relative_error": 8.593094464925813e-13,
+          "total_measurement_shots": 2048589747820036963587151888384
+        },
+        "match_one_site_variational_mps_als": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 4070963332753654272,
+          "shots_per_side": 508870416594206784,
+          "target_absolute_error": 1.0213797667010804e-08,
+          "target_relative_error": 1.2191537640827434e-06,
+          "total_measurement_shots": 1017740833188413568
+        }
+      },
+      "u_over_t": 8.0
+    },
+    {
+      "confidence_z": 2.576,
+      "density_variance_upper_bound": 1.0,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 400,
+      "exact_d5_matvec_equivalent_ops": 50400,
+      "exact_response": 0.09578490151113497,
+      "optimistic_prep_two_qubit_gate_floor_per_circuit": 6,
+      "same_access_positive_route_ready": false,
+      "sampler_beats_seeded_mps_pressure_by_shots": false,
+      "sites": 6,
+      "targets": {
+        "match_exact_state_seeded_mps_pressure": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 69784193964,
+          "shots_per_side": 5815349497,
+          "target_absolute_error": 9.554389497863636e-05,
+          "target_relative_error": 0.0009974838776394149,
+          "total_measurement_shots": 11630698994
+        },
+        "match_non_oracle_embedding": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 5524320,
+          "shots_per_side": 460360,
+          "target_absolute_error": 0.01073846559779422,
+          "target_relative_error": 0.11211021182232854,
+          "total_measurement_shots": 920720
+        },
+        "match_one_site_variational_mps_als": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 246148116,
+          "shots_per_side": 20512343,
+          "target_absolute_error": 0.0016087302317387977,
+          "target_relative_error": 0.016795238146711286,
+          "total_measurement_shots": 41024686
+        }
+      },
+      "u_over_t": 2.0
+    },
+    {
+      "confidence_z": 2.576,
+      "density_variance_upper_bound": 1.0,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 400,
+      "exact_d5_matvec_equivalent_ops": 47600,
+      "exact_response": 0.03936862450197687,
+      "optimistic_prep_two_qubit_gate_floor_per_circuit": 6,
+      "same_access_positive_route_ready": false,
+      "sampler_beats_seeded_mps_pressure_by_shots": false,
+      "sites": 6,
+      "targets": {
+        "match_exact_state_seeded_mps_pressure": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 19677538417380,
+          "shots_per_side": 1639794868115,
+          "target_absolute_error": 5.6897880750389485e-06,
+          "target_relative_error": 0.0001445259555551208,
+          "total_measurement_shots": 3279589736230
+        },
+        "match_non_oracle_embedding": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 1379354928,
+          "shots_per_side": 114946244,
+          "target_absolute_error": 0.0006795844936586665,
+          "target_relative_error": 0.017262083759734648,
+          "total_measurement_shots": 229892488
+        },
+        "match_one_site_variational_mps_als": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 269234652,
+          "shots_per_side": 22436221,
+          "target_absolute_error": 0.0015382113316252247,
+          "target_relative_error": 0.03907201105154143,
+          "total_measurement_shots": 44872442
+        }
+      },
+      "u_over_t": 4.0
+    },
+    {
+      "confidence_z": 2.576,
+      "density_variance_upper_bound": 1.0,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 400,
+      "exact_d5_matvec_equivalent_ops": 42000,
+      "exact_response": 0.008466866704064192,
+      "optimistic_prep_two_qubit_gate_floor_per_circuit": 6,
+      "same_access_positive_route_ready": false,
+      "sampler_beats_seeded_mps_pressure_by_shots": false,
+      "sites": 6,
+      "targets": {
+        "match_exact_state_seeded_mps_pressure": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 45868238596272,
+          "shots_per_side": 3822353216356,
+          "target_absolute_error": 3.726708669920392e-06,
+          "target_relative_error": 0.00044015204209268223,
+          "total_measurement_shots": 7644706432712
+        },
+        "match_non_oracle_embedding": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 1353016776,
+          "shots_per_side": 112751398,
+          "target_absolute_error": 0.0006861670926798877,
+          "target_relative_error": 0.08104144268038609,
+          "total_measurement_shots": 225502796
+        },
+        "match_one_site_variational_mps_als": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 8611079520,
+          "shots_per_side": 717589960,
+          "target_absolute_error": 0.00027198983626017253,
+          "target_relative_error": 0.032124024833131516,
+          "total_measurement_shots": 1435179920
+        }
+      },
+      "u_over_t": 8.0
+    },
+    {
+      "confidence_z": 2.576,
+      "density_variance_upper_bound": 1.0,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 4900,
+      "exact_d5_matvec_equivalent_ops": 1014300,
+      "exact_response": 0.09780451002539868,
+      "optimistic_prep_two_qubit_gate_floor_per_circuit": 8,
+      "same_access_positive_route_ready": false,
+      "sampler_beats_seeded_mps_pressure_by_shots": false,
+      "sites": 8,
+      "targets": {
+        "match_exact_state_seeded_mps_pressure": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 30891403472,
+          "shots_per_side": 1930712717,
+          "target_absolute_error": 0.00016581813402970214,
+          "target_relative_error": 0.0016954037598740704,
+          "total_measurement_shots": 3861425434
+        },
+        "match_non_oracle_embedding": {
+          "beats_explicit_d5_matvec_ops_by_shots": true,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 5861392,
+          "shots_per_side": 366337,
+          "target_absolute_error": 0.012037905475123803,
+          "target_relative_error": 0.12308129218169694,
+          "total_measurement_shots": 732674
+        },
+        "match_one_site_variational_mps_als": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 3921159040,
+          "shots_per_side": 245072440,
+          "target_absolute_error": 0.000465418471293208,
+          "target_relative_error": 0.004758660629988784,
+          "total_measurement_shots": 490144880
+        }
+      },
+      "u_over_t": 2.0
+    },
+    {
+      "confidence_z": 2.576,
+      "density_variance_upper_bound": 1.0,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 4900,
+      "exact_d5_matvec_equivalent_ops": 926100,
+      "exact_response": 0.04046928678042132,
+      "optimistic_prep_two_qubit_gate_floor_per_circuit": 8,
+      "same_access_positive_route_ready": false,
+      "sampler_beats_seeded_mps_pressure_by_shots": false,
+      "sites": 8,
+      "targets": {
+        "match_exact_state_seeded_mps_pressure": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 1113731348384,
+          "shots_per_side": 69608209274,
+          "target_absolute_error": 2.7615990301724236e-05,
+          "target_relative_error": 0.0006823937978339813,
+          "total_measurement_shots": 139216418548
+        },
+        "match_non_oracle_embedding": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 2820755200,
+          "shots_per_side": 176297200,
+          "target_absolute_error": 0.0005487419288145307,
+          "target_relative_error": 0.013559466263685357,
+          "total_measurement_shots": 352594400
+        },
+        "match_one_site_variational_mps_als": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 401882048,
+          "shots_per_side": 25117628,
+          "target_absolute_error": 0.0014537895652087865,
+          "target_relative_error": 0.035923281106899,
+          "total_measurement_shots": 50235256
+        }
+      },
+      "u_over_t": 4.0
+    },
+    {
+      "confidence_z": 2.576,
+      "density_variance_upper_bound": 1.0,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 4900,
+      "exact_d5_matvec_equivalent_ops": 705600,
+      "exact_response": 0.00858130228459222,
+      "optimistic_prep_two_qubit_gate_floor_per_circuit": 8,
+      "same_access_positive_route_ready": false,
+      "sampler_beats_seeded_mps_pressure_by_shots": false,
+      "sites": 8,
+      "targets": {
+        "match_exact_state_seeded_mps_pressure": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 53564824975412736,
+          "shots_per_side": 3347801560963296,
+          "target_absolute_error": 1.259247213239445e-07,
+          "target_relative_error": 1.4674313658667297e-05,
+          "total_measurement_shots": 6695603121926592
+        },
+        "match_non_oracle_embedding": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 922865264,
+          "shots_per_side": 57679079,
+          "target_absolute_error": 0.0009593601964281474,
+          "target_relative_error": 0.11179657406436834,
+          "total_measurement_shots": 115358158
+        },
+        "match_one_site_variational_mps_als": {
+          "beats_explicit_d5_matvec_ops_by_shots": false,
+          "finite": true,
+          "optimistic_state_preparation_two_qubit_gate_floor": 10110020544,
+          "shots_per_side": 631876284,
+          "target_absolute_error": 0.00028985101441632993,
+          "target_relative_error": 0.033777042784841546,
+          "total_measurement_shots": 1263752568
+        }
+      },
+      "u_over_t": 8.0
+    }
+  ],
+  "sampling_model": {
+    "confidence_z": 2.576,
+    "density_observable_range": [
+      0.0,
+      2.0
+    ],
+    "density_variance_upper_bound": 1.0,
+    "mixing_cost_included": false,
+    "name": "optimistic_bounded_density_finite_difference_sampler",
+    "readout_error_included": false,
+    "response_estimator": "(E[n_i | +eta] - E[n_i | -eta]) / (2 eta)",
+    "shots_are_independent": true,
+    "state_preparation_floor_per_circuit_2q_gates": "sites * prep_two_qubit_gate_floor_per_site"
+  },
+  "source_d5_denominator_method": "b10_t1_d5_observable_denominator_table_v0",
+  "source_non_oracle_embedding_method": "b5_non_oracle_response_embedding_baseline_v0",
+  "source_seeded_mps_method": "b5_mps_schmidt_truncation_response_reference_v0",
+  "source_target_id": "B10-T1",
+  "source_variational_mps_method": "b5_variational_mps_als_response_reference_v0",
+  "status": "b5_response_sampler_cost_stress_no_positive_same_access_route",
+  "summary": {
+    "bqp_separation_claimed": false,
+    "confidence_z": 2.576,
+    "density_variance_upper_bound": 1.0,
+    "instance_count": 9,
+    "max_exact_d5_hilbert_dimension": 4900,
+    "max_exact_d5_matvec_equivalent_ops": 1014300,
+    "max_optimistic_seeded_target_prep_2q_gate_floor": 1139664304026662028538858700800,
+    "max_total_shots_to_match_non_oracle_embedding": 33647381717520329727157267857408,
+    "max_total_shots_to_match_one_site_variational_mps_als": 1017740833188413568,
+    "max_total_shots_to_match_seeded_mps_pressure": 284916076006665507134714675200,
+    "median_total_shots_to_match_seeded_mps_pressure": 7644706432712,
+    "min_total_shots_to_match_non_oracle_embedding": 732674,
+    "min_total_shots_to_match_one_site_variational_mps_als": 41024686,
+    "min_total_shots_to_match_seeded_mps_pressure": 3861425434,
+    "quantum_advantage_claimed": false,
+    "rows_where_sampler_shots_beat_explicit_d5_matvec_ops_for_seeded_target": 0,
+    "same_access_positive_route_ready": false,
+    "sampling_oracle_constructed": false
+  },
+  "title": "B10-T1 B5 response sampler cost stress",
+  "validation_errors": [],
+  "version": "0.1"
+}

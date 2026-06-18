@@ -2,7 +2,7 @@
   "schema_version": "0.1",
   "last_updated": "2026-06-18",
   "purpose": "Execution board for turning the Top 10 quantum attack directions from v0 artifacts into a one-year technical-resolution portfolio.",
-  "portfolio_state": "stage 1k evidence hardening; B2 now has a heralded-erasure false-positive stress boundary and B5 keeps the production-DMRG gate open",
+  "portfolio_state": "stage 1l evidence hardening; B10-T1 now has an optimistic B5 response-sampler cost stress showing no positive same-access route, while B2 has a false-positive erasure boundary and B5 keeps production DMRG open",
   "decision_rules": {
     "monthly_keep_rule": "Keep a direction only if the next 30-day artifact can falsify or improve a concrete claim.",
     "merge_rule": "Merge directions when their validation stack is shared, such as B4 plus B8 or B1 plus B7.",
@@ -178,9 +178,9 @@
       "problem_id": 11,
       "title": "Mapping the boundary of BQP",
       "priority_lane": "theory_and_negative_results",
-      "current_maturity": "b5_same_access_sampling_bridge_blocked_dmrg_required_plus_t2_backend_calibrated_style_bridge",
+      "current_maturity": "b5_same_access_sampling_bridge_blocked_dmrg_required_plus_t2_backend_calibrated_style_bridge T-B10-013 now adds an optimistic response-sampler cost stress: min/median/max shots to match exact-state-seeded MPS pressure are 3.861e9 / 7.645e12 / 2.849e29, and 0 rows beat explicit D5 matvec ops by shots.",
       "strongest_evidence": "Reduction graph plus 2 formal targets; B10-T1 explicit-I/O boundary stack includes B3 demotion, B5 D5 Hubbard response denominators, MPS pressure references, T-B10-010 missing-assumption note, T-B10-011 access-contract note, and T-B10-012 same-access B5 bridge: 4 denominator ladder rows, 5 blocking sampling requirements, 6 seeded-MPS-over-non-oracle rows, 0 variational-over-seeded rows, no sampling oracle, no production DMRG, and no positive route. B10-T2 has trained-spoofer, proof-gate, restricted-lemma, transcript/device-noise, ideal/noisy Aer, and GenericBackendV2 calibrated-style verifier bridges. T-B5-004 also adds a two-site finite-DMRG-style pressure prototype feeding the B10-T1 same-access ladder.",
-      "30_day_gate": "Run T-B10-013/T-B5-005: production DMRG/MPS or fully costed response sampler for B5; separately replace the B10-T2 GenericBackendV2 bridge with real backend properties/hardware verifier execution.",
+      "30_day_gate": "T-B10-014 must replace the sampler-cost negative boundary with mature production DMRG/MPS or a real same-access response oracle with state-preparation, mixing, measurement, and confidence costs; separately, replace the GenericBackendV2 bridge with real backend properties or hardware verifier execution.",
       "next_artifact": "B10-T1/B5 production DMRG response reference, B5 response-sampler stress note, or B10-T2 real-backend-properties verifier bridge.",
       "kill_condition": "Keep B10-T1 negative unless a same-access sampler or production DMRG/quantum response comparison beats the full denominator ladder without hidden access advantages.",
       "downstream_translation_route": "Deferred until one formal target yields a source-backed restricted theorem, reusable negative lemma, or strong proof-attempt record.",
@@ -189,7 +189,8 @@
         "B3",
         "B4",
         "B8"
-      ]
+      ],
+      "kill_or_merge_condition": "Keep B10-T1 negative unless a production DMRG/MPS reference or same-access response oracle beats the full denominator ladder without hidden access advantages."
     }
   ],
   "next_30_days": {

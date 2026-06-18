@@ -77,7 +77,8 @@ Status values:
 | T-B10-010 | B10/B3/B5 | merged | codex | Theorist/Baseline Adversary | Missing-assumption theorem note: 2 theorem skeletons, 5 missing assumptions, and 5 proof obligations derived from the B3/B5 denominator comparison. It supports a finite negative-boundary claim policy, but explicitly does not prove a dequantization theorem, sampling-access theorem, BQP separation, or quantum advantage. |
 | T-B10-011 | B10/B3/B5 | merged | codex | Theorist/Baseline Adversary | Asymptotic access-contract note: 2 family contracts, 8 explicit/oracle/sampling/quantum access rows, and 5 bridge conditions. The current portfolio refutes the sampling-access bridge for present B3/B5 evidence, while explicitly not proving a general dequantization theorem, sampling-access theorem, BQP separation, or quantum advantage. |
 | T-B10-012 | B10/B5 | merged | codex | Theorist/Baseline Adversary | B5 same-access sampling-or-DMRG bridge: 4 denominator ladder rows, 5 sampling requirements all blocking, seeded MPS pressure beats non-oracle embedding on 6 rows, variational MPS/ALS beats seeded pressure on 0 rows, no sampling oracle, no production DMRG, no same-access positive route, and no dequantization/sampling theorem or advantage claim. |
-| T-B10-013 | B10/B5 | open | unassigned | Builder/Baseline Adversary | Implement canonical-environment production DMRG/MPS for the same B5 Hubbard response rows, or propose a sampling/query oracle with response-estimator variance, preparation/mixing cost, and confidence bounds strong enough to survive the T-B10-012 same-access ladder. |
+| T-B10-013 | B10/B5 | merged | codex | Builder/Baseline Adversary | B5 response-sampler cost stress: an optimistic bounded-density finite-difference sampler lower bound on the same 9 B5/B10 Hubbard rows needs min/median/max 3.861e9 / 7.645e12 / 2.849e29 shots to match exact-state-seeded MPS pressure, with 0 rows beating explicit D5 matvec ops by shots; no sampling oracle, same-access positive route, quantum advantage, or BQP separation claim. |
+| T-B10-014 | B10/B5 | open | unassigned | Builder/Baseline Adversary | Replace the sampler-cost negative boundary with either mature canonical-environment production DMRG/MPS for the same B5 Hubbard response rows, or a real same-access response oracle with state-preparation, mixing, measurement, and confidence costs that beats the full denominator ladder. |
 | T-AUDIT-001 | all | open | unassigned | Audit Agent | CI-style audit script and status-page refresh command. |
 
 ## Task Template
@@ -107,7 +108,7 @@ Reviewers needed:
 | verification-agent | T-B4-002 |
 | correlated-matter-agent | T-B5-005 |
 | materials-agent | T-B6-003 |
-| theory-agent | T-B9-004, T-B10-009, T-B10-013 |
+| theory-agent | T-B9-004, T-B10-009, T-B10-014 |
 | audit-agent | T-AUDIT-001 |
 
 ## Sprint 001 Work Packages

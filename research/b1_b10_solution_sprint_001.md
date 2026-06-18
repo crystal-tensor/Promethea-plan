@@ -809,11 +809,18 @@ and no same-access positive route.
 beats one-site ALS on 4 rows but still beats seeded MPS pressure on 0 rows, so
 the same-access bridge remains blocked until production DMRG/MPS or a fully
 costed response sampler exists.
+`T-B10-013` is now merged as the fully costed response-sampler stress path: an
+optimistic bounded-density finite-difference sampler on the same 9 B5/B10
+Hubbard response rows needs min/median/max 3.861e9 / 7.645e12 / 2.849e29 shots
+to match the exact-state-seeded MPS pressure target, with 0 rows beating
+explicit D5 matvec-equivalent costs by shots. It creates no sampling oracle, no
+same-access positive route, no quantum advantage claim, and no BQP separation
+claim.
 
-**Next PR:** `T-B10-013` or `T-B10-009`. Expected artifacts:
+**Next PR:** `T-B10-014` or `T-B10-009`. Expected artifacts:
 
-- `research/B10_t1_b5_production_dmrg_response_reference.md` or `research/B10_t1_b5_sampling_oracle_stress.md`
-- `results/B10_t1_b5_production_dmrg_response_reference_v0.json` or `results/B10_t1_b5_sampling_oracle_stress_v0.json`
+- `research/B10_t1_b5_production_dmrg_response_reference.md` or `research/B10_t1_b5_real_response_oracle_stress.md`
+- `results/B10_t1_b5_production_dmrg_response_reference_v0.json` or `results/B10_t1_b5_real_response_oracle_stress_v0.json`
 - `research/B4_B8_hardware_randomized_verifier.md` or `research/B10_t2_real_backend_verifier_bridge.md`
 - `results/B4_B8_hardware_randomized_verifier_v0.json` or `results/B10_t2_real_backend_verifier_bridge_v0.json`
 - optional update to `research/B10_formal_theorem_targets.md`

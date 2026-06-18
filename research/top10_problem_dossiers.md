@@ -718,17 +718,24 @@ T-B5-004 now feeds T-B10-013 with a two-site finite-DMRG-style B5 response
 pressure prototype. It beats the one-site ALS prototype on 4 rows but still
 beats the exact-state-seeded MPS pressure reference on 0 rows, so it strengthens
 the same-access blocker instead of creating a positive BQP boundary route.
+T-B10-013 now adds an optimistic bounded-density finite-difference response
+sampler cost stress on the same 9 B5/B10 Hubbard response rows. To match the
+exact-state-seeded MPS pressure target, min/median/max total shots are
+3.861e9 / 7.645e12 / 2.849e29; 0 rows beat explicit D5 matvec-equivalent
+costs by shots, and the result constructs no sampling oracle, no same-access
+positive route, no quantum advantage claim, and no BQP separation claim.
 
 **Remaining path to a serious solution:** treat B3 as demoted unless a
 multi-parameter UCCSD/ADAPT or stronger measurement rescue succeeds; run
-T-B10-013 by implementing canonical-environment production DMRG/MPS for the
-same B5 Hubbard response rows, or by supplying a sampling/query oracle with
-response-estimator variance, preparation/mixing cost, and confidence bounds
-strong enough to survive the T-B10-012 denominator ladder; turn the B10-T2
+T-B10-014 by replacing the sampler-cost negative boundary with
+canonical-environment production DMRG/MPS for the same B5 Hubbard response rows,
+or by supplying a real same-access response oracle with preparation, mixing,
+variance, and confidence costs strong enough to survive the T-B10-012/T-B10-013
+denominator ladder; turn the B10-T2
 bridge into real backend-property verifier execution or hardware randomized
 measurements; connect B4/B8 verification burdens back into the boundary map.
 
-**Current internal maturity:** 48/100.
+**Current internal maturity:** 49/100.
 
 ## Cross-Portfolio Process
 
