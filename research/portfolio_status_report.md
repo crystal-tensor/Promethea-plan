@@ -40,7 +40,7 @@ Overall audit: PASS
 - B IDs are B1..B10: True
 - Problem IDs match attack pack: True
 - All required fields present: True
-- Maturity scores: {'B1': 40, 'B2': 48, 'B3': 30, 'B4': 20, 'B5': 26, 'B6': 21, 'B7': 37, 'B8': 32, 'B9': 12, 'B10': 49}
+- Maturity scores: {'B1': 41, 'B2': 48, 'B3': 30, 'B4': 20, 'B5': 26, 'B6': 21, 'B7': 38, 'B8': 32, 'B9': 12, 'B10': 49}
 
 ## Technical Resolution Program
 
@@ -272,6 +272,19 @@ Overall audit: PASS
 - Remove-only / fixed-phase / continuous-RZ exact passes: 0 / 0 / 0
 - Best / median continuous-RZ residual: 0.36435162331705345 / 0.41976650460733583
 - Best fixed-phase residual: 0.36435162331705345
+- Restricted gate clears B7 target: False
+- Rewrite/resource/semantic/obstruction claims: False / False / False / False
+- Validation errors: 0
+
+## B1/B7 cone_01 Euler-Reabsorption Gate
+
+- Exists: True
+- Status: cone01_euler_reabsorption_restricted_negative_gate
+- Target cone / candidate windows / required windows: cone_01 / 35 / 30
+- Exact RY candidates / optimizer seeds: 9 / 8
+- Fixed-RY plus RZ-reabsorption exact passes: 0
+- Best / median residual: 0.21253656711362606 / 0.3643516233170531
+- Editable RZ parameter range: 0 - 2
 - Restricted gate clears B7 target: False
 - Rewrite/resource/semantic/obstruction claims: False / False / False / False
 - Validation errors: 0

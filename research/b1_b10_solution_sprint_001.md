@@ -705,6 +705,17 @@ phase-absorption route, but it is not a global obstruction theorem. `T-B1-004`
 now needs broader two-qubit synthesis, KAK/Clifford scaffolding, or another
 certificate-bearing transformation.
 
+**Sprint update 18e:** `T-B1-004d` is now merged as a restricted Euler
+reabsorption gate. The new artifact
+`research/B1_B7_cone01_euler_reabsorption_gate.md` keeps the same two-CNOT
+envelope, locks the arbitrary `RY` to 9 exact/Clifford-like candidate angles,
+and lets neighboring target-qubit `RZ` phases reoptimize. Across the same 35
+`cone_01` windows, the exact-pass count remains 0. The best residual improves
+to 0.21253656711362606 and the median residual is 0.3643516233170531, but this
+still cannot clear the B7 target. This closes another narrow route and makes
+the next useful `T-B1-004` work a genuine two-qubit synthesis/KAK/Clifford
+scaffold problem rather than a local Euler absorption trick.
+
 ## B8: Classical Verification of Quantum Outputs
 
 **Technical target:** keep verifier soundness low under adaptive leakage by

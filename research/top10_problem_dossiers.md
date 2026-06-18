@@ -71,7 +71,10 @@ phase-removal gate then tests all 35 windows under remove-only, fixed-Z, and
 continuous-RZ same-envelope replacement; all three routes have 0 exact-pass
 windows at tolerance 1e-8, with best continuous-RZ residual
 0.36435162331705345. This closes the simple phase-absorption route without
-proving a global obstruction theorem.
+proving a global obstruction theorem. The Euler-reabsorption gate then locks
+the arbitrary RY to 9 exact/Clifford-like candidate angles while neighboring
+target-qubit RZ phases reoptimize; it still finds 0 exact-pass windows, with
+best/median residual 0.21253656711362606 / 0.3643516233170531.
 
 **Remaining path to a serious solution:** connect to calibrated/live-like
 heavy-hex baselines; cover dynamic circuits and reset/measurement semantics;
@@ -81,7 +84,7 @@ arbitrary rotation occurrences / 600
 proxy-T units; broaden benchmarks; package certificates for independent
 reproduction.
 
-**Current internal maturity:** 40/100.
+**Current internal maturity:** 41/100.
 
 ## B2: Low-Overhead Quantum Error Correction
 
@@ -510,8 +513,10 @@ only 4, while `cone_01` has 35 pair-local single-arbitrary windows and is the
 only target cone meeting the 30-occurrence threshold under that stricter filter.
 The restricted phase-removal gate then tests all 35 `cone_01` windows and finds
 0 exact-pass windows for remove-only, fixed-Z, and continuous-RZ same-envelope
-replacement. This is still not an occurrence-removing certificate, resource-
-saving claim, or global obstruction theorem.
+replacement. The Euler-reabsorption gate also finds 0 exact-pass windows after
+locking RY to exact candidates and reoptimizing neighboring RZ phases. This is
+still not an occurrence-removing certificate, resource-saving claim, or global
+obstruction theorem.
 
 **Remaining path to a serious solution:** produce a symbolic KAK/Clifford-
 scaffold proof, scoped obstruction, or certified broader `cone_01`
@@ -522,7 +527,7 @@ separate claims by data-path versus T-factory dominated regimes; include
 physical layout, routing, and feed-forward constraints; run a full algorithm
 resource ledger.
 
-**Current internal maturity:** 37/100.
+**Current internal maturity:** 38/100.
 
 ## B8: Classical Verification of Quantum Outputs
 

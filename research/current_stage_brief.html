@@ -253,7 +253,7 @@
         <span class="chip">工作区：/Users/avalok/work/FurturePlan</span>
         <span class="chip">目标状态：active，未完成</span>
         <span class="chip">当前阶段：B1-B10 技术解决推进</span>
-        <span class="chip">最新动作：T-B1-004c cone_01 phase-removal gate</span>
+        <span class="chip">最新动作：T-B1-004d cone_01 Euler reabsorption gate</span>
         <span class="chip">组合审计：PASS / 0 warnings</span>
       </div>
     </header>
@@ -320,6 +320,9 @@
       </p>
       <p style="margin-top: 10px;">
         最新推进 47：B1/T-B1-004c 已完成 <code>cone_01</code> restricted phase-removal gate。新增 <code>tools/b1_b7_cone01_phase_removal_gate.py</code>、<code>results/B1_B7_cone01_phase_removal_gate_v0.json</code> 和 <code>research/B1_B7_cone01_phase_removal_gate.md</code>，对 35 个 <code>cone_01</code> pair-local single-arbitrary windows 测试三条窄路线：直接删除唯一 arbitrary <code>RY</code>、替换为固定 Z phase、替换为优化后的连续 <code>RZ</code>，同时保持同一个 two-CNOT envelope。结果全部为 0 exact-pass windows；best continuous-RZ residual 为 0.36435162331705345，median residual 为 0.41976650460733583。结论：简单 phase-absorption 路线关闭，下一步必须进入 broader two-qubit synthesis、KAK/Clifford scaffold 或 scoped symbolic obstruction；这仍不是 rewrite certificate、不是 resource saving、不是 global obstruction theorem。
+      </p>
+      <p style="margin-top: 10px;">
+        最新推进 48：B1/T-B1-004d 已完成 <code>cone_01</code> restricted Euler reabsorption gate。新增 <code>tools/b1_b7_cone01_euler_reabsorption_gate.py</code>、<code>results/B1_B7_cone01_euler_reabsorption_gate_v0.json</code> 和 <code>research/B1_B7_cone01_euler_reabsorption_gate.md</code>，继续测试同一组 35 个 <code>cone_01</code> windows：把 arbitrary <code>RY</code> 锁定到 9 个 exact/Clifford-like candidate angles，同时允许同一 two-CNOT envelope 内相邻 target-qubit <code>RZ</code> phases 连续重优化。结果仍然是 0 exact-pass windows；best residual 为 0.21253656711362606，median residual 为 0.3643516233170531。结论：同 envelope 的 Euler absorption 也关闭了；下一步必须真正做 broader two-qubit synthesis、KAK/Clifford scaffold 或 scoped obstruction proof，不能把这个负向 gate 当成 rewrite 或 B7 resource saving。
       </p>
       <p style="margin-top: 10px;">
         最新推进 28：B10/T-B10-001 已完成 B3/B5 denominator boundary comparison。新工具汇总 B3 cross-molecule UCC/ADAPT pressure、B5 oracle/non-oracle response embedding、seeded MPS pressure reference、variational MPS/ALS prototype 和 B10 D5 denominator tables，输出 4 张 route cards。结论：B3 当前保持 negative-boundary，selected-CI larger-basis denominator wins 为 0，max optimizer-loop shots lower bound 为 475,043,013,690,000；B5 有 classical denominator pressure，non-oracle-over-oracle rows 为 4、seeded-MPS-over-non-oracle rows 为 6，但 variational MPS/ALS-over-seeded rows 为 0。它不是 BQP separation、不是 quantum advantage，也不是 B3/B5 solution；下一步 T-B10-010 是把这个 comparison 写成 dequantization/sampling-access theorem-note skeleton，或明确缺失的关键假设。
@@ -556,9 +559,9 @@
         <tbody>
           <tr>
             <td>B1 硬件感知量子线路压缩</td>
-            <td>virtual-SWAP elimination 覆盖 30/30 circuits；control-RZ pass 删除 380 个 RZ，T-count proxy 1.119320x；U3 phase-factored pass 又分解 1641 个 U3、删除 313 个 RZ，T-count proxy 相对 control-RZ 再提升 1.036371x，Aer 30/30 通过；T-B1-004a/004b 已把 gcm_h6 的下一目标收敛到 <code>cone_01</code> 的 35 个 candidate windows；T-B1-004c 进一步证明简单 same-envelope phase-removal 路线有 0 exact-pass windows。</td>
-            <td><span class="ok">最强候选</span>，B1 已经从路由/门数压缩推进到可传递给 B7 的 T-resource proxy，并关闭了一个错误窄路线；但仍没有 rewrite certificate、resource saving 或最终设备 claim。</td>
-            <td>T-B1-004：围绕 <code>cone_01</code> 做 broader two-qubit synthesis、KAK/Clifford scaffold 或 scoped symbolic obstruction；只有拿到 replayable certificate 后，才可至少移除 30 个 arbitrary occurrences / 600 proxy-T units 并重跑 B7 FT ledger。</td>
+            <td>virtual-SWAP elimination 覆盖 30/30 circuits；control-RZ pass 删除 380 个 RZ，T-count proxy 1.119320x；U3 phase-factored pass 又分解 1641 个 U3、删除 313 个 RZ，T-count proxy 相对 control-RZ 再提升 1.036371x，Aer 30/30 通过；T-B1-004a/004b 已把 gcm_h6 的下一目标收敛到 <code>cone_01</code> 的 35 个 candidate windows；T-B1-004c/004d 证明 simple phase-removal 与 Euler reabsorption 两条同 envelope 路线都是 0 exact-pass。</td>
+            <td><span class="ok">最强候选</span>，B1 已经从路由/门数压缩推进到可传递给 B7 的 T-resource proxy，并关闭了两个错误窄路线；但仍没有 rewrite certificate、resource saving 或最终设备 claim。</td>
+            <td>T-B1-004：围绕 <code>cone_01</code> 做真正 broader two-qubit synthesis、KAK/Clifford scaffold 或 scoped symbolic obstruction；只有拿到 replayable certificate 后，才可至少移除 30 个 arbitrary occurrences / 600 proxy-T units 并重跑 B7 FT ledger。</td>
           </tr>
           <tr>
             <td>B2 低开销量子纠错</td>
@@ -568,9 +571,9 @@
           </tr>
           <tr>
             <td>B7 容错架构 co-design</td>
-            <td>workload-DAG factory schedule：mean STV reduction 1.475x；FT synthesis ledger：sat_n11 balanced/throughput STV 1.611481x，新 min row 为 gcm_h6 1.086008x；T-B7-010a 显示 repeated template 不能直接计入 savings；T-B1-004c 显示 <code>cone_01</code> 简单 phase-removal 路线有 0 exact-pass windows。</td>
-            <td><span class="ok">旧 sat_n11 卡点已被重分类</span>，但 gcm_h6 成为新的 sensitivity/ledger boundary；现在 simple phase route 已关闭，但还没有 occurrence-removing certificate。</td>
-            <td>下一步 T-B1-004 / T-B7-010：拿到 broader <code>cone_01</code> semantic rewrite certificate 或 scoped symbolic obstruction/proof；不能把 target selection、feasibility gating、phase-removal negative gate、repeated template 或 shared cache 直接计为物理 savings。</td>
+            <td>workload-DAG factory schedule：mean STV reduction 1.475x；FT synthesis ledger：sat_n11 balanced/throughput STV 1.611481x，新 min row 为 gcm_h6 1.086008x；T-B7-010a 显示 repeated template 不能直接计入 savings；T-B1-004c/004d 显示 <code>cone_01</code> 同 envelope phase-removal 与 Euler reabsorption 路线均为 0 exact-pass。</td>
+            <td><span class="ok">旧 sat_n11 卡点已被重分类</span>，但 gcm_h6 成为新的 sensitivity/ledger boundary；现在同 envelope 简化路线已关闭，但还没有 occurrence-removing certificate。</td>
+            <td>下一步 T-B1-004 / T-B7-010：拿到 broader <code>cone_01</code> semantic rewrite certificate 或 scoped symbolic obstruction/proof；不能把 target selection、feasibility gating、negative gates、repeated template 或 shared cache 直接计为物理 savings。</td>
           </tr>
           <tr>
             <td>B8 量子输出经典验证</td>
@@ -596,13 +599,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>B1</td><td>硬件感知量子线路压缩</td><td><span class="ok">证据最强</span>：proof log、Aer cross-check、virtual-SWAP 诊断和弱 T-resource 诊断齐备；T-B1-004c 已关闭 <code>cone_01</code> 简单 phase-removal 路线，但尚无 semantic certificate。</td></tr>
+          <tr><td>B1</td><td>硬件感知量子线路压缩</td><td><span class="ok">证据最强</span>：proof log、Aer cross-check、virtual-SWAP 诊断和弱 T-resource 诊断齐备；T-B1-004c/004d 已关闭 <code>cone_01</code> 同 envelope phase/Euler absorption 路线，但尚无 semantic certificate。</td></tr>
           <tr><td>B2</td><td>低开销量子纠错</td><td><span class="warn">T-B2-009d hardware-like leakage observation negative boundary</span>：hardware-like model 已消费 576 条 detector traces，评估 3 observation profiles / 1728 profile-shots；best conservative profile 修复 0 个 failures，holdout delta 0，holdout improvement false；仍需 T-B2-009e real calibrated leakage/flag observations 或 independent hardware traces 才能晋级。</td></tr>
           <tr><td>B3</td><td>分子反应动力学</td><td><span class="risk-text">已降级为 negative-boundary track</span>：T-B3-011 覆盖 H2/LiH/H2O/N2 bounded sampled covariance pressure，35 sampled groups、mean/max variance error 0.0833/0.5029；max optimizer-loop shots lower bound 475,043,013,690,000，denominator wins 为 0。只有 rescue-only multi-parameter UCCSD/ADAPT 或更强测量策略出现后才继续作为突破候选。</td></tr>
           <tr><td>B4</td><td>可验证量子优势</td><td><span class="warn">已有 B4/B8 CNOT hidden-projection circuit proxy</span>，但仍不是 quantum advantage 或硬件协议。</td></tr>
           <tr><td>B5</td><td>强关联物质</td><td><span class="warn">canonical-environment smoke gate failed 0/9</span>：同一组 9 个 B10 D5 density-response rows 已有 embedding denominators、seeded MPS pressure、MPS/ALS、two-site finite-DMRG-style prototype、readiness gate 和 smoke gate；9 个 environment ledgers 存在但 0 行通过完整 smoke gate，3 行通过 fixed-sector norm / energy variance / discarded-weight / monotonicity 检查，0 行 close to seeded pressure，0 行优于 seeded MPS pressure；仍需真实 production DMRG/MPS reference 或真实量子 response-kernel costed comparison。</td></tr>
           <tr><td>B6</td><td>高温超导搜索</td><td><span class="warn">structural/electronic proxy boundary</span>：38 records / 22 families，12 expanded negatives，structural AP@12 0.611 vs formula 0.10，但 family-prior AP@12 仍为 1.0；top-12 negative controls 为 3；下一步接入真实 crystallographic/DFT/B5-computed observables。</td></tr>
-          <tr><td>B7</td><td>容错架构 co-design</td><td><span class="warn">已有 B1/B2 bridge、DAG/factory schedule、FT synthesis ledger、template-priority gate、gcm_h6 cone-feasibility gate 和 cone_01 phase-removal negative gate</span>；当前 min row 仍是 gcm_h6 1.086008x，必须等 broader <code>cone_01</code> occurrence-removing certificate 后才能刷新资源账本。</td></tr>
+          <tr><td>B7</td><td>容错架构 co-design</td><td><span class="warn">已有 B1/B2 bridge、DAG/factory schedule、FT synthesis ledger、template-priority gate、gcm_h6 cone-feasibility gate、cone_01 phase-removal gate 和 Euler-reabsorption gate</span>；当前 min row 仍是 gcm_h6 1.086008x，必须等 broader <code>cone_01</code> occurrence-removing certificate 后才能刷新资源账本。</td></tr>
           <tr><td>B8</td><td>量子输出经典验证</td><td><span class="ok">已有 adaptive leakage 边界、toy repair baseline、B4/B8 circuit-refresh proxy、trained-spoofer boundary、B10-T2 proof gate、restricted lemma、transcript/device-noise bridge、ideal Qiskit/Aer verifier bridge、noisy Aer verifier bridge 和 GenericBackendV2 backend-calibrated-style verifier bridge</span>，下一步 real backend / hardware verifier。</td></tr>
           <tr><td>B9</td><td>Quantum PCP / Local Hamiltonian</td><td><span class="risk-text">高风险理论线</span>，已有 exact gap lab、finite-instance failed gap-amplification negative lemma、Lean-style symbolic skeleton 和 cluster-stabilizer named-family width/locality bound：n=4,5,6 全部 term 统一 1.35x 缩放，max locality 3，raw gap 放大但 normalized gap 不变；下一步 T-B9-004 做真正 proof-check。</td></tr>
           <tr><td>B10</td><td>BQP 边界地图</td><td><span class="ok">B5 same-access bridge + response-sampler cost stress + DMRG readiness/smoke gates 已完成</span>：T-B5-006a 显示 canonical-environment smoke gate 0/9 通过，0 行 beat seeded MPS pressure；T-B10-013 显示 min/median/max shots to match seeded MPS 为 3.861e9 / 7.645e12 / 2.849e29，0 行 beat explicit D5 matvec-equivalent cost；没有 sampling oracle、production DMRG、same-access positive route、quantum advantage 或 BQP separation；下一步 T-B10-014/T-B5-006。</td></tr>
@@ -638,8 +641,8 @@
               <td>前人路线包括 peephole rewrite、phase polynomial、ZX-calculus、SAT/SMT synthesis、tensor equivalence、Qiskit/tket transpiler、SABRE/LightSABRE mapping。里程碑是从抽象门分解走到 NISQ 设备拓扑感知路由。</td>
               <td>
                 我们的方案是 proof-logged local rewrite 加 measurement-aware virtual-SWAP elimination，再用 post-virtual-SWAP 1Q resynthesis 检查是否能触碰 non-Clifford/T-resource proxy。
-                已完成 30/30 circuits 覆盖，删除 481 个 virtual SWAP 和 1443 个 CX，双量子门降低 37.18%，exposure 降低 32.65%，proof replay 481/481 通过；新增 1Q pass 删除 60 个门，T-count proxy 1.018x、T-depth proxy 1.015x，Aer 30/30 通过；control-RZ 与 U3 phase-factored pass 已接入 B7；T-B1-004a/T-B1-004b 已把 <code>gcm_h6</code> 的下一 rewrite 目标收敛到 <code>cone_01</code> 的 35 个 pair-local single-arbitrary windows；T-B1-004c 关闭了简单 same-envelope phase-removal 路线，但还没有 semantic certificate。
-                <span class="progress">内部成熟度：40/100</span>
+                已完成 30/30 circuits 覆盖，删除 481 个 virtual SWAP 和 1443 个 CX，双量子门降低 37.18%，exposure 降低 32.65%，proof replay 481/481 通过；新增 1Q pass 删除 60 个门，T-count proxy 1.018x、T-depth proxy 1.015x，Aer 30/30 通过；control-RZ 与 U3 phase-factored pass 已接入 B7；T-B1-004a/T-B1-004b 已把 <code>gcm_h6</code> 的下一 rewrite 目标收敛到 <code>cone_01</code> 的 35 个 pair-local single-arbitrary windows；T-B1-004c/004d 关闭了 same-envelope phase-removal 与 Euler-reabsorption 路线，但还没有 semantic certificate。
+                <span class="progress">内部成熟度：41/100</span>
               </td>
               <td>还需 5 步：接入 calibrated/live-like heavy-hex baseline；补 dynamic-circuit 与 reset/measure 语义；围绕 <code>cone_01</code> 给出 broader replayable local two-qubit semantic rewrite certificate 或 scoped obstruction；让 B7 min factory STV 通过刷新账本真正改善；在真实 workload 和第三方 transpiler 上做独立复现。</td>
             </tr>
@@ -722,8 +725,8 @@
               <td>前人路线包括 surface-code resource estimation、lattice surgery、magic-state factories、modular ion/photonic/superconducting architectures、compiler-resource co-design。里程碑是可运行的 resource estimators 和 logical-level scheduling 工具。</td>
               <td>
                 我们的方案是把 B1 的线路压缩与 B2 的 target-volume 纠错 baseline 桥接成 dependency schedule，再显式加入 workload DAG、factory-throughput、FT synthesis ledger 和 occurrence-level rewrite certificate 压力测试。
-                已完成 workload-DAG factory schedule，mean STV reduction 1.475x；FT synthesis ledger 暴露 gcm_h6 为当前 min row 1.086008x；w8_21 claim-boundary closure 汇总 43480 次优化、0 个 exact replacement、0 个 ledger removal；template-priority gate 显示 12 个 retained templates 中 0 个 one-angle single-template route 清 1.20x；B1-side cone-feasibility gate 把下一目标锁定为 <code>cone_01</code> 的 35 个 candidate windows；phase-removal gate 又确认简单同 envelope 路线 0 exact-pass，但还没有 occurrence-removing certificate。
-                <span class="progress">内部成熟度：37/100</span>
+                已完成 workload-DAG factory schedule，mean STV reduction 1.475x；FT synthesis ledger 暴露 gcm_h6 为当前 min row 1.086008x；w8_21 claim-boundary closure 汇总 43480 次优化、0 个 exact replacement、0 个 ledger removal；template-priority gate 显示 12 个 retained templates 中 0 个 one-angle single-template route 清 1.20x；B1-side cone-feasibility gate 把下一目标锁定为 <code>cone_01</code> 的 35 个 candidate windows；phase-removal 与 Euler-reabsorption gates 又确认同 envelope 简化路线 0 exact-pass，但还没有 occurrence-removing certificate。
+                <span class="progress">内部成熟度：38/100</span>
               </td>
               <td>还需 5 步：围绕 <code>cone_01</code> 给出 broader certified occurrence-removing rewrite 或 scoped symbolic obstruction；继续强化 non-Clifford/T-depth 优化直到 min STV 改善；按 data-path 与 T-factory dominated regime 分开建模；加入 layout/routing constraints；用完整算法端到端输出资源账本。</td>
             </tr>
@@ -849,6 +852,7 @@
         <li><code>research/B1_B7_gcm_h6_target_selector.md</code>：B1/B7 gcm_h6 target selector，270 个 arbitrary decimal rotations；3 个 cone classes、2 个 canonical angle classes、4 个 qubit classes 达到 30-occurrence target，但尚无 rewrite certificate</li>
         <li><code>research/B1_B7_gcm_h6_cone_feasibility_gate.md</code>：B1/B7 gcm_h6 cone feasibility gate，3 个 target cone classes 覆盖 111 个 occurrences；strict direct sandwiches 只有 4 个；<code>cone_01</code> 有 35 个 pair-local single-arbitrary windows，是唯一满足 30-occurrence local-window target 的 cone，但尚无 rewrite certificate 或 resource saving claim</li>
         <li><code>research/B1_B7_cone01_phase_removal_gate.md</code>：B1/B7 cone_01 restricted phase-removal gate，35 个 candidate windows；remove-only、fixed Z-phase、continuous RZ replacement 均为 0 exact-pass windows；best continuous-RZ residual 0.36435162331705345，关闭简单 phase-absorption 路线但不声明 obstruction theorem</li>
+        <li><code>research/B1_B7_cone01_euler_reabsorption_gate.md</code>：B1/B7 cone_01 restricted Euler reabsorption gate，35 个 candidate windows；9 个 exact RY candidate angles、每角 8 个 optimizer seeds；fixed RY + neighboring RZ reabsorption exact-pass 仍为 0，best residual 0.21253656711362606</li>
         <li><code>research/B7_logical_t_factory_schedule_u3_phase_factored.md</code>：B7 U3 phase-factored 后续调度，mean STV 提升到 1.234394x，min STV 保持 1.121951x</li>
         <li><code>research/B7_min_stv_regime_classifier.md</code>：B7 min-STV regime classifier，定位 sat_n11 factory-path boundary；1.20x / 1.25x 还需 344 / 544 个 T proxy</li>
         <li><code>research/B7_ft_synthesis_ledger.md</code>：B7 FT synthesis ledger，sat_n11 重计价为 294 -> 262 T ledger units，balanced/throughput STV 1.611481x；新 min row 为 gcm_h6 1.086008x</li>
@@ -930,6 +934,7 @@
         <li>最新 T-B1-004a：gcm_h6 target selector 已完成；当前 B1 after-QASM 有 270 个 arbitrary decimal rotations，B7 需要 30 个 occurrence removal / 600 proxy-T units；selector 找到 3 个 local CNOT-cone classes、2 个 canonical angle classes、4 个 qubit classes 达到目标，但尚未给出 rewrite 或 semantic certificate。</li>
         <li>最新 T-B1-004b：gcm_h6 cone feasibility gate 已完成；3 个 target cone classes 覆盖 111 个 occurrences，strict direct CNOT-rotation-CNOT sandwiches 只有 4 个；<code>cone_01</code> 有 35 个 pair-local single-arbitrary candidate windows，是唯一满足 30-occurrence local-window target 的 cone。下一步 T-B1-004 必须围绕 <code>cone_01</code> 给出 replayable semantic rewrite certificate，不能把 feasibility gate 计为 resource saving。</li>
         <li>最新 T-B1-004c：cone_01 restricted phase-removal gate 已完成；35 个窗口中 remove-only、fixed Z-phase replacement、continuous RZ replacement 全部 0 exact-pass，best residual 0.36435162331705345。下一步必须转向 broader two-qubit synthesis、KAK/Clifford scaffold 或 scoped obstruction，不能把这个负向 gate 计为 rewrite 或 B7 resource saving。</li>
+        <li>最新 T-B1-004d：cone_01 restricted Euler reabsorption gate 已完成；35 个窗口中，把 arbitrary RY 锁到 9 个 exact/Clifford-like angles 并让相邻 RZ 连续重优化后仍为 0 exact-pass，best/median residual 为 0.21253656711362606 / 0.3643516233170531。下一步必须进入真正 broader two-qubit synthesis 或 KAK/Clifford scaffold。</li>
         <li>最新 T-B2-006：posterior-calibrated shot-conditioned leakage boundary 已完成；读取 T-B2-005 的 288 target comparisons，评估 4 calibration profiles / 1152 profile rows，3 profiles 保留部分 d=5/d=7 rows，单 profile 最多 4 行，strict high-purity survival 0，robust all-profile survival false；随后 T-B2-007 已把这些 posterior rows 接入 decoder-risk ledger。</li>
         <li>最新 T-B2-007：posterior-weighted decoder-risk ledger 已完成；读取 T-B2-006 的 1152 profile rows，评估 4 risk budgets / 4608 budget-profile rows，raw profile survivors 6，mild/nominal/conservative/strict adjusted survivors 6/5/3/3，strict high-purity adjusted survivors 0，robust all-profile adjusted survival false。</li>
         <li>最新 T-B2-008：decoder-input contract feasibility gate 已完成；10 个 decoder inputs 中 4 个可用、6 个缺失，9 个 feasibility gates 中 4 个通过、5 个关键 gate 失败；随后 T-B2-009a 先补 per-shot trace input fixture。</li>

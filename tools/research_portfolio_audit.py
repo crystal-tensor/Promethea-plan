@@ -138,6 +138,7 @@ def audit(root: Path) -> dict:
     b1_b7_gcm_h6_target_selector_path = results / "B1_B7_gcm_h6_target_selector_v0.json"
     b1_b7_gcm_h6_cone_feasibility_path = results / "B1_B7_gcm_h6_cone_feasibility_gate_v0.json"
     b1_b7_cone01_phase_removal_path = results / "B1_B7_cone01_phase_removal_gate_v0.json"
+    b1_b7_cone01_euler_reabsorption_path = results / "B1_B7_cone01_euler_reabsorption_gate_v0.json"
     b1_synthetic_noise_path = research / "B1_synthetic_noise_proxy_report.json"
     b1_manifest_path = benchmarks / "B1_circuit_compression.yaml"
     b2_manifest_path = benchmarks / "B2_qec_overhead.yaml"
@@ -603,6 +604,9 @@ def audit(root: Path) -> dict:
     )
     b1_b7_cone01_phase_removal_manifest = current_results.get(
         "b1_b7_cone01_phase_removal_gate_v0"
+    )
+    b1_b7_cone01_euler_reabsorption_manifest = current_results.get(
+        "b1_b7_cone01_euler_reabsorption_gate_v0"
     )
     synthetic_noise_manifest = current_results.get("b1_synthetic_heavyhex_noise_proxy_v0")
     b1_routing_diagnostic = {
@@ -1413,6 +1417,104 @@ def audit(root: Path) -> dict:
             errors.append("B1/B7 cone_01 phase-removal gate validation errors must remain zero")
     else:
         errors.append(f"missing B1/B7 cone_01 phase-removal gate report: {b1_b7_cone01_phase_removal_path}")
+
+    b1_b7_cone01_euler_reabsorption = {
+        "path": str(b1_b7_cone01_euler_reabsorption_path),
+        "exists": b1_b7_cone01_euler_reabsorption_path.exists(),
+    }
+    if not b1_b7_cone01_euler_reabsorption_manifest:
+        errors.append("B1 manifest missing current result: b1_b7_cone01_euler_reabsorption_gate_v0")
+    else:
+        if (
+            b1_b7_cone01_euler_reabsorption_manifest.get("status")
+            != "cone01_euler_reabsorption_restricted_negative_gate"
+        ):
+            errors.append("B1/B7 cone_01 Euler-reabsorption gate must remain a restricted negative gate")
+        for field in ["report", "markdown_report", "source_qasm"]:
+            value = b1_b7_cone01_euler_reabsorption_manifest.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(f"B1/B7 cone_01 Euler-reabsorption gate missing existing {field} path: {value}")
+    if b1_b7_cone01_euler_reabsorption_path.exists():
+        euler_payload = json.loads(read(b1_b7_cone01_euler_reabsorption_path))
+        euler_summary = euler_payload.get("summary", {})
+        euler_claims = euler_payload.get("claim_boundary", {})
+        b1_b7_cone01_euler_reabsorption.update(
+            {
+                "status": euler_payload.get("status"),
+                "model_status": euler_payload.get("model_status"),
+                "method": euler_payload.get("method"),
+                "workload": euler_payload.get("workload"),
+                "target_cone_id": euler_summary.get("target_cone_id"),
+                "candidate_window_count": euler_summary.get("candidate_window_count"),
+                "required_exact_windows_for_b7_target": euler_summary.get(
+                    "required_exact_windows_for_b7_target"
+                ),
+                "exact_ry_candidate_angle_count": euler_summary.get("exact_ry_candidate_angle_count"),
+                "optimizer_seed_count": euler_summary.get("optimizer_seed_count"),
+                "fixed_ry_with_rz_reabsorption_exact_pass_count": euler_summary.get(
+                    "fixed_ry_with_rz_reabsorption_exact_pass_count"
+                ),
+                "best_residual_norm": euler_summary.get("best_residual_norm"),
+                "median_residual_norm": euler_summary.get("median_residual_norm"),
+                "editable_rz_parameter_count_min": euler_summary.get("editable_rz_parameter_count_min"),
+                "editable_rz_parameter_count_max": euler_summary.get("editable_rz_parameter_count_max"),
+                "restricted_gate_clears_b7_target": euler_summary.get("restricted_gate_clears_b7_target"),
+                "rewrite_claimed": euler_claims.get("rewrite_claimed"),
+                "resource_saving_claimed": euler_claims.get("resource_saving_claimed"),
+                "semantic_certificate_claimed": euler_claims.get("semantic_certificate_claimed"),
+                "obstruction_theorem_claimed": euler_claims.get("obstruction_theorem_claimed"),
+                "validation_error_count": euler_summary.get("validation_error_count"),
+            }
+        )
+        if euler_payload.get("benchmark_id") != "B1":
+            errors.append("B1/B7 cone_01 Euler-reabsorption gate report must have benchmark_id B1")
+        if euler_payload.get("method") != "b1_b7_cone01_euler_reabsorption_gate_v0":
+            errors.append("B1/B7 cone_01 Euler-reabsorption gate method mismatch")
+        if euler_payload.get("status") != "cone01_euler_reabsorption_restricted_negative_gate":
+            errors.append("B1/B7 cone_01 Euler-reabsorption gate status mismatch")
+        for field in [
+            "target_cone_id",
+            "candidate_window_count",
+            "required_exact_windows_for_b7_target",
+            "exact_ry_candidate_angle_count",
+            "optimizer_seed_count",
+            "fixed_ry_with_rz_reabsorption_exact_pass_count",
+            "best_residual_norm",
+            "median_residual_norm",
+            "editable_rz_parameter_count_min",
+            "editable_rz_parameter_count_max",
+            "restricted_gate_clears_b7_target",
+            "rewrite_claimed",
+            "resource_saving_claimed",
+            "semantic_certificate_claimed",
+            "obstruction_theorem_claimed",
+        ]:
+            if euler_summary.get(field) != b1_b7_cone01_euler_reabsorption_manifest.get(field):
+                errors.append(f"B1/B7 cone_01 Euler-reabsorption gate {field} mismatch")
+        if euler_summary.get("target_cone_id") != "cone_01":
+            errors.append("B1/B7 cone_01 Euler-reabsorption gate target cone must remain cone_01")
+        if euler_summary.get("candidate_window_count") != 35:
+            errors.append("B1/B7 cone_01 Euler-reabsorption gate must test 35 windows")
+        if euler_summary.get("required_exact_windows_for_b7_target") != 30:
+            errors.append("B1/B7 cone_01 Euler-reabsorption gate B7 target must remain 30 windows")
+        if euler_summary.get("fixed_ry_with_rz_reabsorption_exact_pass_count") != 0:
+            errors.append("B1/B7 cone_01 Euler-reabsorption gate should have 0 exact passes")
+        if euler_summary.get("restricted_gate_clears_b7_target") is not False:
+            errors.append("B1/B7 cone_01 Euler-reabsorption gate must not clear the B7 target")
+        for field in [
+            "rewrite_claimed",
+            "resource_saving_claimed",
+            "semantic_certificate_claimed",
+            "obstruction_theorem_claimed",
+        ]:
+            if euler_claims.get(field) is not False:
+                errors.append(f"B1/B7 cone_01 Euler-reabsorption gate must not claim {field}")
+        if euler_summary.get("validation_error_count") != 0:
+            errors.append("B1/B7 cone_01 Euler-reabsorption gate validation errors must remain zero")
+    else:
+        errors.append(
+            f"missing B1/B7 cone_01 Euler-reabsorption gate report: {b1_b7_cone01_euler_reabsorption_path}"
+        )
 
     b1_synthetic_noise = {
         "path": str(b1_synthetic_noise_path),
@@ -8847,6 +8949,7 @@ def audit(root: Path) -> dict:
             "b7_gcm_h6_target_selector": b1_b7_gcm_h6_target_selector,
             "b7_gcm_h6_cone_feasibility_gate": b1_b7_gcm_h6_cone_feasibility,
             "b7_cone01_phase_removal_gate": b1_b7_cone01_phase_removal,
+            "b7_cone01_euler_reabsorption_gate": b1_b7_cone01_euler_reabsorption,
             "synthetic_noise_proxy": b1_synthetic_noise,
         },
         "b2": {
@@ -9002,6 +9105,7 @@ def audit(root: Path) -> dict:
             "b1_b7_gcm_h6_target_selector": str(b1_b7_gcm_h6_target_selector_path),
             "b1_b7_gcm_h6_cone_feasibility_gate": str(b1_b7_gcm_h6_cone_feasibility_path),
             "b1_b7_cone01_phase_removal_gate": str(b1_b7_cone01_phase_removal_path),
+            "b1_b7_cone01_euler_reabsorption_gate": str(b1_b7_cone01_euler_reabsorption_path),
             "b1_synthetic_noise_proxy": str(b1_synthetic_noise_path),
             "b2_phenomenological_decoder": str(research / "B2_phenomenological_repetition_decoder.md"),
             "b2_stim_surface_code_baseline": str(research / "B2_stim_surface_code_memory_baseline.md"),
@@ -9456,6 +9560,19 @@ def markdown_report(report: dict) -> str:
             f"- Restricted gate clears B7 target: {report['b1']['b7_cone01_phase_removal_gate'].get('restricted_gate_clears_b7_target')}",
             f"- Rewrite/resource/semantic/obstruction claims: {report['b1']['b7_cone01_phase_removal_gate'].get('rewrite_claimed')} / {report['b1']['b7_cone01_phase_removal_gate'].get('resource_saving_claimed')} / {report['b1']['b7_cone01_phase_removal_gate'].get('semantic_certificate_claimed')} / {report['b1']['b7_cone01_phase_removal_gate'].get('obstruction_theorem_claimed')}",
             f"- Validation errors: {report['b1']['b7_cone01_phase_removal_gate'].get('validation_error_count')}",
+            "",
+            "## B1/B7 cone_01 Euler-Reabsorption Gate",
+            "",
+            f"- Exists: {report['b1']['b7_cone01_euler_reabsorption_gate'].get('exists')}",
+            f"- Status: {report['b1']['b7_cone01_euler_reabsorption_gate'].get('status')}",
+            f"- Target cone / candidate windows / required windows: {report['b1']['b7_cone01_euler_reabsorption_gate'].get('target_cone_id')} / {report['b1']['b7_cone01_euler_reabsorption_gate'].get('candidate_window_count')} / {report['b1']['b7_cone01_euler_reabsorption_gate'].get('required_exact_windows_for_b7_target')}",
+            f"- Exact RY candidates / optimizer seeds: {report['b1']['b7_cone01_euler_reabsorption_gate'].get('exact_ry_candidate_angle_count')} / {report['b1']['b7_cone01_euler_reabsorption_gate'].get('optimizer_seed_count')}",
+            f"- Fixed-RY plus RZ-reabsorption exact passes: {report['b1']['b7_cone01_euler_reabsorption_gate'].get('fixed_ry_with_rz_reabsorption_exact_pass_count')}",
+            f"- Best / median residual: {report['b1']['b7_cone01_euler_reabsorption_gate'].get('best_residual_norm')} / {report['b1']['b7_cone01_euler_reabsorption_gate'].get('median_residual_norm')}",
+            f"- Editable RZ parameter range: {report['b1']['b7_cone01_euler_reabsorption_gate'].get('editable_rz_parameter_count_min')} - {report['b1']['b7_cone01_euler_reabsorption_gate'].get('editable_rz_parameter_count_max')}",
+            f"- Restricted gate clears B7 target: {report['b1']['b7_cone01_euler_reabsorption_gate'].get('restricted_gate_clears_b7_target')}",
+            f"- Rewrite/resource/semantic/obstruction claims: {report['b1']['b7_cone01_euler_reabsorption_gate'].get('rewrite_claimed')} / {report['b1']['b7_cone01_euler_reabsorption_gate'].get('resource_saving_claimed')} / {report['b1']['b7_cone01_euler_reabsorption_gate'].get('semantic_certificate_claimed')} / {report['b1']['b7_cone01_euler_reabsorption_gate'].get('obstruction_theorem_claimed')}",
+            f"- Validation errors: {report['b1']['b7_cone01_euler_reabsorption_gate'].get('validation_error_count')}",
             "",
             "## B1 Synthetic Heavy-Hex Noise Proxy",
             "",

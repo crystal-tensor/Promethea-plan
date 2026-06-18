@@ -155,6 +155,14 @@ continuous-RZ residual is 0.36435162331705345. This closes the simple
 phase-absorption route, but it is not a global obstruction theorem and not a
 B7 resource-saving claim.
 
+B1/B7 now has one more restricted `cone_01` gate: Euler reabsorption. It locks
+the arbitrary RY to 9 exact/Clifford-like candidate angles and lets neighboring
+target-qubit RZ phases reoptimize inside the same two-CNOT envelope. Across the
+same 35 windows, the exact-pass count is still 0; the best residual is
+0.21253656711362606 and the median residual is 0.3643516233170531. This closes
+another narrow same-envelope route and pushes the next useful work toward
+broader two-qubit synthesis or a KAK/Clifford scaffold.
+
 ## Repository Layout
 
 ```text
