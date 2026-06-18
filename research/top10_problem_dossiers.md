@@ -115,21 +115,24 @@ non-aggressive d-2 variants. The reduced-round artifact boundary confirms all
 original and stress-preserved improved rows are aggressive, distance-3,
 one-round candidates, so this lever is closed as a small-distance/aggressive-
 schedule artifact boundary rather than a low-overhead QEC claim. T-B2-003 adds
-a different non-aggressive leakage-flagged erasure analytic boundary: 480
-configurations, 335 candidate-met rows vs 264 baseline-met rows, 42 proxy
-target-volume improved rows, 33 distance-5/7 improved rows, 19 high-efficiency
-distance-5/7 rows, max reduction 23.904x, mean reduction 4.837x, validation
-errors 0, no reduced rounds, no d=3 candidates, and no new-code, threshold,
-device, or circuit-level claim.
+a different non-aggressive leakage-flagged erasure analytic boundary with 42
+proxy target-volume improved rows and 33 distance-5/7 rows. T-B2-004 now adds a
+Stim HERALDED_ERASE / DEPOLARIZE1 circuit-derived stress: 108 configurations,
+216,000 shots, 72 target comparisons, 59 candidate-met rows vs 53 baseline-met
+rows, 7 candidate-only target hits, 10 improved target-volume rows, all 10 with
+candidate distance 5 or 7, max reduction 4.598x, mean reduction 2.623x,
+validation errors 0, no reduced rounds, no d=3 candidates, and no new-code,
+threshold, calibrated-device, full physical leakage-decoder, or shot-conditioned
+erasure-decoder claim.
 
-**Remaining path to a serious solution:** replace the analytic leakage-flagged
-erasure proxy with a circuit-level leakage/erasure decoder experiment; calibrate
-or stress the leakage model under noise mismatch and correlated leakage; verify
-that distance-5/7 Wilson target-volume reductions survive stronger baselines;
-measure decoder/runtime overhead and flag false-positive cost; connect only
-circuit-level non-artifact B2 rows into the B7 resource ledger.
+**Remaining path to a serious solution:** replace the Stim detector-error-model
+stress with a shot-conditioned erasure decoder; stress the result with calibrated
+or more realistic leakage and correlated-noise models; verify that distance-5/7
+Wilson target-volume reductions survive flag false-positive overhead; measure
+decoder/runtime overhead at larger distances and more shots; connect only
+shot-conditioned or calibrated non-artifact B2 rows into the B7 resource ledger.
 
-**Current internal maturity:** 36/100.
+**Current internal maturity:** 39/100.
 
 ## B3: Quantum Algorithms for Molecular Reaction Dynamics
 

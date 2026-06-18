@@ -59,15 +59,15 @@
         "learned decoders"
       ],
       "our_solution": "Use Wilson-bounded target-volume baselines and force every candidate code, schedule, decoder, or leakage-mitigation mechanism to beat the same denominator. Reduced-round signals are now explicitly boundary-checked; the active new route is leakage-flagged erasure information that may lower required distance without reducing syndrome rounds.",
-      "completed": "Stim/PyMatching rotated surface-code baseline with 30 configurations, 90,000 shots, distances 3/5/7, X/Z bases; target-volume table with 22 met and 18 unmet combinations; biased schedule proxy raises candidate-met targets to 28 with 0 volume-improvement rows; real circuit-level sweep with 90 configurations and 270,000 shots raises candidate-met targets to 26 with 0 volume-improvement rows; same-hardware reduced-round candidate runs 120 configurations / 360,000 shots and finds 22 Wilson target-volume improved rows with max 3.0x reduction; robustness stress runs 240 configurations / 1,200,000 shots and preserves 88 improved rows, all aggressive; reduced-round artifact boundary closes that lever as a distance-3 one-round artifact. T-B2-003 adds a different non-aggressive leakage-flagged erasure analytic boundary: 480 configurations, 335 candidate-met rows vs 264 baseline-met rows, 42 proxy target-volume improved rows, 33 distance-5/7 improved rows, 19 high-efficiency distance-5/7 rows, max reduction 23.904x, mean reduction 4.837x, validation errors 0, no reduced rounds, no d=3 candidates, and no new-code/threshold/device/circuit-level claim.",
+      "completed": "Stim/PyMatching rotated surface-code baseline with 30 configurations, 90,000 shots, distances 3/5/7, X/Z bases; target-volume table with 22 met and 18 unmet combinations; biased schedule proxy and real circuit-level sweep improved target-hit counts but not volume; same-hardware reduced-round candidate and robustness stress were closed by T-B2-002 as aggressive distance-3 one-round artifacts. T-B2-003 added a non-aggressive leakage-flagged erasure analytic boundary with 42 proxy target-volume improved rows and 33 distance-5/7 rows. T-B2-004 now adds a Stim HERALDED_ERASE / DEPOLARIZE1 circuit-derived stress: 108 configurations, 216,000 shots, 72 target comparisons, 59 candidate-met rows vs 53 baseline-met rows, 7 candidate-only target hits, 10 improved target-volume rows, all 10 with candidate distance 5 or 7, max reduction 4.598x, mean reduction 2.623x, validation errors 0, no reduced rounds, no d=3 candidates, and no new-code, threshold, calibrated-device, full physical leakage-decoder, or shot-conditioned erasure-decoder claim.",
       "remaining_steps": [
-        "replace the analytic leakage-flagged erasure proxy with a circuit-level leakage/erasure decoder experiment",
-        "calibrate or stress the leakage model under noise mismatch and correlated leakage",
-        "verify that distance-5/7 Wilson target-volume reductions survive stronger baselines",
-        "measure decoder/runtime overhead and flag false-positive cost",
-        "connect only circuit-level non-artifact B2 rows into the B7 resource ledger"
+        "replace the Stim detector-error-model stress with a shot-conditioned erasure decoder",
+        "stress the result with calibrated or more realistic leakage and correlated-noise models",
+        "verify that distance-5/7 Wilson target-volume reductions survive flag false-positive overhead",
+        "measure decoder/runtime overhead at larger distances and more shots",
+        "connect only shot-conditioned or calibrated non-artifact B2 rows into the B7 resource ledger"
       ],
-      "maturity_score": 36
+      "maturity_score": 39
     },
     {
       "b_id": "B3",

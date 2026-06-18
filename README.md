@@ -93,6 +93,11 @@ erasure analytic boundary: 480 configurations, 42 proxy target-volume improved
 rows, 33 distance-5/7 improved rows, no reduced rounds, and no new-code,
 threshold, device, or circuit-level decoder claim.
 
+B2 now also has a Stim HERALDED_ERASE / DEPOLARIZE1 stress boundary: 108
+configurations, 216k shots, 10 target-volume improved rows, all at candidate
+distance 5 or 7, and no shot-conditioned erasure-decoder, threshold, hardware,
+or new-code claim.
+
 ## Repository Layout
 
 ```text

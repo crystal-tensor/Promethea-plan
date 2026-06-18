@@ -1308,6 +1308,7 @@ def audit(root: Path) -> dict:
     b2_same_hardware_robustness = b2_results.get("same_hardware_schedule_robustness_v0")
     b2_reduced_round_boundary = b2_results.get("reduced_round_artifact_boundary_v0")
     b2_leakage_flagged_erasure = b2_results.get("leakage_flagged_erasure_boundary_v0")
+    b2_stim_heralded_erasure = b2_results.get("stim_heralded_erasure_stress_v0")
     b2_status = {}
     if not b2_baseline:
         warnings.append("B2 manifest has no repetition-code control baseline result")
@@ -1822,6 +1823,93 @@ def audit(root: Path) -> dict:
             errors.append("B2 leakage-flagged erasure boundary must not claim circuit-level decoder evidence")
         if len(payload.get("validation_errors", [])) != 0:
             errors.append("B2 leakage-flagged erasure boundary validation errors must be zero")
+
+    b2_stim_heralded_erasure_status = {}
+    if not b2_stim_heralded_erasure:
+        warnings.append("B2 manifest has no Stim heralded-erasure stress result")
+    else:
+        result_path = b2_stim_heralded_erasure.get("result")
+        markdown_path = b2_stim_heralded_erasure.get("markdown_report")
+        result_exists = bool(result_path and path_exists_from(benchmarks, result_path))
+        markdown_exists = bool(markdown_path and path_exists_from(benchmarks, markdown_path))
+        if not result_exists:
+            errors.append(f"B2 Stim heralded-erasure stress result path missing: {result_path}")
+        if not markdown_exists:
+            errors.append(f"B2 Stim heralded-erasure stress markdown missing: {markdown_path}")
+        payload = json.loads(read((benchmarks / result_path).resolve())) if result_exists else {}
+        summary = payload.get("summary", {})
+        claims = payload.get("claim_boundary", {})
+        b2_stim_heralded_erasure_status = {
+            "status": b2_stim_heralded_erasure.get("status"),
+            "method": b2_stim_heralded_erasure.get("method"),
+            "model_status": payload.get("model_status"),
+            "toolchain": payload.get("toolchain"),
+            "configuration_count": summary.get("configuration_count"),
+            "total_shots": summary.get("total_shots"),
+            "target_comparisons": summary.get("target_comparisons"),
+            "baseline_met_count": summary.get("baseline_met_count"),
+            "candidate_met_count": summary.get("candidate_met_count"),
+            "candidate_only_meets_target_count": summary.get("candidate_only_meets_target_count"),
+            "improved_volume_count": summary.get("improved_volume_count"),
+            "distance_5_7_improved_count": summary.get("distance_5_7_improved_count"),
+            "max_volume_reduction": summary.get("max_volume_reduction"),
+            "mean_volume_reduction_on_improved": summary.get("mean_volume_reduction_on_improved"),
+            "reduced_rounds_used": claims.get("reduced_rounds_used"),
+            "distance_3_candidate_used": claims.get("distance_3_candidate_used"),
+            "new_code_claimed": claims.get("new_code_claimed"),
+            "threshold_claimed": claims.get("threshold_claimed"),
+            "calibrated_device_claimed": claims.get("calibrated_device_claimed"),
+            "full_physical_leakage_decoder_claimed": claims.get("full_physical_leakage_decoder_claimed"),
+            "shot_conditioned_erasure_decoder_claimed": claims.get("shot_conditioned_erasure_decoder_claimed"),
+            "circuit_derived_stim_evidence": claims.get("circuit_derived_stim_evidence"),
+            "validation_error_count": len(payload.get("validation_errors", [])),
+            "result_exists": result_exists,
+            "markdown_exists": markdown_exists,
+            "result": result_path,
+            "markdown_report": markdown_path,
+        }
+        if payload.get("status") != b2_stim_heralded_erasure.get("status"):
+            errors.append("B2 Stim heralded-erasure stress status mismatch")
+        if payload.get("method") != b2_stim_heralded_erasure.get("method"):
+            errors.append("B2 Stim heralded-erasure stress method mismatch")
+        if payload.get("model_status") != b2_stim_heralded_erasure.get("model_status"):
+            errors.append("B2 Stim heralded-erasure stress model-status mismatch")
+        if summary.get("configuration_count") != b2_stim_heralded_erasure.get("configurations"):
+            errors.append("B2 Stim heralded-erasure stress configuration count mismatch")
+        if summary.get("total_shots") != b2_stim_heralded_erasure.get("total_shots"):
+            errors.append("B2 Stim heralded-erasure stress total-shot count mismatch")
+        if summary.get("target_comparisons") != b2_stim_heralded_erasure.get("target_comparisons"):
+            errors.append("B2 Stim heralded-erasure stress target comparison count mismatch")
+        if summary.get("candidate_met_count") != b2_stim_heralded_erasure.get("candidate_met_count"):
+            errors.append("B2 Stim heralded-erasure stress candidate met count mismatch")
+        if summary.get("improved_volume_count") != b2_stim_heralded_erasure.get("improved_volume_count"):
+            errors.append("B2 Stim heralded-erasure stress improved-volume count mismatch")
+        if summary.get("distance_5_7_improved_count") != b2_stim_heralded_erasure.get(
+            "distance_5_7_improved_count"
+        ):
+            errors.append("B2 Stim heralded-erasure stress d5/d7 count mismatch")
+        if int(summary.get("improved_volume_count", 0)) < 1:
+            errors.append("B2 Stim heralded-erasure stress should show at least one volume improvement")
+        if int(summary.get("distance_5_7_improved_count", 0)) < 1:
+            errors.append("B2 Stim heralded-erasure stress should include distance-5/7 improvements")
+        if claims.get("circuit_derived_stim_evidence") is not True:
+            errors.append("B2 Stim heralded-erasure stress must be marked as circuit-derived Stim evidence")
+        if claims.get("reduced_rounds_used") is not False:
+            errors.append("B2 Stim heralded-erasure stress must not use reduced rounds")
+        if claims.get("distance_3_candidate_used") is not False:
+            errors.append("B2 Stim heralded-erasure stress must not use distance-3 candidates")
+        if claims.get("new_code_claimed") is not False:
+            errors.append("B2 Stim heralded-erasure stress must not claim a new code")
+        if claims.get("threshold_claimed") is not False:
+            errors.append("B2 Stim heralded-erasure stress must not claim a threshold")
+        if claims.get("calibrated_device_claimed") is not False:
+            errors.append("B2 Stim heralded-erasure stress must not claim calibrated device evidence")
+        if claims.get("full_physical_leakage_decoder_claimed") is not False:
+            errors.append("B2 Stim heralded-erasure stress must not claim a full physical leakage decoder")
+        if claims.get("shot_conditioned_erasure_decoder_claimed") is not False:
+            errors.append("B2 Stim heralded-erasure stress must not claim a shot-conditioned erasure decoder")
+        if len(payload.get("validation_errors", [])) != 0:
+            errors.append("B2 Stim heralded-erasure stress validation errors must be zero")
 
     b3_manifest = yaml.safe_load(read(b3_manifest_path))
     b3_results = b3_manifest.get("current_results", {})
@@ -6409,6 +6497,7 @@ def audit(root: Path) -> dict:
             "same_hardware_schedule_robustness": b2_same_hardware_robustness_status,
             "reduced_round_artifact_boundary": b2_reduced_round_boundary_status,
             "leakage_flagged_erasure_boundary": b2_leakage_flagged_erasure_status,
+            "stim_heralded_erasure_stress": b2_stim_heralded_erasure_status,
         },
         "b3": {
             "manifest": str(b3_manifest_path),
@@ -6535,6 +6624,7 @@ def audit(root: Path) -> dict:
             "b2_same_hardware_schedule_robustness": str(research / "B2_same_hardware_schedule_robustness.md"),
             "b2_reduced_round_artifact_boundary": str(research / "B2_reduced_round_artifact_boundary.md"),
             "b2_leakage_flagged_erasure_boundary": str(research / "B2_leakage_flagged_erasure_boundary.md"),
+            "b2_stim_heralded_erasure_stress": str(research / "B2_stim_heralded_erasure_stress.md"),
             "b3_quantum_observable_fci_comparison": str(research / "B3_quantum_observable_fci_comparison.md"),
             "b3_quantum_observable_fci_qasm_directory": str(
                 results / "b3_quantum_observable_fci_comparison" / "circuits"
@@ -6981,6 +7071,16 @@ def markdown_report(report: dict) -> str:
             f"- Leakage-flagged erasure boundary new-code/threshold/device/circuit claims: {report['b2']['leakage_flagged_erasure_boundary'].get('new_code_claimed')} / {report['b2']['leakage_flagged_erasure_boundary'].get('threshold_claimed')} / {report['b2']['leakage_flagged_erasure_boundary'].get('calibrated_device_claimed')} / {report['b2']['leakage_flagged_erasure_boundary'].get('circuit_level_decoder_claimed')}",
             f"- Leakage-flagged erasure boundary validation errors: {report['b2']['leakage_flagged_erasure_boundary'].get('validation_error_count')}",
             f"- Leakage-flagged erasure boundary result/markdown exists: {report['b2']['leakage_flagged_erasure_boundary'].get('result_exists')} / {report['b2']['leakage_flagged_erasure_boundary'].get('markdown_exists')}",
+            f"- Stim heralded-erasure stress status: {report['b2']['stim_heralded_erasure_stress'].get('status')}",
+            f"- Stim heralded-erasure stress configurations / shots: {report['b2']['stim_heralded_erasure_stress'].get('configuration_count')} / {report['b2']['stim_heralded_erasure_stress'].get('total_shots')}",
+            f"- Stim heralded-erasure stress baseline/candidate met: {report['b2']['stim_heralded_erasure_stress'].get('baseline_met_count')} / {report['b2']['stim_heralded_erasure_stress'].get('candidate_met_count')}",
+            f"- Stim heralded-erasure stress candidate-only hits: {report['b2']['stim_heralded_erasure_stress'].get('candidate_only_meets_target_count')}",
+            f"- Stim heralded-erasure stress improved rows / d5-d7 rows: {report['b2']['stim_heralded_erasure_stress'].get('improved_volume_count')} / {report['b2']['stim_heralded_erasure_stress'].get('distance_5_7_improved_count')}",
+            f"- Stim heralded-erasure stress max/mean volume reduction: {report['b2']['stim_heralded_erasure_stress'].get('max_volume_reduction')} / {report['b2']['stim_heralded_erasure_stress'].get('mean_volume_reduction_on_improved')}",
+            f"- Stim heralded-erasure stress reduced-round/d3 flags: {report['b2']['stim_heralded_erasure_stress'].get('reduced_rounds_used')} / {report['b2']['stim_heralded_erasure_stress'].get('distance_3_candidate_used')}",
+            f"- Stim heralded-erasure stress new-code/threshold/device/full-decoder/shot-conditioned claims: {report['b2']['stim_heralded_erasure_stress'].get('new_code_claimed')} / {report['b2']['stim_heralded_erasure_stress'].get('threshold_claimed')} / {report['b2']['stim_heralded_erasure_stress'].get('calibrated_device_claimed')} / {report['b2']['stim_heralded_erasure_stress'].get('full_physical_leakage_decoder_claimed')} / {report['b2']['stim_heralded_erasure_stress'].get('shot_conditioned_erasure_decoder_claimed')}",
+            f"- Stim heralded-erasure stress validation errors: {report['b2']['stim_heralded_erasure_stress'].get('validation_error_count')}",
+            f"- Stim heralded-erasure stress result/markdown exists: {report['b2']['stim_heralded_erasure_stress'].get('result_exists')} / {report['b2']['stim_heralded_erasure_stress'].get('markdown_exists')}",
             "",
             "## B3 Resource Proxy Status",
             "",

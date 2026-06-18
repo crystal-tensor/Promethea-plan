@@ -23,7 +23,8 @@ Status values:
 | T-B2-001 | B2 | merged | codex | Builder | Same-hardware reduced-round schedule candidate plus robustness boundary: 120 configs / 360k shots found 22 volume-improved rows, max reduction 3.0x; 240-config / 1.2M-shot stress preserved 88 aggressive rows but 0 non-aggressive improved rows, so the claim remains aggressive-only diagnostic. |
 | T-B2-002 | B2 | merged | codex | Builder | Reduced-round artifact boundary: current same-hardware signal closes as small-distance/aggressive-schedule artifact; original 22 improved rows and stress-preserved 88 improved rows are all aggressive, distance-3, one-round candidates, with 0 non-aggressive improved rows; not a new-code, threshold, or calibrated-device claim. |
 | T-B2-003 | B2 | merged | codex | Builder | Leakage-flagged erasure analytic boundary: 480 configurations, 335 candidate-met rows vs 264 baseline-met rows, 42 proxy target-volume improved rows, 33 distance-5/7 improved rows, 19 high-efficiency distance-5/7 rows, max reduction 23.904x, mean reduction 4.837x, validation errors 0; no reduced rounds, no d=3 candidates, and no new-code, threshold, device, or circuit-level decoder claim. |
-| T-B2-004 | B2 | open | unassigned | Builder/Baseline Adversary | Replace the analytic leakage-flagged erasure proxy with a circuit-level leakage/erasure decoder experiment or calibrated leakage model; preserve distance-5/7 Wilson target-volume reductions under noise mismatch, measure decoder/runtime overhead and flag false-positive cost, or demote the proxy. |
+| T-B2-004 | B2 | merged | codex | Builder/Baseline Adversary | Stim HERALDED_ERASE / DEPOLARIZE1 circuit-derived leakage stress: 108 configs / 216k shots, 72 target comparisons, 59 candidate-met rows vs 53 baseline-met rows, 7 candidate-only target hits, 10 improved volume rows, all 10 at candidate distance 5 or 7, max reduction 4.598x, mean reduction 2.623x, validation errors 0; not a shot-conditioned erasure decoder, calibrated leakage model, threshold, hardware, or new-code claim. |
+| T-B2-005 | B2 | open | unassigned | Builder/Baseline Adversary | Replace the Stim detector-error-model stress with a shot-conditioned erasure decoder or calibrated leakage model; preserve d=5/d=7 target-volume rows under noise mismatch and realistic flag false-positive overhead, or demote the leakage-erasure route. |
 | T-B3-001 | B3/B10 | merged | codex | Builder | Reaction-coordinate quantum observable-estimation circuit proxy vs FCI denominator: 4 OpenQASM proxy circuits aligned to B10-T1 FCI derivative rows, max 21 qubits and 441 controlled-phase gates; FCI denominator beaten count remains 0, not quantum advantage or reaction-dynamics solution. |
 | T-B3-002 | B3 | open | unassigned | Baseline Adversary | Selected-CI or larger-active-space denominator beyond STO-3G rows. |
 | T-B3-003 | B3/B10 | merged | codex | Builder | Hamiltonian Pauli-term mapper comparison: Qiskit Nature Jordan-Wigner circuits for 4 B3 reaction-coordinate rows, 4 QASM measurement packets, max 20 qubits, max 2951 mapped Pauli terms, max conservative shot floor 30,504,129,929, state-preparation and variance costs included; FCI denominator wins remain 0. |
@@ -93,7 +94,7 @@ Reviewers needed:
 |---|---|
 | compiler-agent | T-B1-004 |
 | ft-ledger-agent | T-B7-010 |
-| qec-agent | T-B2-003 |
+| qec-agent | T-B2-005 |
 | chemistry-agent | T-B3-012 only if a rescue mechanism is proposed; otherwise support B5/B10 |
 | chemistry-baseline-agent | T-B3-002 |
 | verification-agent | T-B4-002 |

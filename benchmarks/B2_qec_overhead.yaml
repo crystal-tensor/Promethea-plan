@@ -284,6 +284,39 @@ current_results:
     caveat: proxy_not_circuit_level_decoder_threshold_or_hardware_leakage_claim
     result: ../results/B2_leakage_flagged_erasure_boundary_v0.json
     markdown_report: ../research/B2_leakage_flagged_erasure_boundary.md
+  stim_heralded_erasure_stress_v0:
+    status: stim_heralded_erasure_stress_boundary_not_full_leakage_decoder
+    method: b2_stim_heralded_erasure_stress_v0
+    model_status: stim_generated_surface_code_with_tick_level_unheralded_vs_heralded_erasure_noise
+    toolchain: Stim HERALDED_ERASE / DEPOLARIZE1 plus PyMatching detector-error-model decoder
+    distances: [5, 7, 9]
+    physical_error_rates: [0.001, 0.003, 0.005]
+    leakage_rates_per_tick: [0.003, 0.005, 0.01]
+    memory_bases: [x, z]
+    target_logical_errors: [0.1, 0.05, 0.02, 0.01]
+    criterion: wilson_95_high
+    flag_overhead: 1.15
+    shots_per_configuration: 2000
+    configurations: 108
+    total_shots: 216000
+    target_comparisons: 72
+    baseline_met_count: 53
+    candidate_met_count: 59
+    candidate_only_meets_target_count: 7
+    improved_volume_count: 10
+    distance_5_7_improved_count: 10
+    max_volume_reduction: 4.5978260869565215
+    mean_volume_reduction_on_improved: 2.622552373934098
+    reduced_rounds_used: false
+    distance_3_candidate_used: false
+    new_code_claimed: false
+    threshold_claimed: false
+    calibrated_device_claimed: false
+    full_physical_leakage_decoder_claimed: false
+    interpretation: stim_heralded_erasure_proxy_preserves_some_distance_5_7_target_volume_rows_after_flag_overhead
+    caveat: stim_heralded_erasure_dem_stress_not_shot_conditioned_leakage_decoder_or_calibrated_hardware_claim
+    result: ../results/B2_stim_heralded_erasure_stress_v0.json
+    markdown_report: ../research/B2_stim_heralded_erasure_stress.md
 prototype_artifacts:
   baseline_runner: ../tools/b2_repetition_code_baseline.py
   target_volume_estimator: ../tools/b2_target_volume.py

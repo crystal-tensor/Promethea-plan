@@ -2,7 +2,7 @@
   "schema_version": "0.1",
   "last_updated": "2026-06-18",
   "purpose": "Execution board for turning the Top 10 quantum attack directions from v0 artifacts into a one-year technical-resolution portfolio.",
-  "portfolio_state": "stage_1h_b2_leakage_flagged_erasure_proxy_complete_circuit_level_decoder_next",
+  "portfolio_state": "stage_1i_b2_stim_heralded_erasure_stress_complete_shot_conditioned_decoder_next",
   "decision_rules": {
     "monthly_keep_rule": "Keep a direction only if the next 30-day artifact can falsify or improve a concrete claim.",
     "merge_rule": "Merge directions when their validation stack is shared, such as B4 plus B8 or B1 plus B7.",
@@ -50,12 +50,12 @@
       "problem_id": 22,
       "title": "Low-overhead quantum error-correcting codes",
       "priority_lane": "technical_system_spine",
-      "current_maturity": "leakage_flagged_erasure_proxy_boundary_after_reduced_round_artifact_closure",
-      "strongest_evidence": "Stim/PyMatching baseline plus closed reduced-round artifact boundary; T-B2-003 leakage-flagged erasure analytic proxy now runs 480 configurations with 42 target-volume improved rows, 33 distance-5/7 improved rows, 19 high-efficiency distance-5/7 rows, max reduction 23.904x, mean reduction 4.837x, no reduced rounds, no d=3 candidates, and validation errors 0.",
-      "30_day_gate": "Replace the analytic leakage-flagged erasure proxy with a circuit-level leakage/erasure decoder or calibrated leakage model that preserves distance-5/7 target-volume reductions under noise mismatch.",
-      "next_artifact": "B2 T-B2-004 circuit-level leakage/erasure decoder boundary or calibrated leakage-model stress report.",
-      "kill_condition": "Demote any B2 candidate that only reproduces the closed distance-3 aggressive reduced-round artifact or loses the d=5/d=7 leakage-erasure proxy gain under circuit-level leakage stress.",
-      "downstream_translation_route": "Deferred until B2 shows Wilson-bounded target-volume reduction under circuit-level or calibrated leakage/erasure evidence, without relying on the closed small-distance/aggressive reduced-round artifact.",
+      "current_maturity": "stim_heralded_erasure_stress_boundary_after_analytic_proxy",
+      "strongest_evidence": "Stim/PyMatching baseline plus closed reduced-round artifact boundary; T-B2-003 analytic leakage-erasure proxy found 42 improved rows; T-B2-004 Stim HERALDED_ERASE / DEPOLARIZE1 stress now runs 108 configs / 216k shots with 10 target-volume improved rows, all at candidate distance 5 or 7, max reduction 4.598x, mean reduction 2.623x, no reduced rounds, no d=3 candidates, and validation errors 0.",
+      "30_day_gate": "Replace the Stim detector-error-model heralded-erasure stress with a shot-conditioned erasure decoder or calibrated leakage model that preserves d=5/d=7 target-volume rows under noise mismatch and flag false-positive overhead.",
+      "next_artifact": "B2 T-B2-005 shot-conditioned erasure decoder or calibrated leakage-model stress report.",
+      "kill_condition": "Demote the leakage-erasure route if the d=5/d=7 target-volume rows disappear under shot-conditioned erasure decoding, calibrated leakage stress, or realistic flag false-positive overhead.",
+      "downstream_translation_route": "Deferred until B2 shows Wilson-bounded target-volume reduction under shot-conditioned or calibrated leakage/erasure evidence, without relying on the closed reduced-round artifact.",
       "dependencies": [
         "B1",
         "B7"
@@ -194,7 +194,7 @@
   "next_30_days": {
     "week_1": [
       "Freeze B1 proof-log report outline.",
-      "B2 reduced-round is closed; convert the leakage-flagged erasure proxy into a circuit-level leakage/erasure decoder stress test.",
+      "B2 reduced-round is closed; T-B2-004 adds Stim heralded-erasure stress, so the next gate is a shot-conditioned erasure decoder or calibrated leakage model.",
       "Pair B4 and B8 into one verification protocol lane."
     ],
     "week_2": [

@@ -166,6 +166,30 @@ non-aggressive schedule, different code family, leakage-aware circuit model,
 or larger-distance decoder improvement with distance-5/7 Wilson target-volume
 reductions under noise mismatch.
 
+**Sprint update 39:** `T-B2-003` is now merged as a leakage-flagged erasure
+analytic boundary. `tools/b2_leakage_flagged_erasure_boundary.py` emits
+`results/B2_leakage_flagged_erasure_boundary_v0.json` and
+`research/B2_leakage_flagged_erasure_boundary.md`. It runs 480 analytic
+configurations and finds 42 proxy target-volume improved rows, including 33
+candidate distance-5/7 rows, with no reduced rounds and no distance-3
+candidates. This is a new non-aggressive direction, but it remains a formula
+proxy, not a circuit-level decoder, threshold, calibrated-device, or new-code
+claim.
+
+**Sprint update 40:** `T-B2-004` is now merged as a Stim heralded-erasure
+stress boundary. `tools/b2_stim_heralded_erasure_stress.py` injects
+`DEPOLARIZE1` or `HERALDED_ERASE` after each `TICK` of generated rotated
+surface-code memory circuits, then decodes with PyMatching from the detector
+error model. The default run covers 108 configurations and 216,000 shots, with
+72 target comparisons, 59 candidate-met rows vs 53 baseline-met rows, 7
+candidate-only target hits, and 10 improved target-volume rows. All 10 improved
+rows are candidate distance 5 or 7; max reduction is 4.598x and mean reduction
+is 2.623x after flag overhead. This is stronger than the analytic proxy, but it
+is still not a shot-conditioned erasure decoder, calibrated leakage model,
+threshold, hardware, or new-code claim. Next: `T-B2-005` should replace this
+detector-error-model stress with a shot-conditioned erasure decoder or
+calibrated leakage model.
+
 ## B3: Molecular Reaction Dynamics
 
 **Technical target:** produce a reaction-coordinate quantum observable estimate
@@ -769,7 +793,7 @@ still identify which assumption is too strong or too weak.
 
 1. `compiler-agent`: B1 native T-resource optimizer.
 2. `ft-agent`: B7 min-STV regime classifier waiting on B1 output.
-3. `qec-agent`: B2 same-hardware schedule candidate.
+3. `qec-agent`: B2 shot-conditioned erasure decoder or calibrated leakage model.
 4. `verification-agent`: B4/B8 hidden task generator and adaptive spoofer.
 5. `chemistry-agent`: B3 reaction observable circuit vs FCI denominator.
 6. `theory-agent`: B10-T2 real-backend/hardware verifier bridge plus B9 negative lemma.

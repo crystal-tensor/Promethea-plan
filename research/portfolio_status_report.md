@@ -40,7 +40,7 @@ Overall audit: PASS
 - B IDs are B1..B10: True
 - Problem IDs match attack pack: True
 - All required fields present: True
-- Maturity scores: {'B1': 37, 'B2': 36, 'B3': 30, 'B4': 20, 'B5': 21, 'B6': 16, 'B7': 33, 'B8': 32, 'B9': 12, 'B10': 39}
+- Maturity scores: {'B1': 37, 'B2': 39, 'B3': 30, 'B4': 20, 'B5': 21, 'B6': 16, 'B7': 33, 'B8': 32, 'B9': 12, 'B10': 39}
 
 ## Technical Resolution Program
 
@@ -327,6 +327,16 @@ Overall audit: PASS
 - Leakage-flagged erasure boundary new-code/threshold/device/circuit claims: False / False / False / False
 - Leakage-flagged erasure boundary validation errors: 0
 - Leakage-flagged erasure boundary result/markdown exists: True / True
+- Stim heralded-erasure stress status: stim_heralded_erasure_stress_boundary_not_full_leakage_decoder
+- Stim heralded-erasure stress configurations / shots: 108 / 216000
+- Stim heralded-erasure stress baseline/candidate met: 53 / 59
+- Stim heralded-erasure stress candidate-only hits: 7
+- Stim heralded-erasure stress improved rows / d5-d7 rows: 10 / 10
+- Stim heralded-erasure stress max/mean volume reduction: 4.5978260869565215 / 2.622552373934098
+- Stim heralded-erasure stress reduced-round/d3 flags: False / False
+- Stim heralded-erasure stress new-code/threshold/device/full-decoder/shot-conditioned claims: False / False / False / False / False
+- Stim heralded-erasure stress validation errors: 0
+- Stim heralded-erasure stress result/markdown exists: True / True
 
 ## B3 Resource Proxy Status
 
