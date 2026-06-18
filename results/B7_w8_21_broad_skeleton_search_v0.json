@@ -1,0 +1,1017 @@
+{
+  "attempted_optimizer_runs": 30720,
+  "baseline_arbitrary_rotations_per_occurrence": 5,
+  "baseline_t_cost_per_occurrence": 100,
+  "benchmark_id": "B7",
+  "best_candidate": {
+    "arbitrary_rotation_count": 4,
+    "baseline_t_cost": 100,
+    "candidate_t_cost": 80,
+    "cnot_directions": [
+      "01",
+      "01"
+    ],
+    "cnot_positions": [
+      1,
+      3
+    ],
+    "family_index": 6380,
+    "family_label": "ry_q1-cx01-rz_q1-cx01-rz_q1-ry_q1",
+    "max_abs_entry_error": 0.12522813855335146,
+    "optimizer_cost": 0.029860238923815285,
+    "optimizer_nfev": 11,
+    "optimizer_success": true,
+    "parameter_values": [
+      2.6411441661041715,
+      1.0325341565762935,
+      2.2639427712983244,
+      4.088608483905615
+    ],
+    "residual_norm": 0.24437773599006635,
+    "rotation_slots": [
+      {
+        "axis": "ry",
+        "qubit": 1
+      },
+      {
+        "axis": "rz",
+        "qubit": 1
+      },
+      {
+        "axis": "rz",
+        "qubit": 1
+      },
+      {
+        "axis": "ry",
+        "qubit": 1
+      }
+    ],
+    "seed_index": 1,
+    "t_saving_if_exact": 20
+  },
+  "candidate_arbitrary_rotations_per_occurrence": 4,
+  "candidate_family": {
+    "basis": "Rz/Ry arbitrary rotations plus CNOT",
+    "cnot_direction_pattern_count": 4,
+    "cnot_position_pattern_count": 15,
+    "description": "all length-6 circuits with two CNOTs placed anywhere, either CNOT direction, and four arbitrary Rz/Ry rotations on either qubit",
+    "family_count": 15360,
+    "family_selection": "exhaustive",
+    "max_nfev_per_seed": 250,
+    "rotation_slot_choice_count": 256,
+    "seed_count_per_family": 2,
+    "total_family_count": 15360
+  },
+  "candidate_t_cost_per_occurrence": 80,
+  "claim_boundary": {
+    "basis_complete_claimed": false,
+    "bounded_four_rotation_two_cnot_search_found_exact_candidate": false,
+    "global_two_qubit_lower_bound_claimed": false,
+    "would_reduce_arbitrary_occurrences_if_passing": 0,
+    "would_reduce_t_ledger_if_passing_best": 0
+  },
+  "exact_tolerance": 1e-08,
+  "interpretation": "No exact four-arbitrary-rotation candidate was found in the bounded two-CNOT Rz/Ry skeleton search. This broadens T-B7-008 beyond the same two-CNOT skeleton, but it is not a global lower bound because it does not search arbitrary one-qubit Euler blocks, more CNOTs, measurements, ancillas, or all KAK-equivalent decompositions.",
+  "last_updated": "2026-06-16",
+  "limits": [
+    "Bounded numerical search only; not a formal proof.",
+    "Only Rz/Ry single-axis arbitrary rotations are searched.",
+    "No physical layout, feed-forward, or factory timing claim is made."
+  ],
+  "method": "b7_w8_21_broad_skeleton_search_v0",
+  "next_actions": [
+    "If positive, emit QASM rewrites for all 20 w8_21 occurrences and run proof/Aer/resource checks.",
+    "If negative, broaden the basis to Euler-local/KAK templates or allow three CNOTs while tracking arbitrary-rotation count.",
+    "Convert repeated negative searches into a scoped minimality note rather than a global no-go theorem."
+  ],
+  "passing_candidate_count": 0,
+  "problem_id": 21,
+  "question": "Can a bounded search over two-CNOT circuits with four arbitrary Rz/Ry rotations represent w8_21 exactly?",
+  "source_small_block_report": "results/B7_w8_21_small_block_synthesis_v0.json",
+  "source_template_report": "results/B7_nonlocal_template_block_scan_v0.json",
+  "status": "w8_21_broad_skeleton_search_negative_boundary_not_global_lower_bound",
+  "template_id": "w8_21",
+  "title": "B7 w8_21 bounded broad-skeleton synthesis search",
+  "top_candidates": [
+    {
+      "arbitrary_rotation_count": 4,
+      "baseline_t_cost": 100,
+      "candidate_t_cost": 80,
+      "cnot_directions": [
+        "01",
+        "01"
+      ],
+      "cnot_positions": [
+        1,
+        3
+      ],
+      "family_index": 6380,
+      "family_label": "ry_q1-cx01-rz_q1-cx01-rz_q1-ry_q1",
+      "max_abs_entry_error": 0.12522813855335146,
+      "optimizer_cost": 0.029860238923815285,
+      "optimizer_nfev": 11,
+      "optimizer_success": true,
+      "parameter_values": [
+        2.6411441661041715,
+        1.0325341565762935,
+        2.2639427712983244,
+        4.088608483905615
+      ],
+      "residual_norm": 0.24437773599006635,
+      "rotation_slots": [
+        {
+          "axis": "ry",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        }
+      ],
+      "seed_index": 1,
+      "t_saving_if_exact": 20
+    },
+    {
+      "arbitrary_rotation_count": 4,
+      "baseline_t_cost": 100,
+      "candidate_t_cost": 80,
+      "cnot_directions": [
+        "10",
+        "10"
+      ],
+      "cnot_positions": [
+        1,
+        3
+      ],
+      "family_index": 7116,
+      "family_label": "ry_q1-cx10-rz_q0-cx10-rz_q1-ry_q1",
+      "max_abs_entry_error": 0.12522813855335146,
+      "optimizer_cost": 0.029860238923815285,
+      "optimizer_nfev": 11,
+      "optimizer_success": true,
+      "parameter_values": [
+        2.6411441661041715,
+        1.0325341565762935,
+        2.2639427712983244,
+        4.088608483905615
+      ],
+      "residual_norm": 0.24437773599006635,
+      "rotation_slots": [
+        {
+          "axis": "ry",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 0
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        }
+      ],
+      "seed_index": 1,
+      "t_saving_if_exact": 20
+    },
+    {
+      "arbitrary_rotation_count": 4,
+      "baseline_t_cost": 100,
+      "candidate_t_cost": 80,
+      "cnot_directions": [
+        "10",
+        "10"
+      ],
+      "cnot_positions": [
+        1,
+        4
+      ],
+      "family_index": 8140,
+      "family_label": "ry_q1-cx10-rz_q0-rz_q1-cx10-ry_q1",
+      "max_abs_entry_error": 0.12522813855335146,
+      "optimizer_cost": 0.029860238923815285,
+      "optimizer_nfev": 11,
+      "optimizer_success": true,
+      "parameter_values": [
+        2.6411441661041715,
+        1.0325341565762935,
+        2.2639427712983244,
+        4.088608483905615
+      ],
+      "residual_norm": 0.24437773599006635,
+      "rotation_slots": [
+        {
+          "axis": "ry",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 0
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        }
+      ],
+      "seed_index": 1,
+      "t_saving_if_exact": 20
+    },
+    {
+      "arbitrary_rotation_count": 4,
+      "baseline_t_cost": 100,
+      "candidate_t_cost": 80,
+      "cnot_directions": [
+        "10",
+        "10"
+      ],
+      "cnot_positions": [
+        1,
+        4
+      ],
+      "family_index": 8164,
+      "family_label": "ry_q1-cx10-rz_q1-rz_q0-cx10-ry_q1",
+      "max_abs_entry_error": 0.12522813319074316,
+      "optimizer_cost": 0.02986023892381562,
+      "optimizer_nfev": 12,
+      "optimizer_success": true,
+      "parameter_values": [
+        -0.5004484511886158,
+        -2.263942733934392,
+        -1.0325341263906496,
+        0.9470158707438819
+      ],
+      "residual_norm": 0.2443777359900677,
+      "rotation_slots": [
+        {
+          "axis": "ry",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 0
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        }
+      ],
+      "seed_index": 0,
+      "t_saving_if_exact": 20
+    },
+    {
+      "arbitrary_rotation_count": 4,
+      "baseline_t_cost": 100,
+      "candidate_t_cost": 80,
+      "cnot_directions": [
+        "01",
+        "01"
+      ],
+      "cnot_positions": [
+        2,
+        4
+      ],
+      "family_index": 10476,
+      "family_label": "ry_q1-rz_q1-cx01-rz_q1-cx01-ry_q1",
+      "max_abs_entry_error": 0.12522813319074316,
+      "optimizer_cost": 0.02986023892381562,
+      "optimizer_nfev": 12,
+      "optimizer_success": true,
+      "parameter_values": [
+        -0.5004484511886158,
+        -2.263942733934392,
+        -1.0325341263906496,
+        0.9470158707438819
+      ],
+      "residual_norm": 0.2443777359900677,
+      "rotation_slots": [
+        {
+          "axis": "ry",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        }
+      ],
+      "seed_index": 0,
+      "t_saving_if_exact": 20
+    },
+    {
+      "arbitrary_rotation_count": 4,
+      "baseline_t_cost": 100,
+      "candidate_t_cost": 80,
+      "cnot_directions": [
+        "10",
+        "10"
+      ],
+      "cnot_positions": [
+        2,
+        4
+      ],
+      "family_index": 11236,
+      "family_label": "ry_q1-rz_q1-cx10-rz_q0-cx10-ry_q1",
+      "max_abs_entry_error": 0.12522813319074316,
+      "optimizer_cost": 0.02986023892381562,
+      "optimizer_nfev": 12,
+      "optimizer_success": true,
+      "parameter_values": [
+        -0.5004484511886158,
+        -2.263942733934392,
+        -1.0325341263906496,
+        0.9470158707438819
+      ],
+      "residual_norm": 0.2443777359900677,
+      "rotation_slots": [
+        {
+          "axis": "ry",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 0
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        }
+      ],
+      "seed_index": 0,
+      "t_saving_if_exact": 20
+    },
+    {
+      "arbitrary_rotation_count": 4,
+      "baseline_t_cost": 100,
+      "candidate_t_cost": 80,
+      "cnot_directions": [
+        "01",
+        "01"
+      ],
+      "cnot_positions": [
+        1,
+        4
+      ],
+      "family_index": 7344,
+      "family_label": "rz_q1-cx01-rz_q1-ry_q1-cx01-ry_q1",
+      "max_abs_entry_error": 0.13561545738743422,
+      "optimizer_cost": 0.041575952834999125,
+      "optimizer_nfev": 12,
+      "optimizer_success": true,
+      "parameter_values": [
+        0.9545852182612149,
+        2.187007426887875,
+        3.58695116439266,
+        4.2670304169845386
+      ],
+      "residual_norm": 0.2883607214410421,
+      "rotation_slots": [
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        }
+      ],
+      "seed_index": 1,
+      "t_saving_if_exact": 20
+    },
+    {
+      "arbitrary_rotation_count": 4,
+      "baseline_t_cost": 100,
+      "candidate_t_cost": 80,
+      "cnot_directions": [
+        "01",
+        "01"
+      ],
+      "cnot_positions": [
+        2,
+        4
+      ],
+      "family_index": 10428,
+      "family_label": "rz_q1-ry_q1-cx01-rz_q1-cx01-ry_q1",
+      "max_abs_entry_error": 0.18946438381188085,
+      "optimizer_cost": 0.09027144903258766,
+      "optimizer_nfev": 14,
+      "optimizer_success": true,
+      "parameter_values": [
+        -2.3220424513042572,
+        0.3832099987190776,
+        -0.9896292202258721,
+        0.9076253745939421
+      ],
+      "residual_norm": 0.42490339850979697,
+      "rotation_slots": [
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        }
+      ],
+      "seed_index": 0,
+      "t_saving_if_exact": 20
+    },
+    {
+      "arbitrary_rotation_count": 4,
+      "baseline_t_cost": 100,
+      "candidate_t_cost": 80,
+      "cnot_directions": [
+        "10",
+        "10"
+      ],
+      "cnot_positions": [
+        2,
+        4
+      ],
+      "family_index": 11188,
+      "family_label": "rz_q1-ry_q1-cx10-rz_q0-cx10-ry_q1",
+      "max_abs_entry_error": 0.18946438381188085,
+      "optimizer_cost": 0.09027144903258766,
+      "optimizer_nfev": 14,
+      "optimizer_success": true,
+      "parameter_values": [
+        -2.3220424513042572,
+        0.3832099987190776,
+        -0.9896292202258721,
+        0.9076253745939421
+      ],
+      "residual_norm": 0.42490339850979697,
+      "rotation_slots": [
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 0
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        }
+      ],
+      "seed_index": 0,
+      "t_saving_if_exact": 20
+    },
+    {
+      "arbitrary_rotation_count": 4,
+      "baseline_t_cost": 100,
+      "candidate_t_cost": 80,
+      "cnot_directions": [
+        "01",
+        "01"
+      ],
+      "cnot_positions": [
+        1,
+        4
+      ],
+      "family_index": 7356,
+      "family_label": "rz_q1-cx01-ry_q1-rz_q1-cx01-ry_q1",
+      "max_abs_entry_error": 0.24464241342587473,
+      "optimizer_cost": 0.10436283126612467,
+      "optimizer_nfev": 13,
+      "optimizer_success": true,
+      "parameter_values": [
+        -2.227843160675042,
+        0.26563952122229406,
+        -0.9052765479603481,
+        1.1353240343720832
+      ],
+      "residual_norm": 0.4568650375463736,
+      "rotation_slots": [
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        }
+      ],
+      "seed_index": 0,
+      "t_saving_if_exact": 20
+    },
+    {
+      "arbitrary_rotation_count": 4,
+      "baseline_t_cost": 100,
+      "candidate_t_cost": 80,
+      "cnot_directions": [
+        "01",
+        "01"
+      ],
+      "cnot_positions": [
+        1,
+        4
+      ],
+      "family_index": 7419,
+      "family_label": "ry_q1-cx01-ry_q1-rz_q1-cx01-rz_q1",
+      "max_abs_entry_error": 0.3568160397598071,
+      "optimizer_cost": 0.13165066032072015,
+      "optimizer_nfev": 18,
+      "optimizer_success": true,
+      "parameter_values": [
+        2.3561948902430436,
+        2.3561940920337996,
+        1.9913367384575555,
+        0.8616448416310032
+      ],
+      "residual_norm": 0.5131289512797347,
+      "rotation_slots": [
+        {
+          "axis": "ry",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        }
+      ],
+      "seed_index": 1,
+      "t_saving_if_exact": 20
+    },
+    {
+      "arbitrary_rotation_count": 4,
+      "baseline_t_cost": 100,
+      "candidate_t_cost": 80,
+      "cnot_directions": [
+        "01",
+        "01"
+      ],
+      "cnot_positions": [
+        0,
+        3
+      ],
+      "family_index": 2236,
+      "family_label": "cx01-rz_q1-ry_q1-cx01-rz_q1-ry_q1",
+      "max_abs_entry_error": 0.2312025006690041,
+      "optimizer_cost": 0.13629669484375337,
+      "optimizer_nfev": 14,
+      "optimizer_success": true,
+      "parameter_values": [
+        -0.9545852196250644,
+        -0.045457316595061574,
+        -2.2649746669940067,
+        1.1254377893208398
+      ],
+      "residual_norm": 0.5221047688802571,
+      "rotation_slots": [
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        }
+      ],
+      "seed_index": 0,
+      "t_saving_if_exact": 20
+    },
+    {
+      "arbitrary_rotation_count": 4,
+      "baseline_t_cost": 100,
+      "candidate_t_cost": 80,
+      "cnot_directions": [
+        "01",
+        "01"
+      ],
+      "cnot_positions": [
+        0,
+        3
+      ],
+      "family_index": 2284,
+      "family_label": "cx01-ry_q1-rz_q1-cx01-rz_q1-ry_q1",
+      "max_abs_entry_error": 0.23868424669360008,
+      "optimizer_cost": 0.13671864165365089,
+      "optimizer_nfev": 13,
+      "optimizer_success": true,
+      "parameter_values": [
+        -0.04278266404849164,
+        -0.9583188258910523,
+        -2.2591085437352674,
+        1.0978001747813106
+      ],
+      "residual_norm": 0.5229123093859063,
+      "rotation_slots": [
+        {
+          "axis": "ry",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        }
+      ],
+      "seed_index": 0,
+      "t_saving_if_exact": 20
+    },
+    {
+      "arbitrary_rotation_count": 4,
+      "baseline_t_cost": 100,
+      "candidate_t_cost": 80,
+      "cnot_directions": [
+        "01",
+        "01"
+      ],
+      "cnot_positions": [
+        0,
+        3
+      ],
+      "family_index": 2220,
+      "family_label": "cx01-rz_q1-rz_q1-cx01-rz_q1-ry_q1",
+      "max_abs_entry_error": 0.2349398001228349,
+      "optimizer_cost": 0.1372229817986034,
+      "optimizer_nfev": 26,
+      "optimizer_success": true,
+      "parameter_values": [
+        -274.36803282064994,
+        279.696632906639,
+        -2.2527926007773984,
+        1.1254377885873648
+      ],
+      "residual_norm": 0.5238759047686835,
+      "rotation_slots": [
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        }
+      ],
+      "seed_index": 1,
+      "t_saving_if_exact": 20
+    },
+    {
+      "arbitrary_rotation_count": 4,
+      "baseline_t_cost": 100,
+      "candidate_t_cost": 80,
+      "cnot_directions": [
+        "10",
+        "10"
+      ],
+      "cnot_positions": [
+        0,
+        3
+      ],
+      "family_index": 2828,
+      "family_label": "cx10-rz_q0-rz_q0-cx10-rz_q1-ry_q1",
+      "max_abs_entry_error": 0.2349398001228349,
+      "optimizer_cost": 0.1372229817986034,
+      "optimizer_nfev": 26,
+      "optimizer_success": true,
+      "parameter_values": [
+        -274.36803282064994,
+        279.696632906639,
+        -2.2527926007773984,
+        1.1254377885873648
+      ],
+      "residual_norm": 0.5238759047686835,
+      "rotation_slots": [
+        {
+          "axis": "rz",
+          "qubit": 0
+        },
+        {
+          "axis": "rz",
+          "qubit": 0
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        }
+      ],
+      "seed_index": 1,
+      "t_saving_if_exact": 20
+    },
+    {
+      "arbitrary_rotation_count": 4,
+      "baseline_t_cost": 100,
+      "candidate_t_cost": 80,
+      "cnot_directions": [
+        "10",
+        "10"
+      ],
+      "cnot_positions": [
+        0,
+        3
+      ],
+      "family_index": 2960,
+      "family_label": "cx10-rz_q1-rz_q0-cx10-ry_q1-ry_q1",
+      "max_abs_entry_error": 0.2349398002379611,
+      "optimizer_cost": 0.13722298179860337,
+      "optimizer_nfev": 25,
+      "optimizer_success": true,
+      "parameter_values": [
+        -2.252792601975787,
+        -0.9545852212359,
+        -44.94346216387545,
+        46.06889995323913
+      ],
+      "residual_norm": 0.5238759047686835,
+      "rotation_slots": [
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 0
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        }
+      ],
+      "seed_index": 0,
+      "t_saving_if_exact": 20
+    },
+    {
+      "arbitrary_rotation_count": 4,
+      "baseline_t_cost": 100,
+      "candidate_t_cost": 80,
+      "cnot_directions": [
+        "10",
+        "10"
+      ],
+      "cnot_positions": [
+        0,
+        4
+      ],
+      "family_index": 3852,
+      "family_label": "cx10-rz_q0-rz_q0-rz_q1-cx10-ry_q1",
+      "max_abs_entry_error": 0.2349398001228349,
+      "optimizer_cost": 0.1372229817986034,
+      "optimizer_nfev": 26,
+      "optimizer_success": true,
+      "parameter_values": [
+        -274.36803282064994,
+        279.696632906639,
+        -2.2527926007773984,
+        1.1254377885873648
+      ],
+      "residual_norm": 0.5238759047686835,
+      "rotation_slots": [
+        {
+          "axis": "rz",
+          "qubit": 0
+        },
+        {
+          "axis": "rz",
+          "qubit": 0
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        }
+      ],
+      "seed_index": 1,
+      "t_saving_if_exact": 20
+    },
+    {
+      "arbitrary_rotation_count": 4,
+      "baseline_t_cost": 100,
+      "candidate_t_cost": 80,
+      "cnot_directions": [
+        "10",
+        "10"
+      ],
+      "cnot_positions": [
+        0,
+        4
+      ],
+      "family_index": 3876,
+      "family_label": "cx10-rz_q0-rz_q1-rz_q0-cx10-ry_q1",
+      "max_abs_entry_error": 0.2349397998927482,
+      "optimizer_cost": 0.1372229817986034,
+      "optimizer_nfev": 25,
+      "optimizer_success": true,
+      "parameter_values": [
+        -51.580577012148325,
+        -2.2527926005124645,
+        50.625991790021196,
+        1.125437787471191
+      ],
+      "residual_norm": 0.5238759047686835,
+      "rotation_slots": [
+        {
+          "axis": "rz",
+          "qubit": 0
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 0
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        }
+      ],
+      "seed_index": 0,
+      "t_saving_if_exact": 20
+    },
+    {
+      "arbitrary_rotation_count": 4,
+      "baseline_t_cost": 100,
+      "candidate_t_cost": 80,
+      "cnot_directions": [
+        "10",
+        "10"
+      ],
+      "cnot_positions": [
+        0,
+        4
+      ],
+      "family_index": 3972,
+      "family_label": "cx10-rz_q1-rz_q0-rz_q0-cx10-ry_q1",
+      "max_abs_entry_error": 0.23493980109046889,
+      "optimizer_cost": 0.1372229817986034,
+      "optimizer_nfev": 24,
+      "optimizer_success": true,
+      "parameter_values": [
+        -2.252792600924266,
+        48.29653419500649,
+        -49.25111941875135,
+        1.1254377903362311
+      ],
+      "residual_norm": 0.5238759047686835,
+      "rotation_slots": [
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 0
+        },
+        {
+          "axis": "rz",
+          "qubit": 0
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        }
+      ],
+      "seed_index": 0,
+      "t_saving_if_exact": 20
+    },
+    {
+      "arbitrary_rotation_count": 4,
+      "baseline_t_cost": 100,
+      "candidate_t_cost": 80,
+      "cnot_directions": [
+        "01",
+        "01"
+      ],
+      "cnot_positions": [
+        1,
+        3
+      ],
+      "family_index": 6320,
+      "family_label": "rz_q1-cx01-rz_q1-cx01-ry_q1-ry_q1",
+      "max_abs_entry_error": 0.2349398002379611,
+      "optimizer_cost": 0.13722298179860337,
+      "optimizer_nfev": 25,
+      "optimizer_success": true,
+      "parameter_values": [
+        -2.252792601975787,
+        -0.9545852212359,
+        -44.94346216387545,
+        46.06889995323913
+      ],
+      "residual_norm": 0.5238759047686835,
+      "rotation_slots": [
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "rz",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        },
+        {
+          "axis": "ry",
+          "qubit": 1
+        }
+      ],
+      "seed_index": 0,
+      "t_saving_if_exact": 20
+    }
+  ]
+}

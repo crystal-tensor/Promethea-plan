@@ -1,0 +1,178 @@
+id: B5
+problem_id: 38
+name: Strongly Correlated Matter via Hybrid Quantum-Tensor Solvers
+version: 0.1
+status: draft
+claim: >
+  Quantum subroutines can be used as entanglement kernels inside embedding,
+  tensor-network, or variational many-body solvers, improving
+  accuracy-per-resource on constrained strongly correlated models.
+model_families:
+  - one_dimensional_fermi_hubbard
+  - two_dimensional_hubbard_plaquettes
+  - frustrated_spin_chains
+  - electron_phonon_toy_models
+baselines:
+  - exact_diagonalization_small_systems
+  - cluster_product_proxy
+  - dmrg_reference
+  - dmft_or_embedding_reference
+  - variational_monte_carlo_reference
+metrics:
+  - ground_state_energy_per_site
+  - correlation_energy_recovered
+  - observable_error
+  - entanglement_cut_error
+  - classical_runtime
+  - quantum_subroutine_calls
+acceptance_threshold:
+  accuracy_per_resource_improvement: ">=20%"
+  compared_to: tuned_classical_embedding_or_tensor_baseline
+  exact_small_system_calibration_required: true
+failure_conditions:
+  - improvement_disappears_against_dmrg_or_exact_diagonalization
+  - quantum_kernel_requires_unrealistic_state_preparation
+  - embedding_error_exceeds_quantum_subroutine_gain
+  - benchmark_model_too_small_or_too_easy
+next_actions:
+  - add_dmrg_or_tensor_network_reference
+  - implement_quantum_impurity_kernel_interface
+  - add_observable_errors_beyond_energy
+  - move_from_1d_chain_to_2d_plaquette_proxy
+current_results:
+  variational_mps_als_response_reference_v0:
+    status: variational_mps_als_pressure_reference_not_production_dmrg_or_advantage_claim
+    model_status: non_exact_state_seeded_variational_mps_als_pressure_reference
+    method: b5_variational_mps_als_response_reference_v0
+    model: one_dimensional_fermi_hubbard_half_filled_density_response
+    dependency_b10_table: b10_t1_d5_observable_denominator_table_v0
+    dependency_seeded_mps_pressure_result: ../results/B5_mps_truncation_response_reference_v0.json
+    sites: [4, 6, 8]
+    u_over_t_values: [2.0, 4.0, 8.0]
+    bond_dimensions_tested: [2, 4]
+    selected_bond_dimensions: [4]
+    restarts_per_instance_bond_dimension: 3
+    sweeps_per_restart: 8
+    instance_count: 9
+    selected_mean_relative_response_error: 0.01805548365563228
+    selected_max_relative_response_error: 0.03907201105154143
+    selected_mean_energy_error_per_site: 0.0030253726531345435
+    selected_max_energy_error_per_site: 0.008534748468465136
+    selected_min_overlap_with_exact_ground_state: 0.9626138997075306
+    selected_min_fixed_sector_norm_before_normalization: 0.0001648333575571581
+    variational_mps_rows_beating_seeded_mps_pressure_reference: 0
+    max_exact_d5_hilbert_dimension: 4900
+    exact_state_seeded: false
+    variational_mps_als: true
+    production_dmrg: false
+    uses_exact_target_for_selection: false
+    exact_energy_used_for_response_shift: true
+    quantum_response_win_claimed: false
+    accuracy_per_resource_win_claimed: false
+    validation_error_count: 0
+    result: ../results/B5_variational_mps_als_response_reference_v0.json
+    markdown_report: ../research/B5_variational_mps_als_response_reference.md
+  mps_schmidt_truncation_response_reference_v0:
+    status: mps_schmidt_truncation_response_reference_not_dmrg_or_advantage_claim
+    model_status: exact_state_seeded_mps_truncation_tensor_pressure_reference
+    method: b5_mps_schmidt_truncation_response_reference_v0
+    model: one_dimensional_fermi_hubbard_half_filled_density_response
+    dependency_b10_table: b10_t1_d5_observable_denominator_table_v0
+    dependency_non_oracle_embedding_result: ../results/B5_non_oracle_response_embedding_baseline_v0.json
+    sites: [4, 6, 8]
+    u_over_t_values: [2.0, 4.0, 8.0]
+    bond_dimensions_tested: [2, 4, 8, 16]
+    selected_bond_dimension: 16
+    instance_count: 9
+    selected_mean_relative_response_error: 0.0004416259745141554
+    selected_max_relative_response_error: 0.0016954037598740704
+    selected_mean_energy_error_per_site: 0.00024397248715074744
+    selected_max_energy_error_per_site: 0.001155884563244336
+    selected_min_overlap_with_exact_ground_state: 0.9991007973730949
+    selected_min_fixed_sector_norm_before_normalization: 0.9991007973728403
+    mps_rows_beating_non_oracle_embedding: 6
+    max_exact_d5_hilbert_dimension: 4900
+    max_full_local_basis_dimension: 65536
+    exact_state_seeded: true
+    variational_dmrg: false
+    quantum_response_win_claimed: false
+    accuracy_per_resource_win_claimed: false
+    validation_error_count: 0
+    result: ../results/B5_mps_truncation_response_reference_v0.json
+    markdown_report: ../research/B5_mps_truncation_response_reference.md
+  non_oracle_response_embedding_baseline_v0:
+    status: non_oracle_response_embedding_denominator_not_quantum_advantage_claim
+    model_status: non_oracle_classical_response_embedding_denominator
+    method: b5_non_oracle_response_embedding_baseline_v0
+    model: one_dimensional_fermi_hubbard_half_filled_density_response
+    dependency_b10_table: b10_t1_d5_observable_denominator_table_v0
+    dependency_energy_baseline: small_hubbard_exact_diagonalization_cluster_proxy_v0
+    dependency_oracle_boundary_field_result: ../results/B5_boundary_field_embedding_baseline_v0.json
+    sites: [4, 6, 8]
+    u_over_t_values: [2.0, 4.0, 8.0]
+    selection_policy: "open_cluster_zero_field for sites<=4; finite_cluster_inverse_size_extrapolation otherwise"
+    non_oracle_methods:
+      - open_cluster_zero_field
+      - density_self_consistent_edge_field
+      - finite_cluster_inverse_size_extrapolation
+    field_grid: [-0.75, -0.5, -0.25, 0.0, 0.25, 0.5, 0.75]
+    instance_count: 9
+    selected_mean_relative_response_error: 0.050983452310434746
+    selected_max_relative_response_error: 0.12308129218169694
+    oracle_boundary_field_mean_relative_response_error: 0.05410039803669608
+    oracle_boundary_field_max_relative_response_error: 0.12158654151084188
+    non_oracle_rows_beating_oracle_boundary_field: 4
+    max_exact_d5_hilbert_dimension: 4900
+    max_selected_cluster_hilbert_dimension: 36
+    uses_exact_target_for_selection: false
+    oracle_tuned_boundary_field: false
+    quantum_response_win_claimed: false
+    accuracy_per_resource_win_claimed: false
+    validation_error_count: 0
+    result: ../results/B5_non_oracle_response_embedding_baseline_v0.json
+    markdown_report: ../research/B5_non_oracle_response_embedding_baseline.md
+  boundary_field_response_embedding_baseline_v0:
+    status: classical_response_denominator
+    model_status: oracle_tuned_classical_boundary_field_response_denominator
+    method: b5_boundary_field_response_embedding_baseline_v0
+    model: one_dimensional_fermi_hubbard_half_filled_density_response
+    dependency_b10_table: b10_t1_d5_observable_denominator_table_v0
+    dependency_energy_baseline: small_hubbard_exact_diagonalization_cluster_proxy_v0
+    sites: [4, 6, 8]
+    u_over_t_values: [2.0, 4.0, 8.0]
+    boundary_field_grid: [-0.75, -0.5, -0.25, 0.0, 0.25, 0.5, 0.75]
+    instance_count: 9
+    mean_relative_response_error: 0.05410039803669608
+    max_relative_response_error: 0.12158654151084188
+    max_exact_d5_hilbert_dimension: 4900
+    max_cluster_hilbert_dimension: 36
+    oracle_tuned_boundary_field: true
+    quantum_response_win_claimed: false
+    accuracy_per_resource_win_claimed: false
+    validation_error_count: 0
+    result: ../results/B5_boundary_field_embedding_baseline_v0.json
+    markdown_report: ../research/B5_boundary_field_embedding_baseline.md
+  hubbard_exact_diagonalization_cluster_proxy_v0:
+    status: exact_small_system_reference
+    model_status: exact_small_system_reference_plus_cluster_product_proxy
+    model: one_dimensional_fermi_hubbard_half_filled
+    sites: [4, 6, 8]
+    u_over_t_values: [2.0, 4.0, 8.0]
+    boundary: open
+    cluster_sizes: [2, 4]
+    configuration_count: 15
+    exact_hilbert_dimension_range: "36-4900"
+    mean_error_per_site_by_cluster_size:
+      cluster2: 0.09552580663805466
+      cluster4: 0.020619822536401395
+    max_error_per_site_by_cluster_size:
+      cluster2: 0.1601702793352715
+      cluster4: 0.05921856583390095
+    result: ../results/B5_hubbard_embedding_baseline_v0.json
+prototype_artifacts:
+  variational_mps_als_response_reference: ../tools/b5_variational_mps_als_response_reference.py
+  mps_schmidt_truncation_response_reference: ../tools/b5_mps_truncation_response_reference.py
+  non_oracle_response_embedding_baseline: ../tools/b5_non_oracle_response_embedding_baseline.py
+  boundary_field_embedding_baseline: ../tools/b5_boundary_field_embedding_baseline.py
+  hubbard_embedding_baseline: ../tools/b5_hubbard_embedding_baseline.py
+  prototype_notes: ../research/B5_prototype_notes.md

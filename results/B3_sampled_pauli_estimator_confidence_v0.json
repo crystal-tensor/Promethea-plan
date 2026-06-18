@@ -1,0 +1,439 @@
+{
+  "benchmark_id": "B3",
+  "claim_boundary": [
+    "Supported: reproducible pilot Pauli-estimator confidence intervals for four B3 Hamiltonian-mapped rows.",
+    "Supported: Neyman-style target shot floors replacing the previous coefficient-squared upper-bound floor for Hartree-Fock bitstring measurements.",
+    "Not supported: selected-CI scaling, larger active-space denominators, quantum advantage, chemistry accuracy, or complete reaction dynamics."
+  ],
+  "dependency_benchmark": "B3",
+  "last_updated": "2026-06-17",
+  "method": "b3_sampled_pauli_estimator_confidence_v0",
+  "next_steps": [
+    "Replace Hartree-Fock bitstring expectations with ansatz or adiabatic state-preparation samples.",
+    "Attach selected-CI or larger-active-space denominators to the same coordinates.",
+    "Group commuting Pauli terms instead of measuring each random Pauli independently.",
+    "Only promote if preparation, grouped measurement, and strong denominator costs are all beaten at fixed observable error."
+  ],
+  "problem_id": 49,
+  "random_seed": 733104,
+  "rows": [
+    {
+      "basis": "sto-3g",
+      "coefficient_cutoff": 1e-10,
+      "coordinate": "H-H bond length",
+      "coordinate_center": 0.7414,
+      "deterministic_pauli_terms": 11,
+      "fci_derivative_hartree_per_coordinate": 0.010729835684120115,
+      "fci_wall_time_seconds": 0.4798466250067577,
+      "hf_exact_energy_from_pauli_terms_hartree": -1.2462330005737918,
+      "mapper_method": "b3_hamiltonian_pauli_mapper_comparison_v0",
+      "molecule": "h2_bond_stretch",
+      "pauli_terms_after_cutoff": 15,
+      "pilot_abs_error_hartree": 0.0007524193700185755,
+      "pilot_ci_contains_exact_energy": true,
+      "pilot_ci_half_width_hartree": 0.005159401895024346,
+      "pilot_confidence_z": 2.576,
+      "pilot_energy_estimate_hartree": -1.2469854199438104,
+      "pilot_shots_per_random_term": 2048,
+      "pilot_standard_error_hartree": 0.0020028734064535506,
+      "pilot_total_shots": 8192,
+      "previous_total_shot_floor_upper_bound": 14540490,
+      "quantum_beats_fci_denominator": false,
+      "random_pauli_terms": 4,
+      "random_term_variance_coeff_sum": 0.008216407995686133,
+      "random_terms_preview": [
+        {
+          "coefficient": 0.04532220205287397,
+          "pauli": "XXXX",
+          "target_shots": 8217
+        },
+        {
+          "coefficient": 0.04532220205287397,
+          "pauli": "XXYY",
+          "target_shots": 8217
+        },
+        {
+          "coefficient": 0.04532220205287397,
+          "pauli": "YYXX",
+          "target_shots": 8216
+        },
+        {
+          "coefficient": 0.04532220205287397,
+          "pauli": "YYYY",
+          "target_shots": 8216
+        }
+      ],
+      "sampled_confidence_interval_claim": "Pilot Pauli sampling on the Hartree-Fock bitstring gives a reproducible estimator confidence interval; it is not a quantum advantage or reaction-dynamics solution.",
+      "shot_reduction_vs_upper_bound": 442.41739183350575,
+      "source_benchmark": "B3",
+      "target_error_fraction": 0.05,
+      "target_observable_error_hartree_per_coordinate": 0.001,
+      "target_total_shot_floor_neyman": 32866,
+      "top_target_allocations": [
+        {
+          "pauli": "XXXX",
+          "target_shots": 8217
+        },
+        {
+          "pauli": "XXYY",
+          "target_shots": 8217
+        },
+        {
+          "pauli": "YYXX",
+          "target_shots": 8216
+        },
+        {
+          "pauli": "YYYY",
+          "target_shots": 8216
+        }
+      ]
+    },
+    {
+      "basis": "sto-3g",
+      "coefficient_cutoff": 1e-10,
+      "coordinate": "Li-H bond length",
+      "coordinate_center": 1.6,
+      "deterministic_pauli_terms": 79,
+      "fci_derivative_hartree_per_coordinate": 0.016206836620513698,
+      "fci_wall_time_seconds": 0.16523762501310557,
+      "hf_exact_energy_from_pauli_terms_hartree": -6.669537970886572,
+      "mapper_method": "b3_hamiltonian_pauli_mapper_comparison_v0",
+      "molecule": "lih_bond_stretch",
+      "pauli_terms_after_cutoff": 631,
+      "pilot_abs_error_hartree": 0.00014785263434813345,
+      "pilot_ci_contains_exact_energy": true,
+      "pilot_ci_half_width_hartree": 0.010580848941137843,
+      "pilot_confidence_z": 2.576,
+      "pilot_energy_estimate_hartree": -6.66968582352092,
+      "pilot_shots_per_random_term": 2048,
+      "pilot_standard_error_hartree": 0.004107472415037982,
+      "pilot_total_shots": 1130496,
+      "previous_total_shot_floor_upper_bound": 18648635838,
+      "quantum_beats_fci_denominator": false,
+      "random_pauli_terms": 552,
+      "random_term_variance_coeff_sum": 0.03456564731544213,
+      "random_terms_preview": [
+        {
+          "coefficient": 0.03464365712081851,
+          "pauli": "IIIIIZIIIXZX",
+          "target_shots": 88802
+        },
+        {
+          "coefficient": 0.03464365712081851,
+          "pauli": "IIIIIZIIIYZY",
+          "target_shots": 88802
+        },
+        {
+          "coefficient": 0.03464365712081851,
+          "pauli": "IIIXZXIIIIIZ",
+          "target_shots": 88802
+        },
+        {
+          "coefficient": 0.03464365712081851,
+          "pauli": "IIIYZYIIIIIZ",
+          "target_shots": 88802
+        },
+        {
+          "coefficient": -0.03355135284099655,
+          "pauli": "XZZZXIZIIIII",
+          "target_shots": 86002
+        },
+        {
+          "coefficient": -0.03355135284099655,
+          "pauli": "YZZZYIZIIIII",
+          "target_shots": 86002
+        },
+        {
+          "coefficient": -0.03355135284099655,
+          "pauli": "ZIIIIIXZZZXI",
+          "target_shots": 86002
+        },
+        {
+          "coefficient": -0.03355135284099655,
+          "pauli": "ZIIIIIYZZZYI",
+          "target_shots": 86002
+        }
+      ],
+      "sampled_confidence_interval_claim": "Pilot Pauli sampling on the Hartree-Fock bitstring gives a reproducible estimator confidence interval; it is not a quantum advantage or reaction-dynamics solution.",
+      "shot_reduction_vs_upper_bound": 2838.2507666120587,
+      "source_benchmark": "B3",
+      "target_error_fraction": 0.05,
+      "target_observable_error_hartree_per_coordinate": 0.001,
+      "target_total_shot_floor_neyman": 6570468,
+      "top_target_allocations": [
+        {
+          "pauli": "IIIIIZIIIXZX",
+          "target_shots": 88802
+        },
+        {
+          "pauli": "IIIIIZIIIYZY",
+          "target_shots": 88802
+        },
+        {
+          "pauli": "IIIXZXIIIIIZ",
+          "target_shots": 88802
+        },
+        {
+          "pauli": "IIIYZYIIIIIZ",
+          "target_shots": 88802
+        },
+        {
+          "pauli": "XZZZXIZIIIII",
+          "target_shots": 86002
+        },
+        {
+          "pauli": "YZZZYIZIIIII",
+          "target_shots": 86002
+        },
+        {
+          "pauli": "ZIIIIIXZZZXI",
+          "target_shots": 86002
+        },
+        {
+          "pauli": "ZIIIIIYZZZYI",
+          "target_shots": 86002
+        }
+      ]
+    },
+    {
+      "basis": "sto-3g",
+      "coefficient_cutoff": 1e-10,
+      "coordinate": "symmetric O-H stretch scale",
+      "coordinate_center": 1.0,
+      "deterministic_pauli_terms": 106,
+      "fci_derivative_hartree_per_coordinate": -0.2575705561255859,
+      "fci_wall_time_seconds": 0.17179849999956787,
+      "hf_exact_energy_from_pauli_terms_hartree": -83.20775449841797,
+      "mapper_method": "b3_hamiltonian_pauli_mapper_comparison_v0",
+      "molecule": "h2o_symmetric_oh_stretch",
+      "pauli_terms_after_cutoff": 1086,
+      "pilot_abs_error_hartree": 0.059504402907833764,
+      "pilot_ci_contains_exact_energy": true,
+      "pilot_ci_half_width_hartree": 0.07176278881808944,
+      "pilot_confidence_z": 2.576,
+      "pilot_energy_estimate_hartree": -83.2672589013258,
+      "pilot_shots_per_random_term": 2048,
+      "pilot_standard_error_hartree": 0.027858225472860806,
+      "pilot_total_shots": 2007040,
+      "previous_total_shot_floor_upper_bound": 22424525124,
+      "quantum_beats_fci_denominator": false,
+      "random_pauli_terms": 980,
+      "random_term_variance_coeff_sum": 1.5903991534797193,
+      "random_terms_preview": [
+        {
+          "coefficient": -0.36905228902168574,
+          "pauli": "IIIIIIIXZZZXII",
+          "target_shots": 36463
+        },
+        {
+          "coefficient": -0.36905228902168574,
+          "pauli": "IIIIIIIYZZZYII",
+          "target_shots": 36463
+        },
+        {
+          "coefficient": -0.3690522890216855,
+          "pauli": "XZZZXIIIIIIIII",
+          "target_shots": 36463
+        },
+        {
+          "coefficient": -0.3690522890216855,
+          "pauli": "YZZZYIIIIIIIII",
+          "target_shots": 36463
+        },
+        {
+          "coefficient": -0.2841071386302881,
+          "pauli": "IXZZZXIIIIIIII",
+          "target_shots": 28071
+        },
+        {
+          "coefficient": -0.2841071386302881,
+          "pauli": "IYZZZYIIIIIIII",
+          "target_shots": 28071
+        },
+        {
+          "coefficient": -0.284107138630288,
+          "pauli": "IIIIIIIIXZZZXI",
+          "target_shots": 28071
+        },
+        {
+          "coefficient": -0.284107138630288,
+          "pauli": "IIIIIIIIYZZZYI",
+          "target_shots": 28071
+        }
+      ],
+      "sampled_confidence_interval_claim": "Pilot Pauli sampling on the Hartree-Fock bitstring gives a reproducible estimator confidence interval; it is not a quantum advantage or reaction-dynamics solution.",
+      "shot_reduction_vs_upper_bound": 13850.618380051723,
+      "source_benchmark": "B3",
+      "target_error_fraction": 0.05,
+      "target_observable_error_hartree_per_coordinate": 0.012878527806279294,
+      "target_total_shot_floor_neyman": 1619027,
+      "top_target_allocations": [
+        {
+          "pauli": "IIIIIIIXZZZXII",
+          "target_shots": 36463
+        },
+        {
+          "pauli": "IIIIIIIYZZZYII",
+          "target_shots": 36463
+        },
+        {
+          "pauli": "XZZZXIIIIIIIII",
+          "target_shots": 36463
+        },
+        {
+          "pauli": "YZZZYIIIIIIIII",
+          "target_shots": 36463
+        },
+        {
+          "pauli": "IXZZZXIIIIIIII",
+          "target_shots": 28071
+        },
+        {
+          "pauli": "IYZZZYIIIIIIII",
+          "target_shots": 28071
+        },
+        {
+          "pauli": "IIIIIIIIXZZZXI",
+          "target_shots": 28071
+        },
+        {
+          "pauli": "IIIIIIIIYZZZYI",
+          "target_shots": 28071
+        }
+      ]
+    },
+    {
+      "basis": "sto-3g",
+      "coefficient_cutoff": 1e-10,
+      "coordinate": "N-N bond length",
+      "coordinate_center": 1.0977,
+      "deterministic_pauli_terms": 211,
+      "fci_derivative_hartree_per_coordinate": -0.5725566846940922,
+      "fci_wall_time_seconds": 0.2434717079740949,
+      "hf_exact_energy_from_pauli_terms_hartree": -129.74652190094977,
+      "mapper_method": "b3_hamiltonian_pauli_mapper_comparison_v0",
+      "molecule": "n2_bond_stretch",
+      "pauli_terms_after_cutoff": 2951,
+      "pilot_abs_error_hartree": 0.035524403956344486,
+      "pilot_ci_contains_exact_energy": true,
+      "pilot_ci_half_width_hartree": 0.07296978617974557,
+      "pilot_confidence_z": 2.576,
+      "pilot_energy_estimate_hartree": -129.78204630490612,
+      "pilot_shots_per_random_term": 2048,
+      "pilot_standard_error_hartree": 0.02832678034928011,
+      "pilot_total_shots": 5611520,
+      "previous_total_shot_floor_upper_bound": 30504129929,
+      "quantum_beats_fci_denominator": false,
+      "random_pauli_terms": 2740,
+      "random_term_variance_coeff_sum": 1.644310573547873,
+      "random_terms_preview": [
+        {
+          "coefficient": 0.45610417604024706,
+          "pauli": "IIIIIIIIXXIIIIIIIIXX",
+          "target_shots": 14972
+        },
+        {
+          "coefficient": 0.45610417604024706,
+          "pauli": "IIIIIIIIXXIIIIIIIIYY",
+          "target_shots": 14972
+        },
+        {
+          "coefficient": 0.45610417604024706,
+          "pauli": "IIIIIIIIYYIIIIIIIIXX",
+          "target_shots": 14972
+        },
+        {
+          "coefficient": 0.45610417604024706,
+          "pauli": "IIIIIIIIYYIIIIIIIIYY",
+          "target_shots": 14972
+        },
+        {
+          "coefficient": 0.10623945010658263,
+          "pauli": "IIIXZZZXIIIIIIIIIIII",
+          "target_shots": 3488
+        },
+        {
+          "coefficient": 0.10623945010658263,
+          "pauli": "IIIYZZZYIIIIIIIIIIII",
+          "target_shots": 3488
+        },
+        {
+          "coefficient": 0.10623945010658252,
+          "pauli": "IIIIIIIIIIIIIXZZZXII",
+          "target_shots": 3488
+        },
+        {
+          "coefficient": 0.10623945010658252,
+          "pauli": "IIIIIIIIIIIIIYZZZYII",
+          "target_shots": 3488
+        }
+      ],
+      "sampled_confidence_interval_claim": "Pilot Pauli sampling on the Hartree-Fock bitstring gives a reproducible estimator confidence interval; it is not a quantum advantage or reaction-dynamics solution.",
+      "shot_reduction_vs_upper_bound": 34544.05744748315,
+      "source_benchmark": "B3",
+      "target_error_fraction": 0.05,
+      "target_observable_error_hartree_per_coordinate": 0.028627834234704608,
+      "target_total_shot_floor_neyman": 883050,
+      "top_target_allocations": [
+        {
+          "pauli": "IIIIIIIIXXIIIIIIIIXX",
+          "target_shots": 14972
+        },
+        {
+          "pauli": "IIIIIIIIXXIIIIIIIIYY",
+          "target_shots": 14972
+        },
+        {
+          "pauli": "IIIIIIIIYYIIIIIIIIXX",
+          "target_shots": 14972
+        },
+        {
+          "pauli": "IIIIIIIIYYIIIIIIIIYY",
+          "target_shots": 14972
+        },
+        {
+          "pauli": "IIIXZZZXIIIIIIIIIIII",
+          "target_shots": 3488
+        },
+        {
+          "pauli": "IIIYZZZYIIIIIIIIIIII",
+          "target_shots": 3488
+        },
+        {
+          "pauli": "IIIIIIIIIIIIIXZZZXII",
+          "target_shots": 3488
+        },
+        {
+          "pauli": "IIIIIIIIIIIIIYZZZYII",
+          "target_shots": 3488
+        }
+      ]
+    }
+  ],
+  "source_fci_method": "b10_t1_d5_b3_fci_reference_table_v0",
+  "source_fci_reference": "results/B10_t1_d5_b3_fci_reference_table_v0.json",
+  "source_mapper": "results/B3_hamiltonian_pauli_mapper_comparison_v0.json",
+  "source_mapper_method": "b3_hamiltonian_pauli_mapper_comparison_v0",
+  "status": "sampled_pauli_estimator_confidence_intervals_not_advantage_claim",
+  "summary": {
+    "all_pilot_cis_contain_exact_energy": true,
+    "confidence_z": 2.576,
+    "fci_denominator_beaten_count": 0,
+    "instance_count": 4,
+    "max_pilot_total_shots": 5611520,
+    "max_previous_total_shot_floor_upper_bound": 30504129929,
+    "max_random_pauli_terms": 2740,
+    "max_shot_reduction_vs_upper_bound": 34544.05744748315,
+    "max_target_total_shot_floor_neyman": 6570468,
+    "min_shot_reduction_vs_upper_bound": 442.41739183350575,
+    "molecule_count": 4,
+    "pilot_shots_per_random_term": 2048,
+    "quantum_advantage_claimed": false,
+    "reaction_dynamics_solution_claimed": false,
+    "sampled_confidence_intervals_included": true,
+    "selected_ci_or_larger_active_space_included": false
+  },
+  "title": "B3 sampled Pauli-estimator confidence intervals",
+  "validation_errors": [],
+  "version": "0.1"
+}

@@ -1,0 +1,90 @@
+{
+  "benchmark_id": "B1",
+  "check": "statevector_equivalence",
+  "failed": 0,
+  "pair_count": 10,
+  "passed": 10,
+  "results": [
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "results/qasmbench_small_cert_pipeline_work/00_input/adder_n4.qasm",
+      "max_global_phase_adjusted_delta": 6.123233995736765e-17,
+      "qubits": 4,
+      "right": "results/qasmbench_small_cert_pipeline_work/04_rzz_pass/adder_n4.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "results/qasmbench_small_cert_pipeline_work/00_input/basis_change_n3.qasm",
+      "max_global_phase_adjusted_delta": 1.7554167342883504e-16,
+      "qubits": 3,
+      "right": "results/qasmbench_small_cert_pipeline_work/04_rzz_pass/basis_change_n3.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "results/qasmbench_small_cert_pipeline_work/00_input/basis_test_n4.qasm",
+      "max_global_phase_adjusted_delta": 7.021666937153402e-16,
+      "qubits": 4,
+      "right": "results/qasmbench_small_cert_pipeline_work/04_rzz_pass/basis_test_n4.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "results/qasmbench_small_cert_pipeline_work/00_input/bell_n4.qasm",
+      "max_global_phase_adjusted_delta": 2.3633021048361517e-16,
+      "qubits": 4,
+      "right": "results/qasmbench_small_cert_pipeline_work/04_rzz_pass/bell_n4.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "results/qasmbench_small_cert_pipeline_work/00_input/cat_state_n4.qasm",
+      "max_global_phase_adjusted_delta": 0.0,
+      "qubits": 4,
+      "right": "results/qasmbench_small_cert_pipeline_work/04_rzz_pass/cat_state_n4.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "results/qasmbench_small_cert_pipeline_work/00_input/deutsch_n2.qasm",
+      "max_global_phase_adjusted_delta": 1.1102230246251565e-16,
+      "qubits": 2,
+      "right": "results/qasmbench_small_cert_pipeline_work/04_rzz_pass/deutsch_n2.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 0.9999999999999991,
+      "left": "results/qasmbench_small_cert_pipeline_work/00_input/error_correctiond3_n5.qasm",
+      "max_global_phase_adjusted_delta": 0.0,
+      "qubits": 5,
+      "right": "results/qasmbench_small_cert_pipeline_work/04_rzz_pass/error_correctiond3_n5.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "results/qasmbench_small_cert_pipeline_work/00_input/fredkin_n3.qasm",
+      "max_global_phase_adjusted_delta": 1.1775693440128312e-16,
+      "qubits": 3,
+      "right": "results/qasmbench_small_cert_pipeline_work/04_rzz_pass/fredkin_n3.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "results/qasmbench_small_cert_pipeline_work/00_input/grover_n2.qasm",
+      "max_global_phase_adjusted_delta": 2.220446049250313e-16,
+      "qubits": 2,
+      "right": "results/qasmbench_small_cert_pipeline_work/04_rzz_pass/grover_n2.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "results/qasmbench_small_cert_pipeline_work/00_input/hhl_n7.qasm",
+      "max_global_phase_adjusted_delta": 3.1706598418212457e-15,
+      "qubits": 7,
+      "right": "results/qasmbench_small_cert_pipeline_work/04_rzz_pass/hhl_n7.qasm"
+    }
+  ],
+  "tolerance": 1e-09
+}

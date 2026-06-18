@@ -1,0 +1,407 @@
+{
+  "aer_crosscheck": {
+    "check": "qiskit_aer_shot_measurement_equivalence_crosscheck",
+    "failed": 0,
+    "max_threshold": 0.20077072080689917,
+    "max_total_variation_distance": 0.0,
+    "method": "statevector",
+    "pair_count": 30,
+    "passed": 30,
+    "path": "results/b1_native_t_resource_optimizer/aer_crosscheck.json",
+    "shots": 32768
+  },
+  "after_metrics": "results/b1_native_t_resource_optimizer/after_metrics.json",
+  "before_metrics": "results/b1_native_t_resource_optimizer/before_metrics.json",
+  "benchmark_id": "B1",
+  "certificate_log": "results/b1_native_t_resource_optimizer/proofs.jsonl",
+  "input_dir": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth",
+  "last_updated": "2026-06-15",
+  "limits": [
+    "This pass canonicalizes only theta=0 u3 gates into native Z-phase form.",
+    "It is a narrow diagnostic for false T-resource proxy costs, not a complete non-Clifford optimizer.",
+    "The rewrite treats global phase as irrelevant to measurement semantics.",
+    "A positive proxy reduction must still be propagated through B7 factory schedules before it can support a system claim."
+  ],
+  "method": "u3_zero_theta_native_z_phase_canonicalization_v0",
+  "metrics": {
+    "after": {
+      "hardware_weighted_error_exposure": 19.49228,
+      "idle_layer_proxy": 62287,
+      "logical_depth": 3719,
+      "operation_count": 5936,
+      "single_qubit_gate_count": 3328,
+      "two_qubit_gate_count": 2438
+    },
+    "before": {
+      "hardware_weighted_error_exposure": 19.49252,
+      "idle_layer_proxy": 62283,
+      "logical_depth": 3719,
+      "operation_count": 5940,
+      "single_qubit_gate_count": 3332,
+      "two_qubit_gate_count": 2438
+    },
+    "reduction_pct": {
+      "hardware_weighted_error_exposure": 0.0012312415223789412,
+      "idle_layer_proxy": -0.006422298219417819,
+      "logical_depth": 0.0,
+      "operation_count": 0.06734006734006734,
+      "single_qubit_gate_count": 0.12004801920768307,
+      "two_qubit_gate_count": 0.0
+    }
+  },
+  "output_dir": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer",
+  "problem_id": 25,
+  "rewrite_rows": [
+    {
+      "canonicalization_events": 15,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/01_trotter_ladder_n6.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/b1_exact_extension/01_trotter_ladder_n6.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 15
+    },
+    {
+      "canonicalization_events": 24,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/02_ring_interaction_n8.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/b1_exact_extension/02_ring_interaction_n8.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 24
+    },
+    {
+      "canonicalization_events": 5,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/03_qec_syndrome_phase_n7.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/b1_exact_extension/03_qec_syndrome_phase_n7.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 5
+    },
+    {
+      "canonicalization_events": 17,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/04_arithmetic_phase_n6.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/b1_exact_extension/04_arithmetic_phase_n6.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 17
+    },
+    {
+      "canonicalization_events": 22,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/05_qft_phase_ladder_n5.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/b1_exact_extension/05_qft_phase_ladder_n5.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 22
+    },
+    {
+      "canonicalization_events": 10,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/06_long_range_echo_n10.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/b1_exact_extension/06_long_range_echo_n10.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 10
+    },
+    {
+      "canonicalization_events": 4,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/07_commuting_disjoint_windows_n8.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/b1_exact_extension/07_commuting_disjoint_windows_n8.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 4
+    },
+    {
+      "canonicalization_events": 24,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/08_chemistry_ansatz_n8.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/b1_exact_extension/08_chemistry_ansatz_n8.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 24
+    },
+    {
+      "canonicalization_events": 0,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/09_bv_phase_oracle_n9.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/b1_exact_extension/09_bv_phase_oracle_n9.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 0
+    },
+    {
+      "canonicalization_events": 18,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 18
+    },
+    {
+      "canonicalization_events": 4,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/11_stabilizer_mixer_n10.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/b1_exact_extension/11_stabilizer_mixer_n10.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 4
+    },
+    {
+      "canonicalization_events": 16,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/12_toffoli_phase_n7.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/b1_exact_extension/12_toffoli_phase_n7.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 16
+    },
+    {
+      "canonicalization_events": 166,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 166
+    },
+    {
+      "canonicalization_events": 95,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/qasmbench_interaction_exact/ising_n10.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/qasmbench_interaction_exact/ising_n10.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 95
+    },
+    {
+      "canonicalization_events": 0,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/qasmbench_medium_exact/bv_n14.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/qasmbench_medium_exact/bv_n14.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 0
+    },
+    {
+      "canonicalization_events": 609,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/qasmbench_medium_exact/gcm_h6.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 609
+    },
+    {
+      "canonicalization_events": 36,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/qasmbench_medium_exact/multiply_n13.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/qasmbench_medium_exact/multiply_n13.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 36
+    },
+    {
+      "canonicalization_events": 151,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/qasmbench_medium_exact/qf21_n15.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/qasmbench_medium_exact/qf21_n15.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 151
+    },
+    {
+      "canonicalization_events": 266,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/qasmbench_medium_exact/sat_n11.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/qasmbench_medium_exact/sat_n11.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 266
+    },
+    {
+      "canonicalization_events": 57,
+      "identity_events": 3,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/qasmbench_medium_exact/seca_n11.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/qasmbench_medium_exact/seca_n11.qasm",
+      "removed_single_qubit_gates": 3,
+      "rz_rewrite_events": 54
+    },
+    {
+      "canonicalization_events": 7,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/qasmbench_small/adder_n4.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/qasmbench_small/adder_n4.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 7
+    },
+    {
+      "canonicalization_events": 2,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/qasmbench_small/basis_change_n3.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/qasmbench_small/basis_change_n3.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 2
+    },
+    {
+      "canonicalization_events": 25,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/qasmbench_small/basis_test_n4.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/qasmbench_small/basis_test_n4.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 25
+    },
+    {
+      "canonicalization_events": 1,
+      "identity_events": 1,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/qasmbench_small/bell_n4.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/qasmbench_small/bell_n4.qasm",
+      "removed_single_qubit_gates": 1,
+      "rz_rewrite_events": 0
+    },
+    {
+      "canonicalization_events": 0,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/qasmbench_small/cat_state_n4.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/qasmbench_small/cat_state_n4.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 0
+    },
+    {
+      "canonicalization_events": 0,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/qasmbench_small/deutsch_n2.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/qasmbench_small/deutsch_n2.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 0
+    },
+    {
+      "canonicalization_events": 2,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/qasmbench_small/error_correctiond3_n5.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/qasmbench_small/error_correctiond3_n5.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 2
+    },
+    {
+      "canonicalization_events": 6,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/qasmbench_small/fredkin_n3.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/qasmbench_small/fredkin_n3.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 6
+    },
+    {
+      "canonicalization_events": 1,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/qasmbench_small/grover_n2.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/qasmbench_small/grover_n2.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 1
+    },
+    {
+      "canonicalization_events": 108,
+      "identity_events": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth/qasmbench_small/hhl_n7.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_native_t_resource_optimizer/qasmbench_small/hhl_n7.qasm",
+      "removed_single_qubit_gates": 0,
+      "rz_rewrite_events": 108
+    }
+  ],
+  "rewrite_stats": {
+    "canonicalization_events": 1691,
+    "certificate_entries": 1691,
+    "circuits_changed": 26,
+    "identity_events": 4,
+    "removed_single_qubit_gates": 4,
+    "rewritten_circuits": 30,
+    "rz_rewrite_events": 1687
+  },
+  "rotation_synthesis_t_cost": 20,
+  "status": "native_t_resource_optimizer_positive_diagnostic_not_final_claim",
+  "t_resource_proxy": {
+    "after": {
+      "ccx_count": 0,
+      "direct_t_count": 0,
+      "logical_t_count_proxy": 60600,
+      "logical_t_depth_proxy": 13480,
+      "non_clifford_rotation_count": 3030,
+      "operation_count_scanned": 5766,
+      "rotation_t_cost": 20,
+      "unknown_rotation_count": 293
+    },
+    "before": {
+      "ccx_count": 0,
+      "direct_t_count": 0,
+      "logical_t_count_proxy": 60660,
+      "logical_t_depth_proxy": 13480,
+      "non_clifford_rotation_count": 3033,
+      "operation_count_scanned": 5770,
+      "rotation_t_cost": 20,
+      "unknown_rotation_count": 294
+    },
+    "logical_t_count_reduction": 1.000990099009901,
+    "logical_t_depth_reduction": 1.0,
+    "non_clifford_rotation_count_reduction": 1.000990099009901,
+    "unknown_rotation_count_reduction": 1.0034129692832765
+  },
+  "title": "B1 native T-resource optimizer diagnostic",
+  "top_circuits_by_t_reduction": [
+    {
+      "logical_t_count_proxy_reduction": 40,
+      "logical_t_depth_proxy_reduction": 0,
+      "non_clifford_rotation_count_reduction": 2,
+      "relative_path": "qasmbench_small/bell_n4.qasm",
+      "unknown_rotation_count_reduction": 0
+    },
+    {
+      "logical_t_count_proxy_reduction": 20,
+      "logical_t_depth_proxy_reduction": 0,
+      "non_clifford_rotation_count_reduction": 1,
+      "relative_path": "qasmbench_small/basis_change_n3.qasm",
+      "unknown_rotation_count_reduction": 0
+    },
+    {
+      "logical_t_count_proxy_reduction": 0,
+      "logical_t_depth_proxy_reduction": 0,
+      "non_clifford_rotation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/01_trotter_ladder_n6.qasm",
+      "unknown_rotation_count_reduction": 0
+    },
+    {
+      "logical_t_count_proxy_reduction": 0,
+      "logical_t_depth_proxy_reduction": 0,
+      "non_clifford_rotation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/02_ring_interaction_n8.qasm",
+      "unknown_rotation_count_reduction": 0
+    },
+    {
+      "logical_t_count_proxy_reduction": 0,
+      "logical_t_depth_proxy_reduction": 0,
+      "non_clifford_rotation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/03_qec_syndrome_phase_n7.qasm",
+      "unknown_rotation_count_reduction": 0
+    },
+    {
+      "logical_t_count_proxy_reduction": 0,
+      "logical_t_depth_proxy_reduction": 0,
+      "non_clifford_rotation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/04_arithmetic_phase_n6.qasm",
+      "unknown_rotation_count_reduction": 0
+    },
+    {
+      "logical_t_count_proxy_reduction": 0,
+      "logical_t_depth_proxy_reduction": 0,
+      "non_clifford_rotation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/05_qft_phase_ladder_n5.qasm",
+      "unknown_rotation_count_reduction": 0
+    },
+    {
+      "logical_t_count_proxy_reduction": 0,
+      "logical_t_depth_proxy_reduction": 0,
+      "non_clifford_rotation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/06_long_range_echo_n10.qasm",
+      "unknown_rotation_count_reduction": 0
+    },
+    {
+      "logical_t_count_proxy_reduction": 0,
+      "logical_t_depth_proxy_reduction": 0,
+      "non_clifford_rotation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/07_commuting_disjoint_windows_n8.qasm",
+      "unknown_rotation_count_reduction": 0
+    },
+    {
+      "logical_t_count_proxy_reduction": 0,
+      "logical_t_depth_proxy_reduction": 0,
+      "non_clifford_rotation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/08_chemistry_ansatz_n8.qasm",
+      "unknown_rotation_count_reduction": 0
+    }
+  ],
+  "version": "0.1"
+}

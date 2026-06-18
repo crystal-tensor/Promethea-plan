@@ -1,0 +1,1514 @@
+{
+  "b1_after_metrics": "results/b1_u3_phase_factored_optimizer/after_metrics.json",
+  "b1_before_metrics": "results/b1_virtual_swap_elimination_level1/before_virtual_swap_metrics.json",
+  "benchmark_id": "B7",
+  "comparison_count": 18,
+  "comparisons": [
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 323144,
+        "data_physical_qubits": 494,
+        "data_rounds": 11181,
+        "direct_t_count": 0,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 323136,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 26928,
+        "logical_t_depth_ledger": 7240,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 1270,
+          "clifford_rotation": 2242,
+          "exact_pi_over_4_rotation": 1280,
+          "exact_pi_over_8_rotation": 62
+        },
+        "space_time_volume": 176436624,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 25400,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 1280,
+          "exact_pi_over_8_rotation": 248
+        },
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 379292,
+        "data_physical_qubits": 494,
+        "data_rounds": 14775,
+        "direct_t_count": 0,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 379284,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 31607,
+        "logical_t_depth_ledger": 9371,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 1490,
+          "clifford_rotation": 7110,
+          "exact_pi_over_4_rotation": 1499,
+          "exact_pi_over_8_rotation": 77
+        },
+        "space_time_volume": 207093432,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 29800,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 1499,
+          "exact_pi_over_8_rotation": 308
+        },
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.1737553536503849,
+      "factory_variant": "serial_factory",
+      "logical_t_count_reduction": 1.1737596553773024,
+      "logical_t_depth_reduction": 1.2943370165745856,
+      "space_time_volume_reduction": 1.1737553536503849,
+      "workload": "aggregate_30_circuits"
+    },
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 67328,
+        "data_physical_qubits": 494,
+        "data_rounds": 11181,
+        "direct_t_count": 0,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 67320,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 26928,
+        "logical_t_depth_ledger": 7240,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 1270,
+          "clifford_rotation": 2242,
+          "exact_pi_over_4_rotation": 1280,
+          "exact_pi_over_8_rotation": 62
+        },
+        "space_time_volume": 49014784,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 25400,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 1280,
+          "exact_pi_over_8_rotation": 248
+        },
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 79028,
+        "data_physical_qubits": 494,
+        "data_rounds": 14775,
+        "direct_t_count": 0,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 79020,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 31607,
+        "logical_t_depth_ledger": 9371,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 1490,
+          "clifford_rotation": 7110,
+          "exact_pi_over_4_rotation": 1499,
+          "exact_pi_over_8_rotation": 77
+        },
+        "space_time_volume": 57532384,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 29800,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 1499,
+          "exact_pi_over_8_rotation": 308
+        },
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.1737761406844107,
+      "factory_variant": "balanced_factories",
+      "logical_t_count_reduction": 1.1737596553773024,
+      "logical_t_depth_reduction": 1.2943370165745856,
+      "space_time_volume_reduction": 1.1737761406844107,
+      "workload": "aggregate_30_circuits"
+    },
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 26936,
+        "data_physical_qubits": 494,
+        "data_rounds": 11181,
+        "direct_t_count": 0,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 26928,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 26928,
+        "logical_t_depth_ledger": 7240,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 1270,
+          "clifford_rotation": 2242,
+          "exact_pi_over_4_rotation": 1280,
+          "exact_pi_over_8_rotation": 62
+        },
+        "space_time_volume": 28713776,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 25400,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 1280,
+          "exact_pi_over_8_rotation": 248
+        },
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 31616,
+        "data_physical_qubits": 494,
+        "data_rounds": 14775,
+        "direct_t_count": 0,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 31608,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 31607,
+        "logical_t_depth_ledger": 9371,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 1490,
+          "clifford_rotation": 7110,
+          "exact_pi_over_4_rotation": 1499,
+          "exact_pi_over_8_rotation": 77
+        },
+        "space_time_volume": 33702656,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 29800,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 1499,
+          "exact_pi_over_8_rotation": 308
+        },
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.1737451737451738,
+      "factory_variant": "throughput_heavy_factories",
+      "logical_t_count_reduction": 1.1737596553773024,
+      "logical_t_depth_reduction": 1.2943370165745856,
+      "space_time_volume_reduction": 1.1737451737451738,
+      "workload": "aggregate_30_circuits"
+    },
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 60728,
+        "data_physical_qubits": 494,
+        "data_rounds": 1848,
+        "direct_t_count": 0,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 60720,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 5060,
+        "logical_t_depth_ledger": 1808,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 252,
+          "clifford_rotation": 822,
+          "exact_pi_over_4_rotation": 20
+        },
+        "space_time_volume": 33157488,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 5040,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 20
+        },
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 80888,
+        "data_physical_qubits": 494,
+        "data_rounds": 2208,
+        "direct_t_count": 0,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 80880,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 6740,
+        "logical_t_depth_ledger": 2085,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 336,
+          "clifford_rotation": 1690,
+          "exact_pi_over_4_rotation": 20
+        },
+        "space_time_volume": 44164848,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 6720,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 20
+        },
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.3319720721907522,
+      "factory_variant": "serial_factory",
+      "logical_t_count_reduction": 1.33201581027668,
+      "logical_t_depth_reduction": 1.1532079646017699,
+      "space_time_volume_reduction": 1.3319720721907522,
+      "workload": "qasmbench_interaction_exact/basis_trotter_n4.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 12658,
+        "data_physical_qubits": 494,
+        "data_rounds": 1848,
+        "direct_t_count": 0,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 12650,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 5060,
+        "logical_t_depth_ledger": 1808,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 252,
+          "clifford_rotation": 822,
+          "exact_pi_over_4_rotation": 20
+        },
+        "space_time_volume": 9215024,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 5040,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 20
+        },
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 16858,
+        "data_physical_qubits": 494,
+        "data_rounds": 2208,
+        "direct_t_count": 0,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 16850,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 6740,
+        "logical_t_depth_ledger": 2085,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 336,
+          "clifford_rotation": 1690,
+          "exact_pi_over_4_rotation": 20
+        },
+        "space_time_volume": 12272624,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 6720,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 20
+        },
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.331805972507505,
+      "factory_variant": "balanced_factories",
+      "logical_t_count_reduction": 1.33201581027668,
+      "logical_t_depth_reduction": 1.1532079646017699,
+      "space_time_volume_reduction": 1.331805972507505,
+      "workload": "qasmbench_interaction_exact/basis_trotter_n4.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 5072,
+        "data_physical_qubits": 494,
+        "data_rounds": 1848,
+        "direct_t_count": 0,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 5064,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 5060,
+        "logical_t_depth_ledger": 1808,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 252,
+          "clifford_rotation": 822,
+          "exact_pi_over_4_rotation": 20
+        },
+        "space_time_volume": 5406752,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 5040,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 20
+        },
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 6752,
+        "data_physical_qubits": 494,
+        "data_rounds": 2208,
+        "direct_t_count": 0,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 6744,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 6740,
+        "logical_t_depth_ledger": 2085,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 336,
+          "clifford_rotation": 1690,
+          "exact_pi_over_4_rotation": 20
+        },
+        "space_time_volume": 7197632,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 6720,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 20
+        },
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.3312302839116719,
+      "factory_variant": "throughput_heavy_factories",
+      "logical_t_count_reduction": 1.33201581027668,
+      "logical_t_depth_reduction": 1.1532079646017699,
+      "space_time_volume_reduction": 1.3312302839116719,
+      "workload": "qasmbench_interaction_exact/basis_trotter_n4.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 74696,
+        "data_physical_qubits": 494,
+        "data_rounds": 4479,
+        "direct_t_count": 0,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 74688,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 6224,
+        "logical_t_depth_ledger": 964,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 270,
+          "clifford_rotation": 476,
+          "exact_pi_over_4_rotation": 792,
+          "exact_pi_over_8_rotation": 8
+        },
+        "space_time_volume": 40784016,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 5400,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 792,
+          "exact_pi_over_8_rotation": 32
+        },
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 81128,
+        "data_physical_qubits": 494,
+        "data_rounds": 5907,
+        "direct_t_count": 0,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 81120,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 6760,
+        "logical_t_depth_ledger": 1166,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 289,
+          "clifford_rotation": 2022,
+          "exact_pi_over_4_rotation": 948,
+          "exact_pi_over_8_rotation": 8
+        },
+        "space_time_volume": 44295888,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 5780,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 948,
+          "exact_pi_over_8_rotation": 32
+        },
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.0861090285959087,
+      "factory_variant": "serial_factory",
+      "logical_t_count_reduction": 1.0861182519280206,
+      "logical_t_depth_reduction": 1.2095435684647302,
+      "space_time_volume_reduction": 1.0861090285959087,
+      "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 15568,
+        "data_physical_qubits": 494,
+        "data_rounds": 4479,
+        "direct_t_count": 0,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 15560,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 6224,
+        "logical_t_depth_ledger": 964,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 270,
+          "clifford_rotation": 476,
+          "exact_pi_over_4_rotation": 792,
+          "exact_pi_over_8_rotation": 8
+        },
+        "space_time_volume": 11333504,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 5400,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 792,
+          "exact_pi_over_8_rotation": 32
+        },
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 16908,
+        "data_physical_qubits": 494,
+        "data_rounds": 5907,
+        "direct_t_count": 0,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 16900,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 6760,
+        "logical_t_depth_ledger": 1166,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 289,
+          "clifford_rotation": 2022,
+          "exact_pi_over_4_rotation": 948,
+          "exact_pi_over_8_rotation": 8
+        },
+        "space_time_volume": 12309024,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 5780,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 948,
+          "exact_pi_over_8_rotation": 32
+        },
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.0860739979445015,
+      "factory_variant": "balanced_factories",
+      "logical_t_count_reduction": 1.0861182519280206,
+      "logical_t_depth_reduction": 1.2095435684647302,
+      "space_time_volume_reduction": 1.0860739979445015,
+      "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 6232,
+        "data_physical_qubits": 494,
+        "data_rounds": 4479,
+        "direct_t_count": 0,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 6224,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 6224,
+        "logical_t_depth_ledger": 964,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 270,
+          "clifford_rotation": 476,
+          "exact_pi_over_4_rotation": 792,
+          "exact_pi_over_8_rotation": 8
+        },
+        "space_time_volume": 6643312,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 5400,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 792,
+          "exact_pi_over_8_rotation": 32
+        },
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 6768,
+        "data_physical_qubits": 494,
+        "data_rounds": 5907,
+        "direct_t_count": 0,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 6760,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 6760,
+        "logical_t_depth_ledger": 1166,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 289,
+          "clifford_rotation": 2022,
+          "exact_pi_over_4_rotation": 948,
+          "exact_pi_over_8_rotation": 8
+        },
+        "space_time_volume": 7214688,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 5780,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 948,
+          "exact_pi_over_8_rotation": 32
+        },
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.086007702182285,
+      "factory_variant": "throughput_heavy_factories",
+      "logical_t_count_reduction": 1.0861182519280206,
+      "logical_t_depth_reduction": 1.2095435684647302,
+      "space_time_volume_reduction": 1.086007702182285,
+      "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 17312,
+        "data_physical_qubits": 494,
+        "data_rounds": 729,
+        "direct_t_count": 0,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 17304,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 1442,
+        "logical_t_depth_ledger": 290,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 67,
+          "clifford_rotation": 65,
+          "exact_pi_over_4_rotation": 34,
+          "exact_pi_over_8_rotation": 17
+        },
+        "space_time_volume": 9452352,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 1340,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 34,
+          "exact_pi_over_8_rotation": 68
+        },
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 21944,
+        "data_physical_qubits": 494,
+        "data_rounds": 1071,
+        "direct_t_count": 0,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 21936,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 1828,
+        "logical_t_depth_ledger": 413,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 84,
+          "clifford_rotation": 410,
+          "exact_pi_over_4_rotation": 52,
+          "exact_pi_over_8_rotation": 24
+        },
+        "space_time_volume": 11981424,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 1680,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 52,
+          "exact_pi_over_8_rotation": 96
+        },
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.2675600739371533,
+      "factory_variant": "serial_factory",
+      "logical_t_count_reduction": 1.2676837725381416,
+      "logical_t_depth_reduction": 1.4241379310344828,
+      "space_time_volume_reduction": 1.2675600739371533,
+      "workload": "qasmbench_medium_exact/qf21_n15.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 3618,
+        "data_physical_qubits": 494,
+        "data_rounds": 729,
+        "direct_t_count": 0,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 3610,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 1442,
+        "logical_t_depth_ledger": 290,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 67,
+          "clifford_rotation": 65,
+          "exact_pi_over_4_rotation": 34,
+          "exact_pi_over_8_rotation": 17
+        },
+        "space_time_volume": 2633904,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 1340,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 34,
+          "exact_pi_over_8_rotation": 68
+        },
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 4578,
+        "data_physical_qubits": 494,
+        "data_rounds": 1071,
+        "direct_t_count": 0,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 4570,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 1828,
+        "logical_t_depth_ledger": 413,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 84,
+          "clifford_rotation": 410,
+          "exact_pi_over_4_rotation": 52,
+          "exact_pi_over_8_rotation": 24
+        },
+        "space_time_volume": 3332784,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 1680,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 52,
+          "exact_pi_over_8_rotation": 96
+        },
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.265339966832504,
+      "factory_variant": "balanced_factories",
+      "logical_t_count_reduction": 1.2676837725381416,
+      "logical_t_depth_reduction": 1.4241379310344828,
+      "space_time_volume_reduction": 1.265339966832504,
+      "workload": "qasmbench_medium_exact/qf21_n15.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 1456,
+        "data_physical_qubits": 494,
+        "data_rounds": 729,
+        "direct_t_count": 0,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 1448,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 1442,
+        "logical_t_depth_ledger": 290,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 67,
+          "clifford_rotation": 65,
+          "exact_pi_over_4_rotation": 34,
+          "exact_pi_over_8_rotation": 17
+        },
+        "space_time_volume": 1552096,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 1340,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 34,
+          "exact_pi_over_8_rotation": 68
+        },
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 1840,
+        "data_physical_qubits": 494,
+        "data_rounds": 1071,
+        "direct_t_count": 0,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 1832,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 1828,
+        "logical_t_depth_ledger": 413,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 84,
+          "clifford_rotation": 410,
+          "exact_pi_over_4_rotation": 52,
+          "exact_pi_over_8_rotation": 24
+        },
+        "space_time_volume": 1961440,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 1680,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 52,
+          "exact_pi_over_8_rotation": 96
+        },
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.2637362637362637,
+      "factory_variant": "throughput_heavy_factories",
+      "logical_t_count_reduction": 1.2676837725381416,
+      "logical_t_depth_reduction": 1.4241379310344828,
+      "space_time_volume_reduction": 1.2637362637362637,
+      "workload": "qasmbench_medium_exact/qf21_n15.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 3152,
+        "data_physical_qubits": 494,
+        "data_rounds": 1194,
+        "direct_t_count": 0,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 3144,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 262,
+        "logical_t_depth_ledger": 77,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "clifford_rotation": 131,
+          "exact_pi_over_4_rotation": 262
+        },
+        "space_time_volume": 1720992,
+        "t_cost_by_family": {
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 262
+        },
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 3536,
+        "data_physical_qubits": 494,
+        "data_rounds": 1929,
+        "direct_t_count": 0,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 3528,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 294,
+        "logical_t_depth_ledger": 88,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "clifford_rotation": 741,
+          "exact_pi_over_4_rotation": 294
+        },
+        "space_time_volume": 1930656,
+        "t_cost_by_family": {
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 294
+        },
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.1218274111675126,
+      "factory_variant": "serial_factory",
+      "logical_t_count_reduction": 1.1221374045801527,
+      "logical_t_depth_reduction": 1.1428571428571428,
+      "space_time_volume_reduction": 1.1218274111675126,
+      "workload": "qasmbench_medium_exact/sat_n11.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "data_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 1202,
+        "data_physical_qubits": 494,
+        "data_rounds": 1194,
+        "direct_t_count": 0,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 660,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 262,
+        "logical_t_depth_ledger": 77,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "clifford_rotation": 131,
+          "exact_pi_over_4_rotation": 262
+        },
+        "space_time_volume": 875056,
+        "t_cost_by_family": {
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 262
+        },
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "before": {
+        "bottleneck": "data_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 1937,
+        "data_physical_qubits": 494,
+        "data_rounds": 1929,
+        "direct_t_count": 0,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 740,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 294,
+        "logical_t_depth_ledger": 88,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "clifford_rotation": 741,
+          "exact_pi_over_4_rotation": 294
+        },
+        "space_time_volume": 1410136,
+        "t_cost_by_family": {
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 294
+        },
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "bottleneck_after": "data_path",
+      "bottleneck_before": "data_path",
+      "critical_path_reduction": 1.6114808652246255,
+      "factory_variant": "balanced_factories",
+      "logical_t_count_reduction": 1.1221374045801527,
+      "logical_t_depth_reduction": 1.1428571428571428,
+      "space_time_volume_reduction": 1.6114808652246255,
+      "workload": "qasmbench_medium_exact/sat_n11.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "data_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 1202,
+        "data_physical_qubits": 494,
+        "data_rounds": 1194,
+        "direct_t_count": 0,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 264,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 262,
+        "logical_t_depth_ledger": 77,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "clifford_rotation": 131,
+          "exact_pi_over_4_rotation": 262
+        },
+        "space_time_volume": 1281332,
+        "t_cost_by_family": {
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 262
+        },
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "before": {
+        "bottleneck": "data_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 1937,
+        "data_physical_qubits": 494,
+        "data_rounds": 1929,
+        "direct_t_count": 0,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 296,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 294,
+        "logical_t_depth_ledger": 88,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "clifford_rotation": 741,
+          "exact_pi_over_4_rotation": 294
+        },
+        "space_time_volume": 2064842,
+        "t_cost_by_family": {
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 294
+        },
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "bottleneck_after": "data_path",
+      "bottleneck_before": "data_path",
+      "critical_path_reduction": 1.6114808652246255,
+      "factory_variant": "throughput_heavy_factories",
+      "logical_t_count_reduction": 1.1221374045801527,
+      "logical_t_depth_reduction": 1.1428571428571428,
+      "space_time_volume_reduction": 1.6114808652246255,
+      "workload": "qasmbench_medium_exact/sat_n11.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 73520,
+        "data_physical_qubits": 494,
+        "data_rounds": 1086,
+        "direct_t_count": 0,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 73512,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 6126,
+        "logical_t_depth_ledger": 2524,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 303,
+          "clifford_rotation": 89,
+          "exact_pi_over_4_rotation": 18,
+          "exact_pi_over_8_rotation": 12
+        },
+        "space_time_volume": 40141920,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 6060,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 18,
+          "exact_pi_over_8_rotation": 48
+        },
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 89444,
+        "data_physical_qubits": 494,
+        "data_rounds": 1305,
+        "direct_t_count": 0,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 89436,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 7453,
+        "logical_t_depth_ledger": 3871,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 368,
+          "clifford_rotation": 445,
+          "exact_pi_over_4_rotation": 25,
+          "exact_pi_over_8_rotation": 17
+        },
+        "space_time_volume": 48836424,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 7360,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 25,
+          "exact_pi_over_8_rotation": 68
+        },
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.2165941240478781,
+      "factory_variant": "serial_factory",
+      "logical_t_count_reduction": 1.2166176950701926,
+      "logical_t_depth_reduction": 1.5336767036450079,
+      "space_time_volume_reduction": 1.2165941240478781,
+      "workload": "qasmbench_small/hhl_n7.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 15328,
+        "data_physical_qubits": 494,
+        "data_rounds": 1086,
+        "direct_t_count": 0,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 15320,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 6126,
+        "logical_t_depth_ledger": 2524,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 303,
+          "clifford_rotation": 89,
+          "exact_pi_over_4_rotation": 18,
+          "exact_pi_over_8_rotation": 12
+        },
+        "space_time_volume": 11158784,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 6060,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 18,
+          "exact_pi_over_8_rotation": 48
+        },
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 18648,
+        "data_physical_qubits": 494,
+        "data_rounds": 1305,
+        "direct_t_count": 0,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 18640,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 7453,
+        "logical_t_depth_ledger": 3871,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 368,
+          "clifford_rotation": 445,
+          "exact_pi_over_4_rotation": 25,
+          "exact_pi_over_8_rotation": 17
+        },
+        "space_time_volume": 13575744,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 7360,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 25,
+          "exact_pi_over_8_rotation": 68
+        },
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.216597077244259,
+      "factory_variant": "balanced_factories",
+      "logical_t_count_reduction": 1.2166176950701926,
+      "logical_t_depth_reduction": 1.5336767036450079,
+      "space_time_volume_reduction": 1.216597077244259,
+      "workload": "qasmbench_small/hhl_n7.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 6136,
+        "data_physical_qubits": 494,
+        "data_rounds": 1086,
+        "direct_t_count": 0,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 6128,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 6126,
+        "logical_t_depth_ledger": 2524,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 303,
+          "clifford_rotation": 89,
+          "exact_pi_over_4_rotation": 18,
+          "exact_pi_over_8_rotation": 12
+        },
+        "space_time_volume": 6540976,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 6060,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 18,
+          "exact_pi_over_8_rotation": 48
+        },
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "ccx_count": 0,
+        "critical_path_rounds": 7464,
+        "data_physical_qubits": 494,
+        "data_rounds": 1305,
+        "direct_t_count": 0,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 7456,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "logical_t_count_ledger": 7453,
+        "logical_t_depth_ledger": 3871,
+        "model_status": "ft_synthesis_ledger_schedule_not_physical_layout",
+        "rotation_family_counts": {
+          "arbitrary_numeric_rotation": 368,
+          "clifford_rotation": 445,
+          "exact_pi_over_4_rotation": 25,
+          "exact_pi_over_8_rotation": 17
+        },
+        "space_time_volume": 7956624,
+        "t_cost_by_family": {
+          "arbitrary_numeric_rotation": 7360,
+          "clifford_rotation": 0,
+          "exact_pi_over_4_rotation": 25,
+          "exact_pi_over_8_rotation": 68
+        },
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.2164276401564538,
+      "factory_variant": "throughput_heavy_factories",
+      "logical_t_count_reduction": 1.2166176950701926,
+      "logical_t_depth_reduction": 1.5336767036450079,
+      "space_time_volume_reduction": 1.2164276401564538,
+      "workload": "qasmbench_small/hhl_n7.qasm"
+    }
+  ],
+  "cost_model": {
+    "arbitrary_rotation_t_cost": 20,
+    "ccx_t_cost": 7,
+    "clifford_rotation_t_cost": 0,
+    "pi_over_4_rotation_t_cost": 1,
+    "pi_over_8_rotation_t_cost": 4,
+    "unknown_rotation_t_cost": 20
+  },
+  "data_bottleneck_after_count": 2,
+  "factory_bottleneck_after_count": 16,
+  "factory_variants": [
+    "balanced_factories",
+    "serial_factory",
+    "throughput_heavy_factories"
+  ],
+  "last_updated": "2026-06-15",
+  "limits": [
+    "This ledger classifies exact Pauli rotations by angle family; it is not a lattice-surgery or physical layout result.",
+    "Exact odd pi/4 rotations are counted as one T gate using Clifford conjugation for X/Y axes.",
+    "Unknown, symbolic, and arbitrary numeric rotations retain conservative fixed fallback costs.",
+    "Data-path dominance after re-costing does not prove solved architecture; it identifies the next bottleneck after factory pressure is reduced."
+  ],
+  "mean_logical_t_count_reduction": 1.1997220982950816,
+  "mean_space_time_volume_reduction": 1.253640000721326,
+  "method": "b7_ft_synthesis_ledger_v0",
+  "min_logical_t_count_reduction": 1.0861182519280206,
+  "min_row": {
+    "bottleneck_after": "factory_path",
+    "bottleneck_before": "factory_path",
+    "factory_variant": "throughput_heavy_factories",
+    "space_time_volume_reduction": 1.086007702182285,
+    "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+  },
+  "min_space_time_volume_reduction": 1.086007702182285,
+  "problem_id": 21,
+  "resource_rows": [
+    {
+      "after_logical_t_count_ledger": 26928,
+      "after_rotation_family_counts": {
+        "arbitrary_numeric_rotation": 1270,
+        "clifford_rotation": 2242,
+        "exact_pi_over_4_rotation": 1280,
+        "exact_pi_over_8_rotation": 62
+      },
+      "after_t_cost_by_family": {
+        "arbitrary_numeric_rotation": 25400,
+        "clifford_rotation": 0,
+        "exact_pi_over_4_rotation": 1280,
+        "exact_pi_over_8_rotation": 248
+      },
+      "before_logical_t_count_ledger": 31607,
+      "before_rotation_family_counts": {
+        "arbitrary_numeric_rotation": 1490,
+        "clifford_rotation": 7110,
+        "exact_pi_over_4_rotation": 1499,
+        "exact_pi_over_8_rotation": 77
+      },
+      "before_t_cost_by_family": {
+        "arbitrary_numeric_rotation": 29800,
+        "clifford_rotation": 0,
+        "exact_pi_over_4_rotation": 1499,
+        "exact_pi_over_8_rotation": 308
+      },
+      "logical_t_count_reduction": 1.1737596553773024,
+      "workload": "aggregate_30_circuits"
+    },
+    {
+      "after_logical_t_count_ledger": 5060,
+      "after_rotation_family_counts": {
+        "arbitrary_numeric_rotation": 252,
+        "clifford_rotation": 822,
+        "exact_pi_over_4_rotation": 20
+      },
+      "after_t_cost_by_family": {
+        "arbitrary_numeric_rotation": 5040,
+        "clifford_rotation": 0,
+        "exact_pi_over_4_rotation": 20
+      },
+      "before_logical_t_count_ledger": 6740,
+      "before_rotation_family_counts": {
+        "arbitrary_numeric_rotation": 336,
+        "clifford_rotation": 1690,
+        "exact_pi_over_4_rotation": 20
+      },
+      "before_t_cost_by_family": {
+        "arbitrary_numeric_rotation": 6720,
+        "clifford_rotation": 0,
+        "exact_pi_over_4_rotation": 20
+      },
+      "logical_t_count_reduction": 1.33201581027668,
+      "workload": "qasmbench_interaction_exact/basis_trotter_n4.qasm"
+    },
+    {
+      "after_logical_t_count_ledger": 6224,
+      "after_rotation_family_counts": {
+        "arbitrary_numeric_rotation": 270,
+        "clifford_rotation": 476,
+        "exact_pi_over_4_rotation": 792,
+        "exact_pi_over_8_rotation": 8
+      },
+      "after_t_cost_by_family": {
+        "arbitrary_numeric_rotation": 5400,
+        "clifford_rotation": 0,
+        "exact_pi_over_4_rotation": 792,
+        "exact_pi_over_8_rotation": 32
+      },
+      "before_logical_t_count_ledger": 6760,
+      "before_rotation_family_counts": {
+        "arbitrary_numeric_rotation": 289,
+        "clifford_rotation": 2022,
+        "exact_pi_over_4_rotation": 948,
+        "exact_pi_over_8_rotation": 8
+      },
+      "before_t_cost_by_family": {
+        "arbitrary_numeric_rotation": 5780,
+        "clifford_rotation": 0,
+        "exact_pi_over_4_rotation": 948,
+        "exact_pi_over_8_rotation": 32
+      },
+      "logical_t_count_reduction": 1.0861182519280206,
+      "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+    },
+    {
+      "after_logical_t_count_ledger": 1442,
+      "after_rotation_family_counts": {
+        "arbitrary_numeric_rotation": 67,
+        "clifford_rotation": 65,
+        "exact_pi_over_4_rotation": 34,
+        "exact_pi_over_8_rotation": 17
+      },
+      "after_t_cost_by_family": {
+        "arbitrary_numeric_rotation": 1340,
+        "clifford_rotation": 0,
+        "exact_pi_over_4_rotation": 34,
+        "exact_pi_over_8_rotation": 68
+      },
+      "before_logical_t_count_ledger": 1828,
+      "before_rotation_family_counts": {
+        "arbitrary_numeric_rotation": 84,
+        "clifford_rotation": 410,
+        "exact_pi_over_4_rotation": 52,
+        "exact_pi_over_8_rotation": 24
+      },
+      "before_t_cost_by_family": {
+        "arbitrary_numeric_rotation": 1680,
+        "clifford_rotation": 0,
+        "exact_pi_over_4_rotation": 52,
+        "exact_pi_over_8_rotation": 96
+      },
+      "logical_t_count_reduction": 1.2676837725381416,
+      "workload": "qasmbench_medium_exact/qf21_n15.qasm"
+    },
+    {
+      "after_logical_t_count_ledger": 262,
+      "after_rotation_family_counts": {
+        "clifford_rotation": 131,
+        "exact_pi_over_4_rotation": 262
+      },
+      "after_t_cost_by_family": {
+        "clifford_rotation": 0,
+        "exact_pi_over_4_rotation": 262
+      },
+      "before_logical_t_count_ledger": 294,
+      "before_rotation_family_counts": {
+        "clifford_rotation": 741,
+        "exact_pi_over_4_rotation": 294
+      },
+      "before_t_cost_by_family": {
+        "clifford_rotation": 0,
+        "exact_pi_over_4_rotation": 294
+      },
+      "logical_t_count_reduction": 1.1221374045801527,
+      "workload": "qasmbench_medium_exact/sat_n11.qasm"
+    },
+    {
+      "after_logical_t_count_ledger": 6126,
+      "after_rotation_family_counts": {
+        "arbitrary_numeric_rotation": 303,
+        "clifford_rotation": 89,
+        "exact_pi_over_4_rotation": 18,
+        "exact_pi_over_8_rotation": 12
+      },
+      "after_t_cost_by_family": {
+        "arbitrary_numeric_rotation": 6060,
+        "clifford_rotation": 0,
+        "exact_pi_over_4_rotation": 18,
+        "exact_pi_over_8_rotation": 48
+      },
+      "before_logical_t_count_ledger": 7453,
+      "before_rotation_family_counts": {
+        "arbitrary_numeric_rotation": 368,
+        "clifford_rotation": 445,
+        "exact_pi_over_4_rotation": 25,
+        "exact_pi_over_8_rotation": 17
+      },
+      "before_t_cost_by_family": {
+        "arbitrary_numeric_rotation": 7360,
+        "clifford_rotation": 0,
+        "exact_pi_over_4_rotation": 25,
+        "exact_pi_over_8_rotation": 68
+      },
+      "logical_t_count_reduction": 1.2166176950701926,
+      "workload": "qasmbench_small/hhl_n7.qasm"
+    }
+  ],
+  "source_bridge": "results/B7_b1_b2_dependency_schedule_bridge_v0.json",
+  "status": "ft_synthesis_ledger_proxy_not_physical_layout",
+  "title": "B7 FT synthesis ledger schedule",
+  "version": "0.1",
+  "workload_count": 6
+}

@@ -1,0 +1,187 @@
+{
+  "benchmark_id": "B10",
+  "builds_on": "b10_t1_d5_b3_reaction_observable_table_v0",
+  "claim_boundary": {
+    "next_proof_pressure": "Use these references to define an accuracy-per-resource comparison for a concrete quantum observable-estimation circuit or selected-CI/FCI denominator.",
+    "now_supported": "B3 D5 reaction-coordinate denominator rows now have RHF, MP2, and CCSD finite-difference reference derivatives.",
+    "still_not_supported": "This is not a quantum implementation, not a full reaction-dynamics solution, not a basis-set-complete chemistry claim, and not a BQP/classical separation."
+  },
+  "dependency_benchmark": "B3",
+  "explicit_not_bqp_separation": true,
+  "last_updated": "2026-06-13",
+  "method": "b10_t1_d5_b3_correlated_reference_table_v0",
+  "problem_id": 11,
+  "rows": [
+    {
+      "basis": "sto-3g",
+      "boundary_interpretation": "This row adds correlated classical references to the B3 reaction-coordinate denominator. Future quantum observable-estimation claims must state whether they improve over HF-only, MP2, or CCSD references at the same coordinate.",
+      "ccsd_derivative_shift_vs_mp2": -0.020438792880517198,
+      "ccsd_derivative_shift_vs_rhf": -0.04381639578016072,
+      "coordinate": "H-H bond length",
+      "coordinate_center": 0.7414,
+      "electrons": 2,
+      "finite_difference_delta": 0.01,
+      "methods": {
+        "CCSD": {
+          "center_energy_hartree": -1.1372701746608895,
+          "correlation_energy_vs_rhf_hartree": -0.02058578757554863,
+          "finite_difference_derivative_hartree_per_coordinate": 0.010729835814382582,
+          "minus_energy_hartree": -1.1372957462396802,
+          "plus_energy_hartree": -1.1370811495233926
+        },
+        "MP2": {
+          "center_energy_hartree": -1.1298551535553099,
+          "correlation_energy_vs_rhf_hartree": -0.013170766469968953,
+          "finite_difference_derivative_hartree_per_coordinate": 0.03116862869489978,
+          "minus_energy_hartree": -1.130082813881922,
+          "plus_energy_hartree": -1.1294594413080241
+        },
+        "RHF": {
+          "center_energy_hartree": -1.116684387085341,
+          "correlation_energy_vs_rhf_hartree": 0.0,
+          "finite_difference_derivative_hartree_per_coordinate": 0.054546231594543304,
+          "minus_energy_hartree": -1.117144047307754,
+          "plus_energy_hartree": -1.1160531226758632
+        }
+      },
+      "molecule": "h2_bond_stretch",
+      "mp2_derivative_shift_vs_rhf": -0.023377602899643524,
+      "source_benchmark": "B3",
+      "spatial_orbitals": 2,
+      "wall_time_seconds": 0.1507231660070829
+    },
+    {
+      "basis": "sto-3g",
+      "boundary_interpretation": "This row adds correlated classical references to the B3 reaction-coordinate denominator. Future quantum observable-estimation claims must state whether they improve over HF-only, MP2, or CCSD references at the same coordinate.",
+      "ccsd_derivative_shift_vs_mp2": -0.008453021351462198,
+      "ccsd_derivative_shift_vs_rhf": -0.0163883563083278,
+      "coordinate": "Li-H bond length",
+      "coordinate_center": 1.6,
+      "electrons": 4,
+      "finite_difference_delta": 0.01,
+      "methods": {
+        "CCSD": {
+          "center_energy_hartree": -7.882313820279689,
+          "correlation_energy_vs_rhf_hartree": -0.020449050471042618,
+          "finite_difference_derivative_hartree_per_coordinate": 0.016219395977046247,
+          "minus_energy_hartree": -7.882461853688753,
+          "plus_energy_hartree": -7.882137465769212
+        },
+        "MP2": {
+          "center_energy_hartree": -7.874768866261411,
+          "correlation_energy_vs_rhf_hartree": -0.012904096452763802,
+          "finite_difference_derivative_hartree_per_coordinate": 0.024672417328508445,
+          "minus_energy_hartree": -7.875000440822076,
+          "plus_energy_hartree": -7.874506992475506
+        },
+        "RHF": {
+          "center_energy_hartree": -7.861864769808647,
+          "correlation_energy_vs_rhf_hartree": 0.0,
+          "finite_difference_derivative_hartree_per_coordinate": 0.03260775228537405,
+          "minus_energy_hartree": -7.862174819763759,
+          "plus_energy_hartree": -7.861522664718051
+        }
+      },
+      "molecule": "lih_bond_stretch",
+      "mp2_derivative_shift_vs_rhf": -0.007935334956865603,
+      "source_benchmark": "B3",
+      "spatial_orbitals": 6,
+      "wall_time_seconds": 0.09558054199442267
+    },
+    {
+      "basis": "sto-3g",
+      "boundary_interpretation": "This row adds correlated classical references to the B3 reaction-coordinate denominator. Future quantum observable-estimation claims must state whether they improve over HF-only, MP2, or CCSD references at the same coordinate.",
+      "ccsd_derivative_shift_vs_mp2": -0.04290825379200669,
+      "ccsd_derivative_shift_vs_rhf": -0.12149680370114879,
+      "coordinate": "symmetric O-H stretch scale",
+      "coordinate_center": 1.0,
+      "electrons": 10,
+      "finite_difference_delta": 0.01,
+      "methods": {
+        "CCSD": {
+          "center_energy_hartree": -75.01253062545565,
+          "correlation_energy_vs_rhf_hartree": -0.04946749572648912,
+          "finite_difference_derivative_hartree_per_coordinate": -0.2571038446845364,
+          "minus_energy_hartree": -75.00973178547328,
+          "plus_energy_hartree": -75.01487386236697
+        },
+        "MP2": {
+          "center_energy_hartree": -74.99862996599529,
+          "correlation_energy_vs_rhf_hartree": -0.035566836266127666,
+          "finite_difference_derivative_hartree_per_coordinate": -0.2141955908925297,
+          "minus_energy_hartree": -74.9962547640149,
+          "plus_energy_hartree": -75.00053867583276
+        },
+        "RHF": {
+          "center_energy_hartree": -74.96306312972916,
+          "correlation_energy_vs_rhf_hartree": 0.0,
+          "finite_difference_derivative_hartree_per_coordinate": -0.1356070409833876,
+          "minus_energy_hartree": -74.96146594867244,
+          "plus_energy_hartree": -74.96417808949211
+        }
+      },
+      "molecule": "h2o_symmetric_oh_stretch",
+      "mp2_derivative_shift_vs_rhf": -0.0785885499091421,
+      "source_benchmark": "B3",
+      "spatial_orbitals": 7,
+      "wall_time_seconds": 0.09634933300549164
+    },
+    {
+      "basis": "sto-3g",
+      "boundary_interpretation": "This row adds correlated classical references to the B3 reaction-coordinate denominator. Future quantum observable-estimation claims must state whether they improve over HF-only, MP2, or CCSD references at the same coordinate.",
+      "ccsd_derivative_shift_vs_mp2": 0.07835763723420541,
+      "ccsd_derivative_shift_vs_rhf": -0.2817594828918857,
+      "coordinate": "N-N bond length",
+      "coordinate_center": 1.0977,
+      "electrons": 14,
+      "finite_difference_delta": 0.01,
+      "methods": {
+        "CCSD": {
+          "center_energy_hartree": -107.64894123516981,
+          "correlation_energy_vs_rhf_hartree": -0.15304792733557804,
+          "finite_difference_derivative_hartree_per_coordinate": -0.5563035076846745,
+          "minus_energy_hartree": -107.64297276143061,
+          "plus_energy_hartree": -107.6540988315843
+        },
+        "MP2": {
+          "center_energy_hartree": -107.64998380763205,
+          "correlation_energy_vs_rhf_hartree": -0.15409049979781742,
+          "finite_difference_derivative_hartree_per_coordinate": -0.6346611449188799,
+          "minus_energy_hartree": -107.64325487499953,
+          "plus_energy_hartree": -107.6559480978979
+        },
+        "RHF": {
+          "center_energy_hartree": -107.49589330783424,
+          "correlation_energy_vs_rhf_hartree": 0.0,
+          "finite_difference_derivative_hartree_per_coordinate": -0.27454402479278883,
+          "minus_energy_hartree": -107.49272512780274,
+          "plus_energy_hartree": -107.4982160082986
+        }
+      },
+      "molecule": "n2_bond_stretch",
+      "mp2_derivative_shift_vs_rhf": -0.3601171201260911,
+      "source_benchmark": "B3",
+      "spatial_orbitals": 10,
+      "wall_time_seconds": 0.1022018340008799
+    }
+  ],
+  "source_target_id": "B10-T1",
+  "source_target_name": "linear_systems_data_loading_negative_boundary",
+  "status": "correlated_b3_reaction_references_instantiated_not_quantum_advantage_claim",
+  "summary": {
+    "instance_count": 4,
+    "max_abs_ccsd_derivative_shift_vs_mp2": 0.07835763723420541,
+    "max_abs_ccsd_derivative_shift_vs_rhf": 0.2817594828918857,
+    "max_abs_mp2_derivative_shift_vs_rhf": 0.3601171201260911,
+    "methods": [
+      "RHF",
+      "MP2",
+      "CCSD"
+    ],
+    "molecule_count": 4,
+    "total_wall_time_seconds": 0.4448548750078771
+  },
+  "title": "B10-T1 correlated B3 reaction-coordinate references",
+  "validation_errors": [],
+  "version": "0.7"
+}

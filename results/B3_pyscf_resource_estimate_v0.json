@@ -1,0 +1,168 @@
+{
+  "basis": "sto-3g",
+  "benchmark_id": "B3",
+  "integral_cutoff": 1e-10,
+  "method": "pyscf_small_molecule_resource_proxy_v0",
+  "model_status": "pyscf_hf_integrals_plus_proxy_resource_estimates",
+  "molecule_count": 4,
+  "observable_fraction": 0.2,
+  "precision_hartree": 0.0016,
+  "results": [
+    {
+      "basis": "sto-3g",
+      "charge": 0,
+      "electrons": 2,
+      "hf_energy_hartree": -1.116684387085341,
+      "integral_cutoff": 1e-10,
+      "lambda_one_body_proxy": 8.311133452997726,
+      "lambda_two_body_proxy": 29.700586476082304,
+      "molecule": "h2_calibration",
+      "nuclear_repulsion_hartree": 0.7137539936876182,
+      "one_body_integral_nonzero": 4,
+      "one_body_spin_terms": 8,
+      "resource_estimates": {
+        "full_phase_estimation": {
+          "logical_qubits_proxy": 22,
+          "query_steps_proxy": 23758,
+          "step_cost_proxy": 528,
+          "t_count_proxy": 12544224
+        },
+        "observable_first": {
+          "logical_qubits_proxy": 20,
+          "observable_fraction": 0.2,
+          "query_steps_proxy": 4752,
+          "state_prep_penalty": 4,
+          "step_cost_proxy": 108,
+          "t_count_proxy": 2052864
+        },
+        "phase_register_bits": 10,
+        "precision_hartree": 0.0016,
+        "proxy_logical_qubit_reduction_factor": 1.1,
+        "proxy_t_count_reduction_factor": 6.11059670781893
+      },
+      "runtime_seconds": 0.023000500004854985,
+      "spatial_orbitals": 2,
+      "spin": 0,
+      "spin_orbitals": 4,
+      "two_body_integral_nonzero": 16,
+      "two_body_spin_terms": 64
+    },
+    {
+      "basis": "sto-3g",
+      "charge": 0,
+      "electrons": 4,
+      "hf_energy_hartree": -7.861864769808647,
+      "integral_cutoff": 1e-10,
+      "lambda_one_body_proxy": 34.33394916991034,
+      "lambda_two_body_proxy": 122.16019615226979,
+      "molecule": "lih_calibration",
+      "nuclear_repulsion_hartree": 0.992207270475,
+      "one_body_integral_nonzero": 18,
+      "one_body_spin_terms": 36,
+      "resource_estimates": {
+        "full_phase_estimation": {
+          "logical_qubits_proxy": 30,
+          "query_steps_proxy": 97809,
+          "step_cost_proxy": 11848,
+          "t_count_proxy": 1158841032
+        },
+        "observable_first": {
+          "logical_qubits_proxy": 24,
+          "observable_fraction": 0.2,
+          "query_steps_proxy": 19562,
+          "state_prep_penalty": 4,
+          "step_cost_proxy": 2376,
+          "t_count_proxy": 185917248
+        },
+        "phase_register_bits": 10,
+        "precision_hartree": 0.0016,
+        "proxy_logical_qubit_reduction_factor": 1.25,
+        "proxy_t_count_reduction_factor": 6.233101255887781
+      },
+      "runtime_seconds": 0.021829500008607283,
+      "spatial_orbitals": 6,
+      "spin": 0,
+      "spin_orbitals": 12,
+      "two_body_integral_nonzero": 368,
+      "two_body_spin_terms": 1472
+    },
+    {
+      "basis": "sto-3g",
+      "charge": 0,
+      "electrons": 10,
+      "hf_energy_hartree": -74.96306312972764,
+      "integral_cutoff": 1e-10,
+      "lambda_one_body_proxy": 260.736223491809,
+      "lambda_two_body_proxy": 503.6975368360377,
+      "molecule": "h2o_calibration",
+      "nuclear_repulsion_hartree": 9.188258417746113,
+      "one_body_integral_nonzero": 31,
+      "one_body_spin_terms": 62,
+      "resource_estimates": {
+        "full_phase_estimation": {
+          "logical_qubits_proxy": 32,
+          "query_steps_proxy": 477772,
+          "step_cost_proxy": 39964,
+          "t_count_proxy": 19093680208
+        },
+        "observable_first": {
+          "logical_qubits_proxy": 25,
+          "observable_fraction": 0.2,
+          "query_steps_proxy": 95555,
+          "state_prep_penalty": 4,
+          "step_cost_proxy": 7994,
+          "t_count_proxy": 3055466680
+        },
+        "phase_register_bits": 10,
+        "precision_hartree": 0.0016,
+        "proxy_logical_qubit_reduction_factor": 1.28,
+        "proxy_t_count_reduction_factor": 6.249022557824129
+      },
+      "runtime_seconds": 0.017997792005189694,
+      "spatial_orbitals": 7,
+      "spin": 0,
+      "spin_orbitals": 14,
+      "two_body_integral_nonzero": 1245,
+      "two_body_spin_terms": 4980
+    },
+    {
+      "basis": "sto-3g",
+      "charge": 0,
+      "electrons": 14,
+      "hf_energy_hartree": -107.49589330783424,
+      "integral_cutoff": 1e-10,
+      "lambda_one_body_proxy": 426.4471725962253,
+      "lambda_two_body_proxy": 859.467645923607,
+      "molecule": "n2_calibration",
+      "nuclear_repulsion_hartree": 23.621830495654553,
+      "one_body_integral_nonzero": 44,
+      "one_body_spin_terms": 88,
+      "resource_estimates": {
+        "full_phase_estimation": {
+          "logical_qubits_proxy": 38,
+          "query_steps_proxy": 803697,
+          "step_cost_proxy": 95280,
+          "t_count_proxy": 76576250160
+        },
+        "observable_first": {
+          "logical_qubits_proxy": 28,
+          "observable_fraction": 0.2,
+          "query_steps_proxy": 160740,
+          "state_prep_penalty": 4,
+          "step_cost_proxy": 19060,
+          "t_count_proxy": 12254817600
+        },
+        "phase_register_bits": 10,
+        "precision_hartree": 0.0016,
+        "proxy_logical_qubit_reduction_factor": 1.3571428571428572,
+        "proxy_t_count_reduction_factor": 6.248665027866266
+      },
+      "runtime_seconds": 0.013725749988225289,
+      "spatial_orbitals": 10,
+      "spin": 0,
+      "spin_orbitals": 20,
+      "two_body_integral_nonzero": 2972,
+      "two_body_spin_terms": 11888
+    }
+  ]
+}

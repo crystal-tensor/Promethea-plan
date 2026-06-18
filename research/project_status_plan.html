@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>未来量子计算研究计划 - 当前状态</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17202a;
+      --muted: #5d6b7a;
+      --line: #d9e2ec;
+      --bg: #f7fafc;
+      --panel: #ffffff;
+      --blue: #1f6feb;
+      --green: #1f8a5b;
+      --amber: #b7791f;
+      --red: #c2410c;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    header {
+      background: #0f172a;
+      color: white;
+      padding: 44px 28px 34px;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 5vw, 52px);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .subtitle {
+      max-width: 900px;
+      margin-top: 18px;
+      color: #cbd5e1;
+      font-size: 18px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .chip {
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 999px;
+      padding: 7px 12px;
+      color: #e2e8f0;
+      font-size: 14px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .span-4 {
+      grid-column: span 4;
+    }
+
+    .span-6 {
+      grid-column: span 6;
+    }
+
+    .span-8 {
+      grid-column: span 8;
+    }
+
+    .span-12 {
+      grid-column: span 12;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-weight: 650;
+      font-size: 14px;
+      background: #e6f4ff;
+      color: #084c94;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--blue);
+    }
+
+    .stage-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .stage {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 12px;
+      border-left: 4px solid var(--line);
+      padding: 10px 0 10px 14px;
+    }
+
+    .stage.done {
+      border-left-color: var(--green);
+    }
+
+    .stage.current {
+      border-left-color: var(--blue);
+      background: #f0f7ff;
+      border-radius: 0 8px 8px 0;
+      padding-right: 12px;
+    }
+
+    .stage.next {
+      border-left-color: var(--amber);
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .metric {
+      display: grid;
+      gap: 6px;
+    }
+
+    .metric strong {
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .table th,
+    .table td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .table th {
+      color: var(--muted);
+      font-weight: 700;
+      background: #f8fafc;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .warning {
+      border-left: 4px solid var(--red);
+      background: #fff7ed;
+    }
+
+    code {
+      background: #eef2f7;
+      border-radius: 5px;
+      padding: 2px 5px;
+      font-size: 0.92em;
+    }
+
+    @media (max-width: 820px) {
+      header {
+        padding: 34px 20px 28px;
+      }
+
+      main {
+        padding: 18px;
+      }
+
+      .span-4,
+      .span-6,
+      .span-8,
+      .span-12 {
+        grid-column: span 12;
+      }
+
+      .stage {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>未来量子计算研究计划：当前状态与下一步</h1>
+    <p class="subtitle">
+      目标是在一年内围绕“未来 50 年最困难的 100 个问题”建立研究组合，并对其中至少 10 个问题提出可验证、可实现、具有原创性的算法或方法。
+    </p>
+    <div class="meta">
+      <span class="chip">当前日期：2026-06-13</span>
+      <span class="chip">当前重点：B1-B10 原型组合</span>
+      <span class="chip">状态：阶段 1 原型化与审计中</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="grid">
+      <div class="panel span-8">
+        <span class="status"><span class="dot"></span>我刚才在做什么</span>
+        <h2 style="margin-top: 14px;">我正在把 Top 10 攻关方向变成可审计原型组合</h2>
+        <p>
+          我没有继续泛泛讨论“100 个难题”，而是把 Top 10 可落地方向做成可复现 artifacts：
+          B1 线路压缩、B2 低开销纠错、B3 分子反应资源估算、B4 可验证量子优势协议、B5 强关联 Hubbard 基准、B6 高温超导 descriptor ranking、B7 容错架构 co-design、B8 输出 invariant verification、B9 Local Hamiltonian gap lab、B10 BQP boundary graph。
+        </p>
+        <p>
+          你让我暂停后，我已把 B1 的 proof-log audit/replay/semantic check、30-circuit aggregate、消融分析、
+          all-to-all Qiskit baseline 和 line-routing diagnostic 都接入同一套证据链。line-routing 目前仍是
+          diagnostic-only，不是 calibrated heavy-hex baseline。
+        </p>
+      </div>
+
+      <div class="panel span-4">
+        <h2>当前阶段</h2>
+        <div class="metric">
+          <strong>组合原型 v0.1</strong>
+          <span>100 问题目录已建好；Top 10 已选出；B1-B10 都已有初始 benchmark 或原型结果。</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="panel span-12">
+        <h2>总计划分层</h2>
+        <div class="stage-list">
+          <div class="stage done">
+            <div class="label">已完成</div>
+            <div>
+              <h3>100 个困难问题初版目录</h3>
+              <p>已经建立问题 catalog、评分矩阵、Top 20 证据图和 Top 10 attack pack 的初始版本。</p>
+            </div>
+          </div>
+
+          <div class="stage done">
+            <div class="label">已完成</div>
+            <div>
+              <h3>第一个原型方向 B1 启动</h3>
+              <p>选择“硬件感知量子线路压缩”作为第一个可验证突破点，因为它有明确 benchmark、指标和工程闭环。</p>
+            </div>
+          </div>
+
+          <div class="stage current">
+            <div class="label">当前</div>
+            <div>
+              <h3>B1-B10 原型组合进入可审计状态</h3>
+          <p>当前处在阶段 1 的收尾并进入阶段 2 baseline validation：B1 有三层 proof-log 验证；B2 已有 Stim/PyMatching surface-code memory baseline 和 Wilson target-volume 表；B3-B10 均有首个可复现结果并接入组合审计。</p>
+            </div>
+          </div>
+
+          <div class="stage next">
+            <div class="label">下一步</div>
+            <div>
+              <h3>把 toy/proxy 升级为真实 baseline</h3>
+              <p>下一阶段要把 B1 组合成 circuit-level certificate，把 B2 的 surface-code baseline 扩展到更大距离/更多 shots，并用 Wilson-bounded target volume 开始候选方案对比，把 B3-B10 从 proxy/toy/small-system/synthetic/planning/invariant/gap-lab/taxonomy model 推到真实任务。</p>
+            </div>
+          </div>
+
+          <div class="stage">
+            <div class="label">后续</div>
+            <div>
+              <h3>深化 Top 10 到真实 baseline</h3>
+              <p>Top 10 已全部初始化。后续重点从“建原型”转为“增强真实 baseline、补来源、做 manuscript-ready 结果”。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="panel span-4">
+        <h2>目前已有成果</h2>
+        <ul>
+          <li>100 个困难问题目录初稿</li>
+          <li>Top 20 证据与评分</li>
+          <li>Top 10 攻关方向包</li>
+          <li>Top 10 execution board：主攻/应用/验证/理论四条线、30 天门槛与 kill/merge 规则</li>
+          <li>B1 certificate evidence report：支持哪些 claim、还不能支持哪些 claim、下一步技术门槛</li>
+          <li>B1 benchmark 与 QASM 工具链</li>
+          <li>B1 proof log、audit、replay、semantic checker</li>
+          <li>B2 repetition-code memory control baseline、target-volume 表、rough surface-code 估算、Viterbi decoder fallback、Stim/PyMatching surface-code baseline 与 Wilson target-volume 表</li>
+          <li>B3 PySCF small-molecule resource proxy</li>
+          <li>B4 toy hidden-trap verification protocol</li>
+          <li>B5 Hubbard exact-diagonalization cluster proxy</li>
+          <li>B6 superconductivity descriptor-ranking harness</li>
+          <li>B7 fault-tolerance co-design resource model 与 B1/B2 dependency-schedule bridge</li>
+          <li>B8 hidden-invariant output verifier 与 adaptive leakage spoofer stress test</li>
+          <li>B9 local Hamiltonian gap lab</li>
+          <li>B10 BQP-boundary reduction graph</li>
+        </ul>
+      </div>
+
+      <div class="panel span-8">
+        <h2>B1 当前最关键验证结果</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>样本</th>
+              <th>压缩结果</th>
+              <th>验证状态</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>QASMBench small，10 circuits</td>
+              <td>heavy-hex-like exposure 降低 9.26%</td>
+              <td>exact equivalence 通过；audit/replay/semantic 全通过</td>
+            </tr>
+            <tr>
+              <td>hhl_n10 stress，186,801 ops</td>
+              <td>heavy-hex-like exposure 降低 20.30%</td>
+              <td>全局 exact skipped；audit/replay/semantic 全通过</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">
+          注意：stress 结果还不能声称“全线路 exact equivalence 已证明”。现在证明的是每个局部 rewrite 可追踪、可重放、局部语义正确。
+        </p>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="panel span-12">
+        <h2>组合审计状态</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>检查项</th>
+              <th>当前结果</th>
+              <th>说明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>100 问题目录</td>
+              <td>PASS</td>
+              <td>问题 ID 连续覆盖 1-100。</td>
+            </tr>
+            <tr>
+              <td>Top 20</td>
+              <td>PASS</td>
+              <td>评分矩阵与 Top 20 证据图的 ID 顺序一致。</td>
+            </tr>
+            <tr>
+              <td>Top 10 攻关包</td>
+              <td>PASS</td>
+              <td>attack pack 的 10 个 ID 与 Tier 1 完全一致。</td>
+            </tr>
+            <tr>
+              <td>B1 验证 artifacts</td>
+              <td>PASS</td>
+              <td>small 与 hhl_n10 stress 的 audit、replay、semantic 报告均存在且通过。</td>
+            </tr>
+            <tr>
+              <td>B2 baseline artifact</td>
+              <td>PASS</td>
+              <td>重复码 baseline 已生成 40 个 distance/noise 配置结果；target-volume 有 32 个组合；rough surface-code 估算有 20 个组合；phenomenological Viterbi decoder fallback 覆盖 12 个配置；Stim/PyMatching surface-code memory baseline 覆盖 30 个配置、90,000 shots；Wilson target-volume 表有 40 个组合，22 个达标、18 个未达标。</td>
+            </tr>
+            <tr>
+              <td>B3 resource artifact</td>
+              <td>PASS</td>
+              <td>PySCF 小分子资源 proxy 已覆盖 H2、LiH、H2O、N2 四个校准样本。</td>
+            </tr>
+            <tr>
+              <td>B4 trap protocol artifact</td>
+              <td>PASS</td>
+              <td>toy hidden-trap 协议覆盖 36 个配置；4 类 spoofing adversary 在当前 batch rule 下失败。</td>
+            </tr>
+            <tr>
+              <td>B5 Hubbard embedding artifact</td>
+              <td>PASS</td>
+              <td>1D half-filled Hubbard exact diagonalization 覆盖 15 个配置；4-site 簇 proxy 平均误差/站点为 0.020620。</td>
+            </tr>
+            <tr>
+              <td>B6 superconductivity descriptor artifact</td>
+              <td>PASS</td>
+              <td>toy descriptor ranking 覆盖 72 个候选；Top-12 known high-Tc family precision 为 0.833333。</td>
+            </tr>
+            <tr>
+              <td>B7 fault-tolerance co-design artifact</td>
+              <td>PASS</td>
+              <td>planning-level resource model 覆盖 3 个工作负载；原 scalar model 最小 space-time-volume reduction 为 6.774x；新增 B1/B2 dependency bridge 覆盖 6 个比较，给出更保守的 1.195x-1.616x planning-level STV reduction。</td>
+            </tr>
+            <tr>
+              <td>B8 output invariant artifact</td>
+              <td>PASS</td>
+              <td>toy hidden-invariant verifier 覆盖 3 个任务与 5 类 adversary；honest completeness 为 1.0，最大 adversary soundness 为 0.0；新增 adaptive leakage stress test，0.75 泄漏时 trap-aware spoofer soundness 达 0.792，暴露 challenge refresh 需求。</td>
+            </tr>
+            <tr>
+              <td>B9 local Hamiltonian gap artifact</td>
+              <td>PASS</td>
+              <td>exact diagonalization gap lab 覆盖 18 个配置；0 个 locality-preserving candidate 通过筛选，记录 4 个 counterexample candidates。</td>
+            </tr>
+            <tr>
+              <td>B10 BQP boundary graph artifact</td>
+              <td>PASS</td>
+              <td>taxonomy/reduction graph 覆盖 12 个节点、14 条边、11 个 theorem/negative-boundary targets。</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">
+          机器可读报告：<code>research/portfolio_status_report.json</code>；人类可读报告：<code>research/portfolio_status_report.md</code>。
+        </p>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="panel span-6">
+        <h2>一年计划</h2>
+        <ol>
+          <li>把 100 个问题目录升级为带来源、证据、难度、攻击路径的正式研究地图。</li>
+          <li>对 Top 10 问题逐个建立 benchmark、baseline 和最低可发表结果标准。</li>
+          <li>优先推进 10 个可实现原型：线路压缩、QEC/decoder 搜索、分子反应资源估计、可验证量子优势协议、强关联 Hubbard 嵌入、高温超导 descriptor ranking、容错架构 co-design、输出 invariant verification、Local Hamiltonian gap lab、BQP boundary graph。</li>
+          <li>保留正结果和负结果，避免“只有愿景没有验证”。</li>
+          <li>年底形成 2 篇以上 paper-quality manuscript 或 preprint draft。</li>
+        </ol>
+      </div>
+
+      <div class="panel span-6 warning">
+        <h2>我为什么先做 B1</h2>
+        <p>
+          因为 B1 最适合作为整个计划的“研究闭环样板”：问题明确、数据可得、指标清楚、能写代码验证，也能快速暴露方法是否真的有效。
+        </p>
+        <p>
+          换句话说，我现在不是偏离原计划，而是在先打造一个可复制的攻关模板。这个模板之后可以迁移到其余量子计算难题。
+        </p>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="panel span-12">
+        <h2>暂停点</h2>
+        <p>
+          你让我停下时，我正处于：<strong>B1 proof-log semantic checker 完成，正在做最终校验与文档收尾</strong>；现在已推进到 <strong>B1 post-routing bottleneck profile 完成</strong>，正在把 level 1 路由抹平收益的问题转成下一轮算法靶点。
+          现在已经完成的验证层包括：
+        </p>
+        <ul>
+          <li><code>audit</code>：检查 proof log 引用的 QASM 行和统计是否可信。</li>
+          <li><code>replay</code>：用 proof log 重构每个 pass 的输出，并与实际 QASM 逐行比较。</li>
+          <li><code>semantic check</code>：逐条检查 1Q 与 RZZ rewrite 的局部矩阵等价。</li>
+        </ul>
+        <p class="note">
+          最新状态：small、B1 exact-extension 与 hhl_n10 stress 的 semantic 报告都已通过；B1 exact-checkable aggregate 已达到 30 circuits 且 0 equivalence failures，但 aggregate heavy-hex-like exposure reduction 仍为 12.58%，低于 20% 目标；B1 ablation 显示 1Q resynthesis 主要贡献 operation/depth reduction，adjacent RZZ 主要贡献 two-qubit/exposure reduction；B1 也新增了 Qiskit all-to-all u3/cx baseline comparison，levels 0/1 exact pass，level 3 因 7/30 equivalence failures 仅作诊断。line-routing diagnostic 中，levels 0/1/3 的 sequential measurement-distribution check 都是 30/30，并已由 Qiskit Aer 对 90 个 routed pairs 做 shot-based cross-check；它解释了中途测量与测量映射造成的裸 statevector 差异。B1 还新增了 heavy-hex distance-3 topology diagnostic：level 0 在 19-qubit heavy-hex map 上 Aer 30/30 通过，但 exposure 因 routing overhead 恶化 164.71%。更关键的是，source-routed vs B1-routed end-to-end suite 显示 level 0 仍保留 16.95% operation、19.44% depth、2.93% exposure reduction；但 level 1 几乎抹平收益，operation 仅 0.03%、depth 0.00%、exposure 0.00%，且 post-routing two-qubit count 始终为 0.00% reduction。新增的 post-routing bottleneck profile 显示 16 个 circuit 的 level-0 收益在 level 1 被抹平，最大 2Q 瓶颈集中在 gcm_h6、basis_trotter_n4、sat_n11 和 hhl_n7；SWAP macro diagnostic 在 level-1 routed suite 中识别 481 个 cx-cx-cx SWAP 宏，把 macro-level 2Q count 降低 24.79%；进一步的 measurement-aware virtual-SWAP elimination 通过线标映射删除 481 个 routed SWAP，在 30/30 个电路上把 native 2Q count 降低 37.18%，local 与 end-to-end Aer cross-check 都是 30/30，proof-log replay 也以 481/481 events、0 output mismatch、0 error 通过。新增的 synthetic heavy-hex noise proxy 在固定 `heavy_hex_like_sparse` 参数下显示 source level-1 routed vs virtual-SWAP 的 exposure 降低 32.65%，relative success proxy ratio 为 12748.39x。因此这些仍是 topology/layout/synthetic-noise diagnostics，不关闭 live calibrated heavy-hex baseline gate。B2 有 control baseline、target-volume 指标层、rough surface-code 阈值律估算、phenomenological Viterbi decoder fallback、新增 Stim/PyMatching rotated surface-code memory baseline：30 个配置、90,000 shots、最大 decoder runtime 约 1.47e-5 秒/shot，以及 Wilson target-volume 表：40 个组合、22 个达标、18 个未达标；严格 1e-3 目标在当前 3,000-shot sweep 下尚未被 Wilson 上界证明。B3 有 PySCF 小分子资源 proxy；B4 有 toy hidden-trap protocol；B5 有 Hubbard exact-diagonalization cluster proxy；B6 有 superconductivity descriptor-ranking harness；B7 有 fault-tolerance co-design resource model，并新增 B1/B2 dependency-schedule bridge：6 个比较，保守 planning-level STV reduction 为 1.195x-1.616x；B8 有 hidden-invariant output verifier，并新增 adaptive leakage stress test：低/中泄漏被拒绝，0.75 泄漏时 trap-aware spoofer soundness 达 0.792；B9 有 local Hamiltonian gap lab；B10 有 BQP-boundary reduction graph。现在还新增了 Top 10 execution board，把 B1-B10 分成 primary manuscript、coupled application、verification protocol、theory/negative-result 四条线，并为每条线设定 30 天门槛。下一步应优先把 B1 的 virtual-SWAP elimination 接入 live/calibrated heavy-hex baseline 与 native-basis-aware 2-4 qubit routing optimizer，同时把 B2 surface-code baseline 扩展到更大距离和更多 shots，把 B7 bridge 升级为真实 workload DAG，并把 B4/B8 接成 challenge refresh/projection rotation 验证协议。
+        </p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

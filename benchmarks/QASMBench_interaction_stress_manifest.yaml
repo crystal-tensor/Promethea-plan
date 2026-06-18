@@ -1,0 +1,28 @@
+id: QASMBench_interaction_stress_manifest
+benchmark_id: B1
+version: 0.1
+status: imported
+source:
+  name: QASMBench
+  url: https://github.com/pnnl/QASMBench
+  commit: 357b942
+  import_date: 2026-06-13
+  import_method: sparse_checkout_then_copy_selected_stress_openqasm_files
+selection_policy:
+  - Stress-test interaction-window resynthesis on a large-operation
+    simulation-like circuit.
+  - Keep qubit count exact-checkable in principle, but separate this from the
+    exact-verified aggregate because operation count makes full statevector
+    checking expensive in the current Python checker.
+circuits:
+  - id: qasmbench_hhl_n10
+    path: qasmbench_interaction_stress/hhl_n10.qasm
+    source_path: small/hhl_n10/hhl_n10.qasm
+    family: hhl_linear_systems
+    expected_qubits: 10
+    operation_count: 186801
+notes:
+  - Current result is structurally certified by local rewrite rules and metrics
+    only; global exact statevector equivalence is intentionally skipped.
+  - Do not merge this into exact-verified aggregate numbers until a scalable
+    verifier or a completed exact run is available.

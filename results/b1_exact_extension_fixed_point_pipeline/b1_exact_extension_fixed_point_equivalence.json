@@ -1,0 +1,106 @@
+{
+  "benchmark_id": "B1",
+  "check": "statevector_equivalence",
+  "failed": 0,
+  "pair_count": 12,
+  "passed": 12,
+  "results": [
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "results/b1_exact_extension_fixed_point_pipeline_work/00_input/01_trotter_ladder_n6.qasm",
+      "max_global_phase_adjusted_delta": 3.7238012298709097e-16,
+      "qubits": 6,
+      "right": "results/b1_exact_extension_fixed_point_pipeline_work/03_rzz_pass/01_trotter_ladder_n6.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0000000000000044,
+      "left": "results/b1_exact_extension_fixed_point_pipeline_work/00_input/02_ring_interaction_n8.qasm",
+      "max_global_phase_adjusted_delta": 5.594315114139762e-17,
+      "qubits": 8,
+      "right": "results/b1_exact_extension_fixed_point_pipeline_work/03_rzz_pass/02_ring_interaction_n8.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0000000000000004,
+      "left": "results/b1_exact_extension_fixed_point_pipeline_work/00_input/03_qec_syndrome_phase_n7.qasm",
+      "max_global_phase_adjusted_delta": 4.718958039861916e-17,
+      "qubits": 7,
+      "right": "results/b1_exact_extension_fixed_point_pipeline_work/03_rzz_pass/03_qec_syndrome_phase_n7.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 0.9999999999999996,
+      "left": "results/b1_exact_extension_fixed_point_pipeline_work/00_input/04_arithmetic_phase_n6.qasm",
+      "max_global_phase_adjusted_delta": 0.0,
+      "qubits": 6,
+      "right": "results/b1_exact_extension_fixed_point_pipeline_work/03_rzz_pass/04_arithmetic_phase_n6.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 0.9999999999999996,
+      "left": "results/b1_exact_extension_fixed_point_pipeline_work/00_input/05_qft_phase_ladder_n5.qasm",
+      "max_global_phase_adjusted_delta": 8.441528768080324e-17,
+      "qubits": 5,
+      "right": "results/b1_exact_extension_fixed_point_pipeline_work/03_rzz_pass/05_qft_phase_ladder_n5.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0000000000000036,
+      "left": "results/b1_exact_extension_fixed_point_pipeline_work/00_input/06_long_range_echo_n10.qasm",
+      "max_global_phase_adjusted_delta": 3.7238012298709097e-16,
+      "qubits": 10,
+      "right": "results/b1_exact_extension_fixed_point_pipeline_work/03_rzz_pass/06_long_range_echo_n10.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "results/b1_exact_extension_fixed_point_pipeline_work/00_input/07_commuting_disjoint_windows_n8.qasm",
+      "max_global_phase_adjusted_delta": 1.1107649934270853e-16,
+      "qubits": 8,
+      "right": "results/b1_exact_extension_fixed_point_pipeline_work/03_rzz_pass/07_commuting_disjoint_windows_n8.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0000000000000009,
+      "left": "results/b1_exact_extension_fixed_point_pipeline_work/00_input/08_chemistry_ansatz_n8.qasm",
+      "max_global_phase_adjusted_delta": 1.5700924586837752e-16,
+      "qubits": 8,
+      "right": "results/b1_exact_extension_fixed_point_pipeline_work/03_rzz_pass/08_chemistry_ansatz_n8.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "results/b1_exact_extension_fixed_point_pipeline_work/00_input/09_bv_phase_oracle_n9.qasm",
+      "max_global_phase_adjusted_delta": 6.77599954797753e-16,
+      "qubits": 9,
+      "right": "results/b1_exact_extension_fixed_point_pipeline_work/03_rzz_pass/09_bv_phase_oracle_n9.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 0.9999999999999996,
+      "left": "results/b1_exact_extension_fixed_point_pipeline_work/00_input/10_qaoa_double_triangle_n6.qasm",
+      "max_global_phase_adjusted_delta": 1.1857187100668868e-16,
+      "qubits": 6,
+      "right": "results/b1_exact_extension_fixed_point_pipeline_work/03_rzz_pass/10_qaoa_double_triangle_n6.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0000000000000013,
+      "left": "results/b1_exact_extension_fixed_point_pipeline_work/00_input/11_stabilizer_mixer_n10.qasm",
+      "max_global_phase_adjusted_delta": 0.0,
+      "qubits": 10,
+      "right": "results/b1_exact_extension_fixed_point_pipeline_work/03_rzz_pass/11_stabilizer_mixer_n10.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0000000000000004,
+      "left": "results/b1_exact_extension_fixed_point_pipeline_work/00_input/12_toffoli_phase_n7.qasm",
+      "max_global_phase_adjusted_delta": 1.1102230246251565e-16,
+      "qubits": 7,
+      "right": "results/b1_exact_extension_fixed_point_pipeline_work/03_rzz_pass/12_toffoli_phase_n7.qasm"
+    }
+  ],
+  "tolerance": 1e-09
+}

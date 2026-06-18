@@ -1,0 +1,392 @@
+{
+  "aer_crosscheck_valid_optimization_levels": [
+    0
+  ],
+  "baseline_kind": "qiskit_heavy_hex_d3_coupling_u3_cx_basis",
+  "benchmark_id": "B1",
+  "coupling_edges": 40,
+  "diagnostic_best_by_hardware_weighted_exposure": 0,
+  "diagnostic_status": "device_like_topology_diagnostic_not_calibrated_noise_baseline",
+  "distance": 3,
+  "exact_measurement_distribution_check": "skipped_for_physical_qubit_count",
+  "last_updated": "2026-06-13",
+  "limits": [
+    "The coupling map is Qiskit heavy-hex distance 3 with 19 physical qubits.",
+    "This is routing-aware and topology-aware, but it has no calibrated device noise model.",
+    "Output equivalence is checked through sequential measurement-distribution simulation and independent Qiskit Aer shot cross-checks.",
+    "Metric deltas compare source logical circuits against routed physical-qubit circuits, so idle and routing overhead are intentionally counted."
+  ],
+  "measurement_distribution_valid_optimization_levels": [],
+  "method": "qiskit_heavyhex_routing_diagnostic_suite_v0",
+  "physical_qubits": 19,
+  "profile": "heavy_hex_like_sparse",
+  "source_circuit_count": 30,
+  "source_dir": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source",
+  "source_metrics": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30/qiskit_heavyhex_source_metrics.json",
+  "summaries": [
+    {
+      "aer_crosscheck_failed": 0,
+      "aer_crosscheck_max_threshold": 0.35,
+      "aer_crosscheck_max_tvd": 0.16455078125,
+      "aer_crosscheck_passed": 30,
+      "aer_crosscheck_path": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30/qiskit_heavyhex_d3_level0_aer_measurement_crosscheck.json",
+      "aer_crosscheck_shots": 2048,
+      "baseline_kind": "qiskit_heavy_hex_d3_coupling_u3_cx_basis",
+      "basis_gates": [
+        "u3",
+        "cx",
+        "measure"
+      ],
+      "benchmark_id": "B1",
+      "circuit_count": 30,
+      "coupling": "heavy_hex_distance_3",
+      "coupling_edges": 40,
+      "hardware_weighted_exposure_after": 42.9899,
+      "hardware_weighted_exposure_before": 16.24054,
+      "hardware_weighted_exposure_delta": 26.74936,
+      "hardware_weighted_exposure_reduction_pct": -164.70733116017078,
+      "logical_depth_after": 7722.0,
+      "logical_depth_before": 4471.0,
+      "logical_depth_delta": 3251.0,
+      "logical_depth_reduction_pct": -72.71303958845895,
+      "measurement_distribution_check": "skipped_for_physical_qubit_count",
+      "measurement_distribution_failed": null,
+      "measurement_distribution_failed_circuits": [],
+      "measurement_distribution_passed": null,
+      "measurement_equivalence_path": "None",
+      "method": "qiskit_heavyhex_routing_diagnostic_v0",
+      "metrics_path": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30/qiskit_heavyhex_d3_level0_metrics.json",
+      "operation_count_after": 11764.0,
+      "operation_count_before": 7076.0,
+      "operation_count_delta": 4688.0,
+      "operation_count_reduction_pct": -66.25211984171848,
+      "optimization_level": 0,
+      "output_dir": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0",
+      "physical_qubits": 19,
+      "runtime_seconds": 0.07981587600079365,
+      "summary_path": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30/qiskit_heavyhex_d3_level0_summary.json",
+      "two_qubit_gate_count_after": 5869.0,
+      "two_qubit_gate_count_before": 1978.0,
+      "two_qubit_gate_count_delta": 3891.0,
+      "two_qubit_gate_count_reduction_pct": -196.7138523761375
+    }
+  ],
+  "transpile_reports": [
+    {
+      "basis_gates": [
+        "u3",
+        "cx",
+        "measure"
+      ],
+      "circuit_count": 30,
+      "circuits": [
+        {
+          "input_ops": 87,
+          "input_qubits": 6,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/b1_exact_extension/01_trotter_ladder_n6.qasm",
+          "output_ops": 132,
+          "output_qubits": 19,
+          "runtime_seconds": 0.008503499993821606,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/b1_exact_extension/01_trotter_ladder_n6.qasm"
+        },
+        {
+          "input_ops": 72,
+          "input_qubits": 8,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/b1_exact_extension/02_ring_interaction_n8.qasm",
+          "output_ops": 162,
+          "output_qubits": 19,
+          "runtime_seconds": 0.0021500000002561137,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/b1_exact_extension/02_ring_interaction_n8.qasm"
+        },
+        {
+          "input_ops": 30,
+          "input_qubits": 7,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/b1_exact_extension/03_qec_syndrome_phase_n7.qasm",
+          "output_ops": 69,
+          "output_qubits": 19,
+          "runtime_seconds": 0.0018288330029463395,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/b1_exact_extension/03_qec_syndrome_phase_n7.qasm"
+        },
+        {
+          "input_ops": 25,
+          "input_qubits": 6,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/b1_exact_extension/04_arithmetic_phase_n6.qasm",
+          "output_ops": 113,
+          "output_qubits": 19,
+          "runtime_seconds": 0.008176750008715317,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/b1_exact_extension/04_arithmetic_phase_n6.qasm"
+        },
+        {
+          "input_ops": 25,
+          "input_qubits": 5,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/b1_exact_extension/05_qft_phase_ladder_n5.qasm",
+          "output_ops": 125,
+          "output_qubits": 19,
+          "runtime_seconds": 0.0020359170011943206,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/b1_exact_extension/05_qft_phase_ladder_n5.qasm"
+        },
+        {
+          "input_ops": 45,
+          "input_qubits": 10,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/b1_exact_extension/06_long_range_echo_n10.qasm",
+          "output_ops": 87,
+          "output_qubits": 19,
+          "runtime_seconds": 0.001694124992354773,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/b1_exact_extension/06_long_range_echo_n10.qasm"
+        },
+        {
+          "input_ops": 26,
+          "input_qubits": 8,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/b1_exact_extension/07_commuting_disjoint_windows_n8.qasm",
+          "output_ops": 47,
+          "output_qubits": 19,
+          "runtime_seconds": 0.0017456670029787347,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/b1_exact_extension/07_commuting_disjoint_windows_n8.qasm"
+        },
+        {
+          "input_ops": 56,
+          "input_qubits": 8,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/b1_exact_extension/08_chemistry_ansatz_n8.qasm",
+          "output_ops": 80,
+          "output_qubits": 19,
+          "runtime_seconds": 0.0017264170019188896,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/b1_exact_extension/08_chemistry_ansatz_n8.qasm"
+        },
+        {
+          "input_ops": 37,
+          "input_qubits": 9,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/b1_exact_extension/09_bv_phase_oracle_n9.qasm",
+          "output_ops": 100,
+          "output_qubits": 19,
+          "runtime_seconds": 0.0016382500034524128,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/b1_exact_extension/09_bv_phase_oracle_n9.qasm"
+        },
+        {
+          "input_ops": 84,
+          "input_qubits": 6,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+          "output_ops": 129,
+          "output_qubits": 19,
+          "runtime_seconds": 0.0018825830047717318,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/b1_exact_extension/10_qaoa_double_triangle_n6.qasm"
+        },
+        {
+          "input_ops": 32,
+          "input_qubits": 10,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/b1_exact_extension/11_stabilizer_mixer_n10.qasm",
+          "output_ops": 68,
+          "output_qubits": 19,
+          "runtime_seconds": 0.002001583998207934,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/b1_exact_extension/11_stabilizer_mixer_n10.qasm"
+        },
+        {
+          "input_ops": 20,
+          "input_qubits": 7,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/b1_exact_extension/12_toffoli_phase_n7.qasm",
+          "output_ops": 105,
+          "output_qubits": 19,
+          "runtime_seconds": 0.002106625004671514,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/b1_exact_extension/12_toffoli_phase_n7.qasm"
+        },
+        {
+          "input_ops": 1510,
+          "input_qubits": 4,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+          "output_ops": 1657,
+          "output_qubits": 19,
+          "runtime_seconds": 0.003977291009505279,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/qasmbench_interaction_exact/basis_trotter_n4.qasm"
+        },
+        {
+          "input_ops": 490,
+          "input_qubits": 10,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/qasmbench_interaction_exact/ising_n10.qasm",
+          "output_ops": 625,
+          "output_qubits": 19,
+          "runtime_seconds": 0.0025717090029502288,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/qasmbench_interaction_exact/ising_n10.qasm"
+        },
+        {
+          "input_ops": 54,
+          "input_qubits": 14,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/qasmbench_medium_exact/bv_n14.qasm",
+          "output_ops": 129,
+          "output_qubits": 19,
+          "runtime_seconds": 0.0018910830112872645,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/qasmbench_medium_exact/bv_n14.qasm"
+        },
+        {
+          "input_ops": 3149,
+          "input_qubits": 13,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/qasmbench_medium_exact/gcm_h6.qasm",
+          "output_ops": 3908,
+          "output_qubits": 19,
+          "runtime_seconds": 0.006705708990921266,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/qasmbench_medium_exact/gcm_h6.qasm"
+        },
+        {
+          "input_ops": 18,
+          "input_qubits": 13,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/qasmbench_medium_exact/multiply_n13.qasm",
+          "output_ops": 276,
+          "output_qubits": 19,
+          "runtime_seconds": 0.002370083995629102,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/qasmbench_medium_exact/multiply_n13.qasm"
+        },
+        {
+          "input_ops": 76,
+          "input_qubits": 15,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/qasmbench_medium_exact/qf21_n15.qasm",
+          "output_ops": 674,
+          "output_qubits": 19,
+          "runtime_seconds": 0.0034157499903813004,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/qasmbench_medium_exact/qf21_n15.qasm"
+        },
+        {
+          "input_ops": 95,
+          "input_qubits": 11,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/qasmbench_medium_exact/sat_n11.qasm",
+          "output_ops": 1337,
+          "output_qubits": 19,
+          "runtime_seconds": 0.0031462499900953844,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/qasmbench_medium_exact/sat_n11.qasm"
+        },
+        {
+          "input_ops": 73,
+          "input_qubits": 11,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/qasmbench_medium_exact/seca_n11.qasm",
+          "output_ops": 393,
+          "output_qubits": 19,
+          "runtime_seconds": 0.002366082990192808,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/qasmbench_medium_exact/seca_n11.qasm"
+        },
+        {
+          "input_ops": 27,
+          "input_qubits": 4,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/qasmbench_small/adder_n4.qasm",
+          "output_ops": 54,
+          "output_qubits": 19,
+          "runtime_seconds": 0.0017622920131543651,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/qasmbench_small/adder_n4.qasm"
+        },
+        {
+          "input_ops": 36,
+          "input_qubits": 3,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/qasmbench_small/basis_change_n3.qasm",
+          "output_ops": 62,
+          "output_qubits": 19,
+          "runtime_seconds": 0.001674874991294928,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/qasmbench_small/basis_change_n3.qasm"
+        },
+        {
+          "input_ops": 102,
+          "input_qubits": 4,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/qasmbench_small/basis_test_n4.qasm",
+          "output_ops": 141,
+          "output_qubits": 19,
+          "runtime_seconds": 0.001824374994612299,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/qasmbench_small/basis_test_n4.qasm"
+        },
+        {
+          "input_ops": 37,
+          "input_qubits": 4,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/qasmbench_small/bell_n4.qasm",
+          "output_ops": 55,
+          "output_qubits": 19,
+          "runtime_seconds": 0.0017260419990634546,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/qasmbench_small/bell_n4.qasm"
+        },
+        {
+          "input_ops": 8,
+          "input_qubits": 4,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/qasmbench_small/cat_state_n4.qasm",
+          "output_ops": 26,
+          "output_qubits": 19,
+          "runtime_seconds": 0.0015915830008452758,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/qasmbench_small/cat_state_n4.qasm"
+        },
+        {
+          "input_ops": 7,
+          "input_qubits": 2,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/qasmbench_small/deutsch_n2.qasm",
+          "output_ops": 10,
+          "output_qubits": 19,
+          "runtime_seconds": 0.0015600409969920292,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/qasmbench_small/deutsch_n2.qasm"
+        },
+        {
+          "input_ops": 119,
+          "input_qubits": 5,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/qasmbench_small/error_correctiond3_n5.qasm",
+          "output_ops": 167,
+          "output_qubits": 19,
+          "runtime_seconds": 0.0018708749994402751,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/qasmbench_small/error_correctiond3_n5.qasm"
+        },
+        {
+          "input_ops": 22,
+          "input_qubits": 3,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/qasmbench_small/fredkin_n3.qasm",
+          "output_ops": 37,
+          "output_qubits": 19,
+          "runtime_seconds": 0.0014858750073472038,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/qasmbench_small/fredkin_n3.qasm"
+        },
+        {
+          "input_ops": 18,
+          "input_qubits": 2,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/qasmbench_small/grover_n2.qasm",
+          "output_ops": 21,
+          "output_qubits": 19,
+          "runtime_seconds": 0.0015080830053193495,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/qasmbench_small/grover_n2.qasm"
+        },
+        {
+          "input_ops": 696,
+          "input_qubits": 7,
+          "optimization_level": 0,
+          "output": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0/qasmbench_small/hhl_n7.qasm",
+          "output_ops": 975,
+          "output_qubits": 19,
+          "runtime_seconds": 0.00287762499647215,
+          "source": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/00_source/qasmbench_small/hhl_n7.qasm"
+        }
+      ],
+      "coupling": "heavy_hex_distance_3",
+      "coupling_edges": 40,
+      "optimization_level": 0,
+      "output_dir": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30_work/qiskit_heavyhex_d3_level0",
+      "physical_qubits": 19,
+      "runtime_seconds": 0.07981587600079365
+    }
+  ]
+}

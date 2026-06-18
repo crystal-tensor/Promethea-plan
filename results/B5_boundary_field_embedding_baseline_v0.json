@@ -1,0 +1,978 @@
+{
+  "benchmark_id": "B5",
+  "claim_boundary": {
+    "next_gate": "A candidate B5 quantum impurity/response kernel must beat this boundary-field denominator and a non-oracle tensor/DMRG/embedding baseline after state preparation and measurement costs.",
+    "now_supported": "A B5 observable-response denominator now exists for the same nine Hubbard D5 rows: a small-cluster boundary-field embedding approximation is oracle-tuned against the exact D5 susceptibility, making it a strong classical pressure baseline.",
+    "still_not_supported": "This is not a quantum subroutine, not an accuracy-per-resource win, not a tensor-network or DMRG replacement, and not evidence for broad strongly correlated matter advantage."
+  },
+  "dependency_b10_result": "results/B10_t1_d5_observable_denominator_table_v0.json",
+  "dependency_b10_table": "b10_t1_d5_observable_denominator_table_v0",
+  "dependency_energy_baseline": "small_hubbard_exact_diagonalization_cluster_proxy_v0",
+  "dependency_energy_result": "results/B5_hubbard_embedding_baseline_v0.json",
+  "explicit_not_bqp_separation": true,
+  "explicit_not_quantum_advantage": true,
+  "last_updated": "2026-06-18",
+  "method": "b5_boundary_field_response_embedding_baseline_v0",
+  "model_status": "oracle_tuned_classical_boundary_field_response_denominator",
+  "oracle_tuned_boundary_field": true,
+  "problem_id": 38,
+  "rows": [
+    {
+      "absolute_response_error": 2.55351295663786e-15,
+      "all_field_response_errors": [
+        {
+          "absolute_response_error": 0.002959477862540888,
+          "edge_field": -0.75,
+          "embedded_susceptibility_proxy": 0.08656557650208319,
+          "relative_response_error": 0.0353978706182706
+        },
+        {
+          "absolute_response_error": 0.0013809154399334889,
+          "edge_field": -0.5,
+          "embedded_susceptibility_proxy": 0.08498701407947579,
+          "relative_response_error": 0.016516922358584638
+        },
+        {
+          "absolute_response_error": 0.0003551125497698593,
+          "edge_field": -0.25,
+          "embedded_susceptibility_proxy": 0.08396121118931216,
+          "relative_response_error": 0.004247447920048089
+        },
+        {
+          "absolute_response_error": 2.55351295663786e-15,
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.08360609863954485,
+          "relative_response_error": 3.054218529735523e-14
+        },
+        {
+          "absolute_response_error": 0.00035511254974013307,
+          "edge_field": 0.25,
+          "embedded_susceptibility_proxy": 0.08396121118928243,
+          "relative_response_error": 0.004247447919692538
+        },
+        {
+          "absolute_response_error": 0.001380915439894298,
+          "edge_field": 0.5,
+          "embedded_susceptibility_proxy": 0.0849870140794366,
+          "relative_response_error": 0.01651692235811588
+        },
+        {
+          "absolute_response_error": 0.002959477862509108,
+          "edge_field": 0.75,
+          "embedded_susceptibility_proxy": 0.0865655765020514,
+          "relative_response_error": 0.03539787061789049
+        }
+      ],
+      "best_cluster_product_cluster_size": 4,
+      "best_cluster_product_energy_error_per_site": 0.0,
+      "best_field_cluster_rows": [
+        {
+          "density_mean": 0.999999999999992,
+          "density_site": 2,
+          "edge_field": 0.0,
+          "ground_energy": -2.8759428090050627,
+          "hamiltonian_nnz": 180,
+          "hilbert_dimension": 36,
+          "iterations": 9,
+          "relative_residual": 4.241358662347878e-15,
+          "sites": 4,
+          "solver_info": 0,
+          "source_norm": 0.5732864523701527,
+          "susceptibility_proxy": 0.08360609863954485
+        }
+      ],
+      "best_oracle_edge_field": 0.0,
+      "boundary_field_grid": [
+        -0.75,
+        -0.5,
+        -0.25,
+        0.0,
+        0.25,
+        0.5,
+        0.75
+      ],
+      "boundary_field_grid_count": 7,
+      "candidate_quantum_response_beats_boundary_field": false,
+      "embedded_susceptibility_proxy": 0.08360609863954485,
+      "embedding_partition": [
+        4
+      ],
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 36,
+      "exact_d5_relative_residual": 1.2253200150124999e-15,
+      "exact_d5_susceptibility_proxy": 0.0836060986395423,
+      "max_cluster_hilbert_dimension": 36,
+      "max_cluster_relative_residual": 4.241358662347878e-15,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "relative_response_error": 3.054218529735523e-14,
+      "sites": 4,
+      "t": 1.0,
+      "u_over_t": 2.0
+    },
+    {
+      "absolute_response_error": 6.73454347843716e-13,
+      "all_field_response_errors": [
+        {
+          "absolute_response_error": 0.002014911895250597,
+          "edge_field": -0.75,
+          "embedded_susceptibility_proxy": 0.038240942217076565,
+          "relative_response_error": 0.05562055453911064
+        },
+        {
+          "absolute_response_error": 0.0008897605781517867,
+          "edge_field": -0.5,
+          "embedded_susceptibility_proxy": 0.037115790899977755,
+          "relative_response_error": 0.024561360166910455
+        },
+        {
+          "absolute_response_error": 0.00022152478040662893,
+          "edge_field": -0.25,
+          "embedded_susceptibility_proxy": 0.0364475551022326,
+          "relative_response_error": 0.006115071909304994
+        },
+        {
+          "absolute_response_error": 6.73454347843716e-13,
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.03622603032249942,
+          "relative_response_error": 1.8590343514342057e-11
+        },
+        {
+          "absolute_response_error": 0.0002215247809353657,
+          "edge_field": 0.25,
+          "embedded_susceptibility_proxy": 0.036447555102761334,
+          "relative_response_error": 0.006115071923900487
+        },
+        {
+          "absolute_response_error": 0.000889760578151523,
+          "edge_field": 0.5,
+          "embedded_susceptibility_proxy": 0.03711579089997749,
+          "relative_response_error": 0.02456136016690318
+        },
+        {
+          "absolute_response_error": 0.0020149118952506387,
+          "edge_field": 0.75,
+          "embedded_susceptibility_proxy": 0.03824094221707661,
+          "relative_response_error": 0.05562055453911179
+        }
+      ],
+      "best_cluster_product_cluster_size": 4,
+      "best_cluster_product_energy_error_per_site": 0.0,
+      "best_field_cluster_rows": [
+        {
+          "density_mean": 1.0000000000002756,
+          "density_site": 2,
+          "edge_field": 0.0,
+          "ground_energy": -1.9531453086845532,
+          "hamiltonian_nnz": 180,
+          "hilbert_dimension": 36,
+          "iterations": 9,
+          "relative_residual": 2.3085553325679656e-12,
+          "sites": 4,
+          "solver_info": 0,
+          "source_norm": 0.44041577965767625,
+          "susceptibility_proxy": 0.03622603032249942
+        }
+      ],
+      "best_oracle_edge_field": 0.0,
+      "boundary_field_grid": [
+        -0.75,
+        -0.5,
+        -0.25,
+        0.0,
+        0.25,
+        0.5,
+        0.75
+      ],
+      "boundary_field_grid_count": 7,
+      "candidate_quantum_response_beats_boundary_field": false,
+      "embedded_susceptibility_proxy": 0.03622603032249942,
+      "embedding_partition": [
+        4
+      ],
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 36,
+      "exact_d5_relative_residual": 3.09703262829055e-14,
+      "exact_d5_susceptibility_proxy": 0.03622603032182597,
+      "max_cluster_hilbert_dimension": 36,
+      "max_cluster_relative_residual": 2.3085553325679656e-12,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "relative_response_error": 1.8590343514342057e-11,
+      "sites": 4,
+      "t": 1.0,
+      "u_over_t": 4.0
+    },
+    {
+      "absolute_response_error": 1.0408340855860843e-17,
+      "all_field_response_errors": [
+        {
+          "absolute_response_error": 0.00023036688293289961,
+          "edge_field": -0.75,
+          "embedded_susceptibility_proxy": 0.008608143311073098,
+          "relative_response_error": 0.0274973777241319
+        },
+        {
+          "absolute_response_error": 0.00010147371124219311,
+          "edge_field": -0.5,
+          "embedded_susceptibility_proxy": 0.008479250139382392,
+          "relative_response_error": 0.012112248651247368
+        },
+        {
+          "absolute_response_error": 2.5232739563143397e-05,
+          "edge_field": -0.25,
+          "embedded_susceptibility_proxy": 0.008403009167703342,
+          "relative_response_error": 0.003011865950300236
+        },
+        {
+          "absolute_response_error": 1.0408340855860843e-17,
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.008377776428140209,
+          "relative_response_error": 1.2423751033627683e-15
+        },
+        {
+          "absolute_response_error": 2.5232739563134723e-05,
+          "edge_field": 0.25,
+          "embedded_susceptibility_proxy": 0.008403009167703333,
+          "relative_response_error": 0.0030118659502992007
+        },
+        {
+          "absolute_response_error": 0.00010147371124218964,
+          "edge_field": 0.5,
+          "embedded_susceptibility_proxy": 0.008479250139382388,
+          "relative_response_error": 0.012112248651246953
+        },
+        {
+          "absolute_response_error": 0.0002303668829329083,
+          "edge_field": 0.75,
+          "embedded_susceptibility_proxy": 0.008608143311073107,
+          "relative_response_error": 0.027497377724132934
+        }
+      ],
+      "best_cluster_product_cluster_size": 4,
+      "best_cluster_product_energy_error_per_site": 0.0,
+      "best_field_cluster_rows": [
+        {
+          "density_mean": 1.0000000000000009,
+          "density_site": 2,
+          "edge_field": 0.0,
+          "ground_energy": -1.117172413361005,
+          "hamiltonian_nnz": 180,
+          "hilbert_dimension": 36,
+          "iterations": 8,
+          "relative_residual": 4.996377655266426e-10,
+          "sites": 4,
+          "solver_info": 0,
+          "source_norm": 0.2722360783521011,
+          "susceptibility_proxy": 0.008377776428140209
+        }
+      ],
+      "best_oracle_edge_field": 0.0,
+      "boundary_field_grid": [
+        -0.75,
+        -0.5,
+        -0.25,
+        0.0,
+        0.25,
+        0.5,
+        0.75
+      ],
+      "boundary_field_grid_count": 7,
+      "candidate_quantum_response_beats_boundary_field": false,
+      "embedded_susceptibility_proxy": 0.008377776428140209,
+      "embedding_partition": [
+        4
+      ],
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 36,
+      "exact_d5_relative_residual": 4.996378880272417e-10,
+      "exact_d5_susceptibility_proxy": 0.008377776428140199,
+      "max_cluster_hilbert_dimension": 36,
+      "max_cluster_relative_residual": 4.996377655266426e-10,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "relative_response_error": 1.2423751033627683e-15,
+      "sites": 4,
+      "t": 1.0,
+      "u_over_t": 8.0
+    },
+    {
+      "absolute_response_error": 0.011646154903695513,
+      "all_field_response_errors": [
+        {
+          "absolute_response_error": 0.011646154903695513,
+          "edge_field": -0.75,
+          "embedded_susceptibility_proxy": 0.08413874660743946,
+          "relative_response_error": 0.12158654151084188
+        },
+        {
+          "absolute_response_error": 0.012698529852085083,
+          "edge_field": -0.5,
+          "embedded_susceptibility_proxy": 0.08308637165904989,
+          "relative_response_error": 0.13257339780851454
+        },
+        {
+          "absolute_response_error": 0.01338239844554695,
+          "edge_field": -0.25,
+          "embedded_susceptibility_proxy": 0.08240250306558802,
+          "relative_response_error": 0.13971302610768202
+        },
+        {
+          "absolute_response_error": 0.013619140145392936,
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.08216576136574204,
+          "relative_response_error": 0.14218462336477647
+        },
+        {
+          "absolute_response_error": 0.013382398445549948,
+          "edge_field": 0.25,
+          "embedded_susceptibility_proxy": 0.08240250306558503,
+          "relative_response_error": 0.1397130261077133
+        },
+        {
+          "absolute_response_error": 0.012698529852092369,
+          "edge_field": 0.5,
+          "embedded_susceptibility_proxy": 0.0830863716590426,
+          "relative_response_error": 0.13257339780859062
+        },
+        {
+          "absolute_response_error": 0.011646154903697983,
+          "edge_field": 0.75,
+          "embedded_susceptibility_proxy": 0.08413874660743699,
+          "relative_response_error": 0.12158654151086766
+        }
+      ],
+      "best_cluster_product_cluster_size": 2,
+      "best_cluster_product_energy_error_per_site": 0.13968497698943935,
+      "best_field_cluster_rows": [
+        {
+          "density_mean": 0.8801366458435929,
+          "density_site": 2,
+          "edge_field": -0.75,
+          "ground_energy": -4.4648325595909295,
+          "hamiltonian_nnz": 180,
+          "hilbert_dimension": 36,
+          "iterations": 15,
+          "relative_residual": 1.7559697305819014e-09,
+          "sites": 4,
+          "solver_info": 0,
+          "source_norm": 0.5761043339954155,
+          "susceptibility_proxy": 0.0865655765020874
+        },
+        {
+          "density_mean": 0.9999999999999994,
+          "density_site": 1,
+          "edge_field": -0.75,
+          "ground_energy": -2.736067977499789,
+          "hamiltonian_nnz": 12,
+          "hilbert_dimension": 4,
+          "iterations": 1,
+          "relative_residual": 9.782228048271235e-16,
+          "sites": 2,
+          "solver_info": 0,
+          "source_norm": 0.5257311121191335,
+          "susceptibility_proxy": 0.07928508681814356
+        }
+      ],
+      "best_oracle_edge_field": -0.75,
+      "boundary_field_grid": [
+        -0.75,
+        -0.5,
+        -0.25,
+        0.0,
+        0.25,
+        0.5,
+        0.75
+      ],
+      "boundary_field_grid_count": 7,
+      "candidate_quantum_response_beats_boundary_field": false,
+      "embedded_susceptibility_proxy": 0.08413874660743946,
+      "embedding_partition": [
+        4,
+        2
+      ],
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 400,
+      "exact_d5_relative_residual": 6.48642013738577e-09,
+      "exact_d5_susceptibility_proxy": 0.09578490151113497,
+      "max_cluster_hilbert_dimension": 36,
+      "max_cluster_relative_residual": 1.7559697305819014e-09,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "relative_response_error": 0.12158654151084188,
+      "sites": 6,
+      "t": 1.0,
+      "u_over_t": 2.0
+    },
+    {
+      "absolute_response_error": 0.004262329269831132,
+      "all_field_response_errors": [
+        {
+          "absolute_response_error": 0.004262329270225906,
+          "edge_field": -0.75,
+          "embedded_susceptibility_proxy": 0.03510629523175096,
+          "relative_response_error": 0.10826716259827357
+        },
+        {
+          "absolute_response_error": 0.00501243014789679,
+          "edge_field": -0.5,
+          "embedded_susceptibility_proxy": 0.03435619435408008,
+          "relative_response_error": 0.12732042867398363
+        },
+        {
+          "absolute_response_error": 0.005457920679726912,
+          "edge_field": -0.25,
+          "embedded_susceptibility_proxy": 0.033910703822249956,
+          "relative_response_error": 0.1386363061643885
+        },
+        {
+          "absolute_response_error": 0.005605603866660196,
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.03376302063531667,
+          "relative_response_error": 0.14238759767638604
+        },
+        {
+          "absolute_response_error": 0.005457920679726953,
+          "edge_field": 0.25,
+          "embedded_susceptibility_proxy": 0.033910703822249914,
+          "relative_response_error": 0.13863630616438954
+        },
+        {
+          "absolute_response_error": 0.005012430147896645,
+          "edge_field": 0.5,
+          "embedded_susceptibility_proxy": 0.03435619435408022,
+          "relative_response_error": 0.12732042867397994
+        },
+        {
+          "absolute_response_error": 0.004262329269831132,
+          "edge_field": 0.75,
+          "embedded_susceptibility_proxy": 0.035106295232145736,
+          "relative_response_error": 0.10826716258824592
+        }
+      ],
+      "best_cluster_product_cluster_size": 2,
+      "best_cluster_product_energy_error_per_site": 0.10121399087780351,
+      "best_field_cluster_rows": [
+        {
+          "density_mean": 1.0466451804322117,
+          "density_site": 2,
+          "edge_field": 0.75,
+          "ground_energy": -0.48759876939045915,
+          "hamiltonian_nnz": 180,
+          "hilbert_dimension": 36,
+          "iterations": 15,
+          "relative_residual": 1.927966484833534e-09,
+          "sites": 4,
+          "solver_info": 0,
+          "source_norm": 0.44607995700701863,
+          "susceptibility_proxy": 0.038240942217076315
+        },
+        {
+          "density_mean": 0.9999999999999993,
+          "density_site": 1,
+          "edge_field": 0.75,
+          "ground_energy": 0.6715728752538082,
+          "hamiltonian_nnz": 12,
+          "hilbert_dimension": 4,
+          "iterations": 1,
+          "relative_residual": 1.60224747048465e-15,
+          "sites": 2,
+          "solver_info": 0,
+          "source_norm": 0.3826834323650896,
+          "susceptibility_proxy": 0.02883700126228457
+        }
+      ],
+      "best_oracle_edge_field": 0.75,
+      "boundary_field_grid": [
+        -0.75,
+        -0.5,
+        -0.25,
+        0.0,
+        0.25,
+        0.5,
+        0.75
+      ],
+      "boundary_field_grid_count": 7,
+      "candidate_quantum_response_beats_boundary_field": false,
+      "embedded_susceptibility_proxy": 0.035106295232145736,
+      "embedding_partition": [
+        4,
+        2
+      ],
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 400,
+      "exact_d5_relative_residual": 8.364055895940028e-09,
+      "exact_d5_susceptibility_proxy": 0.03936862450197687,
+      "max_cluster_hilbert_dimension": 36,
+      "max_cluster_relative_residual": 1.927966484833534e-09,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "relative_response_error": 0.10826716258824592,
+      "sites": 6,
+      "t": 1.0,
+      "u_over_t": 4.0
+    },
+    {
+      "absolute_response_error": 0.0007107697225555249,
+      "all_field_response_errors": [
+        {
+          "absolute_response_error": 0.0007107697225555293,
+          "edge_field": -0.75,
+          "embedded_susceptibility_proxy": 0.007756096981508663,
+          "relative_response_error": 0.08394719645395524
+        },
+        {
+          "absolute_response_error": 0.0007966985037355032,
+          "edge_field": -0.5,
+          "embedded_susceptibility_proxy": 0.007670168200328689,
+          "relative_response_error": 0.0940960253163167
+        },
+        {
+          "absolute_response_error": 0.0008475258181353503,
+          "edge_field": -0.25,
+          "embedded_susceptibility_proxy": 0.007619340885928842,
+          "relative_response_error": 0.10009910959487861
+        },
+        {
+          "absolute_response_error": 0.0008643476445034494,
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.007602519059560743,
+          "relative_response_error": 0.1020858925402183
+        },
+        {
+          "absolute_response_error": 0.0008475258181353503,
+          "edge_field": 0.25,
+          "embedded_susceptibility_proxy": 0.007619340885928842,
+          "relative_response_error": 0.10009910959487861
+        },
+        {
+          "absolute_response_error": 0.0007966985036826661,
+          "edge_field": 0.5,
+          "embedded_susceptibility_proxy": 0.007670168200381526,
+          "relative_response_error": 0.09409602531007624
+        },
+        {
+          "absolute_response_error": 0.0007107697225555249,
+          "edge_field": 0.75,
+          "embedded_susceptibility_proxy": 0.007756096981508667,
+          "relative_response_error": 0.08394719645395474
+        }
+      ],
+      "best_cluster_product_cluster_size": 2,
+      "best_cluster_product_energy_error_per_site": 0.05861514837708981,
+      "best_field_cluster_rows": [
+        {
+          "density_mean": 1.0093109123412738,
+          "density_site": 2,
+          "edge_field": 0.75,
+          "ground_energy": 0.3758977311619577,
+          "hamiltonian_nnz": 180,
+          "hilbert_dimension": 36,
+          "iterations": 14,
+          "relative_residual": 8.53947753365699e-10,
+          "sites": 4,
+          "solver_info": 0,
+          "source_norm": 0.27404306162245734,
+          "susceptibility_proxy": 0.008608143311073086
+        },
+        {
+          "density_mean": 0.9999999999999996,
+          "density_site": 1,
+          "edge_field": 0.75,
+          "ground_energy": 1.0278640450004188,
+          "hamiltonian_nnz": 12,
+          "hilbert_dimension": 4,
+          "iterations": 1,
+          "relative_residual": 1.764938616875884e-15,
+          "sites": 2,
+          "solver_info": 0,
+          "source_norm": 0.22975292054736102,
+          "susceptibility_proxy": 0.006052004322379829
+        }
+      ],
+      "best_oracle_edge_field": 0.75,
+      "boundary_field_grid": [
+        -0.75,
+        -0.5,
+        -0.25,
+        0.0,
+        0.25,
+        0.5,
+        0.75
+      ],
+      "boundary_field_grid_count": 7,
+      "candidate_quantum_response_beats_boundary_field": false,
+      "embedded_susceptibility_proxy": 0.007756096981508667,
+      "embedding_partition": [
+        4,
+        2
+      ],
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 400,
+      "exact_d5_relative_residual": 6.051322974897699e-09,
+      "exact_d5_susceptibility_proxy": 0.008466866704064192,
+      "max_cluster_hilbert_dimension": 36,
+      "max_cluster_relative_residual": 8.53947753365699e-10,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "relative_response_error": 0.08394719645395474,
+      "sites": 6,
+      "t": 1.0,
+      "u_over_t": 8.0
+    },
+    {
+      "absolute_response_error": 0.011238933523304642,
+      "all_field_response_errors": [
+        {
+          "absolute_response_error": 0.01123893352332328,
+          "edge_field": -0.75,
+          "embedded_susceptibility_proxy": 0.0865655765020754,
+          "relative_response_error": 0.11491222153666188
+        },
+        {
+          "absolute_response_error": 0.012817495945878582,
+          "edge_field": -0.5,
+          "embedded_susceptibility_proxy": 0.0849870140795201,
+          "relative_response_error": 0.13105219731227147
+        },
+        {
+          "absolute_response_error": 0.013843298836081916,
+          "edge_field": -0.25,
+          "embedded_susceptibility_proxy": 0.08396121118931676,
+          "relative_response_error": 0.14154049575512392
+        },
+        {
+          "absolute_response_error": 0.014198411385857632,
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.08360609863954105,
+          "relative_response_error": 0.14517133598614698
+        },
+        {
+          "absolute_response_error": 0.013843298836078502,
+          "edge_field": 0.25,
+          "embedded_susceptibility_proxy": 0.08396121118932018,
+          "relative_response_error": 0.141540495755089
+        },
+        {
+          "absolute_response_error": 0.012817495945605953,
+          "edge_field": 0.5,
+          "embedded_susceptibility_proxy": 0.08498701407979273,
+          "relative_response_error": 0.131052197309484
+        },
+        {
+          "absolute_response_error": 0.011238933523304642,
+          "edge_field": 0.75,
+          "embedded_susceptibility_proxy": 0.08656557650209404,
+          "relative_response_error": 0.1149122215364713
+        }
+      ],
+      "best_cluster_product_cluster_size": 4,
+      "best_cluster_product_energy_error_per_site": 0.05921856583390095,
+      "best_field_cluster_rows": [
+        {
+          "density_mean": 1.1198633541563685,
+          "density_site": 2,
+          "edge_field": 0.75,
+          "ground_energy": -1.4648325595909324,
+          "hamiltonian_nnz": 180,
+          "hilbert_dimension": 36,
+          "iterations": 15,
+          "relative_residual": 1.755969697225701e-09,
+          "sites": 4,
+          "solver_info": 0,
+          "source_norm": 0.5761043339954587,
+          "susceptibility_proxy": 0.08656557650209926
+        },
+        {
+          "density_mean": 1.1198633541563565,
+          "density_site": 2,
+          "edge_field": 0.75,
+          "ground_energy": -1.4648325595909324,
+          "hamiltonian_nnz": 180,
+          "hilbert_dimension": 36,
+          "iterations": 15,
+          "relative_residual": 1.7559696039970173e-09,
+          "sites": 4,
+          "solver_info": 0,
+          "source_norm": 0.5761043339954238,
+          "susceptibility_proxy": 0.08656557650208882
+        }
+      ],
+      "best_oracle_edge_field": 0.75,
+      "boundary_field_grid": [
+        -0.75,
+        -0.5,
+        -0.25,
+        0.0,
+        0.25,
+        0.5,
+        0.75
+      ],
+      "boundary_field_grid_count": 7,
+      "candidate_quantum_response_beats_boundary_field": false,
+      "embedded_susceptibility_proxy": 0.08656557650209404,
+      "embedding_partition": [
+        4,
+        4
+      ],
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 4900,
+      "exact_d5_relative_residual": 4.4889596549358075e-09,
+      "exact_d5_susceptibility_proxy": 0.09780451002539868,
+      "max_cluster_hilbert_dimension": 36,
+      "max_cluster_relative_residual": 1.755969697225701e-09,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "relative_response_error": 0.1149122215364713,
+      "sites": 8,
+      "t": 1.0,
+      "u_over_t": 2.0
+    },
+    {
+      "absolute_response_error": 0.0022283445633448223,
+      "all_field_response_errors": [
+        {
+          "absolute_response_error": 0.0022283445636956042,
+          "edge_field": -0.75,
+          "embedded_susceptibility_proxy": 0.038240942216725714,
+          "relative_response_error": 0.05506261021564773
+        },
+        {
+          "absolute_response_error": 0.0033534958803315765,
+          "edge_field": -0.5,
+          "embedded_susceptibility_proxy": 0.03711579090008974,
+          "relative_response_error": 0.08286520833754768
+        },
+        {
+          "absolute_response_error": 0.004021731678188714,
+          "edge_field": -0.25,
+          "embedded_susceptibility_proxy": 0.036447555102232604,
+          "relative_response_error": 0.09937737969067427
+        },
+        {
+          "absolute_response_error": 0.004243256458474794,
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.036226030321946524,
+          "relative_response_error": 0.104851278489238
+        },
+        {
+          "absolute_response_error": 0.004021731678188659,
+          "edge_field": 0.25,
+          "embedded_susceptibility_proxy": 0.03644755510223266,
+          "relative_response_error": 0.0993773796906729
+        },
+        {
+          "absolute_response_error": 0.003353495880443605,
+          "edge_field": 0.5,
+          "embedded_susceptibility_proxy": 0.03711579089997771,
+          "relative_response_error": 0.08286520834031591
+        },
+        {
+          "absolute_response_error": 0.0022283445633448223,
+          "edge_field": 0.75,
+          "embedded_susceptibility_proxy": 0.038240942217076496,
+          "relative_response_error": 0.05506261020697987
+        }
+      ],
+      "best_cluster_product_cluster_size": 4,
+      "best_cluster_product_energy_error_per_site": 0.04118954772007122,
+      "best_field_cluster_rows": [
+        {
+          "density_mean": 1.046645180432212,
+          "density_site": 2,
+          "edge_field": 0.75,
+          "ground_energy": -0.4875987693904621,
+          "hamiltonian_nnz": 180,
+          "hilbert_dimension": 36,
+          "iterations": 15,
+          "relative_residual": 1.927966453041804e-09,
+          "sites": 4,
+          "solver_info": 0,
+          "source_norm": 0.44607995700701913,
+          "susceptibility_proxy": 0.03824094221707641
+        },
+        {
+          "density_mean": 1.0466451804322117,
+          "density_site": 2,
+          "edge_field": 0.75,
+          "ground_energy": -0.48759876939046004,
+          "hamiltonian_nnz": 180,
+          "hilbert_dimension": 36,
+          "iterations": 15,
+          "relative_residual": 1.92796648019794e-09,
+          "sites": 4,
+          "solver_info": 0,
+          "source_norm": 0.4460799570070203,
+          "susceptibility_proxy": 0.03824094221707658
+        }
+      ],
+      "best_oracle_edge_field": 0.75,
+      "boundary_field_grid": [
+        -0.75,
+        -0.5,
+        -0.25,
+        0.0,
+        0.25,
+        0.5,
+        0.75
+      ],
+      "boundary_field_grid_count": 7,
+      "candidate_quantum_response_beats_boundary_field": false,
+      "embedded_susceptibility_proxy": 0.038240942217076496,
+      "embedding_partition": [
+        4,
+        4
+      ],
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 4900,
+      "exact_d5_relative_residual": 4.599250473407358e-09,
+      "exact_d5_susceptibility_proxy": 0.04046928678042132,
+      "max_cluster_hilbert_dimension": 36,
+      "max_cluster_relative_residual": 1.92796648019794e-09,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "relative_response_error": 0.05506261020697987,
+      "sites": 8,
+      "t": 1.0,
+      "u_over_t": 4.0
+    },
+    {
+      "absolute_response_error": 2.6841026480858843e-05,
+      "all_field_response_errors": [
+        {
+          "absolute_response_error": 2.6841026480867516e-05,
+          "edge_field": -0.75,
+          "embedded_susceptibility_proxy": 0.008608143311073088,
+          "relative_response_error": 0.0031278500151498845
+        },
+        {
+          "absolute_response_error": 0.00010205214520983899,
+          "edge_field": -0.5,
+          "embedded_susceptibility_proxy": 0.008479250139382381,
+          "relative_response_error": 0.011892384375396522
+        },
+        {
+          "absolute_response_error": 0.0001782931168888731,
+          "edge_field": -0.25,
+          "embedded_susceptibility_proxy": 0.008403009167703347,
+          "relative_response_error": 0.020776930001521966
+        },
+        {
+          "absolute_response_error": 0.00020352585643712215,
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.008377776428155098,
+          "relative_response_error": 0.0237173624337362
+        },
+        {
+          "absolute_response_error": 0.00017829311688887656,
+          "edge_field": 0.25,
+          "embedded_susceptibility_proxy": 0.008403009167703344,
+          "relative_response_error": 0.02077693000152237
+        },
+        {
+          "absolute_response_error": 0.00010205214520983205,
+          "edge_field": 0.5,
+          "embedded_susceptibility_proxy": 0.008479250139382388,
+          "relative_response_error": 0.011892384375395712
+        },
+        {
+          "absolute_response_error": 2.6841026480858843e-05,
+          "edge_field": 0.75,
+          "embedded_susceptibility_proxy": 0.00860814331107308,
+          "relative_response_error": 0.003127850015148874
+        }
+      ],
+      "best_cluster_product_cluster_size": 4,
+      "best_cluster_product_energy_error_per_site": 0.02331082166443621,
+      "best_field_cluster_rows": [
+        {
+          "density_mean": 1.0093109123412711,
+          "density_site": 2,
+          "edge_field": 0.75,
+          "ground_energy": 0.375897731161955,
+          "hamiltonian_nnz": 180,
+          "hilbert_dimension": 36,
+          "iterations": 14,
+          "relative_residual": 8.539477969142317e-10,
+          "sites": 4,
+          "solver_info": 0,
+          "source_norm": 0.2740430616224571,
+          "susceptibility_proxy": 0.008608143311073072
+        },
+        {
+          "density_mean": 1.009310912341273,
+          "density_site": 2,
+          "edge_field": 0.75,
+          "ground_energy": 0.3758977311619552,
+          "hamiltonian_nnz": 180,
+          "hilbert_dimension": 36,
+          "iterations": 14,
+          "relative_residual": 8.539477548741318e-10,
+          "sites": 4,
+          "solver_info": 0,
+          "source_norm": 0.2740430616224573,
+          "susceptibility_proxy": 0.008608143311073084
+        }
+      ],
+      "best_oracle_edge_field": 0.75,
+      "boundary_field_grid": [
+        -0.75,
+        -0.5,
+        -0.25,
+        0.0,
+        0.25,
+        0.5,
+        0.75
+      ],
+      "boundary_field_grid_count": 7,
+      "candidate_quantum_response_beats_boundary_field": false,
+      "embedded_susceptibility_proxy": 0.00860814331107308,
+      "embedding_partition": [
+        4,
+        4
+      ],
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 4900,
+      "exact_d5_relative_residual": 9.788055078561953e-09,
+      "exact_d5_susceptibility_proxy": 0.00858130228459222,
+      "max_cluster_hilbert_dimension": 36,
+      "max_cluster_relative_residual": 8.539477969142317e-10,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "relative_response_error": 0.003127850015148874,
+      "sites": 8,
+      "t": 1.0,
+      "u_over_t": 8.0
+    }
+  ],
+  "runtime_seconds": 0.06233641599828843,
+  "status": "boundary_field_response_embedding_denominator_not_quantum_advantage_claim",
+  "summary": {
+    "accuracy_per_resource_win_claimed": false,
+    "boundary_field_grid": [
+      -0.75,
+      -0.5,
+      -0.25,
+      0.0,
+      0.25,
+      0.5,
+      0.75
+    ],
+    "boundary_field_grid_count": 7,
+    "instance_count": 9,
+    "max_best_cluster_product_energy_error_per_site": 0.13968497698943935,
+    "max_cluster_hilbert_dimension": 36,
+    "max_exact_d5_hilbert_dimension": 4900,
+    "max_relative_response_error": 0.12158654151084188,
+    "mean_best_cluster_product_energy_error_per_site": 0.04702589460697123,
+    "mean_relative_response_error": 0.05410039803669608,
+    "median_relative_response_error": 0.05506261020697987,
+    "oracle_tuned_boundary_field": true,
+    "quantum_response_win_claimed": false,
+    "site_values": [
+      4,
+      6,
+      8
+    ],
+    "u_over_t_values": [
+      2.0,
+      4.0,
+      8.0
+    ],
+    "zero_error_instance_count": 3
+  },
+  "title": "B5 boundary-field embedding baseline for Hubbard density response",
+  "validation_errors": [],
+  "version": "0.1"
+}

@@ -1,0 +1,121 @@
+{
+  "aer_crosscheck": "results/b7_gcm_h6_numeric_rotation_structure/aer_crosscheck.json",
+  "after_ft_resource": {
+    "ccx_count": 0,
+    "direct_t_count": 0,
+    "gate_counts": {
+      "cx": 795,
+      "ry": 480,
+      "rz": 1066
+    },
+    "logical_t_count_ledger": 6224,
+    "logical_t_depth_ledger": 964,
+    "operation_count_scanned": 2341,
+    "path": "results/b7_gcm_h6_numeric_rotation_structure/qasmbench_medium_exact/gcm_h6.qasm",
+    "rotation_component_count": 1546,
+    "rotation_family_counts": {
+      "arbitrary_numeric_rotation": 270,
+      "clifford_rotation": 476,
+      "exact_pi_over_4_rotation": 792,
+      "exact_pi_over_8_rotation": 8
+    },
+    "t_cost_by_family": {
+      "arbitrary_numeric_rotation": 5400,
+      "clifford_rotation": 0,
+      "exact_pi_over_4_rotation": 792,
+      "exact_pi_over_8_rotation": 32
+    }
+  },
+  "arbitrary_numeric_rotations_after": 270,
+  "arbitrary_numeric_rotations_before": 270,
+  "arbitrary_numeric_rotations_removed": 0,
+  "before_ft_resource": {
+    "ccx_count": 0,
+    "direct_t_count": 0,
+    "gate_counts": {
+      "cx": 795,
+      "ry": 480,
+      "rz": 1066
+    },
+    "logical_t_count_ledger": 6224,
+    "logical_t_depth_ledger": 964,
+    "operation_count_scanned": 2341,
+    "path": "results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+    "rotation_component_count": 1546,
+    "rotation_family_counts": {
+      "arbitrary_numeric_rotation": 270,
+      "clifford_rotation": 476,
+      "exact_pi_over_4_rotation": 792,
+      "exact_pi_over_8_rotation": 8
+    },
+    "t_cost_by_family": {
+      "arbitrary_numeric_rotation": 5400,
+      "clifford_rotation": 0,
+      "exact_pi_over_4_rotation": 792,
+      "exact_pi_over_8_rotation": 32
+    }
+  },
+  "benchmark_id": "B7",
+  "clears_1_20_all_variant_min": false,
+  "clears_1_20_gcm_h6_min": false,
+  "fixed_exact_t_ledger_after": 824,
+  "fixed_exact_t_ledger_before": 824,
+  "gate_delta_removed": {
+    "cx": 0,
+    "ry": 0,
+    "rz": 0
+  },
+  "input_qasm": "results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+  "interpretation": "The conservative same-axis local pass does not reduce gcm_h6 arbitrary numeric rotations.",
+  "last_updated": "2026-06-15",
+  "limits": [
+    "This pass only commutes rotations across operations on disjoint qubits.",
+    "It does not commute through CNOTs or different-axis rotations.",
+    "It is not a certified Clifford+T synthesis or physical layout result.",
+    "The retest changes only the gcm_h6 after-side QASM resource row inside the existing FT ledger."
+  ],
+  "logical_t_ledger_after": 6224,
+  "logical_t_ledger_before": 6224,
+  "logical_t_ledger_removed": 0,
+  "method": "b7_gcm_h6_numeric_rotation_structure_v0",
+  "next_actions": [
+    "If this is negative, test a nonlocal phase-polynomial or template-aware pass rather than more local same-axis merging.",
+    "Separately test whether repeated-angle shared synthesis is only a classical compilation cache or can change a fault-tolerant resource ledger.",
+    "Keep B7 claims marked as proxy until layout, feed-forward, factory, and certified synthesis assumptions are explicit."
+  ],
+  "output_qasm": "results/b7_gcm_h6_numeric_rotation_structure/qasmbench_medium_exact/gcm_h6.qasm",
+  "portfolio_retest": {
+    "comparison_count": 18,
+    "data_bottleneck_after_count": 2,
+    "factory_bottleneck_after_count": 16,
+    "gcm_h6_min_factory_variant": "throughput_heavy_factories",
+    "gcm_h6_min_space_time_volume_reduction": 1.086007702182285,
+    "mean_space_time_volume_reduction": 1.253640000721326,
+    "min_bottleneck_after": "factory_path",
+    "min_factory_variant": "throughput_heavy_factories",
+    "min_space_time_volume_reduction": 1.086007702182285,
+    "min_workload": "qasmbench_medium_exact/gcm_h6.qasm"
+  },
+  "problem_id": 21,
+  "proof_log": "results/b7_gcm_h6_numeric_rotation_structure/proofs.jsonl",
+  "rewrite_rule": "same_axis_numeric_rotation_merge_disjoint_only",
+  "rewrite_summary": {
+    "absorbed_rotation_gates": 1546,
+    "certificate_entries": 172,
+    "input": "results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+    "merge_or_move_groups": 172,
+    "output": "results/b7_gcm_h6_numeric_rotation_structure/qasmbench_medium_exact/gcm_h6.qasm",
+    "removed_rotation_gates": 0,
+    "zero_output_groups": 0
+  },
+  "rotation_family_delta_removed": {
+    "arbitrary_numeric_rotation": 0,
+    "clifford_rotation": 0,
+    "exact_pi_over_4_rotation": 0,
+    "exact_pi_over_8_rotation": 0
+  },
+  "source_ledger": "results/B7_ft_synthesis_ledger_v0.json",
+  "status": "gcm_h6_numeric_rotation_structure_negative_boundary_not_physical_layout",
+  "title": "B7 gcm_h6 numeric-rotation structural pass",
+  "version": "0.1"
+}

@@ -1,0 +1,321 @@
+{
+  "benchmark_id": "B1",
+  "check": "qiskit_aer_shot_measurement_equivalence_crosscheck",
+  "failed": 0,
+  "max_threshold": 0.20077072080689917,
+  "max_total_variation_distance": 0.0,
+  "method": "statevector",
+  "pair_count": 30,
+  "passed": 30,
+  "results": [
+    {
+      "combined_support": 64,
+      "left": "results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/01_trotter_ladder_n6.qasm",
+      "left_support": 64,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/b1_exact_extension/01_trotter_ladder_n6.qasm",
+      "right_support": 64,
+      "threshold": 0.06986778505017908,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 256,
+      "left": "results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/02_ring_interaction_n8.qasm",
+      "left_support": 256,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/b1_exact_extension/02_ring_interaction_n8.qasm",
+      "right_support": 256,
+      "threshold": 0.11973557010035818,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 28,
+      "left": "results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/03_qec_syndrome_phase_n7.qasm",
+      "left_support": 28,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/b1_exact_extension/03_qec_syndrome_phase_n7.qasm",
+      "right_support": 28,
+      "threshold": 0.052984439419099624,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 2,
+      "left": "results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/04_arithmetic_phase_n6.qasm",
+      "left_support": 2,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/b1_exact_extension/04_arithmetic_phase_n6.qasm",
+      "right_support": 2,
+      "threshold": 0.028815462242933694,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 32,
+      "left": "results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/05_qft_phase_ladder_n5.qasm",
+      "left_support": 32,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/b1_exact_extension/05_qft_phase_ladder_n5.qasm",
+      "right_support": 32,
+      "threshold": 0.055261848971734764,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 224,
+      "left": "results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/06_long_range_echo_n10.qasm",
+      "left_support": 224,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/b1_exact_extension/06_long_range_echo_n10.qasm",
+      "right_support": 224,
+      "threshold": 0.11329408314752885,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 32,
+      "left": "results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/07_commuting_disjoint_windows_n8.qasm",
+      "left_support": 32,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/b1_exact_extension/07_commuting_disjoint_windows_n8.qasm",
+      "right_support": 32,
+      "threshold": 0.055261848971734764,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 96,
+      "left": "results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/08_chemistry_ansatz_n8.qasm",
+      "left_support": 96,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/b1_exact_extension/08_chemistry_ansatz_n8.qasm",
+      "right_support": 96,
+      "threshold": 0.081075313987865,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 42,
+      "left": "results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/09_bv_phase_oracle_n9.qasm",
+      "left_support": 42,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/b1_exact_extension/09_bv_phase_oracle_n9.qasm",
+      "right_support": 42,
+      "threshold": 0.06039752301426883,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 64,
+      "left": "results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "left_support": 64,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "right_support": 64,
+      "threshold": 0.06986778505017908,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 16,
+      "left": "results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/11_stabilizer_mixer_n10.qasm",
+      "left_support": 16,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/b1_exact_extension/11_stabilizer_mixer_n10.qasm",
+      "right_support": 16,
+      "threshold": 0.044933892525089544,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 2,
+      "left": "results/b1_post_virtual_swap_1q_resynth/b1_exact_extension/12_toffoli_phase_n7.qasm",
+      "left_support": 2,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/b1_exact_extension/12_toffoli_phase_n7.qasm",
+      "right_support": 2,
+      "threshold": 0.028815462242933694,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 1,
+      "left": "results/b1_post_virtual_swap_1q_resynth/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "right_support": 1,
+      "threshold": 0.026233473131272386,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 841,
+      "left": "results/b1_post_virtual_swap_1q_resynth/qasmbench_interaction_exact/ising_n10.qasm",
+      "left_support": 841,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/qasmbench_interaction_exact/ising_n10.qasm",
+      "right_support": 841,
+      "threshold": 0.20077072080689917,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 1,
+      "left": "results/b1_post_virtual_swap_1q_resynth/qasmbench_medium_exact/bv_n14.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/qasmbench_medium_exact/bv_n14.qasm",
+      "right_support": 1,
+      "threshold": 0.026233473131272386,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 2,
+      "left": "results/b1_post_virtual_swap_1q_resynth/qasmbench_medium_exact/gcm_h6.qasm",
+      "left_support": 2,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+      "right_support": 2,
+      "threshold": 0.028815462242933694,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 1,
+      "left": "results/b1_post_virtual_swap_1q_resynth/qasmbench_medium_exact/multiply_n13.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/qasmbench_medium_exact/multiply_n13.qasm",
+      "right_support": 1,
+      "threshold": 0.026233473131272386,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 8,
+      "left": "results/b1_post_virtual_swap_1q_resynth/qasmbench_medium_exact/qf21_n15.qasm",
+      "left_support": 8,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/qasmbench_medium_exact/qf21_n15.qasm",
+      "right_support": 8,
+      "threshold": 0.037630924485867384,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 16,
+      "left": "results/b1_post_virtual_swap_1q_resynth/qasmbench_medium_exact/sat_n11.qasm",
+      "left_support": 16,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/qasmbench_medium_exact/sat_n11.qasm",
+      "right_support": 16,
+      "threshold": 0.044933892525089544,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 4,
+      "left": "results/b1_post_virtual_swap_1q_resynth/qasmbench_medium_exact/seca_n11.qasm",
+      "left_support": 4,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/qasmbench_medium_exact/seca_n11.qasm",
+      "right_support": 4,
+      "threshold": 0.032466946262544774,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 1,
+      "left": "results/b1_post_virtual_swap_1q_resynth/qasmbench_small/adder_n4.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/qasmbench_small/adder_n4.qasm",
+      "right_support": 1,
+      "threshold": 0.026233473131272386,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 1,
+      "left": "results/b1_post_virtual_swap_1q_resynth/qasmbench_small/basis_change_n3.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/qasmbench_small/basis_change_n3.qasm",
+      "right_support": 1,
+      "threshold": 0.026233473131272386,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 1,
+      "left": "results/b1_post_virtual_swap_1q_resynth/qasmbench_small/basis_test_n4.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/qasmbench_small/basis_test_n4.qasm",
+      "right_support": 1,
+      "threshold": 0.026233473131272386,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 16,
+      "left": "results/b1_post_virtual_swap_1q_resynth/qasmbench_small/bell_n4.qasm",
+      "left_support": 16,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/qasmbench_small/bell_n4.qasm",
+      "right_support": 16,
+      "threshold": 0.044933892525089544,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 2,
+      "left": "results/b1_post_virtual_swap_1q_resynth/qasmbench_small/cat_state_n4.qasm",
+      "left_support": 2,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/qasmbench_small/cat_state_n4.qasm",
+      "right_support": 2,
+      "threshold": 0.028815462242933694,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 2,
+      "left": "results/b1_post_virtual_swap_1q_resynth/qasmbench_small/deutsch_n2.qasm",
+      "left_support": 2,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/qasmbench_small/deutsch_n2.qasm",
+      "right_support": 2,
+      "threshold": 0.028815462242933694,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 16,
+      "left": "results/b1_post_virtual_swap_1q_resynth/qasmbench_small/error_correctiond3_n5.qasm",
+      "left_support": 16,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/qasmbench_small/error_correctiond3_n5.qasm",
+      "right_support": 16,
+      "threshold": 0.044933892525089544,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 1,
+      "left": "results/b1_post_virtual_swap_1q_resynth/qasmbench_small/fredkin_n3.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/qasmbench_small/fredkin_n3.qasm",
+      "right_support": 1,
+      "threshold": 0.026233473131272386,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 1,
+      "left": "results/b1_post_virtual_swap_1q_resynth/qasmbench_small/grover_n2.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/qasmbench_small/grover_n2.qasm",
+      "right_support": 1,
+      "threshold": 0.026233473131272386,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 22,
+      "left": "results/b1_post_virtual_swap_1q_resynth/qasmbench_small/hhl_n7.qasm",
+      "left_support": 22,
+      "passed": true,
+      "right": "results/b1_native_t_resource_optimizer/qasmbench_small/hhl_n7.qasm",
+      "right_support": 22,
+      "threshold": 0.0492375806133559,
+      "total_variation_distance": 0.0
+    }
+  ],
+  "seed": 220626,
+  "shots": 32768,
+  "simulator": "qiskit_aer.AerSimulator",
+  "threshold_model": {
+    "base_tvd": 0.02,
+    "formula": "min(max_tvd, base_tvd + threshold_multiplier * sqrt(combined_support / (pi * shots)))",
+    "max_tvd": 0.35,
+    "threshold_multiplier": 2.0
+  }
+}

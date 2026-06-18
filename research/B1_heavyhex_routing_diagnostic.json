@@ -1,0 +1,53 @@
+{
+  "aer_crosscheck_all_passed": true,
+  "aer_crosscheck_valid_levels": [
+    0
+  ],
+  "baseline_kind": "qiskit_heavy_hex_d3_coupling_u3_cx_basis",
+  "benchmark_id": "B1",
+  "best_diagnostic_exposure_reduction_pct": -164.70733116017078,
+  "best_diagnostic_level_by_exposure": 0,
+  "calibrated_noise_model": false,
+  "coupling_edges": 40,
+  "distance": 3,
+  "interpretation": [
+    "This is the first B1 topology-aware Qiskit heavy-hex routing diagnostic.",
+    "The Qiskit heavy-hex distance-3 coupling map has 19 physical qubits and 40 directed edges.",
+    "Level 0 passes independent Aer output-distribution cross-checks for all 30 circuit pairs under the current shot-based threshold model.",
+    "Routing to this sparse physical topology substantially worsens operation count, two-qubit count, logical depth, and hardware-weighted exposure.",
+    "This is not a calibrated device baseline because no backend-specific durations, error rates, readout errors, or noise model are used."
+  ],
+  "last_updated": "2026-06-13",
+  "levels": [
+    {
+      "aer_crosscheck_failed": 0,
+      "aer_crosscheck_max_threshold": 0.35,
+      "aer_crosscheck_max_tvd": 0.16455078125,
+      "aer_crosscheck_passed": 30,
+      "aer_crosscheck_path": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30/qiskit_heavyhex_d3_level0_aer_measurement_crosscheck.json",
+      "aer_crosscheck_shots": 2048,
+      "hardware_weighted_exposure_reduction_pct": -164.70733116017078,
+      "logical_depth_reduction_pct": -72.71303958845895,
+      "measurement_distribution_check": "skipped_for_physical_qubit_count",
+      "metrics_path": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30/qiskit_heavyhex_d3_level0_metrics.json",
+      "operation_count_reduction_pct": -66.25211984171848,
+      "optimization_level": 0,
+      "summary_path": "/Users/avalok/work/FurturePlan/results/b1_qiskit_heavyhex_routing_30/qiskit_heavyhex_d3_level0_summary.json",
+      "two_qubit_gate_count_reduction_pct": -196.7138523761375
+    }
+  ],
+  "line_routing_is_calibrated_heavy_hex": false,
+  "open_gates": [
+    "Run optimization levels 1 and 3 as a longer regression or optimize the runner to avoid long interactive waits.",
+    "Add calibrated backend properties or a documented synthetic heavy-hex noise model.",
+    "Compare B1 compressed circuits after routing, not only source circuits after routing, to quantify end-to-end routed benefit."
+  ],
+  "physical_qubits": 19,
+  "problem_id": 25,
+  "profile": "heavy_hex_like_sparse",
+  "report_status": "device_like_topology_diagnostic_not_calibrated_noise_baseline",
+  "source_circuit_count": 30,
+  "suite_summary": "results/b1_qiskit_heavyhex_routing_30/qiskit_heavyhex_routing_suite_summary.json",
+  "title": "Qiskit heavy-hex routing diagnostic",
+  "version": "0.1"
+}

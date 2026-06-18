@@ -1,0 +1,1235 @@
+{
+  "adversaries_failing_count": 5,
+  "adversaries_failing_invariant_rule": [
+    "leaked_half_invariant_spoofer",
+    "marginal_matching_spoofer",
+    "public_invariant_spoofer",
+    "uniform_random_spoofer",
+    "weak_surrogate_spoofer"
+  ],
+  "adversaries_tested": [
+    "leaked_half_invariant_spoofer",
+    "marginal_matching_spoofer",
+    "public_invariant_spoofer",
+    "uniform_random_spoofer",
+    "weak_surrogate_spoofer"
+  ],
+  "benchmark_id": "B8",
+  "configuration_count": 15,
+  "maximum_adversary_soundness": 0.0,
+  "method": "toy_hidden_invariant_output_verifier_v0",
+  "minimum_honest_completeness": 1.0,
+  "model_status": "toy_invariant_property_test_not_full_distribution_verification",
+  "reference_count": 50000,
+  "results": [
+    {
+      "adversary": "uniform_random_spoofer",
+      "adversary_soundness": 0.0,
+      "honest_bias": 0.34,
+      "honest_completeness": 1.0,
+      "invariant_count": 8,
+      "known_invariant_count": 0,
+      "masks": [
+        [
+          2,
+          6,
+          9,
+          10
+        ],
+        [
+          3,
+          6,
+          7,
+          9
+        ],
+        [
+          1,
+          2,
+          5,
+          8,
+          9,
+          10
+        ],
+        [
+          0,
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          1,
+          3,
+          5
+        ],
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          6,
+          7,
+          9,
+          10,
+          11
+        ],
+        [
+          1,
+          2,
+          5,
+          8,
+          9,
+          11
+        ]
+      ],
+      "mean_max_abs_error": 0.6809329156249997,
+      "qubits": 12,
+      "reference_count": 50000,
+      "reference_means": [
+        0.22084,
+        -0.22152,
+        0.07908,
+        -0.22408,
+        0.22576,
+        -0.0836,
+        0.6724,
+        -0.67092
+      ],
+      "sample_count": 4096,
+      "task_id": "hidden_parity_projection_n12",
+      "tolerance": 0.08,
+      "trials": 100
+    },
+    {
+      "adversary": "marginal_matching_spoofer",
+      "adversary_soundness": 0.0,
+      "honest_bias": 0.34,
+      "honest_completeness": 1.0,
+      "invariant_count": 8,
+      "known_invariant_count": 0,
+      "masks": [
+        [
+          2,
+          6,
+          9,
+          10
+        ],
+        [
+          3,
+          6,
+          7,
+          9
+        ],
+        [
+          1,
+          2,
+          5,
+          8,
+          9,
+          10
+        ],
+        [
+          0,
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          1,
+          3,
+          5
+        ],
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          6,
+          7,
+          9,
+          10,
+          11
+        ],
+        [
+          1,
+          2,
+          5,
+          8,
+          9,
+          11
+        ]
+      ],
+      "mean_max_abs_error": 0.6835011234374997,
+      "qubits": 12,
+      "reference_count": 50000,
+      "reference_means": [
+        0.22084,
+        -0.22152,
+        0.07908,
+        -0.22408,
+        0.22576,
+        -0.0836,
+        0.6724,
+        -0.67092
+      ],
+      "sample_count": 4096,
+      "task_id": "hidden_parity_projection_n12",
+      "tolerance": 0.08,
+      "trials": 100
+    },
+    {
+      "adversary": "public_invariant_spoofer",
+      "adversary_soundness": 0.0,
+      "honest_bias": 0.34,
+      "honest_completeness": 1.0,
+      "invariant_count": 8,
+      "known_invariant_count": 3,
+      "masks": [
+        [
+          2,
+          6,
+          9,
+          10
+        ],
+        [
+          3,
+          6,
+          7,
+          9
+        ],
+        [
+          1,
+          2,
+          5,
+          8,
+          9,
+          10
+        ],
+        [
+          0,
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          1,
+          3,
+          5
+        ],
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          6,
+          7,
+          9,
+          10,
+          11
+        ],
+        [
+          1,
+          2,
+          5,
+          8,
+          9,
+          11
+        ]
+      ],
+      "mean_max_abs_error": 0.6821531640624997,
+      "qubits": 12,
+      "reference_count": 50000,
+      "reference_means": [
+        0.22084,
+        -0.22152,
+        0.07908,
+        -0.22408,
+        0.22576,
+        -0.0836,
+        0.6724,
+        -0.67092
+      ],
+      "sample_count": 4096,
+      "task_id": "hidden_parity_projection_n12",
+      "tolerance": 0.08,
+      "trials": 100
+    },
+    {
+      "adversary": "leaked_half_invariant_spoofer",
+      "adversary_soundness": 0.0,
+      "honest_bias": 0.34,
+      "honest_completeness": 1.0,
+      "invariant_count": 8,
+      "known_invariant_count": 4,
+      "masks": [
+        [
+          2,
+          6,
+          9,
+          10
+        ],
+        [
+          3,
+          6,
+          7,
+          9
+        ],
+        [
+          1,
+          2,
+          5,
+          8,
+          9,
+          10
+        ],
+        [
+          0,
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          1,
+          3,
+          5
+        ],
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          6,
+          7,
+          9,
+          10,
+          11
+        ],
+        [
+          1,
+          2,
+          5,
+          8,
+          9,
+          11
+        ]
+      ],
+      "mean_max_abs_error": 0.6824464359374997,
+      "qubits": 12,
+      "reference_count": 50000,
+      "reference_means": [
+        0.22084,
+        -0.22152,
+        0.07908,
+        -0.22408,
+        0.22576,
+        -0.0836,
+        0.6724,
+        -0.67092
+      ],
+      "sample_count": 4096,
+      "task_id": "hidden_parity_projection_n12",
+      "tolerance": 0.08,
+      "trials": 100
+    },
+    {
+      "adversary": "weak_surrogate_spoofer",
+      "adversary_soundness": 0.0,
+      "honest_bias": 0.34,
+      "honest_completeness": 1.0,
+      "invariant_count": 8,
+      "known_invariant_count": 8,
+      "masks": [
+        [
+          2,
+          6,
+          9,
+          10
+        ],
+        [
+          3,
+          6,
+          7,
+          9
+        ],
+        [
+          1,
+          2,
+          5,
+          8,
+          9,
+          10
+        ],
+        [
+          0,
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          1,
+          3,
+          5
+        ],
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          6,
+          7,
+          9,
+          10,
+          11
+        ],
+        [
+          1,
+          2,
+          5,
+          8,
+          9,
+          11
+        ]
+      ],
+      "mean_max_abs_error": 0.11883300312499999,
+      "qubits": 12,
+      "reference_count": 50000,
+      "reference_means": [
+        0.22084,
+        -0.22152,
+        0.07908,
+        -0.22408,
+        0.22576,
+        -0.0836,
+        0.6724,
+        -0.67092
+      ],
+      "sample_count": 4096,
+      "task_id": "hidden_parity_projection_n12",
+      "tolerance": 0.08,
+      "trials": 100
+    },
+    {
+      "adversary": "uniform_random_spoofer",
+      "adversary_soundness": 0.0,
+      "honest_bias": 0.34,
+      "honest_completeness": 1.0,
+      "invariant_count": 8,
+      "known_invariant_count": 0,
+      "masks": [
+        [
+          2,
+          7,
+          8,
+          10,
+          11,
+          15
+        ],
+        [
+          2,
+          4,
+          7,
+          8,
+          10,
+          12
+        ],
+        [
+          3,
+          4,
+          7,
+          9,
+          10,
+          15
+        ],
+        [
+          2,
+          4,
+          7,
+          11,
+          12
+        ],
+        [
+          2,
+          5,
+          8,
+          10
+        ],
+        [
+          1,
+          4,
+          15
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          1,
+          6,
+          8
+        ]
+      ],
+      "mean_max_abs_error": 0.6841036890625,
+      "qubits": 16,
+      "reference_count": 50000,
+      "reference_means": [
+        0.02188,
+        -0.02312,
+        0.22228,
+        -0.06892,
+        0.67176,
+        -0.07024,
+        0.669,
+        -0.66836
+      ],
+      "sample_count": 4096,
+      "task_id": "hidden_parity_projection_n16",
+      "tolerance": 0.08,
+      "trials": 100
+    },
+    {
+      "adversary": "marginal_matching_spoofer",
+      "adversary_soundness": 0.0,
+      "honest_bias": 0.34,
+      "honest_completeness": 1.0,
+      "invariant_count": 8,
+      "known_invariant_count": 0,
+      "masks": [
+        [
+          2,
+          7,
+          8,
+          10,
+          11,
+          15
+        ],
+        [
+          2,
+          4,
+          7,
+          8,
+          10,
+          12
+        ],
+        [
+          3,
+          4,
+          7,
+          9,
+          10,
+          15
+        ],
+        [
+          2,
+          4,
+          7,
+          11,
+          12
+        ],
+        [
+          2,
+          5,
+          8,
+          10
+        ],
+        [
+          1,
+          4,
+          15
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          1,
+          6,
+          8
+        ]
+      ],
+      "mean_max_abs_error": 0.6834619843749999,
+      "qubits": 16,
+      "reference_count": 50000,
+      "reference_means": [
+        0.02188,
+        -0.02312,
+        0.22228,
+        -0.06892,
+        0.67176,
+        -0.07024,
+        0.669,
+        -0.66836
+      ],
+      "sample_count": 4096,
+      "task_id": "hidden_parity_projection_n16",
+      "tolerance": 0.08,
+      "trials": 100
+    },
+    {
+      "adversary": "public_invariant_spoofer",
+      "adversary_soundness": 0.0,
+      "honest_bias": 0.34,
+      "honest_completeness": 1.0,
+      "invariant_count": 8,
+      "known_invariant_count": 3,
+      "masks": [
+        [
+          2,
+          7,
+          8,
+          10,
+          11,
+          15
+        ],
+        [
+          2,
+          4,
+          7,
+          8,
+          10,
+          12
+        ],
+        [
+          3,
+          4,
+          7,
+          9,
+          10,
+          15
+        ],
+        [
+          2,
+          4,
+          7,
+          11,
+          12
+        ],
+        [
+          2,
+          5,
+          8,
+          10
+        ],
+        [
+          1,
+          4,
+          15
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          1,
+          6,
+          8
+        ]
+      ],
+      "mean_max_abs_error": 0.6841005687500002,
+      "qubits": 16,
+      "reference_count": 50000,
+      "reference_means": [
+        0.02188,
+        -0.02312,
+        0.22228,
+        -0.06892,
+        0.67176,
+        -0.07024,
+        0.669,
+        -0.66836
+      ],
+      "sample_count": 4096,
+      "task_id": "hidden_parity_projection_n16",
+      "tolerance": 0.08,
+      "trials": 100
+    },
+    {
+      "adversary": "leaked_half_invariant_spoofer",
+      "adversary_soundness": 0.0,
+      "honest_bias": 0.34,
+      "honest_completeness": 1.0,
+      "invariant_count": 8,
+      "known_invariant_count": 4,
+      "masks": [
+        [
+          2,
+          7,
+          8,
+          10,
+          11,
+          15
+        ],
+        [
+          2,
+          4,
+          7,
+          8,
+          10,
+          12
+        ],
+        [
+          3,
+          4,
+          7,
+          9,
+          10,
+          15
+        ],
+        [
+          2,
+          4,
+          7,
+          11,
+          12
+        ],
+        [
+          2,
+          5,
+          8,
+          10
+        ],
+        [
+          1,
+          4,
+          15
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          1,
+          6,
+          8
+        ]
+      ],
+      "mean_max_abs_error": 0.683294328125,
+      "qubits": 16,
+      "reference_count": 50000,
+      "reference_means": [
+        0.02188,
+        -0.02312,
+        0.22228,
+        -0.06892,
+        0.67176,
+        -0.07024,
+        0.669,
+        -0.66836
+      ],
+      "sample_count": 4096,
+      "task_id": "hidden_parity_projection_n16",
+      "tolerance": 0.08,
+      "trials": 100
+    },
+    {
+      "adversary": "weak_surrogate_spoofer",
+      "adversary_soundness": 0.0,
+      "honest_bias": 0.34,
+      "honest_completeness": 1.0,
+      "invariant_count": 8,
+      "known_invariant_count": 8,
+      "masks": [
+        [
+          2,
+          7,
+          8,
+          10,
+          11,
+          15
+        ],
+        [
+          2,
+          4,
+          7,
+          8,
+          10,
+          12
+        ],
+        [
+          3,
+          4,
+          7,
+          9,
+          10,
+          15
+        ],
+        [
+          2,
+          4,
+          7,
+          11,
+          12
+        ],
+        [
+          2,
+          5,
+          8,
+          10
+        ],
+        [
+          1,
+          4,
+          15
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          1,
+          6,
+          8
+        ]
+      ],
+      "mean_max_abs_error": 0.11995684375,
+      "qubits": 16,
+      "reference_count": 50000,
+      "reference_means": [
+        0.02188,
+        -0.02312,
+        0.22228,
+        -0.06892,
+        0.67176,
+        -0.07024,
+        0.669,
+        -0.66836
+      ],
+      "sample_count": 4096,
+      "task_id": "hidden_parity_projection_n16",
+      "tolerance": 0.08,
+      "trials": 100
+    },
+    {
+      "adversary": "uniform_random_spoofer",
+      "adversary_soundness": 0.0,
+      "honest_bias": 0.3,
+      "honest_completeness": 1.0,
+      "invariant_count": 8,
+      "known_invariant_count": 0,
+      "masks": [
+        [
+          0,
+          5,
+          9,
+          15,
+          17
+        ],
+        [
+          3,
+          9,
+          11,
+          14
+        ],
+        [
+          5,
+          7,
+          10,
+          12
+        ],
+        [
+          2,
+          10,
+          15,
+          16,
+          19
+        ],
+        [
+          0,
+          2,
+          3,
+          14,
+          19
+        ],
+        [
+          3,
+          6,
+          7,
+          15,
+          18
+        ],
+        [
+          0,
+          5,
+          12,
+          13,
+          16
+        ],
+        [
+          1,
+          8,
+          9,
+          16,
+          17,
+          18
+        ]
+      ],
+      "mean_max_abs_error": 0.6708582343750001,
+      "qubits": 20,
+      "reference_count": 50000,
+      "reference_means": [
+        0.02156,
+        -0.22496,
+        0.65428,
+        -0.65348,
+        0.07412,
+        -0.65048,
+        0.64924,
+        -0.65084
+      ],
+      "sample_count": 4096,
+      "task_id": "hidden_parity_projection_n20",
+      "tolerance": 0.08,
+      "trials": 100
+    },
+    {
+      "adversary": "marginal_matching_spoofer",
+      "adversary_soundness": 0.0,
+      "honest_bias": 0.3,
+      "honest_completeness": 1.0,
+      "invariant_count": 8,
+      "known_invariant_count": 0,
+      "masks": [
+        [
+          0,
+          5,
+          9,
+          15,
+          17
+        ],
+        [
+          3,
+          9,
+          11,
+          14
+        ],
+        [
+          5,
+          7,
+          10,
+          12
+        ],
+        [
+          2,
+          10,
+          15,
+          16,
+          19
+        ],
+        [
+          0,
+          2,
+          3,
+          14,
+          19
+        ],
+        [
+          3,
+          6,
+          7,
+          15,
+          18
+        ],
+        [
+          0,
+          5,
+          12,
+          13,
+          16
+        ],
+        [
+          1,
+          8,
+          9,
+          16,
+          17,
+          18
+        ]
+      ],
+      "mean_max_abs_error": 0.6688526515625002,
+      "qubits": 20,
+      "reference_count": 50000,
+      "reference_means": [
+        0.02156,
+        -0.22496,
+        0.65428,
+        -0.65348,
+        0.07412,
+        -0.65048,
+        0.64924,
+        -0.65084
+      ],
+      "sample_count": 4096,
+      "task_id": "hidden_parity_projection_n20",
+      "tolerance": 0.08,
+      "trials": 100
+    },
+    {
+      "adversary": "public_invariant_spoofer",
+      "adversary_soundness": 0.0,
+      "honest_bias": 0.3,
+      "honest_completeness": 1.0,
+      "invariant_count": 8,
+      "known_invariant_count": 3,
+      "masks": [
+        [
+          0,
+          5,
+          9,
+          15,
+          17
+        ],
+        [
+          3,
+          9,
+          11,
+          14
+        ],
+        [
+          5,
+          7,
+          10,
+          12
+        ],
+        [
+          2,
+          10,
+          15,
+          16,
+          19
+        ],
+        [
+          0,
+          2,
+          3,
+          14,
+          19
+        ],
+        [
+          3,
+          6,
+          7,
+          15,
+          18
+        ],
+        [
+          0,
+          5,
+          12,
+          13,
+          16
+        ],
+        [
+          1,
+          8,
+          9,
+          16,
+          17,
+          18
+        ]
+      ],
+      "mean_max_abs_error": 0.6664311890625002,
+      "qubits": 20,
+      "reference_count": 50000,
+      "reference_means": [
+        0.02156,
+        -0.22496,
+        0.65428,
+        -0.65348,
+        0.07412,
+        -0.65048,
+        0.64924,
+        -0.65084
+      ],
+      "sample_count": 4096,
+      "task_id": "hidden_parity_projection_n20",
+      "tolerance": 0.08,
+      "trials": 100
+    },
+    {
+      "adversary": "leaked_half_invariant_spoofer",
+      "adversary_soundness": 0.0,
+      "honest_bias": 0.3,
+      "honest_completeness": 1.0,
+      "invariant_count": 8,
+      "known_invariant_count": 4,
+      "masks": [
+        [
+          0,
+          5,
+          9,
+          15,
+          17
+        ],
+        [
+          3,
+          9,
+          11,
+          14
+        ],
+        [
+          5,
+          7,
+          10,
+          12
+        ],
+        [
+          2,
+          10,
+          15,
+          16,
+          19
+        ],
+        [
+          0,
+          2,
+          3,
+          14,
+          19
+        ],
+        [
+          3,
+          6,
+          7,
+          15,
+          18
+        ],
+        [
+          0,
+          5,
+          12,
+          13,
+          16
+        ],
+        [
+          1,
+          8,
+          9,
+          16,
+          17,
+          18
+        ]
+      ],
+      "mean_max_abs_error": 0.6643942250000001,
+      "qubits": 20,
+      "reference_count": 50000,
+      "reference_means": [
+        0.02156,
+        -0.22496,
+        0.65428,
+        -0.65348,
+        0.07412,
+        -0.65048,
+        0.64924,
+        -0.65084
+      ],
+      "sample_count": 4096,
+      "task_id": "hidden_parity_projection_n20",
+      "tolerance": 0.08,
+      "trials": 100
+    },
+    {
+      "adversary": "weak_surrogate_spoofer",
+      "adversary_soundness": 0.0,
+      "honest_bias": 0.3,
+      "honest_completeness": 1.0,
+      "invariant_count": 8,
+      "known_invariant_count": 8,
+      "masks": [
+        [
+          0,
+          5,
+          9,
+          15,
+          17
+        ],
+        [
+          3,
+          9,
+          11,
+          14
+        ],
+        [
+          5,
+          7,
+          10,
+          12
+        ],
+        [
+          2,
+          10,
+          15,
+          16,
+          19
+        ],
+        [
+          0,
+          2,
+          3,
+          14,
+          19
+        ],
+        [
+          3,
+          6,
+          7,
+          15,
+          18
+        ],
+        [
+          0,
+          5,
+          12,
+          13,
+          16
+        ],
+        [
+          1,
+          8,
+          9,
+          16,
+          17,
+          18
+        ]
+      ],
+      "mean_max_abs_error": 0.11452532187499997,
+      "qubits": 20,
+      "reference_count": 50000,
+      "reference_means": [
+        0.02156,
+        -0.22496,
+        0.65428,
+        -0.65348,
+        0.07412,
+        -0.65048,
+        0.64924,
+        -0.65084
+      ],
+      "sample_count": 4096,
+      "task_id": "hidden_parity_projection_n20",
+      "tolerance": 0.08,
+      "trials": 100
+    }
+  ],
+  "sample_count": 4096,
+  "task_count": 3,
+  "tolerance": 0.08,
+  "trials": 100
+}

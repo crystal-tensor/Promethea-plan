@@ -1,0 +1,51 @@
+{
+  "all_aer_crosschecks_passed": true,
+  "benchmark_id": "B1",
+  "best_exposure_reduction_pct": 2.931851434871905,
+  "best_level_by_exposure": 0,
+  "interpretation": [
+    "B1 retains measurable routed benefits under Qiskit heavy-hex level 0.",
+    "Qiskit heavy-hex level 1 nearly erases the current B1 pre-routing benefits after routing.",
+    "Post-routing two-qubit count does not improve at either tested level.",
+    "The next B1 algorithmic step should be routing-aware 2-4 qubit optimization rather than more isolated 1Q compression."
+  ],
+  "last_updated": "2026-06-13",
+  "levels": [
+    {
+      "aer_crosscheck_failed": 0,
+      "aer_crosscheck_max_tvd": 0.16455078125,
+      "aer_crosscheck_passed": 30,
+      "aer_crosscheck_shots": 2048,
+      "circuit_count": 30,
+      "hardware_weighted_exposure_reduction_pct": 2.931851434871905,
+      "idle_layer_proxy_reduction_pct": 20.548475810512453,
+      "logical_depth_reduction_pct": 19.43796943796944,
+      "operation_count_reduction_pct": 16.95001700102006,
+      "optimization_level": 0,
+      "summary_path": "results/b1_heavyhex_end_to_end_30/heavyhex_end_to_end_summary.json",
+      "two_qubit_gate_count_reduction_pct": 0.0
+    },
+    {
+      "aer_crosscheck_failed": 0,
+      "aer_crosscheck_max_tvd": 0.24365234375,
+      "aer_crosscheck_passed": 30,
+      "aer_crosscheck_shots": 2048,
+      "circuit_count": 30,
+      "hardware_weighted_exposure_reduction_pct": 0.00041445279796741913,
+      "idle_layer_proxy_reduction_pct": -0.0024327644719076523,
+      "logical_depth_reduction_pct": 0.0,
+      "operation_count_reduction_pct": 0.02686366689053056,
+      "optimization_level": 1,
+      "summary_path": "results/b1_heavyhex_end_to_end_30_level1/heavyhex_end_to_end_summary.json",
+      "two_qubit_gate_count_reduction_pct": 0.0
+    }
+  ],
+  "levels_tested": [
+    0,
+    1
+  ],
+  "problem_id": 25,
+  "report_status": "topology_routed_benefit_suite_not_calibrated_noise_claim",
+  "title": "B1 heavy-hex end-to-end routed benefit suite",
+  "version": "0.1"
+}

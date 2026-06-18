@@ -1,0 +1,301 @@
+{
+  "after_ft_resource": {
+    "ccx_count": 0,
+    "direct_t_count": 0,
+    "gate_counts": {
+      "cx": 795,
+      "ry": 480,
+      "rz": 1066
+    },
+    "logical_t_count_ledger": 6224,
+    "logical_t_depth_ledger": 964,
+    "operation_count_scanned": 2341,
+    "path": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+    "rotation_component_count": 1546,
+    "rotation_family_counts": {
+      "arbitrary_numeric_rotation": 270,
+      "clifford_rotation": 476,
+      "exact_pi_over_4_rotation": 792,
+      "exact_pi_over_8_rotation": 8
+    },
+    "t_cost_by_family": {
+      "arbitrary_numeric_rotation": 5400,
+      "clifford_rotation": 0,
+      "exact_pi_over_4_rotation": 792,
+      "exact_pi_over_8_rotation": 32
+    }
+  },
+  "after_numeric_catalog": {
+    "gate_counts_with_numeric_parameters": {
+      "ry": 144,
+      "rz": 126
+    },
+    "numeric_instruction_occurrences": 270,
+    "numeric_parameter_occurrences": 270,
+    "path": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+    "top_numeric_instructions": [
+      {
+        "count": 24,
+        "instruction": "ry(0.36485735178627743)"
+      },
+      {
+        "count": 24,
+        "instruction": "rz(0.36485735178627726)"
+      },
+      {
+        "count": 24,
+        "instruction": "rz(1.4922506383856682)"
+      },
+      {
+        "count": 24,
+        "instruction": "rz(2.1870074319274799)"
+      },
+      {
+        "count": 24,
+        "instruction": "ry(0.52538524712872736)"
+      },
+      {
+        "count": 24,
+        "instruction": "rz(2.538142068316358)"
+      },
+      {
+        "count": 24,
+        "instruction": "ry(1.1254377896453873)"
+      },
+      {
+        "count": 24,
+        "instruction": "rz(0.28861107553559073)"
+      },
+      {
+        "count": 24,
+        "instruction": "ry(0.42054081161117118)"
+      },
+      {
+        "count": 21,
+        "instruction": "ry(0.42054081161117135)"
+      },
+      {
+        "count": 4,
+        "instruction": "ry(0.99803486463019042)"
+      },
+      {
+        "count": 4,
+        "instruction": "ry(2.8134684478406049)"
+      },
+      {
+        "count": 4,
+        "instruction": "ry(1.9798156269941374)"
+      },
+      {
+        "count": 3,
+        "instruction": "ry(0.42054081161117129)"
+      },
+      {
+        "count": 2,
+        "instruction": "ry(0.99803486463018931)"
+      },
+      {
+        "count": 2,
+        "instruction": "ry(0.99803486463018953)"
+      }
+    ],
+    "top_numeric_parameters": [
+      {
+        "count": 24,
+        "value": "0.36485735178627743"
+      },
+      {
+        "count": 24,
+        "value": "0.36485735178627726"
+      },
+      {
+        "count": 24,
+        "value": "1.4922506383856682"
+      },
+      {
+        "count": 24,
+        "value": "2.1870074319274799"
+      },
+      {
+        "count": 24,
+        "value": "0.52538524712872736"
+      },
+      {
+        "count": 24,
+        "value": "2.538142068316358"
+      },
+      {
+        "count": 24,
+        "value": "1.1254377896453873"
+      },
+      {
+        "count": 24,
+        "value": "0.28861107553559073"
+      },
+      {
+        "count": 24,
+        "value": "0.42054081161117118"
+      },
+      {
+        "count": 21,
+        "value": "0.42054081161117135"
+      },
+      {
+        "count": 4,
+        "value": "0.99803486463019042"
+      },
+      {
+        "count": 4,
+        "value": "2.8134684478406049"
+      },
+      {
+        "count": 4,
+        "value": "1.9798156269941374"
+      },
+      {
+        "count": 3,
+        "value": "0.42054081161117129"
+      },
+      {
+        "count": 2,
+        "value": "0.99803486463018931"
+      },
+      {
+        "count": 2,
+        "value": "0.99803486463018953"
+      }
+    ],
+    "unique_numeric_instructions": 26,
+    "unique_numeric_parameters": 26
+  },
+  "after_qasm": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+  "arbitrary_rotation_t_cost": 20,
+  "before_ft_resource": {
+    "ccx_count": 0,
+    "direct_t_count": 0,
+    "gate_counts": {
+      "cx": 1269,
+      "u3": 1089
+    },
+    "logical_t_count_ledger": 6760,
+    "logical_t_depth_ledger": 1166,
+    "operation_count_scanned": 2358,
+    "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_medium_exact/gcm_h6.qasm",
+    "rotation_component_count": 3267,
+    "rotation_family_counts": {
+      "arbitrary_numeric_rotation": 289,
+      "clifford_rotation": 2022,
+      "exact_pi_over_4_rotation": 948,
+      "exact_pi_over_8_rotation": 8
+    },
+    "t_cost_by_family": {
+      "arbitrary_numeric_rotation": 5780,
+      "clifford_rotation": 0,
+      "exact_pi_over_4_rotation": 948,
+      "exact_pi_over_8_rotation": 32
+    }
+  },
+  "before_numeric_catalog": {
+    "gate_counts_with_numeric_parameters": {},
+    "numeric_instruction_occurrences": 0,
+    "numeric_parameter_occurrences": 0,
+    "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_medium_exact/gcm_h6.qasm",
+    "top_numeric_instructions": [],
+    "top_numeric_parameters": [],
+    "unique_numeric_instructions": 0,
+    "unique_numeric_parameters": 0
+  },
+  "before_qasm": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_medium_exact/gcm_h6.qasm",
+  "benchmark_id": "B7",
+  "claim_boundary": {
+    "shared_synthesis_cache_can_reduce_classical_template_count": true,
+    "shared_synthesis_cache_reduces_ft_t_ledger_under_occurrence_injection_model": false,
+    "would_clear_1_20_if_miscounted_after_only": false,
+    "would_clear_1_20_if_miscounted_as_unique_execution": false,
+    "would_clear_gcm_h6_1_20_if_miscounted_after_only": true,
+    "would_clear_gcm_h6_1_20_if_miscounted_as_unique_execution": false
+  },
+  "interpretation": "Repeated gcm_h6 numeric angles support a classical synthesis-template cache, but the physical FT resource ledger remains occurrence-based.  Counting only unique numeric instructions would create an apparent resource win by changing the execution model, not by solving the circuit.",
+  "invalid_after_only_unique_template_model": {
+    "after_t_ledger": 1344,
+    "before_t_ledger": 6760,
+    "portfolio_retest": {
+      "clears_1_20_all_variant_min": false,
+      "clears_1_20_gcm_h6_min": true,
+      "comparison_count": 18,
+      "gcm_h6_after_t_ledger": 1344,
+      "gcm_h6_before_t_ledger": 6760,
+      "gcm_h6_min_factory_variant": "throughput_heavy_factories",
+      "gcm_h6_min_space_time_volume_reduction": 1.5083574771562291,
+      "mean_space_time_volume_reduction": 1.645092781531523,
+      "min_factory_variant": "serial_factory",
+      "min_space_time_volume_reduction": 1.1218274111675126,
+      "min_workload": "qasmbench_medium_exact/sat_n11.qasm",
+      "mode": "invalid_after_only_unique_template_execution"
+    },
+    "semantics": "applies unique-template charging only to the optimized after-row",
+    "why_invalid": "unfair baseline accounting plus the same physical occurrence reuse error"
+  },
+  "invalid_unique_template_execution_model": {
+    "after_t_ledger": 1344,
+    "before_t_ledger": 980,
+    "portfolio_retest": {
+      "clears_1_20_all_variant_min": false,
+      "clears_1_20_gcm_h6_min": false,
+      "comparison_count": 18,
+      "gcm_h6_after_t_ledger": 1344,
+      "gcm_h6_before_t_ledger": 980,
+      "gcm_h6_min_factory_variant": "serial_factory",
+      "gcm_h6_min_space_time_volume_reduction": 0.729300941993059,
+      "mean_space_time_volume_reduction": 1.25961864924848,
+      "min_factory_variant": "serial_factory",
+      "min_space_time_volume_reduction": 0.729300941993059,
+      "min_workload": "qasmbench_medium_exact/gcm_h6.qasm",
+      "mode": "invalid_unique_template_execution"
+    },
+    "semantics": "counts unique synthesized numeric instructions as if one physical rotation resource served all occurrences",
+    "why_invalid": "a compiled template can be reused as classical instructions, but the quantum circuit still applies each rotation occurrence"
+  },
+  "last_updated": "2026-06-15",
+  "limits": [
+    "This is a resource-accounting boundary, not a certified no-go theorem for all possible circuit identities.",
+    "The unique-template model is intentionally marked invalid for FT execution accounting.",
+    "A future block-template rewrite could still reduce T ledger if it changes the implemented unitary with a proof."
+  ],
+  "method": "b7_shared_synthesis_cache_boundary_v0",
+  "next_actions": [
+    "A real T-ledger reduction must reduce physical rotation occurrences or replace a repeated block with a proven lower-cost unitary template.",
+    "Try a nonlocal template-aware pass on repeated gcm_h6 blocks and verify it with Aer/proof logs.",
+    "Keep shared-synthesis/cache as a compile-time optimization unless a physical reusable-state protocol is specified."
+  ],
+  "physical_occurrence_injection_model": {
+    "after_arbitrary_occurrences": 270,
+    "after_classical_catalog_synthesis_count": 26,
+    "after_physical_rotation_injection_count": 270,
+    "after_t_ledger": 6224,
+    "after_unique_numeric_instructions": 26,
+    "before_t_ledger": 6760,
+    "classical_catalog_reduction_factor": 10.384615384615385,
+    "ft_t_ledger_reduction_from_cache": 0,
+    "portfolio_retest": {
+      "clears_1_20_all_variant_min": false,
+      "clears_1_20_gcm_h6_min": false,
+      "comparison_count": 18,
+      "gcm_h6_after_t_ledger": 6224,
+      "gcm_h6_before_t_ledger": 6760,
+      "gcm_h6_min_factory_variant": "throughput_heavy_factories",
+      "gcm_h6_min_space_time_volume_reduction": 1.086007702182285,
+      "mean_space_time_volume_reduction": 1.253640000721326,
+      "min_factory_variant": "throughput_heavy_factories",
+      "min_space_time_volume_reduction": 1.086007702182285,
+      "min_workload": "qasmbench_medium_exact/gcm_h6.qasm",
+      "mode": "physical_occurrence_injection"
+    },
+    "semantics": "each rotation occurrence consumes a physical fault-tolerant rotation injection"
+  },
+  "problem_id": 21,
+  "source_ledger": "results/B7_ft_synthesis_ledger_v0.json",
+  "status": "shared_synthesis_cache_no_ft_t_ledger_reduction_boundary",
+  "title": "B7 shared-synthesis/cache boundary for repeated gcm_h6 rotations",
+  "version": "0.1"
+}

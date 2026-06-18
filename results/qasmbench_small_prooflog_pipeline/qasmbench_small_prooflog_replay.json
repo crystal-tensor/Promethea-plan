@@ -1,0 +1,35 @@
+{
+  "errors": [],
+  "passed": true,
+  "stages": [
+    {
+      "files_checked": 10,
+      "input_dir": "results/qasmbench_small_prooflog_pipeline_work/00_input",
+      "output_dir": "results/qasmbench_small_prooflog_pipeline_work/01_1q_commute",
+      "proof_events": 164,
+      "stage": "single_qubit_block_resynthesis"
+    },
+    {
+      "files_checked": 10,
+      "input_dir": "results/qasmbench_small_prooflog_pipeline_work/01_1q_commute",
+      "output_dir": "results/qasmbench_small_prooflog_pipeline_work/02_rzz_pass",
+      "proof_events": 25,
+      "stage": "rzz_pass_1"
+    },
+    {
+      "files_checked": 10,
+      "input_dir": "results/qasmbench_small_prooflog_pipeline_work/02_rzz_pass",
+      "output_dir": "results/qasmbench_small_prooflog_pipeline_work/03_rzz_pass",
+      "proof_events": 2,
+      "stage": "rzz_pass_2"
+    },
+    {
+      "files_checked": 10,
+      "input_dir": "results/qasmbench_small_prooflog_pipeline_work/03_rzz_pass",
+      "output_dir": "results/qasmbench_small_prooflog_pipeline_work/04_rzz_pass",
+      "proof_events": 0,
+      "stage": "rzz_pass_3"
+    }
+  ],
+  "summary": "results/qasmbench_small_prooflog_pipeline/qasmbench_small_prooflog_summary.json"
+}

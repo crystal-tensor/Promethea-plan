@@ -1,0 +1,333 @@
+id: B3
+problem_id: 49
+name: Molecular Reaction Dynamics Resource Estimation
+version: 0.1
+status: draft
+claim: >
+  Observable-first quantum algorithms can estimate reaction-relevant quantities
+  with lower resources than full state preparation or full wavefunction
+  reconstruction.
+candidate_systems:
+  - h2_calibration
+  - lih_calibration
+  - h2o_calibration
+  - n2_calibration
+  - small_transition_metal_active_site
+  - nitrogen_fixation_proxy
+  - photochemical_conical_intersection_proxy
+tooling:
+  - name: OpenFermion
+    url: https://quantumai.google/openfermion
+  - name: PySCF
+    optional: true
+  - name: resource_estimator
+    status: to_build
+baselines:
+  - full_hamiltonian_phase_estimation
+  - vqe_ansatz_resource_estimate
+  - coupled_cluster_reference
+  - selected_ci_reference
+  - dmrg_or_tensor_network_reference
+metrics:
+  - target_observable_error
+  - logical_qubits
+  - t_count
+  - t_depth
+  - state_preparation_assumptions
+  - classical_preprocessing_cost
+  - active_space_sensitivity
+acceptance_threshold:
+  logical_depth_or_t_count_reduction: ">=5x"
+  compared_to: full_hamiltonian_phase_estimation
+  state_preparation_cost_included: true
+failure_conditions:
+  - gain_depends_on_unrealistic_qram
+  - gain_hides_state_preparation_cost
+  - classical_baseline_is_outdated_or_weak
+  - molecule_too_small_to_show_hard_regime
+next_actions:
+  - create_openfermion_calibration_notebook
+  - choose_first_reaction_proxy
+  - define_resource_estimator_schema
+  - collect_classical_reference_methods
+current_results:
+  pyscf_small_molecule_resource_proxy_v0:
+    status: calibration_resource_proxy
+    basis: sto-3g
+    molecules:
+      - h2_calibration
+      - lih_calibration
+      - h2o_calibration
+      - n2_calibration
+    precision_hartree: 0.0016
+    observable_fraction: 0.2
+    molecule_count: 4
+    proxy_t_count_reduction_range: "6.11x-6.25x"
+    model_status: pyscf_hf_integrals_plus_proxy_resource_estimates
+    result: ../results/B3_pyscf_resource_estimate_v0.json
+  quantum_observable_fci_comparison_v0:
+    status: quantum_observable_circuit_vs_fci_denominator_proxy_not_advantage_claim
+    method: b3_quantum_observable_fci_comparison_v0
+    source_denominator: b10_t1_d5_b3_reaction_observable_table_v0
+    source_fci_reference: b10_t1_d5_b3_fci_reference_table_v0
+    reaction_coordinate_instances: 4
+    qasm_file_count: 4
+    max_total_qubits: 21
+    max_controlled_phase_gates: 441
+    fci_denominator_beaten_count: 0
+    quantum_advantage_claimed: false
+    reaction_dynamics_solution_claimed: false
+    caveat: proxy_circuits_not_chemistry_accuracy_or_quantum_advantage_claim
+    result: ../results/B3_quantum_observable_fci_comparison_v0.json
+    markdown_report: ../research/B3_quantum_observable_fci_comparison.md
+    qasm_directory: ../results/b3_quantum_observable_fci_comparison/circuits
+  hamiltonian_pauli_mapper_comparison_v0:
+    status: hamiltonian_pauli_mapper_circuits_vs_fci_denominator_not_advantage_claim
+    method: b3_hamiltonian_pauli_mapper_comparison_v0
+    source_fci_reference: b10_t1_d5_b3_fci_reference_table_v0
+    reaction_coordinate_instances: 4
+    qasm_file_count: 4
+    max_total_qubits: 20
+    max_pauli_terms_after_cutoff: 2951
+    max_measurement_packet_terms: 16
+    max_total_measurement_shot_floor: 30504129929
+    fci_denominator_beaten_count: 0
+    state_preparation_cost_included: true
+    observable_variance_estimate_included: true
+    quantum_advantage_claimed: false
+    reaction_dynamics_solution_claimed: false
+    caveat: hamiltonian_pauli_mapper_measurement_packets_not_advantage_or_reaction_solution_claim
+    result: ../results/B3_hamiltonian_pauli_mapper_comparison_v0.json
+    markdown_report: ../research/B3_hamiltonian_pauli_mapper_comparison.md
+    qasm_directory: ../results/b3_hamiltonian_pauli_mapper_comparison/circuits
+  sampled_pauli_estimator_confidence_v0:
+    status: sampled_pauli_estimator_confidence_intervals_not_advantage_claim
+    method: b3_sampled_pauli_estimator_confidence_v0
+    source_mapper: b3_hamiltonian_pauli_mapper_comparison_v0
+    source_fci_reference: b10_t1_d5_b3_fci_reference_table_v0
+    reaction_coordinate_instances: 4
+    pilot_shots_per_random_term: 2048
+    confidence_z: 2.576
+    max_random_pauli_terms: 2740
+    max_pilot_total_shots: 5611520
+    max_target_total_shot_floor_neyman: 6570468
+    min_shot_reduction_vs_upper_bound: 442.41739183350575
+    max_shot_reduction_vs_upper_bound: 34544.05744748315
+    all_pilot_cis_contain_exact_energy: true
+    fci_denominator_beaten_count: 0
+    sampled_confidence_intervals_included: true
+    selected_ci_or_larger_active_space_included: false
+    quantum_advantage_claimed: false
+    reaction_dynamics_solution_claimed: false
+    caveat: hf_bitstring_sampled_confidence_not_selected_ci_or_advantage_claim
+    result: ../results/B3_sampled_pauli_estimator_confidence_v0.json
+    markdown_report: ../research/B3_sampled_pauli_estimator_confidence.md
+  selected_ci_grouped_pauli_boundary_v0:
+    status: selected_ci_larger_basis_grouped_pauli_boundary_not_advantage_claim
+    method: b3_selected_ci_grouped_pauli_boundary_v0
+    source_sampled_pauli: b3_sampled_pauli_estimator_confidence_v0
+    source_mapper: b3_hamiltonian_pauli_mapper_comparison_v0
+    source_fci_reference: b10_t1_d5_b3_fci_reference_table_v0
+    reaction_coordinate_instances: 4
+    selected_ci_larger_basis_rows: 4
+    max_selected_ci_spatial_orbitals: 19
+    max_selected_ci_spin_orbital_qubits: 38
+    max_selected_ci_determinant_product: 400
+    max_selected_ci_total_determinant_product_three_point: 1200
+    all_selected_ci_points_converged: true
+    pauli_grouping_included: true
+    ansatz_state_preparation_surcharge_included: true
+    large_basis_quantum_mapper_included: false
+    max_qwc_group_count: 809
+    min_packet_reduction_vs_ungrouped: 1.0
+    max_packet_reduction_vs_ungrouped: 4.170212765957447
+    max_ansatz_two_qubit_gate_executions_at_target: 289100592
+    selected_ci_larger_basis_denominator_beaten_count: 0
+    quantum_advantage_claimed: false
+    reaction_dynamics_solution_claimed: false
+    caveat: larger_basis_selected_ci_denominator_stress_not_large_basis_quantum_mapper_or_advantage_claim
+    result: ../results/B3_selected_ci_grouped_pauli_boundary_v0.json
+    markdown_report: ../research/B3_selected_ci_grouped_pauli_boundary.md
+  larger_basis_hamiltonian_mapper_v0:
+    status: larger_basis_hamiltonian_mapper_boundary_not_advantage_claim
+    method: b3_larger_basis_hamiltonian_mapper_v0
+    source_selected_ci_grouped_pauli: b3_selected_ci_grouped_pauli_boundary_v0
+    reaction_coordinate_instances: 4
+    larger_basis_quantum_mapper_included: true
+    same_basis_as_selected_ci_denominator: true
+    pauli_measurement_cost_included: true
+    conservative_measurement_bucket_model: same_basis_bucket_upper_bound_not_optimal_qwc_cover
+    ansatz_state_preparation_surcharge_included: true
+    max_total_qubits: 38
+    max_pauli_terms_after_cutoff: 77858
+    max_pauli_weight: 38
+    max_conservative_same_basis_bucket_count: 77116
+    min_conservative_bucket_reduction_vs_ungrouped: 1.0
+    max_conservative_bucket_reduction_vs_ungrouped: 1.0
+    max_neyman_target_total_shot_floor: 6464114739
+    max_ansatz_two_qubit_gate_executions_at_neyman_target: 956688981372
+    selected_ci_larger_basis_denominator_beaten_count: 0
+    quantum_advantage_claimed: false
+    reaction_dynamics_solution_claimed: false
+    caveat: larger_basis_jordan_wigner_mapping_not_optimal_grouping_or_advantage_claim
+    result: ../results/B3_larger_basis_hamiltonian_mapper_v0.json
+    markdown_report: ../research/B3_larger_basis_hamiltonian_mapper.md
+  larger_basis_qwc_grouping_v0:
+    status: larger_basis_qwc_grouping_boundary_not_advantage_claim
+    method: b3_larger_basis_qwc_grouping_v0
+    source_larger_basis_mapper: b3_larger_basis_hamiltonian_mapper_v0
+    reaction_coordinate_instances: 4
+    larger_basis_quantum_mapper_included: true
+    qwc_grouping_included: true
+    qwc_grouping_algorithm: bitmask_first_fit_qwc_cover_weight_ascending
+    max_total_qubits: 38
+    max_pauli_terms_after_cutoff: 77858
+    max_previous_conservative_same_basis_bucket_count: 77116
+    max_qwc_group_count: 19644
+    min_qwc_reduction_vs_previous_bucket_count: 3.0925507900677203
+    max_qwc_reduction_vs_previous_bucket_count: 3.956535634387983
+    max_group_size: 291
+    max_neyman_target_total_shot_floor: 6464114739
+    neyman_shot_floor_reduced_by_grouping: false
+    max_ansatz_two_qubit_gate_executions_at_neyman_target: 956688981372
+    selected_ci_larger_basis_denominator_beaten_count: 0
+    quantum_advantage_claimed: false
+    reaction_dynamics_solution_claimed: false
+    caveat: qwc_reduces_measurement_settings_not_shot_floor_without_covariance_propagation
+    result: ../results/B3_larger_basis_qwc_grouping_v0.json
+    markdown_report: ../research/B3_larger_basis_qwc_grouping.md
+  grouped_covariance_shot_floor_v0:
+    status: grouped_covariance_shot_floor_boundary_not_advantage_claim
+    method: b3_grouped_covariance_shot_floor_v0
+    source_larger_basis_mapper: b3_larger_basis_hamiltonian_mapper_v0
+    source_larger_basis_qwc_grouping: b3_larger_basis_qwc_grouping_v0
+    reaction_coordinate_instances: 4
+    larger_basis_quantum_mapper_included: true
+    qwc_grouping_included: true
+    qwc_grouping_algorithm: bitmask_first_fit_qwc_cover_weight_ascending
+    grouped_covariance_included: true
+    covariance_model: exact_HF_product_state_covariance_inside_each_QWC_group
+    max_total_qubits: 38
+    max_pauli_terms_after_cutoff: 77858
+    max_qwc_group_count: 19644
+    max_previous_independent_term_neyman_shot_floor: 6464114739
+    max_grouped_covariance_shot_floor: 1283900037
+    min_grouped_covariance_reduction_vs_previous_independent_floor: 4.907216882710797
+    max_grouped_covariance_reduction_vs_previous_independent_floor: 5.58305864065559
+    max_nonzero_covariance_pair_count: 73474
+    max_ansatz_two_qubit_gate_executions_at_grouped_covariance_target: 190017205476
+    selected_ci_larger_basis_denominator_beaten_count: 0
+    quantum_advantage_claimed: false
+    reaction_dynamics_solution_claimed: false
+    caveat: hartree_fock_product_state_covariance_not_correlated_chemical_state_preparation
+    result: ../results/B3_grouped_covariance_shot_floor_v0.json
+    markdown_report: ../research/B3_grouped_covariance_shot_floor.md
+  chemical_state_prep_derivative_boundary_v0:
+    status: chemical_state_prep_derivative_boundary_not_advantage_claim
+    method: b3_chemical_state_prep_derivative_boundary_v0
+    source_grouped_covariance: b3_grouped_covariance_shot_floor_v0
+    source_selected_ci: b3_selected_ci_grouped_pauli_boundary_v0
+    source_larger_basis_mapper: b3_larger_basis_hamiltonian_mapper_v0
+    reaction_coordinate_instances: 4
+    derivative_error_propagation_included: true
+    sampled_chemical_state_covariance_included: false
+    chemical_state_prep_cost_envelope_included: true
+    chemical_state_prep_models:
+      - UCCSD
+      - ADAPT-VQE-envelope
+      - adiabatic-envelope
+    max_total_qubits: 38
+    max_source_grouped_covariance_shot_floor: 1283900037
+    max_three_point_derivative_total_shot_floor: 12839000370000
+    min_derivative_shot_floor_inflation_vs_center_energy_floor: 10000.0
+    max_derivative_shot_floor_inflation_vs_center_energy_floor: 10000.0
+    max_uccsd_two_qubit_gates_per_preparation: 1493030
+    max_adapt_two_qubit_gates_per_preparation: 11248
+    max_adiabatic_two_qubit_gates_per_preparation: 28120
+    max_uccsd_two_qubit_gate_executions_at_derivative_target: 18497517970970500000
+    max_adapt_two_qubit_gate_executions_at_derivative_target: 144413076161760000
+    max_adiabatic_two_qubit_gate_executions_at_derivative_target: 361032690404400000
+    selected_ci_larger_basis_denominator_beaten_count: 0
+    quantum_advantage_claimed: false
+    reaction_dynamics_solution_claimed: false
+    caveat: derivative_error_and_state_prep_costs_inflated_no_sampled_correlated_covariance
+    result: ../results/B3_chemical_state_prep_derivative_boundary_v0.json
+    markdown_report: ../research/B3_chemical_state_prep_derivative_boundary.md
+  compiled_ucc_adapt_covariance_pilot_v0:
+    status: compiled_ucc_adapt_covariance_pilot_not_advantage_claim
+    method: b3_compiled_ucc_adapt_covariance_pilot_v0
+    source_derivative_boundary: b3_chemical_state_prep_derivative_boundary_v0
+    pilot_instances: 1
+    pilot_molecule: h2_bond_stretch
+    ansatz_model: compiled_one_parameter_ucc_double_adapt_seed
+    ansatz_parameter_count: 1
+    compiled_ucc_adapt_covariance_included: true
+    pilot_sampled_covariance_included: true
+    pilot_group_count: 48
+    pilot_max_basis_weight: 12
+    pilot_shots_per_group: 512
+    pilot_total_group_measurement_shots: 24576
+    pilot_mean_relative_variance_error: 0.006841894985135478
+    pilot_max_relative_variance_error: 0.08265558952228451
+    optimizer_loop_shot_accounting_included: true
+    optimizer_evaluation_multiplier: 37
+    converged_vqe_or_adapt_energy: false
+    compiled_two_qubit_gates_per_preparation: 304
+    source_hf_center_grouped_covariance_shot_floor: 63465167
+    compiled_state_center_grouped_covariance_shot_floor: 66955026
+    source_hf_three_point_derivative_shot_floor: 634651670000
+    compiled_state_three_point_derivative_shot_floor: 669550260000
+    optimizer_loop_total_shots: 24773359620000
+    optimizer_loop_two_qubit_executions: 7531101324480000
+    selected_ci_larger_basis_denominator_beaten_count: 0
+    quantum_advantage_claimed: false
+    reaction_dynamics_solution_claimed: false
+    caveat: one_parameter_h2_pilot_not_converged_vqe_or_full_sampled_covariance
+    result: ../results/B3_compiled_ucc_adapt_covariance_pilot_v0.json
+    markdown_report: ../research/B3_compiled_ucc_adapt_covariance_pilot.md
+  cross_molecule_ucc_adapt_pressure_v0:
+    status: cross_molecule_ucc_adapt_pressure_demote_boundary_not_advantage_claim
+    method: b3_cross_molecule_ucc_adapt_pressure_v0
+    source_derivative_boundary: b3_chemical_state_prep_derivative_boundary_v0
+    source_grouped_covariance: b3_grouped_covariance_shot_floor_v0
+    source_compiled_ucc_adapt_pilot: b3_compiled_ucc_adapt_covariance_pilot_v0
+    pressure_instances: 4
+    molecule_count: 4
+    ansatz_model: cross_molecule_one_parameter_ucc_double_adapt_seed_pressure
+    ansatz_parameter_count: 1
+    compiled_ucc_adapt_sampled_covariance_extended: true
+    full_compiled_state_covariance_computed: false
+    converged_vqe_or_adapt_energy: false
+    pilot_groups_per_molecule: 24
+    pilot_max_terms_per_molecule: 96
+    pilot_group_count_total: 35
+    pilot_max_basis_weight: 12
+    pilot_shots_per_group: 384
+    pilot_total_group_measurement_shots: 13440
+    pilot_mean_relative_variance_error_across_molecules: 0.08328222449703826
+    pilot_max_relative_variance_error_across_molecules: 0.50293717180872
+    optimizer_loop_shot_accounting_included: true
+    optimizer_evaluation_multiplier: 37
+    max_optimizer_loop_total_shots_lower_bound: 475043013690000
+    max_optimizer_loop_two_qubit_executions_lower_bound: 281225464104480000
+    selected_ci_larger_basis_denominator_beaten_count: 0
+    demotion_recommended: true
+    b3_status_recommendation: demote_to_negative_boundary_until_multi_parameter_state_prep_or_new_measurement_strategy
+    quantum_advantage_claimed: false
+    reaction_dynamics_solution_claimed: false
+    caveat: bounded_high_coefficient_subset_pressure_not_full_compiled_covariance
+    result: ../results/B3_cross_molecule_ucc_adapt_pressure_v0.json
+    markdown_report: ../research/B3_cross_molecule_ucc_adapt_pressure.md
+prototype_artifacts:
+  resource_estimator: ../tools/b3_pyscf_resource_estimator.py
+  quantum_observable_fci_comparison: ../tools/b3_quantum_observable_fci_comparison.py
+  hamiltonian_pauli_mapper_comparison: ../tools/b3_hamiltonian_pauli_mapper_comparison.py
+  sampled_pauli_estimator_confidence: ../tools/b3_sampled_pauli_estimator_confidence.py
+  selected_ci_grouped_pauli_boundary: ../tools/b3_selected_ci_grouped_pauli_boundary.py
+  larger_basis_hamiltonian_mapper: ../tools/b3_larger_basis_hamiltonian_mapper.py
+  larger_basis_qwc_grouping: ../tools/b3_larger_basis_qwc_grouping.py
+  grouped_covariance_shot_floor: ../tools/b3_grouped_covariance_shot_floor.py
+  chemical_state_prep_derivative_boundary: ../tools/b3_chemical_state_prep_derivative_boundary.py
+  compiled_ucc_adapt_covariance_pilot: ../tools/b3_compiled_ucc_adapt_covariance_pilot.py
+  cross_molecule_ucc_adapt_pressure: ../tools/b3_cross_molecule_ucc_adapt_pressure.py
+  prototype_notes: ../research/B3_prototype_notes.md

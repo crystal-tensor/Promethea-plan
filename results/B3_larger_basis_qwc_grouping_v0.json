@@ -1,0 +1,547 @@
+{
+  "benchmark_id": "B3",
+  "claim_boundary": [
+    "Supported: actual qubit-wise commuting grouping covers for four larger-basis B3 Hamiltonians.",
+    "Supported: measurement-setting reductions versus the previous same-basis bucket upper bound.",
+    "Not supported: reduced shot floor from covariance propagation, chemical state preparation, selected-CI denominator wins, quantum advantage, or complete reaction dynamics."
+  ],
+  "dependency_benchmark": "B3",
+  "last_updated": "2026-06-17",
+  "method": "b3_larger_basis_qwc_grouping_v0",
+  "next_steps": [
+    "Propagate grouped-observable covariance to decide whether shot floors actually decrease.",
+    "Replace the generic two-layer ansatz surcharge with UCC, ADAPT-VQE, or adiabatic preparation costs.",
+    "Retest against stricter selected-CI, DMRG, or tensor-network denominators at fixed observable error."
+  ],
+  "problem_id": 49,
+  "rows": [
+    {
+      "ansatz_model": "two-layer nearest-neighbor hardware-efficient preparation surcharge",
+      "ansatz_two_qubit_gate_executions_at_neyman_target": 26929060924,
+      "ansatz_two_qubit_gates_per_shot": 76,
+      "coordinate": "H-H bond length",
+      "coordinate_center": 0.7414,
+      "deterministic_pauli_terms": 211,
+      "group_size_histogram": {
+        "1": 340,
+        "10-19": 29,
+        "2": 243,
+        "20-29": 4,
+        "3": 102,
+        "30-39": 4,
+        "4": 71,
+        "5": 37,
+        "50-59": 2,
+        "6": 15,
+        "7": 16,
+        "8": 12,
+        "9": 11
+      },
+      "grouping_algorithm": "bitmask_first_fit_qwc_cover_weight_ascending",
+      "larger_basis_quantum_mapper_included": true,
+      "mapper_method": "b3_larger_basis_hamiltonian_mapper_v0",
+      "mapping_wall_time_seconds": 1.6732332079991465,
+      "max_group_size": 58,
+      "mean_group_size": 3.0925507900677203,
+      "molecule": "h2_bond_stretch",
+      "neyman_shot_floor_reduced_by_grouping": false,
+      "neyman_target_total_shot_floor": 354329749,
+      "pauli_terms_after_cutoff": 2951,
+      "previous_conservative_same_basis_bucket_count": 2740,
+      "qwc_group_count": 886,
+      "qwc_grouping_wall_time_seconds": 0.06680445799429435,
+      "qwc_reduction_vs_previous_bucket_count": 3.0925507900677203,
+      "qwc_reduction_vs_ungrouped_random_terms": 3.0925507900677203,
+      "random_pauli_terms": 2740,
+      "selected_ci_basis": "cc-pvdz",
+      "selected_ci_larger_basis_denominator_beaten": false,
+      "shot_floor_note": "QWC grouping reduces the number of measurement settings. This v0 keeps the same coefficient-L1 Neyman shot-floor upper bound because grouped observable covariance is not yet propagated.",
+      "source_benchmark": "B3",
+      "target_observable_error_hartree_per_coordinate": 0.0013645348495178178,
+      "top_groups": [
+        {
+          "basis_weight": 20,
+          "coefficient_l1": 1.9227495748109567,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIXZX",
+          "size": 58
+        },
+        {
+          "basis_weight": 20,
+          "coefficient_l1": 1.9227495748109567,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIYZY",
+          "size": 58
+        },
+        {
+          "basis_weight": 20,
+          "coefficient_l1": 0.3907648348079227,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIXIX",
+          "size": 39
+        },
+        {
+          "basis_weight": 20,
+          "coefficient_l1": 0.3907648348079227,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIYIY",
+          "size": 39
+        },
+        {
+          "basis_weight": 20,
+          "coefficient_l1": 1.6473136055862323,
+          "representative_pauli": "IIIIIIIIIIIIIIIIXZXI",
+          "size": 33
+        },
+        {
+          "basis_weight": 20,
+          "coefficient_l1": 1.6473136055862323,
+          "representative_pauli": "IIIIIIIIIIIIIIIIYZYI",
+          "size": 33
+        },
+        {
+          "basis_weight": 20,
+          "coefficient_l1": 0.773967395494226,
+          "representative_pauli": "IIIIIIIIIIIIIZIIIXZX",
+          "size": 29
+        },
+        {
+          "basis_weight": 20,
+          "coefficient_l1": 0.773967395494226,
+          "representative_pauli": "IIIIIIIIIIIIIZIIIYZY",
+          "size": 29
+        },
+        {
+          "basis_weight": 20,
+          "coefficient_l1": 0.7612945135914966,
+          "representative_pauli": "IIIIIIIYZYIIIIIIIIIZ",
+          "size": 28
+        },
+        {
+          "basis_weight": 20,
+          "coefficient_l1": 0.2498746778361345,
+          "representative_pauli": "IIIIIIIIIIIIYYIXXIII",
+          "size": 22
+        },
+        {
+          "basis_weight": 20,
+          "coefficient_l1": 0.43027975378016886,
+          "representative_pauli": "IIIIIIIIIIYIZZZZYIII",
+          "size": 16
+        },
+        {
+          "basis_weight": 20,
+          "coefficient_l1": 0.18176104599780749,
+          "representative_pauli": "IIIIIIIIIIIIIIIIYXXY",
+          "size": 16
+        }
+      ],
+      "total_qubits": 20
+    },
+    {
+      "ansatz_model": "two-layer nearest-neighbor hardware-efficient preparation surcharge",
+      "ansatz_two_qubit_gate_executions_at_neyman_target": 956688981372,
+      "ansatz_two_qubit_gates_per_shot": 148,
+      "coordinate": "Li-H bond length",
+      "coordinate_center": 1.6,
+      "deterministic_pauli_terms": 742,
+      "group_size_histogram": {
+        "1": 7005,
+        "10-19": 1160,
+        "100-109": 5,
+        "110-119": 6,
+        "120-129": 1,
+        "130-139": 3,
+        "150-159": 4,
+        "2": 4527,
+        "20-29": 196,
+        "290-299": 2,
+        "3": 2422,
+        "30-39": 125,
+        "4": 1233,
+        "40-49": 30,
+        "5": 951,
+        "50-59": 18,
+        "6": 642,
+        "60-69": 11,
+        "7": 508,
+        "70-79": 4,
+        "8": 450,
+        "80-89": 2,
+        "9": 335,
+        "90-99": 4
+      },
+      "grouping_algorithm": "bitmask_first_fit_qwc_cover_weight_ascending",
+      "larger_basis_quantum_mapper_included": true,
+      "mapper_method": "b3_larger_basis_hamiltonian_mapper_v0",
+      "mapping_wall_time_seconds": 41.38830549999693,
+      "max_group_size": 291,
+      "mean_group_size": 3.9256770515170025,
+      "molecule": "lih_bond_stretch",
+      "neyman_shot_floor_reduced_by_grouping": false,
+      "neyman_target_total_shot_floor": 6464114739,
+      "pauli_terms_after_cutoff": 77858,
+      "previous_conservative_same_basis_bucket_count": 77116,
+      "qwc_group_count": 19644,
+      "qwc_grouping_wall_time_seconds": 43.87316020799335,
+      "qwc_reduction_vs_previous_bucket_count": 3.9256770515170025,
+      "qwc_reduction_vs_ungrouped_random_terms": 3.9256770515170025,
+      "random_pauli_terms": 77116,
+      "selected_ci_basis": "cc-pvdz",
+      "selected_ci_larger_basis_denominator_beaten": false,
+      "shot_floor_note": "QWC grouping reduces the number of measurement settings. This v0 keeps the same coefficient-L1 Neyman shot-floor upper bound because grouped observable covariance is not yet propagated.",
+      "source_benchmark": "B3",
+      "target_observable_error_hartree_per_coordinate": 0.001,
+      "top_groups": [
+        {
+          "basis_weight": 38,
+          "coefficient_l1": 1.4955625920593427,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIXX",
+          "size": 291
+        },
+        {
+          "basis_weight": 38,
+          "coefficient_l1": 1.4955625920593427,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIYY",
+          "size": 291
+        },
+        {
+          "basis_weight": 38,
+          "coefficient_l1": 0.6509606189882703,
+          "representative_pauli": "IIIIIIIIIIIIIIIIYZYIIIIIIIIIIIIIIIIIII",
+          "size": 157
+        },
+        {
+          "basis_weight": 38,
+          "coefficient_l1": 0.18658282059858056,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIYXIIXYI",
+          "size": 154
+        },
+        {
+          "basis_weight": 38,
+          "coefficient_l1": 0.46886562369602364,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIYYZ",
+          "size": 152
+        },
+        {
+          "basis_weight": 38,
+          "coefficient_l1": 0.4669606194401699,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIXXZ",
+          "size": 151
+        },
+        {
+          "basis_weight": 38,
+          "coefficient_l1": 0.96178012100854,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIZIIIXZX",
+          "size": 136
+        },
+        {
+          "basis_weight": 38,
+          "coefficient_l1": 0.5962239127953581,
+          "representative_pauli": "IIIIIIIIIIIIIIIIYYZIIIIIIIIIIIIIIIIIII",
+          "size": 133
+        },
+        {
+          "basis_weight": 38,
+          "coefficient_l1": 0.2519748977762056,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIYZY",
+          "size": 131
+        },
+        {
+          "basis_weight": 38,
+          "coefficient_l1": 0.2608065382895689,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIXZX",
+          "size": 120
+        },
+        {
+          "basis_weight": 38,
+          "coefficient_l1": 0.307024929997544,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIZIIIIIXXI",
+          "size": 119
+        },
+        {
+          "basis_weight": 38,
+          "coefficient_l1": 0.3088951091453741,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIZIIIIIYYI",
+          "size": 115
+        }
+      ],
+      "total_qubits": 38
+    },
+    {
+      "ansatz_model": "two-layer nearest-neighbor hardware-efficient preparation surcharge",
+      "ansatz_two_qubit_gate_executions_at_neyman_target": 115439823100,
+      "ansatz_two_qubit_gates_per_shot": 100,
+      "coordinate": "symmetric O-H stretch scale",
+      "coordinate_center": 1.0,
+      "deterministic_pauli_terms": 352,
+      "group_size_histogram": {
+        "1": 1171,
+        "10-19": 133,
+        "180-189": 2,
+        "2": 666,
+        "20-29": 45,
+        "3": 367,
+        "30-39": 11,
+        "4": 237,
+        "40-49": 3,
+        "5": 138,
+        "50-59": 2,
+        "6": 131,
+        "60-69": 2,
+        "7": 80,
+        "70-79": 3,
+        "8": 83,
+        "80-89": 4,
+        "9": 49,
+        "90-99": 2
+      },
+      "grouping_algorithm": "bitmask_first_fit_qwc_cover_weight_ascending",
+      "larger_basis_quantum_mapper_included": true,
+      "mapper_method": "b3_larger_basis_hamiltonian_mapper_v0",
+      "mapping_wall_time_seconds": 6.807081625003775,
+      "max_group_size": 180,
+      "mean_group_size": 3.956535634387983,
+      "molecule": "h2o_symmetric_oh_stretch",
+      "neyman_shot_floor_reduced_by_grouping": false,
+      "neyman_target_total_shot_floor": 1154398231,
+      "pauli_terms_after_cutoff": 12732,
+      "previous_conservative_same_basis_bucket_count": 12380,
+      "qwc_group_count": 3129,
+      "qwc_grouping_wall_time_seconds": 0.9102049169960083,
+      "qwc_reduction_vs_previous_bucket_count": 3.956535634387983,
+      "qwc_reduction_vs_ungrouped_random_terms": 3.956535634387983,
+      "random_pauli_terms": 12380,
+      "selected_ci_basis": "3-21g",
+      "selected_ci_larger_basis_denominator_beaten": false,
+      "shot_floor_note": "QWC grouping reduces the number of measurement settings. This v0 keeps the same coefficient-L1 Neyman shot-floor upper bound because grouped observable covariance is not yet propagated.",
+      "source_benchmark": "B3",
+      "target_observable_error_hartree_per_coordinate": 0.00254098894629351,
+      "top_groups": [
+        {
+          "basis_weight": 26,
+          "coefficient_l1": 2.2197542947134243,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIXX",
+          "size": 180
+        },
+        {
+          "basis_weight": 26,
+          "coefficient_l1": 2.2197542947134243,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIYY",
+          "size": 180
+        },
+        {
+          "basis_weight": 26,
+          "coefficient_l1": 1.3471172918831318,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIXIZXIIIII",
+          "size": 99
+        },
+        {
+          "basis_weight": 26,
+          "coefficient_l1": 1.3471172918831318,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIYIZYIIIII",
+          "size": 99
+        },
+        {
+          "basis_weight": 26,
+          "coefficient_l1": 0.9176712284710158,
+          "representative_pauli": "IIIIIIIIIXIZXIIIIIIIIIIIII",
+          "size": 88
+        },
+        {
+          "basis_weight": 26,
+          "coefficient_l1": 0.9176712284710158,
+          "representative_pauli": "IIIIIIIIIYIZYIIIIIIIIIIIII",
+          "size": 88
+        },
+        {
+          "basis_weight": 26,
+          "coefficient_l1": 1.4337083089721911,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIXIZX",
+          "size": 87
+        },
+        {
+          "basis_weight": 26,
+          "coefficient_l1": 1.4337083089721911,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIYIZY",
+          "size": 87
+        },
+        {
+          "basis_weight": 26,
+          "coefficient_l1": 0.6362991819845919,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIXXIIYYI",
+          "size": 77
+        },
+        {
+          "basis_weight": 26,
+          "coefficient_l1": 1.7505490793328926,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIYYIIIIIZ",
+          "size": 71
+        },
+        {
+          "basis_weight": 26,
+          "coefficient_l1": 1.7341483540300222,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIXXIIIIIZ",
+          "size": 70
+        },
+        {
+          "basis_weight": 25,
+          "coefficient_l1": 0.6109641390866365,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIYYIIIIYYI",
+          "size": 61
+        }
+      ],
+      "total_qubits": 26
+    },
+    {
+      "ansatz_model": "two-layer nearest-neighbor hardware-efficient preparation surcharge",
+      "ansatz_two_qubit_gate_executions_at_neyman_target": 851154132640,
+      "ansatz_two_qubit_gates_per_shot": 140,
+      "coordinate": "N-N bond length",
+      "coordinate_center": 1.0977,
+      "deterministic_pauli_terms": 667,
+      "group_size_histogram": {
+        "1": 3386,
+        "10-19": 367,
+        "100-109": 1,
+        "130-139": 2,
+        "150-159": 1,
+        "190-199": 1,
+        "2": 2162,
+        "20-29": 93,
+        "3": 1055,
+        "30-39": 53,
+        "4": 992,
+        "40-49": 15,
+        "5": 636,
+        "50-59": 5,
+        "6": 298,
+        "60-69": 2,
+        "7": 160,
+        "70-79": 2,
+        "8": 124,
+        "80-89": 2,
+        "9": 117,
+        "90-99": 1
+      },
+      "grouping_algorithm": "bitmask_first_fit_qwc_cover_weight_ascending",
+      "larger_basis_quantum_mapper_included": true,
+      "mapper_method": "b3_larger_basis_hamiltonian_mapper_v0",
+      "mapping_wall_time_seconds": 18.836367207994044,
+      "max_group_size": 197,
+      "mean_group_size": 3.58712401055409,
+      "molecule": "n2_bond_stretch",
+      "neyman_shot_floor_reduced_by_grouping": false,
+      "neyman_target_total_shot_floor": 6079672376,
+      "pauli_terms_after_cutoff": 34655,
+      "previous_conservative_same_basis_bucket_count": 33988,
+      "qwc_group_count": 9475,
+      "qwc_grouping_wall_time_seconds": 9.930348667003273,
+      "qwc_reduction_vs_previous_bucket_count": 3.58712401055409,
+      "qwc_reduction_vs_ungrouped_random_terms": 3.58712401055409,
+      "random_pauli_terms": 33988,
+      "selected_ci_basis": "3-21g",
+      "selected_ci_larger_basis_denominator_beaten": false,
+      "shot_floor_note": "QWC grouping reduces the number of measurement settings. This v0 keeps the same coefficient-L1 Neyman shot-floor upper bound because grouped observable covariance is not yet propagated.",
+      "source_benchmark": "B3",
+      "target_observable_error_hartree_per_coordinate": 0.0022620734275946575,
+      "top_groups": [
+        {
+          "basis_weight": 36,
+          "coefficient_l1": 2.79255723214265,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIYYIIIIYY",
+          "size": 197
+        },
+        {
+          "basis_weight": 36,
+          "coefficient_l1": 2.567322346440955,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIYYIIIIXX",
+          "size": 157
+        },
+        {
+          "basis_weight": 36,
+          "coefficient_l1": 1.0600002297916848,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIXZX",
+          "size": 136
+        },
+        {
+          "basis_weight": 36,
+          "coefficient_l1": 1.0600002297916848,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIYZY",
+          "size": 136
+        },
+        {
+          "basis_weight": 36,
+          "coefficient_l1": 1.831156859533429,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIXIX",
+          "size": 104
+        },
+        {
+          "basis_weight": 36,
+          "coefficient_l1": 1.658264718148707,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIYIY",
+          "size": 97
+        },
+        {
+          "basis_weight": 36,
+          "coefficient_l1": 0.44004318375830914,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIXZXI",
+          "size": 83
+        },
+        {
+          "basis_weight": 36,
+          "coefficient_l1": 0.44004318375830914,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIYZYI",
+          "size": 83
+        },
+        {
+          "basis_weight": 36,
+          "coefficient_l1": 0.9345539801821199,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIXXIIIIIIIZIIIII",
+          "size": 77
+        },
+        {
+          "basis_weight": 36,
+          "coefficient_l1": 0.8614217743175816,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIYXXY",
+          "size": 73
+        },
+        {
+          "basis_weight": 36,
+          "coefficient_l1": 0.4880752413013918,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIYYIXX",
+          "size": 62
+        },
+        {
+          "basis_weight": 36,
+          "coefficient_l1": 0.6440748974798769,
+          "representative_pauli": "IIIIIIIIIIIIIIIIIIIIIIIYZZZZZYIIIIZI",
+          "size": 61
+        }
+      ],
+      "total_qubits": 36
+    }
+  ],
+  "source_larger_basis_mapper": "results/B3_larger_basis_hamiltonian_mapper_v0.json",
+  "source_larger_basis_mapper_method": "b3_larger_basis_hamiltonian_mapper_v0",
+  "status": "larger_basis_qwc_grouping_boundary_not_advantage_claim",
+  "summary": {
+    "instance_count": 4,
+    "larger_basis_quantum_mapper_included": true,
+    "max_ansatz_two_qubit_gate_executions_at_neyman_target": 956688981372,
+    "max_group_size": 291,
+    "max_neyman_target_total_shot_floor": 6464114739,
+    "max_pauli_terms_after_cutoff": 77858,
+    "max_previous_conservative_same_basis_bucket_count": 77116,
+    "max_qwc_group_count": 19644,
+    "max_qwc_reduction_vs_previous_bucket_count": 3.956535634387983,
+    "max_total_qubits": 38,
+    "min_qwc_reduction_vs_previous_bucket_count": 3.0925507900677203,
+    "molecule_count": 4,
+    "neyman_shot_floor_reduced_by_grouping": false,
+    "quantum_advantage_claimed": false,
+    "qwc_grouping_algorithm": "bitmask_first_fit_qwc_cover_weight_ascending",
+    "qwc_grouping_included": true,
+    "reaction_dynamics_solution_claimed": false,
+    "selected_ci_larger_basis_denominator_beaten_count": 0
+  },
+  "title": "B3 larger-basis QWC grouping boundary",
+  "validation_errors": [],
+  "version": "0.1"
+}

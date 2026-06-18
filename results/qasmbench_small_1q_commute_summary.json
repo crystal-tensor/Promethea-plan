@@ -1,0 +1,25 @@
+{
+  "benchmark_id": "B1",
+  "circuit_count": 10,
+  "delta_vs_adjacent_1q_v0": {
+    "hardware_weighted_exposure_delta": -0.0013600000000000279,
+    "logical_depth_delta": -4.0,
+    "operation_count_delta": -11.0
+  },
+  "equivalence_failed": 0,
+  "equivalence_passed": 10,
+  "hardware_weighted_exposure_after": 2.5133199999999998,
+  "hardware_weighted_exposure_before": 2.58262,
+  "hardware_weighted_exposure_delta": -0.06930000000000014,
+  "hardware_weighted_exposure_reduction_pct": 2.68332158815467,
+  "logical_depth_after": 565.0,
+  "logical_depth_before": 768.0,
+  "logical_depth_delta": -203.0,
+  "logical_depth_reduction_pct": 26.432291666666668,
+  "method": "commuting_aware_single_qubit_block_resynthesis_v0",
+  "operation_count_after": 840.0,
+  "operation_count_before": 1072.0,
+  "operation_count_delta": -232.0,
+  "operation_count_reduction_pct": 21.641791044776117,
+  "profile": "heavy_hex_like_sparse"
+}

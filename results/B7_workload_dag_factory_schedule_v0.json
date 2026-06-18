@@ -1,0 +1,2711 @@
+{
+  "benchmark_id": "B7",
+  "comparison_count": 18,
+  "comparisons": [
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "critical_path_rounds": 14636,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 11175
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "serial_factory_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 1219,
+            "rounds": 14628
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "serial_factory_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 11181
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 11181,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 14628,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 1219,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 7991256,
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "critical_path_rounds": 23300,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 14769
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "serial_factory_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 1941,
+            "rounds": 23292
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "serial_factory_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 14775
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 14775,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 23292,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 1941,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 12721800,
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.5919650177644165,
+      "factory_variant": "serial_factory",
+      "magic_state_demand_reduction": 1.5922887612797374,
+      "space_time_volume_reduction": 1.5919650177644165,
+      "workload": "aggregate_30_circuits"
+    },
+    {
+      "after": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 11189,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 11175
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "balanced_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 1219,
+            "rounds": 3050
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "balanced_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 11181
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 11181,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 3050,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 1219,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 8145592,
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "before": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 14783,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 14769
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "balanced_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 1941,
+            "rounds": 4860
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "balanced_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 14775
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 14775,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 4860,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 1941,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 10762024,
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "bottleneck_after": "data_path",
+      "bottleneck_before": "data_path",
+      "critical_path_reduction": 1.321208329609438,
+      "factory_variant": "balanced_factories",
+      "magic_state_demand_reduction": 1.5922887612797374,
+      "space_time_volume_reduction": 1.321208329609438,
+      "workload": "aggregate_30_circuits"
+    },
+    {
+      "after": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 11189,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 11175
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "throughput_heavy_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 1219,
+            "rounds": 1224
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "throughput_heavy_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 11181
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 11181,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 1224,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 1219,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 11927474,
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "before": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 14783,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 14769
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "throughput_heavy_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 1941,
+            "rounds": 1944
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "throughput_heavy_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 14775
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 14775,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 1944,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 1941,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 15758678,
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "bottleneck_after": "data_path",
+      "bottleneck_before": "data_path",
+      "critical_path_reduction": 1.321208329609438,
+      "factory_variant": "throughput_heavy_factories",
+      "magic_state_demand_reduction": 1.5922887612797374,
+      "space_time_volume_reduction": 1.321208329609438,
+      "workload": "aggregate_30_circuits"
+    },
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "critical_path_rounds": 2420,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 1842
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "serial_factory_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 201,
+            "rounds": 2412
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "serial_factory_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 1848
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 1848,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 2412,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 201,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 1321320,
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "critical_path_rounds": 3500,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 2202
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "serial_factory_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 291,
+            "rounds": 3492
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "serial_factory_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 2208
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 2208,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 3492,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 291,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 1911000,
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.4462809917355373,
+      "factory_variant": "serial_factory",
+      "magic_state_demand_reduction": 1.4477611940298507,
+      "space_time_volume_reduction": 1.4462809917355373,
+      "workload": "qasmbench_interaction_exact/basis_trotter_n4.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 1856,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 1842
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "balanced_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 201,
+            "rounds": 510
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "balanced_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 1848
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 1848,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 510,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 201,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 1351168,
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "before": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 2216,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 2202
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "balanced_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 291,
+            "rounds": 730
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "balanced_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 2208
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 2208,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 730,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 291,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 1613248,
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "bottleneck_after": "data_path",
+      "bottleneck_before": "data_path",
+      "critical_path_reduction": 1.1939655172413792,
+      "factory_variant": "balanced_factories",
+      "magic_state_demand_reduction": 1.4477611940298507,
+      "space_time_volume_reduction": 1.1939655172413792,
+      "workload": "qasmbench_interaction_exact/basis_trotter_n4.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 1856,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 1842
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "throughput_heavy_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 201,
+            "rounds": 208
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "throughput_heavy_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 1848
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 1848,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 208,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 201,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 1978496,
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "before": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 2216,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 2202
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "throughput_heavy_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 291,
+            "rounds": 296
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "throughput_heavy_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 2208
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 2208,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 296,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 291,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 2362256,
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "bottleneck_after": "data_path",
+      "bottleneck_before": "data_path",
+      "critical_path_reduction": 1.1939655172413792,
+      "factory_variant": "throughput_heavy_factories",
+      "magic_state_demand_reduction": 1.4477611940298507,
+      "space_time_volume_reduction": 1.1939655172413792,
+      "workload": "qasmbench_interaction_exact/basis_trotter_n4.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "critical_path_rounds": 4784,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 4473
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "serial_factory_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 398,
+            "rounds": 4776
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "serial_factory_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 4479
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 4479,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 4776,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 398,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 2612064,
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "critical_path_rounds": 7628,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 5901
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "serial_factory_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 635,
+            "rounds": 7620
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "serial_factory_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 5907
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 5907,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 7620,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 635,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 4164888,
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.5944816053511706,
+      "factory_variant": "serial_factory",
+      "magic_state_demand_reduction": 1.5954773869346734,
+      "space_time_volume_reduction": 1.5944816053511706,
+      "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 4487,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 4473
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "balanced_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 398,
+            "rounds": 1000
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "balanced_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 4479
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 4479,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 1000,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 398,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 3266536,
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "before": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 5915,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 5901
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "balanced_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 635,
+            "rounds": 1590
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "balanced_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 5907
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 5907,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 1590,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 635,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 4306120,
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "bottleneck_after": "data_path",
+      "bottleneck_before": "data_path",
+      "critical_path_reduction": 1.3182527301092044,
+      "factory_variant": "balanced_factories",
+      "magic_state_demand_reduction": 1.5954773869346734,
+      "space_time_volume_reduction": 1.3182527301092044,
+      "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 4487,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 4473
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "throughput_heavy_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 398,
+            "rounds": 400
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "throughput_heavy_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 4479
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 4479,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 400,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 398,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 4783142,
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "before": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 5915,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 5901
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "throughput_heavy_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 635,
+            "rounds": 640
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "throughput_heavy_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 5907
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 5907,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 640,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 635,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 6305390,
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "bottleneck_after": "data_path",
+      "bottleneck_before": "data_path",
+      "critical_path_reduction": 1.3182527301092044,
+      "factory_variant": "throughput_heavy_factories",
+      "magic_state_demand_reduction": 1.5954773869346734,
+      "space_time_volume_reduction": 1.3182527301092044,
+      "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "critical_path_rounds": 788,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 723
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "serial_factory_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 65,
+            "rounds": 780
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "serial_factory_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 729
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 729,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 780,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 65,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 430248,
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "critical_path_rounds": 1760,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 1065
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "serial_factory_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 146,
+            "rounds": 1752
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "serial_factory_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 1071
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 1071,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 1752,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 146,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 960960,
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 2.233502538071066,
+      "factory_variant": "serial_factory",
+      "magic_state_demand_reduction": 2.246153846153846,
+      "space_time_volume_reduction": 2.233502538071066,
+      "workload": "qasmbench_medium_exact/qf21_n15.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 737,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 723
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "balanced_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 65,
+            "rounds": 170
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "balanced_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 729
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 729,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 170,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 65,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 536536,
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "before": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 1079,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 1065
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "balanced_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 146,
+            "rounds": 370
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "balanced_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 1071
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 1071,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 370,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 146,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 785512,
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "bottleneck_after": "data_path",
+      "bottleneck_before": "data_path",
+      "critical_path_reduction": 1.4640434192673,
+      "factory_variant": "balanced_factories",
+      "magic_state_demand_reduction": 2.246153846153846,
+      "space_time_volume_reduction": 1.4640434192673,
+      "workload": "qasmbench_medium_exact/qf21_n15.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 737,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 723
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "throughput_heavy_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 65,
+            "rounds": 72
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "throughput_heavy_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 729
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 729,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 72,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 65,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 785642,
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "before": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 1079,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 1065
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "throughput_heavy_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 146,
+            "rounds": 152
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "throughput_heavy_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 1071
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 1071,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 152,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 146,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 1150214,
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "bottleneck_after": "data_path",
+      "bottleneck_before": "data_path",
+      "critical_path_reduction": 1.4640434192673,
+      "factory_variant": "throughput_heavy_factories",
+      "magic_state_demand_reduction": 2.246153846153846,
+      "space_time_volume_reduction": 1.4640434192673,
+      "workload": "qasmbench_medium_exact/qf21_n15.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "critical_path_rounds": 1772,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 1188
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "serial_factory_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 147,
+            "rounds": 1764
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "serial_factory_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 1194
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 1194,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 1764,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 147,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 967512,
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "critical_path_rounds": 3500,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 1923
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "serial_factory_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 291,
+            "rounds": 3492
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "serial_factory_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 1929
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 1929,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 3492,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 291,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 1911000,
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.9751693002257336,
+      "factory_variant": "serial_factory",
+      "magic_state_demand_reduction": 1.9795918367346939,
+      "space_time_volume_reduction": 1.9751693002257336,
+      "workload": "qasmbench_medium_exact/sat_n11.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 1202,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 1188
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "balanced_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 147,
+            "rounds": 370
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "balanced_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 1194
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 1194,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 370,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 147,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 875056,
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "before": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 1937,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 1923
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "balanced_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 291,
+            "rounds": 730
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "balanced_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 1929
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 1929,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 730,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 291,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 1410136,
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "bottleneck_after": "data_path",
+      "bottleneck_before": "data_path",
+      "critical_path_reduction": 1.6114808652246255,
+      "factory_variant": "balanced_factories",
+      "magic_state_demand_reduction": 1.9795918367346939,
+      "space_time_volume_reduction": 1.6114808652246255,
+      "workload": "qasmbench_medium_exact/sat_n11.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 1202,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 1188
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "throughput_heavy_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 147,
+            "rounds": 152
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "throughput_heavy_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 1194
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 1194,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 152,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 147,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 1281332,
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "before": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 1937,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 1923
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "throughput_heavy_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 291,
+            "rounds": 296
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "throughput_heavy_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 1929
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 1929,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 296,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 291,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 2064842,
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "bottleneck_after": "data_path",
+      "bottleneck_before": "data_path",
+      "critical_path_reduction": 1.6114808652246255,
+      "factory_variant": "throughput_heavy_factories",
+      "magic_state_demand_reduction": 1.9795918367346939,
+      "space_time_volume_reduction": 1.6114808652246255,
+      "workload": "qasmbench_medium_exact/sat_n11.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "factory_path",
+        "critical_path_rounds": 1352,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 1080
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "serial_factory_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 112,
+            "rounds": 1344
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "serial_factory_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 1086
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 1086,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 1344,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 112,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 738192,
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "before": {
+        "bottleneck": "factory_path",
+        "critical_path_rounds": 2012,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 1299
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "serial_factory_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 167,
+            "rounds": 2004
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "serial_factory_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 1305
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 1305,
+        "factory_count": 1,
+        "factory_cycle_rounds": 12,
+        "factory_physical_qubits": 52,
+        "factory_rounds": 2004,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 167,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 1098552,
+        "total_physical_qubits": 546,
+        "variant": "serial_factory"
+      },
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "critical_path_reduction": 1.4881656804733727,
+      "factory_variant": "serial_factory",
+      "magic_state_demand_reduction": 1.4910714285714286,
+      "space_time_volume_reduction": 1.4881656804733727,
+      "workload": "qasmbench_small/hhl_n7.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 1094,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 1080
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "balanced_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 112,
+            "rounds": 280
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "balanced_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 1086
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 1086,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 280,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 112,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 796432,
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "before": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 1313,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 1299
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "balanced_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 167,
+            "rounds": 420
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "balanced_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 1305
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 1305,
+        "factory_count": 4,
+        "factory_cycle_rounds": 10,
+        "factory_physical_qubits": 234,
+        "factory_rounds": 420,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 167,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 955864,
+        "total_physical_qubits": 728,
+        "variant": "balanced_factories"
+      },
+      "bottleneck_after": "data_path",
+      "bottleneck_before": "data_path",
+      "critical_path_reduction": 1.20018281535649,
+      "factory_variant": "balanced_factories",
+      "magic_state_demand_reduction": 1.4910714285714286,
+      "space_time_volume_reduction": 1.20018281535649,
+      "workload": "qasmbench_small/hhl_n7.qasm"
+    },
+    {
+      "after": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 1094,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 1080
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "throughput_heavy_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 112,
+            "rounds": 112
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "throughput_heavy_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 1086
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 1086,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 112,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 112,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 1166204,
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "before": {
+        "bottleneck": "data_path",
+        "critical_path_rounds": 1313,
+        "dag_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "data_path",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "two_qubit_data_path",
+            "kind": "data_path",
+            "rounds": 1299
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "throughput_heavy_factories_magic_state_queue",
+            "kind": "factory_path",
+            "magic_state_demand_proxy": 167,
+            "rounds": 168
+          },
+          {
+            "depends_on": [
+              "two_qubit_data_path",
+              "throughput_heavy_factories_magic_state_queue"
+            ],
+            "id": "feed_forward_placeholder",
+            "kind": "classical_control_path",
+            "rounds": 5
+          },
+          {
+            "depends_on": [
+              "feed_forward_placeholder"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "readout",
+            "rounds": 3
+          },
+          {
+            "depends_on": [
+              "logical_memory_init",
+              "two_qubit_data_path",
+              "measurement_and_readout"
+            ],
+            "id": "data_path_total",
+            "kind": "summary",
+            "rounds": 1305
+          }
+        ],
+        "data_physical_qubits": 494,
+        "data_rounds": 1305,
+        "factory_count": 8,
+        "factory_cycle_rounds": 8,
+        "factory_physical_qubits": 572,
+        "factory_rounds": 168,
+        "feed_forward_rounds": 5,
+        "logical_qubits": 19,
+        "magic_state_demand_proxy": 167,
+        "magic_state_density_proxy": 0.5,
+        "model_status": "workload_dag_factory_schedule_not_physical_layout",
+        "space_time_volume": 1399658,
+        "total_physical_qubits": 1066,
+        "variant": "throughput_heavy_factories"
+      },
+      "bottleneck_after": "data_path",
+      "bottleneck_before": "data_path",
+      "critical_path_reduction": 1.20018281535649,
+      "factory_variant": "throughput_heavy_factories",
+      "magic_state_demand_reduction": 1.4910714285714286,
+      "space_time_volume_reduction": 1.20018281535649,
+      "workload": "qasmbench_small/hhl_n7.qasm"
+    }
+  ],
+  "factory_bottleneck_comparisons": 6,
+  "factory_variants": [
+    "balanced_factories",
+    "serial_factory",
+    "throughput_heavy_factories"
+  ],
+  "last_updated": "2026-06-13",
+  "limits": [
+    "This is a workload-DAG and factory-throughput schedule, not a lattice-surgery or physical-layout compiler.",
+    "Magic-state demand is a two-qubit-gate density proxy, not a T-count extracted from a fault-tolerant logical circuit.",
+    "Factory footprints and cycle rounds are scenario parameters, not hardware-calibrated measurements.",
+    "The purpose is to test whether B1/B2 gains survive explicit factory throughput bottlenecks before investing in a full layout model."
+  ],
+  "magic_state_density_proxy": 0.5,
+  "mean_space_time_volume_reduction": 1.4748795826243428,
+  "method": "b7_workload_dag_factory_scheduler_v0",
+  "min_space_time_volume_reduction": 1.1939655172413792,
+  "problem_id": 21,
+  "source_bridge": "results/B7_b1_b2_dependency_schedule_bridge_v0.json",
+  "status": "workload_dag_factory_schedule_not_physical_layout",
+  "title": "B7 workload-DAG factory-throughput schedule",
+  "version": "0.1",
+  "workload_count": 6
+}

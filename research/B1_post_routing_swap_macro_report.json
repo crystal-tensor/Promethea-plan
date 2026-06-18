@@ -1,0 +1,173 @@
+{
+  "after_metrics": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1/after_swap_macro_metrics.json",
+  "before_metrics": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1/before_swap_macro_metrics.json",
+  "benchmark_id": "B1",
+  "circuit_count": 30,
+  "end_to_end_aer_crosscheck": {
+    "failed": 0,
+    "max_total_variation_distance": 0.24365234375,
+    "passed": 30,
+    "path": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1/source_logical_vs_swap_macro_aer_crosscheck.json",
+    "shots": 2048
+  },
+  "input_dir": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1",
+  "inserted_swap_gates": 481,
+  "last_updated": "2026-06-13",
+  "limits": [
+    "The pass rewrites a routed CX-CX-CX SWAP implementation into an OpenQASM swap macro.",
+    "This is a routing-aware IR/macro compression diagnostic, not a calibrated native-basis hardware claim.",
+    "If the target backend decomposes swap back into CX gates, the physical two-qubit-gate reduction does not hold without a native swap or a lower-cost swap implementation."
+  ],
+  "local_aer_crosscheck": {
+    "failed": 0,
+    "max_total_variation_distance": 0.1328125,
+    "passed": 30,
+    "path": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1/b1_routed_vs_swap_macro_aer_crosscheck.json",
+    "shots": 2048
+  },
+  "method": "post_routing_cx_cx_cx_to_swap_macro_v0",
+  "metrics": {
+    "hardware_weighted_error_exposure": {
+      "after": 22.68184,
+      "before": 28.95372,
+      "delta": -6.2718799999999995,
+      "reduction_pct": 21.661741565505224
+    },
+    "idle_layer_proxy": {
+      "after": 69716.0,
+      "before": 82213.0,
+      "delta": -12497.0,
+      "reduction_pct": 15.200759004050454
+    },
+    "logical_depth": {
+      "after": 4164.0,
+      "before": 4923.0,
+      "delta": -759.0,
+      "reduction_pct": 15.417428397318709
+    },
+    "operation_count": {
+      "after": 6481.0,
+      "before": 7443.0,
+      "delta": -962.0,
+      "reduction_pct": 12.924895875319093
+    },
+    "two_qubit_gate_count": {
+      "after": 2919.0,
+      "before": 3881.0,
+      "delta": -962.0,
+      "reduction_pct": 24.78742592115434
+    }
+  },
+  "operation_reduction_from_rewrite": 962,
+  "output_dir": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro",
+  "problem_id": 25,
+  "proof_log": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1/swap_macro_proofs.jsonl",
+  "removed_cx_gates": 1443,
+  "report_status": "post_routing_swap_macro_diagnostic_not_native_basis_claim",
+  "swap_macros": 481,
+  "title": "B1 post-routing SWAP macro compression diagnostic",
+  "top_circuits_by_swap_macros": [
+    {
+      "input": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_medium_exact/gcm_h6.qasm",
+      "inserted_swap_gates": 158,
+      "operation_reduction": 316,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_medium_exact/gcm_h6.qasm",
+      "relative_path": "qasmbench_medium_exact/gcm_h6.qasm",
+      "removed_cx_gates": 474,
+      "swap_macros": 158,
+      "two_qubit_macro_reduction": 316
+    },
+    {
+      "input": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_medium_exact/sat_n11.qasm",
+      "inserted_swap_gates": 96,
+      "operation_reduction": 192,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_medium_exact/sat_n11.qasm",
+      "relative_path": "qasmbench_medium_exact/sat_n11.qasm",
+      "removed_cx_gates": 288,
+      "swap_macros": 96,
+      "two_qubit_macro_reduction": 192
+    },
+    {
+      "input": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "inserted_swap_gates": 60,
+      "operation_reduction": 120,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "relative_path": "qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "removed_cx_gates": 180,
+      "swap_macros": 60,
+      "two_qubit_macro_reduction": 120
+    },
+    {
+      "input": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_medium_exact/qf21_n15.qasm",
+      "inserted_swap_gates": 54,
+      "operation_reduction": 108,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_medium_exact/qf21_n15.qasm",
+      "relative_path": "qasmbench_medium_exact/qf21_n15.qasm",
+      "removed_cx_gates": 162,
+      "swap_macros": 54,
+      "two_qubit_macro_reduction": 108
+    },
+    {
+      "input": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_small/hhl_n7.qasm",
+      "inserted_swap_gates": 37,
+      "operation_reduction": 74,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_small/hhl_n7.qasm",
+      "relative_path": "qasmbench_small/hhl_n7.qasm",
+      "removed_cx_gates": 111,
+      "swap_macros": 37,
+      "two_qubit_macro_reduction": 74
+    },
+    {
+      "input": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_medium_exact/seca_n11.qasm",
+      "inserted_swap_gates": 19,
+      "operation_reduction": 38,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_medium_exact/seca_n11.qasm",
+      "relative_path": "qasmbench_medium_exact/seca_n11.qasm",
+      "removed_cx_gates": 57,
+      "swap_macros": 19,
+      "two_qubit_macro_reduction": 38
+    },
+    {
+      "input": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_medium_exact/multiply_n13.qasm",
+      "inserted_swap_gates": 15,
+      "operation_reduction": 30,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_medium_exact/multiply_n13.qasm",
+      "relative_path": "qasmbench_medium_exact/multiply_n13.qasm",
+      "removed_cx_gates": 45,
+      "swap_macros": 15,
+      "two_qubit_macro_reduction": 30
+    },
+    {
+      "input": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "inserted_swap_gates": 8,
+      "operation_reduction": 16,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "relative_path": "b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "removed_cx_gates": 24,
+      "swap_macros": 8,
+      "two_qubit_macro_reduction": 16
+    },
+    {
+      "input": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_small/basis_test_n4.qasm",
+      "inserted_swap_gates": 6,
+      "operation_reduction": 12,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_small/basis_test_n4.qasm",
+      "relative_path": "qasmbench_small/basis_test_n4.qasm",
+      "removed_cx_gates": 18,
+      "swap_macros": 6,
+      "two_qubit_macro_reduction": 12
+    },
+    {
+      "input": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_small/error_correctiond3_n5.qasm",
+      "inserted_swap_gates": 6,
+      "operation_reduction": 12,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_small/error_correctiond3_n5.qasm",
+      "relative_path": "qasmbench_small/error_correctiond3_n5.qasm",
+      "removed_cx_gates": 18,
+      "swap_macros": 6,
+      "two_qubit_macro_reduction": 12
+    }
+  ],
+  "two_qubit_macro_reduction_from_rewrite": 962,
+  "version": "0.1"
+}

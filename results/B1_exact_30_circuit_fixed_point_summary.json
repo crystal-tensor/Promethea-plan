@@ -1,0 +1,84 @@
+{
+  "aggregate_circuit_count": 30,
+  "aggregate_equivalence_failed": 0,
+  "aggregate_hardware_weighted_exposure_after": 14.19736,
+  "aggregate_hardware_weighted_exposure_before": 16.24054,
+  "aggregate_hardware_weighted_exposure_reduction_pct": 12.580739310392385,
+  "aggregate_logical_depth_after": 2907.0,
+  "aggregate_logical_depth_before": 4471.0,
+  "aggregate_logical_depth_reduction_pct": 34.98098859315589,
+  "aggregate_operation_count_after": 4658.0,
+  "aggregate_operation_count_before": 7076.0,
+  "aggregate_operation_count_reduction_pct": 34.171848501978516,
+  "aggregate_two_qubit_gate_count_after": 1766.0,
+  "aggregate_two_qubit_gate_count_before": 1978.0,
+  "aggregate_two_qubit_gate_count_reduction_pct": 10.717896865520729,
+  "benchmark_id": "B1",
+  "input_summaries": [
+    "results/B1_qasmbench_small_medium_interaction_fixed_point_summary.json",
+    "results/b1_exact_extension_fixed_point_pipeline/b1_exact_extension_fixed_point_summary.json"
+  ],
+  "method": "fixed_point_commuting_1q_plus_iterative_rzz_v0",
+  "subsets": [
+    {
+      "circuits": 10,
+      "equivalence_failed": 0,
+      "heavy_hex_like_exposure_reduction_pct": 9.257265877287388,
+      "logical_depth_reduction_pct": 30.859375,
+      "max_qubits": 7,
+      "name": "qasmbench_small",
+      "operation_count_reduction_pct": 26.679104477611943,
+      "rzz_windows": [
+        25,
+        2,
+        0
+      ],
+      "summary": "results/qasmbench_small_fixed_point_pipeline/qasmbench_small_fixed_point_summary.json",
+      "two_qubit_gate_count_reduction_pct": 8.4375
+    },
+    {
+      "circuits": 6,
+      "equivalence_failed": 0,
+      "heavy_hex_like_exposure_reduction_pct": 7.698499665034246,
+      "logical_depth_reduction_pct": 37.87820758330142,
+      "max_qubits": 15,
+      "name": "qasmbench_medium_exact",
+      "operation_count_reduction_pct": 38.095238095238095,
+      "rzz_windows": [
+        0
+      ],
+      "summary": "results/qasmbench_medium_exact_fixed_point_pipeline/qasmbench_medium_exact_fixed_point_summary.json",
+      "two_qubit_gate_count_reduction_pct": 0.0
+    },
+    {
+      "circuits": 2,
+      "equivalence_failed": 0,
+      "heavy_hex_like_exposure_reduction_pct": 19.131984826581746,
+      "logical_depth_reduction_pct": 27.200902934537247,
+      "max_qubits": 10,
+      "name": "qasmbench_interaction_exact",
+      "operation_count_reduction_pct": 32.05,
+      "rzz_windows": [
+        105,
+        0
+      ],
+      "summary": "results/qasmbench_interaction_exact_fixed_point_pipeline/qasmbench_interaction_exact_fixed_point_summary.json",
+      "two_qubit_gate_count_reduction_pct": 19.021739130434785
+    },
+    {
+      "circuits": 12,
+      "equivalence_failed": 0,
+      "heavy_hex_like_exposure_reduction_pct": 22.283258332161427,
+      "logical_depth_reduction_pct": 47.0873786407767,
+      "max_qubits": 10,
+      "name": "b1_exact_extension_fixed_point",
+      "operation_count_reduction_pct": 31.72541743970315,
+      "rzz_windows": [
+        80,
+        0
+      ],
+      "summary": "results/b1_exact_extension_fixed_point_pipeline/b1_exact_extension_fixed_point_summary.json",
+      "two_qubit_gate_count_reduction_pct": 43.24324324324324
+    }
+  ]
+}

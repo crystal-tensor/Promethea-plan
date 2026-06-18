@@ -1,0 +1,54 @@
+{
+  "benchmark_id": "B9",
+  "claim_boundary": [
+    "Supported: a Lean-style symbolic skeleton that separates raw-gap, normalized-gap, locality, and ground-stability obligations.",
+    "Not supported: proof-assistant checked theorem, Quantum PCP proof, NLTS theorem, or global gap-amplification no-go theorem."
+  ],
+  "dense_locality_trap_count_inherited": 9,
+  "explicit_not_quantum_pcp_proof": true,
+  "formal_theorem_proved": false,
+  "global_gap_amplification_impossibility_claimed": false,
+  "last_updated": "2026-06-17",
+  "lean_skeleton_output": "research/proof_skeletons/B9_failed_gap_amplification_skeleton.lean",
+  "method": "b9_symbolic_gap_amplification_skeleton_v0",
+  "next_steps": [
+    "Replace the abstract LocalHamiltonianFamily fields with a parameterized Hamiltonian family.",
+    "Prove an analytic spectral-width bound for the chosen transformation.",
+    "Prove term-by-term locality preservation or mark the transformation invalid.",
+    "Connect finite counterexample rows to symbolic assumptions via generated certificates.",
+    "Run a real Lean/mathlib check once the definitions are concrete."
+  ],
+  "open_obligation_count": 5,
+  "open_obligations": [
+    "Replace finite exact-diagonalization evidence with a symbolic statement over a named Hamiltonian family.",
+    "Track spectral-width growth analytically, not only raw spectral gap.",
+    "Prove locality preservation term-by-term after any transformation.",
+    "Bound ground-space perturbation or specify the acceptable promise gap model.",
+    "Separate dense spectral filters from local Hamiltonian transformations before invoking PCP-style intuition."
+  ],
+  "problem_id": 17,
+  "proof_assistant_checked": false,
+  "proof_assistant_target": "Lean-style skeleton",
+  "source_method": "b9_failed_gap_amplification_negative_lemma_v0",
+  "source_result": "results/B9_failed_gap_amplification_lemma_v0.json",
+  "source_status": "finite_instance_negative_gap_amplification_lemma_not_quantum_pcp_proof",
+  "status": "symbolic_proof_skeleton_not_formalized_theorem",
+  "strict_counterexample_count_inherited": 4,
+  "symbolic_definition_count": 5,
+  "symbolic_definitions": [
+    "LocalHamiltonianFamily",
+    "LocalTransform",
+    "RawGapAmplifies",
+    "NormalizedGapAmplifies",
+    "AcceptableLocalGapStep"
+  ],
+  "theorem_skeleton_count": 3,
+  "theorem_skeleton_names": [
+    "raw_gap_growth_not_certificate",
+    "dense_filter_not_local_step",
+    "b9_v0_family_width_locality_obligation"
+  ],
+  "title": "B9 symbolic failed gap-amplification proof skeleton",
+  "validation_errors": [],
+  "version": "0.1"
+}

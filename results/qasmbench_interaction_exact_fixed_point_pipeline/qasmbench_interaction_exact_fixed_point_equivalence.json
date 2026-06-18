@@ -1,0 +1,26 @@
+{
+  "benchmark_id": "B1",
+  "check": "statevector_equivalence",
+  "failed": 0,
+  "pair_count": 2,
+  "passed": 2,
+  "results": [
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "results/qasmbench_interaction_exact_fixed_point_pipeline_work/00_input/basis_trotter_n4.qasm",
+      "max_global_phase_adjusted_delta": 1.2905148817853355e-14,
+      "qubits": 4,
+      "right": "results/qasmbench_interaction_exact_fixed_point_pipeline_work/03_rzz_pass/basis_trotter_n4.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0000000000000013,
+      "left": "results/qasmbench_interaction_exact_fixed_point_pipeline_work/00_input/ising_n10.qasm",
+      "max_global_phase_adjusted_delta": 1.9922723263619497e-15,
+      "qubits": 10,
+      "right": "results/qasmbench_interaction_exact_fixed_point_pipeline_work/03_rzz_pass/ising_n10.qasm"
+    }
+  ],
+  "tolerance": 1e-09
+}

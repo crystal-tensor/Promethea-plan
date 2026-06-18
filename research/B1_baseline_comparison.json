@@ -1,0 +1,183 @@
+{
+  "b1": {
+    "circuit_count": 30,
+    "equivalence_failed": 0,
+    "hardware_weighted_exposure_reduction_pct": 12.580739310392385,
+    "logical_depth_reduction_pct": 34.98098859315589,
+    "method": "b1_fixed_point_commuting_1q_plus_iterative_rzz_v0",
+    "operation_count_reduction_pct": 34.171848501978516,
+    "two_qubit_gate_count_reduction_pct": 10.717896865520729
+  },
+  "b1_minus_best_valid_qiskit": {
+    "hardware_weighted_exposure_reduction_pct": 25.942733431277524,
+    "logical_depth_reduction_pct": 19.72713039588459,
+    "operation_count_reduction_pct": 19.573205200678345,
+    "two_qubit_gate_count_reduction_pct": 36.34984833164813
+  },
+  "baseline_suite": {
+    "invalid_optimization_levels": [
+      3
+    ],
+    "kind": "qiskit_all_to_all_u3_cx_basis_no_routing",
+    "limits": [
+      "Qiskit baseline uses all-to-all connectivity and u3/cx basis without routing.",
+      "This is an independent compiler baseline, not a calibrated heavy-hex hardware transpilation.",
+      "Output equivalence is checked by the local exact statevector checker for the 30-circuit suite."
+    ],
+    "path": "results/b1_qiskit_baseline_30/qiskit_baseline_suite_summary.json",
+    "valid_optimization_levels": [
+      0,
+      1
+    ]
+  },
+  "benchmark_id": "B1",
+  "best_valid_qiskit_by_exposure": {
+    "baseline_kind": "qiskit_all_to_all_u3_cx_basis_no_routing",
+    "basis_gates": [
+      "u3",
+      "cx",
+      "measure"
+    ],
+    "benchmark_id": "B1",
+    "circuit_count": 30,
+    "equivalence_failed": 0,
+    "equivalence_passed": 30,
+    "equivalence_path": "/Users/avalok/work/FurturePlan/results/b1_qiskit_baseline_30/qiskit_level1_equivalence.json",
+    "hardware_weighted_exposure_after": 18.4106,
+    "hardware_weighted_exposure_before": 16.24054,
+    "hardware_weighted_exposure_delta": 2.1700599999999994,
+    "hardware_weighted_exposure_reduction_pct": -13.36199412088514,
+    "logical_depth_after": 3789.0,
+    "logical_depth_before": 4471.0,
+    "logical_depth_delta": -682.0,
+    "logical_depth_reduction_pct": 15.253858197271303,
+    "method": "qiskit_transpiler_baseline_v0",
+    "metrics_path": "/Users/avalok/work/FurturePlan/results/b1_qiskit_baseline_30/qiskit_level1_metrics.json",
+    "operation_count_after": 6043.0,
+    "operation_count_before": 7076.0,
+    "operation_count_delta": -1033.0,
+    "operation_count_reduction_pct": 14.598643301300172,
+    "optimization_level": 1,
+    "output_dir": "/Users/avalok/work/FurturePlan/results/b1_qiskit_baseline_30_work/qiskit_level1",
+    "runtime_seconds": 0.06387504198937677,
+    "summary_path": "/Users/avalok/work/FurturePlan/results/b1_qiskit_baseline_30/qiskit_level1_summary.json",
+    "two_qubit_gate_count_after": 2485.0,
+    "two_qubit_gate_count_before": 1978.0,
+    "two_qubit_gate_count_delta": 507.0,
+    "two_qubit_gate_count_reduction_pct": -25.6319514661274
+  },
+  "claim": "On the 30-circuit exact suite, B1 outperforms the best exact-valid Qiskit all-to-all u3/cx baseline on operation count, two-qubit count, logical depth, and hardware-weighted exposure. Qiskit level 3 is not used as a valid baseline because exact equivalence fails on 7 circuits.",
+  "invalid_qiskit_baselines": [
+    {
+      "baseline_kind": "qiskit_all_to_all_u3_cx_basis_no_routing",
+      "basis_gates": [
+        "u3",
+        "cx",
+        "measure"
+      ],
+      "benchmark_id": "B1",
+      "circuit_count": 30,
+      "equivalence_failed": 7,
+      "equivalence_passed": 23,
+      "equivalence_path": "/Users/avalok/work/FurturePlan/results/b1_qiskit_baseline_30/qiskit_level3_equivalence.json",
+      "hardware_weighted_exposure_after": 13.17012,
+      "hardware_weighted_exposure_before": 16.24054,
+      "hardware_weighted_exposure_delta": -3.0704199999999986,
+      "hardware_weighted_exposure_reduction_pct": 18.90589844918949,
+      "logical_depth_after": 2549.0,
+      "logical_depth_before": 4471.0,
+      "logical_depth_delta": -1922.0,
+      "logical_depth_reduction_pct": 42.98814582867367,
+      "method": "qiskit_transpiler_baseline_v0",
+      "metrics_path": "/Users/avalok/work/FurturePlan/results/b1_qiskit_baseline_30/qiskit_level3_metrics.json",
+      "operation_count_after": 4334.0,
+      "operation_count_before": 7076.0,
+      "operation_count_delta": -2742.0,
+      "operation_count_reduction_pct": 38.75070661390616,
+      "optimization_level": 3,
+      "output_dir": "/Users/avalok/work/FurturePlan/results/b1_qiskit_baseline_30_work/qiskit_level3",
+      "runtime_seconds": 0.14562154104351066,
+      "summary_path": "/Users/avalok/work/FurturePlan/results/b1_qiskit_baseline_30/qiskit_level3_summary.json",
+      "two_qubit_gate_count_after": 1676.0,
+      "two_qubit_gate_count_before": 1978.0,
+      "two_qubit_gate_count_delta": -302.0,
+      "two_qubit_gate_count_reduction_pct": 15.267947421638016
+    }
+  ],
+  "last_updated": "2026-06-13",
+  "profile": "heavy_hex_like_sparse",
+  "remaining_gap": "This is still not a routing-aware calibrated heavy-hex comparison; the next baseline should include coupling maps, target basis, and layout/routing constraints without changing circuit semantics.",
+  "report": "baseline_comparison_v0",
+  "valid_qiskit_baselines": [
+    {
+      "baseline_kind": "qiskit_all_to_all_u3_cx_basis_no_routing",
+      "basis_gates": [
+        "u3",
+        "cx",
+        "measure"
+      ],
+      "benchmark_id": "B1",
+      "circuit_count": 30,
+      "equivalence_failed": 0,
+      "equivalence_passed": 30,
+      "equivalence_path": "/Users/avalok/work/FurturePlan/results/b1_qiskit_baseline_30/qiskit_level0_equivalence.json",
+      "hardware_weighted_exposure_after": 19.17954,
+      "hardware_weighted_exposure_before": 16.24054,
+      "hardware_weighted_exposure_delta": 2.939,
+      "hardware_weighted_exposure_reduction_pct": -18.096688903201496,
+      "logical_depth_after": 5240.0,
+      "logical_depth_before": 4471.0,
+      "logical_depth_delta": 769.0,
+      "logical_depth_reduction_pct": -17.199731603668084,
+      "method": "qiskit_transpiler_baseline_v0",
+      "metrics_path": "/Users/avalok/work/FurturePlan/results/b1_qiskit_baseline_30/qiskit_level0_metrics.json",
+      "operation_count_after": 8380.0,
+      "operation_count_before": 7076.0,
+      "operation_count_delta": 1304.0,
+      "operation_count_reduction_pct": -18.428490672696437,
+      "optimization_level": 0,
+      "output_dir": "/Users/avalok/work/FurturePlan/results/b1_qiskit_baseline_30_work/qiskit_level0",
+      "runtime_seconds": 0.046690498988027684,
+      "summary_path": "/Users/avalok/work/FurturePlan/results/b1_qiskit_baseline_30/qiskit_level0_summary.json",
+      "two_qubit_gate_count_after": 2485.0,
+      "two_qubit_gate_count_before": 1978.0,
+      "two_qubit_gate_count_delta": 507.0,
+      "two_qubit_gate_count_reduction_pct": -25.6319514661274
+    },
+    {
+      "baseline_kind": "qiskit_all_to_all_u3_cx_basis_no_routing",
+      "basis_gates": [
+        "u3",
+        "cx",
+        "measure"
+      ],
+      "benchmark_id": "B1",
+      "circuit_count": 30,
+      "equivalence_failed": 0,
+      "equivalence_passed": 30,
+      "equivalence_path": "/Users/avalok/work/FurturePlan/results/b1_qiskit_baseline_30/qiskit_level1_equivalence.json",
+      "hardware_weighted_exposure_after": 18.4106,
+      "hardware_weighted_exposure_before": 16.24054,
+      "hardware_weighted_exposure_delta": 2.1700599999999994,
+      "hardware_weighted_exposure_reduction_pct": -13.36199412088514,
+      "logical_depth_after": 3789.0,
+      "logical_depth_before": 4471.0,
+      "logical_depth_delta": -682.0,
+      "logical_depth_reduction_pct": 15.253858197271303,
+      "method": "qiskit_transpiler_baseline_v0",
+      "metrics_path": "/Users/avalok/work/FurturePlan/results/b1_qiskit_baseline_30/qiskit_level1_metrics.json",
+      "operation_count_after": 6043.0,
+      "operation_count_before": 7076.0,
+      "operation_count_delta": -1033.0,
+      "operation_count_reduction_pct": 14.598643301300172,
+      "optimization_level": 1,
+      "output_dir": "/Users/avalok/work/FurturePlan/results/b1_qiskit_baseline_30_work/qiskit_level1",
+      "runtime_seconds": 0.06387504198937677,
+      "summary_path": "/Users/avalok/work/FurturePlan/results/b1_qiskit_baseline_30/qiskit_level1_summary.json",
+      "two_qubit_gate_count_after": 2485.0,
+      "two_qubit_gate_count_before": 1978.0,
+      "two_qubit_gate_count_delta": 507.0,
+      "two_qubit_gate_count_reduction_pct": -25.6319514661274
+    }
+  ]
+}

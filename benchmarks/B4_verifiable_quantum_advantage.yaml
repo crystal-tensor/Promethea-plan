@@ -1,0 +1,92 @@
+id: B4
+problem_id: 16
+name: Verifiable Quantum Advantage Protocols
+version: 0.1
+status: draft
+claim: >
+  Task distributions can be designed so that useful quantum computations carry
+  embedded checks, enabling confidence without full classical reproduction.
+task_families:
+  - random_circuit_sampling_with_traps
+  - iqp_or_commuting_circuit_with_hidden_structure
+  - hamiltonian_simulation_with_conserved_quantities
+  - cross_device_consistency_challenges
+baselines_and_adversaries:
+  - honest_noisy_quantum_simulator
+  - tensor_network_classical_simulator
+  - marginal_matching_spoofer
+  - low_depth_surrogate_spoofer
+  - generative_output_model_spoofer
+  - trap_aware_adaptive_adversary
+metrics:
+  - completeness
+  - soundness
+  - sample_complexity
+  - classical_verification_time
+  - noise_robustness
+  - task_usefulness
+acceptance_threshold:
+  explicit_completeness_soundness_estimates: true
+  spoofing_families_that_fail: ">=2"
+  full_distribution_verification_unavailable_at_target_size: true
+failure_conditions:
+  - embedded_checks_make_task_classically_easy
+  - verification_cost_scales_like_full_classical_simulation
+  - noise_tolerance_too_low
+next_actions:
+  - implement_toy_trap_circuit_generator
+  - define_spoofer_interfaces
+  - choose_small_exact_simulation_sizes
+  - choose_beyond_exact_simulation_target_sizes
+current_results:
+  toy_hidden_trap_protocol_sim_v0:
+    status: toy_statistical_protocol
+    model_status: toy_statistical_protocol_not_quantum_advantage_claim
+    task_family: toy_random_circuit_sampling_with_hidden_traps
+    qubits: [16, 24, 32]
+    trap_counts: [2, 4, 8]
+    adversaries:
+      - uniform_random_spoofer
+      - marginal_matching_spoofer
+      - low_depth_surrogate_spoofer
+      - partial_trap_leak_spoofer
+    honest_error_per_trap: 0.02
+    trials: 20000
+    batch_size: 64
+    acceptance_fraction: 0.8
+    configuration_count: 36
+    batch_completeness_range: "0.849536-0.999999"
+    max_batch_soundness_by_trap_count:
+      trap2: 2.27740583843813e-05
+      trap4: 3.9287162004611037e-16
+      trap8: 1.0074509716960157e-40
+    spoofing_families_tested: 4
+    spoofing_families_failing_count: 4
+    result: ../results/B4_toy_trap_protocol_v0.json
+  circuit_hidden_projection_refresh_v0:
+    status: circuit_level_hidden_projection_refresh_boundary_not_quantum_advantage_claim
+    method: b4_b8_circuit_hidden_projection_refresh_v0
+    task_family: random_cnot_hidden_projection_sampling
+    task_count: 3
+    configuration_count: 192
+    qubits: [12, 16, 20]
+    circuit_depth_factor: 4
+    invariant_count: 10
+    trials: 120
+    sample_count: 4096
+    minimum_honest_completeness: 1.0
+    maximum_adaptive_soundness: 0.675
+    none_high_leakage_max_soundness: 0.675
+    best_repair_high_leakage_max_soundness: 0.0
+    high_leakage_repair_modes_passing:
+      - challenge_refresh
+      - projection_rotation
+      - refresh_plus_rotation
+    interpretation: circuit_level_hidden_projection_refresh_rejects_high_leakage_adaptive_spoofer_in_proxy_model
+    caveat: cnot_hidden_projection_proxy_not_quantum_advantage_or_hardware_randomized_measurement_protocol
+    result: ../results/B4_B8_circuit_refresh_task_v0.json
+    markdown_report: ../research/B4_B8_circuit_refresh_task.md
+prototype_artifacts:
+  trap_protocol_simulator: ../tools/b4_trap_protocol_sim.py
+  circuit_refresh_task: ../tools/b4_b8_circuit_refresh_task.py
+  prototype_notes: ../research/B4_prototype_notes.md

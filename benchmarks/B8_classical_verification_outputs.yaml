@@ -1,0 +1,160 @@
+id: B8
+problem_id: 30
+name: Classical Verification of Quantum Outputs
+version: 0.1
+status: draft
+claim: >
+  Task-relevant hidden invariants and randomized projections can reject
+  spoofed quantum outputs without requiring full distribution verification.
+task_families:
+  - hidden_parity_projection_sampling
+  - randomized_measurement_invariants
+  - classical_shadow_observable_tests
+  - cross_device_projection_consistency
+baselines_and_adversaries:
+  - honest_invariant_sampler
+  - uniform_random_spoofer
+  - marginal_matching_spoofer
+  - public_invariant_spoofer
+  - leaked_half_invariant_spoofer
+  - weak_surrogate_spoofer
+metrics:
+  - honest_completeness
+  - adversary_soundness
+  - sample_count
+  - invariant_count
+  - maximum_projection_error
+  - adversaries_failing_rule
+acceptance_threshold:
+  honest_completeness: ">=0.80"
+  adversary_soundness: "<=0.05"
+  adversaries_failing_rule: ">=3"
+  explicit_not_full_distribution_verification: true
+failure_conditions:
+  - invariants_are_public_and_easy_to_spoof
+  - sample_complexity_matches_full_distribution_learning
+  - verifier_cannot_hide_random_projections
+  - honest_noise_breaks_completeness
+next_actions:
+  - replace_toy_parity_tasks_with_randomized_measurement_data
+  - add_classical_shadow_observable_tests
+  - connect_to_b4_trap_protocol_tasks
+  - add_adaptive_spoofer_interfaces
+current_results:
+  toy_hidden_invariant_output_verifier_v0:
+    status: toy_invariant_property_test
+    model_status: toy_invariant_property_test_not_full_distribution_verification
+    task_count: 3
+    configuration_count: 15
+    sample_count: 4096
+    invariant_count: 8
+    trials: 100
+    tolerance: 0.08
+    adversaries_tested: 5
+    adversaries_failing_count: 5
+    minimum_honest_completeness: 1.0
+    maximum_adversary_soundness: 0.0
+    adversaries_failing_invariant_rule:
+      - leaked_half_invariant_spoofer
+      - marginal_matching_spoofer
+      - public_invariant_spoofer
+      - uniform_random_spoofer
+      - weak_surrogate_spoofer
+    result: ../results/B8_output_invariant_verifier_v0.json
+  adaptive_leakage_spoofer_stress_v0:
+    status: adaptive_leakage_stress_test_not_full_distribution_verification
+    method: adaptive_hidden_invariant_leakage_spoofer_v0
+    task_count: 3
+    configuration_count: 48
+    sample_count: 4096
+    invariant_count: 10
+    trials: 120
+    tolerance: 0.08
+    leakage_fractions: [0.0, 0.25, 0.5, 0.75]
+    adaptive_adversaries_tested: 4
+    minimum_honest_completeness: 1.0
+    maximum_adaptive_soundness: 0.7916666666666666
+    dangerous_leakage_threshold: 0.75
+    adversaries_over_5pct_at_dangerous_threshold:
+      - trap_aware_leakage_spoofer
+    interpretation: low_and_mid_leakage_rejected_high_leakage_exposes_refresh_requirement
+    result: ../results/B8_adaptive_leakage_spoofer_v0.json
+    markdown_report: ../research/B8_adaptive_leakage_spoofer.md
+  challenge_refresh_projection_rotation_repair_v0:
+    status: challenge_refresh_projection_rotation_toy_repair_not_full_distribution_verification
+    method: challenge_refresh_projection_rotation_repair_v0
+    task_count: 3
+    configuration_count: 192
+    sample_count: 4096
+    invariant_count: 10
+    trials: 120
+    tolerance: 0.08
+    leakage_fractions: [0.0, 0.25, 0.5, 0.75]
+    refresh_modes:
+      - none
+      - projection_rotation
+      - challenge_refresh
+      - refresh_plus_rotation
+    interpretation: challenge_refresh_and_projection_rotation_reduce_effective_leakage_in_toy_repair_model
+    result: ../results/B8_challenge_refresh_repair_v0.json
+    markdown_report: ../research/B8_challenge_refresh_repair.md
+  circuit_hidden_projection_refresh_v0:
+    status: circuit_level_hidden_projection_refresh_boundary_not_quantum_advantage_claim
+    method: b4_b8_circuit_hidden_projection_refresh_v0
+    task_family: random_cnot_hidden_projection_sampling
+    task_count: 3
+    configuration_count: 192
+    qubits: [12, 16, 20]
+    circuit_depth_factor: 4
+    invariant_count: 10
+    trials: 120
+    sample_count: 4096
+    leakage_fractions: [0.0, 0.25, 0.5, 0.75]
+    refresh_modes:
+      - none
+      - projection_rotation
+      - challenge_refresh
+      - refresh_plus_rotation
+    minimum_honest_completeness: 1.0
+    maximum_adaptive_soundness: 0.675
+    none_high_leakage_max_soundness: 0.675
+    best_repair_high_leakage_max_soundness: 0.0
+    high_leakage_repair_modes_passing:
+      - challenge_refresh
+      - projection_rotation
+      - refresh_plus_rotation
+    interpretation: circuit_level_hidden_projection_refresh_rejects_high_leakage_adaptive_spoofer_in_proxy_model
+    caveat: cnot_hidden_projection_proxy_not_full_distribution_verification_or_hardware_randomized_measurement_protocol
+    result: ../results/B4_B8_circuit_refresh_task_v0.json
+    markdown_report: ../research/B4_B8_circuit_refresh_task.md
+  generative_spoofer_refresh_stress_v0:
+    status: trained_generative_spoofer_refresh_boundary_not_soundness_proof
+    method: b8_generative_spoofer_refresh_v0
+    source_task: b4_b8_circuit_hidden_projection_refresh_v0
+    task_count: 3
+    configuration_count: 144
+    learners_tested:
+      - correlation_mask_learner
+      - generative_projection_learner
+      - leakage_augmented_generator
+    training_count: 4096
+    trials: 80
+    minimum_honest_completeness: 1.0
+    maximum_learned_soundness: 1.0
+    safe_high_leakage_refresh_modes:
+      - challenge_refresh
+      - projection_rotation
+      - refresh_plus_rotation
+    unsafe_high_leakage_refresh_modes:
+      - none
+    interpretation: no_refresh_breaks_under_trained_learners_projection_rotation_or_stronger_refresh_is_required_in_this_proxy
+    caveat: trained_correlation_generator_not_cryptographic_soundness_proof
+    result: ../results/B8_generative_spoofer_refresh_v0.json
+    markdown_report: ../research/B8_generative_spoofer_refresh.md
+prototype_artifacts:
+  output_invariant_verifier: ../tools/b8_output_invariant_verifier.py
+  adaptive_leakage_spoofer: ../tools/b8_adaptive_spoofer_leakage.py
+  challenge_refresh_repair: ../tools/b8_challenge_refresh_repair.py
+  circuit_refresh_task: ../tools/b4_b8_circuit_refresh_task.py
+  generative_spoofer_refresh: ../tools/b8_generative_spoofer_refresh.py
+  prototype_notes: ../research/B8_prototype_notes.md

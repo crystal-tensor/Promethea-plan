@@ -1,0 +1,128 @@
+{
+  "benchmark_id": "B10",
+  "corollary": {
+    "computed_bound": 8.940076013143436e-44,
+    "id": "B10-T2-C1",
+    "name": "current_proxy_parameters_clear_five_percent_if_one_predicate_remains_unknown",
+    "statement": "With N=4096 verifier samples, minimum honest signal mu=0.30, and tolerance tau=0.08, the single-refreshed-predicate bound is below the 5% soundness gate.",
+    "status": "parameterized_corollary_for_current_proxy_only"
+  },
+  "corollary_count": 1,
+  "dependency_benchmark": "B8",
+  "empirical_stress_still_required": true,
+  "explicit_not_bqp_separation": true,
+  "hardware_randomized_measurement_circuits_instantiated": false,
+  "high_leakage_summary_from_b8": [
+    {
+      "leakage_fraction": 0.75,
+      "learners_over_5pct_soundness": [],
+      "max_learned_soundness": 0.0,
+      "mean_learned_soundness": 0.0,
+      "refresh_mode": "challenge_refresh"
+    },
+    {
+      "leakage_fraction": 0.75,
+      "learners_over_5pct_soundness": [
+        "correlation_mask_learner",
+        "generative_projection_learner",
+        "leakage_augmented_generator"
+      ],
+      "max_learned_soundness": 1.0,
+      "mean_learned_soundness": 0.7263888888888889,
+      "refresh_mode": "none"
+    },
+    {
+      "leakage_fraction": 0.75,
+      "learners_over_5pct_soundness": [],
+      "max_learned_soundness": 0.025,
+      "mean_learned_soundness": 0.0041666666666666675,
+      "refresh_mode": "projection_rotation"
+    },
+    {
+      "leakage_fraction": 0.75,
+      "learners_over_5pct_soundness": [],
+      "max_learned_soundness": 0.0,
+      "mean_learned_soundness": 0.0,
+      "refresh_mode": "refresh_plus_rotation"
+    }
+  ],
+  "invariant_count": 10,
+  "last_updated": "2026-06-17",
+  "limits": [
+    "This is a restricted conditional lemma, not a cryptographic verification theorem.",
+    "The proof covers only the case where at least one tested predicate remains hidden and independent after leakage.",
+    "The empirical B8 rows are still required to catch full-cover leakage cases such as no-refresh high leakage.",
+    "The result does not prove sampling hardness, hardware feasibility, or BQP versus classical separation."
+  ],
+  "method": "b10_t2_restricted_soundness_lemma_v0",
+  "minimum_honest_signal": 0.3,
+  "problem_id": 11,
+  "remaining_obligations": [
+    {
+      "description": "Instantiate a hardware-executable randomized-measurement verifier whose transcript actually satisfies refresh independence.",
+      "id": "B10-T2-R1",
+      "status": "open"
+    },
+    {
+      "description": "Replace the empirical CNOT hidden-projection proxy with a distribution family tied to a sampling-hardness assumption.",
+      "id": "B10-T2-R2",
+      "status": "open"
+    },
+    {
+      "description": "Stress unrestricted learned/generative adversaries against the formal leakage channel, not only side-channel candidate masks.",
+      "id": "B10-T2-R3",
+      "status": "open"
+    },
+    {
+      "description": "Account for verifier overhead so the refresh schedule does not erase the claimed advantage denominator.",
+      "id": "B10-T2-R4",
+      "status": "open"
+    }
+  ],
+  "result_dependency": {
+    "b8_result_path": "results/B8_generative_spoofer_refresh_v0.json",
+    "gate_result_path": "results/B10_t2_refresh_proof_obligation_gate_v0.json"
+  },
+  "sample_count": 4096,
+  "sampling_hardness_proved": false,
+  "signal_gap": 0.21999999999999997,
+  "single_unknown_mask_soundness_bound": 8.940076013143436e-44,
+  "source_b8_stress": "b8_generative_spoofer_refresh_v0",
+  "source_gate": "b10_t2_refresh_proof_obligation_gate_v0",
+  "source_target_id": "B10-T2",
+  "source_target_name": "sampling_advantage_verification_layer_target",
+  "status": "restricted_soundness_lemma_proved_under_refresh_independence_model",
+  "ten_independent_unknown_masks_soundness_bound": 0.0,
+  "theorem": {
+    "assumptions": [
+      "The leakage channel is bounded leakage: it may reveal public parameters and a declared subset of predicates, but at least one tested predicate remains hidden.",
+      "The challenge-refresh schedule provides refresh independence: the remaining unknown predicate is sampled after, or independently of, the adversary's transcript-generation strategy.",
+      "For every unknown predicate, the adversary's generated samples have parity mean 0 conditional on the leaked transcript.",
+      "Verifier samples are independent enough for a Hoeffding tail bound at the tested predicate.",
+      "The honest signal gap mu - tau is positive and all verifier runtime/sample costs are included separately."
+    ],
+    "id": "B10-T2-L1",
+    "name": "refresh_independence_hidden_predicate_soundness_bound",
+    "proof_sketch": [
+      "Condition on the complete leaked transcript and all public verifier parameters.",
+      "For one refreshed unknown predicate, the adversary's parity variables are bounded in [-1, 1] with conditional mean 0.",
+      "Acceptance on that predicate requires the empirical parity mean to deviate upward by at least mu - tau.",
+      "Hoeffding's inequality gives probability at most exp(-N(mu-tau)^2/2) for that deviation.",
+      "If several unknown predicates are independently refreshed, multiply the one-predicate bound under the declared independence assumption; otherwise keep the single-predicate bound only."
+    ],
+    "statement": "In the declared transcript model, suppose challenge refresh or projection rotation leaves at least one verifier predicate unknown and statistically independent of the adversary's generated transcript after bounded leakage. If the honest verifier expects parity mean at least mu and accepts within tolerance tau < mu using N independent samples, then any adversary whose transcript is unbiased on that unknown predicate passes that predicate with probability at most exp(-N(mu-tau)^2/2).",
+    "status": "proved_under_refresh_independence_model_not_cryptographic_soundness",
+    "type": "restricted_soundness_lemma"
+  },
+  "theorem_count": 1,
+  "three_independent_unknown_masks_soundness_bound": 7.145352098871785e-130,
+  "title": "B10-T2 restricted refresh-independence soundness lemma",
+  "tolerance": 0.08,
+  "validation_claim": {
+    "admissible_claim": "B10-T2 has a restricted, conditional verifier-soundness lemma when refresh independence guarantees at least one hidden predicate unknown to the adversary.",
+    "operational_rule": "A verifier claim may cite this lemma only if it declares the leakage channel, proves at least one refreshed predicate remains unknown, and reports verifier sample overhead.",
+    "rejected_claim": "This proves a hardware-verifier protocol, cryptographic soundness, sampling hardness, or a BQP/classical separation."
+  },
+  "validation_errors": [],
+  "version": "0.1"
+}

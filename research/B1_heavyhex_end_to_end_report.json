@@ -1,0 +1,38 @@
+{
+  "aer_crosscheck_failed": 0,
+  "aer_crosscheck_max_tvd": 0.16455078125,
+  "aer_crosscheck_passed": 30,
+  "aer_crosscheck_path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30/source_vs_b1_optimized_routed_aer_crosscheck.json",
+  "aer_crosscheck_shots": 2048,
+  "baseline_kind": "qiskit_heavy_hex_d3_level0_source_vs_b1_optimized",
+  "benchmark_id": "B1",
+  "circuit_count": 30,
+  "coupling_edges": 40,
+  "hardware_weighted_exposure_reduction_pct": 2.931851434871905,
+  "idle_layer_proxy_reduction_pct": 20.548475810512453,
+  "interpretation": [
+    "B1 fixed-point compression retains measurable routed benefits after both source and optimized circuits are routed to the same heavy-hex distance-3 topology.",
+    "The strongest routed benefits in this first diagnostic are operation count, logical depth, and idle-layer proxy reductions.",
+    "Two-qubit gate count is unchanged after routing at Qiskit level 0, so the current B1 two-qubit logical reduction is mostly absorbed by routing overhead.",
+    "Hardware-weighted exposure improves only modestly after routing, far below the 20% portfolio target.",
+    "This is a topology-routed diagnostic, not a calibrated backend noise or duration claim."
+  ],
+  "last_updated": "2026-06-13",
+  "logical_depth_reduction_pct": 19.43796943796944,
+  "open_gates": [
+    "Run optimization levels 1 and 3 as a longer regression to see whether routing optimization preserves or erases B1 benefits.",
+    "Route both source and B1 optimized circuits through a calibrated or synthetic-noise heavy-hex backend model.",
+    "Add routing-aware optimization passes so B1 reduces post-routing two-qubit count and exposure, not only pre-routing logical depth."
+  ],
+  "operation_count_reduction_pct": 16.95001700102006,
+  "optimization_level": 0,
+  "optimized_routed_metrics": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30/b1_optimized_routed_metrics.json",
+  "physical_qubits": 19,
+  "problem_id": 25,
+  "report_status": "topology_routed_benefit_diagnostic_not_calibrated_noise_claim",
+  "source_routed_metrics": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30/source_routed_metrics.json",
+  "summary_path": "results/b1_heavyhex_end_to_end_30/heavyhex_end_to_end_summary.json",
+  "title": "B1 heavy-hex end-to-end routed benefit",
+  "two_qubit_gate_count_reduction_pct": 0.0,
+  "version": "0.1"
+}

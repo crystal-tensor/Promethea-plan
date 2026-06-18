@@ -1,0 +1,74 @@
+{
+  "benchmark_id": "B1",
+  "certificate_mode": "local_rewrite_certificates_plus_exact_statevector",
+  "circuit_count": 10,
+  "equivalence_failed": 0,
+  "equivalence_mode": "exact_statevector",
+  "equivalence_passed": 10,
+  "final_dir": "results/qasmbench_small_cert_pipeline_work/final",
+  "hardware_weighted_exposure_after": 2.3435400000000004,
+  "hardware_weighted_exposure_before": 2.58262,
+  "hardware_weighted_exposure_delta": -0.23907999999999952,
+  "hardware_weighted_exposure_reduction_pct": 9.257265877287388,
+  "local_certificates": {
+    "rzz_window_resynthesis": {
+      "certificate_type": "local_rewrite_identity_plus_disjoint_commutation",
+      "commuting_disjoint_windows": 2,
+      "cx_removed": 54,
+      "rule": "cx(control,target); rz(theta) target; cx(control,target) -> rzz(theta) control,target",
+      "rzz_inserted": 27,
+      "windows": 27
+    },
+    "single_qubit_block_resynthesis": {
+      "certificate_type": "constructive_1q_unitary_matrix_decomposition",
+      "commuted_disjoint_single_qubit_gates": 1299,
+      "identity_gates_removed": 1,
+      "removed_single_qubit_gates": 231,
+      "resynthesized_runs": 163,
+      "rule": "maximal_single_qubit_gate_run -> one u3(theta,phi,lambda)"
+    }
+  },
+  "logical_depth_after": 531.0,
+  "logical_depth_before": 768.0,
+  "logical_depth_delta": -237.0,
+  "logical_depth_reduction_pct": 30.859375,
+  "method": "fixed_point_commuting_1q_plus_iterative_rzz_v0",
+  "operation_count_after": 786.0,
+  "operation_count_before": 1072.0,
+  "operation_count_delta": -286.0,
+  "operation_count_reduction_pct": 26.679104477611943,
+  "profile": "heavy_hex_like_sparse",
+  "rzz_passes": [
+    {
+      "commuting_disjoint_windows": 0,
+      "cx_removed": 50,
+      "mode": "adjacent",
+      "output_dir": "results/qasmbench_small_cert_pipeline_work/02_rzz_pass",
+      "pass": 1,
+      "rzz_inserted": 25,
+      "windows": 25
+    },
+    {
+      "commuting_disjoint_windows": 2,
+      "cx_removed": 4,
+      "mode": "commute_disjoint",
+      "output_dir": "results/qasmbench_small_cert_pipeline_work/03_rzz_pass",
+      "pass": 2,
+      "rzz_inserted": 2,
+      "windows": 2
+    },
+    {
+      "commuting_disjoint_windows": 0,
+      "cx_removed": 0,
+      "mode": "commute_disjoint",
+      "output_dir": "results/qasmbench_small_cert_pipeline_work/04_rzz_pass",
+      "pass": 3,
+      "rzz_inserted": 0,
+      "windows": 0
+    }
+  ],
+  "two_qubit_gate_count_after": 293.0,
+  "two_qubit_gate_count_before": 320.0,
+  "two_qubit_gate_count_delta": -27.0,
+  "two_qubit_gate_count_reduction_pct": 8.4375
+}

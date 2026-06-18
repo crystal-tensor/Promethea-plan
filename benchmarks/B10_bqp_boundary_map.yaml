@@ -1,0 +1,424 @@
+id: B10
+problem_id: 11
+name: Mapping the Boundary of BQP
+version: 0.1
+status: draft
+claim: >
+  A useful BQP-boundary program should track not only candidate speedups, but
+  also the assumptions under which reductions preserve advantage or collapse
+  under data loading, precision, verification, or dequantization.
+problem_families:
+  - algebraic_hidden_structure
+  - Hamiltonian_simulation
+  - phase_and_amplitude_estimation
+  - quantum_linear_algebra
+  - sampling_advantage
+  - quantum_machine_learning
+  - optimization
+  - interactive_verification
+boundary_failure_modes:
+  - data_loading
+  - output_readout
+  - precision
+  - verification
+  - state_preparation
+  - dequantization
+  - classical_heuristics
+  - average_case_assumptions
+baselines:
+  - textbook_BQP_complete_and_canonical_speedups
+  - dequantization_literature_map
+  - sampling_complexity_assumption_map
+  - oracle_vs_explicit_input_audit
+metrics:
+  - node_count
+  - edge_count
+  - advantage_preserving_edge_count
+  - fragile_edge_count
+  - failure_mode_counts
+  - restricted_theorem_target_count
+acceptance_threshold:
+  minimum_nodes: 10
+  minimum_edges: 12
+  restricted_theorem_targets: ">=2"
+  fragile_edges_tracked: true
+  explicit_not_complexity_theorem: true
+failure_conditions:
+  - graph_only_restates_known_speedups_without_failure_modes
+  - reductions_ignore_input_model
+  - theorem_targets_have_no_verifiable_assumptions
+  - taxonomy_cannot_connect_to_other_benchmarks
+next_actions:
+  - add_source_backed_literature_links_per_edge
+  - formalize_two_restricted_theorem_targets
+  - connect_B4_B8_verification_edges
+  - connect_B3_B5_simulation_edges
+  - add_dequantization_negative_boundary_cards
+current_results:
+  bqp_boundary_reduction_graph_v0:
+    status: taxonomy_reduction_graph
+    model_status: taxonomy_and_reduction_planning_not_complexity_theorem
+    node_count: 12
+    edge_count: 14
+    connected_component_count: 2
+    advantage_preserving_edge_count: 8
+    fragile_edge_count: 6
+    restricted_theorem_target_count: 11
+    top_failure_modes:
+      - data_loading
+      - oracle_construction
+      - protocol_overhead
+      - noise
+      - measurement_gap
+    result: ../results/B10_bqp_boundary_graph_v0.json
+  formal_theorem_targets_v0:
+    status: formal_theorem_targets_not_proofs
+    method: bqp_boundary_formal_theorem_targets_v0
+    source: bqp_boundary_reduction_graph_v0
+    target_count: 2
+    target_types:
+      - negative_boundary
+      - restricted_advantage_preservation
+    dependency_ids:
+      - B3
+      - B4
+      - B5
+      - B8
+      - B10
+    validation_error_count: 0
+    caveat: formal_target_cards_not_proved_theorems
+    result: ../results/B10_formal_theorem_targets_v0.json
+    markdown_report: ../research/B10_formal_theorem_targets.md
+  b10_t2_minimum_refresh_spoofer_boundary_v0:
+    status: t2_minimum_refresh_boundary_from_trained_spoofer_not_soundness_proof
+    method: b8_generative_spoofer_refresh_v0
+    source: formal_theorem_targets_v0
+    source_target_id: B10-T2
+    dependency_benchmark: B8
+    configuration_count: 144
+    learners_tested:
+      - correlation_mask_learner
+      - generative_projection_learner
+      - leakage_augmented_generator
+    maximum_learned_soundness: 1.0
+    safe_high_leakage_refresh_modes:
+      - challenge_refresh
+      - projection_rotation
+      - refresh_plus_rotation
+    unsafe_high_leakage_refresh_modes:
+      - none
+    proof_obligation: sampling_advantage_verification_requires_projection_rotation_or_stronger_refresh_under_this_proxy
+    explicit_not_bqp_separation: true
+    caveat: trained_spoofer_boundary_not_cryptographic_or_complexity_theorem
+    result: ../results/B8_generative_spoofer_refresh_v0.json
+    markdown_report: ../research/B8_generative_spoofer_refresh.md
+  b10_t2_refresh_proof_obligation_gate_v0:
+    status: proof_obligation_gate_proxy_supports_rejection_rule_not_soundness_lemma
+    method: b10_t2_refresh_proof_obligation_gate_v0
+    source: b10_t2_minimum_refresh_spoofer_boundary_v0
+    source_target_id: B10-T2
+    dependency_benchmark: B8
+    lemma_status: not_proved_proxy_insufficient_for_general_soundness
+    configuration_count: 144
+    soundness_gate: 0.05
+    high_leakage_fraction: 0.75
+    maximum_learned_soundness: 1.0
+    safe_high_leakage_refresh_modes:
+      - challenge_refresh
+      - projection_rotation
+      - refresh_plus_rotation
+    unsafe_high_leakage_refresh_modes:
+      - none
+    proof_obligation_count: 7
+    hardware_randomized_measurement_circuits_instantiated: false
+    explicit_not_bqp_separation: true
+    caveat: proof_obligation_gate_not_cryptographic_soundness_lemma
+    result: ../results/B10_t2_refresh_proof_obligation_gate_v0.json
+    markdown_report: ../research/B10_t2_refresh_proof_obligation_gate.md
+  b10_t2_restricted_soundness_lemma_v0:
+    status: restricted_soundness_lemma_proved_under_refresh_independence_model
+    method: b10_t2_restricted_soundness_lemma_v0
+    source: b10_t2_refresh_proof_obligation_gate_v0
+    source_target_id: B10-T2
+    dependency_benchmark: B8
+    theorem_count: 1
+    corollary_count: 1
+    sample_count: 4096
+    invariant_count: 10
+    minimum_honest_signal: 0.30
+    tolerance: 0.08
+    signal_gap: 0.22
+    single_unknown_mask_soundness_bound: 8.940076013143436e-44
+    hardware_randomized_measurement_circuits_instantiated: false
+    sampling_hardness_proved: false
+    empirical_stress_still_required: true
+    validation_error_count: 0
+    explicit_not_bqp_separation: true
+    caveat: restricted_conditional_lemma_not_cryptographic_soundness_or_sampling_hardness
+    result: ../results/B10_t2_restricted_soundness_lemma_v0.json
+    markdown_report: ../research/B10_t2_restricted_soundness_lemma.md
+  b10_t2_transcript_leakage_simulator_v0:
+    status: transcript_leakage_simulator_supports_restricted_lemma_not_hardware_verifier
+    method: b10_t2_transcript_leakage_simulator_v0
+    source: b10_t2_restricted_soundness_lemma_v0
+    source_target_id: B10-T2
+    dependency_benchmark: B8
+    configuration_count: 192
+    minimum_honest_completeness: 1.0
+    maximum_empirical_soundness: 1.0
+    max_soundness_refresh_independent_high_leakage: 0.025
+    min_unknown_independent_count_refresh_high_leakage: 6.0
+    refresh_independent_high_leakage_modes:
+      - challenge_refresh
+      - projection_rotation
+      - refresh_plus_rotation
+    unsafe_high_leakage_modes:
+      - none
+    hardware_randomized_measurement_circuits_instantiated: false
+    sampling_hardness_proved: false
+    explicit_not_bqp_separation: true
+    caveat: transcript_simulator_not_hardware_or_sampling_hardness
+    result: ../results/B10_t2_transcript_leakage_simulator_v0.json
+    markdown_report: ../research/B10_t2_transcript_leakage_simulator.md
+  b10_t2_device_noise_transcript_bridge_v0:
+    status: device_noise_transcript_bridge_supports_bounded_noise_not_hardware_verifier
+    method: b10_t2_device_noise_transcript_bridge_v0
+    source: b10_t2_transcript_leakage_simulator_v0
+    source_target_id: B10-T2
+    dependency_benchmark: B8
+    configuration_count: 480
+    device_profile_count: 5
+    minimum_honest_completeness: 1.0
+    minimum_honest_completeness_bridge_safe_high_leakage: 1.0
+    max_soundness_bridge_safe_high_leakage: 0.020833333333333332
+    min_unknown_independent_count_bridge_safe_high_leakage: 7.0
+    bridge_safe_refresh_modes:
+      - challenge_refresh
+      - refresh_plus_rotation
+    bridge_safe_device_profiles:
+      - drift_correlated_bridge
+      - ideal_transcript
+      - low_noise_bridge
+      - readout_biased_bridge
+    margin_sensitive_refresh_modes:
+      - projection_rotation
+    unsafe_device_profiles:
+      - calibration_side_channel
+    device_noise_transcript_bridge_instantiated: true
+    hardware_randomized_measurement_circuits_instantiated: false
+    sampling_hardness_proved: false
+    explicit_not_bqp_separation: true
+    caveat: device_noise_transcript_bridge_not_hardware_execution_or_sampling_hardness
+    result: ../results/B10_t2_device_noise_transcript_bridge_v0.json
+    markdown_report: ../research/B10_t2_device_noise_transcript_bridge.md
+  b10_t2_qiskit_aer_verifier_bridge_v0:
+    status: qiskit_aer_circuit_level_verifier_bridge_not_hardware_execution
+    method: b10_t2_qiskit_aer_verifier_bridge_v0
+    source: b10_t2_device_noise_transcript_bridge_v0
+    source_target_id: B10-T2
+    dependency_benchmark: B8
+    aer_circuit_count: 216
+    max_circuit_qubits_with_ancilla: 30
+    aer_semantic_mismatch_count: 0
+    minimum_aer_honest_completeness: 1.0
+    maximum_aer_predicate_bit_error_rate: 0.0
+    source_device_noise_max_safe_high_leakage_soundness: 0.020833333333333332
+    source_margin_sensitive_refresh_modes:
+      - projection_rotation
+    hardware_executable_randomized_measurement_circuits_instantiated: true
+    qiskit_aer_bridge_instantiated: true
+    hardware_execution_performed: false
+    sampling_hardness_proved: false
+    explicit_not_bqp_separation: true
+    caveat: qiskit_aer_circuit_bridge_not_hardware_execution_or_sampling_hardness
+    result: ../results/B10_t2_qiskit_aer_verifier_bridge_v0.json
+    markdown_report: ../research/B10_t2_qiskit_aer_verifier_bridge.md
+  b10_t2_noisy_aer_verifier_bridge_v0:
+    status: noisy_aer_circuit_verifier_bridge_not_hardware_execution
+    method: b10_t2_noisy_aer_verifier_bridge_v0
+    source: b10_t2_qiskit_aer_verifier_bridge_v0
+    source_device_noise_bridge: b10_t2_device_noise_transcript_bridge_v0
+    source_target_id: B10-T2
+    dependency_benchmark: B8
+    noisy_aer_circuit_count: 9600
+    max_circuit_qubits_with_ancilla: 22
+    minimum_safe_noisy_honest_acceptance: 1.0
+    maximum_safe_noisy_adversary_acceptance: 0.0
+    maximum_safe_noisy_honest_predicate_bit_error_rate: 0.1125
+    minimum_safe_noisy_unknown_independent_count: 7.0
+    source_device_noise_max_safe_high_leakage_soundness: 0.020833333333333332
+    bridge_safe_refresh_modes:
+      - challenge_refresh
+      - refresh_plus_rotation
+    bridge_safe_noisy_device_profiles:
+      - drift_correlated_bridge
+      - ideal_transcript
+      - low_noise_bridge
+      - readout_biased_bridge
+    unsafe_noisy_device_profiles:
+      - calibration_side_channel
+    noisy_qiskit_aer_bridge_instantiated: true
+    circuit_level_adversary_inputs_instantiated: true
+    hardware_execution_performed: false
+    sampling_hardness_proved: false
+    explicit_not_bqp_separation: true
+    caveat: noisy_aer_circuit_bridge_not_calibrated_backend_or_hardware_execution
+    result: ../results/B10_t2_noisy_aer_verifier_bridge_v0.json
+    markdown_report: ../research/B10_t2_noisy_aer_verifier_bridge.md
+  b10_t2_backend_calibrated_verifier_bridge_v0:
+    status: backend_calibrated_aer_verifier_bridge_not_hardware_execution
+    method: b10_t2_backend_calibrated_verifier_bridge_v0
+    source: b10_t2_noisy_aer_verifier_bridge_v0
+    source_device_noise_bridge: b10_t2_device_noise_transcript_bridge_v0
+    source_target_id: B10-T2
+    dependency_benchmark: B8
+    backend_calibrated_aer_circuit_count: 5760
+    max_circuit_qubits_with_ancilla: 22
+    minimum_safe_calibrated_honest_acceptance: 1.0
+    maximum_safe_calibrated_adversary_acceptance: 0.25
+    maximum_safe_calibrated_honest_predicate_bit_error_rate: 0.0703125
+    minimum_safe_calibrated_unknown_independent_count: 7.0
+    source_noisy_aer_max_safe_adversary_acceptance: 0.0
+    source_device_noise_max_safe_high_leakage_soundness: 0.020833333333333332
+    bridge_safe_refresh_modes:
+      - challenge_refresh
+      - refresh_plus_rotation
+    bridge_safe_backend_snapshots:
+      - generic_v2_cx_stress_seed_1202
+      - generic_v2_nominal_seed_1201
+      - generic_v2_readout_stress_seed_1203
+    unsafe_calibrated_refresh_modes:
+      - none
+    backend_calibrated_noise_parameters_instantiated: true
+    qiskit_generic_backend_v2_used: true
+    real_backend_properties_used: false
+    hardware_execution_performed: false
+    sampling_hardness_proved: false
+    explicit_not_bqp_separation: true
+    caveat: generic_backend_v2_calibration_style_bridge_not_real_backend_or_hardware_execution
+    result: ../results/B10_t2_backend_calibrated_verifier_bridge_v0.json
+    markdown_report: ../research/B10_t2_backend_calibrated_verifier_bridge.md
+  b10_t1_negative_boundary_proof_v0:
+    status: negative_boundary_accounting_lemma_proved_under_explicit_io_model_not_bqp_separation
+    method: b10_t1_linear_systems_io_accounting_negative_boundary_v0
+    source: formal_theorem_targets_v0
+    source_target_id: B10-T1
+    proof_result: restricted_negative_boundary_accounting_lemma
+    theorem_count: 2
+    open_obligation_count: 3
+    validation_error_count: 0
+    explicit_not_bqp_separation: true
+    caveat: restricted_explicit_io_accounting_lower_bound_not_unconditional_complexity_separation
+    result: ../results/B10_t1_negative_boundary_proof_v0.json
+    markdown_report: ../research/B10_t1_negative_boundary_proof.md
+  b10_t1_source_backed_boundaries_v0:
+    status: source_backed_denominator_baselines_instantiated_not_publishable_theorem
+    method: b10_t1_source_backed_boundaries_v0
+    source: b10_t1_negative_boundary_proof_v0
+    source_target_id: B10-T1
+    source_count: 6
+    baseline_count: 5
+    boundary_check_count: 4
+    validation_error_count: 0
+    explicit_not_bqp_separation: true
+    caveat: source_backed_boundary_note_not_publishable_theorem
+    result: ../results/B10_t1_source_backed_boundaries_v0.json
+    markdown_report: ../research/B10_t1_source_backed_boundaries.md
+  b10_t1_numerical_denominator_table_v0:
+    status: numerical_denominator_table_instantiated_not_quantum_speedup_claim
+    method: b10_t1_numerical_denominator_table_v0
+    source: b10_t1_source_backed_boundaries_v0
+    source_target_id: B10-T1
+    family_count: 2
+    instance_count: 16
+    cg_instance_count: 12
+    lsqr_instance_count: 4
+    validation_error_count: 0
+    explicit_not_bqp_separation: true
+    caveat: classical_denominator_table_not_quantum_speedup_or_complexity_separation
+    result: ../results/B10_t1_numerical_denominator_table_v0.json
+    markdown_report: ../research/B10_t1_numerical_denominator_table.md
+  b10_t1_d5_observable_denominator_table_v0:
+    status: d5_observable_denominator_table_instantiated_not_quantum_speedup_claim
+    method: b10_t1_d5_observable_denominator_table_v0
+    source: b10_t1_numerical_denominator_table_v0
+    source_target_id: B10-T1
+    dependency_benchmark: B5
+    instance_count: 9
+    max_hilbert_dimension: 4900
+    validation_error_count: 0
+    explicit_not_bqp_separation: true
+    caveat: b5_observable_denominator_not_quantum_speedup_or_b5_solution
+    result: ../results/B10_t1_d5_observable_denominator_table_v0.json
+    markdown_report: ../research/B10_t1_d5_observable_denominator_table.md
+  b10_t1_d5_b3_molecular_observable_table_v0:
+    status: b3_d5_molecular_observable_denominator_proxy_not_reaction_solution
+    method: b10_t1_d5_b3_molecular_observable_table_v0
+    source: b10_t1_d5_observable_denominator_table_v0
+    source_target_id: B10-T1
+    dependency_benchmark: B3
+    instance_count: 4
+    max_matrix_dimension: 160
+    validation_error_count: 0
+    explicit_not_bqp_separation: true
+    caveat: b3_molecular_observable_proxy_not_reaction_dynamics_solution
+    result: ../results/B10_t1_d5_b3_molecular_observable_table_v0.json
+    markdown_report: ../research/B10_t1_d5_b3_molecular_observable_table.md
+  b10_t1_d5_b3_reaction_observable_table_v0:
+    status: hamiltonian_derived_b3_reaction_observable_denominator_not_reaction_solution
+    method: b10_t1_d5_b3_reaction_observable_table_v0
+    source: b10_t1_d5_b3_molecular_observable_table_v0
+    source_target_id: B10-T1
+    dependency_benchmark: B3
+    instance_count: 4
+    max_response_dimension: 21
+    validation_error_count: 0
+    explicit_not_bqp_separation: true
+    caveat: hamiltonian_derived_denominator_not_reaction_dynamics_or_quantum_speedup
+    result: ../results/B10_t1_d5_b3_reaction_observable_table_v0.json
+    markdown_report: ../research/B10_t1_d5_b3_reaction_observable_table.md
+  b10_t1_d5_b3_correlated_reference_table_v0:
+    status: correlated_b3_reaction_references_instantiated_not_quantum_advantage_claim
+    method: b10_t1_d5_b3_correlated_reference_table_v0
+    source: b10_t1_d5_b3_reaction_observable_table_v0
+    source_target_id: B10-T1
+    dependency_benchmark: B3
+    instance_count: 4
+    method_count: 3
+    validation_error_count: 0
+    explicit_not_bqp_separation: true
+    caveat: correlated_classical_references_not_quantum_advantage_or_reaction_solution
+    result: ../results/B10_t1_d5_b3_correlated_reference_table_v0.json
+    markdown_report: ../research/B10_t1_d5_b3_correlated_reference_table.md
+  b10_t1_d5_b3_fci_reference_table_v0:
+    status: fci_b3_reaction_references_instantiated_not_quantum_advantage_claim
+    method: b10_t1_d5_b3_fci_reference_table_v0
+    source: b10_t1_d5_b3_correlated_reference_table_v0
+    source_target_id: B10-T1
+    dependency_benchmark: B3
+    instance_count: 4
+    method_count: 4
+    validation_error_count: 0
+    explicit_not_bqp_separation: true
+    caveat: fci_small_basis_classical_reference_not_quantum_advantage_or_reaction_solution
+    result: ../results/B10_t1_d5_b3_fci_reference_table_v0.json
+    markdown_report: ../research/B10_t1_d5_b3_fci_reference_table.md
+prototype_artifacts:
+  boundary_graph_builder: ../tools/b10_bqp_boundary_graph.py
+  formal_theorem_target_builder: ../tools/b10_formal_theorem_targets.py
+  t1_negative_boundary_proof_builder: ../tools/b10_t1_negative_boundary_proof.py
+  t1_source_backed_boundaries_builder: ../tools/b10_t1_source_backed_boundaries.py
+  t1_numerical_denominator_table_builder: ../tools/b10_t1_numerical_denominator_table.py
+  t1_d5_observable_denominator_table_builder: ../tools/b10_t1_d5_observable_denominator_table.py
+  t1_d5_b3_molecular_observable_table_builder: ../tools/b10_t1_d5_b3_molecular_observable_table.py
+  t1_d5_b3_reaction_observable_table_builder: ../tools/b10_t1_d5_b3_reaction_observable_table.py
+  t1_d5_b3_correlated_reference_table_builder: ../tools/b10_t1_d5_b3_correlated_reference_table.py
+  t1_d5_b3_fci_reference_table_builder: ../tools/b10_t1_d5_b3_fci_reference_table.py
+  t2_refresh_proof_obligation_gate_builder: ../tools/b10_t2_refresh_proof_obligation_gate.py
+  t2_restricted_soundness_lemma_builder: ../tools/b10_t2_restricted_soundness_lemma.py
+  t2_transcript_leakage_simulator_builder: ../tools/b10_t2_transcript_leakage_simulator.py
+  t2_device_noise_transcript_bridge_builder: ../tools/b10_t2_device_noise_transcript_bridge.py
+  t2_qiskit_aer_verifier_bridge_builder: ../tools/b10_t2_qiskit_aer_verifier_bridge.py
+  t2_noisy_aer_verifier_bridge_builder: ../tools/b10_t2_noisy_aer_verifier_bridge.py
+  t2_backend_calibrated_verifier_bridge_builder: ../tools/b10_t2_backend_calibrated_verifier_bridge.py
+  prototype_notes: ../research/B10_prototype_notes.md

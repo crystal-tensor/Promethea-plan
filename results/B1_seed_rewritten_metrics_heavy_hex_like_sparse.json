@@ -1,0 +1,253 @@
+{
+  "benchmark_id": "B1",
+  "circuit_count": 10,
+  "profile": "heavy_hex_like_sparse",
+  "results": [
+    {
+      "classical_bits": 2,
+      "gate_class_counts": {
+        "measurement": 2,
+        "multi_qubit": 0,
+        "single_qubit": 1,
+        "two_qubit": 1
+      },
+      "gate_counts": {
+        "cx": 1,
+        "h": 1,
+        "measure": 2
+      },
+      "hardware_weighted_error_exposure": 0.03014,
+      "idle_layer_proxy": 1,
+      "logical_depth": 3,
+      "operation_count": 4,
+      "path": "results/b1_seed_rewritten/01_bell_pair.qasm",
+      "qubits": 2,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 1,
+      "two_qubit_or_larger_depth_proxy": 3
+    },
+    {
+      "classical_bits": 3,
+      "gate_class_counts": {
+        "measurement": 3,
+        "multi_qubit": 0,
+        "single_qubit": 3,
+        "two_qubit": 4
+      },
+      "gate_counts": {
+        "cu1": 3,
+        "h": 3,
+        "measure": 3,
+        "swap": 1
+      },
+      "hardware_weighted_error_exposure": 0.06118000000000001,
+      "idle_layer_proxy": 7,
+      "logical_depth": 7,
+      "operation_count": 10,
+      "path": "results/b1_seed_rewritten/02_qft3.qasm",
+      "qubits": 3,
+      "t_count_proxy": 6,
+      "t_depth_proxy": 6,
+      "two_qubit_gate_count": 4,
+      "two_qubit_or_larger_depth_proxy": 7
+    },
+    {
+      "classical_bits": 2,
+      "gate_class_counts": {
+        "measurement": 2,
+        "multi_qubit": 0,
+        "single_qubit": 10,
+        "two_qubit": 2
+      },
+      "gate_counts": {
+        "cz": 2,
+        "h": 6,
+        "measure": 2,
+        "x": 4
+      },
+      "hardware_weighted_error_exposure": 0.037000000000000005,
+      "idle_layer_proxy": 0,
+      "logical_depth": 8,
+      "operation_count": 14,
+      "path": "results/b1_seed_rewritten/03_grover2.qasm",
+      "qubits": 2,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 2,
+      "two_qubit_or_larger_depth_proxy": 8
+    },
+    {
+      "classical_bits": 4,
+      "gate_class_counts": {
+        "measurement": 4,
+        "multi_qubit": 1,
+        "single_qubit": 2,
+        "two_qubit": 2
+      },
+      "gate_counts": {
+        "ccx": 1,
+        "cx": 2,
+        "measure": 4,
+        "x": 2
+      },
+      "hardware_weighted_error_exposure": 0.07318000000000001,
+      "idle_layer_proxy": 7,
+      "logical_depth": 5,
+      "operation_count": 9,
+      "path": "results/b1_seed_rewritten/04_adder3_toy.qasm",
+      "qubits": 4,
+      "t_count_proxy": 7,
+      "t_depth_proxy": 7,
+      "two_qubit_gate_count": 3,
+      "two_qubit_or_larger_depth_proxy": 5
+    },
+    {
+      "classical_bits": 4,
+      "gate_class_counts": {
+        "measurement": 4,
+        "multi_qubit": 0,
+        "single_qubit": 6,
+        "two_qubit": 6
+      },
+      "gate_counts": {
+        "cx": 6,
+        "measure": 4,
+        "ry": 4,
+        "rz": 2
+      },
+      "hardware_weighted_error_exposure": 0.08516000000000001,
+      "idle_layer_proxy": 14,
+      "logical_depth": 9,
+      "operation_count": 16,
+      "path": "results/b1_seed_rewritten/05_vqe_h2_toy.qasm",
+      "qubits": 4,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 6,
+      "two_qubit_or_larger_depth_proxy": 9
+    },
+    {
+      "classical_bits": 2,
+      "gate_class_counts": {
+        "measurement": 2,
+        "multi_qubit": 0,
+        "single_qubit": 0,
+        "two_qubit": 4
+      },
+      "gate_counts": {
+        "cx": 4,
+        "measure": 2
+      },
+      "hardware_weighted_error_exposure": 0.048600000000000004,
+      "idle_layer_proxy": 15,
+      "logical_depth": 5,
+      "operation_count": 6,
+      "path": "results/b1_seed_rewritten/06_qec_syndrome_toy.qasm",
+      "qubits": 5,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 4,
+      "two_qubit_or_larger_depth_proxy": 5
+    },
+    {
+      "classical_bits": 5,
+      "gate_class_counts": {
+        "measurement": 5,
+        "multi_qubit": 3,
+        "single_qubit": 2,
+        "two_qubit": 0
+      },
+      "gate_counts": {
+        "ccx": 3,
+        "measure": 5,
+        "x": 2
+      },
+      "hardware_weighted_error_exposure": 0.09866000000000001,
+      "idle_layer_proxy": 9,
+      "logical_depth": 5,
+      "operation_count": 10,
+      "path": "results/b1_seed_rewritten/07_toffoli_chain.qasm",
+      "qubits": 5,
+      "t_count_proxy": 21,
+      "t_depth_proxy": 21,
+      "two_qubit_gate_count": 3,
+      "two_qubit_or_larger_depth_proxy": 5
+    },
+    {
+      "classical_bits": 5,
+      "gate_class_counts": {
+        "measurement": 5,
+        "multi_qubit": 0,
+        "single_qubit": 6,
+        "two_qubit": 4
+      },
+      "gate_counts": {
+        "cx": 4,
+        "h": 3,
+        "measure": 5,
+        "s": 3
+      },
+      "hardware_weighted_error_exposure": 0.08503999999999999,
+      "idle_layer_proxy": 11,
+      "logical_depth": 6,
+      "operation_count": 15,
+      "path": "results/b1_seed_rewritten/08_clifford_random_toy.qasm",
+      "qubits": 5,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 4,
+      "two_qubit_or_larger_depth_proxy": 6
+    },
+    {
+      "classical_bits": 4,
+      "gate_class_counts": {
+        "measurement": 4,
+        "multi_qubit": 0,
+        "single_qubit": 7,
+        "two_qubit": 6
+      },
+      "gate_counts": {
+        "cx": 6,
+        "h": 4,
+        "measure": 4,
+        "rz": 3
+      },
+      "hardware_weighted_error_exposure": 0.08553999999999999,
+      "idle_layer_proxy": 21,
+      "logical_depth": 11,
+      "operation_count": 17,
+      "path": "results/b1_seed_rewritten/09_hamiltonian_trotter_toy.qasm",
+      "qubits": 4,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 6,
+      "two_qubit_or_larger_depth_proxy": 11
+    },
+    {
+      "classical_bits": 3,
+      "gate_class_counts": {
+        "measurement": 3,
+        "multi_qubit": 0,
+        "single_qubit": 7,
+        "two_qubit": 6
+      },
+      "gate_counts": {
+        "cu1": 6,
+        "h": 6,
+        "measure": 3,
+        "x": 1
+      },
+      "hardware_weighted_error_exposure": 0.07430000000000002,
+      "idle_layer_proxy": 10,
+      "logical_depth": 8,
+      "operation_count": 16,
+      "path": "results/b1_seed_rewritten/10_phase_estimation_toy.qasm",
+      "qubits": 4,
+      "t_count_proxy": 12,
+      "t_depth_proxy": 10,
+      "two_qubit_gate_count": 6,
+      "two_qubit_or_larger_depth_proxy": 8
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "benchmark_id": "B1",
+  "circuit_count": 6,
+  "equivalence_failed": 0,
+  "equivalence_passed": 6,
+  "final_dir": "results/qasmbench_medium_exact_fixed_point_pipeline_work/final",
+  "hardware_weighted_exposure_after": 7.109319999999999,
+  "hardware_weighted_exposure_before": 7.702279999999999,
+  "hardware_weighted_exposure_delta": -0.5929599999999997,
+  "hardware_weighted_exposure_reduction_pct": 7.698499665034246,
+  "logical_depth_after": 1622.0,
+  "logical_depth_before": 2611.0,
+  "logical_depth_delta": -989.0,
+  "logical_depth_reduction_pct": 37.87820758330142,
+  "method": "fixed_point_commuting_1q_plus_iterative_rzz_v0",
+  "operation_count_after": 2145.0,
+  "operation_count_before": 3465.0,
+  "operation_count_delta": -1320.0,
+  "operation_count_reduction_pct": 38.095238095238095,
+  "profile": "heavy_hex_like_sparse",
+  "rzz_passes": [
+    {
+      "mode": "adjacent",
+      "output_dir": "results/qasmbench_medium_exact_fixed_point_pipeline_work/02_rzz_pass",
+      "pass": 1,
+      "windows": 0
+    }
+  ],
+  "two_qubit_gate_count_after": 921.0,
+  "two_qubit_gate_count_before": 921.0,
+  "two_qubit_gate_count_delta": 0.0,
+  "two_qubit_gate_count_reduction_pct": 0.0
+}

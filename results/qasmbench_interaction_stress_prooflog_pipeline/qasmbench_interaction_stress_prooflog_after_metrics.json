@@ -1,0 +1,35 @@
+{
+  "benchmark_id": "B1",
+  "circuit_count": 1,
+  "profile": "heavy_hex_like_sparse",
+  "results": [
+    {
+      "classical_bits": 0,
+      "gate_class_counts": {
+        "measurement": 6,
+        "multi_qubit": 0,
+        "single_qubit": 78002,
+        "two_qubit": 58433
+      },
+      "gate_counts": {
+        "cx": 44417,
+        "h": 5,
+        "measure": 6,
+        "ry": 6617,
+        "rz": 54223,
+        "rzz": 14016,
+        "u3": 17157
+      },
+      "hardware_weighted_error_exposure": 394.43484,
+      "idle_layer_proxy": 899116,
+      "logical_depth": 109399,
+      "operation_count": 136441,
+      "path": "results/qasmbench_interaction_stress_prooflog_pipeline_work/04_rzz_pass/hhl_n10.qasm",
+      "qubits": 10,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 58433,
+      "two_qubit_or_larger_depth_proxy": 109399
+    }
+  ]
+}

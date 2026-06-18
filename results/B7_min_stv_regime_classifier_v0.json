@@ -1,0 +1,197 @@
+{
+  "benchmark_id": "B7",
+  "comparison_count": 18,
+  "deep_factory_locked_count": 10,
+  "factory_bottleneck_after_count": 18,
+  "interpretation": "The remaining minimum-STV row is factory-path dominated; U3 phase factoring improved portfolio mean STV but did not move the sat_n11 minimum row beyond the control-RZ boundary.",
+  "last_updated": "2026-06-15",
+  "limits": [
+    "This classifier consumes B7 logical T-factory schedule rows; it is not a physical layout or lattice-surgery result.",
+    "The target-removal calculation assumes the same factory variant and total physical qubit footprint.",
+    "Logical T-count proxy uses the scheduler fixed rotation cost and should not be treated as a calibrated synthesis cost."
+  ],
+  "method": "b7_min_stv_regime_classifier_v0",
+  "min_rows": [
+    {
+      "after_data_rounds": 1194,
+      "after_factory_batches": 655,
+      "after_factory_count": 8,
+      "after_factory_cycle_rounds": 8,
+      "after_factory_rounds": 5240,
+      "after_factory_to_data_round_ratio": 4.388609715242881,
+      "after_logical_t_count_proxy": 5240,
+      "after_tail_rounds": 8,
+      "before_data_rounds": 1929,
+      "before_factory_rounds": 5880,
+      "before_logical_t_count_proxy": 5880,
+      "bottleneck_after": "factory_path",
+      "bottleneck_before": "factory_path",
+      "factory_variant": "throughput_heavy_factories",
+      "logical_t_count_reduction": 1.1221374045801527,
+      "logical_t_depth_reduction": 1.1428571428571428,
+      "regime": "factory_locked_near_data_path",
+      "space_time_volume_reduction": 1.1219512195121952,
+      "t_count_proxy_to_drop_one_factory_batch": 8,
+      "target_requirements": [
+        {
+          "additional_t_count_proxy_to_remove": 344,
+          "fixed_tail_rounds": 8,
+          "max_critical_rounds": 4906,
+          "max_factory_rounds": 4898,
+          "max_logical_t_count_proxy": 4896,
+          "requires_data_path_reduction": false,
+          "target_stv_reduction": 1.2
+        },
+        {
+          "additional_t_count_proxy_to_remove": 544,
+          "fixed_tail_rounds": 8,
+          "max_critical_rounds": 4710,
+          "max_factory_rounds": 4702,
+          "max_logical_t_count_proxy": 4696,
+          "requires_data_path_reduction": false,
+          "target_stv_reduction": 1.25
+        }
+      ],
+      "workload": "qasmbench_medium_exact/sat_n11.qasm"
+    }
+  ],
+  "min_space_time_volume_reduction": 1.1219512195121952,
+  "min_workload": "qasmbench_medium_exact/sat_n11.qasm",
+  "next_actions": [
+    "Attack sat_n11 logical T-count directly or prove it is a negative boundary for the current local phase passes.",
+    "Replace fixed-cost rotation proxy with a fault-tolerant synthesis ledger to test whether pi/4, arbitrary, and unknown rotations have different factory pressure.",
+    "Add physical layout and feed-forward assumptions before promoting any B7 result beyond proxy status."
+  ],
+  "problem_id": 21,
+  "source_schedule": "results/B7_logical_t_factory_schedule_u3_phase_factored_v0.json",
+  "stage_progression_for_min_workload": [
+    {
+      "mean_logical_t_count_reduction": 1.0,
+      "mean_space_time_volume_reduction": 1.0,
+      "min_logical_t_count_reduction": 1.0,
+      "min_space_time_volume_reduction": 1.0,
+      "path": "results/B7_logical_t_factory_schedule_v0.json",
+      "stage": "virtual_swap"
+    },
+    {
+      "mean_logical_t_count_reduction": 1.0,
+      "mean_space_time_volume_reduction": 1.0,
+      "min_logical_t_count_reduction": 1.0,
+      "min_space_time_volume_reduction": 1.0,
+      "path": "results/B7_logical_t_factory_schedule_post_1q_v0.json",
+      "stage": "post_1q"
+    },
+    {
+      "mean_logical_t_count_reduction": 1.0,
+      "mean_space_time_volume_reduction": 1.0,
+      "min_logical_t_count_reduction": 1.0,
+      "min_space_time_volume_reduction": 1.0,
+      "path": "results/B7_logical_t_factory_schedule_native_v0.json",
+      "stage": "native_z"
+    },
+    {
+      "mean_logical_t_count_reduction": 1.1221374045801527,
+      "mean_space_time_volume_reduction": 1.1220453164444024,
+      "min_logical_t_count_reduction": 1.1221374045801527,
+      "min_space_time_volume_reduction": 1.1219512195121952,
+      "path": "results/B7_logical_t_factory_schedule_control_rz_v0.json",
+      "stage": "control_rz"
+    },
+    {
+      "mean_logical_t_count_reduction": 1.1221374045801527,
+      "mean_space_time_volume_reduction": 1.1220453164444024,
+      "min_logical_t_count_reduction": 1.1221374045801527,
+      "min_space_time_volume_reduction": 1.1219512195121952,
+      "path": "results/B7_logical_t_factory_schedule_u3_phase_factored_v0.json",
+      "stage": "u3_phase_factored"
+    }
+  ],
+  "status": "min_stv_regime_classified_not_physical_layout_claim",
+  "target_reductions": [
+    1.2,
+    1.25
+  ],
+  "title": "B7 minimum-STV regime classifier",
+  "version": "0.1",
+  "workload_count": 6,
+  "workload_summaries": [
+    {
+      "all_factory_bottleneck": true,
+      "dominant_regimes": [
+        "factory_locked_deep",
+        "factory_locked_near_data_path"
+      ],
+      "mean_space_time_volume_reduction": 1.1220453164444024,
+      "min_after_logical_t_count_proxy": 5240,
+      "min_space_time_volume_reduction": 1.1219512195121952,
+      "min_variant": "throughput_heavy_factories",
+      "variant_count": 3,
+      "workload": "qasmbench_medium_exact/sat_n11.qasm"
+    },
+    {
+      "all_factory_bottleneck": true,
+      "dominant_regimes": [
+        "factory_locked_deep",
+        "factory_locked_near_data_path"
+      ],
+      "mean_space_time_volume_reduction": 1.1635834620849028,
+      "min_after_logical_t_count_proxy": 21400,
+      "min_space_time_volume_reduction": 1.163526949241235,
+      "min_variant": "balanced_factories",
+      "variant_count": 3,
+      "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+    },
+    {
+      "all_factory_bottleneck": true,
+      "dominant_regimes": [
+        "factory_locked_deep",
+        "factory_locked_near_data_path"
+      ],
+      "mean_space_time_volume_reduction": 1.1818647374854183,
+      "min_after_logical_t_count_proxy": 52240,
+      "min_space_time_volume_reduction": 1.1818418473600392,
+      "min_variant": "balanced_factories",
+      "variant_count": 3,
+      "workload": "aggregate_30_circuits"
+    },
+    {
+      "all_factory_bottleneck": true,
+      "dominant_regimes": [
+        "factory_locked_deep",
+        "factory_locked_near_data_path"
+      ],
+      "mean_space_time_volume_reduction": 1.2308480323705258,
+      "min_after_logical_t_count_proxy": 6660,
+      "min_space_time_volume_reduction": 1.2302158273381294,
+      "min_variant": "throughput_heavy_factories",
+      "variant_count": 3,
+      "workload": "qasmbench_small/hhl_n7.qasm"
+    },
+    {
+      "all_factory_bottleneck": true,
+      "dominant_regimes": [
+        "factory_locked_deep",
+        "factory_locked_near_data_path"
+      ],
+      "mean_space_time_volume_reduction": 1.3526848409104508,
+      "min_after_logical_t_count_proxy": 5440,
+      "min_space_time_volume_reduction": 1.3524229074889869,
+      "min_variant": "throughput_heavy_factories",
+      "variant_count": 3,
+      "workload": "qasmbench_interaction_exact/basis_trotter_n4.qasm"
+    },
+    {
+      "all_factory_bottleneck": true,
+      "dominant_regimes": [
+        "factory_locked_deep",
+        "factory_locked_near_data_path"
+      ],
+      "mean_space_time_volume_reduction": 1.355337217553657,
+      "min_after_logical_t_count_proxy": 2360,
+      "min_space_time_volume_reduction": 1.3547297297297298,
+      "min_variant": "throughput_heavy_factories",
+      "variant_count": 3,
+      "workload": "qasmbench_medium_exact/qf21_n15.qasm"
+    }
+  ]
+}

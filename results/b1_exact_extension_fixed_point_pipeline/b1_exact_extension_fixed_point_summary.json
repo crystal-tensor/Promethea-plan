@@ -1,0 +1,86 @@
+{
+  "benchmark_id": "B1",
+  "certificate_mode": "local_rewrite_certificates_plus_exact_statevector",
+  "circuit_count": 12,
+  "equivalence_failed": 0,
+  "equivalence_mode": "exact_statevector",
+  "equivalence_passed": 12,
+  "final_dir": "results/b1_exact_extension_fixed_point_pipeline_work/final",
+  "hardware_weighted_exposure_after": 1.7684600000000001,
+  "hardware_weighted_exposure_before": 2.2755199999999998,
+  "hardware_weighted_exposure_delta": -0.5070599999999996,
+  "hardware_weighted_exposure_reduction_pct": 22.283258332161427,
+  "local_certificates": {
+    "rzz_window_resynthesis": {
+      "certificate_type": "local_rewrite_identity_plus_disjoint_commutation",
+      "commuting_disjoint_windows": 0,
+      "cx_removed": 160,
+      "rule": "cx(control,target); rz(theta) target; cx(control,target) -> rzz(theta) control,target",
+      "rzz_inserted": 80,
+      "windows": 80
+    },
+    "single_qubit_block_resynthesis": {
+      "certificate_type": "constructive_1q_unitary_matrix_decomposition",
+      "commuted_disjoint_single_qubit_gates": 864,
+      "identity_gates_removed": 0,
+      "removed_single_qubit_gates": 11,
+      "resynthesized_runs": 11,
+      "rule": "maximal_single_qubit_gate_run -> one u3(theta,phi,lambda)"
+    }
+  },
+  "logical_depth_after": 109.0,
+  "logical_depth_before": 206.0,
+  "logical_depth_delta": -97.0,
+  "logical_depth_reduction_pct": 47.0873786407767,
+  "method": "fixed_point_commuting_1q_plus_iterative_rzz_v0",
+  "operation_count_after": 368.0,
+  "operation_count_before": 539.0,
+  "operation_count_delta": -171.0,
+  "operation_count_reduction_pct": 31.72541743970315,
+  "profile": "heavy_hex_like_sparse",
+  "proof_log_mode": "jsonl_local_rewrite_events_v1",
+  "proof_logs": {
+    "rzz_window_resynthesis": [
+      {
+        "entries": 80,
+        "mode": "adjacent",
+        "pass": 1,
+        "path": "results/b1_exact_extension_fixed_point_pipeline/b1_exact_extension_fixed_point_rzz_pass_1_proofs.jsonl"
+      },
+      {
+        "entries": 0,
+        "mode": "commute_disjoint",
+        "pass": 2,
+        "path": "results/b1_exact_extension_fixed_point_pipeline/b1_exact_extension_fixed_point_rzz_pass_2_proofs.jsonl"
+      }
+    ],
+    "single_qubit_block_resynthesis": {
+      "entries": 11,
+      "path": "results/b1_exact_extension_fixed_point_pipeline/b1_exact_extension_fixed_point_1q_proofs.jsonl"
+    }
+  },
+  "rzz_passes": [
+    {
+      "commuting_disjoint_windows": 0,
+      "cx_removed": 160,
+      "mode": "adjacent",
+      "output_dir": "results/b1_exact_extension_fixed_point_pipeline_work/02_rzz_pass",
+      "pass": 1,
+      "rzz_inserted": 80,
+      "windows": 80
+    },
+    {
+      "commuting_disjoint_windows": 0,
+      "cx_removed": 0,
+      "mode": "commute_disjoint",
+      "output_dir": "results/b1_exact_extension_fixed_point_pipeline_work/03_rzz_pass",
+      "pass": 2,
+      "rzz_inserted": 0,
+      "windows": 0
+    }
+  ],
+  "two_qubit_gate_count_after": 105.0,
+  "two_qubit_gate_count_before": 185.0,
+  "two_qubit_gate_count_delta": -80.0,
+  "two_qubit_gate_count_reduction_pct": 43.24324324324324
+}

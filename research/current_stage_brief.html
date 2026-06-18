@@ -1,0 +1,851 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>未来量子计算研究计划 - 当前进展看板</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17212b;
+      --muted: #5f6f80;
+      --line: #d7e0ea;
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --blue: #185abc;
+      --green: #16805b;
+      --amber: #9a5b00;
+      --red: #b42318;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.58;
+    }
+
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 30px 0 52px;
+    }
+
+    header {
+      padding: 24px 0 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      max-width: 980px;
+      font-size: clamp(30px, 5vw, 50px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin-bottom: 12px;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 7px;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+
+    section {
+      margin-top: 20px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .lead {
+      max-width: 940px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .answer {
+      border-color: #b8d2ff;
+      background: #f2f7ff;
+    }
+
+    .answer strong { color: var(--blue); }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric {
+      min-height: 108px;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfdff;
+    }
+
+    .metric strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--blue);
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .step {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfdff;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 3px 8px;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .done { background: var(--green); }
+    .current { background: var(--blue); }
+    .next { background: var(--amber); }
+    .risk { background: var(--red); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 10px 9px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      background: #fbfdff;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    li + li { margin-top: 7px; }
+
+    code {
+      padding: 2px 5px;
+      border-radius: 4px;
+      background: #eef3f8;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .92em;
+    }
+
+    .ok { color: var(--green); font-weight: 750; }
+    .warn { color: var(--amber); font-weight: 750; }
+    .risk-text { color: var(--red); font-weight: 750; }
+
+    .note {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .scroll {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .dossier-table {
+      min-width: 1120px;
+    }
+
+    .dossier-table td {
+      min-width: 150px;
+    }
+
+    .dossier-table p + p {
+      margin-top: 8px;
+    }
+
+    .progress {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 3px 7px;
+      border-radius: 5px;
+      background: #eef3f8;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    a { color: var(--blue); }
+
+    @media (max-width: 900px) {
+      .metrics, .timeline { grid-template-columns: 1fr; }
+      section { padding: 18px; }
+      table { font-size: 13px; }
+      th, td { padding: 9px 7px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>未来量子计算研究计划：当前进展看板</h1>
+      <p class="lead">
+        这是最新进展页：显示我们从 100 个困难问题目录推进到 Top 10 攻关组合后，当前每条主线做到哪里、还差什么。
+      </p>
+      <div class="chips">
+        <span class="chip">日期：2026-06-18</span>
+        <span class="chip">工作区：/Users/avalok/work/FurturePlan</span>
+        <span class="chip">目标状态：active，未完成</span>
+        <span class="chip">当前阶段：B1-B10 技术解决推进</span>
+        <span class="chip">最新动作：B5 variational MPS/ALS prototype</span>
+        <span class="chip">组合审计：PASS / 0 warnings</span>
+      </div>
+    </header>
+
+    <section class="answer">
+      <h2>一句话进展</h2>
+      <p>
+        我们已经完成 <strong>100 问题目录、Top 20 评分、Top 10 攻关组合、B1-B10 初始原型</strong>，
+        并把主攻线推进到 B1 线路压缩、B2 纠错 baseline、B7 容错资源桥接、B8 验证协议压力测试，以及 B5/B10 强关联响应分母。
+      </p>
+      <p style="margin-top: 10px;">
+        现在还不能声称“攻破 10 个问题”，但已经建立了可审计的研究机器：每个 claim 都有 benchmark、结果文件、限制说明和失败条件。
+      </p>
+      <p style="margin-top: 10px;">
+        新目标更新：Top 10 已补充为详细研究档案，包含问题源头、未解时间、前人路线、里程碑、我们的方案、已完成子问题和剩余步骤。
+      </p>
+      <p style="margin-top: 10px;">
+        目标顺序已纠正：当前主线是先推进 B1-B10 的技术解决；论文、专利、融资和工具只作为技术门槛通过后的后置转化结果。
+      </p>
+      <p style="margin-top: 10px;">
+        目录边界已最终封存：<code>research/problem_catalog_100.md</code> 已升级为 v1.0 frozen catalog，100 个问题均补入学科组群、来源脉络、约略未解时间、核心困难、前人路线/里程碑和项目定位；<code>research/problem_catalog_100.json</code> 逐条补入 <code>discipline_supergroup</code> 与 <code>source_lineage_group</code>，并新增 <code>metadata_completion_scope</code>、<code>source_confidence_labels</code> 与 <code>user_freeze_directive</code>。最终规则：以后不再扩展、重排、替换、重映射 Top 10 或反复润色这 100 个问题本身，只允许只读展示、引用、路由、翻译和审计锁检查。
+      </p>
+      <p style="margin-top: 10px;">
+        最新推进 26：B5/T-B5-003b 已完成 non-exact-state-seeded variational MPS/ALS pressure prototype。新工具覆盖同一组 9 个 B10 D5 Hubbard density-response rows，从产品态加随机扰动出发，使用 one-site generalized-eigenproblem sweeps，测试 bond dimensions 2/4、3 restarts x 8 sweeps；selected mean/max relative response error 为 0.01806/0.03907，selected mean/max energy error per site 为 0.00303/0.00853，min exact-state overlap 为 0.9626，0 行优于 exact-state-seeded MPS pressure reference，validation errors 为 0。它把 B5 从“精确态截断压力参考”推进到“非 exact-seeded 变分 MPS 原型”，但仍不是 canonical-environment production DMRG、不是 2D/doped correlated-matter solver、不是量子 response kernel，也不是 accuracy-per-resource win。
+      </p>
+      <p style="margin-top: 10px;">
+        T-B7-008 已完成 w8_21 same-skeleton exact small-block synthesis。它测试 55 个 one-fixed-angle exact/Clifford 候选、每个 16 个数值 seeds，0 个候选在 1e-8 容差内通过；最佳近似为 a=pi/2，residual norm 3.936e-02，max entry error 1.824e-02，finite-difference rank 为 5。这说明最直接的 same two-CNOT skeleton one-angle exact replacement 路线已关闭；后续 T-B7-009 已跳出同一骨架继续验证。
+      </p>
+      <p style="margin-top: 10px;">
+        T-B7-009 已完成 bounded broad-skeleton exhaustive search：覆盖全 15360 个 two-CNOT / four-Rz/Ry family，每个 2 seeds，共 30720 次优化；0 个候选达到 1e-8 exact gate，最佳 residual norm 为 0.244378。这是该 bounded family 的负结果，但仍不是全局 lower bound；后续已继续补上 Euler-local target-informed 搜索。
+      </p>
+      <p style="margin-top: 10px;">
+        T-B7-009 现已补充 Euler-local target-informed search：固定 source w8_21 的 pi scaffold，允许 pre/mid/post 本地 Rz-Ry-Rz Euler 层中 4 个角自由，完整枚举 500/500 个 target-informed family、3000 次优化；0 个 exact four-arbitrary-angle candidate，最佳 residual norm 仍为 0.244378。这进一步关闭“两 CNOT 下把 w8_21 从 5 个任意角压到 4 个任意角”的核心路线，但仍不声称全局 KAK lower bound。
+      </p>
+      <p style="margin-top: 10px;">
+        T-B7-009 又完成 bounded three-CNOT target-informed search：允许一个额外 CNOT，固定 source pi scaffold，完整枚举 1480/1480 个 family、8880 次优化；0 个 exact four-arbitrary-angle candidate，最佳 residual norm 为 1.035276。这说明在已测试的 target-informed 族里，“多一个 CNOT 换少一个任意角”也没有成功；随后已停止扩展数值搜索，并转为 scoped minimality note 和 claim-boundary paper fragment。
+      </p>
+      <p style="margin-top: 10px;">
+        scoped minimality note 和 claim-boundary paper fragment 已完成：四组搜索合计 43480 次优化，仍没有可验证 exact rewrite；因此 B7 账本中 w8_21 可计入的 arbitrary rotation removal 和 proxy T-ledger removal 都保持为 0。T-B7-009 已关闭为负结果边界：repeated synthesis template 只能作为 catalog/compression signal，不能当作物理资源节省，除非未来拿到 occurrence-removing certificate。
+      </p>
+      <p style="margin-top: 10px;">
+        B2 也完成 T-B2-001 same-hardware schedule candidate、鲁棒性压力测试和 T-B2-002 artifact boundary：候选本体同码族、同距离网格、同 memory basis、同物理 qubit footprint、同 shots、同 PyMatching decoder，仅用 reduced syndrome rounds 作为 volume lever。首轮 120 配置、360000 shots 得到 22 个 Wilson target-volume improved rows，max reduction 3.0x；随后鲁棒性测试扩到 240 配置、1200000 shots，覆盖 higher-shot reseed、0.60/0.75 noise mismatch 和 Clifford-only mechanism。最终边界判定显示：首轮 22 行和压力测试 88 行全部来自 aggressive、distance-3、one-round candidates，非激进 improved rows 为 0；当前 reduced-round lever 已关闭为 small-distance/aggressive-schedule artifact，不是新码、阈值或设备 claim。
+      </p>
+      <p style="margin-top: 10px;">
+        最新推进：B4/B8 已完成 circuit-level hidden-projection refresh proxy。新工具用随机 CNOT 电路导出 hidden projection masks，跑 3 个 circuit-derived tasks / 192 configs；honest completeness 为 1.0，无刷新 0.75 leakage 下 adaptive soundness 最高 0.675，projection rotation、challenge refresh、refresh-plus-rotation 三种修复在 high-leakage 下都压到 <=5% soundness。它仍是 CNOT/projection proxy，不是 quantum advantage 或硬件 randomized-measurement 协议。
+      </p>
+      <p style="margin-top: 10px;">
+        最新推进 2：B8/T-B8-002 已完成 trained/generative spoofer refresh stress。训练式 projection generator 在无刷新 high leakage 下 learned soundness 达到 1.0，说明 verifier burden 真实存在；在同一 proxy 中 projection_rotation、challenge_refresh、refresh_plus_rotation 都保持 <=5% high-leakage learned soundness。这给 B10-T2 一个明确 proof obligation：sampling-advantage verification 不能省略 projection rotation 或更强 refresh 条件。
+      </p>
+      <p style="margin-top: 10px;">
+        最新推进 3：B10/T-B10-002 已完成 refresh proof-obligation gate。它把 B8 的训练式 spoofer 边界转成 B10-T2 的定理闸门：无刷新 high leakage claim 被拒绝；projection rotation/challenge refresh 只是下一步可尝试证明的条件；当前 CNOT hidden-projection proxy 明确不足以支撑通用 soundness lemma。
+      </p>
+      <p style="margin-top: 10px;">
+        最新推进 4：B10/T-B10-003 已完成 restricted refresh-independence soundness lemma。在明确 bounded-leakage transcript model 且至少一个 refreshed predicate 对攻击者未知并独立的条件下，Hoeffding bound 给出当前 proxy 参数的单未知 predicate soundness 上界 8.94e-44；这仍不是硬件 verifier、cryptographic soundness、sampling hardness 或 BQP 分离。
+      </p>
+      <p>
+        最新推进 5：B10/T-B10-004 已完成 transcript leakage simulator。新工具跑 192 个配置，honest completeness 为 1.0；无刷新 high leakage 仍不安全；projection_rotation、challenge_refresh、refresh_plus_rotation 在 high leakage 下保留至少 6 个 unknown independent predicates，max empirical soundness 为 0.025。它支持 restricted lemma 的 transcript 假设，但仍不是硬件 randomized-measurement verifier、sampling-hardness proof 或 BQP 分离。下一步已切到 T-B10-005：硬件可执行 randomized-measurement circuits 或 device-noise transcript bridge。
+      </p>
+      <p>
+        最新推进 6：B10/T-B10-005 已完成 device-noise transcript bridge。新工具跑 480 个配置、5 个噪声 profile；bounded bridge profiles 的 honest completeness 为 1.0，challenge_refresh / refresh_plus_rotation 在 high leakage 下 max empirical soundness 为 0.0208，至少保留 7 个 unknown independent predicates。projection_rotation 在 low_noise_bridge 下达到 0.0625，被降级为 margin-sensitive；calibration_side_channel 被拒绝。下一步切到 T-B10-006：硬件可执行 randomized-measurement circuits 或 Qiskit/Aer circuit-level verifier bridge。
+      </p>
+      <p>
+        最新推进 7：B10/T-B10-006 已完成 ideal Qiskit/Aer circuit-level verifier bridge。新工具实例化 216 个 randomized parity-verifier circuits，最大线路规模为 30 qubits（含 verifier ancillas），Aer semantic mismatch 为 0，honest completeness 为 1.0。它证明 verifier circuit construction 能被 Qiskit/Aer 执行并与 GF(2) 语义一致；device-noise/adversary soundness 仍继承自 transcript bridge，因此这仍不是真实硬件执行、sampling-hardness proof 或 BQP 分离。
+      </p>
+      <p>
+        最新推进 8：B10/T-B10-007 已完成 noisy Qiskit/Aer verifier bridge。新工具执行 9600 个 noisy randomized parity-verifier circuits，覆盖 5 个 noise profiles、honest inputs 和 4 类 circuit-level adversary input families；bridge-safe 的 challenge_refresh / refresh_plus_rotation 模式下，bounded profiles 的 noisy honest acceptance 为 1.0，noisy adversary acceptance 为 0.0，max honest predicate-bit error 为 0.1125，至少保留 7 个 unknown independent predicates。calibration_side_channel 继续被拒绝；这仍不是 calibrated backend、真实硬件执行、sampling-hardness proof 或 BQP 分离。下一步切到 T-B10-008：backend-calibrated noise parameters 或硬件 randomized-measurement verifier。
+      </p>
+      <p>
+        最新推进 9：B10/T-B10-008 已完成 backend-calibrated-style verifier bridge。新工具从 Qiskit GenericBackendV2 target InstructionProperties 派生 per-qubit readout errors 和 per-gate depolarizing errors，执行 5760 个 randomized parity-verifier circuits，覆盖 3 个 calibration snapshots；bridge-safe 的 challenge_refresh / refresh_plus_rotation 模式下，calibrated honest acceptance 为 1.0，calibrated adversary acceptance 为 0.25，max honest predicate-bit error 为 0.0703125，至少保留 7 个 unknown independent predicates。no-refresh 仍不安全；这仍不是真实 backend properties、硬件执行、sampling-hardness proof 或 BQP 分离。下一步切到 T-B10-009：real backend properties 或硬件 randomized-measurement verifier。
+      </p>
+      <p>
+        最新推进 10：B9/T-B9-001 已完成 failed gap-amplification negative lemma。新工具从 exact local-Hamiltonian gap lab 中提炼一个有限实例负引理：raw spectral-gap growth 不能单独作为 local-Hamiltonian gap-amplification certificate，必须同时检查 locality、ground-space overlap 和 normalized-gap improvement。当前 v0 screen 有 0 个 accepted local candidates、4 个 strict width-trap counterexamples、9 个 dense locality traps 和 5 个 proof obligations；这不是 Quantum PCP proof、NLTS theorem、local-Hamiltonian hardness theorem 或 global gap-amplification impossibility。下一步切到 T-B9-002：symbolic family statement 或 proof-assistant skeleton。
+      </p>
+      <p>
+        最新推进 11：B9/T-B9-002 已完成 symbolic/proof-assistant skeleton。新工具生成 Lean-style skeleton 文件，包含 5 个 symbolic definitions、3 个 theorem skeletons 和 5 个继承的 open obligations，把 raw-gap growth、normalized-gap failure、locality failure 分开建模。它继承 4 个 strict counterexamples 和 9 个 dense locality traps，但明确不是 proof-assistant checked theorem、不是 Quantum PCP proof，也不是 global gap-amplification impossibility。下一步切到 T-B9-003：在命名 Hamiltonian family 上实例化 skeleton，并给出 analytic spectral-width/locality bounds 后做真实 proof-check。
+      </p>
+      <p>
+        最新推进 12：B9/T-B9-003 已完成 named-family width/locality bound skeleton。新工具把 symbolic skeleton 实例化到 <code>cluster_stabilizer_open_uniform_reweight</code>：n=4,5,6 三条有限行中所有 open-boundary cluster-stabilizer 项都为 support 2 或 3，因此 <code>local_interaction_reweight_v0</code> 对所有项统一乘以 1.35；raw gap 放大、max locality 保持 3、谱宽同倍放大、normalized gap 保持不变。该 certificate 被拒绝为 global energy rescaling，不是 Quantum PCP proof、NLTS theorem 或 global no-go theorem；本机 PATH 上的 <code>lean</code> 命令检查失败，下一步切到 T-B9-004：建立真正 Lean/mathlib 或等价 proof-check 环境并形式化全 n 引理。
+      </p>
+      <p>
+        最新推进 13：B2/T-B2-002 已完成 reduced-round artifact boundary。新工具复查 same-hardware reduced-round candidate 与 robustness stress：首轮 22 个 Wilson target-volume improved rows、压力测试保留的 88 个 improved rows，全都来自 aggressive、distance-3、one-round candidates；robust non-aggressive improved rows 为 0。因此当前 reduced-round lever 已关闭为 small-distance/aggressive-schedule artifact boundary，不再允许把它作为低开销量子纠错、新码、阈值或设备 claim 接入 B7。下一步切到 T-B2-003：换一个真正不同的 B2 机制，例如非激进 schedule、不同 code family、leakage-aware circuit model 或 larger-distance decoder improvement。
+      </p>
+      <p>
+        最新推进 14：B3/T-B3-001 已完成 reaction-coordinate quantum observable-estimation circuit proxy vs FCI denominator。新工具生成 4 个 OpenQASM observable-estimation proxy circuits，对齐 B10-T1 的四条 FCI reaction-coordinate derivative rows；最大线路规模 21 qubits、441 个 controlled-phase gates，显式记录 measurement-shot floors，FCI denominator beaten count 为 0。这是可审计的线路/分母比较 artifact，不是 chemistry accuracy、quantum advantage 或完整 reaction-dynamics solution。下一步切到 T-B3-003：用 chemistry mapper 生成 Hamiltonian Pauli-term circuits，加入 state-preparation 和 observable-variance cost，再和 FCI / selected-CI denominator 比较。
+      </p>
+      <p>
+        最新推进 15：B3/T-B3-003 已完成 Hamiltonian Pauli-term mapper comparison。新工具使用 Qiskit Nature Jordan-Wigner mapper，从 PySCF/FCI 同四条 reaction-coordinate rows 生成 4 个 Hamiltonian Pauli measurement QASM packets；最大 20 qubits、2951 个 mapped Pauli terms、16 个 packet measurement terms，显式加入 Hartree-Fock state-preparation X-gate cost 和 Pauli-estimator variance shot floor。最重的 N2 row 保守 total measurement shot floor 为 30,504,129,929，FCI denominator wins 仍为 0。这关闭了“只是 phase-kickback proxy”的缺口，但暴露出 Pauli measurement variance 与 state-preparation 成本是下一道硬瓶颈。下一步切到 T-B3-004：sampled Pauli-estimator confidence intervals 或 selected-CI/larger-active-space denominator。
+      </p>
+      <p>
+        最新推进 16：B3/T-B3-004 已完成 sampled Pauli-estimator confidence interval artifact。新工具在 Hamiltonian-mapped rows 上重新计算 Hartree-Fock bitstring 下的 Pauli expectation/variance，使用固定 seed 和每个 random Pauli term 2048 pilot shots，输出 z=2.576 置信区间；4 条 pilot CI 都覆盖 exact HF Pauli energy。Neyman allocation 后 max target shot floor 降到 6,570,468，相比上一轮 conservative upper-bound floor 的改善范围为 442x-34,544x。它仍是 HF-bitstring sampling baseline，不含 selected-CI/larger-active-space denominator，不是 quantum advantage。下一步切到 T-B3-005：加入 selected-CI 或 larger-active-space denominator，并把 ansatz/state-preparation 与 Pauli grouping 一起入账。
+      </p>
+      <p>
+        最新推进 17：B3/T-B3-005 已完成 selected-CI larger-basis denominator and grouped Pauli boundary。新工具在同四条 reaction coordinates 上生成 selected-CI 三点差分分母：H2/LiH 使用 cc-pVDZ，H2O/N2 使用 3-21G；4 条 selected-CI larger-basis rows 全部收敛，max 19 spatial orbitals / 38 spin-orbital qubits，max selected determinant product 400。Pauli 侧加入 QWC grouping 和 two-layer ansatz state-preparation surcharge，packet reduction 为 1.0x-4.17x，但 max ansatz two-qubit executions 达 289,100,592；larger-basis denominator beaten count 仍为 0。这把 B3 从“只缺 selected-CI 分母”推进到“强分母压力测试已接入但仍未赢”，下一步切到 T-B3-006：映射同一 larger-basis Hamiltonian，或用 UCC/ADAPT/adiabatic state-preparation 成本替换通用 ansatz surcharge。
+      </p>
+      <p>
+        最新推进 18：B3/T-B3-006 已完成 larger-basis Hamiltonian mapper boundary。新工具把 T-B3-005 的同一 selected-CI denominator bases 全部映射到 Jordan-Wigner qubits：4 条 rows，max 38 qubits，max 77,858 Pauli terms，max Pauli weight 38，max conservative same-basis bucket count 77,116。按 selected-CI derivative 目标误差重新估算后，max Neyman target shot floor 为 6,464,114,739，max ansatz two-qubit executions 为 956,688,981,372；selected-CI larger-basis denominator beaten count 仍为 0。这个结果关闭了“没有 larger-basis quantum mapper”的缺口，但也暴露出下一硬门槛：需要真实 QWC/commuting-cover optimizer 或 UCC/ADAPT/adiabatic state-preparation 成本，不能用保守 same-basis buckets 宣称优势。
+      </p>
+      <p>
+        最新推进 19：B3/T-B3-007 已完成 larger-basis QWC grouping boundary。新工具在四个 larger-basis Hamiltonian Pauli sets 上跑 bitmask first-fit QWC cover，把保守 same-basis bucket 数压缩 3.09x-3.96x：H2 为 2,740 -> 886，LiH 为 77,116 -> 19,644，H2O 为 12,380 -> 3,129，N2 为 33,988 -> 9,475，max group size 为 291。它是实际 measurement-setting reduction，但还没有传播 grouped-observable covariance，因此 Neyman shot floor 暂不下降，selected-CI larger-basis denominator wins 仍为 0。下一步 T-B3-008：传播 grouped covariance 判断 shot floor 是否真正下降，或接入 UCC/ADAPT/adiabatic state-preparation 成本。
+      </p>
+      <p>
+        最新推进 20：B3/T-B3-008 已完成 grouped covariance shot-floor boundary。新工具在同一 larger-basis QWC cover 内传播 HF product-state grouped-observable covariance，用 group-level Neyman 公式 N=(sum_g sqrt(Var_g)/epsilon)^2 重新估计 shot floor。四条 rows 的 independent-term shot floor 下降 4.91x-5.58x：H2 为 354,329,749 -> 63,465,167，LiH 为 6,464,114,739 -> 1,283,900,037，H2O 为 1,154,398,231 -> 215,312,646，N2 为 6,079,672,376 -> 1,238,924,735；max nonzero covariance pairs 为 73,474，max ansatz two-qubit executions 降到 190,017,205,476。它证明 QWC + HF grouped covariance 能真实降低 measurement shot floor，但仍没有 correlated chemical-state covariance、UCC/ADAPT/adiabatic state-prep，也没有 selected-CI larger-basis denominator win；下一步 T-B3-009。
+      </p>
+      <p>
+        最新推进 21：B3/T-B3-009 已完成 chemical state-preparation derivative boundary。新工具把 grouped-covariance energy shot floor 传播到三点 finite-difference derivative error，因 delta=0.01，shot floor 统一放大 10,000x：最大行从 1,283,900,037 上升到 12,839,000,370,000。它同时加入 UCCSD、ADAPT-VQE-envelope、adiabatic-envelope 三种制备成本：max UCCSD prep 为 1,493,030 个 two-qubit gates，max ADAPT prep 为 11,248，max adiabatic prep 为 28,120，max UCCSD executions 达 18,497,517,970,970,500,000。这个结果说明“导数级误差 + 化学态制备成本”会吞掉上一轮测量节省；当时 sampled correlated-state covariance 仍未完成，denominator wins 仍为 0，后续已由 T-B3-010 接续为 one-parameter compiled covariance pilot。
+      </p>
+      <p>
+        最新推进 22：B3/T-B3-010 已完成 compiled UCC/ADAPT covariance pilot。新工具在 H2/cc-pVDZ 上构造 one-parameter compiled UCC-double / ADAPT-seed state，并对 48 个 basis weight <=12 的 sampleable QWC groups 做 512 shots/group 抽样协方差校验，pilot 总测量 shots 为 24,576，mean/max relative variance error 为 0.0068/0.0827。完整 QWC cover 的 exact compiled-state center shot floor 为 66,955,026，反而略差于 HF center floor 63,465,167；三点导数 shot floor 为 669,550,260,000，optimizer-loop total shots 为 24,773,359,620,000，optimizer-loop two-qubit executions 为 7,531,101,324,480,000。结论是：真实编译态协方差管线已经跑通，但没有 denominator win；它不是 converged VQE/ADAPT，不是 all-groups/all-molecules sampled covariance，也不是 reaction-dynamics solution；后续已由 T-B3-011 扩展为 cross-molecule pressure/demotion boundary。
+      </p>
+      <p>
+        最新推进 23：B3/T-B3-011 已完成 cross-molecule UCC/ADAPT pressure and demotion boundary。新工具把 one-parameter compiled UCC-double / ADAPT-seed pressure 扩到 H2、LiH、H2O、N2 四个分子；每个分子最多取 96 个 high-coefficient、basis weight <=12 的 Pauli terms，做 bounded QWC 子集抽样，总 sampled groups 为 35，384 shots/group，mean/max relative variance error 为 0.0833/0.5029。即使用乐观 HF grouped-covariance derivative floors 作为 lower bound，max optimizer-loop shots 仍达 475,043,013,690,000，max optimizer-loop 2Q executions lower bound 为 281,225,464,104,480,000；denominator wins 仍为 0。因此 B3 当前被建议降级为 negative-boundary track，除非后续 T-B3-012 拿到真正 multi-parameter UCCSD/ADAPT covariance 或强于 QWC 的测量策略。
+      </p>
+      <p style="margin-top: 10px;">
+        B10 target cards 仍保留：B10-T2 继续约束 sampling advantage 接入 B4/B8 verification layer 时的 leakage 与 challenge-refresh 条件。B2 的历史 biased-schedule sweep 只有 target-hit 改善、volume improvement 为 0；本轮 same-hardware reduced-round candidate 首次给出 Wilson target-volume positive diagnostic，但 T-B2-002 已把它关闭为 small-distance/aggressive-schedule artifact boundary。B3 的 proxy circuit comparison、Hamiltonian Pauli mapper comparison、sampled Pauli confidence artifact、selected-CI grouped Pauli boundary、larger-basis Hamiltonian mapper、larger-basis QWC grouping、grouped covariance shot-floor、chemical prep derivative boundary、compiled UCC/ADAPT covariance pilot 和 cross-molecule pressure/demotion boundary 都已接入 portfolio audit；结果仍是 0 个 FCI / selected-CI larger-basis denominator wins。
+      </p>
+    </section>
+
+    <section>
+      <h2>总览指标</h2>
+      <div class="metrics">
+        <div class="metric">
+          <strong>100</strong>
+          <span>困难问题目录已补全并冻结</span>
+        </div>
+        <div class="metric">
+          <strong>10</strong>
+          <span>Top 10 攻关方向已进入 execution board</span>
+        </div>
+        <div class="metric">
+          <strong>6</strong>
+          <span>当前重点推进线：B1 / B2 / B3 / B7 / B8 / B10</span>
+        </div>
+        <div class="metric">
+          <strong>PASS</strong>
+          <span>portfolio audit 通过，0 warnings</span>
+        </div>
+      </div>
+      <p class="note">
+        冻结目录：<code>research/problem_catalog_100.md</code>；
+        机器可读冻结索引：<code>research/problem_catalog_100.json</code>，含 9 个学科超组、4 类来源组群、逐条学科/来源路由字段、A/B/C/D 来源置信标签、metadata completion scope、user freeze directive 与 freeze_lock；
+        来源注册：<code>research/source_registry.md</code>。
+        新增可追踪档案：<code>research/top10_problem_dossiers.md</code>、<code>research/top10_problem_dossiers.json</code>、
+        <code>research/technical_resolution_program.md</code>、<code>research/technical_resolution_program.json</code>；
+        转化管线已保留为后置停车场。
+      </p>
+    </section>
+
+    <section>
+      <h2>技术解决优先级</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>优先级</th>
+            <th>主线</th>
+            <th>为什么先做</th>
+            <th>下一技术门槛</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>B1 -> B2 -> B7 systems spine</td>
+            <td>B1 已有 proof replay、virtual-SWAP elimination 和弱 T-resource 诊断，B2 已有真实 Stim/PyMatching baseline、circuit-level schedule/noise sweep 与 reduced-round artifact boundary，B7 能把二者转成资源账本。</td>
+            <td>B1 native-basis non-Clifford/T-depth optimizer；B2 当前 reduced-round 路线已关闭为 artifact boundary，下一步必须换非激进 schedule、不同 code family、leakage-aware circuit model 或 larger-distance decoder improvement；B7 需要让 min factory STV 也大于 1.0x。</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>B4 -> B8 verification spine</td>
+            <td>已经发现 0.75 leakage 失败边界，并把 challenge refresh / projection rotation 放入 B4/B8 circuit-derived hidden-projection proxy；T-B10-006 把 hidden-predicate verifier 实例化为 Qiskit/Aer circuits，0 semantic mismatch；T-B10-007 完成 9600 条 noisy Aer verifier circuits；T-B10-008 又完成 5760 条 GenericBackendV2 target-property-derived calibrated-style circuits。</td>
+            <td>下一步从 GenericBackendV2 calibration-style bridge 升级到 real backend properties 或硬件 randomized-measurement verifier。</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>B10/B9 theory guardrails</td>
+            <td>防止我们把 oracle、data loading、verification gap 或 toy gap lab 误包装成真正突破。</td>
+            <td>B10 已有两个 formal theorem target cards，并完成 B10-T1 explicit-I/O negative-boundary lemma、source-backed denominator baseline note、16-instance CG/LSQR table、9-instance B5 Hubbard D5 table、B5 oracle-tuned / non-oracle response embedding denominators、B5 exact-state-seeded MPS/Schmidt pressure reference、B5 non-exact-state-seeded variational MPS/ALS prototype、4-row Hamiltonian-derived B3 reaction D5 table、4-row RHF/MP2/CCSD correlated B3 reference table、4-row FCI-strength B3 reference table；B3 也已完成 4 个 OpenQASM quantum observable-estimation proxy circuits、4 个 Hamiltonian Pauli-term mapper QASM packets、sampled Pauli-estimator confidence intervals、selected-CI larger-basis grouped Pauli boundary、larger-basis Hamiltonian mapper boundary、larger-basis QWC grouping boundary、grouped covariance shot-floor boundary、chemical state-prep derivative boundary、H2/cc-pVDZ compiled UCC/ADAPT covariance pilot 和 cross-molecule pressure/demotion boundary；B10-T2 现在已有 refresh proof-obligation gate、restricted soundness lemma、transcript/device-noise bridge、ideal Qiskit/Aer bridge、noisy Aer bridge 和 GenericBackendV2 backend-calibrated-style bridge；B9 已有 finite-instance failed gap-amplification negative lemma、Lean-style symbolic skeleton 和 cluster-stabilizer named-family width/locality bound skeleton；下一步是把 B5 MPS/ALS prototype 替换成真实 production DMRG/MPS reference 或真实 response kernel 对比、B3 rescue-only 机制、B10-T2 real-backend/hardware verifier execution，或把 B9 命名族结果放进真正 proof-check 环境。</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>B3/B5/B6 application spine</td>
+            <td>化学和材料方向更接近未来价值，但现在证据还停在 proxy/toy，需要真实路径和强 classical baseline。</td>
+            <td>B3 已完成 proxy circuit、Hamiltonian Pauli mapper、sampled confidence boundary、selected-CI larger-basis grouped Pauli boundary、larger-basis Hamiltonian mapper、larger-basis QWC grouping、HF grouped covariance shot-floor、chemical state-prep derivative boundary、H2/cc-pVDZ one-parameter compiled UCC/ADAPT covariance pilot 和 H2/LiH/H2O/N2 cross-molecule pressure boundary；当前建议降级为 negative-boundary track，只有 T-B3-012 rescue 机制通过后才继续；B5 已补 oracle-tuned/non-oracle response denominators、exact-state-seeded MPS pressure reference 和 non-exact-state-seeded variational MPS/ALS prototype；下一步是真实 production DMRG/MPS reference 或 quantum response-kernel costed comparison；B6 real/curated materials leakage audit。</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">
+        论文、专利、融资、工具不会删除，但现在被降级为后置停车场；只有通过技术门槛的方向才进入转化。
+      </p>
+    </section>
+
+    <section>
+      <h2>阶段位置</h2>
+      <div class="timeline">
+        <div class="step">
+          <span class="tag done">完成</span>
+          <h3>阶段 0：问题地图</h3>
+          <p>100 个困难问题目录已补全元数据并冻结；Top 20 证据图、Top 10 攻关包已建立。</p>
+        </div>
+        <div class="step">
+          <span class="tag done">完成</span>
+          <h3>阶段 1A：原型启动</h3>
+          <p>B1-B10 都已有 benchmark/prototype artifact，并接入组合审计。</p>
+        </div>
+        <div class="step">
+          <span class="tag current">当前</span>
+          <h3>阶段 1B：证据加固</h3>
+          <p>B1/B2/B3/B7/B8/B10 已从 toy/proxy 进入更强 baseline、真实 sweep、bridge、stress-test、circuit-vs-denominator comparison、Hamiltonian Pauli mapper cost boundary 或 source-backed boundary note。</p>
+        </div>
+        <div class="step">
+          <span class="tag next">下一步</span>
+          <h3>阶段 2：真实基线</h3>
+          <p>接入 calibrated hardware、larger code distance、真实 workload DAG、challenge refresh。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>主线进展</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>方向</th>
+            <th>最新做到</th>
+            <th>当前判断</th>
+            <th>下一步</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>B1 硬件感知量子线路压缩</td>
+            <td>virtual-SWAP elimination 覆盖 30/30 circuits；control-RZ pass 删除 380 个 RZ，T-count proxy 1.119320x；U3 phase-factored pass 又分解 1641 个 U3、删除 313 个 RZ，T-count proxy 相对 control-RZ 再提升 1.036371x，Aer 30/30 通过。</td>
+            <td><span class="ok">最强候选</span>，B1 已经从路由/门数压缩推进到可传递给 B7 的 T-resource proxy；但仍是 diagnostic，不是最终设备 claim。</td>
+            <td>T-B7-009 已关闭为 claim-boundary fragment；下一步回到 T-B1-004，或进入 T-B7-010 的 symbolic KAK/Clifford-scaffold proof / alternate rewrite。</td>
+          </tr>
+          <tr>
+            <td>B2 低开销量子纠错</td>
+            <td>Stim/PyMatching baseline：30 配置、90,000 shots；Wilson target-volume 表：40 组合，22 达标、18 未达标；真实 biased-schedule/noise sweep：90 配置、270,000 shots，让 candidate-met target 从 22 提到 26；same-hardware reduced-round candidate：120 配置、360,000 shots，让 candidate-met target 到 30，22 个 volume-improved rows，max reduction 3.0x；robustness stress：240 配置、1,200,000 shots，88 个 improved rows 全部来自 aggressive d-4，非激进 d-2 为 0；artifact boundary 确认所有 improved rows 都是 aggressive、distance-3、one-round。</td>
+            <td><span class="warn">首次 Wilson target-volume 正向诊断已关闭为 artifact boundary</span>：信号在压力测试下仍存在，但只依赖 aggressive d=3 one-round reduced schedule，仍不是新码、阈值或 calibrated-device claim。</td>
+            <td>下一步 T-B2-003：换一个真正不同的 B2 机制，要求非激进或 larger-distance rows 能通过 noise-mismatch Wilson target-volume stress。</td>
+          </tr>
+          <tr>
+            <td>B7 容错架构 co-design</td>
+            <td>workload-DAG factory schedule：mean STV reduction 1.475x；FT synthesis ledger：sat_n11 balanced/throughput STV 1.611481x，新 min row 为 gcm_h6 1.086008x；T-B7-004 显示 precision-aware budgets 不能清 1.20x；T-B7-005 显示保守同轴局部合并也无法减少 arbitrary rotations；T-B7-006 显示 repeated-angle cache 不减少 FT T ledger；T-B7-007 发现 w8_21 覆盖 100 个任意旋转 occurrence；T-B7-008/T-B7-009 已连续关闭 same-skeleton、broad-skeleton、target-informed Euler-local 和 bounded three-CNOT 的 four-arbitrary replacement 路线。</td>
+            <td><span class="ok">旧 sat_n11 卡点已被重分类</span>，但 gcm_h6 成为新的 sensitivity/ledger boundary；precision-aware synthesis 和 local same-axis merge 都不能解决。</td>
+            <td>下一步 T-B7-010：只有找到新的 symbolic KAK/Clifford-scaffold 论证或不同 occurrence-removing rewrite 时才继续；不能再把 repeated template 直接计为物理 savings。</td>
+          </tr>
+          <tr>
+            <td>B8 量子输出经典验证</td>
+            <td>新增 adaptive leakage stress test、challenge-refresh repair baseline、B4/B8 circuit-refresh proxy、trained/generative spoofer stress、B10-T2 refresh proof-obligation gate、restricted lemma、transcript/device-noise bridge、ideal Qiskit/Aer verifier bridge、noisy Aer verifier bridge 和 backend-calibrated-style verifier bridge：5760 GenericBackendV2 calibrated-style circuits，safe-mode adversary acceptance 0.25；强刷新 transcript high-leakage max soundness 0.0208。</td>
+            <td><span class="ok">已从 toy repair 推进到 learned-spoofer boundary、proof gate、受限 lemma、transcript/device-noise bridge、ideal Aer circuit bridge、noisy Aer bridge 和 GenericBackendV2 calibration-style bridge</span>；仍不是硬件 randomized-measurement verifier、cryptographic soundness 或 sampling-hardness proof。</td>
+            <td>下一步做 real backend properties bridge 或硬件 randomized-measurement verifier。</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">
+        这四条线目前构成最清晰的系统级路径：B1 压缩线路，B2 给出纠错 baseline，B7 转成容错资源影响，B8/B4 给出验证协议边界。
+      </p>
+    </section>
+
+    <section>
+      <h2>Top 10 状态</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>编号</th>
+            <th>方向</th>
+            <th>当前成熟度</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>B1</td><td>硬件感知量子线路压缩</td><td><span class="ok">证据最强</span>：proof log、Aer cross-check、virtual-SWAP 诊断和弱 T-resource 诊断齐备。</td></tr>
+          <tr><td>B2</td><td>低开销量子纠错</td><td><span class="warn">同硬件 reduced-round positive diagnostic 已关闭为 artifact boundary</span>：120 配置候选给出 22 个 improved rows；240 配置、1.2M-shot stress 保留 88 个 improved rows；全部都是 aggressive、distance-3、one-round，非激进 improved rows 为 0。</td></tr>
+          <tr><td>B3</td><td>分子反应动力学</td><td><span class="risk-text">已降级为 negative-boundary track</span>：T-B3-011 覆盖 H2/LiH/H2O/N2 bounded sampled covariance pressure，35 sampled groups、mean/max variance error 0.0833/0.5029；max optimizer-loop shots lower bound 475,043,013,690,000，denominator wins 为 0。只有 rescue-only multi-parameter UCCSD/ADAPT 或更强测量策略出现后才继续作为突破候选。</td></tr>
+          <tr><td>B4</td><td>可验证量子优势</td><td><span class="warn">已有 B4/B8 CNOT hidden-projection circuit proxy</span>，但仍不是 quantum advantage 或硬件协议。</td></tr>
+          <tr><td>B5</td><td>强关联物质</td><td><span class="warn">Hubbard exact/cluster proxy + denominators + MPS/ALS prototype</span>：variational MPS/ALS prototype 覆盖 9 个 B10 D5 density-response rows，bond dimensions 2/4，3 restarts x 8 sweeps，selected mean/max relative response error 0.01806/0.03907，min exact-state overlap 0.9626，0 行优于 seeded MPS pressure reference；仍需真实 production DMRG/MPS reference 或真实量子 response-kernel costed comparison。</td></tr>
+          <tr><td>B6</td><td>高温超导搜索</td><td><span class="warn">toy descriptor ranking</span>，需要真实材料数据和 leakage 控制。</td></tr>
+          <tr><td>B7</td><td>容错架构 co-design</td><td><span class="warn">已有 B1/B2 bridge、DAG/factory schedule、T-factory 边界测试和 post-1Q retest</span>，mean STV 变为 1.034x，但 min STV 仍需突破。</td></tr>
+          <tr><td>B8</td><td>量子输出经典验证</td><td><span class="ok">已有 adaptive leakage 边界、toy repair baseline、B4/B8 circuit-refresh proxy、trained-spoofer boundary、B10-T2 proof gate、restricted lemma、transcript/device-noise bridge、ideal Qiskit/Aer verifier bridge、noisy Aer verifier bridge 和 GenericBackendV2 backend-calibrated-style verifier bridge</span>，下一步 real backend / hardware verifier。</td></tr>
+          <tr><td>B9</td><td>Quantum PCP / Local Hamiltonian</td><td><span class="risk-text">高风险理论线</span>，已有 exact gap lab、finite-instance failed gap-amplification negative lemma、Lean-style symbolic skeleton 和 cluster-stabilizer named-family width/locality bound：n=4,5,6 全部 term 统一 1.35x 缩放，max locality 3，raw gap 放大但 normalized gap 不变；下一步 T-B9-004 做真正 proof-check。</td></tr>
+          <tr><td>B10</td><td>BQP 边界地图</td><td><span class="ok">负边界 + B3/B5 observable 分母表 + B10-T2 restricted lemma + transcript/device-noise/Qiskit-Aer/backend-calibrated-style bridge</span>：已有 12-node/14-edge graph、2 个 formal target cards、B10-T1 explicit-I/O accounting lemma、6 个 source anchors、5 个 denominator baselines、16 个 CG/LSQR rows、9 个 B5 Hubbard D5 rows、B5 oracle/non-oracle denominators、seeded MPS pressure reference 与 variational MPS/ALS prototype、4 个 Hamiltonian-derived B3 reaction D5 rows、4 个 RHF/MP2/CCSD correlated B3 reference rows、4 个 FCI-strength B3 reference rows；B10-T2 GenericBackendV2 bridge 是 calibrated-style simulator evidence，不是 BQP 分离、真实 backend、硬件 verifier 或 sampling-hardness proof。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Top 10 详细问题档案</h2>
+      <p class="note">
+        这里的“提出者”按研究源头或代表性奠基工作记录；许多问题不是由单个人正式提出，而是在一条学术路线中逐渐凝结成开放难题。
+        进度分数表示我们内部 artifact 的成熟度，不表示该世界级问题已经被解决。
+      </p>
+      <div class="scroll">
+        <table class="dossier-table">
+          <thead>
+            <tr>
+              <th>问题</th>
+              <th>要解决什么</th>
+              <th>源头与未解时间</th>
+              <th>当下困难</th>
+              <th>前人方案与里程碑</th>
+              <th>我们的方案与当前已完成</th>
+              <th>离完整解决还差什么</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>B1</strong><br>硬件感知量子线路压缩</td>
+              <td>把同一个量子算法编译成更少双量子门、更短深度、更低错误暴露的设备可运行线路，同时保留严格语义等价或可审计近似边界。</td>
+              <td>源头可追到通用量子门分解和量子编译传统，代表性节点包括 Barenco 等人的 elementary gates、NISQ 后的 SABRE qubit mapping。作为“实用硬件感知编译”难题，已持续约 10 年；作为通用编译优化问题，约 30 年以上。</td>
+              <td>难在等价验证、路由、测量语义、噪声模型、设备耦合图和动态线路会互相牵制。少一个 SWAP 不一定降低真实错误；降低深度也可能增加高错误门。</td>
+              <td>前人路线包括 peephole rewrite、phase polynomial、ZX-calculus、SAT/SMT synthesis、tensor equivalence、Qiskit/tket transpiler、SABRE/LightSABRE mapping。里程碑是从抽象门分解走到 NISQ 设备拓扑感知路由。</td>
+              <td>
+                我们的方案是 proof-logged local rewrite 加 measurement-aware virtual-SWAP elimination，再用 post-virtual-SWAP 1Q resynthesis 检查是否能触碰 non-Clifford/T-resource proxy。
+                已完成 30/30 circuits 覆盖，删除 481 个 virtual SWAP 和 1443 个 CX，双量子门降低 37.18%，exposure 降低 32.65%，proof replay 481/481 通过；新增 1Q pass 删除 60 个门，T-count proxy 1.018x、T-depth proxy 1.015x，Aer 30/30 通过；B7 propagation retest 给出 mean STV 1.034x。
+                <span class="progress">内部成熟度：37/100</span>
+              </td>
+              <td>还需 5 步：接入 calibrated/live-like heavy-hex baseline；补 dynamic-circuit 与 reset/measure 语义；做 native-basis-aware non-Clifford/T-depth optimizer；让 B7 min factory STV 大于 1.0x；在真实 workload 和第三方 transpiler 上做独立复现。</td>
+            </tr>
+            <tr>
+              <td><strong>B2</strong><br>低开销量子纠错</td>
+              <td>找到能在真实硬件噪声下用更少物理 qubit、更少测量轮次和更快解码达到目标逻辑错误率的纠错方案。</td>
+              <td>Peter Shor 1995 年提出量子纠错码，Kitaev surface code 和 Dennis-Kitaev-Landahl-Preskill topological memory 奠定主流路线。实用低开销容错仍约 30 年未彻底解决。</td>
+              <td>困难在 overhead 巨大、相关噪声和 leakage 难建模、decoder 延迟影响反馈、距离扩展成本高，且“低逻辑错误率”和“低资源开销”常彼此冲突。</td>
+              <td>前人路线包括 Shor/Steane/CSS codes、surface/color/subsystem codes、quantum LDPC、biased-noise codes、lattice surgery、minimum-weight matching、belief propagation、neural decoders。里程碑是 surface-code threshold、Stim/PyMatching 快速仿真和近年 LDPC 复兴。</td>
+              <td>
+                我们的方案是先建立可审计 target-volume baseline，再让候选 code/schedule 必须在同一指标上胜过 surface code；proxy 和 operation-class sweep 后，所有 same-hardware candidate 都必须经过 artifact-boundary 检查才允许接入 B7。
+                已完成 Stim/PyMatching rotated surface-code baseline：30 配置、90,000 shots、距离 3/5/7、X/Z basis；Wilson target-volume 表 40 组合，22 达标、18 未达标；biased schedule proxy 让 candidate-met target 达到 28；真实 circuit-level sweep 用 90 配置、270,000 shots 将 candidate-met target 从 22 提到 26 但 volume improvement 为 0；same-hardware reduced-round candidate 用 120 配置、360,000 shots 找到 22 个 volume-improved rows；robustness stress 用 240 配置、1,200,000 shots 保留 88 个 improved rows，但全部来自 aggressive d-4，非激进 d-2 为 0。T-B2-002 artifact boundary 进一步确认：所有原始和压力测试 improved rows 都是 aggressive、distance-3、one-round candidates，因此当前 reduced-round lever 关闭为 small-distance/aggressive-schedule artifact。
+                <span class="progress">内部成熟度：32/100</span>
+              </td>
+              <td>还需 5 步：启动不同的非激进 schedule 或 code-family 机制；要求 distance-5/7 Wilson target-volume reduction 才能晋级；加入 leakage/correlated-noise；对新机制做 noise-mismatch stress；只把非 artifact B2 rows 接入 B7。</td>
+            </tr>
+            <tr>
+              <td><strong>B3</strong><br>分子反应动力学</td>
+              <td>让量子算法不只算小分子基态能量，而能预测化学反应路径、非绝热动力学和实验可比的反应 observables。</td>
+              <td>Richard Feynman 1982 年提出用量子系统模拟量子物理，Lloyd 1996 年给出 universal quantum simulators，Aspuru-Guzik 等 2005 年把分子能量估计推成量子化学里程碑。实用反应动力学仍约 20 年未解决。</td>
+              <td>困难在电子相关、活性空间选择、核量子效应、实时演化、误差预算和 resource estimate 叠加；量子优势必须打败 DMRG、CCSD(T)、selected CI 等强 classical baseline。</td>
+              <td>前人路线包括 phase estimation、Trotterization、qubitization、VQE、adiabatic state preparation、active-space embedding、DMRG/FCI/CC classical baselines。里程碑是小分子量子模拟实验和 qubitization 资源估计。</td>
+              <td>
+                我们的方案是 observable-first：先选可验证反应坐标 observable，再从 Hamiltonian、active space、误差预算反推量子线路。
+                已完成 PySCF 小分子 resource proxy，可输出小体系资源估计和 baseline 表；B10-T1 还补入 Hamiltonian-derived reaction-coordinate denominator，以及同四条坐标上的 RHF/MP2/CCSD/FCI small-basis reference derivatives。
+                T-B3-001 又生成 4 个 OpenQASM observable-estimation proxy circuits，对齐 h2、lih、h2o、n2 四条 reaction-coordinate FCI denominator rows；最大 21 qubits、441 controlled-phase gates，并记录 measurement-shot floors。当前 FCI denominator beaten count 为 0，因此只算线路/分母比较 artifact，不算 quantum advantage 或 reaction-dynamics solution。
+                T-B3-003 已用 Qiskit Nature Jordan-Wigner mapper 生成 4 个 Hamiltonian Pauli-term measurement packets；最大 20 qubits、2951 mapped Pauli terms、16 个 packet terms，加入 Hartree-Fock state-preparation X gates 和 Pauli-estimator variance shot floor。当前 max conservative total shot floor 为 30,504,129,929，FCI wins 仍为 0。
+                T-B3-004 已加入 sampled Pauli-estimator confidence intervals：每个 random Pauli term 2048 pilot shots，z=2.576，4 条 CI 全部覆盖 exact HF energy；max Neyman target shot floor 为 6,570,468，相对 conservative upper bound 改善 442x-34,544x。
+                T-B3-005 到 T-B3-009 已把 selected-CI larger-basis denominator、larger-basis Hamiltonian mapper、QWC grouping、HF grouped covariance shot-floor、finite-difference derivative 和 UCCSD/ADAPT/adiabatic prep envelope 全部接入；所有 selected-CI denominator wins 仍为 0。
+                T-B3-010 已完成 H2/cc-pVDZ one-parameter compiled UCC-double / ADAPT-seed covariance pilot：48 个 sampleable QWC groups、512 shots/group、mean/max relative variance error 0.0068/0.0827；compiled-state center floor 为 66,955,026，略差于 HF 63,465,167，derivative floor 为 669,550,260,000，optimizer-loop total shots 为 24,773,359,620,000，因此它是可复现 pilot 和负边界，不是完整分子反应动力学解。
+                T-B3-011 已扩展为 H2/LiH/H2O/N2 cross-molecule pressure：35 个 bounded sampled groups、384 shots/group、mean/max relative variance error 0.0833/0.5029；max optimizer-loop shots lower bound 为 475,043,013,690,000，max optimizer-loop 2Q executions lower bound 为 281,225,464,104,480,000，仍为 0 denominator wins，因此 B3 当前建议降级为 negative-boundary track。
+                <span class="progress">内部成熟度：30/100</span>
+              </td>
+              <td>还需 5 步：除非出现 rescue 机制，否则保持 B3 为负边界；若继续，必须给出 real multi-parameter UCCSD/ADAPT covariance；或给出强于 QWC 的 measurement strategy；再接 selected-CI/DMRG/tensor denominator；只有 preparation+measurement+optimizer 全部胜出时才恢复为突破候选。</td>
+            </tr>
+            <tr>
+              <td><strong>B4</strong><br>可验证量子优势</td>
+              <td>设计一个量子设备能完成、经典攻击难伪造、同时实验噪声下仍可验证的优势任务。</td>
+              <td>源头来自 interactive proof、blind quantum computation、sampling advantage 和 classical verification。Broadbent-Fitzsimons-Kashefi 2009 年给出 universal blind quantum computation，Mahadev 2018 年给出经典验证突破；实用优势验证约 15-20 年仍未解决。</td>
+              <td>难点是如果输出可被经典高效验证，往往也可能被经典方法模拟；如果输出不可模拟，验证又很难。噪声、postselection 和 adaptive spoofer 会侵蚀 soundness。</td>
+              <td>前人路线包括 trap-based verification、blind computation、cross-entropy benchmarking、random circuit sampling、cryptographic verification、self-testing、interactive proofs。里程碑是量子优越性实验和 Mahadev 协议。</td>
+              <td>
+                我们的方案是 hidden-trap / hidden-invariant hybrid：把验证信号藏在任务实例中，并用 B8 的 leakage stress test 逼出失败边界。
+                已完成 toy hidden-trap 统计协议；最新 B4/B8 circuit-refresh proxy 用 CNOT hidden-projection tasks 跑 192 configs，honest completeness 1.0，无刷新 high-leakage soundness 0.675，修复后 best high-leakage soundness 0.0。
+                <span class="progress">内部成熟度：20/100</span>
+              </td>
+              <td>还需 4 步：升级到硬件可执行 randomized-measurement hidden task；构造 adaptive/generative spoofers；证明 completeness/soundness；在有噪声 simulator 和小硬件上复现。</td>
+            </tr>
+            <tr>
+              <td><strong>B5</strong><br>强关联物质</td>
+              <td>解决 Hubbard/t-J 等强关联模型在二维、有限温度和掺杂区间的可计算预测问题，给出 classical 方法难以可靠覆盖的相图或 dynamical observable。</td>
+              <td>John Hubbard 1963 年提出窄能带电子关联模型；二维强关联和 doped Hubbard 的通用解法至今约 60 年未解决。</td>
+              <td>困难在 sign problem、纠缠增长、有限尺寸外推、低温相竞争和 dynamical correlation。不同 classical 方法在关键区间常给出不一致答案。</td>
+              <td>前人路线包括 quantum Monte Carlo、DMRG/tensor networks、DMFT、cluster embedding、variational Monte Carlo、exact diagonalization 和冷原子/量子模拟。里程碑是半填充情形理解、DMRG cylinder 进展和量子模拟平台出现。</td>
+              <td>
+                我们的方案是 exact small reference 加 cluster proxy，先找 classical 方法分歧最大的 observable，再让量子线路只攻击这类“高信息密度”切片。
+                已完成小 Hubbard exact reference、cluster proxy 初版、T-B5-001 oracle-tuned boundary-field response denominator、T-B5-002 non-oracle response embedding denominator、T-B5-003a exact-state-seeded MPS/Schmidt pressure reference，以及 T-B5-003b non-exact-state-seeded variational MPS/ALS prototype：9 个 D5 rows，bond dimensions 2/4，3 restarts x 8 sweeps，selected mean/max relative response error 0.01806/0.03907，selected mean/max energy error per site 0.00303/0.00853，min exact-state overlap 0.9626，0 行优于 seeded MPS pressure reference，且不声明 production DMRG、quantum response 或 accuracy-per-resource win。
+                <span class="progress">内部成熟度：21/100</span>
+              </td>
+              <td>还需 5 步：把 oracle tuning 替换为 non-oracle tensor/DMRG/embedding baseline；扩展到二维掺杂网格；定义优先 observable；生成 quantum impurity/response-kernel circuits；在 state-preparation、measurement、optimizer-loop 和 classical denominator 全入账后证明 accuracy-per-resource advantage。</td>
+            </tr>
+            <tr>
+              <td><strong>B6</strong><br>高温超导搜索</td>
+              <td>从材料、结构和强关联描述符中找到更可靠的高温超导候选，并解释哪些机制指标真正有预测力。</td>
+              <td>Bednorz 和 Muller 1986 年发现 Ba-La-Cu-O 高温超导，引发 cuprate 路线；高温超导机制和可预测搜索仍约 40 年未彻底解决。</td>
+              <td>困难在材料空间大、实验数据偏倚、强关联机制不清、descriptor 泄漏严重，以及候选验证周期慢。</td>
+              <td>前人路线包括 Hubbard/t-J/RVB、spin-fluctuation、DFT/DFT+DMFT、Eliashberg theory、materials informatics、晶体图神经网络。里程碑是 cuprates、iron pnictides、hydrides 和机器学习材料筛选。</td>
+              <td>
+                我们的方案是 mechanism-aware descriptor ranking：不只预测 Tc，而要隔离会泄漏历史发现的 proxy，并把 B5 强关联 observables 纳入候选筛选。
+                已完成 toy descriptor ranking harness。
+                <span class="progress">内部成熟度：10/100</span>
+              </td>
+              <td>还需 6 步：接入真实材料表；建立时间切分和家族切分验证；做 leakage audit；加入结构/电子相关 descriptor；和 B5 observable 对齐；输出可实验验证的短名单。</td>
+            </tr>
+            <tr>
+              <td><strong>B7</strong><br>容错架构 co-design</td>
+              <td>把算法、编译、纠错码、magic-state factory、布局和调度联合优化，降低完整容错量子计算的时空体积。</td>
+              <td>源头来自 Shor 纠错、threshold theorem、surface-code 架构和 lattice surgery。大规模容错机的系统级最优设计仍约 30 年未解决。</td>
+              <td>难点是局部优化常被系统瓶颈抵消：线路压缩、code distance、factory throughput、routing、measurement latency 和 feed-forward 必须一起算。</td>
+              <td>前人路线包括 surface-code resource estimation、lattice surgery、magic-state factories、modular ion/photonic/superconducting architectures、compiler-resource co-design。里程碑是可运行的 resource estimators 和 logical-level scheduling 工具。</td>
+              <td>
+                我们的方案是把 B1 的线路压缩与 B2 的 target-volume 纠错 baseline 桥接成 dependency schedule，再显式加入 workload DAG、factory-throughput、FT synthesis ledger 和 occurrence-level rewrite certificate 压力测试。
+                已完成 workload-DAG factory schedule，mean STV reduction 1.475x；FT synthesis ledger 暴露 gcm_h6 为当前 min row 1.086008x；w8_21 claim-boundary closure 汇总 43480 次优化、0 个 exact replacement、0 个 ledger removal，说明 repeated template 不能直接计为物理 savings。
+                <span class="progress">内部成熟度：33/100</span>
+              </td>
+              <td>还需 5 步：继续强化 non-Clifford/T-depth 优化直到 min STV 改善；寻找 symbolic KAK/Clifford-scaffold proof 或 alternate occurrence-removing rewrite；按 data-path 与 T-factory dominated regime 分开建模；加入 layout/routing constraints；用完整算法端到端输出资源账本。</td>
+            </tr>
+            <tr>
+              <td><strong>B8</strong><br>量子输出经典验证</td>
+              <td>在经典验证者资源有限的情况下，判断量子设备给出的输出是否可信，并量化可被经典攻击伪造的空间。</td>
+              <td>源头来自 interactive proofs、blind quantum computation、property testing 和 Mahadev-style verification。实用、低开销、可扩展的 classical verification 约 15 年仍未解决。</td>
+              <td>困难是完整分布不可读，抽样检验信息少；隐藏 invariant 一旦泄漏，adaptive spoofer 可利用验证规则；严谨协议和实验可行性很难兼得。</td>
+              <td>前人路线包括 trap/invariant tests、randomized measurements、classical shadows、cryptographic verification、多设备 cross-check、XEB 和 property testing。里程碑是 UBQC、Mahadev 协议和随机线路验证工具。</td>
+              <td>
+                我们的方案是 hidden-invariant verifier 加 adaptive leakage boundary，让协议先被强攻击打碎，再用 challenge refresh / projection rotation 修复。
+                已完成 48 配置 leakage stress test：0-0.5 leakage 被拒绝，0.75 leakage 暴露危险边界；又完成 192 配置 toy repair baseline；B4/B8 circuit-refresh proxy 把 refresh/rotation 放到 circuit-derived hidden-projection tasks 上；trained/generative spoofer stress 显示无刷新 learned soundness 1.0；B10-T2 proof gate 与 restricted lemma 给出 8.94e-44 单未知 predicate bound；transcript/device-noise bridge 给出强刷新 high-leakage max soundness 0.0208；Qiskit/Aer verifier bridge 运行 216 个 ideal circuits，0 semantic mismatch；noisy Aer verifier bridge 运行 9600 个 noisy circuits，safe refresh 下 honest acceptance 1.0、adversary acceptance 0.0；GenericBackendV2 backend-calibrated-style bridge 运行 5760 个 target-property-derived noisy circuits，safe refresh 下 honest acceptance 1.0、adversary acceptance 0.25。
+                <span class="progress">内部成熟度：32/100</span>
+              </td>
+              <td>还需 3 步：real backend properties bridge；硬件 randomized-measurement verifier；更强 learned/generative backend/noisy-circuit adversaries。</td>
+            </tr>
+            <tr>
+              <td><strong>B9</strong><br>Quantum PCP / Local Hamiltonian</td>
+              <td>理解量子版 PCP 是否成立，或在受限模型中证明可解/不可解边界，从而澄清局域哈密顿量近似问题的复杂性。</td>
+              <td>源头来自 classical PCP theorem、Kitaev local Hamiltonian QMA-completeness 和 2000 年代形成的 Quantum PCP conjecture。核心问题至少约 15-25 年未解决。</td>
+              <td>难点是纠缠会破坏 classical PCP 的局部检查直觉；gap amplification、locality、commuting/noncommuting terms、NLTS 和量子纠错结构互相绑定。</td>
+              <td>前人路线包括 detectability lemma、gap amplification、Hamiltonian complexity、NLTS、locally testable quantum codes、commuting Hamiltonian special cases。里程碑是 QMA-complete local Hamiltonian、Quantum PCP survey、近年 NLTS 进展。</td>
+              <td>
+                我们的方案不是直接宣称证明 Quantum PCP，而是建立 exact small-instance gap lab，积累 counterexample database，优先产出 restricted theorem 或 negative lemma。
+                已完成 small-instance gap lab 初版：18 个配置、9 个 locality-preserving candidates、0 个 candidate passes、4 个 counterexample candidates。T-B9-001 又提炼出 finite-instance failed gap-amplification negative lemma：raw gap growth 不能单独作为证明证书；当前记录 4 个 strict width-trap counterexamples、9 个 dense locality traps 和 5 个 proof obligations。T-B9-002 进一步生成 Lean-style symbolic skeleton：5 个 definitions、3 个 theorem skeletons、5 个 open obligations，但尚未 proof-assistant checked。T-B9-003 将该骨架实例化到 <code>cluster_stabilizer_open_uniform_reweight</code>：n=4,5,6 中所有项统一乘以 1.35，max locality 保持 3，raw gap 放大但 normalized gap 不变，因此该证书被拒绝为 global energy rescaling；当前 <code>lean</code> 检查失败，不是形式化 theorem。
+                <span class="progress">内部成熟度：12/100</span>
+              </td>
+              <td>还需 4 步：建立真正 Lean/mathlib 或等价 proof-check 环境；形式化 open-boundary cluster-stabilizer family 的全 n 定义；证明 support-size、uniform-scaling、spectral-width 和 normalized-gap invariance 引理；再判断是否能推广到 restricted theorem。</td>
+            </tr>
+            <tr>
+              <td><strong>B10</strong><br>BQP 边界地图</td>
+              <td>清楚刻画哪些任务真正属于可实现量子优势，哪些优势来自输入假设、oracle、精度或数据加载，而不是物理可用加速。</td>
+              <td>Bernstein 和 Vazirani 的 quantum complexity theory、Shor 算法和后续 sampling/hidden subgroup 研究共同形成 BQP 边界问题。BQP 与 classical complexity 的真实边界约 30 年未解决。</td>
+              <td>困难是无条件复杂性分离极难；oracle 分离不等于现实优势；平均情形硬度、噪声、数据加载和验证会改变“优势”的含义。</td>
+              <td>前人路线包括 oracle separations、hidden subgroup、quantum walks、Hamiltonian simulation、boson sampling、random circuit sampling、fine-grained complexity 和 dequantization。里程碑是 Bernstein-Vazirani、Shor、sampling advantage proposals 和 classical spoofing/dequantization 结果。</td>
+              <td>
+                我们的方案是 reduction graph：把每个优势 claim 拆成 promise、input model、output certificate、classical baseline、noise tolerance 和 verification burden。
+                已完成 taxonomy/reduction graph 初版：12 节点、14 边、11 个候选 theorem targets；新增 2 个 formal theorem target cards：B10-T1 HHL/data-loading negative boundary，B10-T2 sampling advantage + B4/B8 verification layer。B10-T1 现在进一步有 restricted explicit-I/O accounting lemma、source-backed boundary note、D1/D2 numerical denominator table、D5 B5 observable denominator table、B5 oracle-tuned/non-oracle response embedding denominators、B5 exact-state-seeded MPS/Schmidt pressure reference、B5 non-exact-state-seeded variational MPS/ALS prototype、Hamiltonian-derived D5 B3 reaction-coordinate denominator table、RHF/MP2/CCSD correlated B3 reference table 和 FCI-strength B3 reference table；B3 已把这些 references 接到 proxy observable circuits、Hamiltonian Pauli mapper packets、sampled Pauli confidence intervals、selected-CI larger-basis grouped Pauli boundary、larger-basis Hamiltonian mapper boundary、larger-basis QWC grouping boundary、grouped covariance shot-floor boundary、chemical state-prep derivative boundary、compiled UCC/ADAPT covariance pilot 和 cross-molecule demotion boundary。T-B3-011 显示 max optimizer-loop shots lower bound 为 475,043,013,690,000，denominator wins 仍为 0，因此 B3 在 B10-T1 中目前是负边界证据。B10-T2 现在接入 B8 trained-spoofer minimum-refresh boundary、refresh proof-obligation gate、restricted lemma、transcript/device-noise bridge、ideal Qiskit/Aer verifier bridge、noisy Aer verifier bridge 和 GenericBackendV2 backend-calibrated-style verifier bridge：5760 calibrated-style circuits，safe refresh 下 honest acceptance 1.0、adversary acceptance 0.25；强刷新 inherited high-leakage max soundness 0.0208。
+                <span class="progress">内部成熟度：39/100</span>
+              </td>
+              <td>还需 5 步：把 B3 作为负边界写入 B10-T1，除非 T-B3-012 rescue 成功；把 B5 MPS/ALS prototype 替换成真实 production DMRG/MPS reference 或拿真实 response subroutine 与 D5 表比较；扩展成 dequantization/sampling-access theorem note；把 B10-T2 推到 real backend properties verifier 或硬件 verifier；继续沉淀失败证明和 denominator 证据。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>参考来源</h2>
+      <p class="note">
+        本页历史归属和里程碑参考了以下代表性文献入口；它们用于定位问题源头，不代表我们已经完成对应开放问题的学术证明。
+      </p>
+      <ul>
+        <li><a href="https://link.springer.com/article/10.1007/BF02650179">Feynman, Simulating physics with computers, 1982</a></li>
+        <li><a href="https://arxiv.org/abs/quant-ph/9508027">Shor, Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer</a></li>
+        <li><a href="https://link.aps.org/doi/10.1103/PhysRevA.52.R2493">Shor, Scheme for reducing decoherence in quantum computer memory, 1995</a></li>
+        <li><a href="https://pubs.aip.org/aip/jmp/article/43/9/4452/230976/Topological-quantum-memory">Dennis, Kitaev, Landahl, Preskill, Topological quantum memory, 2002</a></li>
+        <li><a href="https://dl.acm.org/doi/abs/10.1145/3297858.3304023">Li, Ding, Xie, SABRE qubit mapping, 2019</a></li>
+        <li><a href="https://royalsocietypublishing.org/rspa/article/276/1365/238/11567/Electron-correlations-in-narrow-energy-bands">Hubbard, Electron correlations in narrow energy bands, 1963</a></li>
+        <li><a href="https://link.springer.com/article/10.1007/BF01303701">Bednorz and Muller, Possible high Tc superconductivity in the Ba-La-Cu-O system, 1986</a></li>
+        <li><a href="https://www.science.org/doi/abs/10.1126/science.1113479">Aspuru-Guzik et al., Simulated quantum computation of molecular energies, 2005</a></li>
+        <li><a href="https://dl.acm.org/doi/10.1109/FOCS.2009.36">Broadbent, Fitzsimons, Kashefi, Universal blind quantum computation, 2009</a></li>
+        <li><a href="https://arxiv.org/abs/1804.01082">Mahadev, Classical verification of quantum computations, 2018</a></li>
+        <li><a href="https://arxiv.org/abs/1309.7495">Aharonov, Arad, Vidick, The Quantum PCP Conjecture, 2013</a></li>
+        <li><a href="https://epubs.siam.org/doi/10.1137/S0097539796300921">Bernstein and Vazirani, Quantum Complexity Theory</a></li>
+        <li><a href="https://arxiv.org/abs/0811.3171">Harrow, Hassidim, Lloyd, Quantum algorithm for solving linear systems of equations</a></li>
+        <li><a href="https://arxiv.org/abs/1511.02306">Childs, Kothari, Somma, Quantum algorithm for systems of linear equations with improved precision dependence</a></li>
+        <li><a href="https://arxiv.org/abs/1807.04271">Tang, A quantum-inspired classical algorithm for recommendation systems</a></li>
+        <li><a href="https://arxiv.org/abs/1811.04852">Chia, Lin, Wang, Quantum-inspired sublinear classical algorithms for low-rank linear systems</a></li>
+        <li><a href="https://www.cs.cmu.edu/~quake-papers/painless-conjugate-gradient.pdf">Shewchuk, An Introduction to the Conjugate Gradient Method Without the Agonizing Pain</a></li>
+        <li><a href="https://doi.org/10.1145/355984.355989">Paige and Saunders, LSQR for sparse linear equations and sparse least squares</a></li>
+        <li><a href="https://www.uspto.gov/patents/basics/apply/provisional-application">USPTO provisional patent application overview</a></li>
+        <li><a href="https://seedfund.nsf.gov/">NSF America's Seed Fund SBIR/STTR</a></li>
+        <li><a href="https://science.osti.gov/sbir">DOE SBIR/STTR</a></li>
+        <li><a href="https://csrc.nist.gov/projects/post-quantum-cryptography">NIST post-quantum cryptography project</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>最近新增文件</h2>
+      <ul>
+        <li><code>research/b1_b10_solution_sprint_001.md</code>：当前新目标的 B1-B10 技术攻关 sprint，包含每个方向的算法假设、PR 目标文件、验收门槛和失败价值</li>
+        <li><code>research/top10_problem_dossiers.md</code>：Top 10 详细研究档案，面向人类审阅</li>
+        <li><code>README.md</code>：项目总览、目录树和快速入口</li>
+        <li><code>RESEARCH_FRAMEWORK.md</code>：GitHub-like 多智能体研究框架</li>
+        <li><code>CONTRIBUTING.md</code>：研究 PR 贡献规范</li>
+        <li><code>research/ops/agent_task_board.md</code>：AI agent / 人类研究者任务看板</li>
+        <li><code>research/ops/agent_protocol.md</code>：多智能体协作协议</li>
+        <li><code>research/ops/review_gates.md</code>：研究 PR 审查门槛</li>
+        <li><code>research/top10_problem_dossiers.json</code>：Top 10 结构化档案，供后续审计和页面生成</li>
+        <li><code>research/technical_resolution_program.md</code>：B1-B10 技术解决优先计划</li>
+        <li><code>research/technical_resolution_program.json</code>：技术门槛结构化数据，当前主目标</li>
+        <li><code>research/translation_pipeline.md</code>：后置转化停车场，等技术门槛通过后启用</li>
+        <li><code>research/translation_pipeline.json</code>：后置转化结构化数据</li>
+        <li><code>research/B2_stim_surface_code_memory_baseline.md</code>：B2 Stim/PyMatching surface-code baseline</li>
+        <li><code>research/B2_stim_surface_code_target_volume.md</code>：B2 Wilson target-volume 表</li>
+        <li><code>research/B2_biased_schedule_proxy.md</code>：B2 biased schedule candidate proxy</li>
+        <li><code>research/B2_stim_biased_schedule_sweep.md</code>：B2 真实 circuit-level biased-schedule/noise sweep</li>
+        <li><code>research/B2_same_hardware_schedule_candidate.md</code>：B2 same-hardware reduced-round schedule candidate，120 配置、360000 shots，22 个 Wilson target-volume improved rows，max reduction 3.0x</li>
+        <li><code>research/B2_same_hardware_schedule_robustness.md</code>：B2 same-hardware robustness stress，240 配置、1200000 shots，88 个 improved rows 全部来自 aggressive d-4，非激进 d-2 为 0</li>
+        <li><code>research/B2_reduced_round_artifact_boundary.md</code>：B2 reduced-round artifact boundary，确认 22 个原始 improved rows 与 88 个 stress-preserved rows 全部为 aggressive、distance-3、one-round，当前 reduced-round lever 关闭为 artifact boundary</li>
+        <li><code>research/B7_b1_b2_dependency_schedule_bridge.md</code>：B7 B1/B2 dependency-schedule bridge</li>
+        <li><code>research/B7_workload_dag_factory_schedule.md</code>：B7 workload-DAG factory-throughput schedule</li>
+        <li><code>research/B7_logical_t_factory_schedule.md</code>：B7 logical T-count/T-depth factory-boundary test</li>
+        <li><code>research/B7_logical_t_factory_schedule_post_1q.md</code>：B7 post-1Q logical T-factory retest</li>
+        <li><code>research/B1_post_virtual_swap_1q_resynth.md</code>：B1 post-virtual-SWAP 1Q/T-resource diagnostic</li>
+        <li><code>research/B1_native_t_resource_optimizer.md</code>：B1 native Z-phase canonicalization/T-resource diagnostic，30/30 Aer cross-check 通过</li>
+        <li><code>research/B7_logical_t_factory_schedule_native.md</code>：B7 native 后续 T-factory 调度；mean STV 小幅提升，但 min STV 仍为 1.0x</li>
+        <li><code>research/B1_control_rz_commute_optimizer.md</code>：B1 control-RZ commute targeted optimizer，打穿 factory-boundary workload 的 T-count 瓶颈</li>
+        <li><code>research/B7_logical_t_factory_schedule_control_rz.md</code>：B7 control-RZ 后续调度，min STV 已从 1.0x 提升到 1.121951x</li>
+        <li><code>research/B1_u3_phase_factored_optimizer.md</code>：B1 U3 phase-factored optimizer，1641 个 U3 factorization events，30/30 Aer 通过</li>
+        <li><code>research/B7_logical_t_factory_schedule_u3_phase_factored.md</code>：B7 U3 phase-factored 后续调度，mean STV 提升到 1.234394x，min STV 保持 1.121951x</li>
+        <li><code>research/B7_min_stv_regime_classifier.md</code>：B7 min-STV regime classifier，定位 sat_n11 factory-path boundary；1.20x / 1.25x 还需 344 / 544 个 T proxy</li>
+        <li><code>research/B7_ft_synthesis_ledger.md</code>：B7 FT synthesis ledger，sat_n11 重计价为 294 -> 262 T ledger units，balanced/throughput STV 1.611481x；新 min row 为 gcm_h6 1.086008x</li>
+        <li><code>research/B7_gcm_h6_ft_boundary.md</code>：B7 gcm_h6 FT-ledger boundary，1.20x / 1.25x 还需 592 / 824 T-ledger reduction；cost sweep alone 不能清 all-variant 1.20x</li>
+        <li><code>research/B7_precision_aware_rotation_ledger.md</code>：B7 precision-aware rotation ledger，显式误差预算下 arbitrary T cost 升至 35/45/55...，无法清 1.20x；gcm_h6 有 270 个 numeric occurrences / 26 个 unique numeric parameters</li>
+        <li><code>research/B7_gcm_h6_numeric_rotation_structure.md</code>：B7 gcm_h6 numeric-rotation structural pass，172 条证书、Aer 1/1 通过，但 arbitrary rotations 270 -> 270，T ledger 6224 -> 6224</li>
+        <li><code>research/B7_shared_synthesis_cache_boundary.md</code>：B7 shared-synthesis/cache boundary，270 occurrences -> 26 经典模板，但 cache FT T-ledger reduction 为 0，物理 occurrence 模型 min STV 仍为 1.086008x</li>
+        <li><code>research/B7_nonlocal_template_block_scan.md</code>：B7 nonlocal template block scan，2633 条模板证书；最佳 w8_21 覆盖 100 个 arbitrary occurrences，但 adjacent inverse/duplicate block 为 0，T ledger 仍为 6224</li>
+        <li><code>research/B7_w8_21_small_block_synthesis.md</code>：B7 w8_21 same-skeleton exact small-block synthesis，55 个候选 / 16 seeds，0 个通过；最佳 residual 3.936e-02，local rank 5</li>
+        <li><code>research/B7_w8_21_broad_skeleton_search.md</code>：B7 w8_21 broad-skeleton exhaustive scan，15360/15360 family、30720 optimizer runs，0 个 exact four-rotation candidate，最佳 residual 0.244378</li>
+        <li><code>research/B7_w8_21_euler_local_search.md</code>：B7 w8_21 Euler-local target-informed scan，500/500 family、3000 optimizer runs，0 个 exact four-arbitrary-angle candidate，最佳 residual 0.244378</li>
+        <li><code>research/B7_w8_21_three_cnot_search.md</code>：B7 w8_21 three-CNOT target-informed scan，1480/1480 family、8880 optimizer runs，0 个 exact four-arbitrary-angle candidate，最佳 residual 1.035276</li>
+        <li><code>research/B7_w8_21_scoped_minimality_note.md</code>：B7 w8_21 scoped minimality note，汇总 43480 次优化，确认已测试族中 exact rewrite 为 0，ledger removal 仍为 0</li>
+        <li><code>research/B7_w8_21_claim_boundary_fragment.md</code>：B7 w8_21 claim-boundary paper fragment，明确 repeated templates 不是 physical resource savings，除非有 occurrence-removing certificate</li>
+        <li><code>research/B9_failed_gap_amplification_lemma.md</code>：B9 failed gap-amplification negative lemma，4 个 strict width-trap counterexamples、9 个 dense locality traps、5 个 proof obligations，明确不是 Quantum PCP proof</li>
+        <li><code>research/B9_symbolic_gap_skeleton.md</code> 与 <code>research/proof_skeletons/B9_failed_gap_amplification_skeleton.lean</code>：B9 symbolic/proof-assistant skeleton，5 个 definitions、3 个 theorem skeletons、5 个 open obligations，尚未 proof-check</li>
+        <li><code>research/B9_named_family_width_locality_bounds.md</code> 与 <code>research/proof_skeletons/B9_cluster_stabilizer_width_locality_bound.lean</code>：B9 cluster-stabilizer named-family width/locality bound skeleton，n=4,5,6 统一 1.35x 缩放、locality 3、normalized gap invariant，certificate rejected，尚未形式化 proof-check</li>
+        <li><code>research/B8_adaptive_leakage_spoofer.md</code>：B8 adaptive leakage stress test</li>
+        <li><code>research/B8_challenge_refresh_repair.md</code>：B8 challenge refresh / projection rotation toy repair baseline</li>
+        <li><code>research/B4_B8_circuit_refresh_task.md</code>：B4/B8 circuit-level hidden-projection refresh proxy，192 configs，honest completeness 1.0，无刷新 high-leakage soundness 0.675，修复后 best high-leakage soundness 0.0</li>
+        <li><code>research/B8_generative_spoofer_refresh.md</code>：B8 trained/generative spoofer refresh stress，144 configs，无刷新 high-leakage learned soundness 1.0，projection rotation 或更强 refresh 在 proxy 中保持 <=5%</li>
+        <li><code>research/B10_t2_refresh_proof_obligation_gate.md</code>：B10-T2 refresh proof-obligation gate，拒绝 no-refresh high-leakage claim，记录 7 个 soundness lemma 前置义务</li>
+        <li><code>research/B10_t2_restricted_soundness_lemma.md</code>：B10-T2 restricted refresh-independence soundness lemma，当前 proxy 参数下单未知 predicate bound 为 8.94e-44</li>
+        <li><code>research/B10_t2_transcript_leakage_simulator.md</code>：B10-T2 transcript leakage simulator，192 configs，无刷新 high leakage unsafe，refreshed high-leakage max soundness 0.025，仍不是硬件 verifier</li>
+        <li><code>research/B10_t2_device_noise_transcript_bridge.md</code>：B10-T2 device-noise transcript bridge，480 configs，强刷新 high-leakage max soundness 0.0208，projection_rotation margin-sensitive，仍不是硬件执行</li>
+        <li><code>research/B10_t2_qiskit_aer_verifier_bridge.md</code>：B10-T2 Qiskit/Aer verifier bridge，216 ideal randomized parity circuits，0 semantic mismatch，仍不是真实硬件执行</li>
+        <li><code>research/B10_t2_noisy_aer_verifier_bridge.md</code>：B10-T2 noisy Aer verifier bridge，9600 noisy randomized parity circuits，safe refresh 下 honest acceptance 1.0、adversary acceptance 0.0，仍不是 calibrated backend 或硬件执行</li>
+        <li><code>research/B10_t2_backend_calibrated_verifier_bridge.md</code>：B10-T2 backend-calibrated-style verifier bridge，5760 GenericBackendV2 target-property-derived noisy circuits，safe refresh 下 honest acceptance 1.0、adversary acceptance 0.25，仍不是真实 backend properties 或硬件执行</li>
+        <li><code>research/B10_formal_theorem_targets.md</code>：B10 两个 formal theorem target cards</li>
+        <li><code>research/B10_t1_negative_boundary_proof.md</code>：B10-T1 HHL/data-loading explicit-I/O negative-boundary proof attempt</li>
+        <li><code>research/B10_t1_source_backed_boundaries.md</code>：B10-T1 source-backed HHL/data-loading boundary baselines</li>
+        <li><code>research/B10_t1_numerical_denominator_table.md</code>：B10-T1 explicit sparse CG/LSQR numerical denominator table</li>
+        <li><code>research/B10_t1_d5_observable_denominator_table.md</code>：B10-T1 B5 Hubbard density-response D5 observable denominator table</li>
+        <li><code>research/B5_boundary_field_embedding_baseline.md</code>：B5 oracle-tuned boundary-field response embedding denominator</li>
+        <li><code>research/B5_non_oracle_response_embedding_baseline.md</code>：B5 non-oracle response embedding denominator</li>
+        <li><code>research/B5_mps_truncation_response_reference.md</code>：B5 exact-state-seeded MPS/Schmidt truncation pressure reference</li>
+        <li><code>research/B5_variational_mps_als_response_reference.md</code>：B5 non-exact-state-seeded variational MPS/ALS pressure prototype</li>
+        <li><code>research/B10_t1_d5_b3_molecular_observable_table.md</code>：B10-T1 B3 molecular observable denominator proxy</li>
+        <li><code>research/B10_t1_d5_b3_reaction_observable_table.md</code>：B10-T1 Hamiltonian-derived B3 reaction-coordinate denominator table</li>
+        <li><code>research/B10_t1_d5_b3_correlated_reference_table.md</code>：B10-T1 B3 RHF/MP2/CCSD correlated reaction-coordinate reference table</li>
+        <li><code>research/B10_t1_d5_b3_fci_reference_table.md</code>：B10-T1 B3 RHF/MP2/CCSD/FCI small-basis reaction-coordinate reference table</li>
+        <li><code>research/B3_quantum_observable_fci_comparison.md</code> 与 <code>results/b3_quantum_observable_fci_comparison/circuits/</code>：B3/T-B3-001 quantum observable-estimation proxy circuits vs FCI denominator，4 个 OpenQASM circuits，max 21 qubits、441 controlled-phase gates，FCI wins 为 0</li>
+        <li><code>research/B3_hamiltonian_pauli_mapper_comparison.md</code> 与 <code>results/b3_hamiltonian_pauli_mapper_comparison/circuits/</code>：B3/T-B3-003 Hamiltonian Pauli-term mapper comparison，4 个 Qiskit Nature Jordan-Wigner QASM packets，max 20 qubits、2951 mapped Pauli terms、max conservative shot floor 30,504,129,929，FCI wins 为 0</li>
+        <li><code>research/B3_sampled_pauli_estimator_confidence.md</code>：B3/T-B3-004 sampled Pauli-estimator confidence intervals，z=2.576，max Neyman target shot floor 6,570,468，shot-floor reduction 442x-34,544x，FCI wins 为 0</li>
+        <li><code>research/portfolio_status_report.md</code>：最新组合审计报告</li>
+        <li><code>research/project_status_plan.html</code>：长版项目状态页</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>下一步</h2>
+      <p class="note">
+        当前阶段已切换为 <strong>B1-B10 Solution Sprint 001</strong>：
+        我们先把十个技术问题推进到可审计的解决门槛，再决定哪些结果适合沉淀为论文、专利、融资项目或变现工具。
+      </p>
+      <ul>
+        <li>优先 B1：把 weak 1Q/T-resource diagnostic 升级为 native-basis non-Clifford/T-depth optimizer。</li>
+        <li>最新 B1 进展：已完成 native Z-phase canonicalization pass，1691 个证书事件、26 个线路变化、30/30 Aer 通过；但 B7 min STV 仍为 1.0x，下一步进入 T-B1-002，专攻 gcm_h6、sat_n11、hhl_n7 等 factory-boundary workloads。</li>
+        <li>最新 B1/B7 突破：T-B1-002 已完成 control-RZ commute pass，移除 380 个 RZ、1172 次 CNOT-control commute、1307 个证书事件、30/30 Aer 通过；B7 min STV 已提升到 1.121951x，mean STV 1.183921x。</li>
+        <li>最新 T-B1-003：U3 phase-factored pass 已完成，1641 个 U3 factorization events、313 个额外 RZ 删除、30/30 Aer 通过；B7 mean STV 提升到 1.234394x，但 min STV 未再提高，下一步进入 T-B1-004 或 B7 regime classifier。</li>
+        <li>最新 T-B7-001：min-STV classifier 已完成，确认 sat_n11 / throughput-heavy factories 是当前最小行；要到 1.20x 还需 344 个 T proxy，要到 1.25x 还需 544 个，且不需要先降低 data path。</li>
+        <li>最新 T-B7-002：FT synthesis ledger 已完成，sat_n11 在 balanced/throughput factories 下转为 data-path bottleneck，STV 1.611481x；新的最小行是 gcm_h6，min STV 1.086008x，下一步 T-B7-003 专攻 gcm_h6。</li>
+        <li>最新 T-B7-003：gcm_h6 boundary analysis 已完成，1.20x 还需 592 T-ledger reduction，1.25x 还需 824；portfolio cost sweep 证明仅降低 arbitrary rotation cost 不足以清 all-variant min-STV。</li>
+        <li>最新 T-B7-004：precision-aware rotation ledger 已完成，total synthesis-error budget 0.1 仍对应 arbitrary T cost 35，best tested min STV 1.079316x；下一步 T-B7-005 专攻 repeated numeric rotations 的结构性消除或 shared-synthesis/cache proxy。</li>
+        <li>最新 T-B7-005：same-axis local numeric-rotation structural pass 已完成，172 条证书、Aer TVD 0.0，但 arbitrary rotations 和 T ledger 均无减少；随后 T-B7-006 已转入 shared-synthesis/cache 边界证明。</li>
+        <li>最新 T-B7-006：shared-synthesis/cache boundary 已完成；270 个 repeated numeric occurrences 只压缩成 26 个经典模板，不能减少 occurrence-based FT T ledger。随后 T-B7-007 已转入非局部 repeated-block/template-aware scan。</li>
+        <li>最新 T-B7-007：nonlocal template block scan 已完成；最佳 w8_21 覆盖 100 个任意旋转 occurrence，但没有相邻逆块或同绑定重复块可删。随后 T-B7-008 已关闭 same-skeleton one-angle exact replacement 路线。</li>
+        <li>最新 T-B7-008/T-B7-009：w8_21 same-skeleton、broad-skeleton、target-informed Euler-local、bounded three-CNOT 四组搜索均未找到 exact four-arbitrary replacement；该路线已关闭为 claim-boundary fragment，但仍不是全局 KAK lower bound。</li>
+        <li>最新 T-B7-009：全量扫描 15360/15360 个 two-CNOT/four-Rz-Ry family、500/500 个 target-informed Euler-local family、1480/1480 个 three-CNOT target-informed family，并汇总 same-skeleton 搜索；总计 43480 次优化，0 个 exact four-arbitrary candidate；scoped minimality note 与 claim-boundary fragment 已完成，T-B7-009 关闭为负结果边界。</li>
+        <li>最新 T-B2-001/T-B2-002：same-hardware reduced-round schedule candidate、robustness stress 与 artifact boundary 已完成；120 配置候选给出 22 个 volume-improved rows，240 配置、1200000 shots 压力测试保留 88 个 improved rows，但全部来自 aggressive、distance-3、one-round，非激进 improved rows 为 0；下一步 T-B2-003 换一个真正不同的 B2 机制。</li>
+        <li>最新 T-B3-001：reaction-coordinate quantum observable-estimation proxy vs FCI denominator 已完成；4 个 OpenQASM circuits、max 21 qubits、441 controlled-phase gates、FCI denominator wins 为 0。下一步 T-B3-003 改用 Hamiltonian Pauli-term chemistry-mapper circuits，并加入 state-preparation 与 observable-variance cost。</li>
+        <li>最新 T-B3-003：Hamiltonian Pauli-term mapper comparison 已完成；4 个 Qiskit Nature Jordan-Wigner QASM measurement packets、max 20 qubits、2951 mapped Pauli terms、max conservative total shot floor 30,504,129,929，state-preparation 与 variance costs 已入账，FCI wins 仍为 0。下一步 T-B3-004 做 sampled Pauli-estimator confidence intervals 或 selected-CI/larger-active-space denominator。</li>
+        <li>最新 T-B3-011：cross-molecule UCC/ADAPT pressure and demotion boundary 已完成；H2/LiH/H2O/N2 共 35 个 bounded sampled groups、384 shots/group，mean/max variance error 0.0833/0.5029；max optimizer-loop shots lower bound 475,043,013,690,000，max optimizer-loop 2Q executions lower bound 281,225,464,104,480,000；denominator wins 仍为 0，因此 B3 当前降级为 negative-boundary track。下一步 T-B3-012 只接受 rescue-only multi-parameter UCCSD/ADAPT 或更强测量策略。</li>
+        <li>推进 B7/B1：解释并攻击剩余 min-STV regime；若无法继续提高，则形成清晰的 data-path / T-factory / min-regime claim separation。</li>
+        <li>最新 B8/B10：trained/generative spoofer refresh stress、B10-T2 proof gate、restricted lemma、transcript/device-noise bridge、ideal Qiskit/Aer verifier bridge、noisy Aer verifier bridge 与 GenericBackendV2 backend-calibrated-style verifier bridge 已完成；下一步升级到 real backend properties 或硬件 randomized-measurement verifier。</li>
+        <li>最新 B9：T-B9-001 finite-instance failed gap-amplification negative lemma、T-B9-002 Lean-style symbolic skeleton 与 T-B9-003 cluster-stabilizer named-family width/locality bound skeleton 已完成；下一步 T-B9-004，建立真正 Lean/mathlib 或等价 proof-check 环境，并把 support-size、uniform-scaling、spectral-width、normalized-gap invariance 做成全 n 形式化引理。</li>
+        <li>推进 B10/B5/B3：B5 已完成 oracle-tuned boundary-field response denominator、non-oracle response embedding denominator、exact-state-seeded MPS/Schmidt pressure reference 和 non-exact-state-seeded variational MPS/ALS prototype；下一步优先替换成真实 production DMRG/MPS reference，或拿候选 B5 response subroutine 与 D5 表做全成本比较。B3 已完成 proxy circuit vs FCI denominator comparison、Hamiltonian Pauli mapper cost boundary、sampled Pauli confidence artifact、selected-CI larger-basis grouped Pauli boundary、larger-basis Hamiltonian mapper boundary、larger-basis QWC grouping boundary、grouped covariance shot-floor boundary、chemical state-prep derivative boundary、compiled UCC/ADAPT covariance pilot 和 cross-molecule demotion boundary；B3 仅在 rescue 机制出现时继续。B10-T2 下一步做 real-backend/hardware verifier。</li>
+        <li>后置转化：只有当对应 B 方向通过技术门槛后，再提炼论文、专利、融资和工具；当前不把这些作为 B1-B10 之前的主目标。</li>
+      </ul>
+      <p class="note">
+        当前不是最终完成，而是进入“真实 baseline 和可证伪验证”的阶段。这个阶段会决定哪些方向能成为一年内真正的突破候选。
+      </p>
+    </section>
+  </main>
+</body>
+</html>

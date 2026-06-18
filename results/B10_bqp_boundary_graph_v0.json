@@ -1,0 +1,409 @@
+{
+  "advantage_preserving_edge_count": 8,
+  "benchmark_id": "B10",
+  "connected_component_count": 2,
+  "connected_components": [
+    [
+      "abelian_hidden_subgroup",
+      "nonabelian_hidden_subgroup",
+      "period_finding"
+    ],
+    [
+      "amplitude_estimation",
+      "hamiltonian_simulation",
+      "interactive_verification",
+      "iqp_sampling",
+      "linear_systems_hhl",
+      "phase_estimation_observables",
+      "qaoa_optimization",
+      "quantum_machine_learning",
+      "random_circuit_sampling"
+    ]
+  ],
+  "edge_count": 14,
+  "edges": [
+    {
+      "advantage_preserved": true,
+      "evidence_level": "textbook",
+      "failure_modes": [],
+      "reduction_type": "special_case_to_general_family",
+      "source": "period_finding",
+      "target": "abelian_hidden_subgroup"
+    },
+    {
+      "advantage_preserved": false,
+      "evidence_level": "open_boundary",
+      "failure_modes": [
+        "measurement_gap",
+        "missing_efficient_fourier_sampling"
+      ],
+      "reduction_type": "generalization_attempt",
+      "source": "abelian_hidden_subgroup",
+      "target": "nonabelian_hidden_subgroup"
+    },
+    {
+      "advantage_preserved": true,
+      "evidence_level": "conditional",
+      "failure_modes": [
+        "state_preparation"
+      ],
+      "reduction_type": "algorithmic_subroutine",
+      "source": "hamiltonian_simulation",
+      "target": "phase_estimation_observables"
+    },
+    {
+      "advantage_preserved": false,
+      "evidence_level": "fragile",
+      "failure_modes": [
+        "data_loading",
+        "condition_number",
+        "readout"
+      ],
+      "reduction_type": "block_encoding_view",
+      "source": "phase_estimation_observables",
+      "target": "linear_systems_hhl"
+    },
+    {
+      "advantage_preserved": false,
+      "evidence_level": "contested",
+      "failure_modes": [
+        "data_loading",
+        "dequantization",
+        "generalization"
+      ],
+      "reduction_type": "qml_application_claim",
+      "source": "linear_systems_hhl",
+      "target": "quantum_machine_learning"
+    },
+    {
+      "advantage_preserved": true,
+      "evidence_level": "conditional",
+      "failure_modes": [
+        "oracle_construction"
+      ],
+      "reduction_type": "estimation_wrapper",
+      "source": "amplitude_estimation",
+      "target": "phase_estimation_observables"
+    },
+    {
+      "advantage_preserved": true,
+      "evidence_level": "research_program",
+      "failure_modes": [
+        "protocol_overhead",
+        "noise"
+      ],
+      "reduction_type": "verification_layer",
+      "source": "random_circuit_sampling",
+      "target": "interactive_verification"
+    },
+    {
+      "advantage_preserved": true,
+      "evidence_level": "complexity_evidence",
+      "failure_modes": [
+        "average_case_assumptions"
+      ],
+      "reduction_type": "sampling_complexity_family",
+      "source": "iqp_sampling",
+      "target": "random_circuit_sampling"
+    },
+    {
+      "advantage_preserved": false,
+      "evidence_level": "weak",
+      "failure_modes": [
+        "classical_heuristics",
+        "oracle_construction"
+      ],
+      "reduction_type": "objective_estimation",
+      "source": "qaoa_optimization",
+      "target": "amplitude_estimation"
+    },
+    {
+      "advantage_preserved": true,
+      "evidence_level": "conditional",
+      "failure_modes": [
+        "verification",
+        "noise"
+      ],
+      "reduction_type": "dynamics_to_sampling",
+      "source": "hamiltonian_simulation",
+      "target": "random_circuit_sampling"
+    },
+    {
+      "advantage_preserved": false,
+      "evidence_level": "fragile",
+      "failure_modes": [
+        "data_loading",
+        "output_readout"
+      ],
+      "reduction_type": "linear_algebra_subroutine_claim",
+      "source": "quantum_machine_learning",
+      "target": "linear_systems_hhl"
+    },
+    {
+      "advantage_preserved": false,
+      "evidence_level": "boundary_warning",
+      "failure_modes": [
+        "verification_not_computation",
+        "protocol_overhead"
+      ],
+      "reduction_type": "trust_to_sampling_task",
+      "source": "interactive_verification",
+      "target": "random_circuit_sampling"
+    },
+    {
+      "advantage_preserved": true,
+      "evidence_level": "conditional",
+      "failure_modes": [
+        "precision"
+      ],
+      "reduction_type": "observable_estimation_link",
+      "source": "phase_estimation_observables",
+      "target": "amplitude_estimation"
+    },
+    {
+      "advantage_preserved": true,
+      "evidence_level": "restricted",
+      "failure_modes": [
+        "restriction_too_strong"
+      ],
+      "reduction_type": "restricted_case_projection",
+      "source": "nonabelian_hidden_subgroup",
+      "target": "period_finding"
+    }
+  ],
+  "failure_mode_counts": {
+    "average_case_assumptions": 1,
+    "classical_heuristics": 1,
+    "condition_number": 1,
+    "data_loading": 3,
+    "dequantization": 1,
+    "generalization": 1,
+    "measurement_gap": 1,
+    "missing_efficient_fourier_sampling": 1,
+    "noise": 2,
+    "oracle_construction": 2,
+    "output_readout": 1,
+    "precision": 1,
+    "protocol_overhead": 2,
+    "readout": 1,
+    "restriction_too_strong": 1,
+    "state_preparation": 1,
+    "verification": 1,
+    "verification_not_computation": 1
+  },
+  "fragile_edge_count": 6,
+  "method": "bqp_boundary_reduction_graph_v0",
+  "model_status": "taxonomy_and_reduction_planning_not_complexity_theorem",
+  "node_count": 12,
+  "node_family_counts": {
+    "algebraic": 3,
+    "estimation": 1,
+    "learning": 1,
+    "linear_algebra": 1,
+    "optimization": 1,
+    "sampling": 2,
+    "simulation": 2,
+    "verification": 1
+  },
+  "nodes": [
+    {
+      "bqp_status": "canonical_speedup",
+      "family": "algebraic",
+      "id": "abelian_hidden_subgroup",
+      "input_model": "oracle",
+      "main_risk": "oracle_model_gap",
+      "verification": "problem_dependent"
+    },
+    {
+      "bqp_status": "quadratic_speedup",
+      "family": "estimation",
+      "id": "amplitude_estimation",
+      "input_model": "sampler_or_oracle",
+      "main_risk": "oracle_construction",
+      "verification": "statistical"
+    },
+    {
+      "bqp_status": "natural_quantum_task",
+      "family": "simulation",
+      "id": "hamiltonian_simulation",
+      "input_model": "local_or_sparse_hamiltonian",
+      "main_risk": "state_preparation",
+      "verification": "observable_dependent"
+    },
+    {
+      "bqp_status": "trust_layer",
+      "family": "verification",
+      "id": "interactive_verification",
+      "input_model": "protocol_transcript",
+      "main_risk": "protocol_overhead",
+      "verification": "interactive_or_statistical"
+    },
+    {
+      "bqp_status": "complexity_evidence",
+      "family": "sampling",
+      "id": "iqp_sampling",
+      "input_model": "commuting_circuit_description",
+      "main_risk": "average_case_assumptions",
+      "verification": "hard"
+    },
+    {
+      "bqp_status": "conditional_exponential_speedup",
+      "family": "linear_algebra",
+      "id": "linear_systems_hhl",
+      "input_model": "block_encoding_or_qram",
+      "main_risk": "data_loading_and_condition_number",
+      "verification": "observable_dependent"
+    },
+    {
+      "bqp_status": "open_or_limited",
+      "family": "algebraic",
+      "id": "nonabelian_hidden_subgroup",
+      "input_model": "oracle",
+      "main_risk": "measurement_and_reduction_gap",
+      "verification": "hard"
+    },
+    {
+      "bqp_status": "canonical_exponential_speedup",
+      "family": "algebraic",
+      "id": "period_finding",
+      "input_model": "succinct_oracle_or_modular_arithmetic",
+      "main_risk": "none_for_standard_instances",
+      "verification": "classical_certificate_available"
+    },
+    {
+      "bqp_status": "conditional_speedup",
+      "family": "simulation",
+      "id": "phase_estimation_observables",
+      "input_model": "prepared_state_plus_unitary",
+      "main_risk": "state_preparation",
+      "verification": "observable_estimates"
+    },
+    {
+      "bqp_status": "uncertain_practical_advantage",
+      "family": "optimization",
+      "id": "qaoa_optimization",
+      "input_model": "classical_instance",
+      "main_risk": "classical_heuristics",
+      "verification": "objective_value"
+    },
+    {
+      "bqp_status": "conditional_or_contested",
+      "family": "learning",
+      "id": "quantum_machine_learning",
+      "input_model": "data_state_or_feature_map",
+      "main_risk": "data_loading_and_dequantization",
+      "verification": "generalization"
+    },
+    {
+      "bqp_status": "evidence_for_sampling_advantage",
+      "family": "sampling",
+      "id": "random_circuit_sampling",
+      "input_model": "circuit_description",
+      "main_risk": "spoofing_and_noise",
+      "verification": "statistical_or_cross_entropy"
+    }
+  ],
+  "restricted_theorem_target_count": 11,
+  "restricted_theorem_targets": [
+    {
+      "edge_type": "special_case_to_general_family",
+      "goal": "prove restricted advantage preservation under explicit input and verification assumptions",
+      "known_failure_modes_to_control": [],
+      "name": "period_finding__to__abelian_hidden_subgroup"
+    },
+    {
+      "edge_type": "algorithmic_subroutine",
+      "goal": "prove restricted advantage preservation under explicit input and verification assumptions",
+      "known_failure_modes_to_control": [
+        "state_preparation"
+      ],
+      "name": "hamiltonian_simulation__to__phase_estimation_observables"
+    },
+    {
+      "edge_type": "block_encoding_view",
+      "goal": "formalize conditions where claimed speedup is erased",
+      "known_failure_modes_to_control": [
+        "data_loading",
+        "condition_number",
+        "readout"
+      ],
+      "name": "phase_estimation_observables__to__linear_systems_hhl_negative_boundary"
+    },
+    {
+      "edge_type": "qml_application_claim",
+      "goal": "formalize conditions where claimed speedup is erased",
+      "known_failure_modes_to_control": [
+        "data_loading",
+        "dequantization",
+        "generalization"
+      ],
+      "name": "linear_systems_hhl__to__quantum_machine_learning_negative_boundary"
+    },
+    {
+      "edge_type": "estimation_wrapper",
+      "goal": "prove restricted advantage preservation under explicit input and verification assumptions",
+      "known_failure_modes_to_control": [
+        "oracle_construction"
+      ],
+      "name": "amplitude_estimation__to__phase_estimation_observables"
+    },
+    {
+      "edge_type": "verification_layer",
+      "goal": "prove restricted advantage preservation under explicit input and verification assumptions",
+      "known_failure_modes_to_control": [
+        "protocol_overhead",
+        "noise"
+      ],
+      "name": "random_circuit_sampling__to__interactive_verification"
+    },
+    {
+      "edge_type": "sampling_complexity_family",
+      "goal": "prove restricted advantage preservation under explicit input and verification assumptions",
+      "known_failure_modes_to_control": [
+        "average_case_assumptions"
+      ],
+      "name": "iqp_sampling__to__random_circuit_sampling"
+    },
+    {
+      "edge_type": "dynamics_to_sampling",
+      "goal": "prove restricted advantage preservation under explicit input and verification assumptions",
+      "known_failure_modes_to_control": [
+        "verification",
+        "noise"
+      ],
+      "name": "hamiltonian_simulation__to__random_circuit_sampling"
+    },
+    {
+      "edge_type": "linear_algebra_subroutine_claim",
+      "goal": "formalize conditions where claimed speedup is erased",
+      "known_failure_modes_to_control": [
+        "data_loading",
+        "output_readout"
+      ],
+      "name": "quantum_machine_learning__to__linear_systems_hhl_negative_boundary"
+    },
+    {
+      "edge_type": "observable_estimation_link",
+      "goal": "prove restricted advantage preservation under explicit input and verification assumptions",
+      "known_failure_modes_to_control": [
+        "precision"
+      ],
+      "name": "phase_estimation_observables__to__amplitude_estimation"
+    },
+    {
+      "edge_type": "restricted_case_projection",
+      "goal": "prove restricted advantage preservation under explicit input and verification assumptions",
+      "known_failure_modes_to_control": [
+        "restriction_too_strong"
+      ],
+      "name": "nonabelian_hidden_subgroup__to__period_finding"
+    }
+  ],
+  "top_failure_modes": [
+    "data_loading",
+    "oracle_construction",
+    "protocol_overhead",
+    "noise",
+    "measurement_gap"
+  ]
+}

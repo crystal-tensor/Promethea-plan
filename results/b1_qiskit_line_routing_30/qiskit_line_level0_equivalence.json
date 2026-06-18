@@ -1,0 +1,250 @@
+{
+  "benchmark_id": "B1",
+  "check": "statevector_equivalence",
+  "failed": 19,
+  "pair_count": 30,
+  "passed": 11,
+  "results": [
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/01_trotter_ladder_n6.qasm",
+      "max_global_phase_adjusted_delta": 3.8956806801599406e-16,
+      "qubits": 6,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/b1_exact_extension/01_trotter_ladder_n6.qasm"
+    },
+    {
+      "equivalent": false,
+      "fidelity": 0.47444682096940294,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/02_ring_interaction_n8.qasm",
+      "max_global_phase_adjusted_delta": 0.11934112047670953,
+      "qubits": 8,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/b1_exact_extension/02_ring_interaction_n8.qasm"
+    },
+    {
+      "equivalent": false,
+      "fidelity": 0.25,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/03_qec_syndrome_phase_n7.qasm",
+      "max_global_phase_adjusted_delta": 0.47699665083753096,
+      "qubits": 7,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/b1_exact_extension/03_qec_syndrome_phase_n7.qasm"
+    },
+    {
+      "equivalent": false,
+      "fidelity": 5.934729841099875e-66,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/04_arithmetic_phase_n6.qasm",
+      "max_global_phase_adjusted_delta": 0.7071067811865475,
+      "qubits": 6,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/b1_exact_extension/04_arithmetic_phase_n6.qasm"
+    },
+    {
+      "equivalent": false,
+      "fidelity": 0.8377583302567347,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/05_qft_phase_ladder_n5.qasm",
+      "max_global_phase_adjusted_delta": 0.15017157173090026,
+      "qubits": 5,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/b1_exact_extension/05_qft_phase_ladder_n5.qasm"
+    },
+    {
+      "equivalent": false,
+      "fidelity": 0.5812032113106641,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/06_long_range_echo_n10.qasm",
+      "max_global_phase_adjusted_delta": 0.3716646922094568,
+      "qubits": 10,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/b1_exact_extension/06_long_range_echo_n10.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 0.9999999999999996,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/07_commuting_disjoint_windows_n8.qasm",
+      "max_global_phase_adjusted_delta": 2.2591401799415137e-16,
+      "qubits": 8,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/b1_exact_extension/07_commuting_disjoint_windows_n8.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0000000000000018,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/08_chemistry_ansatz_n8.qasm",
+      "max_global_phase_adjusted_delta": 2.0014830212433605e-16,
+      "qubits": 8,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/b1_exact_extension/08_chemistry_ansatz_n8.qasm"
+    },
+    {
+      "equivalent": false,
+      "fidelity": 2.3591930493948445e-05,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/09_bv_phase_oracle_n9.qasm",
+      "max_global_phase_adjusted_delta": 0.6286581583868096,
+      "qubits": 9,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/b1_exact_extension/09_bv_phase_oracle_n9.qasm"
+    },
+    {
+      "equivalent": false,
+      "fidelity": 0.9878351322910514,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "max_global_phase_adjusted_delta": 0.03151250834855571,
+      "qubits": 6,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/b1_exact_extension/10_qaoa_double_triangle_n6.qasm"
+    },
+    {
+      "equivalent": false,
+      "fidelity": 0.015625,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/11_stabilizer_mixer_n10.qasm",
+      "max_global_phase_adjusted_delta": 0.25000000000000006,
+      "qubits": 10,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/b1_exact_extension/11_stabilizer_mixer_n10.qasm"
+    },
+    {
+      "equivalent": false,
+      "fidelity": 0.2500000000000002,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/12_toffoli_phase_n7.qasm",
+      "max_global_phase_adjusted_delta": 0.7071067811865475,
+      "qubits": 7,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/b1_exact_extension/12_toffoli_phase_n7.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "max_global_phase_adjusted_delta": 1.294171984040943e-14,
+      "qubits": 4,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/qasmbench_interaction_exact/basis_trotter_n4.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 0.9999999999999996,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_interaction_exact/ising_n10.qasm",
+      "max_global_phase_adjusted_delta": 1.2904290674677992e-15,
+      "qubits": 10,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/qasmbench_interaction_exact/ising_n10.qasm"
+    },
+    {
+      "equivalent": false,
+      "fidelity": 0.24999999999999994,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_medium_exact/bv_n14.qasm",
+      "max_global_phase_adjusted_delta": 0.7071067811865475,
+      "qubits": 14,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/qasmbench_medium_exact/bv_n14.qasm"
+    },
+    {
+      "equivalent": false,
+      "fidelity": 2.483906181296988e-34,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_medium_exact/gcm_h6.qasm",
+      "max_global_phase_adjusted_delta": 0.49999999999999833,
+      "qubits": 13,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/qasmbench_medium_exact/gcm_h6.qasm"
+    },
+    {
+      "equivalent": false,
+      "fidelity": 0.0,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_medium_exact/multiply_n13.qasm",
+      "max_global_phase_adjusted_delta": 1.0,
+      "qubits": 13,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/qasmbench_medium_exact/multiply_n13.qasm"
+    },
+    {
+      "equivalent": false,
+      "fidelity": 1.739191303359528e-65,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_medium_exact/qf21_n15.qasm",
+      "max_global_phase_adjusted_delta": 0.2503941795803814,
+      "qubits": 15,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/qasmbench_medium_exact/qf21_n15.qasm"
+    },
+    {
+      "equivalent": false,
+      "fidelity": 1.3500494119198804e-34,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_medium_exact/sat_n11.qasm",
+      "max_global_phase_adjusted_delta": 0.3093592167691142,
+      "qubits": 11,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/qasmbench_medium_exact/sat_n11.qasm"
+    },
+    {
+      "equivalent": false,
+      "fidelity": 5.970357787922755e-34,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_medium_exact/seca_n11.qasm",
+      "max_global_phase_adjusted_delta": 0.49999999999999994,
+      "qubits": 11,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/qasmbench_medium_exact/seca_n11.qasm"
+    },
+    {
+      "equivalent": false,
+      "fidelity": 3.7493994566546427e-33,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/adder_n4.qasm",
+      "max_global_phase_adjusted_delta": 1.0,
+      "qubits": 4,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/qasmbench_small/adder_n4.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/basis_change_n3.qasm",
+      "max_global_phase_adjusted_delta": 2.7755575615628914e-16,
+      "qubits": 3,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/qasmbench_small/basis_change_n3.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/basis_test_n4.qasm",
+      "max_global_phase_adjusted_delta": 1.7764385740807325e-15,
+      "qubits": 4,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/qasmbench_small/basis_test_n4.qasm"
+    },
+    {
+      "equivalent": false,
+      "fidelity": 0.5625000000000001,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/bell_n4.qasm",
+      "max_global_phase_adjusted_delta": 0.25,
+      "qubits": 4,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/qasmbench_small/bell_n4.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/cat_state_n4.qasm",
+      "max_global_phase_adjusted_delta": 1.1102230246251565e-16,
+      "qubits": 4,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/qasmbench_small/cat_state_n4.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/deutsch_n2.qasm",
+      "max_global_phase_adjusted_delta": 1.7207001751468359e-16,
+      "qubits": 2,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/qasmbench_small/deutsch_n2.qasm"
+    },
+    {
+      "equivalent": false,
+      "fidelity": 0.12500000000000003,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/error_correctiond3_n5.qasm",
+      "max_global_phase_adjusted_delta": 0.46193976625564215,
+      "qubits": 5,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/qasmbench_small/error_correctiond3_n5.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/fredkin_n3.qasm",
+      "max_global_phase_adjusted_delta": 2.303328157969851e-16,
+      "qubits": 3,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/qasmbench_small/fredkin_n3.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/grover_n2.qasm",
+      "max_global_phase_adjusted_delta": 5.551115123125783e-16,
+      "qubits": 2,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/qasmbench_small/grover_n2.qasm"
+    },
+    {
+      "equivalent": false,
+      "fidelity": 0.17017868676370218,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/hhl_n7.qasm",
+      "max_global_phase_adjusted_delta": 0.6968356172994598,
+      "qubits": 7,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level0/qasmbench_small/hhl_n7.qasm"
+    }
+  ],
+  "tolerance": 1e-09
+}

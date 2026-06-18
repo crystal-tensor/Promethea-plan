@@ -1,0 +1,58 @@
+{
+  "benchmark_id": "B1",
+  "check": "statevector_equivalence",
+  "failed": 0,
+  "pair_count": 6,
+  "passed": 6,
+  "results": [
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "results/qasmbench_medium_exact_fixed_point_pipeline_work/00_input/bv_n14.qasm",
+      "max_global_phase_adjusted_delta": 1.1102230246251565e-16,
+      "qubits": 14,
+      "right": "results/qasmbench_medium_exact_fixed_point_pipeline_work/02_rzz_pass/bv_n14.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "results/qasmbench_medium_exact_fixed_point_pipeline_work/00_input/gcm_h6.qasm",
+      "max_global_phase_adjusted_delta": 3.5201467671373413e-15,
+      "qubits": 13,
+      "right": "results/qasmbench_medium_exact_fixed_point_pipeline_work/02_rzz_pass/gcm_h6.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "results/qasmbench_medium_exact_fixed_point_pipeline_work/00_input/multiply_n13.qasm",
+      "max_global_phase_adjusted_delta": 0.0,
+      "qubits": 13,
+      "right": "results/qasmbench_medium_exact_fixed_point_pipeline_work/02_rzz_pass/multiply_n13.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 0.9999999999999993,
+      "left": "results/qasmbench_medium_exact_fixed_point_pipeline_work/00_input/qf21_n15.qasm",
+      "max_global_phase_adjusted_delta": 0.0,
+      "qubits": 15,
+      "right": "results/qasmbench_medium_exact_fixed_point_pipeline_work/02_rzz_pass/qf21_n15.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "results/qasmbench_medium_exact_fixed_point_pipeline_work/00_input/sat_n11.qasm",
+      "max_global_phase_adjusted_delta": 3.333416279765389e-16,
+      "qubits": 11,
+      "right": "results/qasmbench_medium_exact_fixed_point_pipeline_work/02_rzz_pass/sat_n11.qasm"
+    },
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "results/qasmbench_medium_exact_fixed_point_pipeline_work/00_input/seca_n11.qasm",
+      "max_global_phase_adjusted_delta": 2.7755575615628914e-16,
+      "qubits": 11,
+      "right": "results/qasmbench_medium_exact_fixed_point_pipeline_work/02_rzz_pass/seca_n11.qasm"
+    }
+  ],
+  "tolerance": 1e-09
+}

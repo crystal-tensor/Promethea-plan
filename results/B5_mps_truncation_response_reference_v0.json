@@ -1,0 +1,3732 @@
+{
+  "benchmark_id": "B5",
+  "claim_boundary": {
+    "next_gate": "Replace the exact-state-seeded MPS pressure reference with a variational DMRG/MPS solver or compare a real quantum response kernel against this reference after full cost accounting.",
+    "now_supported": "A tensor-network pressure reference now measures how finite MPS bond dimension distorts the same B10 D5 Hubbard response rows after projecting back to the fixed particle-number sector.",
+    "still_not_supported": "This is exact-state-seeded Schmidt truncation, not variational DMRG, not a deployable tensor solver, not a quantum response kernel, and not an accuracy-per-resource win."
+  },
+  "dependency_b10_result": "results/B10_t1_d5_observable_denominator_table_v0.json",
+  "dependency_b10_table": "b10_t1_d5_observable_denominator_table_v0",
+  "dependency_non_oracle_embedding_result": "results/B5_non_oracle_response_embedding_baseline_v0.json",
+  "exact_state_seeded": true,
+  "explicit_not_bqp_separation": true,
+  "explicit_not_quantum_advantage": true,
+  "explicit_not_variational_dmrg": true,
+  "last_updated": "2026-06-18",
+  "method": "b5_mps_schmidt_truncation_response_reference_v0",
+  "model_status": "exact_state_seeded_mps_truncation_tensor_pressure_reference",
+  "problem_id": 38,
+  "rows": [
+    {
+      "bond_dimension_rows": [
+        {
+          "absolute_response_error": 0.07480681905373203,
+          "bond_dimension": 2,
+          "energy_error_per_site": 0.690325020749802,
+          "energy_expectation": -0.11464272600585443,
+          "energy_variance": 8.573871948478308,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.6720441134426912,
+          "full_reconstructed_norm": 0.6720441134426912,
+          "max_kept_bond_dimension": 2,
+          "max_relative_discarded_weight": 0.2796735091055294,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.2796735091055298,
+              "full_rank": 4,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.6001360224542753,
+                0.6001360224542709
+              ],
+              "largest_discarded_singular_value": 0.37394752914381646,
+              "relative_discarded_weight": 0.2796735091055294
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.09400964933098555,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.7765340148591344,
+                0.15268190898151496
+              ],
+              "largest_discarded_singular_value": 0.15268190898151457,
+              "relative_discarded_weight": 0.13050977649627776
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.17467355115051325,
+              "full_rank": 4,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.48385774398352066,
+                0.4663957268244965
+              ],
+              "largest_discarded_singular_value": 0.3011577444364875,
+              "relative_discarded_weight": 0.2788900753721911
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.6720441134426911,
+          "relative_response_error": 0.8947531372831148,
+          "response_iterations": 18,
+          "response_relative_residual": 7.201171722098246e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.008799279585810263,
+          "total_relative_discarded_weight": 0.6890733609739983
+        },
+        {
+          "absolute_response_error": 0.0011080143181499968,
+          "bond_dimension": 4,
+          "energy_error_per_site": 0.03733350552569226,
+          "energy_expectation": -2.7266087869022932,
+          "energy_variance": 0.42643629485009527,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.96962078112153,
+          "full_reconstructed_norm": 0.96962078112153,
+          "max_kept_bond_dimension": 4,
+          "max_relative_discarded_weight": 0.05983554081727583,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6001360224542753,
+                0.6001360224542709,
+                0.37394752914381646,
+                0.37394752914381496
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.05983554081727595,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.9150450374994135,
+                0.18516392604970897,
+                0.1851639260497053,
+                0.1851639260497038
+              ],
+              "largest_discarded_singular_value": 0.18516392604969412,
+              "relative_discarded_weight": 0.05983554081727583
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.589971571776639,
+                0.5698983948757422,
+                0.3730396947267633,
+                0.3579877223514017
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9696207811215298,
+          "relative_response_error": 0.013252792992136473,
+          "response_iterations": 19,
+          "response_relative_residual": 8.45895299230897e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.0847141129576923,
+          "total_relative_discarded_weight": 0.05983554081727583
+        },
+        {
+          "absolute_response_error": 0.00020016839555694887,
+          "bond_dimension": 8,
+          "energy_error_per_site": 0.0021352667819236615,
+          "energy_expectation": -2.8674017418773676,
+          "energy_variance": 0.052885545274593326,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.9992619736751386,
+          "full_reconstructed_norm": 0.9992619736751386,
+          "max_kept_bond_dimension": 8,
+          "max_relative_discarded_weight": 0.001475507966867984,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6001360224542753,
+                0.6001360224542709,
+                0.37394752914381646,
+                0.37394752914381496
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.001475507966867987,
+              "full_rank": 16,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.9150450374994135,
+                0.18516392604970897,
+                0.1851639260497053,
+                0.1851639260497038,
+                0.18516392604969412,
+                0.08958116122688561,
+                0.08958116122688498,
+                0.08958116122688375
+              ],
+              "largest_discarded_singular_value": 0.0191783645659181,
+              "relative_discarded_weight": 0.001475507966867984
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6000863539314437,
+                0.6000863539314436,
+                0.37303969472676324,
+                0.3730396947267536
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9992619736751386,
+          "relative_response_error": 0.002394184142235257,
+          "response_iterations": 9,
+          "response_relative_residual": 2.8879318437094753e-15,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.08380626703509925,
+          "total_relative_discarded_weight": 0.001475507966867984
+        },
+        {
+          "absolute_response_error": 1.930400284066991e-14,
+          "bond_dimension": 16,
+          "energy_error_per_site": 3.3306690738754696e-16,
+          "energy_expectation": -2.875942809005061,
+          "energy_variance": 1.7763568394002505e-15,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 1.0000000000000009,
+          "full_reconstructed_norm": 1.0000000000000009,
+          "max_kept_bond_dimension": 16,
+          "max_relative_discarded_weight": 0.0,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6001360224542753,
+                0.6001360224542709,
+                0.37394752914381646,
+                0.37394752914381496
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.0,
+              "full_rank": 16,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.9150450374994135,
+                0.18516392604970897,
+                0.1851639260497053,
+                0.1851639260497038,
+                0.18516392604969412,
+                0.08958116122688561,
+                0.08958116122688498,
+                0.08958116122688375
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6001360224542808,
+                0.6001360224542802,
+                0.37394752914380863,
+                0.37394752914380053
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 1.0000000000000007,
+          "relative_response_error": 2.3089228124250614e-13,
+          "response_iterations": 9,
+          "response_relative_residual": 2.811590990443157e-15,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.083606098639523,
+          "total_relative_discarded_weight": 0.0
+        }
+      ],
+      "bond_dimensions_tested": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "candidate_quantum_response_beats_mps_reference": false,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 36,
+      "exact_d5_susceptibility_proxy": 0.0836060986395423,
+      "exact_ground_energy": -2.8759428090050623,
+      "exact_state_seeded": true,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "mps_reference_beats_non_oracle_embedding": false,
+      "non_oracle_embedding_relative_response_error": 2.124673759816016e-14,
+      "selected_bond_dimension": 16,
+      "selected_energy_error_per_site": 3.3306690738754696e-16,
+      "selected_fixed_sector_norm_before_normalization": 1.0000000000000009,
+      "selected_overlap_with_exact_ground_state": 1.0000000000000007,
+      "selected_relative_response_error": 2.3089228124250614e-13,
+      "selected_response_relative_residual": 2.811590990443157e-15,
+      "selected_susceptibility_proxy": 0.083606098639523,
+      "sites": 4,
+      "t": 1.0,
+      "u_over_t": 2.0,
+      "variational_dmrg": false
+    },
+    {
+      "bond_dimension_rows": [
+        {
+          "absolute_response_error": 0.03212868364637525,
+          "bond_dimension": 2,
+          "energy_error_per_site": 0.4732862529428826,
+          "energy_expectation": -0.060000296913022194,
+          "energy_variance": 8.65640137481517,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.8075797881248259,
+          "full_reconstructed_norm": 0.8075797881248259,
+          "max_kept_bond_dimension": 2,
+          "max_relative_discarded_weight": 0.14857475573600182,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.14561959137194652,
+              "full_rank": 4,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.6535978919137023,
+                0.6535978919136881
+              ],
+              "largest_discarded_singular_value": 0.26983290326797427,
+              "relative_discarded_weight": 0.1456195913719466
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.08838818725398466,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.866144425417699,
+                0.12564257117678015
+              ],
+              "largest_discarded_singular_value": 0.1256425711764132,
+              "relative_discarded_weight": 0.10345296587022244
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.11380710718632962,
+              "full_rank": 4,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.5767271788216686,
+                0.5653060015568009
+              ],
+              "largest_discarded_singular_value": 0.2414019464319799,
+              "relative_discarded_weight": 0.14857475573600182
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.8075797881248259,
+          "relative_response_error": 0.8868949581543829,
+          "response_iterations": 19,
+          "response_relative_residual": 2.2766519864405793e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.0040973466754507205,
+          "total_relative_discarded_weight": 0.39764731297817085
+        },
+        {
+          "absolute_response_error": 5.813644173286586e-05,
+          "bond_dimension": 4,
+          "energy_error_per_site": 0.033422437631129176,
+          "energy_expectation": -1.819455558160036,
+          "energy_variance": 0.4282792004355769,
+          "fixed_sector_leakage": 4.868339065211558e-11,
+          "fixed_sector_norm_before_normalization": 0.9691600919933584,
+          "full_reconstructed_norm": 0.9691600920184746,
+          "max_kept_bond_dimension": 4,
+          "max_relative_discarded_weight": 0.060728716038743184,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6535978919137023,
+                0.6535978919136881,
+                0.26983290326797427,
+                0.2698329032677864
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.06072871603874318,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.9385686021121565,
+                0.13947552125811266,
+                0.13947552125781523,
+                0.1394755212577738
+              ],
+              "largest_discarded_singular_value": 0.13947552125757576,
+              "relative_discarded_weight": 0.060728716038743184
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6377013411787708,
+                0.6252063670028568,
+                0.2696281735086704,
+                0.26272786325306485
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9691600920435899,
+          "relative_response_error": 0.0016048250723689976,
+          "response_iterations": 21,
+          "response_relative_residual": 3.5503440422568723e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.036284166763558834,
+          "total_relative_discarded_weight": 0.060728716038743184
+        },
+        {
+          "absolute_response_error": 5.231307322022677e-05,
+          "bond_dimension": 8,
+          "energy_error_per_site": 0.00044124110708099185,
+          "energy_expectation": -1.9513803442562287,
+          "energy_variance": 0.013527063769567693,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.9998773550640924,
+          "full_reconstructed_norm": 0.9998773550640924,
+          "max_kept_bond_dimension": 8,
+          "max_relative_discarded_weight": 0.00024527483003651757,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6535978919137023,
+                0.6535978919136881,
+                0.26983290326797427,
+                0.2698329032677864
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.0002452748300365175,
+              "full_rank": 16,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.9385686021121565,
+                0.13947552125811266,
+                0.13947552125781523,
+                0.1394755212577738,
+                0.13947552125757576,
+                0.1169473103277839,
+                0.11694731032767727,
+                0.11694731032757083
+              ],
+              "largest_discarded_singular_value": 0.006215385802975587,
+              "relative_discarded_weight": 0.00024527483003651757
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6535885637267523,
+                0.6535885637267383,
+                0.26962817351057045,
+                0.26962817351036916
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9998773550640914,
+          "relative_response_error": 0.0014440741299967513,
+          "response_iterations": 9,
+          "response_relative_residual": 2.167584190292363e-13,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.036278343395046195,
+          "total_relative_discarded_weight": 0.00024527483003651757
+        },
+        {
+          "absolute_response_error": 2.038993973663139e-13,
+          "bond_dimension": 16,
+          "energy_error_per_site": 1.1102230246251565e-16,
+          "energy_expectation": -1.9531453086845532,
+          "energy_variance": 0.0,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 1.0000000000000002,
+          "full_reconstructed_norm": 1.0000000000000002,
+          "max_kept_bond_dimension": 16,
+          "max_relative_discarded_weight": 0.0,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6535978919137023,
+                0.6535978919136881,
+                0.26983290326797427,
+                0.2698329032677864
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.0,
+              "full_rank": 16,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.9385686021121565,
+                0.13947552125811266,
+                0.13947552125781523,
+                0.1394755212577738,
+                0.13947552125757576,
+                0.1169473103277839,
+                0.11694731032767727,
+                0.11694731032757083
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6535978919136785,
+                0.6535978919136656,
+                0.2698329032680288,
+                0.26983290326784554
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9999999999999999,
+          "relative_response_error": 5.6285327306057525e-12,
+          "response_iterations": 9,
+          "response_relative_residual": 2.2169072213477641e-13,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.03622603032202987,
+          "total_relative_discarded_weight": 0.0
+        }
+      ],
+      "bond_dimensions_tested": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "candidate_quantum_response_beats_mps_reference": false,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 36,
+      "exact_d5_susceptibility_proxy": 0.03622603032182597,
+      "exact_ground_energy": -1.9531453086845527,
+      "exact_state_seeded": true,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "mps_reference_beats_non_oracle_embedding": false,
+      "non_oracle_embedding_relative_response_error": 2.0832179385671295e-11,
+      "selected_bond_dimension": 16,
+      "selected_energy_error_per_site": 1.1102230246251565e-16,
+      "selected_fixed_sector_norm_before_normalization": 1.0000000000000002,
+      "selected_overlap_with_exact_ground_state": 0.9999999999999999,
+      "selected_relative_response_error": 5.6285327306057525e-12,
+      "selected_response_relative_residual": 2.2169072213477641e-13,
+      "selected_susceptibility_proxy": 0.03622603032202987,
+      "sites": 4,
+      "t": 1.0,
+      "u_over_t": 4.0,
+      "variational_dmrg": false
+    },
+    {
+      "bond_dimension_rows": [
+        {
+          "absolute_response_error": 0.008377776428140199,
+          "bond_dimension": 2,
+          "energy_error_per_site": 0.2792931033402509,
+          "energy_expectation": -1.760122159938459e-34,
+          "energy_variance": 9.139043027130523,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.9164459443728028,
+          "full_reconstructed_norm": 0.9164459443728028,
+          "max_kept_bond_dimension": 2,
+          "max_relative_discarded_weight": 0.06683540035486826,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.05064031484913285,
+              "full_rank": 4,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.6889701318456833,
+                0.6889701318456469
+              ],
+              "largest_discarded_singular_value": 0.15912308891156832,
+              "relative_discarded_weight": 0.05064031484913289
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.06345083463782983,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.9310848702363395,
+                0.13780353743650908
+              ],
+              "largest_discarded_singular_value": 0.13780353743640097,
+              "relative_discarded_weight": 0.06683540035486826
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.0460356815556779,
+              "full_rank": 4,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.655310225727965,
+                0.6406572227125219
+              ],
+              "largest_discarded_singular_value": 0.15171631678243042,
+              "relative_discarded_weight": 0.051964354492020595
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9164459443728031,
+          "relative_response_error": 1.0,
+          "response_iterations": 20,
+          "response_relative_residual": 1.9465307923370626e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 4.93668666278678e-69,
+          "total_relative_discarded_weight": 0.16944006969602174
+        },
+        {
+          "absolute_response_error": 0.0026816322523668928,
+          "bond_dimension": 4,
+          "energy_error_per_site": 0.05705609883291274,
+          "energy_expectation": -0.8889480180293527,
+          "energy_variance": 1.9366888087489316,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.986168027212935,
+          "full_reconstructed_norm": 0.986168027212935,
+          "max_kept_bond_dimension": 4,
+          "max_relative_discarded_weight": 0.02747262210294756,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6889701318456833,
+                0.6889701318456469,
+                0.15912308891156832,
+                0.15912308891035887
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.02747262210294754,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.9568479153486698,
+                0.13780353743650897,
+                0.137803537436401,
+                0.1378035374362929
+              ],
+              "largest_discarded_singular_value": 0.08285371401486027,
+              "relative_discarded_weight": 0.02747262210294756
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6796647990888931,
+                0.6796647990886233,
+                0.15594694555647345,
+                0.1559469455549972
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9861680272129347,
+          "relative_response_error": 0.3200887819540673,
+          "response_iterations": 9,
+          "response_relative_residual": 9.545670274476865e-13,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.005696144175773306,
+          "total_relative_discarded_weight": 0.02747262210294756
+        },
+        {
+          "absolute_response_error": 3.042149034576322e-06,
+          "bond_dimension": 8,
+          "energy_error_per_site": 3.4390195743250196e-05,
+          "energy_expectation": -1.1170348525780307,
+          "energy_variance": 0.0014475863363916375,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.9999931647766396,
+          "full_reconstructed_norm": 0.9999931647766396,
+          "max_kept_bond_dimension": 8,
+          "max_relative_discarded_weight": 1.3670399999891258e-05,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6889701318456833,
+                0.6889701318456469,
+                0.15912308891156832,
+                0.15912308891035887
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 1.367039999989125e-05,
+              "full_rank": 16,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.9568479153486698,
+                0.13780353743650897,
+                0.137803537436401,
+                0.1378035374362929,
+                0.08285371401486027,
+                0.08285371401465852,
+                0.0828537140119605,
+                0.08285371401025325
+              ],
+              "largest_discarded_singular_value": 0.001680055380345298,
+              "relative_discarded_weight": 1.3670399999891258e-05
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6889698343821637,
+                0.6889698343821039,
+                0.15910289787322154,
+                0.1591028978719508
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9999931647766396,
+          "relative_response_error": 0.00036312129604676685,
+          "response_iterations": 9,
+          "response_relative_residual": 1.767092311796625e-12,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.008380818577174775,
+          "total_relative_discarded_weight": 1.3670399999891258e-05
+        },
+        {
+          "absolute_response_error": 1.5175534440192706e-13,
+          "bond_dimension": 16,
+          "energy_error_per_site": 2.220446049250313e-16,
+          "energy_expectation": -1.1171724133610046,
+          "energy_variance": 0.0,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.999999999999999,
+          "full_reconstructed_norm": 0.999999999999999,
+          "max_kept_bond_dimension": 16,
+          "max_relative_discarded_weight": 0.0,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6889701318456833,
+                0.6889701318456469,
+                0.15912308891156832,
+                0.15912308891035887
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.0,
+              "full_rank": 16,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.9568479153486698,
+                0.13780353743650897,
+                0.137803537436401,
+                0.1378035374362929,
+                0.08285371401486027,
+                0.08285371401465852,
+                0.0828537140119605,
+                0.08285371401025325
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6889701318456151,
+                0.6889701318455548,
+                0.15912308891194452,
+                0.15912308891067406
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9999999999999997,
+          "relative_response_error": 1.811403606954639e-11,
+          "response_iterations": 8,
+          "response_relative_residual": 4.9964134905985e-10,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.008377776428291954,
+          "total_relative_discarded_weight": 0.0
+        }
+      ],
+      "bond_dimensions_tested": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "candidate_quantum_response_beats_mps_reference": false,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 36,
+      "exact_d5_susceptibility_proxy": 0.008377776428140199,
+      "exact_ground_energy": -1.1171724133610037,
+      "exact_state_seeded": true,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "mps_reference_beats_non_oracle_embedding": false,
+      "non_oracle_embedding_relative_response_error": 8.593094464925813e-13,
+      "selected_bond_dimension": 16,
+      "selected_energy_error_per_site": 2.220446049250313e-16,
+      "selected_fixed_sector_norm_before_normalization": 0.999999999999999,
+      "selected_overlap_with_exact_ground_state": 0.9999999999999997,
+      "selected_relative_response_error": 1.811403606954639e-11,
+      "selected_response_relative_residual": 4.9964134905985e-10,
+      "selected_susceptibility_proxy": 0.008377776428291954,
+      "sites": 4,
+      "t": 1.0,
+      "u_over_t": 8.0,
+      "variational_dmrg": false
+    },
+    {
+      "bond_dimension_rows": [
+        {
+          "absolute_response_error": 0.08749830546721214,
+          "bond_dimension": 2,
+          "energy_error_per_site": 0.7171627417693908,
+          "energy_expectation": -0.2433373438196622,
+          "energy_variance": 13.093825990496002,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.5193285131200197,
+          "full_reconstructed_norm": 0.5193285131200197,
+          "max_kept_bond_dimension": 2,
+          "max_relative_discarded_weight": 0.2852225119851658,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.2797946064901551,
+              "full_rank": 4,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.6000855745266441,
+                0.6000855745265613
+              ],
+              "largest_discarded_singular_value": 0.3740284791899357,
+              "relative_discarded_weight": 0.27979460649015486
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.11209065965867508,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.7625147963694526,
+                0.1633582540578315
+              ],
+              "largest_discarded_singular_value": 0.16335825405781526,
+              "relative_discarded_weight": 0.15563707335266252
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.17344801196422155,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.4758410539577445,
+                0.45633541748951767
+              ],
+              "largest_discarded_singular_value": 0.3005968988829505,
+              "relative_discarded_weight": 0.2852225119851658
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 0.060714368892589174,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.5982978399546423,
+                0.12645966827399752
+              ],
+              "largest_discarded_singular_value": 0.12426796938462757,
+              "relative_discarded_weight": 0.13968027878697398
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.10425024845490985,
+              "full_rank": 4,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.3776103600324365,
+                0.3565284287902216
+              ],
+              "largest_discarded_singular_value": 0.23341453706981546,
+              "relative_discarded_weight": 0.2787794958907026
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.5193285131200195,
+          "relative_response_error": 0.9134874503894592,
+          "response_iterations": 30,
+          "response_relative_residual": 9.039947849708056e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.008286596043922831,
+          "total_relative_discarded_weight": 1.1391139665056598
+        },
+        {
+          "absolute_response_error": 0.0008289406916890812,
+          "bond_dimension": 4,
+          "energy_error_per_site": 0.05381011511700887,
+          "energy_expectation": -4.223453103733953,
+          "energy_variance": 0.9311446613183882,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.928933168602845,
+          "full_reconstructed_norm": 0.928933168602845,
+          "max_kept_bond_dimension": 4,
+          "max_relative_discarded_weight": 0.07387097517359222,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6000855745266441,
+                0.6000855745265613,
+                0.3740284791899357,
+                0.374028479189779
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.07387097517359227,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.898771035286015,
+                0.1986115563585075,
+                0.19861155635847086,
+                0.19861155635821034
+              ],
+              "largest_discarded_singular_value": 0.19861155635816008,
+              "relative_discarded_weight": 0.07387097517359222
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.0027923882832916677,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.5823511725908003,
+                0.5602117878416124,
+                0.3765537943471717,
+                0.3585718073849209
+              ],
+              "largest_discarded_singular_value": 0.01873450277624832,
+              "relative_discarded_weight": 0.003015117989434644
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 0.06041980481259654,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.8688727600825457,
+                0.1920989808359173,
+                0.18933510089905825,
+                0.18768899713729864
+              ],
+              "largest_discarded_singular_value": 0.17940364671593456,
+              "relative_discarded_weight": 0.06543637761283083
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.5692938153933335,
+                0.5403156725476014,
+                0.36052626461432064,
+                0.3419081309476274
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9289331686028446,
+          "relative_response_error": 0.00865418952894906,
+          "response_iterations": 29,
+          "response_relative_residual": 5.798712538481271e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.09495596081944589,
+          "total_relative_discarded_weight": 0.1423224707758577
+        },
+        {
+          "absolute_response_error": 0.00030078887460646686,
+          "bond_dimension": 8,
+          "energy_error_per_site": 0.005705554833175104,
+          "energy_expectation": -4.512080465436956,
+          "energy_variance": 0.18167521075747928,
+          "fixed_sector_leakage": 1.0611178602459859e-10,
+          "fixed_sector_norm_before_normalization": 0.9961149480103344,
+          "full_reconstructed_norm": 0.9961149480635972,
+          "max_kept_bond_dimension": 8,
+          "max_relative_discarded_weight": 0.0031529989589567393,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6000855745266441,
+                0.6000855745265613,
+                0.3740284791899357,
+                0.374028479189779
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.0023915227021863265,
+              "full_rank": 16,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.898771035286015,
+                0.1986115563585075,
+                0.19861155635847086,
+                0.19861155635821034,
+                0.19861155635816008,
+                0.10333263787788989,
+                0.10333263787787683,
+                0.10333263787783503
+              ],
+              "largest_discarded_singular_value": 0.023849289662459312,
+              "relative_discarded_weight": 0.002391522702186325
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.003145458490366428,
+              "full_rank": 32,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.5952981853894334,
+                0.595298185389395,
+                0.3765537943473113,
+                0.3765537943471718,
+                0.024016388179584992,
+                0.024016388179515163,
+                0.021955248513723966,
+                0.02195524851371818
+              ],
+              "largest_discarded_singular_value": 0.0219552485136966,
+              "relative_discarded_weight": 0.0031529989589567393
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 0.0022180290517090644,
+              "full_rank": 16,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.8978962095336225,
+                0.19704994987318272,
+                0.1970499438739911,
+                0.19615883895450095,
+                0.1961588388667248,
+                0.10254267174322937,
+                0.10254267162744402,
+                0.1018991871256735
+              ],
+              "largest_discarded_singular_value": 0.02299915431486025,
+              "relative_discarded_weight": 0.0022303786161590048
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.5984706207264983,
+                0.5984706186118048,
+                0.37156905114935146,
+                0.3712778807973282
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.996114948116858,
+          "relative_response_error": 0.003140253524940987,
+          "response_iterations": 22,
+          "response_relative_residual": 7.678839408698832e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.0954841126365285,
+          "total_relative_discarded_weight": 0.007774900277302069
+        },
+        {
+          "absolute_response_error": 9.554389497863636e-05,
+          "bond_dimension": 16,
+          "energy_error_per_site": 0.0005170567893258612,
+          "energy_expectation": -4.543211453700051,
+          "energy_variance": 0.019588451533991247,
+          "fixed_sector_leakage": 7.052225470260964e-11,
+          "fixed_sector_norm_before_normalization": 0.9997322893484684,
+          "full_reconstructed_norm": 0.9997322893837389,
+          "max_kept_bond_dimension": 16,
+          "max_relative_discarded_weight": 0.00053534956354946,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6000855745266441,
+                0.6000855745265613,
+                0.3740284791899357,
+                0.374028479189779
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.0,
+              "full_rank": 16,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.898771035286015,
+                0.1986115563585075,
+                0.19861155635847086,
+                0.19861155635821034,
+                0.19861155635816008,
+                0.10333263787788989,
+                0.10333263787787683,
+                0.10333263787783503
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.0005353495635494604,
+              "full_rank": 64,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.5953904105525959,
+                0.5953904105525575,
+                0.3778959082564403,
+                0.3778959082563017,
+                0.0241874615935585,
+                0.024187461593479075,
+                0.021957663538302617,
+                0.021957663538297083
+              ],
+              "largest_discarded_singular_value": 0.010920867925541098,
+              "relative_discarded_weight": 0.00053534956354946
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 0.0,
+              "full_rank": 16,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.8987709619320798,
+                0.19846647616505966,
+                0.1984664214847081,
+                0.19818362495102834,
+                0.19818362494193567,
+                0.10325221988788887,
+                0.10325221988787421,
+                0.10325221988763328
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.5999576945111809,
+                0.5999576439861919,
+                0.37387581132986375,
+                0.3738758060616567
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9997322894190092,
+          "relative_response_error": 0.0009974838776394149,
+          "response_iterations": 23,
+          "response_relative_residual": 8.141774431427492e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.09588044540611361,
+          "total_relative_discarded_weight": 0.00053534956354946
+        }
+      ],
+      "bond_dimensions_tested": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "candidate_quantum_response_beats_mps_reference": false,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 400,
+      "exact_d5_susceptibility_proxy": 0.09578490151113497,
+      "exact_ground_energy": -4.546313794436006,
+      "exact_state_seeded": true,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "mps_reference_beats_non_oracle_embedding": true,
+      "non_oracle_embedding_relative_response_error": 0.11211021182232854,
+      "selected_bond_dimension": 16,
+      "selected_energy_error_per_site": 0.0005170567893258612,
+      "selected_fixed_sector_norm_before_normalization": 0.9997322893484684,
+      "selected_overlap_with_exact_ground_state": 0.9997322894190092,
+      "selected_relative_response_error": 0.0009974838776394149,
+      "selected_response_relative_residual": 8.141774431427492e-09,
+      "selected_susceptibility_proxy": 0.09588044540611361,
+      "sites": 6,
+      "t": 1.0,
+      "u_over_t": 2.0,
+      "variational_dmrg": false
+    },
+    {
+      "bond_dimension_rows": [
+        {
+          "absolute_response_error": 0.035362004039227415,
+          "bond_dimension": 2,
+          "energy_error_per_site": 0.5051975660329805,
+          "energy_expectation": -0.061379923307510395,
+          "energy_variance": 13.783991242473721,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.6967490809155581,
+          "full_reconstructed_norm": 0.6967490809155581,
+          "max_kept_bond_dimension": 2,
+          "max_relative_discarded_weight": 0.1484805808005359,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.1441950706083397,
+              "full_rank": 4,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.6541425415746175,
+                0.654142541571759
+              ],
+              "largest_discarded_singular_value": 0.2685098420993932,
+              "relative_discarded_weight": 0.14419507060833966
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.10453227024970196,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.8565523634678155,
+                0.13262996561734453
+              ],
+              "largest_discarded_singular_value": 0.13262996560910628,
+              "relative_discarded_weight": 0.12214497329900582
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.1088926875909527,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.5741288158654073,
+                0.5592459873293603
+              ],
+              "largest_discarded_singular_value": 0.2325616076186688,
+              "relative_discarded_weight": 0.14494429720804816
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 0.07227050509507005,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.7464850555826882,
+                0.11344394319507191
+              ],
+              "largest_discarded_singular_value": 0.11344394319457815,
+              "relative_discarded_weight": 0.11250429386921143
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.08465018469926099,
+              "full_rank": 4,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.5008876499299185,
+                0.4843251427546977
+              ],
+              "largest_discarded_singular_value": 0.2083741706785039,
+              "relative_discarded_weight": 0.1484805808005359
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.6967490809155581,
+          "relative_response_error": 0.8982280810306628,
+          "response_iterations": 38,
+          "response_relative_residual": 5.306009852248928e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.004006620462749454,
+          "total_relative_discarded_weight": 0.672269215785141
+        },
+        {
+          "absolute_response_error": 0.00017618528654896742,
+          "bond_dimension": 4,
+          "energy_error_per_site": 0.04747431326034005,
+          "energy_expectation": -2.8077194399433534,
+          "energy_variance": 0.9151467731055574,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.928852121263556,
+          "full_reconstructed_norm": 0.928852121263556,
+          "max_kept_bond_dimension": 4,
+          "max_relative_discarded_weight": 0.07448542287750805,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6541425415746175,
+                0.654142541571759,
+                0.2685098420993932,
+                0.2685098420991279
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.07448542287750806,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.9281753426054022,
+                0.14606518008847175,
+                0.14606518008730973,
+                0.14606518008622185
+              ],
+              "largest_discarded_singular_value": 0.14606518008522498,
+              "relative_discarded_weight": 0.07448542287750805
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.0009091611796070728,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6331255934636439,
+                0.6196370188422106,
+                0.26827499895708856,
+                0.26045323699103157
+              ],
+              "largest_discarded_singular_value": 0.011276366273241046,
+              "relative_discarded_weight": 0.000982330480880956
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 0.06183915276707875,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.8969939859189816,
+                0.14031652502030612,
+                0.13952212131795433,
+                0.13788728320679008
+              ],
+              "largest_discarded_singular_value": 0.13550741531081398,
+              "relative_discarded_weight": 0.06688166833201697
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6140066067489993,
+                0.5960414649558059,
+                0.25915206717570843,
+                0.2516682899697176
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9288521212635552,
+          "relative_response_error": 0.00447527158435826,
+          "response_iterations": 36,
+          "response_relative_residual": 6.456983468418969e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.039544809788525835,
+          "total_relative_discarded_weight": 0.142349421690406
+        },
+        {
+          "absolute_response_error": 2.6209025945481135e-05,
+          "bond_dimension": 8,
+          "energy_error_per_site": 0.0016668429592868368,
+          "energy_expectation": -3.0825642617496727,
+          "energy_variance": 0.05913413341844098,
+          "fixed_sector_leakage": 1.3009593402557584e-12,
+          "fixed_sector_norm_before_normalization": 0.9989651251617987,
+          "full_reconstructed_norm": 0.9989651251624498,
+          "max_kept_bond_dimension": 8,
+          "max_relative_discarded_weight": 0.0013359223708841828,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6541425415746175,
+                0.654142541571759,
+                0.2685098420993932,
+                0.2685098420991279
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.000378262709970303,
+              "full_rank": 16,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.9281753426054022,
+                0.14606518008847175,
+                0.14606518008730973,
+                0.14606518008622185,
+                0.14606518008522498,
+                0.1326299656173445,
+                0.13262996560910628,
+                0.13262996560761772
+              ],
+              "largest_discarded_singular_value": 0.0073652811135474314,
+              "relative_discarded_weight": 0.0003782627099703029
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.0013354170412678609,
+              "full_rank": 32,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.6528361325903734,
+                0.6528361325884822,
+                0.2682749989591072,
+                0.26827499895708823,
+                0.027070003855658834,
+                0.02707000384687103,
+                0.015616783778609564,
+                0.015616783778404073
+              ],
+              "largest_discarded_singular_value": 0.01561678377837125,
+              "relative_discarded_weight": 0.0013359223708841828
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 0.00035499895793194083,
+              "full_rank": 16,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.9280278616274606,
+                0.14560296420290075,
+                0.14560296420070185,
+                0.14518843178843832,
+                0.14518843178748267,
+                0.13245009551170847,
+                0.13151572855394927,
+                0.13151572855388158
+              ],
+              "largest_discarded_singular_value": 0.0071103691124367275,
+              "relative_discarded_weight": 0.00035560835677231296
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6537411535397367,
+                0.6534044624034224,
+                0.2679705524600008,
+                0.26797055245854773
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9989651251631017,
+          "relative_response_error": 0.0006657338496590113,
+          "response_iterations": 18,
+          "response_relative_residual": 9.610594162714747e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.03934241547603139,
+          "total_relative_discarded_weight": 0.002069793437626799
+        },
+        {
+          "absolute_response_error": 5.6897880750389485e-06,
+          "bond_dimension": 16,
+          "energy_error_per_site": 0.00014727100794864612,
+          "energy_expectation": -3.091681693457702,
+          "energy_variance": 0.006805459441732609,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.9999260386294183,
+          "full_reconstructed_norm": 0.9999260386294183,
+          "max_kept_bond_dimension": 16,
+          "max_relative_discarded_weight": 0.00014791727088023956,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6541425415746175,
+                0.654142541571759,
+                0.2685098420993932,
+                0.2685098420991279
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.0,
+              "full_rank": 16,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.9281753426054022,
+                0.14606518008847175,
+                0.14606518008730973,
+                0.14606518008622185,
+                0.14606518008522498,
+                0.1326299656173445,
+                0.13262996560910628,
+                0.13262996560761772
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.00014791727088023972,
+              "full_rank": 64,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.6528513746770735,
+                0.6528513746751825,
+                0.2685640232623352,
+                0.2685640232603148,
+                0.02714283608075603,
+                0.02714283607194509,
+                0.015617382687938516,
+                0.015617382687728517
+              ],
+              "largest_discarded_singular_value": 0.005503256715103474,
+              "relative_discarded_weight": 0.00014791727088023956
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 0.0,
+              "full_rank": 16,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.928175323307442,
+                0.14599770318033142,
+                0.1459977031791598,
+                0.14599770317800606,
+                0.14599770317786684,
+                0.13258568990900338,
+                0.13258568989585495,
+                0.1324714283569349
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6540966483544721,
+                0.654096648353208,
+                0.2684839212638745,
+                0.2684839212624106
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9999260386294179,
+          "relative_response_error": 0.0001445259555551208,
+          "response_iterations": 18,
+          "response_relative_residual": 3.744927354278232e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.03937431429005191,
+          "total_relative_discarded_weight": 0.00014791727088023956
+        }
+      ],
+      "bond_dimensions_tested": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "candidate_quantum_response_beats_mps_reference": false,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 400,
+      "exact_d5_susceptibility_proxy": 0.03936862450197687,
+      "exact_ground_energy": -3.0925653195053937,
+      "exact_state_seeded": true,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "mps_reference_beats_non_oracle_embedding": true,
+      "non_oracle_embedding_relative_response_error": 0.017262083759734648,
+      "selected_bond_dimension": 16,
+      "selected_energy_error_per_site": 0.00014727100794864612,
+      "selected_fixed_sector_norm_before_normalization": 0.9999260386294183,
+      "selected_overlap_with_exact_ground_state": 0.9999260386294179,
+      "selected_relative_response_error": 0.0001445259555551208,
+      "selected_response_relative_residual": 3.744927354278232e-09,
+      "selected_susceptibility_proxy": 0.03937431429005191,
+      "sites": 6,
+      "t": 1.0,
+      "u_over_t": 4.0,
+      "variational_dmrg": false
+    },
+    {
+      "bond_dimension_rows": [
+        {
+          "absolute_response_error": 0.008466866704064192,
+          "bond_dimension": 2,
+          "energy_error_per_site": 0.294683125876879,
+          "energy_expectation": -3.1293751525669986e-31,
+          "energy_variance": 14.222185566319908,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.8550486107166023,
+          "full_reconstructed_norm": 0.8550486107166022,
+          "max_kept_bond_dimension": 2,
+          "max_relative_discarded_weight": 0.07848829144957035,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.04982238835152108,
+              "full_rank": 4,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.6892668611098743,
+                0.6892668611098466
+              ],
+              "largest_discarded_singular_value": 0.15783280449821138,
+              "relative_discarded_weight": 0.04982238835152106
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.07457781731192252,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.9229435783546758,
+                0.1541912627564325
+              ],
+              "largest_discarded_singular_value": 0.15419126275596812,
+              "relative_discarded_weight": 0.07848829144957035
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.04397473526603025,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.6448352731785927,
+                0.6448352731785196
+              ],
+              "largest_discarded_singular_value": 0.14690198180530778,
+              "relative_discarded_weight": 0.050222413881846534
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 0.060610551724663175,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.8670436307554537,
+                0.13874382765465018
+              ],
+              "largest_discarded_singular_value": 0.13689972317035543,
+              "relative_discarded_weight": 0.07288206513690818
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.039906380657471985,
+              "full_rank": 4,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.6046106708818766,
+                0.6046106708818146
+              ],
+              "largest_discarded_singular_value": 0.14125576210810886,
+              "relative_discarded_weight": 0.051758274685187886
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.855048610716602,
+          "relative_response_error": 1.0,
+          "response_iterations": 37,
+          "response_relative_residual": 8.262050237356659e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 1.4939992085809541e-31,
+          "total_relative_discarded_weight": 0.303173433505034
+        },
+        {
+          "absolute_response_error": 0.003208080941977428,
+          "bond_dimension": 4,
+          "energy_error_per_site": 0.08057673808420585,
+          "energy_expectation": -1.284638326756039,
+          "energy_variance": 4.090682239549605,
+          "fixed_sector_leakage": 2.220446049250313e-16,
+          "fixed_sector_norm_before_normalization": 0.9698484973049787,
+          "full_reconstructed_norm": 0.9698484973049788,
+          "max_kept_bond_dimension": 4,
+          "max_relative_discarded_weight": 0.029082765649235853,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6892668611098743,
+                0.6892668611098466,
+                0.15783280449821138,
+                0.15783280449814754
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.029082765649235846,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.9484684485104391,
+                0.15419126275643255,
+                0.15419126275596814,
+                0.15419126275590786
+              ],
+              "largest_discarded_singular_value": 0.0852412970957952,
+              "relative_discarded_weight": 0.029082765649235853
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.002360570004134838,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6793208556871174,
+                0.6793208556870569,
+                0.15100167946717635,
+                0.15100167946698437
+              ],
+              "largest_discarded_singular_value": 0.029706813003745332,
+              "relative_discarded_weight": 0.002431278301196609
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 0.02795055662190978,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.9349082109421446,
+                0.1489437755643816,
+                0.14894377556390442,
+                0.1489437755633882
+              ],
+              "largest_discarded_singular_value": 0.08357043640152892,
+              "relative_discarded_weight": 0.028857946727117553
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.668653761005111,
+                0.6686537610050447,
+                0.1523325367612995,
+                0.15233253676125744
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9698484973049761,
+          "relative_response_error": 0.37889824584548054,
+          "response_iterations": 15,
+          "response_relative_residual": 6.366064147257855e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.0052587857620867645,
+          "total_relative_discarded_weight": 0.060371990677550016
+        },
+        {
+          "absolute_response_error": 1.912165919415107e-05,
+          "bond_dimension": 8,
+          "energy_error_per_site": 0.0004337262210262575,
+          "energy_expectation": -1.7654963979351166,
+          "energy_variance": 0.019362031468891594,
+          "fixed_sector_leakage": 1.734723475976807e-11,
+          "fixed_sector_norm_before_normalization": 0.999708834548746,
+          "full_reconstructed_norm": 0.9997088345574222,
+          "max_kept_bond_dimension": 8,
+          "max_relative_discarded_weight": 0.0005459643550387805,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6892668611098743,
+                0.6892668611098466,
+                0.15783280449821138,
+                0.15783280449814754
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 1.8450727005627595e-05,
+              "full_rank": 16,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.9484684485104391,
+                0.15419126275643255,
+                0.15419126275596814,
+                0.15419126275590786,
+                0.0852412970957952,
+                0.08524129709573497,
+                0.08524129709565875,
+                0.08524129709561486
+              ],
+              "largest_discarded_singular_value": 0.0019897859859127655,
+              "relative_discarded_weight": 1.84507270056276e-05
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.00054595428159951,
+              "full_rank": 32,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.6891597590574969,
+                0.6891597590574261,
+                0.1542526051135585,
+                0.1542526051133136,
+                0.030177105203419527,
+                0.030177105203020197,
+                0.008491179472275855,
+                0.00849117947226559
+              ],
+              "largest_discarded_singular_value": 0.00849117947225747,
+              "relative_discarded_weight": 0.0005459643550387805
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 1.7841099232918907e-05,
+              "full_rank": 16,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.9484608940478821,
+                0.15392250074516067,
+                0.15354388685232717,
+                0.15354388683932227,
+                0.08518197860549852,
+                0.0851819786012553,
+                0.0851004135871938,
+                0.0851004135869953
+              ],
+              "largest_discarded_singular_value": 0.0019559905441427442,
+              "relative_discarded_weight": 1.7851174525230465e-05
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6891161239083669,
+                0.6890131140091542,
+                0.15779361581698984,
+                0.15779361581659773
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9997088345660999,
+          "relative_response_error": 0.0022584103260976643,
+          "response_iterations": 16,
+          "response_relative_residual": 3.790230148552951e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.008447745044870041,
+          "total_relative_discarded_weight": 0.0005822662565696386
+        },
+        {
+          "absolute_response_error": 3.726708669920392e-06,
+          "bond_dimension": 16,
+          "energy_error_per_site": 1.7663773606235722e-05,
+          "energy_expectation": -1.7679927726196367,
+          "energy_variance": 0.0009989797406548817,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.9999940158541045,
+          "full_reconstructed_norm": 0.9999940158541044,
+          "max_kept_bond_dimension": 16,
+          "max_relative_discarded_weight": 1.1968255978607448e-05,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6892668611098743,
+                0.6892668611098466,
+                0.15783280449821138,
+                0.15783280449814754
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.0,
+              "full_rank": 16,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.9484684485104391,
+                0.15419126275643255,
+                0.15419126275596814,
+                0.15419126275590786,
+                0.0852412970957952,
+                0.08524129709573497,
+                0.08524129709565875,
+                0.08524129709561486
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 1.1968255978607451e-05,
+              "full_rank": 64,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.6891600813365837,
+                0.6891600813365131,
+                0.15427755815535094,
+                0.15427755815510566,
+                0.030190177251561288,
+                0.03019017725116636,
+                0.00849150132804374,
+                0.008491501328032905
+              ],
+              "largest_discarded_singular_value": 0.0021992330951273124,
+              "relative_discarded_weight": 1.1968255978607448e-05
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 0.0,
+              "full_rank": 16,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.9484682384048306,
+                0.15419104085918822,
+                0.15419104085872473,
+                0.15419104085815524,
+                0.08522544260495331,
+                0.08522544260481776,
+                0.0852254426048058,
+                0.08522544260471275
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6892634078301788,
+                0.6892634078300961,
+                0.15782892795177575,
+                0.15782892795170197
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9999940158541059,
+          "relative_response_error": 0.00044015204209268223,
+          "response_iterations": 15,
+          "response_relative_residual": 6.294277115139205e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.008470593412734113,
+          "total_relative_discarded_weight": 1.1968255978607448e-05
+        }
+      ],
+      "bond_dimensions_tested": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "candidate_quantum_response_beats_mps_reference": false,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 400,
+      "exact_d5_susceptibility_proxy": 0.008466866704064192,
+      "exact_ground_energy": -1.7680987552612741,
+      "exact_state_seeded": true,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "mps_reference_beats_non_oracle_embedding": true,
+      "non_oracle_embedding_relative_response_error": 0.08104144268038609,
+      "selected_bond_dimension": 16,
+      "selected_energy_error_per_site": 1.7663773606235722e-05,
+      "selected_fixed_sector_norm_before_normalization": 0.9999940158541045,
+      "selected_overlap_with_exact_ground_state": 0.9999940158541059,
+      "selected_relative_response_error": 0.00044015204209268223,
+      "selected_response_relative_residual": 6.294277115139205e-09,
+      "selected_susceptibility_proxy": 0.008470593412734113,
+      "sites": 6,
+      "t": 1.0,
+      "u_over_t": 8.0,
+      "variational_dmrg": false
+    },
+    {
+      "bond_dimension_rows": [
+        {
+          "absolute_response_error": 0.08951966125134365,
+          "bond_dimension": 2,
+          "energy_error_per_site": 0.7309105242791815,
+          "energy_expectation": -0.37834995044788744,
+          "energy_variance": 17.57882187171824,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.3970642227765695,
+          "full_reconstructed_norm": 0.3970642227765695,
+          "max_kept_bond_dimension": 2,
+          "max_relative_discarded_weight": 0.28627788714468944,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.2796058652671677,
+              "full_rank": 4,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.6001642003652353,
+                0.6001642003092079
+              ],
+              "largest_discarded_singular_value": 0.3739023036003545,
+              "relative_discarded_weight": 0.27960586526716746
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.11885850560288913,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.7574349948383113,
+                0.1668168388509719
+              ],
+              "largest_discarded_singular_value": 0.16681683883707651,
+              "relative_discarded_weight": 0.16499094019826976
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.1722063489495719,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.4732982854792484,
+                0.4531203075815252
+              ],
+              "largest_discarded_singular_value": 0.299535782295138,
+              "relative_discarded_weight": 0.28627788714468944
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 0.07331662337778021,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.5810008797630957,
+                0.13583311274170481
+              ],
+              "largest_discarded_singular_value": 0.1331436389149782,
+              "relative_discarded_weight": 0.17077014488035394
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.10162688384523774,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.3685316741952221,
+                0.3443402068771825
+              ],
+              "largest_discarded_singular_value": 0.23099600623010255,
+              "relative_discarded_weight": 0.2854586259880912
+            },
+            {
+              "cut_after_site": 5,
+              "discarded_weight": 0.03581306212054672,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.45689856302179127,
+                0.09907781762548873
+              ],
+              "largest_discarded_singular_value": 0.0969085383507735,
+              "relative_discarded_weight": 0.1407824883608979
+            },
+            {
+              "cut_after_site": 6,
+              "discarded_weight": 0.060912713827646216,
+              "full_rank": 4,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.2905554707615684,
+                0.2706243067791296
+              ],
+              "largest_discarded_singular_value": 0.17864090722822218,
+              "relative_discarded_weight": 0.2786839838991859
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.3970642227765694,
+          "relative_response_error": 0.9152917511482492,
+          "response_iterations": 43,
+          "response_relative_residual": 8.65893294710476e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.008284848774055024,
+          "total_relative_discarded_weight": 1.6065699357386556
+        },
+        {
+          "absolute_response_error": 0.003269981825345117,
+          "bond_dimension": 4,
+          "energy_error_per_site": 0.0635055221642209,
+          "energy_expectation": -5.717589967367572,
+          "energy_variance": 1.4739585471426793,
+          "fixed_sector_leakage": 1.3711254354120683e-13,
+          "fixed_sector_norm_before_normalization": 0.8836896266727688,
+          "full_reconstructed_norm": 0.8836896266728465,
+          "max_kept_bond_dimension": 4,
+          "max_relative_discarded_weight": 0.08381752190239576,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6001642003652353,
+                0.6001642003092079,
+                0.3739023036003545,
+                0.3739023035894751
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.07931450223860578,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.8928369403944538,
+                0.2029184529492558,
+                0.20291845293320301,
+                0.20291845293206465
+              ],
+              "largest_discarded_singular_value": 0.2029184529155599,
+              "relative_discarded_weight": 0.07931450223860566
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.00429359031146001,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.5798999382895502,
+                0.5570989613212406,
+                0.37654206082812364,
+                0.3577216693797233
+              ],
+              "largest_discarded_singular_value": 0.02314008482905755,
+              "relative_discarded_weight": 0.00466347120911503
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 0.07680969877386325,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.844674237222025,
+                0.20763006232090248,
+                0.20455030577224034,
+                0.20287082411861107
+              ],
+              "largest_discarded_singular_value": 0.19293269856759826,
+              "relative_discarded_weight": 0.08381752190239576
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.00350708788922461,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.5585493576002057,
+                0.525696004581683,
+                0.3632953155388821,
+                0.3402322153847361
+              ],
+              "largest_discarded_singular_value": 0.02127340708059116,
+              "relative_discarded_weight": 0.004177182237764296
+            },
+            {
+              "cut_after_site": 5,
+              "discarded_weight": 0.0551677644976561,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.8243960616946523,
+                0.18760297828542594,
+                0.18347108958247138,
+                0.18006102181593542
+              ],
+              "largest_discarded_singular_value": 0.16917435951982407,
+              "relative_discarded_weight": 0.06598421975017804
+            },
+            {
+              "cut_after_site": 6,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.5441148906608914,
+                0.5108896064091043,
+                0.3439981442914699,
+                0.3248129135940504
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.8836896266729222,
+          "relative_response_error": 0.0334338551923213,
+          "response_iterations": 44,
+          "response_relative_residual": 6.3324823627088434e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.09453452820005356,
+          "total_relative_discarded_weight": 0.23795689733805878
+        },
+        {
+          "absolute_response_error": 0.0011388001013091509,
+          "bond_dimension": 8,
+          "energy_error_per_site": 0.008981305539737972,
+          "energy_expectation": -6.1537837003634355,
+          "energy_variance": 0.35822041648491876,
+          "fixed_sector_leakage": 2.5868196473766147e-14,
+          "fixed_sector_norm_before_normalization": 0.9906699149823666,
+          "full_reconstructed_norm": 0.9906699149823797,
+          "max_kept_bond_dimension": 8,
+          "max_relative_discarded_weight": 0.004899015751730741,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6001642003652353,
+                0.6001642003092079,
+                0.3739023036003545,
+                0.3739023035894751
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.002763671255887658,
+              "full_rank": 16,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.8928369403944538,
+                0.2029184529492558,
+                0.20291845293320301,
+                0.20291845293206465,
+                0.2029184529155599,
+                0.10858933720068081,
+                0.10858933717363951,
+                0.10858933717258004
+              ],
+              "largest_discarded_singular_value": 0.025391598126699454,
+              "relative_discarded_weight": 0.0027636712558876536
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.004885476482715551,
+              "full_rank": 32,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.5938921255590967,
+                0.5938921255209477,
+                0.37654206084515474,
+                0.37654206082815356,
+                0.030652296838054878,
+                0.030652296811472225,
+                0.027277875147929214,
+                0.027277875144991453
+              ],
+              "largest_discarded_singular_value": 0.027277875142631535,
+              "relative_discarded_weight": 0.004899015751730741
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 0.0040194949669307405,
+              "full_rank": 32,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.8734507626730088,
+                0.21354787025931998,
+                0.21294564340506097,
+                0.21294564338212643,
+                0.2123418016706448,
+                0.12145261864091764,
+                0.12145261421547299,
+                0.12054135678782484
+              ],
+              "largest_discarded_singular_value": 0.02977597894876495,
+              "relative_discarded_weight": 0.004050477669033075
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.004494610579302798,
+              "full_rank": 32,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.5921462533478044,
+                0.5917036454990631,
+                0.37409084619811245,
+                0.37409083442171226,
+                0.02992269534643689,
+                0.029722218379542226,
+                0.02669658045113526,
+                0.02658868719793419
+              ],
+              "largest_discarded_singular_value": 0.026480824912713287,
+              "relative_discarded_weight": 0.004547675783157053
+            },
+            {
+              "cut_after_site": 5,
+              "discarded_weight": 0.002409866263972556,
+              "full_rank": 16,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.8885321310857851,
+                0.19951648696964344,
+                0.19880421778115695,
+                0.1986966997785443,
+                0.19799268814472118,
+                0.10675071537583537,
+                0.10666602584432487,
+                0.10560656956235938
+              ],
+              "largest_discarded_singular_value": 0.023770620242436744,
+              "relative_discarded_weight": 0.00244945746539618
+            },
+            {
+              "cut_after_site": 6,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.5958054725334758,
+                0.5950868928886821,
+                0.3689957658993803,
+                0.36899381297086864
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9906699149823908,
+          "relative_response_error": 0.011643635871325544,
+          "response_iterations": 33,
+          "response_relative_residual": 9.452255911082936e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.09666570992408953,
+          "total_relative_discarded_weight": 0.018710297925204702
+        },
+        {
+          "absolute_response_error": 0.00016581813402970214,
+          "bond_dimension": 16,
+          "energy_error_per_site": 0.001155884563244336,
+          "energy_expectation": -6.216387068175385,
+          "energy_variance": 0.055078160624432826,
+          "fixed_sector_leakage": 2.5623947408348613e-13,
+          "fixed_sector_norm_before_normalization": 0.9991007973728403,
+          "full_reconstructed_norm": 0.9991007973729685,
+          "max_kept_bond_dimension": 16,
+          "max_relative_discarded_weight": 0.0008604721521343364,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6001642003652353,
+                0.6001642003092079,
+                0.3739023036003545,
+                0.3739023035894751
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.0,
+              "full_rank": 16,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.8928369403944538,
+                0.2029184529492558,
+                0.20291845293320301,
+                0.20291845293206465,
+                0.2029184529155599,
+                0.10858933720068081,
+                0.10858933717363951,
+                0.10858933717258004
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.0008604721521343385,
+              "full_rank": 64,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.5940017186759742,
+                0.5940017186378919,
+                0.3780360966741307,
+                0.37803609665705007,
+                0.03089141535468623,
+                0.03089141532735833,
+                0.027281584766848322,
+                0.027281584763904042
+              ],
+              "largest_discarded_singular_value": 0.013575691179809238,
+              "relative_discarded_weight": 0.0008604721521343364
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 0.00010124612348944267,
+              "full_rank": 64,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.8743795977377236,
+                0.21557146213954856,
+                0.21518654263774464,
+                0.21499386191806424,
+                0.21499386189313166,
+                0.12245934577021668,
+                0.12245934576097367,
+                0.12245934570598946
+              ],
+              "largest_discarded_singular_value": 0.00434551109105674,
+              "relative_discarded_weight": 0.00010133331798765385
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.0008358784130793107,
+              "full_rank": 64,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.5938951723393808,
+                0.5937611598412853,
+                0.37784638631994955,
+                0.37772664379899207,
+                0.030602621008628185,
+                0.030593388546738022,
+                0.027089199727064237,
+                0.027038660742797378
+              ],
+              "largest_discarded_singular_value": 0.013407317926753981,
+              "relative_discarded_weight": 0.0008366830664752402
+            },
+            {
+              "cut_after_site": 5,
+              "discarded_weight": 0.0,
+              "full_rank": 16,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.8925245993199006,
+                0.20280732853337313,
+                0.20230357064836446,
+                0.2020657269067954,
+                0.20204310322086963,
+                0.10833299791701653,
+                0.10831245663469785,
+                0.108291918108042
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 6,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.5998070199983917,
+                0.5995592443828208,
+                0.37354877472203024,
+                0.3733951893781215
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9991007973730949,
+          "relative_response_error": 0.0016954037598740704,
+          "response_iterations": 33,
+          "response_relative_residual": 6.388048630690528e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.09763869189136898,
+          "total_relative_discarded_weight": 0.0017984885365972304
+        }
+      ],
+      "bond_dimensions_tested": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "candidate_quantum_response_beats_mps_reference": false,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 4900,
+      "exact_d5_susceptibility_proxy": 0.09780451002539868,
+      "exact_ground_energy": -6.225634144681339,
+      "exact_state_seeded": true,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "mps_reference_beats_non_oracle_embedding": true,
+      "non_oracle_embedding_relative_response_error": 0.12308129218169694,
+      "selected_bond_dimension": 16,
+      "selected_energy_error_per_site": 0.001155884563244336,
+      "selected_fixed_sector_norm_before_normalization": 0.9991007973728403,
+      "selected_overlap_with_exact_ground_state": 0.9991007973730949,
+      "selected_relative_response_error": 0.0016954037598740704,
+      "selected_response_relative_residual": 6.388048630690528e-09,
+      "selected_susceptibility_proxy": 0.09763869189136898,
+      "sites": 8,
+      "t": 1.0,
+      "u_over_t": 2.0,
+      "variational_dmrg": false
+    },
+    {
+      "bond_dimension_rows": [
+        {
+          "absolute_response_error": 0.04046928678042132,
+          "bond_dimension": 2,
+          "energy_error_per_site": 0.5220956379727063,
+          "energy_expectation": -0.05904189534801801,
+          "energy_variance": 18.86391771552212,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.5974861721081417,
+          "full_reconstructed_norm": 0.5974861721081417,
+          "max_kept_bond_dimension": 2,
+          "max_relative_discarded_weight": 0.14844122238659724,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.1434035672220712,
+              "full_rank": 4,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.6544449681905089,
+                0.6544449681891147
+              ],
+              "largest_discarded_singular_value": 0.26777188726802614,
+              "relative_discarded_weight": 0.1434035672220714
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.10956262114791712,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.8531204927482355,
+                0.1386334609068738
+              ],
+              "largest_discarded_singular_value": 0.1386334608981886,
+              "relative_discarded_weight": 0.1279045965585071
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.10714862377733823,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.565634682394083,
+                0.5656346823928108
+              ],
+              "largest_discarded_singular_value": 0.23016906368868478,
+              "relative_discarded_weight": 0.1434320938479914
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 0.08595625682541537,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.7334425665089731,
+                0.12645525951887462
+              ],
+              "largest_discarded_singular_value": 0.12467480601852139,
+              "relative_discarded_weight": 0.13433074941751302
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.07995425724528339,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.4868134518414234,
+                0.4868134518357205
+              ],
+              "largest_discarded_singular_value": 0.1989791537371929,
+              "relative_discarded_weight": 0.1443402804345481
+            },
+            {
+              "cut_after_site": 5,
+              "discarded_weight": 0.05475554851977009,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.6402889829806344,
+                0.09617246766006153
+              ],
+              "largest_discarded_singular_value": 0.09617246765986717,
+              "relative_discarded_weight": 0.11552420740724587
+            },
+            {
+              "cut_after_site": 6,
+              "discarded_weight": 0.06222939940176113,
+              "full_rank": 4,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.42700471638711257,
+                0.4179194875135656
+              ],
+              "largest_discarded_singular_value": 0.17860880879222696,
+              "relative_discarded_weight": 0.14844122238659724
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.5974861721081427,
+          "relative_response_error": 1.0,
+          "response_iterations": 52,
+          "response_relative_residual": 8.315615455238798e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 7.781841811120545e-32,
+          "total_relative_discarded_weight": 0.9573767172744742
+        },
+        {
+          "absolute_response_error": 0.00035003678333239696,
+          "bond_dimension": 4,
+          "energy_error_per_site": 0.0554059224103034,
+          "energy_expectation": -3.792559619847241,
+          "energy_variance": 1.4297667734858326,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.8847608717403528,
+          "full_reconstructed_norm": 0.8847608717403528,
+          "max_kept_bond_dimension": 4,
+          "max_relative_discarded_weight": 0.084759573681957,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6544449681905089,
+                0.6544449681891147,
+                0.26777188726802614,
+                0.26777188726785844
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.07990866159549807,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.9244317225155483,
+                0.14778061308547955,
+                0.1477806130849326,
+                0.14778061308493096
+              ],
+              "largest_discarded_singular_value": 0.14778061308443408,
+              "relative_discarded_weight": 0.07990866159549818
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.0012978115689006732,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6319871803909843,
+                0.618176730680867,
+                0.2658826573248171,
+                0.257972232683409
+              ],
+              "largest_discarded_singular_value": 0.014230656985337141,
+              "relative_discarded_weight": 0.0014105247106783586
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 0.07787654763632723,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.8813411740506518,
+                0.1473810541749945,
+                0.1465611364681579,
+                0.14475279710500102
+              ],
+              "largest_discarded_singular_value": 0.1421094753943757,
+              "relative_discarded_weight": 0.084759573681957
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.0010404825498157003,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6067678213374106,
+                0.586830141657326,
+                0.2565871851023891,
+                0.24799739700768056
+              ],
+              "largest_discarded_singular_value": 0.012342351978345937,
+              "relative_discarded_weight": 0.0012373189929004097
+            },
+            {
+              "cut_after_site": 5,
+              "discarded_weight": 0.05707469648670696,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.8539073238587922,
+                0.13534824201408294,
+                0.13440893984676425,
+                0.13137417058170683
+              ],
+              "largest_discarded_singular_value": 0.12868151891159924,
+              "relative_discarded_weight": 0.06795605867576565
+            },
+            {
+              "cut_after_site": 6,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.5866061279449442,
+                0.5659250413141576,
+                0.2469237711363506,
+                0.23969261499170388
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.8847608717403533,
+          "relative_response_error": 0.008649442853580056,
+          "response_iterations": 50,
+          "response_relative_residual": 9.729808174990424e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.04011924999708892,
+          "total_relative_discarded_weight": 0.2352721376567996
+        },
+        {
+          "absolute_response_error": 0.0002919779219044058,
+          "bond_dimension": 8,
+          "energy_error_per_site": 0.002795893834350638,
+          "energy_expectation": -4.213439848454863,
+          "energy_variance": 0.12243101805558254,
+          "fixed_sector_leakage": 8.881784197001252e-15,
+          "fixed_sector_norm_before_normalization": 0.9973589409922207,
+          "full_reconstructed_norm": 0.9973589409922251,
+          "max_kept_bond_dimension": 8,
+          "max_relative_discarded_weight": 0.001971670019025975,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6544449681905089,
+                0.6544449681891147,
+                0.26777188726802614,
+                0.26777188726785844
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.00041184254773066653,
+              "full_rank": 16,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.9244317225155483,
+                0.14778061308547955,
+                0.1477806130849326,
+                0.14778061308493096,
+                0.14778061308443408,
+                0.13863346090687384,
+                0.13863346089818865,
+                0.13863346089789755
+              ],
+              "largest_discarded_singular_value": 0.007804745824739491,
+              "relative_discarded_weight": 0.00041184254773066713
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.001970858001422053,
+              "full_rank": 32,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.6531103154898028,
+                0.6531103154878948,
+                0.2658826573248171,
+                0.26588265732386274,
+                0.03472518242780752,
+                0.034725182424941985,
+                0.0188716657227907,
+                0.018871665719043786
+              ],
+              "largest_discarded_singular_value": 0.018871665715838013,
+              "relative_discarded_weight": 0.001971670019025975
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 0.0006365047558354725,
+              "full_rank": 32,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.9124479162014382,
+                0.15413445193657216,
+                0.1532311738351016,
+                0.15323117297794023,
+                0.1532311728724606,
+                0.15323117201632205,
+                0.15287739567570516,
+                0.1528773956732893
+              ],
+              "largest_discarded_singular_value": 0.009697937313977428,
+              "relative_discarded_weight": 0.0006380249783016448
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.001881782554955657,
+              "full_rank": 32,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.6523756155540675,
+                0.6523756147024284,
+                0.2654172929600593,
+                0.26541729295995414,
+                0.03407140501991835,
+                0.034071404537007424,
+                0.01866448044484087,
+                0.018664480444658686
+              ],
+              "largest_discarded_singular_value": 0.018527318518441072,
+              "relative_discarded_weight": 0.0018874812483537515
+            },
+            {
+              "cut_after_site": 5,
+              "discarded_weight": 0.0003741549629238649,
+              "full_rank": 16,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.9232782661591652,
+                0.14659702987096554,
+                0.1465970291488081,
+                0.14659702811307268,
+                0.14659702739148245,
+                0.1379518952190923,
+                0.13654416832922062,
+                0.13654416831981764
+              ],
+              "largest_discarded_singular_value": 0.007400999674951573,
+              "relative_discarded_weight": 0.00037599772320063776
+            },
+            {
+              "cut_after_site": 6,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6528173227730503,
+                0.6528173209675938,
+                0.26681823935900634,
+                0.2668182393589542
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9973589409922285,
+          "relative_response_error": 0.007214802758660479,
+          "response_iterations": 24,
+          "response_relative_residual": 5.2708716595004706e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.04017730885851691,
+          "total_relative_discarded_weight": 0.005285016516612676
+        },
+        {
+          "absolute_response_error": 2.7615990301724236e-05,
+          "bond_dimension": 16,
+          "energy_error_per_site": 0.00032040772064745315,
+          "energy_expectation": -4.2332437373644884,
+          "energy_variance": 0.017924020817407182,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.999742484143368,
+          "full_reconstructed_norm": 0.999742484143368,
+          "max_kept_bond_dimension": 16,
+          "max_relative_discarded_weight": 0.00023401598603398592,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6544449681905089,
+                0.6544449681891147,
+                0.26777188726802614,
+                0.26777188726785844
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.0,
+              "full_rank": 16,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.9244317225155483,
+                0.14778061308547955,
+                0.1477806130849326,
+                0.14778061308493096,
+                0.14778061308443408,
+                0.13863346090687384,
+                0.13863346089818865,
+                0.13863346089789755
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.00023401598603398554,
+              "full_rank": 64,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.6531264419952563,
+                0.6531264419933503,
+                0.26619036699731646,
+                0.26619036699635146,
+                0.03482298344438048,
+                0.03482298344152457,
+                0.01887214120709013,
+                0.018872141203341915
+              ],
+              "largest_discarded_singular_value": 0.007575382006009141,
+              "relative_discarded_weight": 0.00023401598603398592
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 5.217411001635637e-05,
+              "full_rank": 64,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.9126002909297928,
+                0.15440653909491295,
+                0.15422408149961417,
+                0.15422408149717712,
+                0.15396625309526152,
+                0.15396625309486878,
+                0.1539662530947914,
+                0.15396625309400058
+              ],
+              "largest_discarded_singular_value": 0.002901800320377127,
+              "relative_discarded_weight": 5.21863224500621e-05
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.00022877530279683873,
+              "full_rank": 64,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.6530595238967796,
+                0.6530595238916691,
+                0.26614854041793967,
+                0.26614854041788344,
+                0.0345789979532462,
+                0.03457899794490491,
+                0.018797960921202526,
+                0.018797960921024575
+              ],
+              "largest_discarded_singular_value": 0.007472031795549207,
+              "relative_discarded_weight": 0.00022884079476587324
+            },
+            {
+              "cut_after_site": 5,
+              "discarded_weight": 0.0,
+              "full_rank": 16,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.9243407614572736,
+                0.14765072995441447,
+                0.14765072995386327,
+                0.14765072995334252,
+                0.14765072995293554,
+                0.13856756022813882,
+                0.13832916508739304,
+                0.1383291650773999
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 6,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6542767105157631,
+                0.6542767105070865,
+                0.2677022663015101,
+                0.2677022663013653
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9997424841433675,
+          "relative_response_error": 0.0006823937978339813,
+          "response_iterations": 22,
+          "response_relative_residual": 8.609170945030623e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.040441670790119594,
+          "total_relative_discarded_weight": 0.0005150431032499213
+        }
+      ],
+      "bond_dimensions_tested": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "candidate_quantum_response_beats_mps_reference": false,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 4900,
+      "exact_d5_susceptibility_proxy": 0.04046928678042132,
+      "exact_ground_energy": -4.235806999129668,
+      "exact_state_seeded": true,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "mps_reference_beats_non_oracle_embedding": true,
+      "non_oracle_embedding_relative_response_error": 0.013559466263685357,
+      "selected_bond_dimension": 16,
+      "selected_energy_error_per_site": 0.00032040772064745315,
+      "selected_fixed_sector_norm_before_normalization": 0.999742484143368,
+      "selected_overlap_with_exact_ground_state": 0.9997424841433675,
+      "selected_relative_response_error": 0.0006823937978339813,
+      "selected_response_relative_residual": 8.609170945030623e-09,
+      "selected_susceptibility_proxy": 0.040441670790119594,
+      "sites": 8,
+      "t": 1.0,
+      "u_over_t": 4.0,
+      "variational_dmrg": false
+    },
+    {
+      "bond_dimension_rows": [
+        {
+          "absolute_response_error": 0.00858130228459222,
+          "bond_dimension": 2,
+          "energy_error_per_site": 0.302603925004687,
+          "energy_expectation": 9.242515961039381e-30,
+          "energy_variance": 19.317311415468918,
+          "fixed_sector_leakage": 2.220446049250313e-16,
+          "fixed_sector_norm_before_normalization": 0.7935808869368317,
+          "full_reconstructed_norm": 0.7935808869368318,
+          "max_kept_bond_dimension": 2,
+          "max_relative_discarded_weight": 0.08805395807166924,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.04948494888576451,
+              "full_rank": 4,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.6893892409641803,
+                0.6893892409641056
+              ],
+              "largest_discarded_singular_value": 0.15729740761663139,
+              "relative_discarded_weight": 0.049484948885764574
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.07893919476266338,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.9197092077922161,
+                0.160345967999779
+              ],
+              "largest_discarded_singular_value": 0.1603459679996608,
+              "relative_discarded_weight": 0.0830488635294385
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.04329674554683948,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.6435367552847429,
+                0.6435367552846676
+              ],
+              "largest_discarded_singular_value": 0.14486528644591926,
+              "relative_discarded_weight": 0.04967639389195588
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 0.07293325409443947,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.8546505639972762,
+                0.15785521901233282
+              ],
+              "largest_discarded_singular_value": 0.1553446398290771,
+              "relative_discarded_weight": 0.08805395807166924
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.037937476952800156,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.5989191847655941,
+                0.5989191847630282
+              ],
+              "largest_discarded_singular_value": 0.13590256623956093,
+              "relative_discarded_weight": 0.05022530621671327
+            },
+            {
+              "cut_after_site": 5,
+              "discarded_weight": 0.05330098042090764,
+              "full_rank": 8,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.8043057724780813,
+                0.13114733582892338
+              ],
+              "largest_discarded_singular_value": 0.12881869159311077,
+              "relative_discarded_weight": 0.07429656793098084
+            },
+            {
+              "cut_after_site": 6,
+              "discarded_weight": 0.03433677522513898,
+              "full_rank": 4,
+              "kept_rank": 2,
+              "kept_singular_values": [
+                0.5611464265731498,
+                0.5611464265729874
+              ],
+              "largest_discarded_singular_value": 0.1310281939605728,
+              "relative_discarded_weight": 0.05170364802355737
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.7935808869368304,
+          "relative_response_error": 1.0,
+          "response_iterations": 65,
+          "response_relative_residual": 7.0329325065049814e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 2.023932910823197e-60,
+          "total_relative_discarded_weight": 0.4464896865500797
+        },
+        {
+          "absolute_response_error": 0.003512347765092267,
+          "bond_dimension": 4,
+          "energy_error_per_site": 0.09410325649700038,
+          "energy_expectation": -1.6680053480614931,
+          "energy_variance": 6.355596373222759,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.9518391668871742,
+          "full_reconstructed_norm": 0.9518391668871742,
+          "max_kept_bond_dimension": 4,
+          "max_relative_discarded_weight": 0.03092519616043454,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6893892409641803,
+                0.6893892409641056,
+                0.15729740761663139,
+                0.15729740761643793
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.029579520221205004,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.9451391386551751,
+                0.16034596799977907,
+                0.16034596799966075,
+                0.1603459679986176
+              ],
+              "largest_discarded_singular_value": 0.08596490244154392,
+              "relative_discarded_weight": 0.029579520221205025
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.0038317851482393157,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6790587064082072,
+                0.6790587064079001,
+                0.14890809436288216,
+                0.1489080943623009
+              ],
+              "largest_discarded_singular_value": 0.03795013432770085,
+              "relative_discarded_weight": 0.0039485823187828464
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 0.02989194498790829,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.9219052746679713,
+                0.1700856785884633,
+                0.17008567858829612,
+                0.1700856785866479
+              ],
+              "largest_discarded_singular_value": 0.08641666025077942,
+              "relative_discarded_weight": 0.03092519616043454
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.003388506209458535,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6672039342693086,
+                0.6672039342666634,
+                0.1466050197435741,
+                0.14660501974290116
+              ],
+              "largest_discarded_singular_value": 0.03563238831514714,
+              "relative_discarded_weight": 0.0036175061040312814
+            },
+            {
+              "cut_after_site": 5,
+              "discarded_weight": 0.027310443812719087,
+              "full_rank": 16,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.9155781861209077,
+                0.15023801640662343,
+                0.15023801640585838,
+                0.1502380164028195
+              ],
+              "largest_discarded_singular_value": 0.08260810758003465,
+              "relative_discarded_weight": 0.029261976420841645
+            },
+            {
+              "cut_after_site": 6,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6563135415730449,
+                0.6563135415720955,
+                0.1491691488167242,
+                0.1491691488167156
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9518391668871738,
+          "relative_response_error": 0.40930241688358987,
+          "response_iterations": 20,
+          "response_relative_residual": 6.187969085435698e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.005068954519499953,
+          "total_relative_discarded_weight": 0.09733278122529533
+        },
+        {
+          "absolute_response_error": 7.101505433348282e-05,
+          "bond_dimension": 8,
+          "energy_error_per_site": 0.0012617594126369536,
+          "energy_expectation": -2.4107373247364006,
+          "energy_variance": 0.08103059675646218,
+          "fixed_sector_leakage": 5.329070518200751e-15,
+          "fixed_sector_norm_before_normalization": 0.9990945273417933,
+          "full_reconstructed_norm": 0.9990945273417959,
+          "max_kept_bond_dimension": 8,
+          "max_relative_discarded_weight": 0.0008585652078245423,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6893892409641803,
+                0.6893892409641056,
+                0.15729740761663139,
+                0.15729740761643793
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 1.9662414292597626e-05,
+              "full_rank": 16,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.9451391386551751,
+                0.16034596799977907,
+                0.16034596799966075,
+                0.1603459679986176,
+                0.08596490244154392,
+                0.08596490244135345,
+                0.085964902441061,
+                0.08596490244091301
+              ],
+              "largest_discarded_singular_value": 0.002067119069584151,
+              "relative_discarded_weight": 1.966241429259764e-05
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 0.0008585483263597281,
+              "full_rank": 32,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.6890752364460091,
+                0.6890752364456653,
+                0.15212821349054526,
+                0.15212821348979375,
+                0.038527427155425786,
+                0.03852742715459171,
+                0.010433463658013994,
+                0.01043346365693785
+              ],
+              "largest_discarded_singular_value": 0.010433463655553385,
+              "relative_discarded_weight": 0.0008585652078245423
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 7.209582568529397e-05,
+              "full_rank": 32,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.9354372657921706,
+                0.17616557760578508,
+                0.17606423333237736,
+                0.17596283433358226,
+                0.08804966090563648,
+                0.08804966090550854,
+                0.08804966090508833,
+                0.08804966090478497
+              ],
+              "largest_discarded_singular_value": 0.0035142341739513756,
+              "relative_discarded_weight": 7.21591966668439e-05
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 0.0008409398911012657,
+              "full_rank": 32,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.6888041637802562,
+                0.6887565943531286,
+                0.15210056347219209,
+                0.15210056347129003,
+                0.03805176436743739,
+                0.037997186869035644,
+                0.010281732941559955,
+                0.010263108986124283
+              ],
+              "largest_discarded_singular_value": 0.010259361090214622,
+              "relative_discarded_weight": 0.0008417398019622204
+            },
+            {
+              "cut_after_site": 5,
+              "discarded_weight": 1.8878978233758488e-05,
+              "full_rank": 16,
+              "kept_rank": 8,
+              "kept_singular_values": [
+                0.9447866321340799,
+                0.1595866918424333,
+                0.15934335058389582,
+                0.15910052112401385,
+                0.08573200926286034,
+                0.08573200926261795,
+                0.08572324092743737,
+                0.08572324092721377
+              ],
+              "largest_discarded_singular_value": 0.0020239893728389263,
+              "relative_discarded_weight": 1.8912855819745693e-05
+            },
+            {
+              "cut_after_site": 6,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6888241386819635,
+                0.6886893083390573,
+                0.15719131196233285,
+                0.15719131196223363
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9990945273417987,
+          "relative_response_error": 0.00827555678361206,
+          "response_iterations": 19,
+          "response_relative_residual": 5.315614383898742e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.008510287230258737,
+          "total_relative_discarded_weight": 0.0018110394765659499
+        },
+        {
+          "absolute_response_error": 1.259247213239445e-07,
+          "bond_dimension": 16,
+          "energy_error_per_site": 3.746852958352864e-05,
+          "energy_expectation": -2.420531651800828,
+          "energy_variance": 0.0030958361000701373,
+          "fixed_sector_leakage": 0.0,
+          "fixed_sector_norm_before_normalization": 0.999983431721544,
+          "full_reconstructed_norm": 0.999983431721544,
+          "max_kept_bond_dimension": 16,
+          "max_relative_discarded_weight": 1.3045152265591924e-05,
+          "mps_cut_diagnostics": [
+            {
+              "cut_after_site": 0,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6893892409641803,
+                0.6893892409641056,
+                0.15729740761663139,
+                0.15729740761643793
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 1,
+              "discarded_weight": 0.0,
+              "full_rank": 16,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.9451391386551751,
+                0.16034596799977907,
+                0.16034596799966075,
+                0.1603459679986176,
+                0.08596490244154392,
+                0.08596490244135345,
+                0.085964902441061,
+                0.08596490244091301
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 2,
+              "discarded_weight": 1.304515226559191e-05,
+              "full_rank": 64,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.6890755321006696,
+                0.6890755321003259,
+                0.15215389422196596,
+                0.15215389422121162,
+                0.03854418646236333,
+                0.038544186461531925,
+                0.010433463658014003,
+                0.01043346365693785
+              ],
+              "largest_discarded_singular_value": 0.0022531627202073278,
+              "relative_discarded_weight": 1.3045152265591924e-05
+            },
+            {
+              "cut_after_site": 3,
+              "discarded_weight": 7.356195588737601e-06,
+              "full_rank": 64,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.9354446851720706,
+                0.1767635900040825,
+                0.1767635900039261,
+                0.17676359000213593,
+                0.08819833649022286,
+                0.0881983364900992,
+                0.0881983364896664,
+                0.08819833648935353
+              ],
+              "largest_discarded_singular_value": 0.0009574727603105604,
+              "relative_discarded_weight": 7.356291552681022e-06
+            },
+            {
+              "cut_after_site": 4,
+              "discarded_weight": 1.2734934551881114e-05,
+              "full_rank": 64,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.6890718754867599,
+                0.6890718754841215,
+                0.15214389694323308,
+                0.15214389694231037,
+                0.03853014694504717,
+                0.03853014694227865,
+                0.010425284565882823,
+                0.010425284564425732
+              ],
+              "largest_discarded_singular_value": 0.0022233105598144834,
+              "relative_discarded_weight": 1.2735194367011393e-05
+            },
+            {
+              "cut_after_site": 5,
+              "discarded_weight": 0.0,
+              "full_rank": 16,
+              "kept_rank": 16,
+              "kept_singular_values": [
+                0.9451311365335895,
+                0.160341511388226,
+                0.16034151138702815,
+                0.16034151138334252,
+                0.08594584726682689,
+                0.08594584726675861,
+                0.08594584726659243,
+                0.08594584726649902
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            },
+            {
+              "cut_after_site": 6,
+              "discarded_weight": 0.0,
+              "full_rank": 4,
+              "kept_rank": 4,
+              "kept_singular_values": [
+                0.6893785314757915,
+                0.689378531474676,
+                0.1572916787368764,
+                0.15729167873676492
+              ],
+              "largest_discarded_singular_value": 0.0,
+              "relative_discarded_weight": 0.0
+            }
+          ],
+          "overlap_with_exact_ground_state": 0.9999834317215428,
+          "relative_response_error": 1.4674313658667297e-05,
+          "response_iterations": 17,
+          "response_relative_residual": 5.5048119454515075e-09,
+          "response_solver_info": 0,
+          "susceptibility_proxy": 0.008581176359870896,
+          "total_relative_discarded_weight": 3.313663818528434e-05
+        }
+      ],
+      "bond_dimensions_tested": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "candidate_quantum_response_beats_mps_reference": false,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 4900,
+      "exact_d5_susceptibility_proxy": 0.00858130228459222,
+      "exact_ground_energy": -2.420831400037496,
+      "exact_state_seeded": true,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "mps_reference_beats_non_oracle_embedding": true,
+      "non_oracle_embedding_relative_response_error": 0.11179657406436834,
+      "selected_bond_dimension": 16,
+      "selected_energy_error_per_site": 3.746852958352864e-05,
+      "selected_fixed_sector_norm_before_normalization": 0.999983431721544,
+      "selected_overlap_with_exact_ground_state": 0.9999834317215428,
+      "selected_relative_response_error": 1.4674313658667297e-05,
+      "selected_response_relative_residual": 5.5048119454515075e-09,
+      "selected_susceptibility_proxy": 0.008581176359870896,
+      "sites": 8,
+      "t": 1.0,
+      "u_over_t": 8.0,
+      "variational_dmrg": false
+    }
+  ],
+  "runtime_seconds": 0.2978216670016991,
+  "status": "mps_schmidt_truncation_response_reference_not_dmrg_or_advantage_claim",
+  "summary": {
+    "accuracy_per_resource_win_claimed": false,
+    "bond_dimensions_tested": [
+      2,
+      4,
+      8,
+      16
+    ],
+    "exact_state_seeded": true,
+    "instance_count": 9,
+    "max_exact_d5_hilbert_dimension": 4900,
+    "max_full_local_basis_dimension": 65536,
+    "mps_rows_beating_non_oracle_embedding": 6,
+    "quantum_response_win_claimed": false,
+    "selected_bond_dimension": 16,
+    "selected_max_energy_error_per_site": 0.001155884563244336,
+    "selected_max_relative_response_error": 0.0016954037598740704,
+    "selected_mean_energy_error_per_site": 0.00024397248715074744,
+    "selected_mean_relative_response_error": 0.0004416259745141554,
+    "selected_median_relative_response_error": 0.0001445259555551208,
+    "selected_min_fixed_sector_norm_before_normalization": 0.9991007973728403,
+    "selected_min_overlap_with_exact_ground_state": 0.9991007973730949,
+    "site_values": [
+      4,
+      6,
+      8
+    ],
+    "u_over_t_values": [
+      2.0,
+      4.0,
+      8.0
+    ],
+    "variational_dmrg": false
+  },
+  "title": "B5 MPS/Schmidt-truncation response reference for Hubbard D5 rows",
+  "validation_errors": [],
+  "version": "0.1"
+}

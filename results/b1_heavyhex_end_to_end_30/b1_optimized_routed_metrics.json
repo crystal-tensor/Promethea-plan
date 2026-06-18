@@ -1,0 +1,727 @@
+{
+  "benchmark_id": "B1",
+  "circuit_count": 30,
+  "profile": "heavy_hex_like_sparse",
+  "results": [
+    {
+      "classical_bits": 6,
+      "gate_class_counts": {
+        "measurement": 6,
+        "multi_qubit": 0,
+        "single_qubit": 51,
+        "two_qubit": 75
+      },
+      "gate_counts": {
+        "cx": 75,
+        "measure": 6,
+        "u3": 51
+      },
+      "hardware_weighted_error_exposure": 0.5743,
+      "idle_layer_proxy": 1180,
+      "logical_depth": 73,
+      "operation_count": 132,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/b1_exact_extension/01_trotter_ladder_n6.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 75,
+      "two_qubit_or_larger_depth_proxy": 73
+    },
+    {
+      "classical_bits": 8,
+      "gate_class_counts": {
+        "measurement": 8,
+        "multi_qubit": 0,
+        "single_qubit": 32,
+        "two_qubit": 122
+      },
+      "gate_counts": {
+        "cx": 122,
+        "measure": 8,
+        "u3": 32
+      },
+      "hardware_weighted_error_exposure": 0.8889999999999999,
+      "idle_layer_proxy": 1445,
+      "logical_depth": 91,
+      "operation_count": 162,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/b1_exact_extension/02_ring_interaction_n8.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 122,
+      "two_qubit_or_larger_depth_proxy": 91
+    },
+    {
+      "classical_bits": 7,
+      "gate_class_counts": {
+        "measurement": 7,
+        "multi_qubit": 0,
+        "single_qubit": 13,
+        "two_qubit": 49
+      },
+      "gate_counts": {
+        "cx": 49,
+        "measure": 7,
+        "u3": 13
+      },
+      "hardware_weighted_error_exposure": 0.39586000000000005,
+      "idle_layer_proxy": 414,
+      "logical_depth": 28,
+      "operation_count": 69,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/b1_exact_extension/03_qec_syndrome_phase_n7.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 49,
+      "two_qubit_or_larger_depth_proxy": 28
+    },
+    {
+      "classical_bits": 6,
+      "gate_class_counts": {
+        "measurement": 6,
+        "multi_qubit": 0,
+        "single_qubit": 27,
+        "two_qubit": 80
+      },
+      "gate_counts": {
+        "cx": 80,
+        "measure": 6,
+        "u3": 27
+      },
+      "hardware_weighted_error_exposure": 0.60094,
+      "idle_layer_proxy": 1156,
+      "logical_depth": 71,
+      "operation_count": 113,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/b1_exact_extension/04_arithmetic_phase_n6.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 80,
+      "two_qubit_or_larger_depth_proxy": 71
+    },
+    {
+      "classical_bits": 5,
+      "gate_class_counts": {
+        "measurement": 5,
+        "multi_qubit": 0,
+        "single_qubit": 40,
+        "two_qubit": 80
+      },
+      "gate_counts": {
+        "cx": 80,
+        "measure": 5,
+        "u3": 40
+      },
+      "hardware_weighted_error_exposure": 0.5852,
+      "idle_layer_proxy": 1030,
+      "logical_depth": 65,
+      "operation_count": 125,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/b1_exact_extension/05_qft_phase_ladder_n5.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 80,
+      "two_qubit_or_larger_depth_proxy": 65
+    },
+    {
+      "classical_bits": 10,
+      "gate_class_counts": {
+        "measurement": 10,
+        "multi_qubit": 0,
+        "single_qubit": 25,
+        "two_qubit": 52
+      },
+      "gate_counts": {
+        "cx": 52,
+        "measure": 10,
+        "u3": 25
+      },
+      "hardware_weighted_error_exposure": 0.45174,
+      "idle_layer_proxy": 431,
+      "logical_depth": 30,
+      "operation_count": 87,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/b1_exact_extension/06_long_range_echo_n10.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 52,
+      "two_qubit_or_larger_depth_proxy": 30
+    },
+    {
+      "classical_bits": 8,
+      "gate_class_counts": {
+        "measurement": 8,
+        "multi_qubit": 0,
+        "single_qubit": 10,
+        "two_qubit": 27
+      },
+      "gate_counts": {
+        "cx": 27,
+        "measure": 8,
+        "u3": 10
+      },
+      "hardware_weighted_error_exposure": 0.2698,
+      "idle_layer_proxy": 270,
+      "logical_depth": 18,
+      "operation_count": 45,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/b1_exact_extension/07_commuting_disjoint_windows_n8.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 27,
+      "two_qubit_or_larger_depth_proxy": 18
+    },
+    {
+      "classical_bits": 8,
+      "gate_class_counts": {
+        "measurement": 8,
+        "multi_qubit": 0,
+        "single_qubit": 32,
+        "two_qubit": 40
+      },
+      "gate_counts": {
+        "cx": 40,
+        "measure": 8,
+        "u3": 32
+      },
+      "hardware_weighted_error_exposure": 0.3572,
+      "idle_layer_proxy": 450,
+      "logical_depth": 30,
+      "operation_count": 80,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/b1_exact_extension/08_chemistry_ansatz_n8.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 40,
+      "two_qubit_or_larger_depth_proxy": 30
+    },
+    {
+      "classical_bits": 9,
+      "gate_class_counts": {
+        "measurement": 9,
+        "multi_qubit": 0,
+        "single_qubit": 14,
+        "two_qubit": 68
+      },
+      "gate_counts": {
+        "cx": 68,
+        "measure": 9,
+        "u3": 14
+      },
+      "hardware_weighted_error_exposure": 0.5551200000000001,
+      "idle_layer_proxy": 943,
+      "logical_depth": 58,
+      "operation_count": 91,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/b1_exact_extension/09_bv_phase_oracle_n9.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 68,
+      "two_qubit_or_larger_depth_proxy": 58
+    },
+    {
+      "classical_bits": 6,
+      "gate_class_counts": {
+        "measurement": 6,
+        "multi_qubit": 0,
+        "single_qubit": 42,
+        "two_qubit": 81
+      },
+      "gate_counts": {
+        "cx": 81,
+        "measure": 6,
+        "u3": 42
+      },
+      "hardware_weighted_error_exposure": 0.5933200000000001,
+      "idle_layer_proxy": 778,
+      "logical_depth": 52,
+      "operation_count": 129,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 81,
+      "two_qubit_or_larger_depth_proxy": 52
+    },
+    {
+      "classical_bits": 10,
+      "gate_class_counts": {
+        "measurement": 10,
+        "multi_qubit": 0,
+        "single_qubit": 8,
+        "two_qubit": 50
+      },
+      "gate_counts": {
+        "cx": 50,
+        "measure": 10,
+        "u3": 8
+      },
+      "hardware_weighted_error_exposure": 0.43052,
+      "idle_layer_proxy": 243,
+      "logical_depth": 19,
+      "operation_count": 68,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/b1_exact_extension/11_stabilizer_mixer_n10.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 50,
+      "two_qubit_or_larger_depth_proxy": 19
+    },
+    {
+      "classical_bits": 7,
+      "gate_class_counts": {
+        "measurement": 7,
+        "multi_qubit": 0,
+        "single_qubit": 25,
+        "two_qubit": 73
+      },
+      "gate_counts": {
+        "cx": 73,
+        "measure": 7,
+        "u3": 25
+      },
+      "hardware_weighted_error_exposure": 0.56906,
+      "idle_layer_proxy": 1114,
+      "logical_depth": 68,
+      "operation_count": 105,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/b1_exact_extension/12_toffoli_phase_n7.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 73,
+      "two_qubit_or_larger_depth_proxy": 68
+    },
+    {
+      "classical_bits": 4,
+      "gate_class_counts": {
+        "measurement": 4,
+        "multi_qubit": 0,
+        "single_qubit": 858,
+        "two_qubit": 609
+      },
+      "gate_counts": {
+        "cx": 609,
+        "measure": 4,
+        "u3": 858
+      },
+      "hardware_weighted_error_exposure": 4.32324,
+      "idle_layer_proxy": 13386,
+      "logical_depth": 814,
+      "operation_count": 1471,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 609,
+      "two_qubit_or_larger_depth_proxy": 814
+    },
+    {
+      "classical_bits": 10,
+      "gate_class_counts": {
+        "measurement": 10,
+        "multi_qubit": 0,
+        "single_qubit": 145,
+        "two_qubit": 225
+      },
+      "gate_counts": {
+        "cx": 225,
+        "measure": 10,
+        "u3": 145
+      },
+      "hardware_weighted_error_exposure": 1.5355400000000001,
+      "idle_layer_proxy": 1276,
+      "logical_depth": 99,
+      "operation_count": 380,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/qasmbench_interaction_exact/ising_n10.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 225,
+      "two_qubit_or_larger_depth_proxy": 99
+    },
+    {
+      "classical_bits": 13,
+      "gate_class_counts": {
+        "measurement": 13,
+        "multi_qubit": 0,
+        "single_qubit": 27,
+        "two_qubit": 88
+      },
+      "gate_counts": {
+        "cx": 88,
+        "measure": 13,
+        "u3": 27
+      },
+      "hardware_weighted_error_exposure": 0.7259400000000001,
+      "idle_layer_proxy": 981,
+      "logical_depth": 63,
+      "operation_count": 128,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/qasmbench_medium_exact/bv_n14.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 88,
+      "two_qubit_or_larger_depth_proxy": 63
+    },
+    {
+      "classical_bits": 1,
+      "gate_class_counts": {
+        "measurement": 1,
+        "multi_qubit": 0,
+        "single_qubit": 1089,
+        "two_qubit": 1521
+      },
+      "gate_counts": {
+        "cx": 1521,
+        "measure": 1,
+        "u3": 1089
+      },
+      "hardware_weighted_error_exposure": 10.6875,
+      "idle_layer_proxy": 36015,
+      "logical_depth": 2113,
+      "operation_count": 2611,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/qasmbench_medium_exact/gcm_h6.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 1521,
+      "two_qubit_or_larger_depth_proxy": 2113
+    },
+    {
+      "classical_bits": 4,
+      "gate_class_counts": {
+        "measurement": 4,
+        "multi_qubit": 0,
+        "single_qubit": 58,
+        "two_qubit": 214
+      },
+      "gate_counts": {
+        "cx": 214,
+        "measure": 4,
+        "u3": 58
+      },
+      "hardware_weighted_error_exposure": 1.4177600000000001,
+      "idle_layer_proxy": 1999,
+      "logical_depth": 131,
+      "operation_count": 276,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/qasmbench_medium_exact/multiply_n13.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 214,
+      "two_qubit_or_larger_depth_proxy": 131
+    },
+    {
+      "classical_bits": 10,
+      "gate_class_counts": {
+        "measurement": 3,
+        "multi_qubit": 0,
+        "single_qubit": 196,
+        "two_qubit": 475
+      },
+      "gate_counts": {
+        "cx": 475,
+        "measure": 3,
+        "u3": 196
+      },
+      "hardware_weighted_error_exposure": 3.20468,
+      "idle_layer_proxy": 7477,
+      "logical_depth": 454,
+      "operation_count": 674,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/qasmbench_medium_exact/qf21_n15.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 475,
+      "two_qubit_or_larger_depth_proxy": 454
+    },
+    {
+      "classical_bits": 4,
+      "gate_class_counts": {
+        "measurement": 4,
+        "multi_qubit": 0,
+        "single_qubit": 413,
+        "two_qubit": 906
+      },
+      "gate_counts": {
+        "cx": 906,
+        "measure": 4,
+        "u3": 413
+      },
+      "hardware_weighted_error_exposure": 6.12242,
+      "idle_layer_proxy": 14928,
+      "logical_depth": 903,
+      "operation_count": 1323,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/qasmbench_medium_exact/sat_n11.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 906,
+      "two_qubit_or_larger_depth_proxy": 903
+    },
+    {
+      "classical_bits": 11,
+      "gate_class_counts": {
+        "measurement": 3,
+        "multi_qubit": 0,
+        "single_qubit": 124,
+        "two_qubit": 258
+      },
+      "gate_counts": {
+        "cx": 258,
+        "measure": 3,
+        "u3": 124
+      },
+      "hardware_weighted_error_exposure": 1.7006400000000002,
+      "idle_layer_proxy": 2606,
+      "logical_depth": 171,
+      "operation_count": 385,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/qasmbench_medium_exact/seca_n11.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 258,
+      "two_qubit_or_larger_depth_proxy": 171
+    },
+    {
+      "classical_bits": 4,
+      "gate_class_counts": {
+        "measurement": 4,
+        "multi_qubit": 0,
+        "single_qubit": 11,
+        "two_qubit": 37
+      },
+      "gate_counts": {
+        "cx": 37,
+        "measure": 4,
+        "u3": 11
+      },
+      "hardware_weighted_error_exposure": 0.2911,
+      "idle_layer_proxy": 500,
+      "logical_depth": 31,
+      "operation_count": 52,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/qasmbench_small/adder_n4.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 37,
+      "two_qubit_or_larger_depth_proxy": 31
+    },
+    {
+      "classical_bits": 3,
+      "gate_class_counts": {
+        "measurement": 3,
+        "multi_qubit": 0,
+        "single_qubit": 43,
+        "two_qubit": 16
+      },
+      "gate_counts": {
+        "cx": 16,
+        "measure": 3,
+        "u3": 43
+      },
+      "hardware_weighted_error_exposure": 0.16434,
+      "idle_layer_proxy": 701,
+      "logical_depth": 41,
+      "operation_count": 62,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/qasmbench_small/basis_change_n3.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 16,
+      "two_qubit_or_larger_depth_proxy": 41
+    },
+    {
+      "classical_bits": 4,
+      "gate_class_counts": {
+        "measurement": 4,
+        "multi_qubit": 0,
+        "single_qubit": 57,
+        "two_qubit": 73
+      },
+      "gate_counts": {
+        "cx": 73,
+        "measure": 4,
+        "u3": 57
+      },
+      "hardware_weighted_error_exposure": 0.54498,
+      "idle_layer_proxy": 1332,
+      "logical_depth": 81,
+      "operation_count": 134,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/qasmbench_small/basis_test_n4.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 73,
+      "two_qubit_or_larger_depth_proxy": 81
+    },
+    {
+      "classical_bits": 4,
+      "gate_class_counts": {
+        "measurement": 4,
+        "multi_qubit": 0,
+        "single_qubit": 18,
+        "two_qubit": 25
+      },
+      "gate_counts": {
+        "cx": 25,
+        "measure": 4,
+        "u3": 18
+      },
+      "hardware_weighted_error_exposure": 0.21363999999999997,
+      "idle_layer_proxy": 346,
+      "logical_depth": 22,
+      "operation_count": 47,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/qasmbench_small/bell_n4.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 25,
+      "two_qubit_or_larger_depth_proxy": 22
+    },
+    {
+      "classical_bits": 4,
+      "gate_class_counts": {
+        "measurement": 4,
+        "multi_qubit": 0,
+        "single_qubit": 1,
+        "two_qubit": 21
+      },
+      "gate_counts": {
+        "cx": 21,
+        "measure": 4,
+        "u3": 1
+      },
+      "hardware_weighted_error_exposure": 0.18058,
+      "idle_layer_proxy": 162,
+      "logical_depth": 11,
+      "operation_count": 26,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/qasmbench_small/cat_state_n4.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 21,
+      "two_qubit_or_larger_depth_proxy": 11
+    },
+    {
+      "classical_bits": 2,
+      "gate_class_counts": {
+        "measurement": 2,
+        "multi_qubit": 0,
+        "single_qubit": 3,
+        "two_qubit": 4
+      },
+      "gate_counts": {
+        "cx": 4,
+        "measure": 2,
+        "u3": 3
+      },
+      "hardware_weighted_error_exposure": 0.0531,
+      "idle_layer_proxy": 120,
+      "logical_depth": 7,
+      "operation_count": 9,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/qasmbench_small/deutsch_n2.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 4,
+      "two_qubit_or_larger_depth_proxy": 7
+    },
+    {
+      "classical_bits": 5,
+      "gate_class_counts": {
+        "measurement": 5,
+        "multi_qubit": 0,
+        "single_qubit": 64,
+        "two_qubit": 97
+      },
+      "gate_counts": {
+        "cx": 97,
+        "measure": 5,
+        "u3": 64
+      },
+      "hardware_weighted_error_exposure": 0.7214799999999999,
+      "idle_layer_proxy": 1827,
+      "logical_depth": 110,
+      "operation_count": 166,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/qasmbench_small/error_correctiond3_n5.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 97,
+      "two_qubit_or_larger_depth_proxy": 110
+    },
+    {
+      "classical_bits": 3,
+      "gate_class_counts": {
+        "measurement": 3,
+        "multi_qubit": 0,
+        "single_qubit": 10,
+        "two_qubit": 23
+      },
+      "gate_counts": {
+        "cx": 23,
+        "measure": 3,
+        "u3": 10
+      },
+      "hardware_weighted_error_exposure": 0.19088000000000002,
+      "idle_layer_proxy": 397,
+      "logical_depth": 24,
+      "operation_count": 36,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/qasmbench_small/fredkin_n3.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 23,
+      "two_qubit_or_larger_depth_proxy": 24
+    },
+    {
+      "classical_bits": 2,
+      "gate_class_counts": {
+        "measurement": 2,
+        "multi_qubit": 0,
+        "single_qubit": 10,
+        "two_qubit": 5
+      },
+      "gate_counts": {
+        "cx": 5,
+        "measure": 2,
+        "u3": 10
+      },
+      "hardware_weighted_error_exposure": 0.06248,
+      "idle_layer_proxy": 187,
+      "logical_depth": 11,
+      "operation_count": 17,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/qasmbench_small/grover_n2.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 5,
+      "two_qubit_or_larger_depth_proxy": 11
+    },
+    {
+      "classical_bits": 7,
+      "gate_class_counts": {
+        "measurement": 7,
+        "multi_qubit": 0,
+        "single_qubit": 285,
+        "two_qubit": 475
+      },
+      "gate_counts": {
+        "cx": 475,
+        "measure": 7,
+        "u3": 285
+      },
+      "hardware_weighted_error_exposure": 3.31714,
+      "idle_layer_proxy": 8866,
+      "logical_depth": 532,
+      "operation_count": 767,
+      "path": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_work/03_b1_heavyhex_d3_level0/qasmbench_small/hhl_n7.qasm",
+      "qubits": 19,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 475,
+      "two_qubit_or_larger_depth_proxy": 532
+    }
+  ]
+}

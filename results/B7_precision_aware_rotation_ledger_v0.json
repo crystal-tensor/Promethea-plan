@@ -1,0 +1,311 @@
+{
+  "benchmark_id": "B7",
+  "best_precision_budget_row": {
+    "arbitrary_rotation_t_cost": 35,
+    "data_bottleneck_after_count": 2,
+    "factory_bottleneck_after_count": 16,
+    "gcm_h6_min_factory_variant": "throughput_heavy_factories",
+    "gcm_h6_min_space_time_volume_reduction": 1.0793157076205289,
+    "mean_space_time_volume_reduction": 1.2518255848015931,
+    "min_bottleneck_after": "factory_path",
+    "min_factory_variant": "throughput_heavy_factories",
+    "min_space_time_volume_reduction": 1.0793157076205289,
+    "min_workload": "qasmbench_medium_exact/gcm_h6.qasm",
+    "per_rotation_error_budget": 0.0003703703703703704,
+    "total_error_budget": 0.1
+  },
+  "boundary_input_snapshot": {
+    "current_min_factory_variant": "throughput_heavy_factories",
+    "current_min_space_time_volume_reduction": 1.086007702182285,
+    "current_min_workload": "qasmbench_medium_exact/gcm_h6.qasm",
+    "gcm_h6_after_arbitrary_numeric_rotation_count": 270,
+    "gcm_h6_after_arbitrary_numeric_t_cost": 5400
+  },
+  "current_min_factory_variant": "throughput_heavy_factories",
+  "current_min_space_time_volume_reduction": 1.086007702182285,
+  "current_min_workload": "qasmbench_medium_exact/gcm_h6.qasm",
+  "gcm_h6_one_sided_after_target_cost_requirements": [
+    {
+      "arbitrary_numeric_rotation_count": 270,
+      "fixed_cost_20_meets_target": false,
+      "fixed_exact_after_t_ledger": 824,
+      "max_after_t_ledger": 5632,
+      "max_average_arbitrary_rotation_t_cost": 17,
+      "target_stv_reduction": 1.2,
+      "total_error_budget_needed_at_max_cost_proxy": 5.315291929243996
+    },
+    {
+      "arbitrary_numeric_rotation_count": 270,
+      "fixed_cost_20_meets_target": false,
+      "fixed_exact_after_t_ledger": 824,
+      "max_after_t_ledger": 5400,
+      "max_average_arbitrary_rotation_t_cost": 16,
+      "target_stv_reduction": 1.25,
+      "total_error_budget_needed_at_max_cost_proxy": 6.696848187990843
+    }
+  ],
+  "gcm_h6_precision_budgets_clear_1_20": false,
+  "gcm_h6_throughput_after_arbitrary_numeric_rotation_count": 270,
+  "gcm_h6_throughput_after_current_total_t_ledger": 6224,
+  "gcm_h6_throughput_after_fixed_exact_t_ledger": 824,
+  "interpretation": "Under the explicit uniform synthesis-error budgets tested here, the implied arbitrary-rotation T cost is above the previous fixed cost 20 assumption, so precision-aware synthesis does not close the gcm_h6 1.20x boundary.  The one-sided 1.20x gcm_h6 throughput row would need after-row average arbitrary-rotation cost at or below the reported target-cost requirement; when a synthesis-cost change is applied to both before and after rows, the portfolio still does not clear 1.20x.  A real solution therefore needs a structural reduction in arbitrary rotations, data rounds, factory timing, or layout.",
+  "last_updated": "2026-06-15",
+  "limits": [
+    "This is not a physical layout, lattice-surgery, or certified synthesis result.",
+    "The Ross-Selinger-style proxy is used only to expose the error-budget direction of pressure.",
+    "The uniform error allocation is deliberately simple; better allocation can be tested as a future PR.",
+    "The QASM reuse probe counts textual numeric parameters/instructions and is not an equivalence proof."
+  ],
+  "method": "b7_precision_aware_rotation_ledger_v0",
+  "next_actions": [
+    "Attempt a gcm_h6 numeric-rotation structure pass that merges or cancels repeated arbitrary angles.",
+    "Test shared-synthesis/cache assumptions for repeated numeric angles as a separate non-physical proxy.",
+    "Add layout/factory/feed-forward timing assumptions only after the synthesis/error-budget claim is explicit.",
+    "If no structural pass reduces arbitrary rotations, move B7 attention to layout/factory or B1 semantic rewrites."
+  ],
+  "numeric_rotation_reuse_probe": {
+    "exists": true,
+    "numeric_instruction_occurrences": 270,
+    "numeric_parameter_occurrences": 270,
+    "qasm_path": "results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+    "top_numeric_instructions": [
+      {
+        "count": 24,
+        "instruction": "ry(0.36485735178627743)"
+      },
+      {
+        "count": 24,
+        "instruction": "rz(0.36485735178627726)"
+      },
+      {
+        "count": 24,
+        "instruction": "rz(1.4922506383856682)"
+      },
+      {
+        "count": 24,
+        "instruction": "rz(2.1870074319274799)"
+      },
+      {
+        "count": 24,
+        "instruction": "ry(0.52538524712872736)"
+      },
+      {
+        "count": 24,
+        "instruction": "rz(2.538142068316358)"
+      },
+      {
+        "count": 24,
+        "instruction": "ry(1.1254377896453873)"
+      },
+      {
+        "count": 24,
+        "instruction": "rz(0.28861107553559073)"
+      },
+      {
+        "count": 24,
+        "instruction": "ry(0.42054081161117118)"
+      },
+      {
+        "count": 21,
+        "instruction": "ry(0.42054081161117135)"
+      },
+      {
+        "count": 4,
+        "instruction": "ry(0.99803486463019042)"
+      },
+      {
+        "count": 4,
+        "instruction": "ry(2.8134684478406049)"
+      }
+    ],
+    "top_numeric_parameters": [
+      {
+        "count": 24,
+        "value": "0.36485735178627743"
+      },
+      {
+        "count": 24,
+        "value": "0.36485735178627726"
+      },
+      {
+        "count": 24,
+        "value": "1.4922506383856682"
+      },
+      {
+        "count": 24,
+        "value": "2.1870074319274799"
+      },
+      {
+        "count": 24,
+        "value": "0.52538524712872736"
+      },
+      {
+        "count": 24,
+        "value": "2.538142068316358"
+      },
+      {
+        "count": 24,
+        "value": "1.1254377896453873"
+      },
+      {
+        "count": 24,
+        "value": "0.28861107553559073"
+      },
+      {
+        "count": 24,
+        "value": "0.42054081161117118"
+      },
+      {
+        "count": 21,
+        "value": "0.42054081161117135"
+      },
+      {
+        "count": 4,
+        "value": "0.99803486463019042"
+      },
+      {
+        "count": 4,
+        "value": "2.8134684478406049"
+      }
+    ],
+    "unique_numeric_instructions": 26,
+    "unique_numeric_parameters": 26
+  },
+  "portfolio_precision_budgets_clear_1_20": false,
+  "precision_budget_rows": [
+    {
+      "arbitrary_rotation_t_cost": 35,
+      "data_bottleneck_after_count": 2,
+      "factory_bottleneck_after_count": 16,
+      "gcm_h6_min_factory_variant": "throughput_heavy_factories",
+      "gcm_h6_min_space_time_volume_reduction": 1.0793157076205289,
+      "mean_space_time_volume_reduction": 1.2518255848015931,
+      "min_bottleneck_after": "factory_path",
+      "min_factory_variant": "throughput_heavy_factories",
+      "min_space_time_volume_reduction": 1.0793157076205289,
+      "min_workload": "qasmbench_medium_exact/gcm_h6.qasm",
+      "per_rotation_error_budget": 0.0003703703703703704,
+      "total_error_budget": 0.1
+    },
+    {
+      "arbitrary_rotation_t_cost": 45,
+      "data_bottleneck_after_count": 2,
+      "factory_bottleneck_after_count": 16,
+      "gcm_h6_min_factory_variant": "serial_factory",
+      "gcm_h6_min_space_time_volume_reduction": 1.0779210769705065,
+      "mean_space_time_volume_reduction": 1.2511607723713738,
+      "min_bottleneck_after": "factory_path",
+      "min_factory_variant": "serial_factory",
+      "min_space_time_volume_reduction": 1.0779210769705065,
+      "min_workload": "qasmbench_medium_exact/gcm_h6.qasm",
+      "per_rotation_error_budget": 3.7037037037037037e-05,
+      "total_error_budget": 0.01
+    },
+    {
+      "arbitrary_rotation_t_cost": 55,
+      "data_bottleneck_after_count": 2,
+      "factory_bottleneck_after_count": 16,
+      "gcm_h6_min_factory_variant": "throughput_heavy_factories",
+      "gcm_h6_min_space_time_volume_reduction": 1.0764915859255482,
+      "mean_space_time_volume_reduction": 1.2507322030233297,
+      "min_bottleneck_after": "factory_path",
+      "min_factory_variant": "throughput_heavy_factories",
+      "min_space_time_volume_reduction": 1.0764915859255482,
+      "min_workload": "qasmbench_medium_exact/gcm_h6.qasm",
+      "per_rotation_error_budget": 3.7037037037037037e-06,
+      "total_error_budget": 0.001
+    },
+    {
+      "arbitrary_rotation_t_cost": 65,
+      "data_bottleneck_after_count": 2,
+      "factory_bottleneck_after_count": 16,
+      "gcm_h6_min_factory_variant": "serial_factory",
+      "gcm_h6_min_space_time_volume_reduction": 1.0757020535519919,
+      "mean_space_time_volume_reduction": 1.2504040916078918,
+      "min_bottleneck_after": "factory_path",
+      "min_factory_variant": "serial_factory",
+      "min_space_time_volume_reduction": 1.0757020535519919,
+      "min_workload": "qasmbench_medium_exact/gcm_h6.qasm",
+      "per_rotation_error_budget": 3.7037037037037036e-07,
+      "total_error_budget": 0.0001
+    },
+    {
+      "arbitrary_rotation_t_cost": 85,
+      "data_bottleneck_after_count": 2,
+      "factory_bottleneck_after_count": 16,
+      "gcm_h6_min_factory_variant": "serial_factory",
+      "gcm_h6_min_space_time_volume_reduction": 1.07449105490438,
+      "mean_space_time_volume_reduction": 1.2501297759085073,
+      "min_bottleneck_after": "factory_path",
+      "min_factory_variant": "serial_factory",
+      "min_space_time_volume_reduction": 1.07449105490438,
+      "min_workload": "qasmbench_medium_exact/gcm_h6.qasm",
+      "per_rotation_error_budget": 3.7037037037037036e-09,
+      "total_error_budget": 1e-06
+    }
+  ],
+  "problem_id": 21,
+  "relaxed_cost_rows": [
+    {
+      "arbitrary_rotation_t_cost": 16,
+      "data_bottleneck_after_count": 2,
+      "factory_bottleneck_after_count": 16,
+      "gcm_h6_min_factory_variant": "balanced_factories",
+      "gcm_h6_min_space_time_volume_reduction": 1.089368977308051,
+      "mean_space_time_volume_reduction": 1.2581205868989587,
+      "min_bottleneck_after": "factory_path",
+      "min_factory_variant": "balanced_factories",
+      "min_space_time_volume_reduction": 1.089368977308051,
+      "min_workload": "qasmbench_medium_exact/gcm_h6.qasm"
+    },
+    {
+      "arbitrary_rotation_t_cost": 17,
+      "data_bottleneck_after_count": 2,
+      "factory_bottleneck_after_count": 16,
+      "gcm_h6_min_factory_variant": "serial_factory",
+      "gcm_h6_min_space_time_volume_reduction": 1.0884634326520561,
+      "mean_space_time_volume_reduction": 1.2542120930522271,
+      "min_bottleneck_after": "factory_path",
+      "min_factory_variant": "serial_factory",
+      "min_space_time_volume_reduction": 1.0884634326520561,
+      "min_workload": "qasmbench_medium_exact/gcm_h6.qasm"
+    },
+    {
+      "arbitrary_rotation_t_cost": 18,
+      "data_bottleneck_after_count": 2,
+      "factory_bottleneck_after_count": 16,
+      "gcm_h6_min_factory_variant": "throughput_heavy_factories",
+      "gcm_h6_min_space_time_volume_reduction": 1.0870786516853932,
+      "mean_space_time_volume_reduction": 1.2543623441819058,
+      "min_bottleneck_after": "factory_path",
+      "min_factory_variant": "throughput_heavy_factories",
+      "min_space_time_volume_reduction": 1.0870786516853932,
+      "min_workload": "qasmbench_medium_exact/gcm_h6.qasm"
+    },
+    {
+      "arbitrary_rotation_t_cost": 20,
+      "data_bottleneck_after_count": 2,
+      "factory_bottleneck_after_count": 16,
+      "gcm_h6_min_factory_variant": "throughput_heavy_factories",
+      "gcm_h6_min_space_time_volume_reduction": 1.086007702182285,
+      "mean_space_time_volume_reduction": 1.253640000721326,
+      "min_bottleneck_after": "factory_path",
+      "min_factory_variant": "throughput_heavy_factories",
+      "min_space_time_volume_reduction": 1.086007702182285,
+      "min_workload": "qasmbench_medium_exact/gcm_h6.qasm"
+    }
+  ],
+  "source_boundary": "results/B7_gcm_h6_ft_boundary_v0.json",
+  "source_ledger": "results/B7_ft_synthesis_ledger_v0.json",
+  "status": "precision_aware_rotation_ledger_negative_boundary_not_physical_layout",
+  "synthesis_cost_model": {
+    "allocation": "uniform_total_synthesis_error_budget_over_after_arbitrary_numeric_rotations",
+    "alpha": 3.0,
+    "beta": 0.0,
+    "caveat": "planning proxy only; not a certified Clifford+T synthesis run",
+    "formula": "ceil(alpha * log2(1 / per_rotation_error_budget) + beta)",
+    "name": "ross_selinger_style_proxy"
+  },
+  "title": "B7 precision-aware arbitrary-rotation ledger for gcm_h6",
+  "version": "0.1"
+}

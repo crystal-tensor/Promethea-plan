@@ -1,0 +1,166 @@
+{
+  "aer_crosscheck": {
+    "check": "qiskit_aer_shot_measurement_equivalence_crosscheck",
+    "failed": 0,
+    "max_threshold": 0.20077072080689917,
+    "max_total_variation_distance": 0.0,
+    "method": "statevector",
+    "pair_count": 30,
+    "passed": 30,
+    "path": "results/b1_post_virtual_swap_1q_resynth/aer_crosscheck.json",
+    "shots": 32768
+  },
+  "after_metrics": "results/b1_post_virtual_swap_1q_resynth/after_metrics.json",
+  "before_metrics": "results/b1_post_virtual_swap_1q_resynth/before_metrics.json",
+  "benchmark_id": "B1",
+  "certificate_log": "results/b1_post_virtual_swap_1q_resynth/proofs.jsonl",
+  "commute_disjoint": false,
+  "input_dir": "/Users/avalok/work/FurturePlan/results/b1_virtual_swap_elimination_level1_work/01_virtual_swap_eliminated",
+  "last_updated": "2026-06-13",
+  "limits": [
+    "This is a post-virtual-SWAP local 1Q fusion diagnostic, not a final T-optimized compiler.",
+    "Arbitrary non-Clifford rotations use the same fixed T synthesis cost proxy as the B7 logical T-factory schedule.",
+    "A positive gate-count reduction does not by itself imply a T-factory resource reduction.",
+    "The result is intended to decide whether B1 currently supplies a T-resource lever for B7 or only a data-path/routing lever."
+  ],
+  "method": "post_virtual_swap_1q_run_to_u3_resynthesis_v0",
+  "metrics": {
+    "after": {
+      "hardware_weighted_error_exposure": 19.49252,
+      "idle_layer_proxy": 62283,
+      "logical_depth": 3719,
+      "operation_count": 5940,
+      "single_qubit_gate_count": 3332,
+      "two_qubit_gate_count": 2438
+    },
+    "before": {
+      "hardware_weighted_error_exposure": 19.50068,
+      "idle_layer_proxy": 62337,
+      "logical_depth": 3725,
+      "operation_count": 6000,
+      "single_qubit_gate_count": 3392,
+      "two_qubit_gate_count": 2438
+    },
+    "reduction_pct": {
+      "hardware_weighted_error_exposure": 0.04184469464654652,
+      "idle_layer_proxy": 0.08662592040040426,
+      "logical_depth": 0.1610738255033557,
+      "operation_count": 1.0,
+      "single_qubit_gate_count": 1.7688679245283019,
+      "two_qubit_gate_count": 0.0
+    }
+  },
+  "min_run_length": 2,
+  "output_dir": "/Users/avalok/work/FurturePlan/results/b1_post_virtual_swap_1q_resynth",
+  "problem_id": 25,
+  "rewrite_stats": {
+    "certificate_entries": 60,
+    "input_single_qubit_gates_in_runs": 120,
+    "output_u3_gates": 60,
+    "removed_identity_gates": 0,
+    "removed_single_qubit_gates": 60,
+    "resynthesized_runs": 60,
+    "rewritten_circuits": 30
+  },
+  "rotation_synthesis_t_cost": 20,
+  "status": "post_virtual_swap_1q_resynthesis_t_resource_positive_diagnostic",
+  "t_resource_proxy": {
+    "after": {
+      "ccx_count": 0,
+      "direct_t_count": 0,
+      "logical_t_count_proxy": 60660,
+      "logical_t_depth_proxy": 13480,
+      "non_clifford_rotation_count": 3033,
+      "operation_count_scanned": 5770,
+      "rotation_t_cost": 20,
+      "unknown_rotation_count": 294
+    },
+    "before": {
+      "ccx_count": 0,
+      "direct_t_count": 0,
+      "logical_t_count_proxy": 61740,
+      "logical_t_depth_proxy": 13680,
+      "non_clifford_rotation_count": 3087,
+      "operation_count_scanned": 5830,
+      "rotation_t_cost": 20,
+      "unknown_rotation_count": 300
+    },
+    "logical_t_count_reduction": 1.0178041543026706,
+    "logical_t_depth_reduction": 1.0148367952522255,
+    "non_clifford_rotation_count_reduction": 1.0178041543026706
+  },
+  "title": "B1 post-virtual-SWAP single-qubit resynthesis diagnostic",
+  "top_circuits_by_single_qubit_reduction": [
+    {
+      "exposure_reduction": 0.0032399999999994655,
+      "logical_depth_reduction": 0,
+      "operation_count_reduction": 54,
+      "relative_path": "qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "single_qubit_gate_reduction": 54
+    },
+    {
+      "exposure_reduction": 0.0049200000000000355,
+      "logical_depth_reduction": 6,
+      "operation_count_reduction": 6,
+      "relative_path": "qasmbench_medium_exact/qf21_n15.qasm",
+      "single_qubit_gate_reduction": 6
+    },
+    {
+      "exposure_reduction": 0.0,
+      "logical_depth_reduction": 0,
+      "operation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/01_trotter_ladder_n6.qasm",
+      "single_qubit_gate_reduction": 0
+    },
+    {
+      "exposure_reduction": 0.0,
+      "logical_depth_reduction": 0,
+      "operation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/02_ring_interaction_n8.qasm",
+      "single_qubit_gate_reduction": 0
+    },
+    {
+      "exposure_reduction": 0.0,
+      "logical_depth_reduction": 0,
+      "operation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/03_qec_syndrome_phase_n7.qasm",
+      "single_qubit_gate_reduction": 0
+    },
+    {
+      "exposure_reduction": 0.0,
+      "logical_depth_reduction": 0,
+      "operation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/04_arithmetic_phase_n6.qasm",
+      "single_qubit_gate_reduction": 0
+    },
+    {
+      "exposure_reduction": 0.0,
+      "logical_depth_reduction": 0,
+      "operation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/05_qft_phase_ladder_n5.qasm",
+      "single_qubit_gate_reduction": 0
+    },
+    {
+      "exposure_reduction": 0.0,
+      "logical_depth_reduction": 0,
+      "operation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/06_long_range_echo_n10.qasm",
+      "single_qubit_gate_reduction": 0
+    },
+    {
+      "exposure_reduction": 0.0,
+      "logical_depth_reduction": 0,
+      "operation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/07_commuting_disjoint_windows_n8.qasm",
+      "single_qubit_gate_reduction": 0
+    },
+    {
+      "exposure_reduction": 0.0,
+      "logical_depth_reduction": 0,
+      "operation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/08_chemistry_ansatz_n8.qasm",
+      "single_qubit_gate_reduction": 0
+    }
+  ],
+  "version": "0.1"
+}

@@ -1,0 +1,310 @@
+{
+  "benchmark_id": "B1",
+  "check": "measurement_distribution_equivalence",
+  "failed": 0,
+  "pair_count": 30,
+  "passed": 30,
+  "results": [
+    {
+      "classical_outcome_count_left": 64,
+      "classical_outcome_count_right": 64,
+      "equivalent": true,
+      "l1_delta": 1.2847253642866985e-15,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/01_trotter_ladder_n6.qasm",
+      "max_probability_delta": 2.7755575615628914e-16,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/01_trotter_ladder_n6.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 256,
+      "classical_outcome_count_right": 256,
+      "equivalent": true,
+      "l1_delta": 2.3626933742804113e-15,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/02_ring_interaction_n8.qasm",
+      "max_probability_delta": 1.474514954580286e-17,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/02_ring_interaction_n8.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 32,
+      "classical_outcome_count_right": 32,
+      "equivalent": true,
+      "l1_delta": 1.8980864853490077e-15,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/03_qec_syndrome_phase_n7.qasm",
+      "max_probability_delta": 5.273559366969494e-16,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/03_qec_syndrome_phase_n7.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 2,
+      "classical_outcome_count_right": 2,
+      "equivalent": true,
+      "l1_delta": 4.996003610813204e-16,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/04_arithmetic_phase_n6.qasm",
+      "max_probability_delta": 2.7755575615628914e-16,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/04_arithmetic_phase_n6.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 32,
+      "classical_outcome_count_right": 32,
+      "equivalent": true,
+      "l1_delta": 1.5759962779249292e-15,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/05_qft_phase_ladder_n5.qasm",
+      "max_probability_delta": 4.996003610813204e-16,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/05_qft_phase_ladder_n5.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 1024,
+      "classical_outcome_count_right": 1024,
+      "equivalent": true,
+      "l1_delta": 3.728388618443814e-16,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/06_long_range_echo_n10.qasm",
+      "max_probability_delta": 1.1102230246251565e-16,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/06_long_range_echo_n10.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 32,
+      "classical_outcome_count_right": 32,
+      "equivalent": true,
+      "l1_delta": 1.0586692113234708e-15,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/07_commuting_disjoint_windows_n8.qasm",
+      "max_probability_delta": 1.5265566588595902e-16,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/07_commuting_disjoint_windows_n8.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 256,
+      "classical_outcome_count_right": 256,
+      "equivalent": true,
+      "l1_delta": 4.0132568502331926e-16,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/08_chemistry_ansatz_n8.qasm",
+      "max_probability_delta": 1.1102230246251565e-16,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/08_chemistry_ansatz_n8.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 64,
+      "classical_outcome_count_right": 64,
+      "equivalent": true,
+      "l1_delta": 2.940694688060561e-15,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/09_bv_phase_oracle_n9.qasm",
+      "max_probability_delta": 1.1102230246251565e-15,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/09_bv_phase_oracle_n9.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 64,
+      "classical_outcome_count_right": 64,
+      "equivalent": true,
+      "l1_delta": 8.881784197001252e-16,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "max_probability_delta": 1.1102230246251565e-16,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 16,
+      "classical_outcome_count_right": 16,
+      "equivalent": true,
+      "l1_delta": 5.967448757360216e-16,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/11_stabilizer_mixer_n10.qasm",
+      "max_probability_delta": 6.938893903907228e-17,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/11_stabilizer_mixer_n10.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 2,
+      "classical_outcome_count_right": 2,
+      "equivalent": true,
+      "l1_delta": 2.220446049250313e-16,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/12_toffoli_phase_n7.qasm",
+      "max_probability_delta": 1.1102230246251565e-16,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/12_toffoli_phase_n7.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 1,
+      "classical_outcome_count_right": 1,
+      "equivalent": true,
+      "l1_delta": 2.353672812205332e-14,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "max_probability_delta": 2.353672812205332e-14,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 1024,
+      "classical_outcome_count_right": 1024,
+      "equivalent": true,
+      "l1_delta": 1.6009336859617682e-14,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_interaction_exact/ising_n10.qasm",
+      "max_probability_delta": 5.759281940243e-16,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_interaction_exact/ising_n10.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 1,
+      "classical_outcome_count_right": 1,
+      "equivalent": true,
+      "l1_delta": 3.9968028886505635e-15,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_medium_exact/bv_n14.qasm",
+      "max_probability_delta": 3.9968028886505635e-15,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_medium_exact/bv_n14.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 2,
+      "classical_outcome_count_right": 2,
+      "equivalent": true,
+      "l1_delta": 7.382983113757291e-15,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_medium_exact/gcm_h6.qasm",
+      "max_probability_delta": 3.7192471324942744e-15,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_medium_exact/gcm_h6.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 1,
+      "classical_outcome_count_right": 1,
+      "equivalent": true,
+      "l1_delta": 4.440892098500626e-16,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_medium_exact/multiply_n13.qasm",
+      "max_probability_delta": 4.440892098500626e-16,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_medium_exact/multiply_n13.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 8,
+      "classical_outcome_count_right": 8,
+      "equivalent": true,
+      "l1_delta": 2.8449465006019636e-15,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_medium_exact/qf21_n15.qasm",
+      "max_probability_delta": 1.1657341758564144e-15,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_medium_exact/qf21_n15.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 16,
+      "classical_outcome_count_right": 16,
+      "equivalent": true,
+      "l1_delta": 5.663872149064275e-16,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_medium_exact/sat_n11.qasm",
+      "max_probability_delta": 8.326672684688674e-17,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_medium_exact/sat_n11.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 4,
+      "classical_outcome_count_right": 4,
+      "equivalent": true,
+      "l1_delta": 2.609024107869118e-15,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_medium_exact/seca_n11.qasm",
+      "max_probability_delta": 6.938893903907228e-16,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_medium_exact/seca_n11.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 1,
+      "classical_outcome_count_right": 1,
+      "equivalent": true,
+      "l1_delta": 4.440892098500626e-16,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/adder_n4.qasm",
+      "max_probability_delta": 4.440892098500626e-16,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_small/adder_n4.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 1,
+      "classical_outcome_count_right": 1,
+      "equivalent": true,
+      "l1_delta": 6.661338147750939e-16,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/basis_change_n3.qasm",
+      "max_probability_delta": 6.661338147750939e-16,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_small/basis_change_n3.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 1,
+      "classical_outcome_count_right": 1,
+      "equivalent": true,
+      "l1_delta": 3.9968028886505635e-15,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/basis_test_n4.qasm",
+      "max_probability_delta": 3.9968028886505635e-15,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_small/basis_test_n4.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 16,
+      "classical_outcome_count_right": 16,
+      "equivalent": true,
+      "l1_delta": 6.314393452555578e-16,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/bell_n4.qasm",
+      "max_probability_delta": 1.1102230246251565e-16,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_small/bell_n4.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 2,
+      "classical_outcome_count_right": 2,
+      "equivalent": true,
+      "l1_delta": 2.220446049250313e-16,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/cat_state_n4.qasm",
+      "max_probability_delta": 2.220446049250313e-16,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_small/cat_state_n4.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 2,
+      "classical_outcome_count_right": 2,
+      "equivalent": true,
+      "l1_delta": 2.220446049250313e-16,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/deutsch_n2.qasm",
+      "max_probability_delta": 1.1102230246251565e-16,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_small/deutsch_n2.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 16,
+      "classical_outcome_count_right": 16,
+      "equivalent": true,
+      "l1_delta": 8.631984016460592e-15,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/error_correctiond3_n5.qasm",
+      "max_probability_delta": 6.106226635438361e-16,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_small/error_correctiond3_n5.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 1,
+      "classical_outcome_count_right": 1,
+      "equivalent": true,
+      "l1_delta": 4.440892098500626e-16,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/fredkin_n3.qasm",
+      "max_probability_delta": 4.440892098500626e-16,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_small/fredkin_n3.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 1,
+      "classical_outcome_count_right": 1,
+      "equivalent": true,
+      "l1_delta": 1.3322676295501878e-15,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/grover_n2.qasm",
+      "max_probability_delta": 1.3322676295501878e-15,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_small/grover_n2.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    },
+    {
+      "classical_outcome_count_left": 128,
+      "classical_outcome_count_right": 128,
+      "equivalent": true,
+      "l1_delta": 7.957142271613035e-15,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/hhl_n7.qasm",
+      "max_probability_delta": 4.6629367034256575e-15,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_small/hhl_n7.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    }
+  ],
+  "tolerance": 1e-08
+}

@@ -1,0 +1,159 @@
+{
+  "all_terms_scaled_uniformly": true,
+  "analytic_bound_statement": [
+    "For the open-boundary cluster stabilizer family, every generated term has support size 2 or 3.",
+    "The B9 local_interaction_reweight_v0 transformation multiplies every support>=2 term by 1.35.",
+    "Therefore H'_n = 1.35 * H_n for the generated family rows.",
+    "Positive uniform scaling preserves eigenvectors and scales both spectral gap and spectral width by 1.35.",
+    "The normalized gap gap(H)/width(H) is invariant, while max locality remains 3."
+  ],
+  "benchmark_id": "B9",
+  "certificate_rejected": true,
+  "claim_boundary": [
+    "Supported: a named-family analytic skeleton explaining why the B9 v0 cluster-stabilizer local reweight rows are only uniform energy rescaling.",
+    "Supported: finite rows n=4,5,6 match the symbolic locality/width story.",
+    "Not supported: proof-assistant checked theorem, Quantum PCP proof, NLTS theorem, or global gap-amplification no-go theorem."
+  ],
+  "explicit_not_quantum_pcp_proof": true,
+  "formal_theorem_proved": false,
+  "gap_ratios": [
+    1.3499999999999979,
+    1.3499999999999954,
+    1.3500000000000034
+  ],
+  "global_gap_amplification_impossibility_claimed": false,
+  "ground_space_preserved_by_uniform_scaling": true,
+  "last_updated": "2026-06-17",
+  "lean_skeleton_output": "research/proof_skeletons/B9_cluster_stabilizer_width_locality_bound.lean",
+  "locality_bound_preserved": true,
+  "max_abs_normalized_gap_ratio_error_from_one": 2.3314683517128287e-15,
+  "max_locality": 3,
+  "method": "b9_named_family_width_locality_bound_v0",
+  "model": "cluster_stabilizer_open",
+  "named_family": "cluster_stabilizer_open_uniform_reweight",
+  "normalized_gap_invariant_under_uniform_scaling": true,
+  "normalized_gap_ratios": [
+    0.9999999999999982,
+    0.9999999999999977,
+    1.000000000000002
+  ],
+  "observed_uniform_scales": [
+    1.35
+  ],
+  "problem_id": 17,
+  "proof_assistant_available": true,
+  "proof_assistant_check_detail": "/Users/avalok/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\nTraceback (most recent call last):\n  File \"/Users/avalok/Library/Python/3.9/bin/lean\", line 3, in <module>\n    from lean.main import main\n  File \"/Users/avalok/Library/Python/3.9/lib/python/site-packages/lean/main.py\", line 87, in <module>\n    from lean.commands import lean\n  File \"/Users/avalok/Library/Python/3.9/lib/python/site-packages/lean/commands/__init__.py\", line 14, in <module>\n    from lean.commands.lean import lean\n  File \"/Users/avalok/Library/Python/3.9/lib/python/site-packages/lean/commands/lean.py\", line 17, in <module>\n    from lean.click import verbose_option\n  File \"/Users/avalok/Library/Python/3.9/lib/python/site-packages/lean/click.py\", line 21, in <module>\n    from lean.container import container\n  File \"/Users/avalok/Library/Python/3.9/lib/python/site-packages/lean/container.py\", line 17, in <module>\n    from lean.components.api.api_client import APIClient\n  File \"/Users/avalok/Library/Python/3.9/lib/python/site-packages/lean/components/api/api_client.py\", line 16, in <module>\n    from lean.components.api.auth0_client import Auth0Client\n  File \"/Users/avalok/Library/Python/3.9/lib/python/site-packages/lean/components/api/auth0_client.py\", line 15, in <module>\n    from lean.components.util.logger import Logger\n  File \"/Users/avalok/Library/Python/3.9/lib/python/site-packages/lean/components/util/logger.py\", line 18, in <module>\n    from lean.models.logger import Option\n  File \"/Users/avalok/Library/Python/3.9/lib/python/site-packages/lean/models/__init__.py\", line 49, in <module>\n    raise FileNotFoundError(\nFileNotFoundError: Modules json not found in the given path /Users/avalok/Library/Python/3.9/lib/python/site-packages/lean/modules-1.14.json: HTTPSConnectionPool(host='cdn.",
+  "proof_assistant_check_status": "failed",
+  "proof_assistant_checked": false,
+  "proof_assistant_executable": "/Users/avalok/Library/Python/3.9/bin/lean",
+  "proof_assistant_return_code": 1,
+  "qubits": [
+    4,
+    5,
+    6
+  ],
+  "raw_gap_amplifies": true,
+  "rejection_reason": "Raw spectral gap growth is exactly global positive energy rescaling; spectral width scales by the same factor, so normalized gap does not improve.",
+  "remaining_steps_to_full_resolution": [
+    "Formalize the parameterized open-boundary cluster stabilizer Hamiltonian in an actual Lean/mathlib project.",
+    "Prove the support-size and uniform-scaling lemmas over all n >= 4.",
+    "Prove spectral gap, spectral width, and normalized-gap scaling for positive scalar multiplication of self-adjoint matrices.",
+    "Connect the finite JSON rows to generated certificates rather than manual inspection.",
+    "Generalize from this rejected uniform-scaling family to nontrivial locality-preserving transformations or prove a narrower no-go theorem."
+  ],
+  "rows_matched": 3,
+  "scaling_factor": 1.35,
+  "source_method": "small_local_hamiltonian_gap_lab_v0",
+  "source_result": "results/B9_local_hamiltonian_gap_lab_v0.json",
+  "status": "named_family_width_locality_bound_skeleton_not_checked_theorem",
+  "support_profiles": [
+    {
+      "all_terms_scaled_uniformly": true,
+      "max_support": 3,
+      "qubits": 4,
+      "scales": [
+        1.35,
+        1.35,
+        1.35,
+        1.35
+      ],
+      "supports": [
+        3,
+        3,
+        2,
+        2
+      ],
+      "term_count": 4,
+      "uniform_scale": 1.35,
+      "unique_scales": [
+        1.35
+      ],
+      "unique_supports": [
+        2,
+        3
+      ]
+    },
+    {
+      "all_terms_scaled_uniformly": true,
+      "max_support": 3,
+      "qubits": 5,
+      "scales": [
+        1.35,
+        1.35,
+        1.35,
+        1.35,
+        1.35
+      ],
+      "supports": [
+        3,
+        3,
+        3,
+        2,
+        2
+      ],
+      "term_count": 5,
+      "uniform_scale": 1.35,
+      "unique_scales": [
+        1.35
+      ],
+      "unique_supports": [
+        2,
+        3
+      ]
+    },
+    {
+      "all_terms_scaled_uniformly": true,
+      "max_support": 3,
+      "qubits": 6,
+      "scales": [
+        1.35,
+        1.35,
+        1.35,
+        1.35,
+        1.35,
+        1.35
+      ],
+      "supports": [
+        3,
+        3,
+        3,
+        3,
+        2,
+        2
+      ],
+      "term_count": 6,
+      "uniform_scale": 1.35,
+      "unique_scales": [
+        1.35
+      ],
+      "unique_supports": [
+        2,
+        3
+      ]
+    }
+  ],
+  "title": "B9 cluster-stabilizer named-family width/locality bound skeleton",
+  "transformation": "local_interaction_reweight_v0",
+  "validation_errors": [],
+  "version": "0.1"
+}

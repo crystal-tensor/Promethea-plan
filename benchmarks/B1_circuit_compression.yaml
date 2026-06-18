@@ -1,0 +1,560 @@
+id: B1
+problem_id: 25
+name: Hardware-Aware Quantum Circuit Compression
+version: 0.1
+status: draft
+claim: >
+  A constrained synthesis and rewrite loop can reduce hardware-weighted circuit
+  cost without changing unitary behavior or measured output statistics.
+input_families:
+  - source: QASMBench
+    url: https://github.com/pnnl/QASMBench
+    categories:
+      - arithmetic
+      - chemistry
+      - simulation
+      - search
+      - qft
+  - source: MQT Bench
+    url: https://github.com/munich-quantum-toolkit/bench
+    categories:
+      - cross_level_circuit_families
+  - source: generated_qec_syndrome_circuits
+    format: stim_or_openqasm
+  - source: generated_chemistry_ansatz_circuits
+    format: openqasm_or_cirq
+hardware_models:
+  - linear_nearest_neighbor
+  - heavy_hex_like_sparse
+  - all_to_all_ion_trap_like
+  - neutral_atom_reconfigurable
+baselines:
+  - native_transpiler_light
+  - native_transpiler_medium
+  - native_transpiler_aggressive
+  - peephole_optimizer
+  - routing_aware_compiler
+metrics:
+  - logical_depth
+  - two_qubit_gate_count
+  - two_qubit_depth
+  - t_count
+  - t_depth
+  - hardware_weighted_error_exposure
+  - compile_time_seconds
+  - equivalence_check_pass_rate
+acceptance_threshold:
+  median_hardware_weighted_cost_reduction: ">=20%"
+  minimum_circuit_count: 30
+  equivalence_failures: 0
+  compile_time_overhead_vs_baseline: "<=10x"
+failure_conditions:
+  - gains_only_on_trivial_baseline_cases
+  - equivalence_not_proven_or_statistically_validated
+  - per_circuit_manual_tuning_required
+next_actions:
+  - implement_baseline_transpiler_runner
+  - add_mqt_bench_subset
+  - extend_single_qubit_resynthesis_across_commuting_gates
+  - implement_2_to_4_qubit_hardware_aware_window_resynthesis
+  - extend_equivalence_strategy_for_larger_circuits
+current_results:
+  qasmbench_small_single_qubit_resynthesis_v0:
+    circuits: 10
+    equivalence_failures: 0
+    operation_count_reduction: "20.62%"
+    logical_depth_reduction: "25.91%"
+    heavy_hex_like_exposure_reduction: "2.63%"
+    summary: ../results/qasmbench_small_1q_summary.json
+  qasmbench_small_commuting_aware_single_qubit_resynthesis_v0:
+    circuits: 10
+    equivalence_failures: 0
+    operation_count_reduction: "21.64%"
+    logical_depth_reduction: "26.43%"
+    heavy_hex_like_exposure_reduction: "2.68%"
+    summary: ../results/qasmbench_small_1q_commute_summary.json
+  qasmbench_small_commuting_1q_plus_rzz_window_resynthesis_v0:
+    circuits: 10
+    equivalence_failures: 0
+    operation_count_reduction: "26.31%"
+    two_qubit_gate_count_reduction: "7.81%"
+    logical_depth_reduction: "30.34%"
+    heavy_hex_like_exposure_reduction: "8.75%"
+    summary: ../results/qasmbench_small_1q_rzz_summary.json
+  qasmbench_small_commuting_1q_plus_iterative_rzz_window_resynthesis_v0:
+    circuits: 10
+    equivalence_failures: 0
+    operation_count_reduction: "26.68%"
+    two_qubit_gate_count_reduction: "8.44%"
+    logical_depth_reduction: "30.86%"
+    heavy_hex_like_exposure_reduction: "9.26%"
+    summary: ../results/qasmbench_small_fixed_point_pipeline/qasmbench_small_fixed_point_summary.json
+    rzz_pass_windows: [25, 2, 0]
+  qasmbench_medium_exact_fixed_point_pipeline_v0:
+    circuits: 6
+    max_qubits: 15
+    equivalence_failures: 0
+    operation_count_reduction: "38.10%"
+    two_qubit_gate_count_reduction: "0.00%"
+    logical_depth_reduction: "37.88%"
+    heavy_hex_like_exposure_reduction: "7.70%"
+    summary: ../results/qasmbench_medium_exact_fixed_point_pipeline/qasmbench_medium_exact_fixed_point_summary.json
+    rzz_pass_windows: [0]
+  qasmbench_small_medium_aggregate_fixed_point_pipeline_v0:
+    circuits: 16
+    equivalence_failures: 0
+    operation_count_reduction: "35.40%"
+    two_qubit_gate_count_reduction: "2.18%"
+    logical_depth_reduction: "36.28%"
+    heavy_hex_like_exposure_reduction: "8.09%"
+    summary: ../results/B1_qasmbench_small_medium_fixed_point_summary.json
+  qasmbench_interaction_exact_fixed_point_pipeline_v0:
+    circuits: 2
+    max_qubits: 10
+    equivalence_failures: 0
+    operation_count_reduction: "32.05%"
+    two_qubit_gate_count_reduction: "19.02%"
+    logical_depth_reduction: "27.20%"
+    heavy_hex_like_exposure_reduction: "19.13%"
+    summary: ../results/qasmbench_interaction_exact_fixed_point_pipeline/qasmbench_interaction_exact_fixed_point_summary.json
+    rzz_pass_windows: [105, 0]
+  qasmbench_small_medium_interaction_aggregate_fixed_point_pipeline_v0:
+    circuits: 18
+    equivalence_failures: 0
+    operation_count_reduction: "34.37%"
+    two_qubit_gate_count_reduction: "7.36%"
+    logical_depth_reduction: "34.40%"
+    heavy_hex_like_exposure_reduction: "11.00%"
+    summary: ../results/B1_qasmbench_small_medium_interaction_fixed_point_summary.json
+  b1_exact_extension_fixed_point_pipeline_v0:
+    circuits: 12
+    max_qubits: 10
+    equivalence_failures: 0
+    certificate_mode: local_rewrite_certificates_plus_exact_statevector
+    proof_log_mode: jsonl_local_rewrite_events_v1
+    proof_log_audit_passed: true
+    proof_log_replay_passed: true
+    proof_log_semantic_passed: true
+    operation_count_reduction: "31.73%"
+    two_qubit_gate_count_reduction: "43.24%"
+    logical_depth_reduction: "47.09%"
+    heavy_hex_like_exposure_reduction: "22.28%"
+    summary: ../results/b1_exact_extension_fixed_point_pipeline/b1_exact_extension_fixed_point_summary.json
+    audit: ../results/b1_exact_extension_fixed_point_pipeline/b1_exact_extension_fixed_point_audit.json
+    replay: ../results/b1_exact_extension_fixed_point_pipeline/b1_exact_extension_fixed_point_replay.json
+    semantic: ../results/b1_exact_extension_fixed_point_pipeline/b1_exact_extension_fixed_point_semantic.json
+    proof_events:
+      single_qubit_events: 11
+      rzz_events: 80
+    semantic_max_delta:
+      single_qubit: 2.24e-16
+      rzz: 0.0
+  b1_30_circuit_exact_aggregate_fixed_point_pipeline_v0:
+    circuits: 30
+    equivalence_failures: 0
+    operation_count_reduction: "34.17%"
+    two_qubit_gate_count_reduction: "10.72%"
+    logical_depth_reduction: "34.98%"
+    heavy_hex_like_exposure_reduction: "12.58%"
+    summary: ../results/B1_exact_30_circuit_fixed_point_summary.json
+  qiskit_all_to_all_u3_cx_baseline_suite_v0:
+    circuits: 30
+    valid_optimization_levels: [0, 1]
+    invalid_optimization_levels: [3]
+    best_valid_level_by_exposure: 1
+    best_valid_level_equivalence_failures: 0
+    best_valid_level_operation_count_reduction: "14.60%"
+    best_valid_level_two_qubit_gate_count_reduction: "-25.63%"
+    best_valid_level_logical_depth_reduction: "15.25%"
+    best_valid_level_heavy_hex_like_exposure_reduction: "-13.36%"
+    comparison: ../research/B1_baseline_comparison.json
+    suite_summary: ../results/b1_qiskit_baseline_30/qiskit_baseline_suite_summary.json
+  qiskit_line_routing_diagnostic_suite_v0:
+    circuits: 30
+    status: diagnostic_only_not_validated_baseline
+    valid_exact_optimization_levels: []
+    partial_measurement_distribution_levels: [0, 1, 3]
+    measurement_distribution_failures: 0
+    measurement_distribution_semantic_model: sequential_statevector_with_branching_mid_circuit_measurements
+    best_diagnostic_level_by_exposure: 3
+    best_diagnostic_level_heavy_hex_like_exposure_reduction: "-31.86%"
+    aer_crosscheck_status: passed
+    aer_crosscheck_pairs: 90
+    aer_crosscheck_shots_per_pair: 32768
+    aer_crosscheck_max_tvd: 0.04984
+    diagnostic: ../research/B1_routing_baseline_diagnostic.json
+    suite_summary: ../results/b1_qiskit_line_routing_30/qiskit_line_routing_suite_summary.json
+    aer_crosschecks:
+      level0: ../results/b1_qiskit_line_routing_30/qiskit_line_level0_aer_measurement_crosscheck.json
+      level1: ../results/b1_qiskit_line_routing_30/qiskit_line_level1_aer_measurement_crosscheck.json
+      level3: ../results/b1_qiskit_line_routing_30/qiskit_line_level3_aer_measurement_crosscheck.json
+  qiskit_heavyhex_d3_routing_diagnostic_suite_v0:
+    circuits: 30
+    status: device_like_topology_diagnostic_not_calibrated_noise_baseline
+    heavy_hex_distance: 3
+    physical_qubits: 19
+    coupling_edges: 40
+    aer_crosscheck_status: passed
+    aer_crosscheck_valid_levels: [0]
+    aer_crosscheck_pairs: 30
+    aer_crosscheck_shots_per_pair: 2048
+    best_diagnostic_level_by_exposure: 0
+    best_diagnostic_level_heavy_hex_like_exposure_reduction: "-164.71%"
+    diagnostic: ../research/B1_heavyhex_routing_diagnostic.json
+    suite_summary: ../results/b1_qiskit_heavyhex_routing_30/qiskit_heavyhex_routing_suite_summary.json
+    aer_crosschecks:
+      level0: ../results/b1_qiskit_heavyhex_routing_30/qiskit_heavyhex_d3_level0_aer_measurement_crosscheck.json
+  b1_heavyhex_end_to_end_routed_benefit_v0:
+    circuits: 30
+    status: topology_routed_benefit_diagnostic_not_calibrated_noise_claim
+    heavy_hex_distance: 3
+    physical_qubits: 19
+    qiskit_optimization_level: 0
+    aer_crosscheck_status: passed
+    aer_crosscheck_pairs: 30
+    aer_crosscheck_shots_per_pair: 2048
+    operation_count_reduction_after_routing: "16.95%"
+    two_qubit_gate_count_reduction_after_routing: "0.00%"
+    logical_depth_reduction_after_routing: "19.44%"
+    heavy_hex_like_exposure_reduction_after_routing: "2.93%"
+    idle_layer_proxy_reduction_after_routing: "20.55%"
+    report: ../research/B1_heavyhex_end_to_end_report.json
+    summary: ../results/b1_heavyhex_end_to_end_30/heavyhex_end_to_end_summary.json
+    aer_crosscheck: ../results/b1_heavyhex_end_to_end_30/source_vs_b1_optimized_routed_aer_crosscheck.json
+  b1_heavyhex_end_to_end_routed_benefit_suite_v0:
+    circuits: 30
+    status: topology_routed_benefit_suite_not_calibrated_noise_claim
+    heavy_hex_distance: 3
+    physical_qubits: 19
+    qiskit_optimization_levels: [0, 1]
+    aer_crosscheck_status: passed
+    best_level_by_exposure: 0
+    level0_exposure_reduction_after_routing: "2.93%"
+    level1_exposure_reduction_after_routing: "0.00%"
+    interpretation: level1_routing_optimization_nearly_erases_current_b1_pre_routing_benefits
+    report: ../research/B1_heavyhex_end_to_end_suite.json
+    level0_summary: ../results/b1_heavyhex_end_to_end_30/heavyhex_end_to_end_summary.json
+    level1_summary: ../results/b1_heavyhex_end_to_end_30_level1/heavyhex_end_to_end_summary.json
+  b1_post_routing_bottleneck_profile_v0:
+    circuits: 30
+    status: post_routing_bottleneck_profile_diagnostic_not_calibrated_noise_claim
+    heavy_hex_distance: 3
+    physical_qubits: 19
+    qiskit_optimization_levels: [0, 1]
+    aer_crosscheck_status: passed
+    level0_exposure_reduction_after_routing: "2.93%"
+    level1_exposure_reduction_after_routing: "0.00%"
+    benefit_erased_by_level1_circuits: 16
+    top_level1_two_qubit_bottleneck: qasmbench_medium_exact/gcm_h6.qasm
+    top_level1_two_qubit_bottleneck_optimized_2q_count: 1269
+    interpretation: current_b1_rewrites_are_not_robust_to_qiskit_level1_heavyhex_routing
+    report: ../research/B1_post_routing_bottleneck_profile.json
+    markdown_report: ../research/B1_post_routing_bottleneck_profile.md
+    level0_source_metrics: ../results/b1_heavyhex_end_to_end_30/source_routed_metrics.json
+    level0_optimized_metrics: ../results/b1_heavyhex_end_to_end_30/b1_optimized_routed_metrics.json
+    level1_source_metrics: ../results/b1_heavyhex_end_to_end_30_level1/source_routed_metrics.json
+    level1_optimized_metrics: ../results/b1_heavyhex_end_to_end_30_level1/b1_optimized_routed_metrics.json
+  b1_post_routing_swap_macro_compression_v0:
+    circuits: 30
+    status: post_routing_swap_macro_diagnostic_not_native_basis_claim
+    qiskit_optimization_level: 1
+    heavy_hex_distance: 3
+    physical_qubits: 19
+    method: post_routing_cx_cx_cx_to_swap_macro_v0
+    swap_macros_identified: 481
+    removed_cx_gates: 1443
+    inserted_swap_macros: 481
+    operation_count_reduction_vs_level1_b1_routed: "12.92%"
+    two_qubit_macro_reduction_vs_level1_b1_routed: "24.79%"
+    logical_depth_reduction_vs_level1_b1_routed: "15.42%"
+    heavy_hex_like_exposure_reduction_vs_level1_b1_routed: "21.66%"
+    local_aer_crosscheck_status: passed
+    local_aer_crosscheck_pairs: 30
+    end_to_end_aer_crosscheck_status: passed
+    end_to_end_aer_crosscheck_pairs: 30
+    top_swap_macro_circuit: qasmbench_medium_exact/gcm_h6.qasm
+    top_swap_macro_count: 158
+    caveat: diagnostic_macro_ir_not_calibrated_native_basis_claim
+    report: ../research/B1_post_routing_swap_macro_report.json
+    markdown_report: ../research/B1_post_routing_swap_macro_report.md
+    proof_log: ../results/b1_post_routing_swap_macro_level1/swap_macro_proofs.jsonl
+    before_metrics: ../results/b1_post_routing_swap_macro_level1/before_swap_macro_metrics.json
+    after_metrics: ../results/b1_post_routing_swap_macro_level1/after_swap_macro_metrics.json
+    local_aer_crosscheck: ../results/b1_post_routing_swap_macro_level1/b1_routed_vs_swap_macro_aer_crosscheck.json
+    end_to_end_aer_crosscheck: ../results/b1_post_routing_swap_macro_level1/source_logical_vs_swap_macro_aer_crosscheck.json
+  b1_virtual_swap_elimination_v0:
+    circuits: 30
+    status: virtual_swap_elimination_diagnostic_not_layout_final_claim
+    qiskit_optimization_level: 1
+    heavy_hex_distance: 3
+    physical_qubits: 19
+    method: post_routing_virtual_swap_elimination_v0
+    rewritten_circuits: 30
+    skipped_circuits: 0
+    virtual_swaps_removed: 481
+    removed_cx_gates: 1443
+    operation_count_reduction_vs_level1_b1_routed: "19.39%"
+    two_qubit_gate_count_reduction_vs_level1_b1_routed: "37.18%"
+    logical_depth_reduction_vs_level1_b1_routed: "24.33%"
+    heavy_hex_like_exposure_reduction_vs_level1_b1_routed: "32.65%"
+    local_aer_crosscheck_status: passed
+    local_aer_crosscheck_pairs: 30
+    end_to_end_aer_crosscheck_status: passed
+    end_to_end_aer_crosscheck_pairs: 30
+    proof_replay_status: passed
+    proof_replayed_events: 481
+    proof_replay_output_mismatches: 0
+    top_virtual_swap_circuit: qasmbench_medium_exact/gcm_h6.qasm
+    top_virtual_swap_count: 158
+    caveat: diagnostic_virtual_layout_not_calibrated_backend_claim_measurement_operands_remapped_no_classical_control_or_reset
+    report: ../research/B1_virtual_swap_elimination_report.json
+    markdown_report: ../research/B1_virtual_swap_elimination_report.md
+    proof_replay_report: ../research/B1_virtual_swap_replay_report.json
+    proof_replay_markdown_report: ../research/B1_virtual_swap_replay_report.md
+    proof_log: ../results/b1_virtual_swap_elimination_level1/virtual_swap_elimination_proofs.jsonl
+    before_metrics: ../results/b1_virtual_swap_elimination_level1/before_virtual_swap_metrics.json
+    after_metrics: ../results/b1_virtual_swap_elimination_level1/after_virtual_swap_metrics.json
+    local_aer_crosscheck: ../results/b1_virtual_swap_elimination_level1/b1_routed_vs_virtual_swap_aer_crosscheck.json
+    end_to_end_aer_crosscheck: ../results/b1_virtual_swap_elimination_level1/source_logical_vs_virtual_swap_aer_crosscheck.json
+  b1_post_virtual_swap_1q_resynthesis_v0:
+    circuits: 30
+    status: post_virtual_swap_1q_resynthesis_t_resource_positive_diagnostic
+    qiskit_optimization_level: 1
+    method: post_virtual_swap_1q_run_to_u3_resynthesis_v0
+    resynthesized_runs: 60
+    removed_single_qubit_gates: 60
+    operation_count_reduction_vs_virtual_swap: "1.00%"
+    single_qubit_gate_count_reduction_vs_virtual_swap: "1.77%"
+    logical_depth_reduction_vs_virtual_swap: "0.16%"
+    heavy_hex_like_exposure_reduction_vs_virtual_swap: "0.04%"
+    logical_t_count_proxy_reduction_vs_virtual_swap: "1.018x"
+    logical_t_depth_proxy_reduction_vs_virtual_swap: "1.015x"
+    non_clifford_rotation_count_reduction_vs_virtual_swap: "1.018x"
+    aer_crosscheck_status: passed
+    aer_crosscheck_pairs: 30
+    aer_crosscheck_shots_per_pair: 32768
+    aer_crosscheck_max_tvd: 0.0
+    caveat: diagnostic_post_virtual_swap_1q_fusion_not_final_t_optimized_compiler
+    report: ../results/B1_post_virtual_swap_1q_resynth_v0.json
+    markdown_report: ../research/B1_post_virtual_swap_1q_resynth.md
+    proof_log: ../results/b1_post_virtual_swap_1q_resynth/proofs.jsonl
+    before_metrics: ../results/b1_post_virtual_swap_1q_resynth/before_metrics.json
+    after_metrics: ../results/b1_post_virtual_swap_1q_resynth/after_metrics.json
+    aer_crosscheck: ../results/b1_post_virtual_swap_1q_resynth/aer_crosscheck.json
+  b1_native_t_resource_optimizer_v0:
+    circuits: 30
+    status: native_t_resource_optimizer_positive_diagnostic_not_final_claim
+    method: u3_zero_theta_native_z_phase_canonicalization_v0
+    canonicalization_events: 1691
+    circuits_changed: 26
+    identity_events: 4
+    native_rz_rewrite_events: 1687
+    removed_single_qubit_gates: 4
+    logical_t_count_proxy_reduction_vs_post_1q: "1.000990x"
+    logical_t_depth_proxy_reduction_vs_post_1q: "1.000000x"
+    non_clifford_rotation_count_reduction_vs_post_1q: "1.000990x"
+    aer_crosscheck_status: passed
+    aer_crosscheck_pairs: 30
+    aer_crosscheck_shots_per_pair: 32768
+    aer_crosscheck_max_tvd: 0.0
+    caveat: narrow_native_z_phase_canonicalization_not_complete_non_clifford_optimizer
+    report: ../results/B1_native_t_resource_optimizer_v0.json
+    markdown_report: ../research/B1_native_t_resource_optimizer.md
+    proof_log: ../results/b1_native_t_resource_optimizer/proofs.jsonl
+    before_metrics: ../results/b1_native_t_resource_optimizer/before_metrics.json
+    after_metrics: ../results/b1_native_t_resource_optimizer/after_metrics.json
+    aer_crosscheck: ../results/b1_native_t_resource_optimizer/aer_crosscheck.json
+  b1_control_rz_commute_optimizer_v0:
+    circuits: 30
+    status: control_rz_commute_positive_diagnostic_not_final_claim
+    method: control_rz_commute_and_merge_v0
+    absorbed_rz_gates: 1687
+    certificate_events: 1307
+    merged_or_moved_groups: 183
+    removed_rz_gates: 380
+    cnot_control_commutations: 1172
+    logical_t_count_proxy_reduction_vs_native: "1.119320x"
+    logical_t_depth_proxy_reduction_vs_native: "1.069841x"
+    non_clifford_rotation_count_reduction_vs_native: "1.119320x"
+    aer_crosscheck_status: passed
+    aer_crosscheck_pairs: 30
+    aer_crosscheck_shots_per_pair: 32768
+    aer_crosscheck_max_tvd: 0.0
+    caveat: control_side_rz_commutation_only_not_complete_phase_polynomial_optimizer
+    report: ../results/B1_control_rz_commute_optimizer_v0.json
+    markdown_report: ../research/B1_control_rz_commute_optimizer.md
+    proof_log: ../results/b1_control_rz_commute_optimizer/proofs.jsonl
+    before_metrics: ../results/b1_control_rz_commute_optimizer/before_metrics.json
+    after_metrics: ../results/b1_control_rz_commute_optimizer/after_metrics.json
+    aer_crosscheck: ../results/b1_control_rz_commute_optimizer/aer_crosscheck.json
+  b1_u3_phase_factored_optimizer_v0:
+    circuits: 30
+    status: u3_phase_factored_positive_diagnostic_not_final_claim
+    method: u3_native_euler_factorization_plus_control_rz_commute_v0
+    u3_factorization_events: 1641
+    factorization_certificate_events: 1641
+    rz_components_emitted: 2219
+    ry_components_emitted: 1641
+    zero_components_removed: 1063
+    rz_commute_certificate_events: 3242
+    absorbed_rz_gates: 3526
+    merged_or_moved_groups: 279
+    removed_rz_gates_after_factoring: 313
+    cnot_control_commutations_after_factoring: 540
+    logical_t_count_proxy_reduction_vs_control_rz: "1.036371x"
+    logical_t_depth_proxy_reduction_vs_control_rz: "1.027732x"
+    non_clifford_rotation_count_reduction_vs_control_rz: "1.036371x"
+    aer_crosscheck_status: passed
+    aer_crosscheck_pairs: 30
+    aer_crosscheck_shots_per_pair: 32768
+    aer_crosscheck_max_tvd: 0.0
+    caveat: u3_native_euler_factorization_increases_operation_count_and_is_not_complete_phase_polynomial_optimizer
+    report: ../results/B1_u3_phase_factored_optimizer_v0.json
+    markdown_report: ../research/B1_u3_phase_factored_optimizer.md
+    proof_log: ../results/b1_u3_phase_factored_optimizer/proofs.jsonl
+    before_metrics: ../results/b1_u3_phase_factored_optimizer/before_metrics.json
+    after_metrics: ../results/b1_u3_phase_factored_optimizer/after_metrics.json
+    aer_crosscheck: ../results/b1_u3_phase_factored_optimizer/aer_crosscheck.json
+  b1_synthetic_heavyhex_noise_proxy_v0:
+    circuits: 30
+    status: synthetic_noise_proxy_not_calibrated_device_claim
+    profile: heavy_hex_like_sparse
+    method: exposure_to_success_proxy_exp_minus_exposure
+    source_level1_routed_vs_b1_level1_routed_exposure_reduction: "0.00%"
+    b1_level1_routed_vs_virtual_swap_exposure_reduction: "32.65%"
+    source_level1_routed_vs_virtual_swap_exposure_reduction: "32.65%"
+    source_level1_routed_vs_virtual_swap_success_proxy_ratio: "12748.39x"
+    best_comparison_by_exposure_reduction: source_level1_routed_vs_virtual_swap
+    caveat: documented_synthetic_noise_proxy_not_live_backend_calibration
+    report: ../research/B1_synthetic_noise_proxy_report.json
+    markdown_report: ../research/B1_synthetic_noise_proxy_report.md
+    source_routed_metrics: ../results/b1_heavyhex_end_to_end_30_level1/source_routed_metrics.json
+    b1_routed_metrics: ../results/b1_heavyhex_end_to_end_30_level1/b1_optimized_routed_metrics.json
+    virtual_swap_metrics: ../results/b1_virtual_swap_elimination_level1/after_virtual_swap_metrics.json
+  qasmbench_interaction_stress_hhl_n10_fixed_point_pipeline_v0:
+    circuits: 1
+    max_qubits: 10
+    equivalence_failures: null
+    equivalence_mode: skipped_global_exact_structural_local_rules
+    operation_count_reduction: "26.96%"
+    two_qubit_gate_count_reduction: "19.35%"
+    logical_depth_reduction: "25.95%"
+    heavy_hex_like_exposure_reduction: "20.30%"
+    summary: ../results/qasmbench_interaction_stress_fixed_point_pipeline/qasmbench_interaction_stress_fixed_point_summary.json
+    rzz_pass_windows: [14013, 3, 0]
+  qasmbench_small_fixed_point_pipeline_with_local_certificates_v0:
+    circuits: 10
+    equivalence_failures: 0
+    certificate_mode: local_rewrite_certificates_plus_exact_statevector
+    operation_count_reduction: "26.68%"
+    two_qubit_gate_count_reduction: "8.44%"
+    logical_depth_reduction: "30.86%"
+    heavy_hex_like_exposure_reduction: "9.26%"
+    summary: ../results/qasmbench_small_cert_pipeline/qasmbench_small_cert_summary.json
+    local_certificates:
+      single_qubit_resynthesized_runs: 163
+      single_qubit_removed_gates: 231
+      rzz_windows: 27
+      rzz_removed_cx_gates: 54
+  qasmbench_interaction_stress_hhl_n10_with_local_certificates_v0:
+    circuits: 1
+    max_qubits: 10
+    equivalence_failures: null
+    equivalence_mode: skipped
+    certificate_mode: local_rewrite_certificates_without_global_statevector
+    operation_count_reduction: "26.96%"
+    two_qubit_gate_count_reduction: "19.35%"
+    logical_depth_reduction: "25.95%"
+    heavy_hex_like_exposure_reduction: "20.30%"
+    summary: ../results/qasmbench_interaction_stress_cert_pipeline/qasmbench_interaction_stress_cert_summary.json
+    local_certificates:
+      single_qubit_resynthesized_runs: 17157
+      single_qubit_removed_gates: 22328
+      rzz_windows: 14016
+      rzz_removed_cx_gates: 28032
+  qasmbench_small_fixed_point_pipeline_with_proof_logs_v0:
+    circuits: 10
+    equivalence_failures: 0
+    certificate_mode: local_rewrite_certificates_plus_exact_statevector
+    proof_log_mode: jsonl_local_rewrite_events_v1
+    proof_log_audit_passed: true
+    proof_log_replay_passed: true
+    proof_log_semantic_passed: true
+    operation_count_reduction: "26.68%"
+    two_qubit_gate_count_reduction: "8.44%"
+    logical_depth_reduction: "30.86%"
+    heavy_hex_like_exposure_reduction: "9.26%"
+    summary: ../results/qasmbench_small_prooflog_pipeline/qasmbench_small_prooflog_summary.json
+    audit: ../results/qasmbench_small_prooflog_pipeline/qasmbench_small_prooflog_audit.json
+    replay: ../results/qasmbench_small_prooflog_pipeline/qasmbench_small_prooflog_replay.json
+    semantic: ../results/qasmbench_small_prooflog_pipeline/qasmbench_small_prooflog_semantic.json
+    proof_events:
+      single_qubit_events: 164
+      rzz_events: 27
+    semantic_max_delta:
+      single_qubit: 3.15e-16
+      rzz: 0.0
+  qasmbench_interaction_stress_hhl_n10_with_proof_logs_v0:
+    circuits: 1
+    max_qubits: 10
+    equivalence_failures: null
+    equivalence_mode: skipped
+    certificate_mode: local_rewrite_certificates_without_global_statevector
+    proof_log_mode: jsonl_local_rewrite_events_v1
+    proof_log_audit_passed: true
+    proof_log_replay_passed: true
+    proof_log_semantic_passed: true
+    operation_count_reduction: "26.96%"
+    two_qubit_gate_count_reduction: "19.35%"
+    logical_depth_reduction: "25.95%"
+    heavy_hex_like_exposure_reduction: "20.30%"
+    summary: ../results/qasmbench_interaction_stress_prooflog_pipeline/qasmbench_interaction_stress_prooflog_summary.json
+    audit: ../results/qasmbench_interaction_stress_prooflog_pipeline/qasmbench_interaction_stress_prooflog_audit.json
+    replay: ../results/qasmbench_interaction_stress_prooflog_pipeline/qasmbench_interaction_stress_prooflog_replay.json
+    semantic: ../results/qasmbench_interaction_stress_prooflog_pipeline/qasmbench_interaction_stress_prooflog_semantic.json
+    proof_events:
+      single_qubit_events: 17157
+      rzz_events: 14016
+    semantic_max_delta:
+      single_qubit: 3.56e-16
+      rzz: 0.0
+prototype_artifacts:
+  seed_manifest: B1_seed_manifest.yaml
+  qasmbench_small_manifest: QASMBench_small_manifest.yaml
+  qasmbench_medium_exact_manifest: QASMBench_medium_exact_manifest.yaml
+  qasmbench_interaction_exact_manifest: QASMBench_interaction_exact_manifest.yaml
+  qasmbench_interaction_stress_manifest: QASMBench_interaction_stress_manifest.yaml
+  b1_exact_extension_manifest: B1_exact_extension_manifest.yaml
+  hardware_profiles: hardware_profiles.json
+  metrics_runner: ../tools/b1_qasm_metrics.py
+  local_rewriter: ../tools/b1_local_rewriter.py
+  equivalence_checker: ../tools/b1_equivalence_check.py
+  rewrite_baseline_harness: ../tools/b1_run_rewrite_baseline.py
+  single_qubit_resynthesizer: ../tools/b1_single_qubit_resynth.py
+  rzz_window_resynthesizer: ../tools/b1_rzz_resynth.py
+  fixed_point_pipeline_runner: ../tools/b1_run_pipeline.py
+  proof_log_audit_runner: ../tools/b1_proof_log_audit.py
+  proof_log_replay_runner: ../tools/b1_proof_log_replay.py
+  proof_log_semantic_checker: ../tools/b1_proof_log_semantic_check.py
+  exact_extension_generator: ../tools/b1_generate_exact_extension.py
+  exact_summary_aggregator: ../tools/b1_aggregate_exact_summaries.py
+  qiskit_baseline_runner: ../tools/b1_qiskit_baseline.py
+  qiskit_line_routing_baseline_runner: ../tools/b1_qiskit_line_routing_baseline.py
+  qiskit_heavyhex_routing_baseline_runner: ../tools/b1_qiskit_heavyhex_routing_baseline.py
+  measurement_distribution_checker: ../tools/b1_measurement_distribution_check.py
+  aer_measurement_crosscheck: ../tools/b1_aer_measurement_crosscheck.py
+  baseline_comparison_builder: ../tools/b1_build_baseline_comparison.py
+  routing_baseline_diagnostic_builder: ../tools/b1_build_routing_baseline_diagnostic.py
+  heavyhex_routing_diagnostic_builder: ../tools/b1_build_heavyhex_routing_report.py
+  heavyhex_end_to_end_runner: ../tools/b1_heavyhex_end_to_end_compare.py
+  heavyhex_end_to_end_report_builder: ../tools/b1_build_heavyhex_end_to_end_report.py
+  heavyhex_end_to_end_suite_builder: ../tools/b1_build_heavyhex_end_to_end_suite.py
+  post_routing_bottleneck_profiler: ../tools/b1_post_routing_bottleneck_profiler.py
+  post_routing_swap_macro_resynthesizer: ../tools/b1_post_routing_swap_macro_resynth.py
+  virtual_swap_eliminator: ../tools/b1_virtual_swap_elimination.py
+  virtual_swap_replay: ../tools/b1_virtual_swap_replay.py
+  post_virtual_swap_1q_resynthesizer: ../tools/b1_post_virtual_swap_1q_resynth.py
+  native_t_resource_optimizer: ../tools/b1_native_t_resource_optimizer.py
+  control_rz_commute_optimizer: ../tools/b1_control_rz_commute_optimizer.py
+  u3_phase_factored_optimizer: ../tools/b1_u3_phase_factored_optimizer.py
+  synthetic_noise_proxy: ../tools/b1_synthetic_noise_proxy.py

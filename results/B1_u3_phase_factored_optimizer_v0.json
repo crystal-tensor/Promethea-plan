@@ -1,0 +1,753 @@
+{
+  "aer_crosscheck": {
+    "check": "qiskit_aer_shot_measurement_equivalence_crosscheck",
+    "failed": 0,
+    "max_threshold": 0.20077072080689917,
+    "max_total_variation_distance": 0.0,
+    "method": "statevector",
+    "pair_count": 30,
+    "passed": 30,
+    "path": "results/b1_u3_phase_factored_optimizer/aer_crosscheck.json",
+    "shots": 32768
+  },
+  "after_metrics": "results/b1_u3_phase_factored_optimizer/after_metrics.json",
+  "before_metrics": "results/b1_u3_phase_factored_optimizer/before_metrics.json",
+  "benchmark_id": "B1",
+  "certificate_log": "results/b1_u3_phase_factored_optimizer/proofs.jsonl",
+  "commute_rows": [
+    {
+      "absorbed_rz_gates": 51,
+      "certificate_entries": 49,
+      "commuted_cx_count": 4,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/01_trotter_ladder_n6.qasm",
+      "merged_or_moved_groups": 2,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/b1_exact_extension/01_trotter_ladder_n6.qasm",
+      "removed_rz_gates": 4,
+      "zero_output_groups": 2
+    },
+    {
+      "absorbed_rz_gates": 32,
+      "certificate_entries": 32,
+      "commuted_cx_count": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/02_ring_interaction_n8.qasm",
+      "merged_or_moved_groups": 0,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/b1_exact_extension/02_ring_interaction_n8.qasm",
+      "removed_rz_gates": 0,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 13,
+      "certificate_entries": 13,
+      "commuted_cx_count": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/03_qec_syndrome_phase_n7.qasm",
+      "merged_or_moved_groups": 0,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/b1_exact_extension/03_qec_syndrome_phase_n7.qasm",
+      "removed_rz_gates": 0,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 24,
+      "certificate_entries": 24,
+      "commuted_cx_count": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/04_arithmetic_phase_n6.qasm",
+      "merged_or_moved_groups": 0,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/b1_exact_extension/04_arithmetic_phase_n6.qasm",
+      "removed_rz_gates": 0,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 33,
+      "certificate_entries": 29,
+      "commuted_cx_count": 20,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/05_qft_phase_ladder_n5.qasm",
+      "merged_or_moved_groups": 4,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/b1_exact_extension/05_qft_phase_ladder_n5.qasm",
+      "removed_rz_gates": 4,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 20,
+      "certificate_entries": 20,
+      "commuted_cx_count": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/06_long_range_echo_n10.qasm",
+      "merged_or_moved_groups": 0,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/b1_exact_extension/06_long_range_echo_n10.qasm",
+      "removed_rz_gates": 0,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 12,
+      "certificate_entries": 12,
+      "commuted_cx_count": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/07_commuting_disjoint_windows_n8.qasm",
+      "merged_or_moved_groups": 0,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/b1_exact_extension/07_commuting_disjoint_windows_n8.qasm",
+      "removed_rz_gates": 0,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 20,
+      "certificate_entries": 20,
+      "commuted_cx_count": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/08_chemistry_ansatz_n8.qasm",
+      "merged_or_moved_groups": 0,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/b1_exact_extension/08_chemistry_ansatz_n8.qasm",
+      "removed_rz_gates": 0,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 12,
+      "certificate_entries": 12,
+      "commuted_cx_count": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/09_bv_phase_oracle_n9.qasm",
+      "merged_or_moved_groups": 0,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/b1_exact_extension/09_bv_phase_oracle_n9.qasm",
+      "removed_rz_gates": 0,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 60,
+      "certificate_entries": 60,
+      "commuted_cx_count": 8,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "merged_or_moved_groups": 4,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "removed_rz_gates": 0,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 8,
+      "certificate_entries": 8,
+      "commuted_cx_count": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/11_stabilizer_mixer_n10.qasm",
+      "merged_or_moved_groups": 0,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/b1_exact_extension/11_stabilizer_mixer_n10.qasm",
+      "removed_rz_gates": 0,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 23,
+      "certificate_entries": 23,
+      "commuted_cx_count": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/12_toffoli_phase_n7.qasm",
+      "merged_or_moved_groups": 0,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/b1_exact_extension/12_toffoli_phase_n7.qasm",
+      "removed_rz_gates": 0,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 790,
+      "certificate_entries": 649,
+      "commuted_cx_count": 45,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "merged_or_moved_groups": 132,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "removed_rz_gates": 158,
+      "zero_output_groups": 17
+    },
+    {
+      "absorbed_rz_gates": 187,
+      "certificate_entries": 150,
+      "commuted_cx_count": 42,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_interaction_exact/ising_n10.qasm",
+      "merged_or_moved_groups": 36,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_interaction_exact/ising_n10.qasm",
+      "removed_rz_gates": 37,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 28,
+      "certificate_entries": 28,
+      "commuted_cx_count": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_medium_exact/bv_n14.qasm",
+      "merged_or_moved_groups": 0,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/bv_n14.qasm",
+      "removed_rz_gates": 0,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 1113,
+      "certificate_entries": 1066,
+      "commuted_cx_count": 238,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_medium_exact/gcm_h6.qasm",
+      "merged_or_moved_groups": 52,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+      "removed_rz_gates": 47,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 51,
+      "certificate_entries": 51,
+      "commuted_cx_count": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_medium_exact/multiply_n13.qasm",
+      "merged_or_moved_groups": 0,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/multiply_n13.qasm",
+      "removed_rz_gates": 0,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 150,
+      "certificate_entries": 150,
+      "commuted_cx_count": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_medium_exact/qf21_n15.qasm",
+      "merged_or_moved_groups": 0,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/qf21_n15.qasm",
+      "removed_rz_gates": 0,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 330,
+      "certificate_entries": 317,
+      "commuted_cx_count": 1,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_medium_exact/sat_n11.qasm",
+      "merged_or_moved_groups": 14,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/sat_n11.qasm",
+      "removed_rz_gates": 16,
+      "zero_output_groups": 3
+    },
+    {
+      "absorbed_rz_gates": 105,
+      "certificate_entries": 104,
+      "commuted_cx_count": 8,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_medium_exact/seca_n11.qasm",
+      "merged_or_moved_groups": 2,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/seca_n11.qasm",
+      "removed_rz_gates": 2,
+      "zero_output_groups": 1
+    },
+    {
+      "absorbed_rz_gates": 13,
+      "certificate_entries": 12,
+      "commuted_cx_count": 1,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_small/adder_n4.qasm",
+      "merged_or_moved_groups": 2,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_small/adder_n4.qasm",
+      "removed_rz_gates": 1,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 42,
+      "certificate_entries": 34,
+      "commuted_cx_count": 9,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_small/basis_change_n3.qasm",
+      "merged_or_moved_groups": 9,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_small/basis_change_n3.qasm",
+      "removed_rz_gates": 12,
+      "zero_output_groups": 4
+    },
+    {
+      "absorbed_rz_gates": 39,
+      "certificate_entries": 32,
+      "commuted_cx_count": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_small/basis_test_n4.qasm",
+      "merged_or_moved_groups": 7,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_small/basis_test_n4.qasm",
+      "removed_rz_gates": 7,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 19,
+      "certificate_entries": 17,
+      "commuted_cx_count": 2,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_small/bell_n4.qasm",
+      "merged_or_moved_groups": 2,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_small/bell_n4.qasm",
+      "removed_rz_gates": 4,
+      "zero_output_groups": 2
+    },
+    {
+      "absorbed_rz_gates": 1,
+      "certificate_entries": 1,
+      "commuted_cx_count": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_small/cat_state_n4.qasm",
+      "merged_or_moved_groups": 0,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_small/cat_state_n4.qasm",
+      "removed_rz_gates": 0,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 4,
+      "certificate_entries": 4,
+      "commuted_cx_count": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_small/deutsch_n2.qasm",
+      "merged_or_moved_groups": 0,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_small/deutsch_n2.qasm",
+      "removed_rz_gates": 0,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 64,
+      "certificate_entries": 63,
+      "commuted_cx_count": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_small/error_correctiond3_n5.qasm",
+      "merged_or_moved_groups": 1,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_small/error_correctiond3_n5.qasm",
+      "removed_rz_gates": 1,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 11,
+      "certificate_entries": 11,
+      "commuted_cx_count": 1,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_small/fredkin_n3.qasm",
+      "merged_or_moved_groups": 1,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_small/fredkin_n3.qasm",
+      "removed_rz_gates": 0,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 6,
+      "certificate_entries": 6,
+      "commuted_cx_count": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_small/grover_n2.qasm",
+      "merged_or_moved_groups": 0,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_small/grover_n2.qasm",
+      "removed_rz_gates": 0,
+      "zero_output_groups": 0
+    },
+    {
+      "absorbed_rz_gates": 265,
+      "certificate_entries": 245,
+      "commuted_cx_count": 161,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_small/hhl_n7.qasm",
+      "merged_or_moved_groups": 11,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer/qasmbench_small/hhl_n7.qasm",
+      "removed_rz_gates": 20,
+      "zero_output_groups": 0
+    }
+  ],
+  "commute_stats": {
+    "absorbed_rz_gates": 3526,
+    "certificate_entries": 3242,
+    "circuits_changed": 15,
+    "commuted_cx_count": 540,
+    "merged_or_moved_groups": 279,
+    "removed_rz_gates": 313,
+    "rewritten_circuits": 30,
+    "zero_output_groups": 29
+  },
+  "factorization_rows": [
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/b1_exact_extension/01_trotter_ladder_n6.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/01_trotter_ladder_n6.qasm",
+      "ry_components_emitted": 36,
+      "rz_components_emitted": 36,
+      "u3_factorization_events": 36,
+      "zero_components_removed": 36
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/b1_exact_extension/02_ring_interaction_n8.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/02_ring_interaction_n8.qasm",
+      "ry_components_emitted": 8,
+      "rz_components_emitted": 8,
+      "u3_factorization_events": 8,
+      "zero_components_removed": 8
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/b1_exact_extension/03_qec_syndrome_phase_n7.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/03_qec_syndrome_phase_n7.qasm",
+      "ry_components_emitted": 8,
+      "rz_components_emitted": 8,
+      "u3_factorization_events": 8,
+      "zero_components_removed": 8
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/b1_exact_extension/04_arithmetic_phase_n6.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/04_arithmetic_phase_n6.qasm",
+      "ry_components_emitted": 7,
+      "rz_components_emitted": 8,
+      "u3_factorization_events": 7,
+      "zero_components_removed": 6
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/b1_exact_extension/05_qft_phase_ladder_n5.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/05_qft_phase_ladder_n5.qasm",
+      "ry_components_emitted": 10,
+      "rz_components_emitted": 14,
+      "u3_factorization_events": 10,
+      "zero_components_removed": 6
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/b1_exact_extension/06_long_range_echo_n10.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/06_long_range_echo_n10.qasm",
+      "ry_components_emitted": 15,
+      "rz_components_emitted": 10,
+      "u3_factorization_events": 15,
+      "zero_components_removed": 20
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/b1_exact_extension/07_commuting_disjoint_windows_n8.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/07_commuting_disjoint_windows_n8.qasm",
+      "ry_components_emitted": 6,
+      "rz_components_emitted": 8,
+      "u3_factorization_events": 6,
+      "zero_components_removed": 4
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/b1_exact_extension/08_chemistry_ansatz_n8.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/08_chemistry_ansatz_n8.qasm",
+      "ry_components_emitted": 8,
+      "rz_components_emitted": 0,
+      "u3_factorization_events": 8,
+      "zero_components_removed": 16
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/b1_exact_extension/09_bv_phase_oracle_n9.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/09_bv_phase_oracle_n9.qasm",
+      "ry_components_emitted": 11,
+      "rz_components_emitted": 12,
+      "u3_factorization_events": 11,
+      "zero_components_removed": 10
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "ry_components_emitted": 24,
+      "rz_components_emitted": 42,
+      "u3_factorization_events": 24,
+      "zero_components_removed": 6
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/b1_exact_extension/11_stabilizer_mixer_n10.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/11_stabilizer_mixer_n10.qasm",
+      "ry_components_emitted": 4,
+      "rz_components_emitted": 4,
+      "u3_factorization_events": 4,
+      "zero_components_removed": 4
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/b1_exact_extension/12_toffoli_phase_n7.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/b1_exact_extension/12_toffoli_phase_n7.qasm",
+      "ry_components_emitted": 7,
+      "rz_components_emitted": 7,
+      "u3_factorization_events": 7,
+      "zero_components_removed": 7
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "ry_components_emitted": 462,
+      "rz_components_emitted": 624,
+      "u3_factorization_events": 462,
+      "zero_components_removed": 300
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/qasmbench_interaction_exact/ising_n10.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_interaction_exact/ising_n10.qasm",
+      "ry_components_emitted": 50,
+      "rz_components_emitted": 100,
+      "u3_factorization_events": 50,
+      "zero_components_removed": 0
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/qasmbench_medium_exact/bv_n14.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_medium_exact/bv_n14.qasm",
+      "ry_components_emitted": 27,
+      "rz_components_emitted": 28,
+      "u3_factorization_events": 27,
+      "zero_components_removed": 26
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_medium_exact/gcm_h6.qasm",
+      "ry_components_emitted": 480,
+      "rz_components_emitted": 751,
+      "u3_factorization_events": 480,
+      "zero_components_removed": 209
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/qasmbench_medium_exact/multiply_n13.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_medium_exact/multiply_n13.qasm",
+      "ry_components_emitted": 16,
+      "rz_components_emitted": 16,
+      "u3_factorization_events": 16,
+      "zero_components_removed": 16
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/qasmbench_medium_exact/qf21_n15.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_medium_exact/qf21_n15.qasm",
+      "ry_components_emitted": 33,
+      "rz_components_emitted": 33,
+      "u3_factorization_events": 33,
+      "zero_components_removed": 33
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/qasmbench_medium_exact/sat_n11.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_medium_exact/sat_n11.qasm",
+      "ry_components_emitted": 79,
+      "rz_components_emitted": 84,
+      "u3_factorization_events": 79,
+      "zero_components_removed": 74
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/qasmbench_medium_exact/seca_n11.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_medium_exact/seca_n11.qasm",
+      "ry_components_emitted": 48,
+      "rz_components_emitted": 52,
+      "u3_factorization_events": 48,
+      "zero_components_removed": 44
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/qasmbench_small/adder_n4.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_small/adder_n4.qasm",
+      "ry_components_emitted": 4,
+      "rz_components_emitted": 6,
+      "u3_factorization_events": 4,
+      "zero_components_removed": 2
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/qasmbench_small/basis_change_n3.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_small/basis_change_n3.qasm",
+      "ry_components_emitted": 21,
+      "rz_components_emitted": 40,
+      "u3_factorization_events": 21,
+      "zero_components_removed": 2
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/qasmbench_small/basis_test_n4.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_small/basis_test_n4.qasm",
+      "ry_components_emitted": 14,
+      "rz_components_emitted": 14,
+      "u3_factorization_events": 14,
+      "zero_components_removed": 14
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/qasmbench_small/bell_n4.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_small/bell_n4.qasm",
+      "ry_components_emitted": 12,
+      "rz_components_emitted": 19,
+      "u3_factorization_events": 12,
+      "zero_components_removed": 5
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/qasmbench_small/cat_state_n4.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_small/cat_state_n4.qasm",
+      "ry_components_emitted": 1,
+      "rz_components_emitted": 1,
+      "u3_factorization_events": 1,
+      "zero_components_removed": 1
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/qasmbench_small/deutsch_n2.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_small/deutsch_n2.qasm",
+      "ry_components_emitted": 3,
+      "rz_components_emitted": 4,
+      "u3_factorization_events": 3,
+      "zero_components_removed": 2
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/qasmbench_small/error_correctiond3_n5.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_small/error_correctiond3_n5.qasm",
+      "ry_components_emitted": 62,
+      "rz_components_emitted": 62,
+      "u3_factorization_events": 62,
+      "zero_components_removed": 62
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/qasmbench_small/fredkin_n3.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_small/fredkin_n3.qasm",
+      "ry_components_emitted": 4,
+      "rz_components_emitted": 5,
+      "u3_factorization_events": 4,
+      "zero_components_removed": 3
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/qasmbench_small/grover_n2.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_small/grover_n2.qasm",
+      "ry_components_emitted": 4,
+      "rz_components_emitted": 5,
+      "u3_factorization_events": 4,
+      "zero_components_removed": 3
+    },
+    {
+      "identity_u3_removed": 0,
+      "input": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer/qasmbench_small/hhl_n7.qasm",
+      "output": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate/qasmbench_small/hhl_n7.qasm",
+      "ry_components_emitted": 177,
+      "rz_components_emitted": 218,
+      "u3_factorization_events": 177,
+      "zero_components_removed": 136
+    }
+  ],
+  "factorization_stats": {
+    "certificate_entries": 1641,
+    "circuits_changed": 30,
+    "identity_u3_removed": 0,
+    "rewritten_circuits": 30,
+    "ry_components_emitted": 1641,
+    "rz_components_emitted": 2219,
+    "u3_factorization_events": 1641,
+    "zero_components_removed": 1063
+  },
+  "factorized_dir": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_intermediate",
+  "input_dir": "/Users/avalok/work/FurturePlan/results/b1_control_rz_commute_optimizer",
+  "last_updated": "2026-06-15",
+  "limits": [
+    "U3 factorization is exact only up to global phase, which is irrelevant for measurement distributions.",
+    "This pass exposes U3 Z phases and reuses the narrow control-RZ commute rule; it is not a complete phase-polynomial optimizer.",
+    "Operation count may increase because U3 gates become native rotation components; the relevant diagnostic target is logical T-resource pressure.",
+    "Any B7 improvement remains a logical T-factory proxy until checked against a full fault-tolerant synthesis/layout ledger."
+  ],
+  "method": "u3_native_euler_factorization_plus_control_rz_commute_v0",
+  "metrics": {
+    "after": {
+      "hardware_weighted_error_exposure": 20.38792,
+      "idle_layer_proxy": 80863,
+      "logical_depth": 4777,
+      "operation_count": 7462,
+      "single_qubit_gate_count": 4854,
+      "two_qubit_gate_count": 2438
+    },
+    "before": {
+      "hardware_weighted_error_exposure": 19.397280000000002,
+      "idle_layer_proxy": 60862,
+      "logical_depth": 3624,
+      "operation_count": 5556,
+      "single_qubit_gate_count": 2948,
+      "two_qubit_gate_count": 2438
+    },
+    "reduction_pct": {
+      "hardware_weighted_error_exposure": -5.1071078006813275,
+      "idle_layer_proxy": -32.86287009956952,
+      "logical_depth": -31.815673289183223,
+      "operation_count": -34.30525557955364,
+      "single_qubit_gate_count": -64.6540027137042,
+      "two_qubit_gate_count": 0.0
+    }
+  },
+  "output_dir": "/Users/avalok/work/FurturePlan/results/b1_u3_phase_factored_optimizer",
+  "problem_id": 25,
+  "rotation_synthesis_t_cost": 20,
+  "status": "u3_phase_factored_positive_diagnostic_not_final_claim",
+  "t_resource_proxy": {
+    "after": {
+      "ccx_count": 0,
+      "direct_t_count": 0,
+      "logical_t_count_proxy": 52240,
+      "logical_t_depth_proxy": 12260,
+      "non_clifford_rotation_count": 2612,
+      "operation_count_scanned": 7292,
+      "rotation_t_cost": 20,
+      "unknown_rotation_count": 296
+    },
+    "before": {
+      "ccx_count": 0,
+      "direct_t_count": 0,
+      "logical_t_count_proxy": 54140,
+      "logical_t_depth_proxy": 12600,
+      "non_clifford_rotation_count": 2707,
+      "operation_count_scanned": 5386,
+      "rotation_t_cost": 20,
+      "unknown_rotation_count": 270
+    },
+    "logical_t_count_reduction": 1.0363705972434916,
+    "logical_t_depth_reduction": 1.0277324632952691,
+    "non_clifford_rotation_count_reduction": 1.0363705972434916,
+    "unknown_rotation_count_reduction": 0.9121621621621622
+  },
+  "title": "B1 U3 phase-factored optimizer diagnostic",
+  "top_circuits_by_t_reduction": [
+    {
+      "logical_t_count_proxy_reduction": 960,
+      "logical_t_depth_proxy_reduction": 220,
+      "non_clifford_rotation_count_reduction": 48,
+      "relative_path": "qasmbench_interaction_exact/basis_trotter_n4.qasm"
+    },
+    {
+      "logical_t_count_proxy_reduction": 340,
+      "logical_t_depth_proxy_reduction": 0,
+      "non_clifford_rotation_count_reduction": 17,
+      "relative_path": "qasmbench_interaction_exact/ising_n10.qasm"
+    },
+    {
+      "logical_t_count_proxy_reduction": 320,
+      "logical_t_depth_proxy_reduction": 40,
+      "non_clifford_rotation_count_reduction": 16,
+      "relative_path": "qasmbench_small/hhl_n7.qasm"
+    },
+    {
+      "logical_t_count_proxy_reduction": 180,
+      "logical_t_depth_proxy_reduction": 80,
+      "non_clifford_rotation_count_reduction": 9,
+      "relative_path": "qasmbench_small/basis_change_n3.qasm"
+    },
+    {
+      "logical_t_count_proxy_reduction": 60,
+      "logical_t_depth_proxy_reduction": 0,
+      "non_clifford_rotation_count_reduction": 3,
+      "relative_path": "b1_exact_extension/05_qft_phase_ladder_n5.qasm"
+    },
+    {
+      "logical_t_count_proxy_reduction": 40,
+      "logical_t_depth_proxy_reduction": 0,
+      "non_clifford_rotation_count_reduction": 2,
+      "relative_path": "qasmbench_medium_exact/gcm_h6.qasm"
+    },
+    {
+      "logical_t_count_proxy_reduction": 0,
+      "logical_t_depth_proxy_reduction": 0,
+      "non_clifford_rotation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/01_trotter_ladder_n6.qasm"
+    },
+    {
+      "logical_t_count_proxy_reduction": 0,
+      "logical_t_depth_proxy_reduction": 0,
+      "non_clifford_rotation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/02_ring_interaction_n8.qasm"
+    },
+    {
+      "logical_t_count_proxy_reduction": 0,
+      "logical_t_depth_proxy_reduction": 0,
+      "non_clifford_rotation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/03_qec_syndrome_phase_n7.qasm"
+    },
+    {
+      "logical_t_count_proxy_reduction": 0,
+      "logical_t_depth_proxy_reduction": 0,
+      "non_clifford_rotation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/04_arithmetic_phase_n6.qasm"
+    },
+    {
+      "logical_t_count_proxy_reduction": 0,
+      "logical_t_depth_proxy_reduction": 0,
+      "non_clifford_rotation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/06_long_range_echo_n10.qasm"
+    },
+    {
+      "logical_t_count_proxy_reduction": 0,
+      "logical_t_depth_proxy_reduction": 0,
+      "non_clifford_rotation_count_reduction": 0,
+      "relative_path": "b1_exact_extension/07_commuting_disjoint_windows_n8.qasm"
+    }
+  ],
+  "version": "0.1"
+}

@@ -1,0 +1,162 @@
+{
+  "benchmark_id": "B1",
+  "circuit_count": 6,
+  "profile": "heavy_hex_like_sparse",
+  "results": [
+    {
+      "classical_bits": 13,
+      "gate_class_counts": {
+        "measurement": 13,
+        "multi_qubit": 0,
+        "single_qubit": 28,
+        "two_qubit": 13
+      },
+      "gate_counts": {
+        "cx": 13,
+        "h": 27,
+        "measure": 13,
+        "x": 1
+      },
+      "hardware_weighted_error_exposure": 0.24364000000000002,
+      "idle_layer_proxy": 171,
+      "logical_depth": 17,
+      "operation_count": 54,
+      "path": "benchmarks/qasmbench_medium_exact/bv_n14.qasm",
+      "qubits": 14,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 13,
+      "two_qubit_or_larger_depth_proxy": 17
+    },
+    {
+      "classical_bits": 1,
+      "gate_class_counts": {
+        "measurement": 1,
+        "multi_qubit": 0,
+        "single_qubit": 2386,
+        "two_qubit": 762
+      },
+      "gate_counts": {
+        "cx": 762,
+        "measure": 1,
+        "rz": 1522,
+        "sx": 858,
+        "x": 6
+      },
+      "hardware_weighted_error_exposure": 5.938599999999999,
+      "idle_layer_proxy": 27900,
+      "logical_depth": 2447,
+      "operation_count": 3149,
+      "path": "benchmarks/qasmbench_medium_exact/gcm_h6.qasm",
+      "qubits": 13,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 762,
+      "two_qubit_or_larger_depth_proxy": 2447
+    },
+    {
+      "classical_bits": 4,
+      "gate_class_counts": {
+        "measurement": 4,
+        "multi_qubit": 6,
+        "single_qubit": 4,
+        "two_qubit": 4
+      },
+      "gate_counts": {
+        "ccx": 6,
+        "cx": 4,
+        "measure": 4,
+        "x": 4
+      },
+      "hardware_weighted_error_exposure": 0.15088000000000004,
+      "idle_layer_proxy": 57,
+      "logical_depth": 7,
+      "operation_count": 18,
+      "path": "benchmarks/qasmbench_medium_exact/multiply_n13.qasm",
+      "qubits": 13,
+      "t_count_proxy": 42,
+      "t_depth_proxy": 28,
+      "two_qubit_gate_count": 10,
+      "two_qubit_or_larger_depth_proxy": 7
+    },
+    {
+      "classical_bits": 10,
+      "gate_class_counts": {
+        "measurement": 3,
+        "multi_qubit": 4,
+        "single_qubit": 23,
+        "two_qubit": 46
+      },
+      "gate_counts": {
+        "ccx": 4,
+        "cu1": 45,
+        "cz": 1,
+        "h": 20,
+        "measure": 3,
+        "x": 3
+      },
+      "hardware_weighted_error_exposure": 0.40010000000000007,
+      "idle_layer_proxy": 650,
+      "logical_depth": 52,
+      "operation_count": 76,
+      "path": "benchmarks/qasmbench_medium_exact/qf21_n15.qasm",
+      "qubits": 15,
+      "t_count_proxy": 118,
+      "t_depth_proxy": 118,
+      "two_qubit_gate_count": 50,
+      "two_qubit_or_larger_depth_proxy": 52
+    },
+    {
+      "classical_bits": 4,
+      "gate_class_counts": {
+        "measurement": 4,
+        "multi_qubit": 42,
+        "single_qubit": 49,
+        "two_qubit": 0
+      },
+      "gate_counts": {
+        "ccx": 42,
+        "h": 15,
+        "measure": 4,
+        "x": 34
+      },
+      "hardware_weighted_error_exposure": 0.60158,
+      "idle_layer_proxy": 382,
+      "logical_depth": 51,
+      "operation_count": 95,
+      "path": "benchmarks/qasmbench_medium_exact/sat_n11.qasm",
+      "qubits": 11,
+      "t_count_proxy": 294,
+      "t_depth_proxy": 280,
+      "two_qubit_gate_count": 42,
+      "two_qubit_or_larger_depth_proxy": 51
+    },
+    {
+      "classical_bits": 11,
+      "gate_class_counts": {
+        "measurement": 3,
+        "multi_qubit": 8,
+        "single_qubit": 26,
+        "two_qubit": 36
+      },
+      "gate_counts": {
+        "ccx": 8,
+        "cx": 19,
+        "cz": 17,
+        "h": 18,
+        "measure": 3,
+        "z": 8
+      },
+      "hardware_weighted_error_exposure": 0.36748000000000003,
+      "idle_layer_proxy": 282,
+      "logical_depth": 37,
+      "operation_count": 73,
+      "path": "benchmarks/qasmbench_medium_exact/seca_n11.qasm",
+      "qubits": 11,
+      "t_count_proxy": 56,
+      "t_depth_proxy": 28,
+      "two_qubit_gate_count": 44,
+      "two_qubit_or_larger_depth_proxy": 37
+    }
+  ]
+}

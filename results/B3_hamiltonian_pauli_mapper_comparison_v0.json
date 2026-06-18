@@ -1,0 +1,571 @@
+{
+  "benchmark_id": "B3",
+  "claim_boundary": [
+    "Supported: four chemistry-mapper Jordan-Wigner Hamiltonian Pauli-term measurement packets.",
+    "Supported: Hartree-Fock state-preparation X-gate counts and conservative Pauli-estimator variance shot floors.",
+    "Not supported: quantum advantage, FCI denominator win, basis-set completeness, chemistry accuracy, or complete reaction dynamics."
+  ],
+  "dependency_benchmark": "B3",
+  "last_updated": "2026-06-17",
+  "method": "b3_hamiltonian_pauli_mapper_comparison_v0",
+  "next_steps": [
+    "Replace Hartree-Fock bitstring preparation with an ansatz or adiabatic/state-preparation cost model.",
+    "Run sampled Pauli-estimator simulation to replace the variance upper bound with observed confidence intervals.",
+    "Scale the denominator to selected-CI or larger active spaces.",
+    "Only promote if a mapped circuit beats the declared denominator at fixed observable error after preparation and measurement costs."
+  ],
+  "problem_id": 49,
+  "rows": [
+    {
+      "basis": "sto-3g",
+      "classical_denominator": "STO-3G finite-difference FCI derivative",
+      "coefficient_cutoff": 1e-10,
+      "coefficient_l1_norm": 2.697668455874387,
+      "comparison_interpretation": "Hamiltonian Pauli terms are now produced by a chemistry mapper and paired with state-preparation plus variance shot floors, but this still does not beat the FCI denominator or solve reaction dynamics.",
+      "coordinate": "H-H bond length",
+      "coordinate_center": 0.7414,
+      "electrons": 2,
+      "fci_center_energy_hartree": -1.137270174660904,
+      "fci_derivative_hartree_per_coordinate": 0.010729835684120115,
+      "fci_wall_time_seconds": 0.4798466250067577,
+      "largest_abs_coefficient": 0.8126179630230779,
+      "mapper": "qiskit_nature.second_q.mappers.JordanWignerMapper",
+      "max_pauli_weight": 4,
+      "mean_pauli_weight": 2.1333333333333333,
+      "measurement_packet_terms": 15,
+      "molecule": "h2_bond_stretch",
+      "num_alpha_particles": 1,
+      "num_beta_particles": 1,
+      "pauli_terms_after_cutoff": 15,
+      "per_term_shot_floor_from_variance": 969366,
+      "qasm_path": "results/b3_hamiltonian_pauli_mapper_comparison/circuits/h2_bond_stretch_hamiltonian_pauli_measurements.qasm",
+      "quantum_beats_fci_denominator": false,
+      "source_benchmark": "B3",
+      "spatial_orbitals": 2,
+      "spin_orbital_qubits": 4,
+      "state_preparation_model": "Hartree-Fock occupation bitstring via X gates before each Pauli measurement block",
+      "state_preparation_x_gates": 2,
+      "state_preparation_x_gates_per_packet": 30,
+      "target_error_fraction": 0.05,
+      "target_observable_error_hartree_per_coordinate": 0.001,
+      "top_pauli_terms": [
+        {
+          "abs_coefficient": 0.8126179630230779,
+          "coefficient": -0.8126179630230779,
+          "pauli": "IIII",
+          "weight": 0
+        },
+        {
+          "abs_coefficient": 0.22278593040418385,
+          "coefficient": -0.22278593040418385,
+          "pauli": "ZIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 0.2227859304041838,
+          "coefficient": -0.2227859304041838,
+          "pauli": "IIZI",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 0.17434844185575626,
+          "coefficient": 0.17434844185575626,
+          "pauli": "ZIZI",
+          "weight": 2
+        },
+        {
+          "abs_coefficient": 0.17119774903433,
+          "coefficient": 0.17119774903433,
+          "pauli": "IIIZ",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 0.17119774903433,
+          "coefficient": 0.17119774903433,
+          "pauli": "IZII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 0.1686221915892094,
+          "coefficient": 0.1686221915892094,
+          "pauli": "IZIZ",
+          "weight": 2
+        },
+        {
+          "abs_coefficient": 0.1658670241058919,
+          "coefficient": 0.1658670241058919,
+          "pauli": "IZZI",
+          "weight": 2
+        },
+        {
+          "abs_coefficient": 0.1658670241058919,
+          "coefficient": 0.1658670241058919,
+          "pauli": "ZIIZ",
+          "weight": 2
+        },
+        {
+          "abs_coefficient": 0.12054482205301795,
+          "coefficient": 0.12054482205301795,
+          "pauli": "IIZZ",
+          "weight": 2
+        },
+        {
+          "abs_coefficient": 0.12054482205301795,
+          "coefficient": 0.12054482205301795,
+          "pauli": "ZZII",
+          "weight": 2
+        },
+        {
+          "abs_coefficient": 0.04532220205287397,
+          "coefficient": 0.04532220205287397,
+          "pauli": "XXXX",
+          "weight": 4
+        },
+        {
+          "abs_coefficient": 0.04532220205287397,
+          "coefficient": 0.04532220205287397,
+          "pauli": "XXYY",
+          "weight": 4
+        },
+        {
+          "abs_coefficient": 0.04532220205287397,
+          "coefficient": 0.04532220205287397,
+          "pauli": "YYXX",
+          "weight": 4
+        },
+        {
+          "abs_coefficient": 0.04532220205287397,
+          "coefficient": 0.04532220205287397,
+          "pauli": "YYYY",
+          "weight": 4
+        }
+      ],
+      "total_measurement_shot_floor": 14540490,
+      "total_qubits": 4,
+      "variance_upper_bound": 0.9693655122373757
+    },
+    {
+      "basis": "sto-3g",
+      "classical_denominator": "STO-3G finite-difference FCI derivative",
+      "coefficient_cutoff": 1e-10,
+      "coefficient_l1_norm": 17.46943968458682,
+      "comparison_interpretation": "Hamiltonian Pauli terms are now produced by a chemistry mapper and paired with state-preparation plus variance shot floors, but this still does not beat the FCI denominator or solve reaction dynamics.",
+      "coordinate": "Li-H bond length",
+      "coordinate_center": 1.6,
+      "electrons": 4,
+      "fci_center_energy_hartree": -7.882324378883495,
+      "fci_derivative_hartree_per_coordinate": 0.016206836620513698,
+      "fci_wall_time_seconds": 0.16523762501310557,
+      "largest_abs_coefficient": 5.128074449940943,
+      "mapper": "qiskit_nature.second_q.mappers.JordanWignerMapper",
+      "max_pauli_weight": 12,
+      "mean_pauli_weight": 5.147385103011094,
+      "measurement_packet_terms": 16,
+      "molecule": "lih_bond_stretch",
+      "num_alpha_particles": 2,
+      "num_beta_particles": 2,
+      "pauli_terms_after_cutoff": 631,
+      "per_term_shot_floor_from_variance": 29554098,
+      "qasm_path": "results/b3_hamiltonian_pauli_mapper_comparison/circuits/lih_bond_stretch_hamiltonian_pauli_measurements.qasm",
+      "quantum_beats_fci_denominator": false,
+      "source_benchmark": "B3",
+      "spatial_orbitals": 6,
+      "spin_orbital_qubits": 12,
+      "state_preparation_model": "Hartree-Fock occupation bitstring via X gates before each Pauli measurement block",
+      "state_preparation_x_gates": 4,
+      "state_preparation_x_gates_per_packet": 64,
+      "target_error_fraction": 0.05,
+      "target_observable_error_hartree_per_coordinate": 0.001,
+      "top_pauli_terms": [
+        {
+          "abs_coefficient": 5.128074449940943,
+          "coefficient": -5.128074449940943,
+          "pauli": "IIIIIIIIIIII",
+          "weight": 0
+        },
+        {
+          "abs_coefficient": 1.0064988767033294,
+          "coefficient": 1.0064988767033294,
+          "pauli": "IIIIIIIIIIIZ",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.0064988767033283,
+          "coefficient": 1.0064988767033283,
+          "pauli": "IIIIIZIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 0.4146416717146761,
+          "coefficient": 0.4146416717146761,
+          "pauli": "IIIIIZIIIIIZ",
+          "weight": 2
+        },
+        {
+          "abs_coefficient": 0.38500532501906487,
+          "coefficient": -0.38500532501906487,
+          "pauli": "IIIIIIZIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 0.38500532501906476,
+          "coefficient": -0.38500532501906476,
+          "pauli": "ZIIIIIIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 0.23046822629623331,
+          "coefficient": -0.23046822629623331,
+          "pauli": "IIIIIIIZIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 0.23046822629623331,
+          "coefficient": -0.23046822629623331,
+          "pauli": "IZIIIIIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 0.2304682262962332,
+          "coefficient": -0.2304682262962332,
+          "pauli": "IIIIIIIIZIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 0.23046822629623298,
+          "coefficient": -0.23046822629623298,
+          "pauli": "IIZIIIIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 0.19809729990208147,
+          "coefficient": -0.19809729990208147,
+          "pauli": "IIIIIIIIIZII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 0.19809729990208147,
+          "coefficient": -0.19809729990208147,
+          "pauli": "IIIZIIIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 0.1218277416831112,
+          "coefficient": 0.1218277416831112,
+          "pauli": "IIIIZIIIIIZI",
+          "weight": 2
+        },
+        {
+          "abs_coefficient": 0.11846053900005038,
+          "coefficient": -0.11846053900005038,
+          "pauli": "IIIIIIIIIIZI",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 0.11846053900005038,
+          "coefficient": -0.11846053900005038,
+          "pauli": "IIIIZIIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 0.11346110678820948,
+          "coefficient": 0.11346110678820948,
+          "pauli": "IIIIZIZIIIII",
+          "weight": 2
+        }
+      ],
+      "total_measurement_shot_floor": 18648635838,
+      "total_qubits": 12,
+      "variance_upper_bound": 29.554097404164782
+    },
+    {
+      "basis": "sto-3g",
+      "classical_denominator": "STO-3G finite-difference FCI derivative",
+      "coefficient_cutoff": 1e-10,
+      "coefficient_l1_norm": 127.60943312089036,
+      "comparison_interpretation": "Hamiltonian Pauli terms are now produced by a chemistry mapper and paired with state-preparation plus variance shot floors, but this still does not beat the FCI denominator or solve reaction dynamics.",
+      "coordinate": "symmetric O-H stretch scale",
+      "coordinate_center": 1.0,
+      "electrons": 10,
+      "fci_center_energy_hartree": -75.01264711899167,
+      "fci_derivative_hartree_per_coordinate": -0.2575705561255859,
+      "fci_wall_time_seconds": 0.17179849999956787,
+      "largest_abs_coefficient": 55.61133467602761,
+      "mapper": "qiskit_nature.second_q.mappers.JordanWignerMapper",
+      "max_pauli_weight": 14,
+      "mean_pauli_weight": 5.830570902394107,
+      "measurement_packet_terms": 16,
+      "molecule": "h2o_symmetric_oh_stretch",
+      "num_alpha_particles": 5,
+      "num_beta_particles": 5,
+      "pauli_terms_after_cutoff": 1086,
+      "per_term_shot_floor_from_variance": 20648734,
+      "qasm_path": "results/b3_hamiltonian_pauli_mapper_comparison/circuits/h2o_symmetric_oh_stretch_hamiltonian_pauli_measurements.qasm",
+      "quantum_beats_fci_denominator": false,
+      "source_benchmark": "B3",
+      "spatial_orbitals": 7,
+      "spin_orbital_qubits": 14,
+      "state_preparation_model": "Hartree-Fock occupation bitstring via X gates before each Pauli measurement block",
+      "state_preparation_x_gates": 10,
+      "state_preparation_x_gates_per_packet": 160,
+      "target_error_fraction": 0.05,
+      "target_observable_error_hartree_per_coordinate": 0.012878527806279294,
+      "top_pauli_terms": [
+        {
+          "abs_coefficient": 55.61133467602761,
+          "coefficient": -55.61133467602761,
+          "pauli": "IIIIIIIIIIIIII",
+          "weight": 0
+        },
+        {
+          "abs_coefficient": 12.41346985113601,
+          "coefficient": 12.41346985113601,
+          "pauli": "IIIIIIIIIIIIIZ",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 12.41346985113601,
+          "coefficient": 12.41346985113601,
+          "pauli": "IIIIIIZIIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.656454920582421,
+          "coefficient": 1.656454920582421,
+          "pauli": "IIIIIIIIIIIIZI",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.656454920582421,
+          "coefficient": 1.656454920582421,
+          "pauli": "IIIIIZIIIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.370850118222379,
+          "coefficient": 1.370850118222379,
+          "pauli": "IIIIIIIIIZIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.370850118222378,
+          "coefficient": 1.370850118222378,
+          "pauli": "IIZIIIIIIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.3155011425626935,
+          "coefficient": 1.3155011425626935,
+          "pauli": "IIIZIIIIIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.315501142562693,
+          "coefficient": 1.315501142562693,
+          "pauli": "IIIIIIIIIIZIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.2100356566754398,
+          "coefficient": 1.2100356566754398,
+          "pauli": "IIIIZIIIIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.2100356566754396,
+          "coefficient": 1.2100356566754396,
+          "pauli": "IIIIIIIIIIIZII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.1861272425144065,
+          "coefficient": 1.1861272425144065,
+          "pauli": "IIIIIIZIIIIIIZ",
+          "weight": 2
+        },
+        {
+          "abs_coefficient": 0.806272995872553,
+          "coefficient": 0.806272995872553,
+          "pauli": "IIIIIIIZIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 0.806272995872553,
+          "coefficient": 0.806272995872553,
+          "pauli": "ZIIIIIIIIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 0.7792107048195844,
+          "coefficient": 0.7792107048195844,
+          "pauli": "IZIIIIIIIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 0.7792107048195842,
+          "coefficient": 0.7792107048195842,
+          "pauli": "IIIIIIIIZIIIII",
+          "weight": 1
+        }
+      ],
+      "total_measurement_shot_floor": 22424525124,
+      "total_qubits": 14,
+      "variance_upper_bound": 3424.726140379442
+    },
+    {
+      "basis": "sto-3g",
+      "classical_denominator": "STO-3G finite-difference FCI derivative",
+      "coefficient_cutoff": 1e-10,
+      "coefficient_l1_norm": 206.53107158874022,
+      "comparison_interpretation": "Hamiltonian Pauli terms are now produced by a chemistry mapper and paired with state-preparation plus variance shot floors, but this still does not beat the FCI denominator or solve reaction dynamics.",
+      "coordinate": "N-N bond length",
+      "coordinate_center": 1.0977,
+      "electrons": 14,
+      "fci_center_energy_hartree": -107.65282873057653,
+      "fci_derivative_hartree_per_coordinate": -0.5725566846940922,
+      "fci_wall_time_seconds": 0.2434717079740949,
+      "largest_abs_coefficient": 89.81464789135791,
+      "mapper": "qiskit_nature.second_q.mappers.JordanWignerMapper",
+      "max_pauli_weight": 20,
+      "mean_pauli_weight": 7.726194510335479,
+      "measurement_packet_terms": 16,
+      "molecule": "n2_bond_stretch",
+      "num_alpha_particles": 7,
+      "num_beta_particles": 7,
+      "pauli_terms_after_cutoff": 2951,
+      "per_term_shot_floor_from_variance": 10336879,
+      "qasm_path": "results/b3_hamiltonian_pauli_mapper_comparison/circuits/n2_bond_stretch_hamiltonian_pauli_measurements.qasm",
+      "quantum_beats_fci_denominator": false,
+      "source_benchmark": "B3",
+      "spatial_orbitals": 10,
+      "spin_orbital_qubits": 20,
+      "state_preparation_model": "Hartree-Fock occupation bitstring via X gates before each Pauli measurement block",
+      "state_preparation_x_gates": 14,
+      "state_preparation_x_gates_per_packet": 224,
+      "target_error_fraction": 0.05,
+      "target_observable_error_hartree_per_coordinate": 0.028627834234704608,
+      "top_pauli_terms": [
+        {
+          "abs_coefficient": 89.81464789135791,
+          "coefficient": -89.81464789135791,
+          "pauli": "IIIIIIIIIIIIIIIIIIII",
+          "weight": 0
+        },
+        {
+          "abs_coefficient": 9.608070771257418,
+          "coefficient": 9.608070771257418,
+          "pauli": "IIIIIIIIIIIIIIIIIIIZ",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 9.608070771257418,
+          "coefficient": 9.608070771257418,
+          "pauli": "IIIIIIIIIZIIIIIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 9.60794011485395,
+          "coefficient": 9.60794011485395,
+          "pauli": "IIIIIIIIZIIIIIIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 9.607940114853948,
+          "coefficient": 9.607940114853948,
+          "pauli": "IIIIIIIIIIIIIIIIIIZI",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.8363682423644514,
+          "coefficient": 1.8363682423644514,
+          "pauli": "IIIIIIIIIIIIIIIIIZII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.836368242364451,
+          "coefficient": 1.836368242364451,
+          "pauli": "IIIIIIIZIIIIIIIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.3441000666441179,
+          "coefficient": 1.3441000666441179,
+          "pauli": "IIIIIIIIIIIIIIZIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.3441000666441174,
+          "coefficient": 1.3441000666441174,
+          "pauli": "IIIIZIIIIIIIIIIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.3441000666441165,
+          "coefficient": 1.3441000666441165,
+          "pauli": "IIIIIIIIIIIIIIIZIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.344100066644116,
+          "coefficient": 1.344100066644116,
+          "pauli": "IIIIIZIIIIIIIIIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.3372712978116272,
+          "coefficient": 1.3372712978116272,
+          "pauli": "IIIIIIIIIIIIIIIIZIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.3372712978116268,
+          "coefficient": 1.3372712978116268,
+          "pauli": "IIIIIIZIIIIIIIIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.2839026434878225,
+          "coefficient": 1.2839026434878225,
+          "pauli": "IIIZIIIIIIIIIIIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.2839026434878211,
+          "coefficient": 1.2839026434878211,
+          "pauli": "IIIIIIIIIIIIIZIIIIII",
+          "weight": 1
+        },
+        {
+          "abs_coefficient": 1.1672852272912513,
+          "coefficient": 1.1672852272912513,
+          "pauli": "IIIIIIIIIIIZIIIIIIII",
+          "weight": 1
+        }
+      ],
+      "total_measurement_shot_floor": 30504129929,
+      "total_qubits": 20,
+      "variance_upper_bound": 8471.618564809543
+    }
+  ],
+  "source_fci_method": "b10_t1_d5_b3_fci_reference_table_v0",
+  "source_fci_reference": "results/B10_t1_d5_b3_fci_reference_table_v0.json",
+  "status": "hamiltonian_pauli_mapper_circuits_vs_fci_denominator_not_advantage_claim",
+  "summary": {
+    "fci_denominator_beaten_count": 0,
+    "instance_count": 4,
+    "max_measurement_packet_terms": 16,
+    "max_pauli_terms_after_cutoff": 2951,
+    "max_total_measurement_shot_floor": 30504129929,
+    "max_total_qubits": 20,
+    "max_variance_upper_bound": 8471.618564809543,
+    "molecule_count": 4,
+    "observable_variance_estimate_included": true,
+    "qasm_file_count": 4,
+    "quantum_advantage_claimed": false,
+    "reaction_dynamics_solution_claimed": false,
+    "state_preparation_cost_included": true
+  },
+  "title": "B3 Hamiltonian Pauli-term mapper circuits vs FCI denominators",
+  "validation_errors": [],
+  "version": "0.1"
+}

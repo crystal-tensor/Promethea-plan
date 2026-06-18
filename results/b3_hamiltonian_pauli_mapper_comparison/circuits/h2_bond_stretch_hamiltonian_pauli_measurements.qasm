@@ -1,0 +1,196 @@
+OPENQASM 2.0;
+include "qelib1.inc";
+qreg q[4];
+creg c[60];
+// B3 Hamiltonian Pauli-term measurement packet for h2_bond_stretch
+// Mapper: Qiskit Nature JordanWignerMapper
+// Each block resets qubits, prepares a Hartree-Fock occupation bitstring, rotates into the Pauli basis, then measures.
+// term 0: -0.812617963023 * IIII
+reset q[0];
+reset q[1];
+reset q[2];
+reset q[3];
+x q[0];
+x q[1];
+measure q[0] -> c[0];
+measure q[1] -> c[1];
+measure q[2] -> c[2];
+measure q[3] -> c[3];
+// term 1: -0.222785930404 * ZIII
+reset q[0];
+reset q[1];
+reset q[2];
+reset q[3];
+x q[0];
+x q[1];
+measure q[0] -> c[4];
+measure q[1] -> c[5];
+measure q[2] -> c[6];
+measure q[3] -> c[7];
+// term 2: -0.222785930404 * IIZI
+reset q[0];
+reset q[1];
+reset q[2];
+reset q[3];
+x q[0];
+x q[1];
+measure q[0] -> c[8];
+measure q[1] -> c[9];
+measure q[2] -> c[10];
+measure q[3] -> c[11];
+// term 3: 0.174348441856 * ZIZI
+reset q[0];
+reset q[1];
+reset q[2];
+reset q[3];
+x q[0];
+x q[1];
+measure q[0] -> c[12];
+measure q[1] -> c[13];
+measure q[2] -> c[14];
+measure q[3] -> c[15];
+// term 4: 0.171197749034 * IIIZ
+reset q[0];
+reset q[1];
+reset q[2];
+reset q[3];
+x q[0];
+x q[1];
+measure q[0] -> c[16];
+measure q[1] -> c[17];
+measure q[2] -> c[18];
+measure q[3] -> c[19];
+// term 5: 0.171197749034 * IZII
+reset q[0];
+reset q[1];
+reset q[2];
+reset q[3];
+x q[0];
+x q[1];
+measure q[0] -> c[20];
+measure q[1] -> c[21];
+measure q[2] -> c[22];
+measure q[3] -> c[23];
+// term 6: 0.168622191589 * IZIZ
+reset q[0];
+reset q[1];
+reset q[2];
+reset q[3];
+x q[0];
+x q[1];
+measure q[0] -> c[24];
+measure q[1] -> c[25];
+measure q[2] -> c[26];
+measure q[3] -> c[27];
+// term 7: 0.165867024106 * IZZI
+reset q[0];
+reset q[1];
+reset q[2];
+reset q[3];
+x q[0];
+x q[1];
+measure q[0] -> c[28];
+measure q[1] -> c[29];
+measure q[2] -> c[30];
+measure q[3] -> c[31];
+// term 8: 0.165867024106 * ZIIZ
+reset q[0];
+reset q[1];
+reset q[2];
+reset q[3];
+x q[0];
+x q[1];
+measure q[0] -> c[32];
+measure q[1] -> c[33];
+measure q[2] -> c[34];
+measure q[3] -> c[35];
+// term 9: 0.120544822053 * IIZZ
+reset q[0];
+reset q[1];
+reset q[2];
+reset q[3];
+x q[0];
+x q[1];
+measure q[0] -> c[36];
+measure q[1] -> c[37];
+measure q[2] -> c[38];
+measure q[3] -> c[39];
+// term 10: 0.120544822053 * ZZII
+reset q[0];
+reset q[1];
+reset q[2];
+reset q[3];
+x q[0];
+x q[1];
+measure q[0] -> c[40];
+measure q[1] -> c[41];
+measure q[2] -> c[42];
+measure q[3] -> c[43];
+// term 11: 0.0453222020529 * XXXX
+reset q[0];
+reset q[1];
+reset q[2];
+reset q[3];
+x q[0];
+x q[1];
+h q[0];
+h q[1];
+h q[2];
+h q[3];
+measure q[0] -> c[44];
+measure q[1] -> c[45];
+measure q[2] -> c[46];
+measure q[3] -> c[47];
+// term 12: 0.0453222020529 * XXYY
+reset q[0];
+reset q[1];
+reset q[2];
+reset q[3];
+x q[0];
+x q[1];
+sdg q[0];
+h q[0];
+sdg q[1];
+h q[1];
+h q[2];
+h q[3];
+measure q[0] -> c[48];
+measure q[1] -> c[49];
+measure q[2] -> c[50];
+measure q[3] -> c[51];
+// term 13: 0.0453222020529 * YYXX
+reset q[0];
+reset q[1];
+reset q[2];
+reset q[3];
+x q[0];
+x q[1];
+h q[0];
+h q[1];
+sdg q[2];
+h q[2];
+sdg q[3];
+h q[3];
+measure q[0] -> c[52];
+measure q[1] -> c[53];
+measure q[2] -> c[54];
+measure q[3] -> c[55];
+// term 14: 0.0453222020529 * YYYY
+reset q[0];
+reset q[1];
+reset q[2];
+reset q[3];
+x q[0];
+x q[1];
+sdg q[0];
+h q[0];
+sdg q[1];
+h q[1];
+sdg q[2];
+h q[2];
+sdg q[3];
+h q[3];
+measure q[0] -> c[56];
+measure q[1] -> c[57];
+measure q[2] -> c[58];
+measure q[3] -> c[59];

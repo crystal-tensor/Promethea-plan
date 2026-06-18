@@ -1,0 +1,750 @@
+{
+  "benchmark_id": "B5",
+  "claim_boundary": {
+    "next_gate": "Replace this small-cluster denominator with a real tensor/DMRG reference or compare a quantum impurity/response kernel after state-preparation, measurement, and optimizer-loop costs.",
+    "now_supported": "A non-oracle B5 response denominator now covers the same nine B10 D5 Hubbard rows. It selects among zero-field cluster embedding and inverse-size cluster extrapolation by a predeclared rule, while density self-consistency is reported as a blind diagnostic.",
+    "still_not_supported": "This is not DMRG, not a two-dimensional correlated-matter result, not a quantum kernel, and not an accuracy-per-resource win. Exact D5 susceptibilities are used only for evaluation."
+  },
+  "dependency_b10_result": "results/B10_t1_d5_observable_denominator_table_v0.json",
+  "dependency_b10_table": "b10_t1_d5_observable_denominator_table_v0",
+  "dependency_energy_baseline": "small_hubbard_exact_diagonalization_cluster_proxy_v0",
+  "dependency_energy_result": "results/B5_hubbard_embedding_baseline_v0.json",
+  "dependency_oracle_boundary_field_result": "results/B5_boundary_field_embedding_baseline_v0.json",
+  "explicit_not_bqp_separation": true,
+  "explicit_not_quantum_advantage": true,
+  "last_updated": "2026-06-18",
+  "method": "b5_non_oracle_response_embedding_baseline_v0",
+  "model_status": "non_oracle_classical_response_embedding_denominator",
+  "oracle_tuned_boundary_field": false,
+  "problem_id": 38,
+  "rows": [
+    {
+      "best_cluster_product_cluster_size": 4,
+      "best_cluster_product_energy_error_per_site": 0.0,
+      "candidate_quantum_response_beats_non_oracle_denominator": false,
+      "density_self_consistency_max_deviation": 9.992007221626409e-16,
+      "density_self_consistency_score": 9.992007221626409e-16,
+      "density_self_consistent_field": 0.0,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 36,
+      "exact_d5_relative_residual": 1.2253200150124999e-15,
+      "exact_d5_susceptibility_proxy": 0.0836060986395423,
+      "finite_extrapolation_fit": {
+        "intercept": 0.08360609863954319,
+        "slope_inverse_cluster_size": 0.0
+      },
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "non_oracle_beats_oracle_boundary_field": false,
+      "non_oracle_candidates": {
+        "density_self_consistent_edge_field": {
+          "absolute_response_error": 1.3600232051658168e-15,
+          "clusters": [
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.08360609863954094,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 7.466703799245489e-16,
+          "method": "density_self_consistent_edge_field",
+          "relative_response_error": 1.6267033473591373e-14,
+          "selection_rule": "choose the field minimizing cluster center-density deviation from half filling; no exact-response target used"
+        },
+        "finite_cluster_inverse_size_extrapolation": {
+          "absolute_response_error": 8.881784197001252e-16,
+          "clusters": [
+            2,
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.08360609863954319,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 2.1088538689567362e-15,
+          "method": "finite_cluster_inverse_size_extrapolation",
+          "relative_response_error": 1.062336879908008e-14,
+          "selection_rule": "use the exact same zero-field four-site cluster when the target chain has four sites"
+        },
+        "open_cluster_zero_field": {
+          "absolute_response_error": 1.7763568394002505e-15,
+          "clusters": [
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.08360609863954052,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 5.696682015973993e-16,
+          "method": "open_cluster_zero_field",
+          "relative_response_error": 2.124673759816016e-14,
+          "selection_rule": "fixed zero edge field; no exact-response target used"
+        }
+      },
+      "oracle_boundary_field_relative_response_error": 3.054218529735523e-14,
+      "oracle_tuned_boundary_field": false,
+      "selected_absolute_response_error": 1.7763568394002505e-15,
+      "selected_max_cluster_hilbert_dimension": 36,
+      "selected_max_cluster_relative_residual": 5.696682015973993e-16,
+      "selected_non_oracle_method": "open_cluster_zero_field",
+      "selected_non_oracle_susceptibility_proxy": 0.08360609863954052,
+      "selected_relative_response_error": 2.124673759816016e-14,
+      "selection_policy": "predeclared: use open_cluster_zero_field for four-site rows; use finite_cluster_inverse_size_extrapolation for larger rows",
+      "sites": 4,
+      "t": 1.0,
+      "u_over_t": 2.0,
+      "uses_exact_target_for_selection": false
+    },
+    {
+      "best_cluster_product_cluster_size": 4,
+      "best_cluster_product_energy_error_per_site": 0.0,
+      "candidate_quantum_response_beats_non_oracle_denominator": false,
+      "density_self_consistency_max_deviation": 1.3944401189291966e-13,
+      "density_self_consistency_score": 1.3944401189291966e-13,
+      "density_self_consistent_field": 0.0,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 36,
+      "exact_d5_relative_residual": 3.09703262829055e-14,
+      "exact_d5_susceptibility_proxy": 0.03622603032182597,
+      "finite_extrapolation_fit": {
+        "intercept": 0.03622603032183273,
+        "slope_inverse_cluster_size": 0.0
+      },
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "non_oracle_beats_oracle_boundary_field": false,
+      "non_oracle_candidates": {
+        "density_self_consistent_edge_field": {
+          "absolute_response_error": 3.24462678946702e-14,
+          "clusters": [
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.036226030321858414,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 1.5238885677322805e-13,
+          "method": "density_self_consistent_edge_field",
+          "relative_response_error": 8.956616997894334e-13,
+          "selection_rule": "choose the field minimizing cluster center-density deviation from half filling; no exact-response target used"
+        },
+        "finite_cluster_inverse_size_extrapolation": {
+          "absolute_response_error": 6.765421556309548e-15,
+          "clusters": [
+            2,
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.03622603032183273,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 2.080968588373243e-15,
+          "method": "finite_cluster_inverse_size_extrapolation",
+          "relative_response_error": 1.8675580780468296e-13,
+          "selection_rule": "use the exact same zero-field four-site cluster when the target chain has four sites"
+        },
+        "open_cluster_zero_field": {
+          "absolute_response_error": 7.546671620950463e-13,
+          "clusters": [
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.0362260303210713,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 2.3351959756898505e-12,
+          "method": "open_cluster_zero_field",
+          "relative_response_error": 2.0832179385671295e-11,
+          "selection_rule": "fixed zero edge field; no exact-response target used"
+        }
+      },
+      "oracle_boundary_field_relative_response_error": 1.8590343514342057e-11,
+      "oracle_tuned_boundary_field": false,
+      "selected_absolute_response_error": 7.546671620950463e-13,
+      "selected_max_cluster_hilbert_dimension": 36,
+      "selected_max_cluster_relative_residual": 2.3351959756898505e-12,
+      "selected_non_oracle_method": "open_cluster_zero_field",
+      "selected_non_oracle_susceptibility_proxy": 0.0362260303210713,
+      "selected_relative_response_error": 2.0832179385671295e-11,
+      "selection_policy": "predeclared: use open_cluster_zero_field for four-site rows; use finite_cluster_inverse_size_extrapolation for larger rows",
+      "sites": 4,
+      "t": 1.0,
+      "u_over_t": 4.0,
+      "uses_exact_target_for_selection": false
+    },
+    {
+      "best_cluster_product_cluster_size": 4,
+      "best_cluster_product_energy_error_per_site": 0.0,
+      "candidate_quantum_response_beats_non_oracle_denominator": false,
+      "density_self_consistency_max_deviation": 1.6761037002765988e-12,
+      "density_self_consistency_score": 1.6761037002765988e-12,
+      "density_self_consistent_field": 0.0,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 36,
+      "exact_d5_relative_residual": 4.996378880272417e-10,
+      "exact_d5_susceptibility_proxy": 0.008377776428140199,
+      "finite_extrapolation_fit": {
+        "intercept": 0.008377776428148381,
+        "slope_inverse_cluster_size": 0.0
+      },
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "non_oracle_beats_oracle_boundary_field": false,
+      "non_oracle_candidates": {
+        "density_self_consistent_edge_field": {
+          "absolute_response_error": 2.07108635796871e-14,
+          "clusters": [
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.00837777642816091,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 4.996451758786391e-10,
+          "method": "density_self_consistent_edge_field",
+          "relative_response_error": 2.4721193931746818e-12,
+          "selection_rule": "choose the field minimizing cluster center-density deviation from half filling; no exact-response target used"
+        },
+        "finite_cluster_inverse_size_extrapolation": {
+          "absolute_response_error": 8.182690636182599e-15,
+          "clusters": [
+            2,
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.008377776428148381,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 4.996414985255079e-10,
+          "method": "finite_cluster_inverse_size_extrapolation",
+          "relative_response_error": 9.76713893760363e-13,
+          "selection_rule": "use the exact same zero-field four-site cluster when the target chain has four sites"
+        },
+        "open_cluster_zero_field": {
+          "absolute_response_error": 7.19910242530375e-15,
+          "clusters": [
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.008377776428133,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 4.996376292374861e-10,
+          "method": "open_cluster_zero_field",
+          "relative_response_error": 8.593094464925813e-13,
+          "selection_rule": "fixed zero edge field; no exact-response target used"
+        }
+      },
+      "oracle_boundary_field_relative_response_error": 1.2423751033627683e-15,
+      "oracle_tuned_boundary_field": false,
+      "selected_absolute_response_error": 7.19910242530375e-15,
+      "selected_max_cluster_hilbert_dimension": 36,
+      "selected_max_cluster_relative_residual": 4.996376292374861e-10,
+      "selected_non_oracle_method": "open_cluster_zero_field",
+      "selected_non_oracle_susceptibility_proxy": 0.008377776428133,
+      "selected_relative_response_error": 8.593094464925813e-13,
+      "selection_policy": "predeclared: use open_cluster_zero_field for four-site rows; use finite_cluster_inverse_size_extrapolation for larger rows",
+      "sites": 4,
+      "t": 1.0,
+      "u_over_t": 8.0,
+      "uses_exact_target_for_selection": false
+    },
+    {
+      "best_cluster_product_cluster_size": 2,
+      "best_cluster_product_energy_error_per_site": 0.13968497698943935,
+      "candidate_quantum_response_beats_non_oracle_denominator": false,
+      "density_self_consistency_max_deviation": 2.1094237467877974e-15,
+      "density_self_consistency_score": 1.27675647831893e-15,
+      "density_self_consistent_field": 0.0,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 400,
+      "exact_d5_relative_residual": 6.48642013738577e-09,
+      "exact_d5_susceptibility_proxy": 0.09578490151113497,
+      "finite_extrapolation_fit": {
+        "intercept": 0.08792711046093935,
+        "slope_inverse_cluster_size": -0.01728404728559152
+      },
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "non_oracle_beats_oracle_boundary_field": true,
+      "non_oracle_candidates": {
+        "density_self_consistent_edge_field": {
+          "absolute_response_error": 0.013619140145394296,
+          "clusters": [
+            4,
+            2
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.08216576136574068,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 1.4710431961226415e-15,
+          "method": "density_self_consistent_edge_field",
+          "relative_response_error": 0.14218462336479068,
+          "selection_rule": "choose the field minimizing cluster center-density deviation from half filling; no exact-response target used"
+        },
+        "finite_cluster_inverse_size_extrapolation": {
+          "absolute_response_error": 0.01073846559779422,
+          "clusters": [
+            2,
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.08504643591334075,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 2.6744987818729425e-15,
+          "method": "finite_cluster_inverse_size_extrapolation",
+          "relative_response_error": 0.11211021182232854,
+          "selection_rule": "linear extrapolation of zero-field two- and four-site cluster responses in inverse cluster size; no exact-response target used"
+        },
+        "open_cluster_zero_field": {
+          "absolute_response_error": 0.013619140145389674,
+          "clusters": [
+            4,
+            2
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.0821657613657453,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 5.572667786330952e-15,
+          "method": "open_cluster_zero_field",
+          "relative_response_error": 0.14218462336474244,
+          "selection_rule": "fixed zero edge field; no exact-response target used"
+        }
+      },
+      "oracle_boundary_field_relative_response_error": 0.12158654151084188,
+      "oracle_tuned_boundary_field": false,
+      "selected_absolute_response_error": 0.01073846559779422,
+      "selected_max_cluster_hilbert_dimension": 36,
+      "selected_max_cluster_relative_residual": 2.6744987818729425e-15,
+      "selected_non_oracle_method": "finite_cluster_inverse_size_extrapolation",
+      "selected_non_oracle_susceptibility_proxy": 0.08504643591334075,
+      "selected_relative_response_error": 0.11211021182232854,
+      "selection_policy": "predeclared: use open_cluster_zero_field for four-site rows; use finite_cluster_inverse_size_extrapolation for larger rows",
+      "sites": 6,
+      "t": 1.0,
+      "u_over_t": 2.0,
+      "uses_exact_target_for_selection": false
+    },
+    {
+      "best_cluster_product_cluster_size": 2,
+      "best_cluster_product_energy_error_per_site": 0.10121399087780351,
+      "candidate_quantum_response_beats_non_oracle_denominator": false,
+      "density_self_consistency_max_deviation": 5.595524044110789e-14,
+      "density_self_consistency_score": 2.842170943040401e-14,
+      "density_self_consistent_field": 0.0,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 400,
+      "exact_d5_relative_residual": 8.364055895940028e-09,
+      "exact_d5_susceptibility_proxy": 0.03936862450197687,
+      "finite_extrapolation_fit": {
+        "intercept": 0.043615059381335,
+        "slope_inverse_cluster_size": -0.02955611623810081
+      },
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "non_oracle_beats_oracle_boundary_field": true,
+      "non_oracle_candidates": {
+        "density_self_consistent_edge_field": {
+          "absolute_response_error": 0.0056056038666787225,
+          "clusters": [
+            4,
+            2
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.033763020635298145,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 3.833632742313244e-13,
+          "method": "density_self_consistent_edge_field",
+          "relative_response_error": 0.14238759767685663,
+          "selection_rule": "choose the field minimizing cluster center-density deviation from half filling; no exact-response target used"
+        },
+        "finite_cluster_inverse_size_extrapolation": {
+          "absolute_response_error": 0.0006795844936586665,
+          "clusters": [
+            2,
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.0386890400083182,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 4.956488809193409e-13,
+          "method": "finite_cluster_inverse_size_extrapolation",
+          "relative_response_error": 0.017262083759734648,
+          "selection_rule": "linear extrapolation of zero-field two- and four-site cluster responses in inverse cluster size; no exact-response target used"
+        },
+        "open_cluster_zero_field": {
+          "absolute_response_error": 0.005605603866697291,
+          "clusters": [
+            4,
+            2
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.03376302063527958,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 5.567647093448935e-13,
+          "method": "open_cluster_zero_field",
+          "relative_response_error": 0.14238759767732828,
+          "selection_rule": "fixed zero edge field; no exact-response target used"
+        }
+      },
+      "oracle_boundary_field_relative_response_error": 0.10826716258824592,
+      "oracle_tuned_boundary_field": false,
+      "selected_absolute_response_error": 0.0006795844936586665,
+      "selected_max_cluster_hilbert_dimension": 36,
+      "selected_max_cluster_relative_residual": 4.956488809193409e-13,
+      "selected_non_oracle_method": "finite_cluster_inverse_size_extrapolation",
+      "selected_non_oracle_susceptibility_proxy": 0.0386890400083182,
+      "selected_relative_response_error": 0.017262083759734648,
+      "selection_policy": "predeclared: use open_cluster_zero_field for four-site rows; use finite_cluster_inverse_size_extrapolation for larger rows",
+      "sites": 6,
+      "t": 1.0,
+      "u_over_t": 4.0,
+      "uses_exact_target_for_selection": false
+    },
+    {
+      "best_cluster_product_cluster_size": 2,
+      "best_cluster_product_energy_error_per_site": 0.05861514837708981,
+      "candidate_quantum_response_beats_non_oracle_denominator": false,
+      "density_self_consistency_max_deviation": 6.417089082333405e-13,
+      "density_self_consistency_score": 3.2096547641913276e-13,
+      "density_self_consistent_field": 0.0,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 400,
+      "exact_d5_relative_residual": 6.051322974897699e-09,
+      "exact_d5_susceptibility_proxy": 0.008466866704064192,
+      "finite_extrapolation_fit": {
+        "intercept": 0.0107035485339262,
+        "slope_inverse_cluster_size": -0.009303088423092722
+      },
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "non_oracle_beats_oracle_boundary_field": true,
+      "non_oracle_candidates": {
+        "density_self_consistent_edge_field": {
+          "absolute_response_error": 0.0008643476445091653,
+          "clusters": [
+            4,
+            2
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.007602519059555027,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 4.996389767481644e-10,
+          "method": "density_self_consistent_edge_field",
+          "relative_response_error": 0.1020858925408934,
+          "selection_rule": "choose the field minimizing cluster center-density deviation from half filling; no exact-response target used"
+        },
+        "finite_cluster_inverse_size_extrapolation": {
+          "absolute_response_error": 0.0006861670926798877,
+          "clusters": [
+            2,
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.00915303379674408,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 4.996373022268952e-10,
+          "method": "finite_cluster_inverse_size_extrapolation",
+          "relative_response_error": 0.08104144268038609,
+          "selection_rule": "linear extrapolation of zero-field two- and four-site cluster responses in inverse cluster size; no exact-response target used"
+        },
+        "open_cluster_zero_field": {
+          "absolute_response_error": 0.0008643476445107821,
+          "clusters": [
+            4,
+            2
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.00760251905955341,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 4.996378090661992e-10,
+          "method": "open_cluster_zero_field",
+          "relative_response_error": 0.10208589254108434,
+          "selection_rule": "fixed zero edge field; no exact-response target used"
+        }
+      },
+      "oracle_boundary_field_relative_response_error": 0.08394719645395474,
+      "oracle_tuned_boundary_field": false,
+      "selected_absolute_response_error": 0.0006861670926798877,
+      "selected_max_cluster_hilbert_dimension": 36,
+      "selected_max_cluster_relative_residual": 4.996373022268952e-10,
+      "selected_non_oracle_method": "finite_cluster_inverse_size_extrapolation",
+      "selected_non_oracle_susceptibility_proxy": 0.00915303379674408,
+      "selected_relative_response_error": 0.08104144268038609,
+      "selection_policy": "predeclared: use open_cluster_zero_field for four-site rows; use finite_cluster_inverse_size_extrapolation for larger rows",
+      "sites": 6,
+      "t": 1.0,
+      "u_over_t": 8.0,
+      "uses_exact_target_for_selection": false
+    },
+    {
+      "best_cluster_product_cluster_size": 4,
+      "best_cluster_product_energy_error_per_site": 0.05921856583390095,
+      "candidate_quantum_response_beats_non_oracle_denominator": false,
+      "density_self_consistency_max_deviation": 3.552713678800501e-15,
+      "density_self_consistency_score": 1.942890293094024e-15,
+      "density_self_consistent_field": 0.0,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 4900,
+      "exact_d5_relative_residual": 4.4889596549358075e-09,
+      "exact_d5_susceptibility_proxy": 0.09780451002539868,
+      "finite_extrapolation_fit": {
+        "intercept": 0.08792711046098531,
+        "slope_inverse_cluster_size": -0.017284047285683446
+      },
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "non_oracle_beats_oracle_boundary_field": false,
+      "non_oracle_candidates": {
+        "density_self_consistent_edge_field": {
+          "absolute_response_error": 0.014198411385858742,
+          "clusters": [
+            4,
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.08360609863953994,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 2.911030461960694e-15,
+          "method": "density_self_consistent_edge_field",
+          "relative_response_error": 0.14517133598615833,
+          "selection_rule": "choose the field minimizing cluster center-density deviation from half filling; no exact-response target used"
+        },
+        "finite_cluster_inverse_size_extrapolation": {
+          "absolute_response_error": 0.012037905475123803,
+          "clusters": [
+            2,
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.08576660455027488,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 2.534044602831038e-14,
+          "method": "finite_cluster_inverse_size_extrapolation",
+          "relative_response_error": 0.12308129218169694,
+          "selection_rule": "linear extrapolation of zero-field two- and four-site cluster responses in inverse cluster size; no exact-response target used"
+        },
+        "open_cluster_zero_field": {
+          "absolute_response_error": 0.014198411385860102,
+          "clusters": [
+            4,
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.08360609863953858,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 1.3787057811581235e-14,
+          "method": "open_cluster_zero_field",
+          "relative_response_error": 0.14517133598617224,
+          "selection_rule": "fixed zero edge field; no exact-response target used"
+        }
+      },
+      "oracle_boundary_field_relative_response_error": 0.1149122215364713,
+      "oracle_tuned_boundary_field": false,
+      "selected_absolute_response_error": 0.012037905475123803,
+      "selected_max_cluster_hilbert_dimension": 36,
+      "selected_max_cluster_relative_residual": 2.534044602831038e-14,
+      "selected_non_oracle_method": "finite_cluster_inverse_size_extrapolation",
+      "selected_non_oracle_susceptibility_proxy": 0.08576660455027488,
+      "selected_relative_response_error": 0.12308129218169694,
+      "selection_policy": "predeclared: use open_cluster_zero_field for four-site rows; use finite_cluster_inverse_size_extrapolation for larger rows",
+      "sites": 8,
+      "t": 1.0,
+      "u_over_t": 2.0,
+      "uses_exact_target_for_selection": false
+    },
+    {
+      "best_cluster_product_cluster_size": 4,
+      "best_cluster_product_energy_error_per_site": 0.04118954772007122,
+      "candidate_quantum_response_beats_non_oracle_denominator": false,
+      "density_self_consistency_max_deviation": 4.283240429003854e-13,
+      "density_self_consistency_score": 2.1460611066004276e-13,
+      "density_self_consistent_field": 0.0,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 4900,
+      "exact_d5_relative_residual": 4.599250473407358e-09,
+      "exact_d5_susceptibility_proxy": 0.04046928678042132,
+      "finite_extrapolation_fit": {
+        "intercept": 0.043615059381380855,
+        "slope_inverse_cluster_size": -0.029556116238192515
+      },
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "non_oracle_beats_oracle_boundary_field": true,
+      "non_oracle_candidates": {
+        "density_self_consistent_edge_field": {
+          "absolute_response_error": 0.0042432564586035865,
+          "clusters": [
+            4,
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.03622603032181773,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 3.6477263167079736e-13,
+          "method": "density_self_consistent_edge_field",
+          "relative_response_error": 0.10485127849242049,
+          "selection_rule": "choose the field minimizing cluster center-density deviation from half filling; no exact-response target used"
+        },
+        "finite_cluster_inverse_size_extrapolation": {
+          "absolute_response_error": 0.0005487419288145307,
+          "clusters": [
+            2,
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.03992054485160679,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 2.080968588373243e-15,
+          "method": "finite_cluster_inverse_size_extrapolation",
+          "relative_response_error": 0.013559466263685357,
+          "selection_rule": "linear extrapolation of zero-field two- and four-site cluster responses in inverse cluster size; no exact-response target used"
+        },
+        "open_cluster_zero_field": {
+          "absolute_response_error": 0.004243256458650584,
+          "clusters": [
+            4,
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.036226030321770734,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 1.7532721793302928e-12,
+          "method": "open_cluster_zero_field",
+          "relative_response_error": 0.10485127849358179,
+          "selection_rule": "fixed zero edge field; no exact-response target used"
+        }
+      },
+      "oracle_boundary_field_relative_response_error": 0.05506261020697987,
+      "oracle_tuned_boundary_field": false,
+      "selected_absolute_response_error": 0.0005487419288145307,
+      "selected_max_cluster_hilbert_dimension": 36,
+      "selected_max_cluster_relative_residual": 2.080968588373243e-15,
+      "selected_non_oracle_method": "finite_cluster_inverse_size_extrapolation",
+      "selected_non_oracle_susceptibility_proxy": 0.03992054485160679,
+      "selected_relative_response_error": 0.013559466263685357,
+      "selection_policy": "predeclared: use open_cluster_zero_field for four-site rows; use finite_cluster_inverse_size_extrapolation for larger rows",
+      "sites": 8,
+      "t": 1.0,
+      "u_over_t": 4.0,
+      "uses_exact_target_for_selection": false
+    },
+    {
+      "best_cluster_product_cluster_size": 4,
+      "best_cluster_product_energy_error_per_site": 0.02331082166443621,
+      "candidate_quantum_response_beats_non_oracle_denominator": false,
+      "density_self_consistency_max_deviation": 3.100852907778062e-13,
+      "density_self_consistency_score": 1.5970558209232877e-13,
+      "density_self_consistent_field": 0.0,
+      "eta": 0.25,
+      "exact_d5_hilbert_dimension": 4900,
+      "exact_d5_relative_residual": 9.788055078561953e-09,
+      "exact_d5_susceptibility_proxy": 0.00858130228459222,
+      "finite_extrapolation_fit": {
+        "intercept": 0.010703548533900544,
+        "slope_inverse_cluster_size": -0.009303088423041408
+      },
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "non_oracle_beats_oracle_boundary_field": false,
+      "non_oracle_candidates": {
+        "density_self_consistent_edge_field": {
+          "absolute_response_error": 0.00020352585642936794,
+          "clusters": [
+            4,
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.008377776428162852,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 4.996394375245348e-10,
+          "method": "density_self_consistent_edge_field",
+          "relative_response_error": 0.02371736243283258,
+          "selection_rule": "choose the field minimizing cluster center-density deviation from half filling; no exact-response target used"
+        },
+        "finite_cluster_inverse_size_extrapolation": {
+          "absolute_response_error": 0.0009593601964281474,
+          "clusters": [
+            2,
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.009540662481020368,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 4.996378509819403e-10,
+          "method": "finite_cluster_inverse_size_extrapolation",
+          "relative_response_error": 0.11179657406436834,
+          "selection_rule": "linear extrapolation of zero-field two- and four-site cluster responses in inverse cluster size; no exact-response target used"
+        },
+        "open_cluster_zero_field": {
+          "absolute_response_error": 0.00020352585645202342,
+          "clusters": [
+            4,
+            4
+          ],
+          "edge_field": 0.0,
+          "embedded_susceptibility_proxy": 0.008377776428140197,
+          "max_cluster_hilbert_dimension": 36,
+          "max_cluster_relative_residual": 4.996378621935077e-10,
+          "method": "open_cluster_zero_field",
+          "relative_response_error": 0.02371736243547268,
+          "selection_rule": "fixed zero edge field; no exact-response target used"
+        }
+      },
+      "oracle_boundary_field_relative_response_error": 0.003127850015148874,
+      "oracle_tuned_boundary_field": false,
+      "selected_absolute_response_error": 0.0009593601964281474,
+      "selected_max_cluster_hilbert_dimension": 36,
+      "selected_max_cluster_relative_residual": 4.996378509819403e-10,
+      "selected_non_oracle_method": "finite_cluster_inverse_size_extrapolation",
+      "selected_non_oracle_susceptibility_proxy": 0.009540662481020368,
+      "selected_relative_response_error": 0.11179657406436834,
+      "selection_policy": "predeclared: use open_cluster_zero_field for four-site rows; use finite_cluster_inverse_size_extrapolation for larger rows",
+      "sites": 8,
+      "t": 1.0,
+      "u_over_t": 8.0,
+      "uses_exact_target_for_selection": false
+    }
+  ],
+  "runtime_seconds": 0.07522999999491731,
+  "status": "non_oracle_response_embedding_denominator_not_quantum_advantage_claim",
+  "summary": {
+    "accuracy_per_resource_win_claimed": false,
+    "field_grid": [
+      -0.75,
+      -0.5,
+      -0.25,
+      0.0,
+      0.25,
+      0.5,
+      0.75
+    ],
+    "field_grid_count": 7,
+    "instance_count": 9,
+    "max_exact_d5_hilbert_dimension": 4900,
+    "max_selected_cluster_hilbert_dimension": 36,
+    "method_error_summaries": {
+      "density_self_consistent_edge_field": {
+        "max_relative_response_error": 0.14517133598615833,
+        "mean_relative_response_error": 0.07337756561081514,
+        "median_relative_response_error": 0.1020858925408934
+      },
+      "finite_cluster_inverse_size_extrapolation": {
+        "max_relative_response_error": 0.12308129218169694,
+        "mean_relative_response_error": 0.05098345230815267,
+        "median_relative_response_error": 0.017262083759734648
+      },
+      "open_cluster_zero_field": {
+        "max_relative_response_error": 0.14517133598617224,
+        "mean_relative_response_error": 0.07337756561334384,
+        "median_relative_response_error": 0.10208589254108434
+      }
+    },
+    "non_oracle_rows_beating_oracle_boundary_field": 4,
+    "oracle_boundary_field_max_relative_response_error": 0.12158654151084188,
+    "oracle_boundary_field_mean_relative_response_error": 0.05410039803669608,
+    "oracle_tuned_boundary_field": false,
+    "quantum_response_win_claimed": false,
+    "selected_max_relative_response_error": 0.12308129218169694,
+    "selected_mean_relative_response_error": 0.050983452310434746,
+    "selected_median_relative_response_error": 0.017262083759734648,
+    "selected_policy": "open_cluster_zero_field for sites<=4; finite_cluster_inverse_size_extrapolation otherwise",
+    "site_values": [
+      4,
+      6,
+      8
+    ],
+    "u_over_t_values": [
+      2.0,
+      4.0,
+      8.0
+    ],
+    "uses_exact_target_for_selection": false
+  },
+  "title": "B5 non-oracle response embedding baselines for Hubbard density response",
+  "uses_exact_target_for_selection": false,
+  "validation_errors": [],
+  "version": "0.1"
+}

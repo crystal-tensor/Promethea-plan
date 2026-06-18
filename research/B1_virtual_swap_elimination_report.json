@@ -1,0 +1,164 @@
+{
+  "after_metrics": "/Users/avalok/work/FurturePlan/results/b1_virtual_swap_elimination_level1/after_virtual_swap_metrics.json",
+  "before_metrics": "/Users/avalok/work/FurturePlan/results/b1_virtual_swap_elimination_level1/before_virtual_swap_metrics.json",
+  "benchmark_id": "B1",
+  "circuit_count": 30,
+  "end_to_end_aer_crosscheck": {
+    "failed": 0,
+    "max_total_variation_distance": 0.24365234375,
+    "passed": 30,
+    "path": "/Users/avalok/work/FurturePlan/results/b1_virtual_swap_elimination_level1/source_logical_vs_virtual_swap_aer_crosscheck.json",
+    "shots": 2048
+  },
+  "input_dir": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1",
+  "last_updated": "2026-06-13",
+  "limits": [
+    "The pass removes routed SWAP macros by tracking a virtual wire permutation and remapping later operations.",
+    "Measurement operands are remapped through the same wire permutation when no classical control or reset is present.",
+    "Circuits with classical control or reset are skipped in v0 because dynamic-layout semantics need a richer model.",
+    "This is a post-routing transformation diagnostic, not a final calibrated backend layout claim."
+  ],
+  "local_aer_crosscheck": {
+    "failed": 0,
+    "max_total_variation_distance": 0.05908203125,
+    "passed": 30,
+    "path": "/Users/avalok/work/FurturePlan/results/b1_virtual_swap_elimination_level1/b1_routed_vs_virtual_swap_aer_crosscheck.json",
+    "shots": 2048
+  },
+  "method": "post_routing_virtual_swap_elimination_v0",
+  "metrics": {
+    "hardware_weighted_error_exposure": {
+      "after": 19.50068,
+      "before": 28.95372,
+      "delta": -9.453040000000001,
+      "reduction_pct": 32.64879262492005
+    },
+    "idle_layer_proxy": {
+      "after": 62337.0,
+      "before": 82213.0,
+      "delta": -19876.0,
+      "reduction_pct": 24.176225171201633
+    },
+    "logical_depth": {
+      "after": 3725.0,
+      "before": 4923.0,
+      "delta": -1198.0,
+      "reduction_pct": 24.334755230550478
+    },
+    "operation_count": {
+      "after": 6000.0,
+      "before": 7443.0,
+      "delta": -1443.0,
+      "reduction_pct": 19.38734381297864
+    },
+    "two_qubit_gate_count": {
+      "after": 2438.0,
+      "before": 3881.0,
+      "delta": -1443.0,
+      "reduction_pct": 37.18113888173151
+    }
+  },
+  "operation_reduction_from_rewrite": 1443,
+  "output_dir": "/Users/avalok/work/FurturePlan/results/b1_virtual_swap_elimination_level1_work/01_virtual_swap_eliminated",
+  "problem_id": 25,
+  "proof_log": "/Users/avalok/work/FurturePlan/results/b1_virtual_swap_elimination_level1/virtual_swap_elimination_proofs.jsonl",
+  "removed_cx_gates": 1443,
+  "report_status": "virtual_swap_elimination_diagnostic_not_layout_final_claim",
+  "rewritten_circuits": 30,
+  "skipped_circuits": 0,
+  "title": "B1 virtual SWAP elimination diagnostic",
+  "top_circuits_by_virtual_swaps": [
+    {
+      "input": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_medium_exact/gcm_h6.qasm",
+      "operation_reduction": 474,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_virtual_swap_elimination_level1_work/01_virtual_swap_eliminated/qasmbench_medium_exact/gcm_h6.qasm",
+      "relative_path": "qasmbench_medium_exact/gcm_h6.qasm",
+      "removed_cx_gates": 474,
+      "status": "rewritten",
+      "virtual_swaps_removed": 158
+    },
+    {
+      "input": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_medium_exact/sat_n11.qasm",
+      "operation_reduction": 288,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_virtual_swap_elimination_level1_work/01_virtual_swap_eliminated/qasmbench_medium_exact/sat_n11.qasm",
+      "relative_path": "qasmbench_medium_exact/sat_n11.qasm",
+      "removed_cx_gates": 288,
+      "status": "rewritten",
+      "virtual_swaps_removed": 96
+    },
+    {
+      "input": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "operation_reduction": 180,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_virtual_swap_elimination_level1_work/01_virtual_swap_eliminated/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "relative_path": "qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "removed_cx_gates": 180,
+      "status": "rewritten",
+      "virtual_swaps_removed": 60
+    },
+    {
+      "input": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_medium_exact/qf21_n15.qasm",
+      "operation_reduction": 162,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_virtual_swap_elimination_level1_work/01_virtual_swap_eliminated/qasmbench_medium_exact/qf21_n15.qasm",
+      "relative_path": "qasmbench_medium_exact/qf21_n15.qasm",
+      "removed_cx_gates": 162,
+      "status": "rewritten",
+      "virtual_swaps_removed": 54
+    },
+    {
+      "input": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_small/hhl_n7.qasm",
+      "operation_reduction": 111,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_virtual_swap_elimination_level1_work/01_virtual_swap_eliminated/qasmbench_small/hhl_n7.qasm",
+      "relative_path": "qasmbench_small/hhl_n7.qasm",
+      "removed_cx_gates": 111,
+      "status": "rewritten",
+      "virtual_swaps_removed": 37
+    },
+    {
+      "input": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_medium_exact/seca_n11.qasm",
+      "operation_reduction": 57,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_virtual_swap_elimination_level1_work/01_virtual_swap_eliminated/qasmbench_medium_exact/seca_n11.qasm",
+      "relative_path": "qasmbench_medium_exact/seca_n11.qasm",
+      "removed_cx_gates": 57,
+      "status": "rewritten_with_measurement_tracking",
+      "virtual_swaps_removed": 19
+    },
+    {
+      "input": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_medium_exact/multiply_n13.qasm",
+      "operation_reduction": 45,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_virtual_swap_elimination_level1_work/01_virtual_swap_eliminated/qasmbench_medium_exact/multiply_n13.qasm",
+      "relative_path": "qasmbench_medium_exact/multiply_n13.qasm",
+      "removed_cx_gates": 45,
+      "status": "rewritten",
+      "virtual_swaps_removed": 15
+    },
+    {
+      "input": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "operation_reduction": 24,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_virtual_swap_elimination_level1_work/01_virtual_swap_eliminated/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "relative_path": "b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "removed_cx_gates": 24,
+      "status": "rewritten",
+      "virtual_swaps_removed": 8
+    },
+    {
+      "input": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_small/basis_test_n4.qasm",
+      "operation_reduction": 18,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_virtual_swap_elimination_level1_work/01_virtual_swap_eliminated/qasmbench_small/basis_test_n4.qasm",
+      "relative_path": "qasmbench_small/basis_test_n4.qasm",
+      "removed_cx_gates": 18,
+      "status": "rewritten",
+      "virtual_swaps_removed": 6
+    },
+    {
+      "input": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/03_b1_heavyhex_d3_level1/qasmbench_small/error_correctiond3_n5.qasm",
+      "operation_reduction": 18,
+      "output": "/Users/avalok/work/FurturePlan/results/b1_virtual_swap_elimination_level1_work/01_virtual_swap_eliminated/qasmbench_small/error_correctiond3_n5.qasm",
+      "relative_path": "qasmbench_small/error_correctiond3_n5.qasm",
+      "removed_cx_gates": 18,
+      "status": "rewritten",
+      "virtual_swaps_removed": 6
+    }
+  ],
+  "version": "0.1",
+  "virtual_swaps_removed": 481
+}

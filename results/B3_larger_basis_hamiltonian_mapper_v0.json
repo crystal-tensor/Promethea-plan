@@ -1,0 +1,505 @@
+{
+  "benchmark_id": "B3",
+  "claim_boundary": [
+    "Supported: Jordan-Wigner qubit Hamiltonians for the same larger bases used by the selected-CI denominator rows.",
+    "Supported: conservative same-basis measurement bucket counts, Neyman shot floors, and a two-layer ansatz state-preparation surcharge.",
+    "Not supported: optimal Pauli grouping, chemical ansatz preparation, selected-CI denominator wins, quantum advantage, or complete reaction dynamics."
+  ],
+  "dependency_benchmark": "B3",
+  "last_updated": "2026-06-17",
+  "method": "b3_larger_basis_hamiltonian_mapper_v0",
+  "next_steps": [
+    "Replace conservative same-basis buckets with an actual QWC or commuting-cover optimizer on the larger-basis Pauli sets.",
+    "Replace the generic two-layer ansatz surcharge with UCC, ADAPT-VQE, or adiabatic preparation costs.",
+    "Retest against stricter selected-CI, DMRG, or tensor-network denominators at fixed observable error."
+  ],
+  "problem_id": 49,
+  "rows": [
+    {
+      "candidate_beats_selected_ci_larger_basis_denominator": false,
+      "coefficient_cutoff": 1e-10,
+      "coefficient_l1_norm": 128.49773309368632,
+      "coefficient_l2_sq": 885.0403190300005,
+      "comparison_interpretation": "This row maps the same larger-basis Hamiltonian used by the selected-CI denominator. The mapped Hamiltonian and conservative measurement buckets are now explicit, but the Neyman shot floor plus generic ansatz preparation surcharge still does not justify an advantage claim.",
+      "coordinate": "H-H bond length",
+      "coordinate_center": 0.7414,
+      "electrons": 2,
+      "larger_basis_quantum_mapper_included": true,
+      "largest_abs_coefficient": 27.173729285105768,
+      "mapper": "qiskit_nature.second_q.mappers.JordanWignerMapper",
+      "mapper_particles": [
+        1,
+        1
+      ],
+      "mapping_wall_time_seconds": 1.6633099160026177,
+      "max_pauli_weight": 20,
+      "mean_pauli_weight": 7.726194510335479,
+      "measurement_model": {
+        "ansatz_layers": 2,
+        "ansatz_model": "two-layer nearest-neighbor hardware-efficient preparation surcharge",
+        "ansatz_single_qubit_rotations_per_shot": 80,
+        "ansatz_two_qubit_gate_executions_at_neyman_target": 26929060924,
+        "ansatz_two_qubit_gates_per_shot": 76,
+        "conservative_bucket_reduction_vs_ungrouped": 1.0,
+        "conservative_same_basis_bucket_count": 2740,
+        "deterministic_pauli_terms": 211,
+        "hf_reference_energy_from_pauli_terms_hartree": -1.437910365070685,
+        "neyman_target_total_shot_floor": 354329749,
+        "random_coefficient_l1_norm": 25.685524572860363,
+        "random_coefficient_l2_sq": 1.9597146746762306,
+        "random_pauli_terms": 2740,
+        "target_error_fraction": 0.05,
+        "target_observable_error_hartree_per_coordinate": 0.0013645348495178178,
+        "top_random_terms_preview": [
+          {
+            "coefficient": -0.4179300601281408,
+            "pauli": "IIIIIIIIIIIIIIIIIXZX",
+            "weight": 3
+          },
+          {
+            "coefficient": -0.4179300601281408,
+            "pauli": "IIIIIIIIIIIIIIIIIYZY",
+            "weight": 3
+          },
+          {
+            "coefficient": -0.4179300601281408,
+            "pauli": "IIIIIIIXZXIIIIIIIIII",
+            "weight": 3
+          },
+          {
+            "coefficient": -0.4179300601281408,
+            "pauli": "IIIIIIIYZYIIIIIIIIII",
+            "weight": 3
+          },
+          {
+            "coefficient": -0.3888414333676134,
+            "pauli": "IIIIIIXZXIIIIIIIIIII",
+            "weight": 3
+          },
+          {
+            "coefficient": -0.3888414333676134,
+            "pauli": "IIIIIIYZYIIIIIIIIIII",
+            "weight": 3
+          },
+          {
+            "coefficient": -0.38884143336761307,
+            "pauli": "IIIIIIIIIIIIIIIIXZXI",
+            "weight": 3
+          },
+          {
+            "coefficient": -0.38884143336761307,
+            "pauli": "IIIIIIIIIIIIIIIIYZYI",
+            "weight": 3
+          },
+          {
+            "coefficient": -0.2099156089619984,
+            "pauli": "XZZZZZXIIIIIIIIIIIII",
+            "weight": 7
+          },
+          {
+            "coefficient": -0.2099156089619984,
+            "pauli": "YZZZZZYIIIIIIIIIIIII",
+            "weight": 7
+          },
+          {
+            "coefficient": -0.20991560896199837,
+            "pauli": "IIIIIIIIIIXZZZZZXIII",
+            "weight": 7
+          },
+          {
+            "coefficient": -0.20991560896199837,
+            "pauli": "IIIIIIIIIIYZZZZZYIII",
+            "weight": 7
+          }
+        ],
+        "variance_upper_bound_total_shot_floor": 2883860960
+      },
+      "molecule": "h2_bond_stretch",
+      "num_alpha_particles": 1,
+      "num_beta_particles": 1,
+      "pauli_terms_after_cutoff": 2951,
+      "selected_ci_basis": "cc-pvdz",
+      "selected_ci_center_energy_hartree": -1.163413931624448,
+      "selected_ci_derivative_hartree_per_coordinate": -0.027290696990356356,
+      "selected_ci_max_determinant_product": 100,
+      "selected_ci_spin_orbital_qubits": 20,
+      "selected_ci_total_determinant_product_three_point": 300,
+      "selected_ci_total_wall_time_seconds": 0.040565916991909035,
+      "source_benchmark": "B3",
+      "spatial_orbitals": 10,
+      "spin_orbital_qubits": 20,
+      "total_qubits": 20
+    },
+    {
+      "candidate_beats_selected_ci_larger_basis_denominator": false,
+      "coefficient_cutoff": 1e-10,
+      "coefficient_l1_norm": 212.59792815953125,
+      "coefficient_l2_sq": 767.4535460990885,
+      "comparison_interpretation": "This row maps the same larger-basis Hamiltonian used by the selected-CI denominator. The mapped Hamiltonian and conservative measurement buckets are now explicit, but the Neyman shot floor plus generic ansatz preparation surcharge still does not justify an advantage claim.",
+      "coordinate": "Li-H bond length",
+      "coordinate_center": 1.6,
+      "electrons": 4,
+      "larger_basis_quantum_mapper_included": true,
+      "largest_abs_coefficient": 25.113578365107937,
+      "mapper": "qiskit_nature.second_q.mappers.JordanWignerMapper",
+      "mapper_particles": [
+        2,
+        2
+      ],
+      "mapping_wall_time_seconds": 41.609335250002914,
+      "max_pauli_weight": 38,
+      "mean_pauli_weight": 13.062703896837833,
+      "measurement_model": {
+        "ansatz_layers": 2,
+        "ansatz_model": "two-layer nearest-neighbor hardware-efficient preparation surcharge",
+        "ansatz_single_qubit_rotations_per_shot": 152,
+        "ansatz_two_qubit_gate_executions_at_neyman_target": 956688981372,
+        "ansatz_two_qubit_gates_per_shot": 148,
+        "conservative_bucket_reduction_vs_ungrouped": 1.0,
+        "conservative_same_basis_bucket_count": 77116,
+        "deterministic_pauli_terms": 742,
+        "hf_reference_energy_from_pauli_terms_hartree": -6.442747363893539,
+        "neyman_target_total_shot_floor": 6464114739,
+        "random_coefficient_l1_norm": 80.39971852434313,
+        "random_coefficient_l2_sq": 2.297768593029574,
+        "random_pauli_terms": 77116,
+        "target_error_fraction": 0.05,
+        "target_observable_error_hartree_per_coordinate": 0.001,
+        "top_random_terms_preview": [
+          {
+            "coefficient": 0.24979312668488562,
+            "pauli": "IIIXZZZZZZZZZZZZZXIIIIIIIIIIIIIIIIIIII",
+            "weight": 15
+          },
+          {
+            "coefficient": 0.24979312668488562,
+            "pauli": "IIIYZZZZZZZZZZZZZYIIIIIIIIIIIIIIIIIIII",
+            "weight": 15
+          },
+          {
+            "coefficient": 0.24979312668488557,
+            "pauli": "IIIIIIIIIIIIIIIIIIIIIIXZZZZZZZZZZZZZXI",
+            "weight": 15
+          },
+          {
+            "coefficient": 0.24979312668488557,
+            "pauli": "IIIIIIIIIIIIIIIIIIIIIIYZZZZZZZZZZZZZYI",
+            "weight": 15
+          },
+          {
+            "coefficient": 0.23138787640717473,
+            "pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIXZZZXIIII",
+            "weight": 5
+          },
+          {
+            "coefficient": 0.23138787640717473,
+            "pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIYZZZYIIII",
+            "weight": 5
+          },
+          {
+            "coefficient": 0.2313878764071747,
+            "pauli": "IIIIIIIIIIXZZZXIIIIIIIIIIIIIIIIIIIIIII",
+            "weight": 5
+          },
+          {
+            "coefficient": 0.2313878764071747,
+            "pauli": "IIIIIIIIIIYZZZYIIIIIIIIIIIIIIIIIIIIIII",
+            "weight": 5
+          },
+          {
+            "coefficient": -0.23138787640717315,
+            "pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIXZZZXIII",
+            "weight": 5
+          },
+          {
+            "coefficient": -0.23138787640717315,
+            "pauli": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIYZZZYIII",
+            "weight": 5
+          },
+          {
+            "coefficient": -0.23138787640717304,
+            "pauli": "IIIIIIIIIIIXZZZXIIIIIIIIIIIIIIIIIIIIII",
+            "weight": 5
+          },
+          {
+            "coefficient": -0.23138787640717304,
+            "pauli": "IIIIIIIIIIIYZZZYIIIIIIIIIIIIIIIIIIIIII",
+            "weight": 5
+          }
+        ],
+        "variance_upper_bound_total_shot_floor": 177194754204
+      },
+      "molecule": "lih_bond_stretch",
+      "num_alpha_particles": 2,
+      "num_beta_particles": 2,
+      "pauli_terms_after_cutoff": 77858,
+      "selected_ci_basis": "cc-pvdz",
+      "selected_ci_center_energy_hartree": -8.002756376934787,
+      "selected_ci_derivative_hartree_per_coordinate": -0.005634393670916893,
+      "selected_ci_max_determinant_product": 64,
+      "selected_ci_spin_orbital_qubits": 38,
+      "selected_ci_total_determinant_product_three_point": 192,
+      "selected_ci_total_wall_time_seconds": 0.07998083399434108,
+      "source_benchmark": "B3",
+      "spatial_orbitals": 19,
+      "spin_orbital_qubits": 38,
+      "total_qubits": 38
+    },
+    {
+      "candidate_beats_selected_ci_larger_basis_denominator": false,
+      "coefficient_cutoff": 1e-10,
+      "coefficient_l1_norm": 222.37568433883544,
+      "coefficient_l2_sq": 2697.5144410278094,
+      "comparison_interpretation": "This row maps the same larger-basis Hamiltonian used by the selected-CI denominator. The mapped Hamiltonian and conservative measurement buckets are now explicit, but the Neyman shot floor plus generic ansatz preparation surcharge still does not justify an advantage claim.",
+      "coordinate": "symmetric O-H stretch scale",
+      "coordinate_center": 1.0,
+      "electrons": 10,
+      "larger_basis_quantum_mapper_included": true,
+      "largest_abs_coefficient": 49.67529172061744,
+      "mapper": "qiskit_nature.second_q.mappers.JordanWignerMapper",
+      "mapper_particles": [
+        5,
+        5
+      ],
+      "mapping_wall_time_seconds": 6.740512583004602,
+      "max_pauli_weight": 26,
+      "mean_pauli_weight": 9.62708136977694,
+      "measurement_model": {
+        "ansatz_layers": 2,
+        "ansatz_model": "two-layer nearest-neighbor hardware-efficient preparation surcharge",
+        "ansatz_single_qubit_rotations_per_shot": 104,
+        "ansatz_two_qubit_gate_executions_at_neyman_target": 115439823100,
+        "ansatz_two_qubit_gates_per_shot": 100,
+        "conservative_bucket_reduction_vs_ungrouped": 1.0,
+        "conservative_same_basis_bucket_count": 12380,
+        "deterministic_pauli_terms": 352,
+        "hf_reference_energy_from_pauli_terms_hartree": -58.94985377017668,
+        "neyman_target_total_shot_floor": 1154398231,
+        "random_coefficient_l1_norm": 86.33374933475407,
+        "random_coefficient_l2_sq": 2.2416482317928232,
+        "random_pauli_terms": 12380,
+        "target_error_fraction": 0.05,
+        "target_observable_error_hartree_per_coordinate": 0.00254098894629351,
+        "top_random_terms_preview": [
+          {
+            "coefficient": -0.13521107502246021,
+            "pauli": "IIIIIIIIIIIIZIIIXZZZZXIIII",
+            "weight": 7
+          },
+          {
+            "coefficient": -0.13521107502246021,
+            "pauli": "IIIIIIIIIIIIZIIIYZZZZYIIII",
+            "weight": 7
+          },
+          {
+            "coefficient": -0.13521107502246021,
+            "pauli": "IIIXZZZZXIIIIIIIIIIIIIIIIZ",
+            "weight": 7
+          },
+          {
+            "coefficient": -0.13521107502246021,
+            "pauli": "IIIYZZZZYIIIIIIIIIIIIIIIIZ",
+            "weight": 7
+          },
+          {
+            "coefficient": -0.12427053826875882,
+            "pauli": "IIIIIIIIIIIIIIIIXZZZZXIIIZ",
+            "weight": 7
+          },
+          {
+            "coefficient": -0.12427053826875882,
+            "pauli": "IIIIIIIIIIIIIIIIYZZZZYIIIZ",
+            "weight": 7
+          },
+          {
+            "coefficient": -0.12427053826875882,
+            "pauli": "IIIXZZZZXIIIZIIIIIIIIIIIII",
+            "weight": 7
+          },
+          {
+            "coefficient": -0.12427053826875882,
+            "pauli": "IIIYZZZZYIIIZIIIIIIIIIIIII",
+            "weight": 7
+          },
+          {
+            "coefficient": -0.12059943373380622,
+            "pauli": "IIIIIIIIIIIIZXZZZZZZZZZZZX",
+            "weight": 14
+          },
+          {
+            "coefficient": -0.12059943373380622,
+            "pauli": "IIIIIIIIIIIIZYZZZZZZZZZZZY",
+            "weight": 14
+          },
+          {
+            "coefficient": -0.12059943373380622,
+            "pauli": "XZZZZZZZZZZZXIIIIIIIIIIIIZ",
+            "weight": 14
+          },
+          {
+            "coefficient": -0.12059943373380622,
+            "pauli": "YZZZZZZZZZZZYIIIIIIIIIIIIZ",
+            "weight": 14
+          }
+        ],
+        "variance_upper_bound_total_shot_floor": 4298162680
+      },
+      "molecule": "h2o_symmetric_oh_stretch",
+      "num_alpha_particles": 5,
+      "num_beta_particles": 5,
+      "pauli_terms_after_cutoff": 12732,
+      "selected_ci_basis": "3-21g",
+      "selected_ci_center_energy_hartree": -75.67134442943468,
+      "selected_ci_derivative_hartree_per_coordinate": 0.050819778925870196,
+      "selected_ci_max_determinant_product": 256,
+      "selected_ci_spin_orbital_qubits": 26,
+      "selected_ci_total_determinant_product_three_point": 737,
+      "selected_ci_total_wall_time_seconds": 0.07328858401160687,
+      "source_benchmark": "B3",
+      "spatial_orbitals": 13,
+      "spin_orbital_qubits": 26,
+      "total_qubits": 26
+    },
+    {
+      "candidate_beats_selected_ci_larger_basis_denominator": false,
+      "coefficient_cutoff": 1e-10,
+      "coefficient_l1_norm": 399.4086092799295,
+      "coefficient_l2_sq": 7119.5794468469785,
+      "comparison_interpretation": "This row maps the same larger-basis Hamiltonian used by the selected-CI denominator. The mapped Hamiltonian and conservative measurement buckets are now explicit, but the Neyman shot floor plus generic ansatz preparation surcharge still does not justify an advantage claim.",
+      "coordinate": "N-N bond length",
+      "coordinate_center": 1.0977,
+      "electrons": 14,
+      "larger_basis_quantum_mapper_included": true,
+      "largest_abs_coefficient": 82.87494840689766,
+      "mapper": "qiskit_nature.second_q.mappers.JordanWignerMapper",
+      "mapper_particles": [
+        7,
+        7
+      ],
+      "mapping_wall_time_seconds": 18.904895208004746,
+      "max_pauli_weight": 36,
+      "mean_pauli_weight": 12.49989900447266,
+      "measurement_model": {
+        "ansatz_layers": 2,
+        "ansatz_model": "two-layer nearest-neighbor hardware-efficient preparation surcharge",
+        "ansatz_single_qubit_rotations_per_shot": 144,
+        "ansatz_two_qubit_gate_executions_at_neyman_target": 851154132640,
+        "ansatz_two_qubit_gates_per_shot": 140,
+        "conservative_bucket_reduction_vs_ungrouped": 1.0,
+        "conservative_same_basis_bucket_count": 33988,
+        "deterministic_pauli_terms": 667,
+        "hf_reference_energy_from_pauli_terms_hartree": -95.85357411016726,
+        "neyman_target_total_shot_floor": 6079672376,
+        "random_coefficient_l1_norm": 176.37896359254995,
+        "random_coefficient_l2_sq": 4.041022551310626,
+        "random_pauli_terms": 33988,
+        "target_error_fraction": 0.05,
+        "target_observable_error_hartree_per_coordinate": 0.0022620734275946575,
+        "top_random_terms_preview": [
+          {
+            "coefficient": 0.4540929049637939,
+            "pauli": "IIIIIIIIIIIIIIIIXXIIIIIIIIIIIIIIIIXX",
+            "weight": 4
+          },
+          {
+            "coefficient": 0.4540929049637939,
+            "pauli": "IIIIIIIIIIIIIIIIXXIIIIIIIIIIIIIIIIYY",
+            "weight": 4
+          },
+          {
+            "coefficient": 0.4540929049637939,
+            "pauli": "IIIIIIIIIIIIIIIIYYIIIIIIIIIIIIIIIIXX",
+            "weight": 4
+          },
+          {
+            "coefficient": 0.4540929049637939,
+            "pauli": "IIIIIIIIIIIIIIIIYYIIIIIIIIIIIIIIIIYY",
+            "weight": 4
+          },
+          {
+            "coefficient": -0.0793013615094386,
+            "pauli": "IIIIIIIIIIIIIIIIXXIIIIXZXIIIIIIIIIII",
+            "weight": 5
+          },
+          {
+            "coefficient": -0.0793013615094386,
+            "pauli": "IIIIIIIIIIIIIIIIXXIIIIYZYIIIIIIIIIII",
+            "weight": 5
+          },
+          {
+            "coefficient": -0.0793013615094386,
+            "pauli": "IIIIIIIIIIIIIIIIXXIIIXZXIIIIIIIIIIII",
+            "weight": 5
+          },
+          {
+            "coefficient": -0.0793013615094386,
+            "pauli": "IIIIIIIIIIIIIIIIXXIIIYZYIIIIIIIIIIII",
+            "weight": 5
+          },
+          {
+            "coefficient": -0.0793013615094386,
+            "pauli": "IIIIIIIIIIIIIIIIYYIIIIXZXIIIIIIIIIII",
+            "weight": 5
+          },
+          {
+            "coefficient": -0.0793013615094386,
+            "pauli": "IIIIIIIIIIIIIIIIYYIIIIYZYIIIIIIIIIII",
+            "weight": 5
+          },
+          {
+            "coefficient": -0.0793013615094386,
+            "pauli": "IIIIIIIIIIIIIIIIYYIIIXZXIIIIIIIIIIII",
+            "weight": 5
+          },
+          {
+            "coefficient": -0.0793013615094386,
+            "pauli": "IIIIIIIIIIIIIIIIYYIIIYZYIIIIIIIIIIII",
+            "weight": 5
+          }
+        ],
+        "variance_upper_bound_total_shot_floor": 26841309252
+      },
+      "molecule": "n2_bond_stretch",
+      "num_alpha_particles": 7,
+      "num_beta_particles": 7,
+      "pauli_terms_after_cutoff": 34655,
+      "selected_ci_basis": "3-21g",
+      "selected_ci_center_energy_hartree": -108.43655932145045,
+      "selected_ci_derivative_hartree_per_coordinate": -0.04524146855189315,
+      "selected_ci_max_determinant_product": 400,
+      "selected_ci_spin_orbital_qubits": 36,
+      "selected_ci_total_determinant_product_three_point": 1200,
+      "selected_ci_total_wall_time_seconds": 0.15023570800985908,
+      "source_benchmark": "B3",
+      "spatial_orbitals": 18,
+      "spin_orbital_qubits": 36,
+      "total_qubits": 36
+    }
+  ],
+  "source_selected_ci_grouped_pauli": "results/B3_selected_ci_grouped_pauli_boundary_v0.json",
+  "source_selected_ci_grouped_pauli_method": "b3_selected_ci_grouped_pauli_boundary_v0",
+  "status": "larger_basis_hamiltonian_mapper_boundary_not_advantage_claim",
+  "summary": {
+    "ansatz_state_preparation_surcharge_included": true,
+    "conservative_measurement_bucket_model": "same_basis_bucket_upper_bound_not_optimal_qwc_cover",
+    "instance_count": 4,
+    "larger_basis_quantum_mapper_included": true,
+    "max_ansatz_two_qubit_gate_executions_at_neyman_target": 956688981372,
+    "max_conservative_bucket_reduction_vs_ungrouped": 1.0,
+    "max_conservative_same_basis_bucket_count": 77116,
+    "max_neyman_target_total_shot_floor": 6464114739,
+    "max_pauli_terms_after_cutoff": 77858,
+    "max_pauli_weight": 38,
+    "max_total_qubits": 38,
+    "min_conservative_bucket_reduction_vs_ungrouped": 1.0,
+    "molecule_count": 4,
+    "pauli_measurement_cost_included": true,
+    "quantum_advantage_claimed": false,
+    "reaction_dynamics_solution_claimed": false,
+    "same_basis_as_selected_ci_denominator": true,
+    "selected_ci_larger_basis_denominator_beaten_count": 0
+  },
+  "title": "B3 larger-basis Hamiltonian mapper boundary",
+  "validation_errors": [],
+  "version": "0.1"
+}

@@ -1,0 +1,31 @@
+{
+  "benchmark_id": "B1",
+  "check": "qiskit_aer_shot_measurement_equivalence_crosscheck",
+  "failed": 0,
+  "max_threshold": 0.028815462242933694,
+  "max_total_variation_distance": 0.0,
+  "method": "statevector",
+  "pair_count": 1,
+  "passed": 1,
+  "results": [
+    {
+      "combined_support": 2,
+      "left": "results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+      "left_support": 2,
+      "passed": true,
+      "right": "results/b7_gcm_h6_numeric_rotation_structure/qasmbench_medium_exact/gcm_h6.qasm",
+      "right_support": 2,
+      "threshold": 0.028815462242933694,
+      "total_variation_distance": 0.0
+    }
+  ],
+  "seed": 220626,
+  "shots": 32768,
+  "simulator": "qiskit_aer.AerSimulator",
+  "threshold_model": {
+    "base_tvd": 0.02,
+    "formula": "min(max_tvd, base_tvd + threshold_multiplier * sqrt(combined_support / (pi * shots)))",
+    "max_tvd": 0.35,
+    "threshold_multiplier": 2.0
+  }
+}

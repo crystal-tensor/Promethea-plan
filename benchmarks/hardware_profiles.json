@@ -1,0 +1,46 @@
+{
+  "linear_nearest_neighbor": {
+    "description": "Conservative 1D nearest-neighbor profile for routing stress tests.",
+    "gate_errors": {
+      "single_qubit": 0.0002,
+      "two_qubit": 0.008,
+      "measurement": 0.01,
+      "t_gate": 0.0002
+    },
+    "idle_error_per_layer": 0.00005,
+    "connectivity": "line"
+  },
+  "heavy_hex_like_sparse": {
+    "description": "Sparse superconducting-style profile with expensive two-qubit operations.",
+    "gate_errors": {
+      "single_qubit": 0.0001,
+      "two_qubit": 0.006,
+      "measurement": 0.012,
+      "t_gate": 0.0001
+    },
+    "idle_error_per_layer": 0.00004,
+    "connectivity": "sparse_heavy_hex_like"
+  },
+  "all_to_all_ion_trap_like": {
+    "description": "All-to-all profile with lower routing pressure and slower two-qubit gates.",
+    "gate_errors": {
+      "single_qubit": 0.00005,
+      "two_qubit": 0.003,
+      "measurement": 0.005,
+      "t_gate": 0.00005
+    },
+    "idle_error_per_layer": 0.00002,
+    "connectivity": "all_to_all"
+  },
+  "neutral_atom_reconfigurable": {
+    "description": "Reconfigurable-connectivity profile for neutral-atom-style layouts.",
+    "gate_errors": {
+      "single_qubit": 0.0003,
+      "two_qubit": 0.01,
+      "measurement": 0.015,
+      "t_gate": 0.0003
+    },
+    "idle_error_per_layer": 0.00006,
+    "connectivity": "reconfigurable"
+  }
+}

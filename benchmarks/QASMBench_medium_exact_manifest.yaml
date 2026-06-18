@@ -1,0 +1,54 @@
+id: QASMBench_medium_exact_manifest
+benchmark_id: B1
+version: 0.1
+status: imported
+source:
+  name: QASMBench
+  url: https://github.com/pnnl/QASMBench
+  commit: 357b942
+  import_date: 2026-06-13
+  import_method: sparse_checkout_then_copy_selected_medium_openqasm_files
+selection_policy:
+  - Keep circuits within the current exact statevector verification ceiling
+    of 15 qubits.
+  - Exclude circuits with custom gate definitions or classical `if`
+    statements until the parser/checker supports them.
+  - Exclude very large exact-state circuits with hundreds of thousands of
+    operations from the first medium run.
+  - "Prefer diverse families: Bernstein-Vazirani, arithmetic, SAT, SEC, QFT-ish
+    factoring, and a transpiled chemistry-style benchmark."
+circuits:
+  - id: qasmbench_sat_n11
+    path: qasmbench_medium_exact/sat_n11.qasm
+    source_path: medium/sat_n11/sat_n11.qasm
+    family: sat_oracle
+    expected_qubits: 11
+  - id: qasmbench_seca_n11
+    path: qasmbench_medium_exact/seca_n11.qasm
+    source_path: medium/seca_n11/seca_n11.qasm
+    family: arithmetic_oracle
+    expected_qubits: 11
+  - id: qasmbench_multiply_n13
+    path: qasmbench_medium_exact/multiply_n13.qasm
+    source_path: medium/multiply_n13/multiply_n13.qasm
+    family: arithmetic
+    expected_qubits: 13
+  - id: qasmbench_bv_n14
+    path: qasmbench_medium_exact/bv_n14.qasm
+    source_path: medium/bv_n14/bv_n14.qasm
+    family: bernstein_vazirani
+    expected_qubits: 14
+  - id: qasmbench_qf21_n15
+    path: qasmbench_medium_exact/qf21_n15.qasm
+    source_path: medium/qf21_n15/qf21_n15.qasm
+    family: factoring_or_qft
+    expected_qubits: 15
+  - id: qasmbench_gcm_h6
+    path: qasmbench_medium_exact/gcm_h6.qasm
+    source_path: medium/gcm_n13/gcm_h6.qasm
+    family: chemistry_or_materials
+    expected_qubits: 13
+notes:
+  - Run with `tools/b1_run_pipeline.py --max-qubits 15`.
+  - This subset is for exact verification, not yet for performance stress
+    testing on very large circuits.

@@ -1,0 +1,500 @@
+id: B7
+problem_id: 21
+name: Architecture-Level Fault-Tolerance Co-Design
+version: 0.1
+status: draft
+claim: >
+  Fault-tolerant quantum computing resources can be reduced by co-designing
+  code distance, magic-state factories, layout, scheduling, and algorithmic
+  block structure rather than optimizing each layer independently.
+workload_families:
+  - chemistry_phase_estimation
+  - factoring_modular_arithmetic
+  - hamiltonian_time_evolution
+design_axes:
+  - code_distance
+  - data_block_layout
+  - magic_state_factory_count
+  - factory_throughput
+  - lattice_surgery_schedule
+  - routing_overhead
+  - algorithmic_block_reuse
+baselines:
+  - surface_code_serial_factory_baseline
+  - published_resource_estimates
+  - single_layer_compiler_optimization
+  - hand_tuned_lattice_surgery_schedule
+metrics:
+  - physical_qubits
+  - runtime_cycles
+  - runtime_seconds
+  - space_time_volume
+  - bottleneck_classification
+  - reduction_against_baseline
+acceptance_threshold:
+  space_time_volume_reduction: ">=25%"
+  workloads_meeting_threshold: ">=2"
+  explicit_planning_model_disclaimer: true
+failure_conditions:
+  - improvement_depends_on_unrealistic_factory_throughput
+  - code_distance_choice_violates_logical_failure_budget
+  - layout_gain_disappears_with_routing_or_scheduling
+  - algorithmic_reuse_double_counts_compiler_savings
+next_actions:
+  - connect_to_b1_circuit_compression_outputs
+  - connect_to_b2_qec_threshold_and_decoder_models
+  - add_lattice_surgery_dependency_graphs
+  - compare_against_published_workload_resource_estimates
+current_results:
+  fault_tolerance_codesign_resource_model_v0:
+    status: planning_level_resource_model
+    model_status: planning_level_resource_model_not_physical_layout
+    workload_count: 3
+    configuration_count: 6
+    baseline_config: surface_code_serial_factory_baseline
+    candidate_config: codesigned_parallel_factory_layout_v0
+    min_space_time_volume_reduction: 6.774167409448178
+    mean_space_time_volume_reduction: 7.198862199777527
+    workloads_meeting_25_percent_reduction: 3
+    comparison_reductions:
+      chemistry_phase_estimation: 6.774167409448178
+      factoring_2048_modular_arithmetic: 7.592454033089977
+      hubbard_time_evolution: 7.229965156794425
+    result: ../results/B7_fault_tolerance_codesign_v0.json
+  b1_b2_dependency_schedule_bridge_v0:
+    status: dependency_schedule_bridge_not_physical_layout
+    method: b1_b2_dependency_schedule_bridge_v0
+    source_b1: B1 virtual-SWAP before/after metrics
+    source_b2: B2 Stim surface-code Wilson target-volume baseline
+    selected_b2_physical_error: 0.001
+    selected_b2_target_logical_error: 0.01
+    selected_b2_distance: 3
+    selected_b2_physical_qubits: 26
+    selected_b2_rounds: 3
+    selected_b2_space_time_volume: 78
+    comparison_count: 6
+    min_space_time_volume_reduction: 1.1948051948051948
+    mean_space_time_volume_reduction: 1.353572610789181
+    min_exposure_reduction: 1.3941074665104047
+    caveat: dependency_schedule_bridge_not_lattice_surgery_or_physical_layout_claim
+    result: ../results/B7_b1_b2_dependency_schedule_bridge_v0.json
+    markdown_report: ../research/B7_b1_b2_dependency_schedule_bridge.md
+  workload_dag_factory_schedule_v0:
+    status: workload_dag_factory_schedule_not_physical_layout
+    method: b7_workload_dag_factory_scheduler_v0
+    source_bridge: b1_b2_dependency_schedule_bridge_v0
+    workload_count: 6
+    factory_variants:
+      - serial_factory
+      - balanced_factories
+      - throughput_heavy_factories
+    comparison_count: 18
+    magic_state_density_proxy: 0.5
+    caveat: workload_dag_factory_schedule_not_lattice_surgery_or_physical_layout_claim
+    result: ../results/B7_workload_dag_factory_schedule_v0.json
+    markdown_report: ../research/B7_workload_dag_factory_schedule.md
+  logical_t_factory_schedule_v0:
+    status: logical_t_factory_schedule_proxy_not_physical_layout
+    method: b7_logical_t_factory_scheduler_v0
+    source_b1: B1 virtual-SWAP before/after QASM metrics
+    workload_count: 6
+    factory_variants:
+      - serial_factory
+      - balanced_factories
+      - throughput_heavy_factories
+    comparison_count: 18
+    rotation_synthesis_t_cost: 20
+    caveat: logical_t_resource_proxy_not_fault_tolerant_synthesis_or_physical_layout_claim
+    result: ../results/B7_logical_t_factory_schedule_v0.json
+    markdown_report: ../research/B7_logical_t_factory_schedule.md
+  logical_t_factory_schedule_post_1q_v0:
+    status: logical_t_factory_schedule_proxy_not_physical_layout
+    method: b7_logical_t_factory_scheduler_v0
+    source_b1: B1 virtual-SWAP plus post-virtual-SWAP 1Q resynthesis metrics
+    workload_count: 6
+    factory_variants:
+      - serial_factory
+      - balanced_factories
+      - throughput_heavy_factories
+    comparison_count: 18
+    rotation_synthesis_t_cost: 20
+    min_space_time_volume_reduction: 1.0
+    mean_space_time_volume_reduction: 1.0344368482291184
+    factory_bottleneck_comparisons: 18
+    min_logical_t_count_reduction: 1.0
+    mean_logical_t_count_reduction: 1.0344608655439516
+    interpretation: weak_positive_t_resource_signal_not_enough_to_solve_factory_dominated_regime
+    caveat: logical_t_resource_proxy_not_fault_tolerant_synthesis_or_physical_layout_claim
+    result: ../results/B7_logical_t_factory_schedule_post_1q_v0.json
+    markdown_report: ../research/B7_logical_t_factory_schedule_post_1q.md
+  logical_t_factory_schedule_native_v0:
+    status: logical_t_factory_schedule_proxy_not_physical_layout
+    method: b7_logical_t_factory_scheduler_v0
+    source_b1: B1 virtual-SWAP plus post-1Q plus native Z-phase canonicalization metrics
+    workload_count: 6
+    factory_variants:
+      - serial_factory
+      - balanced_factories
+      - throughput_heavy_factories
+    comparison_count: 18
+    rotation_synthesis_t_cost: 20
+    min_space_time_volume_reduction: 1.0
+    mean_space_time_volume_reduction: 1.0346085233083853
+    factory_bottleneck_comparisons: 18
+    min_logical_t_count_reduction: 1.0
+    mean_logical_t_count_reduction: 1.0346288200248595
+    interpretation: native_z_phase_canonicalization_slightly_improves_mean_but_min_stv_remains_1x
+    caveat: logical_t_resource_proxy_not_fault_tolerant_synthesis_or_physical_layout_claim
+    result: ../results/B7_logical_t_factory_schedule_native_v0.json
+    markdown_report: ../research/B7_logical_t_factory_schedule_native.md
+  logical_t_factory_schedule_control_rz_v0:
+    status: logical_t_factory_schedule_proxy_not_physical_layout
+    method: b7_logical_t_factory_scheduler_v0
+    source_b1: B1 virtual-SWAP plus post-1Q plus native Z-phase plus control-RZ commute metrics
+    workload_count: 6
+    factory_variants:
+      - serial_factory
+      - balanced_factories
+      - throughput_heavy_factories
+    comparison_count: 18
+    rotation_synthesis_t_cost: 20
+    min_space_time_volume_reduction: 1.1219512195121952
+    mean_space_time_volume_reduction: 1.1839213595354279
+    factory_bottleneck_comparisons: 18
+    min_logical_t_count_reduction: 1.1221374045801527
+    mean_logical_t_count_reduction: 1.1841020176930053
+    interpretation: control_rz_commutation_breaks_the_previous_1x_min_stv_boundary_under_proxy_schedule
+    caveat: logical_t_resource_proxy_not_fault_tolerant_synthesis_or_physical_layout_claim
+    result: ../results/B7_logical_t_factory_schedule_control_rz_v0.json
+    markdown_report: ../research/B7_logical_t_factory_schedule_control_rz.md
+  logical_t_factory_schedule_u3_phase_factored_v0:
+    status: logical_t_factory_schedule_proxy_not_physical_layout
+    method: b7_logical_t_factory_scheduler_v0
+    source_b1: B1 virtual-SWAP plus post-1Q plus native Z-phase plus control-RZ plus U3 phase factoring metrics
+    workload_count: 6
+    factory_variants:
+      - serial_factory
+      - balanced_factories
+      - throughput_heavy_factories
+    comparison_count: 18
+    rotation_synthesis_t_cost: 20
+    min_space_time_volume_reduction: 1.1219512195121952
+    mean_space_time_volume_reduction: 1.2343939344748929
+    factory_bottleneck_comparisons: 18
+    min_logical_t_count_reduction: 1.1221374045801527
+    mean_logical_t_count_reduction: 1.2346077339597366
+    interpretation: u3_phase_factoring_improves_mean_factory_pressure_but_min_stv_boundary_remains_set_by_sat_n11
+    caveat: logical_t_resource_proxy_not_fault_tolerant_synthesis_or_physical_layout_claim
+    result: ../results/B7_logical_t_factory_schedule_u3_phase_factored_v0.json
+    markdown_report: ../research/B7_logical_t_factory_schedule_u3_phase_factored.md
+  min_stv_regime_classifier_v0:
+    status: min_stv_regime_classified_not_physical_layout_claim
+    method: b7_min_stv_regime_classifier_v0
+    source_schedule: logical_t_factory_schedule_u3_phase_factored_v0
+    comparison_count: 18
+    workload_count: 6
+    min_space_time_volume_reduction: 1.1219512195121952
+    min_workload: qasmbench_medium_exact/sat_n11.qasm
+    factory_bottleneck_after_count: 18
+    deep_factory_locked_count: 10
+    target_1_20_additional_t_count_proxy_to_remove: 344
+    target_1_25_additional_t_count_proxy_to_remove: 544
+    interpretation: sat_n11_remains_factory_locked_after_u3_phase_factoring
+    caveat: classifier_not_physical_layout_or_lattice_surgery_claim
+    result: ../results/B7_min_stv_regime_classifier_v0.json
+    markdown_report: ../research/B7_min_stv_regime_classifier.md
+  ft_synthesis_ledger_v0:
+    status: ft_synthesis_ledger_proxy_not_physical_layout
+    method: b7_ft_synthesis_ledger_v0
+    source_schedule: logical_t_factory_schedule_u3_phase_factored_v0
+    workload_count: 6
+    factory_variants:
+      - serial_factory
+      - balanced_factories
+      - throughput_heavy_factories
+    comparison_count: 18
+    min_space_time_volume_reduction: 1.086007702182285
+    mean_space_time_volume_reduction: 1.253640000721326
+    factory_bottleneck_after_count: 16
+    data_bottleneck_after_count: 2
+    min_workload: qasmbench_medium_exact/gcm_h6.qasm
+    sat_n11_before_after_t_ledger: 294 / 262
+    sat_n11_balanced_stv_reduction: 1.6114808652246255
+    sat_n11_throughput_stv_reduction: 1.6114808652246255
+    interpretation: ft_rotation_ledger_moves_sat_n11_to_data_path_under_parallel_factories_and_exposes_gcm_h6_as_new_min_stv_boundary
+    caveat: synthesis_ledger_not_lattice_surgery_or_physical_layout_claim
+    result: ../results/B7_ft_synthesis_ledger_v0.json
+    markdown_report: ../research/B7_ft_synthesis_ledger.md
+  gcm_h6_ft_boundary_v0:
+    status: gcm_h6_ft_boundary_quantified_not_physical_layout
+    method: b7_gcm_h6_ft_boundary_v0
+    source_ledger: ft_synthesis_ledger_v0
+    current_min_workload: qasmbench_medium_exact/gcm_h6.qasm
+    current_min_factory_variant: throughput_heavy_factories
+    current_min_space_time_volume_reduction: 1.086007702182285
+    current_min_bottleneck_after: factory_path
+    gcm_h6_after_arbitrary_numeric_rotation_count: 270
+    gcm_h6_after_arbitrary_numeric_t_cost: 5400
+    gcm_h6_target_1_20_additional_t_ledger_to_remove: 592
+    gcm_h6_target_1_25_additional_t_ledger_to_remove: 824
+    portfolio_cost_sweep_reaches_1_20: false
+    interpretation: arbitrary_rotation_cost_reduction_alone_does_not_clear_all_variant_portfolio_min_stv
+    caveat: sensitivity_analysis_not_physical_layout_or_precision_budget_claim
+    result: ../results/B7_gcm_h6_ft_boundary_v0.json
+    markdown_report: ../research/B7_gcm_h6_ft_boundary.md
+  precision_aware_rotation_ledger_v0:
+    status: precision_aware_rotation_ledger_negative_boundary_not_physical_layout
+    method: b7_precision_aware_rotation_ledger_v0
+    source_ledger: ft_synthesis_ledger_v0
+    source_boundary: gcm_h6_ft_boundary_v0
+    synthesis_cost_model: ross_selinger_style_proxy
+    synthesis_error_allocation: uniform_total_synthesis_error_budget_over_after_arbitrary_numeric_rotations
+    gcm_h6_after_arbitrary_numeric_rotation_count: 270
+    gcm_h6_after_unique_numeric_parameters: 26
+    gcm_h6_after_current_total_t_ledger: 6224
+    gcm_h6_after_fixed_exact_t_ledger: 824
+    gcm_h6_one_sided_target_1_20_max_average_arbitrary_t_cost: 17
+    gcm_h6_one_sided_target_1_25_max_average_arbitrary_t_cost: 16
+    best_tested_precision_budget_total_error: 0.1
+    best_tested_precision_budget_arbitrary_t_cost: 35
+    best_tested_precision_budget_min_stv_reduction: 1.0793157076205289
+    portfolio_precision_budgets_clear_1_20: false
+    gcm_h6_precision_budgets_clear_1_20: false
+    interpretation: precision_aware_synthesis_budget_worsens_the_gcm_h6_boundary_under_this_proxy
+    caveat: precision_budget_proxy_not_certified_synthesis_or_physical_layout_claim
+    result: ../results/B7_precision_aware_rotation_ledger_v0.json
+    markdown_report: ../research/B7_precision_aware_rotation_ledger.md
+  gcm_h6_numeric_rotation_structure_v0:
+    status: gcm_h6_numeric_rotation_structure_negative_boundary_not_physical_layout
+    method: b7_gcm_h6_numeric_rotation_structure_v0
+    source_ledger: ft_synthesis_ledger_v0
+    input_qasm: ../results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/gcm_h6.qasm
+    rewrite_rule: same_axis_numeric_rotation_merge_disjoint_only
+    arbitrary_numeric_rotations_before: 270
+    arbitrary_numeric_rotations_after: 270
+    arbitrary_numeric_rotations_removed: 0
+    logical_t_ledger_before: 6224
+    logical_t_ledger_after: 6224
+    logical_t_ledger_removed: 0
+    proof_events: 172
+    aer_crosscheck_passed: 1
+    aer_crosscheck_failed: 0
+    portfolio_min_space_time_volume_reduction: 1.086007702182285
+    portfolio_clears_1_20: false
+    interpretation: local_same_axis_numeric_rotation_merge_does_not_reduce_gcm_h6_arbitrary_rotations
+    caveat: local_structural_pass_not_nonlocal_phase_polynomial_or_physical_layout_claim
+    result: ../results/B7_gcm_h6_numeric_rotation_structure_v0.json
+    markdown_report: ../research/B7_gcm_h6_numeric_rotation_structure.md
+    proof_log: ../results/b7_gcm_h6_numeric_rotation_structure/proofs.jsonl
+    aer_crosscheck: ../results/b7_gcm_h6_numeric_rotation_structure/aer_crosscheck.json
+  shared_synthesis_cache_boundary_v0:
+    status: shared_synthesis_cache_no_ft_t_ledger_reduction_boundary
+    method: b7_shared_synthesis_cache_boundary_v0
+    source_ledger: ft_synthesis_ledger_v0
+    workload: qasmbench_medium_exact/gcm_h6.qasm
+    after_numeric_occurrences: 270
+    after_unique_numeric_instructions: 26
+    classical_catalog_reduction_factor: 10.384615384615385
+    physical_occurrence_before_t_ledger: 6760
+    physical_occurrence_after_t_ledger: 6224
+    ft_t_ledger_reduction_from_cache: 0
+    physical_occurrence_min_stv_reduction: 1.086007702182285
+    physical_occurrence_clears_1_20: false
+    invalid_after_only_unique_gcm_h6_clears_1_20: true
+    invalid_after_only_unique_all_variant_clears_1_20: false
+    interpretation: shared_synthesis_cache_reduces_classical_template_count_not_physical_ft_rotation_injections
+    caveat: resource_accounting_boundary_not_certified_no_go_theorem_for_all_block_templates
+    result: ../results/B7_shared_synthesis_cache_boundary_v0.json
+    markdown_report: ../research/B7_shared_synthesis_cache_boundary.md
+  nonlocal_template_block_scan_v0:
+    status: nonlocal_template_block_scan_negative_boundary_not_physical_layout
+    method: b7_nonlocal_template_block_scan_v0
+    source_ledger: ft_synthesis_ledger_v0
+    workload: qasmbench_medium_exact/gcm_h6.qasm
+    window_widths: [8, 10, 12, 16, 20, 24, 32, 40, 48, 64]
+    operation_count: 2341
+    candidate_certificate_count: 2633
+    top_template_count: 12
+    best_template_id: w8_21
+    best_template_width: 8
+    best_template_nonoverlap_occurrences: 20
+    best_template_arbitrary_rotations_per_occurrence: 5
+    best_template_physical_arbitrary_occurrences_covered: 100
+    adjacent_inverse_pair_count: 0
+    adjacent_duplicate_pair_count: 0
+    arbitrary_numeric_rotations_removed: 0
+    logical_t_ledger_removed: 0
+    portfolio_min_space_time_volume_reduction: 1.086007702182285
+    first_gcm_h6_1_20_removed_arbitrary_occurrences: 30
+    first_gcm_h6_1_20_removed_t_ledger: 600
+    first_gcm_h6_1_20_after_t_ledger: 5624
+    first_gcm_h6_1_20_gcm_h6_min_stv: 1.2017045454545454
+    all_variant_1_20_by_gcm_h6_only: false
+    interpretation: repeated_nonlocal_templates_exist_but_no_certified_occurrence_removing_rewrite_found
+    caveat: configured_window_scan_not_general_template_synthesis_no_go_theorem
+    result: ../results/B7_nonlocal_template_block_scan_v0.json
+    markdown_report: ../research/B7_nonlocal_template_block_scan.md
+    proof_log: ../results/b7_nonlocal_template_block_scan/proofs.jsonl
+  w8_21_small_block_synthesis_v0:
+    status: w8_21_small_block_synthesis_negative_boundary_not_physical_layout
+    method: b7_w8_21_small_block_synthesis_v0
+    source_template_report: nonlocal_template_block_scan_v0
+    template_id: w8_21
+    template_width: 8
+    template_nonoverlap_occurrences: 20
+    template_unique_binding_count: 14
+    baseline_arbitrary_rotations_per_occurrence: 5
+    baseline_t_cost_per_occurrence: 100
+    template_physical_arbitrary_occurrences_covered: 100
+    template_baseline_t_cost_covered: 2000
+    candidate_family: same_two_cnot_w8_21_skeleton_one_arbitrary_fixed_to_exact_or_clifford
+    candidate_attempt_count: 55
+    seed_count_per_attempt: 16
+    exact_tolerance: 1.0e-8
+    passing_candidate_count: 0
+    best_fixed_parameter: a
+    best_fixed_label: pi/2
+    best_residual_norm: 0.03936333737388844
+    best_max_abs_entry_error: 0.018235495914643154
+    finite_difference_rank: 5
+    rank_supports_five_independent_continuous_degrees: true
+    same_skeleton_one_rotation_exact_replacement_found: false
+    interpretation: same_skeleton_exact_angle_replacement_not_found_for_w8_21
+    caveat: scoped_same_skeleton_numerical_probe_not_global_two_qubit_lower_bound
+    result: ../results/B7_w8_21_small_block_synthesis_v0.json
+    markdown_report: ../research/B7_w8_21_small_block_synthesis.md
+    proof_log: ../results/b7_w8_21_small_block_synthesis/proofs.jsonl
+  w8_21_broad_skeleton_search_v0:
+    status: w8_21_broad_skeleton_search_negative_boundary_not_global_lower_bound
+    method: b7_w8_21_broad_skeleton_search_v0
+    source_template_report: nonlocal_template_block_scan_v0
+    source_small_block_report: w8_21_small_block_synthesis_v0
+    template_id: w8_21
+    candidate_family: two_cnot_four_arbitrary_rz_ry_length6_broad_skeleton
+    total_family_count: 15360
+    family_count: 15360
+    family_selection: exhaustive
+    seed_count_per_family: 2
+    max_nfev_per_seed: 250
+    attempted_optimizer_runs: 30720
+    exact_tolerance: 1.0e-8
+    passing_candidate_count: 0
+    best_family_label: ry_q1-cx01-rz_q1-cx01-rz_q1-ry_q1
+    best_residual_norm: 0.24437773599006635
+    best_max_abs_entry_error: 0.12522813855335146
+    baseline_arbitrary_rotations_per_occurrence: 5
+    candidate_arbitrary_rotations_per_occurrence: 4
+    bounded_four_rotation_two_cnot_search_found_exact_candidate: false
+    interpretation: exhaustive_two_cnot_four_rz_ry_negative_boundary_not_global_lower_bound
+    caveat: bounded_numerical_search_not_kak_complete_no_go_theorem
+    result: ../results/B7_w8_21_broad_skeleton_search_v0.json
+    markdown_report: ../research/B7_w8_21_broad_skeleton_search.md
+    proof_log: ../results/b7_w8_21_broad_skeleton_search/proofs.jsonl
+  w8_21_euler_local_search_v0:
+    status: w8_21_euler_local_search_negative_boundary_not_global_lower_bound
+    method: b7_w8_21_euler_local_search_v0
+    source_template_report: nonlocal_template_block_scan_v0
+    source_broad_skeleton_report: w8_21_broad_skeleton_search_v0
+    template_id: w8_21
+    candidate_family: two_cnot_local_euler_layers_four_arbitrary_target_informed_one_pi_scaffold
+    family_mode: target-informed
+    min_source_free_slots: 3
+    total_family_count: 500
+    family_count: 500
+    family_selection: exhaustive
+    seed_count_per_family: 6
+    max_nfev_per_seed: 900
+    attempted_optimizer_runs: 3000
+    exact_tolerance: 1.0e-8
+    passing_candidate_count: 0
+    best_family_label: cx01-cx01|fixed[mid:q1:rz1=pi]|free[pre:q1:ry,mid:q1:rz0,post:q1:rz0,post:q1:ry]
+    best_residual_norm: 0.24437773599006604
+    best_max_abs_entry_error: 0.1252281345437596
+    baseline_arbitrary_rotations_per_occurrence: 5
+    candidate_arbitrary_rotations_per_occurrence: 4
+    euler_local_four_rotation_search_found_exact_candidate: false
+    global_two_qubit_lower_bound_claimed: false
+    interpretation: target_informed_euler_local_two_cnot_four_arbitrary_negative_boundary_not_global_lower_bound
+    caveat: bounded_target_informed_numerical_search_not_symbolic_kak_or_all_clifford_scaffold_proof
+    result: ../results/B7_w8_21_euler_local_search_v0.json
+    markdown_report: ../research/B7_w8_21_euler_local_search.md
+    proof_log: ../results/b7_w8_21_euler_local_search/proofs.jsonl
+  w8_21_three_cnot_search_v0:
+    status: w8_21_three_cnot_search_negative_boundary_not_global_lower_bound
+    method: b7_w8_21_three_cnot_search_v0
+    source_template_report: nonlocal_template_block_scan_v0
+    source_euler_local_report: w8_21_euler_local_search_v0
+    template_id: w8_21
+    candidate_family: three_cnot_local_euler_layers_four_arbitrary_target_informed_source_pi_scaffold
+    family_mode: target-informed
+    min_source_free_slots: 3
+    total_family_count: 1480
+    family_count: 1480
+    family_selection: exhaustive
+    seed_count_per_family: 6
+    max_nfev_per_seed: 900
+    attempted_optimizer_runs: 8880
+    exact_tolerance: 1.0e-8
+    passing_candidate_count: 0
+    best_family_label: "cx01-cx10-cx10|fixed[mid1:q1:rz1=pi]|free[mid1:q1:rz0,mid1:q1:ry,post:q0:rz0,post:q1:rz0]"
+    best_residual_norm: 1.0352761804100845
+    best_max_abs_entry_error: 0.4895711241454502
+    baseline_cnot_count: 2
+    candidate_cnot_count: 3
+    baseline_arbitrary_rotations_per_occurrence: 5
+    candidate_arbitrary_rotations_per_occurrence: 4
+    three_cnot_four_rotation_search_found_exact_candidate: false
+    global_two_qubit_lower_bound_claimed: false
+    interpretation: target_informed_three_cnot_four_arbitrary_negative_boundary_not_global_lower_bound
+    caveat: bounded_target_informed_numerical_search_not_all_three_cnot_or_clifford_scaffold_proof
+    result: ../results/B7_w8_21_three_cnot_search_v0.json
+    markdown_report: ../research/B7_w8_21_three_cnot_search.md
+    proof_log: ../results/b7_w8_21_three_cnot_search/proofs.jsonl
+  w8_21_scoped_minimality_note_v0:
+    status: scoped_minimality_note_not_global_lower_bound
+    method: b7_w8_21_scoped_minimality_note_v0
+    source_template_report: nonlocal_template_block_scan_v0
+    source_small_block_report: w8_21_small_block_synthesis_v0
+    source_broad_skeleton_report: w8_21_broad_skeleton_search_v0
+    source_euler_local_report: w8_21_euler_local_search_v0
+    source_three_cnot_report: w8_21_three_cnot_search_v0
+    template_id: w8_21
+    total_optimizer_runs_across_searches: 43480
+    exact_rewrite_found: false
+    w8_21_arbitrary_rotations_removed: 0
+    w8_21_proxy_t_ledger_removed: 0
+    global_two_qubit_lower_bound_claimed: false
+    interpretation: repeated_template_found_but_no_certified_occurrence_removing_rewrite_in_tested_families
+    caveat: scoped_numerical_and_rank_evidence_not_symbolic_kak_minimality_theorem
+    markdown_report: ../research/B7_w8_21_scoped_minimality_note.md
+  w8_21_claim_boundary_fragment_v0:
+    status: claim_boundary_fragment_not_minimality_theorem
+    method: b7_w8_21_claim_boundary_fragment_v0
+    source_scoped_minimality_note: w8_21_scoped_minimality_note_v0
+    template_id: w8_21
+    total_optimizer_runs_across_searches: 43480
+    exact_rewrite_found: false
+    w8_21_arbitrary_rotations_removed: 0
+    w8_21_proxy_t_ledger_removed: 0
+    global_minimality_theorem_claimed: false
+    paper_claim: repeated_templates_are_not_physical_savings_without_occurrence_removing_certificates
+    interpretation: t_b7_009_closed_as_claim_boundary_fragment
+    caveat: paper_fragment_not_symbolic_kak_or_global_minimality_theorem
+    markdown_report: ../research/B7_w8_21_claim_boundary_fragment.md
+prototype_artifacts:
+  resource_model: ../tools/b7_fault_tolerance_codesign.py
+  dependency_schedule_bridge: ../tools/b7_dependency_schedule_bridge.py
+  workload_dag_factory_scheduler: ../tools/b7_workload_dag_factory_scheduler.py
+  logical_t_factory_scheduler: ../tools/b7_logical_t_factory_scheduler.py
+  min_stv_regime_classifier: ../tools/b7_min_stv_regime_classifier.py
+  ft_synthesis_ledger: ../tools/b7_ft_synthesis_ledger.py
+  gcm_h6_ft_boundary: ../tools/b7_gcm_h6_ft_boundary.py
+  precision_aware_rotation_ledger: ../tools/b7_precision_aware_rotation_ledger.py
+  gcm_h6_numeric_rotation_structure: ../tools/b7_gcm_h6_numeric_rotation_structure.py
+  shared_synthesis_cache_boundary: ../tools/b7_shared_synthesis_cache_boundary.py
+  nonlocal_template_block_scan: ../tools/b7_nonlocal_template_block_scan.py
+  w8_21_small_block_synthesis: ../tools/b7_w8_21_small_block_synthesis.py
+  w8_21_broad_skeleton_search: ../tools/b7_w8_21_broad_skeleton_search.py
+  w8_21_euler_local_search: ../tools/b7_w8_21_euler_local_search.py
+  w8_21_three_cnot_search: ../tools/b7_w8_21_three_cnot_search.py
+  prototype_notes: ../research/B7_prototype_notes.md

@@ -1,0 +1,321 @@
+{
+  "benchmark_id": "B1",
+  "check": "qiskit_aer_shot_measurement_equivalence_crosscheck",
+  "failed": 0,
+  "max_threshold": 0.2006632151650346,
+  "max_total_variation_distance": 0.046722412109375,
+  "method": "statevector",
+  "pair_count": 30,
+  "passed": 30,
+  "results": [
+    {
+      "combined_support": 64,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/01_trotter_ladder_n6.qasm",
+      "left_support": 64,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/01_trotter_ladder_n6.qasm",
+      "right_support": 64,
+      "threshold": 0.06986778505017908,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 256,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/02_ring_interaction_n8.qasm",
+      "left_support": 256,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/02_ring_interaction_n8.qasm",
+      "right_support": 256,
+      "threshold": 0.11973557010035818,
+      "total_variation_distance": 0.046722412109375
+    },
+    {
+      "combined_support": 30,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/03_qec_syndrome_phase_n7.qasm",
+      "left_support": 28,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/03_qec_syndrome_phase_n7.qasm",
+      "right_support": 30,
+      "threshold": 0.05414213845600248,
+      "total_variation_distance": 0.00775146484375
+    },
+    {
+      "combined_support": 2,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/04_arithmetic_phase_n6.qasm",
+      "left_support": 2,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/04_arithmetic_phase_n6.qasm",
+      "right_support": 2,
+      "threshold": 0.028815462242933694,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 32,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/05_qft_phase_ladder_n5.qasm",
+      "left_support": 32,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/05_qft_phase_ladder_n5.qasm",
+      "right_support": 32,
+      "threshold": 0.055261848971734764,
+      "total_variation_distance": 0.008026123046875
+    },
+    {
+      "combined_support": 272,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/06_long_range_echo_n10.qasm",
+      "left_support": 231,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/06_long_range_echo_n10.qasm",
+      "right_support": 233,
+      "threshold": 0.12280507253874283,
+      "total_variation_distance": 0.016387939453125
+    },
+    {
+      "combined_support": 32,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/07_commuting_disjoint_windows_n8.qasm",
+      "left_support": 32,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/07_commuting_disjoint_windows_n8.qasm",
+      "right_support": 32,
+      "threshold": 0.055261848971734764,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 97,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/08_chemistry_ansatz_n8.qasm",
+      "left_support": 97,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/08_chemistry_ansatz_n8.qasm",
+      "right_support": 97,
+      "threshold": 0.08139259048121843,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 49,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/09_bv_phase_oracle_n9.qasm",
+      "left_support": 44,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/09_bv_phase_oracle_n9.qasm",
+      "right_support": 47,
+      "threshold": 0.0636343119189067,
+      "total_variation_distance": 0.00634765625
+    },
+    {
+      "combined_support": 64,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "left_support": 64,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "right_support": 64,
+      "threshold": 0.06986778505017908,
+      "total_variation_distance": 0.01458740234375
+    },
+    {
+      "combined_support": 16,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/11_stabilizer_mixer_n10.qasm",
+      "left_support": 16,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/11_stabilizer_mixer_n10.qasm",
+      "right_support": 16,
+      "threshold": 0.044933892525089544,
+      "total_variation_distance": 0.008148193359375
+    },
+    {
+      "combined_support": 2,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/b1_exact_extension/12_toffoli_phase_n7.qasm",
+      "left_support": 2,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/b1_exact_extension/12_toffoli_phase_n7.qasm",
+      "right_support": 2,
+      "threshold": 0.028815462242933694,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 1,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "right_support": 1,
+      "threshold": 0.026233473131272386,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 840,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/qasmbench_interaction_exact/ising_n10.qasm",
+      "left_support": 840,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_interaction_exact/ising_n10.qasm",
+      "right_support": 840,
+      "threshold": 0.2006632151650346,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 1,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/qasmbench_medium_exact/bv_n14.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_medium_exact/bv_n14.qasm",
+      "right_support": 1,
+      "threshold": 0.026233473131272386,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 2,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/qasmbench_medium_exact/gcm_h6.qasm",
+      "left_support": 2,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_medium_exact/gcm_h6.qasm",
+      "right_support": 2,
+      "threshold": 0.028815462242933694,
+      "total_variation_distance": 0.00177001953125
+    },
+    {
+      "combined_support": 1,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/qasmbench_medium_exact/multiply_n13.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_medium_exact/multiply_n13.qasm",
+      "right_support": 1,
+      "threshold": 0.026233473131272386,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 8,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/qasmbench_medium_exact/qf21_n15.qasm",
+      "left_support": 8,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_medium_exact/qf21_n15.qasm",
+      "right_support": 8,
+      "threshold": 0.037630924485867384,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 16,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/qasmbench_medium_exact/sat_n11.qasm",
+      "left_support": 16,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_medium_exact/sat_n11.qasm",
+      "right_support": 16,
+      "threshold": 0.044933892525089544,
+      "total_variation_distance": 0.00628662109375
+    },
+    {
+      "combined_support": 4,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/qasmbench_medium_exact/seca_n11.qasm",
+      "left_support": 4,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_medium_exact/seca_n11.qasm",
+      "right_support": 4,
+      "threshold": 0.032466946262544774,
+      "total_variation_distance": 0.003997802734375
+    },
+    {
+      "combined_support": 1,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/adder_n4.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_small/adder_n4.qasm",
+      "right_support": 1,
+      "threshold": 0.026233473131272386,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 1,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/basis_change_n3.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_small/basis_change_n3.qasm",
+      "right_support": 1,
+      "threshold": 0.026233473131272386,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 1,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/basis_test_n4.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_small/basis_test_n4.qasm",
+      "right_support": 1,
+      "threshold": 0.026233473131272386,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 16,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/bell_n4.qasm",
+      "left_support": 16,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_small/bell_n4.qasm",
+      "right_support": 16,
+      "threshold": 0.044933892525089544,
+      "total_variation_distance": 0.005035400390625
+    },
+    {
+      "combined_support": 2,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/cat_state_n4.qasm",
+      "left_support": 2,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_small/cat_state_n4.qasm",
+      "right_support": 2,
+      "threshold": 0.028815462242933694,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 2,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/deutsch_n2.qasm",
+      "left_support": 2,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_small/deutsch_n2.qasm",
+      "right_support": 2,
+      "threshold": 0.028815462242933694,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 16,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/error_correctiond3_n5.qasm",
+      "left_support": 16,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_small/error_correctiond3_n5.qasm",
+      "right_support": 16,
+      "threshold": 0.044933892525089544,
+      "total_variation_distance": 0.007171630859375
+    },
+    {
+      "combined_support": 1,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/fredkin_n3.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_small/fredkin_n3.qasm",
+      "right_support": 1,
+      "threshold": 0.026233473131272386,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 1,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/grover_n2.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_small/grover_n2.qasm",
+      "right_support": 1,
+      "threshold": 0.026233473131272386,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 27,
+      "left": "results/b1_qiskit_line_routing_30_work/00_source/qasmbench_small/hhl_n7.qasm",
+      "left_support": 21,
+      "passed": true,
+      "right": "results/b1_qiskit_line_routing_30_work/qiskit_line_level1/qasmbench_small/hhl_n7.qasm",
+      "right_support": 24,
+      "threshold": 0.0523900765129377,
+      "total_variation_distance": 0.000274658203125
+    }
+  ],
+  "seed": 220626,
+  "shots": 32768,
+  "simulator": "qiskit_aer.AerSimulator",
+  "threshold_model": {
+    "base_tvd": 0.02,
+    "formula": "min(max_tvd, base_tvd + threshold_multiplier * sqrt(combined_support / (pi * shots)))",
+    "max_tvd": 0.35,
+    "threshold_multiplier": 2.0
+  }
+}

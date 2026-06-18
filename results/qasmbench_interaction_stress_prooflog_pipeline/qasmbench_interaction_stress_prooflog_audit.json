@@ -1,0 +1,33 @@
+{
+  "errors": [],
+  "oneq": {
+    "entries": 17157,
+    "path": "results/qasmbench_interaction_stress_prooflog_pipeline/qasmbench_interaction_stress_prooflog_1q_proofs.jsonl",
+    "rules": {
+      "single_qubit_run_to_u3": 17157
+    }
+  },
+  "passed": true,
+  "rzz": [
+    {
+      "entries": 14013,
+      "modes": {
+        "adjacent": 14013
+      },
+      "path": "results/qasmbench_interaction_stress_prooflog_pipeline/qasmbench_interaction_stress_prooflog_rzz_pass_1_proofs.jsonl"
+    },
+    {
+      "entries": 3,
+      "modes": {
+        "commute_disjoint": 3
+      },
+      "path": "results/qasmbench_interaction_stress_prooflog_pipeline/qasmbench_interaction_stress_prooflog_rzz_pass_2_proofs.jsonl"
+    },
+    {
+      "entries": 0,
+      "modes": {},
+      "path": "results/qasmbench_interaction_stress_prooflog_pipeline/qasmbench_interaction_stress_prooflog_rzz_pass_3_proofs.jsonl"
+    }
+  ],
+  "summary": "results/qasmbench_interaction_stress_prooflog_pipeline/qasmbench_interaction_stress_prooflog_summary.json"
+}

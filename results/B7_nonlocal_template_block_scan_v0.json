@@ -1,0 +1,1209 @@
+{
+  "after_ft_resource": {
+    "ccx_count": 0,
+    "direct_t_count": 0,
+    "gate_counts": {
+      "cx": 795,
+      "ry": 480,
+      "rz": 1066
+    },
+    "logical_t_count_ledger": 6224,
+    "logical_t_depth_ledger": 964,
+    "operation_count_scanned": 2341,
+    "path": "results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+    "rotation_component_count": 1546,
+    "rotation_family_counts": {
+      "arbitrary_numeric_rotation": 270,
+      "clifford_rotation": 476,
+      "exact_pi_over_4_rotation": 792,
+      "exact_pi_over_8_rotation": 8
+    },
+    "t_cost_by_family": {
+      "arbitrary_numeric_rotation": 5400,
+      "clifford_rotation": 0,
+      "exact_pi_over_4_rotation": 792,
+      "exact_pi_over_8_rotation": 32
+    }
+  },
+  "arbitrary_numeric_rotations_after": 270,
+  "arbitrary_numeric_rotations_before": 270,
+  "arbitrary_numeric_rotations_removed": 0,
+  "before_ft_resource": {
+    "ccx_count": 0,
+    "direct_t_count": 0,
+    "gate_counts": {
+      "cx": 795,
+      "ry": 480,
+      "rz": 1066
+    },
+    "logical_t_count_ledger": 6224,
+    "logical_t_depth_ledger": 964,
+    "operation_count_scanned": 2341,
+    "path": "results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+    "rotation_component_count": 1546,
+    "rotation_family_counts": {
+      "arbitrary_numeric_rotation": 270,
+      "clifford_rotation": 476,
+      "exact_pi_over_4_rotation": 792,
+      "exact_pi_over_8_rotation": 8
+    },
+    "t_cost_by_family": {
+      "arbitrary_numeric_rotation": 5400,
+      "clifford_rotation": 0,
+      "exact_pi_over_4_rotation": 792,
+      "exact_pi_over_8_rotation": 32
+    }
+  },
+  "benchmark_id": "B7",
+  "best_template": {
+    "arbitrary_rotations_per_occurrence": 5,
+    "first_binding": {
+      "r0": 13,
+      "r1": 14
+    },
+    "first_ops": [
+      "rz(1.4922506383856682) q[13];",
+      "cx q[14],q[13];",
+      "rz(2.1870074319274799) q[13];",
+      "ry(0.52538524712872736) q[13];",
+      "rz(pi) q[13];",
+      "cx q[14],q[13];",
+      "rz(2.538142068316358) q[13];",
+      "ry(1.1254377896453873) q[13];"
+    ],
+    "nonoverlap_occurrences": 20,
+    "operation_occurrences_covered": 160,
+    "physical_arbitrary_occurrences_covered": 100,
+    "raw_occurrences": 20,
+    "selected_line_spans": [
+      [
+        55,
+        62
+      ],
+      [
+        213,
+        220
+      ],
+      [
+        306,
+        313
+      ],
+      [
+        532,
+        539
+      ],
+      [
+        588,
+        595
+      ],
+      [
+        644,
+        651
+      ],
+      [
+        711,
+        718
+      ],
+      [
+        890,
+        897
+      ],
+      [
+        976,
+        983
+      ],
+      [
+        1223,
+        1230
+      ],
+      [
+        1279,
+        1286
+      ],
+      [
+        1335,
+        1342
+      ],
+      [
+        1391,
+        1398
+      ],
+      [
+        1504,
+        1511
+      ],
+      [
+        1673,
+        1680
+      ],
+      [
+        1765,
+        1772
+      ]
+    ],
+    "selected_start_indices": [
+      50,
+      208,
+      301,
+      527,
+      583,
+      639,
+      706,
+      885,
+      971,
+      1218,
+      1274,
+      1330,
+      1386,
+      1499,
+      1668,
+      1760
+    ],
+    "template_id": "w8_21",
+    "unique_binding_count": 14,
+    "width": 8
+  },
+  "cancellation_opportunities": {
+    "adjacent_duplicate_pair_count": 0,
+    "adjacent_duplicate_pairs": [],
+    "adjacent_inverse_pair_count": 0,
+    "adjacent_inverse_pairs": []
+  },
+  "candidate_certificate_count": 2633,
+  "clears_1_20_all_variant_min": false,
+  "clears_1_20_gcm_h6_min": false,
+  "input_qasm": "results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+  "interpretation": "Role-normalized nonlocal templates are abundant, but this scan finds no adjacent inverse or duplicate same-binding block that supports a certified occurrence-removing rewrite. A future positive result must replace a repeated block with a lower-arbitrary-rotation unitary and prove equivalence; macro naming or template reuse alone is not a physical ledger reduction.",
+  "last_updated": "2026-06-15",
+  "limits": [
+    "The scan proves absence only for the configured window widths and adjacent inverse/duplicate criteria.",
+    "Role-normalized repetition is a candidate generator, not by itself a semantics-preserving rewrite.",
+    "No output QASM rewrite is emitted when cancellation_opportunities.adjacent_inverse_pair_count is zero.",
+    "This remains an FT-ledger proxy, not a lattice-surgery layout or calibrated device claim."
+  ],
+  "logical_t_ledger_after": 6224,
+  "logical_t_ledger_before": 6224,
+  "logical_t_ledger_removed": 0,
+  "method": "b7_nonlocal_template_block_scan_v0",
+  "next_actions": [
+    "Target the highest-coverage templates with an actual unitary-synthesis subroutine, not a macro cache.",
+    "Try exact small-block synthesis for the best template bindings and require fewer arbitrary rotations per executed block.",
+    "If synthesis cannot beat the current block, promote this scan into a sharper block-family no-go memo."
+  ],
+  "operation_count": 2341,
+  "output_qasm": "results/b7_nonlocal_template_block_scan/qasmbench_medium_exact/gcm_h6.qasm",
+  "portfolio_retest": {
+    "clears_1_20_all_variant_min": false,
+    "clears_1_20_gcm_h6_min": false,
+    "comparison_count": 18,
+    "gcm_h6_min_factory_variant": "throughput_heavy_factories",
+    "gcm_h6_min_space_time_volume_reduction": 1.086007702182285,
+    "mean_space_time_volume_reduction": 1.253640000721326,
+    "min_factory_variant": "throughput_heavy_factories",
+    "min_space_time_volume_reduction": 1.086007702182285,
+    "min_workload": "qasmbench_medium_exact/gcm_h6.qasm"
+  },
+  "problem_id": 21,
+  "proof_log": "results/b7_nonlocal_template_block_scan/proofs.jsonl",
+  "source_ledger": "results/B7_ft_synthesis_ledger_v0.json",
+  "status": "nonlocal_template_block_scan_negative_boundary_not_physical_layout",
+  "target_sweep": {
+    "first_all_variant_1_20": null,
+    "first_gcm_h6_1_20": {
+      "after_t_ledger": 5624,
+      "clears_1_20_all_variant_min": false,
+      "clears_1_20_gcm_h6_min": true,
+      "gcm_h6_min_space_time_volume_reduction": 1.2017045454545454,
+      "min_space_time_volume_reduction": 1.1218274111675126,
+      "removed_arbitrary_occurrences": 30,
+      "removed_t_ledger": 600
+    },
+    "sampled_rows": [
+      {
+        "after_t_ledger": 6224,
+        "clears_1_20_all_variant_min": false,
+        "clears_1_20_gcm_h6_min": false,
+        "gcm_h6_min_space_time_volume_reduction": 1.086007702182285,
+        "min_space_time_volume_reduction": 1.086007702182285,
+        "removed_arbitrary_occurrences": 0,
+        "removed_t_ledger": 0
+      },
+      {
+        "after_t_ledger": 6204,
+        "clears_1_20_all_variant_min": false,
+        "clears_1_20_gcm_h6_min": false,
+        "gcm_h6_min_space_time_volume_reduction": 1.0888030888030888,
+        "min_space_time_volume_reduction": 1.0888030888030888,
+        "removed_arbitrary_occurrences": 1,
+        "removed_t_ledger": 20
+      },
+      {
+        "after_t_ledger": 6124,
+        "clears_1_20_all_variant_min": false,
+        "clears_1_20_gcm_h6_min": false,
+        "gcm_h6_min_space_time_volume_reduction": 1.1029986962190352,
+        "min_space_time_volume_reduction": 1.1029986962190352,
+        "removed_arbitrary_occurrences": 5,
+        "removed_t_ledger": 100
+      },
+      {
+        "after_t_ledger": 6024,
+        "clears_1_20_all_variant_min": false,
+        "clears_1_20_gcm_h6_min": false,
+        "gcm_h6_min_space_time_volume_reduction": 1.1220159151193634,
+        "min_space_time_volume_reduction": 1.1218274111675126,
+        "removed_arbitrary_occurrences": 10,
+        "removed_t_ledger": 200
+      },
+      {
+        "after_t_ledger": 5824,
+        "clears_1_20_all_variant_min": false,
+        "clears_1_20_gcm_h6_min": false,
+        "gcm_h6_min_space_time_volume_reduction": 1.1604938271604939,
+        "min_space_time_volume_reduction": 1.1218274111675126,
+        "removed_arbitrary_occurrences": 20,
+        "removed_t_ledger": 400
+      },
+      {
+        "after_t_ledger": 5624,
+        "clears_1_20_all_variant_min": false,
+        "clears_1_20_gcm_h6_min": true,
+        "gcm_h6_min_space_time_volume_reduction": 1.2017045454545454,
+        "min_space_time_volume_reduction": 1.1218274111675126,
+        "removed_arbitrary_occurrences": 30,
+        "removed_t_ledger": 600
+      },
+      {
+        "after_t_ledger": 5424,
+        "clears_1_20_all_variant_min": false,
+        "clears_1_20_gcm_h6_min": true,
+        "gcm_h6_min_space_time_volume_reduction": 1.2459499263622975,
+        "min_space_time_volume_reduction": 1.1218274111675126,
+        "removed_arbitrary_occurrences": 40,
+        "removed_t_ledger": 800
+      },
+      {
+        "after_t_ledger": 5224,
+        "clears_1_20_all_variant_min": false,
+        "clears_1_20_gcm_h6_min": true,
+        "gcm_h6_min_space_time_volume_reduction": 1.2935779816513762,
+        "min_space_time_volume_reduction": 1.1218274111675126,
+        "removed_arbitrary_occurrences": 50,
+        "removed_t_ledger": 1000
+      }
+    ]
+  },
+  "title": "B7 nonlocal template block scan for gcm_h6",
+  "top_template_count": 12,
+  "top_templates": [
+    {
+      "arbitrary_rotations_per_occurrence": 5,
+      "first_binding": {
+        "r0": 13,
+        "r1": 14
+      },
+      "first_ops": [
+        "rz(1.4922506383856682) q[13];",
+        "cx q[14],q[13];",
+        "rz(2.1870074319274799) q[13];",
+        "ry(0.52538524712872736) q[13];",
+        "rz(pi) q[13];",
+        "cx q[14],q[13];",
+        "rz(2.538142068316358) q[13];",
+        "ry(1.1254377896453873) q[13];"
+      ],
+      "nonoverlap_occurrences": 20,
+      "operation_occurrences_covered": 160,
+      "physical_arbitrary_occurrences_covered": 100,
+      "raw_occurrences": 20,
+      "selected_line_spans": [
+        [
+          55,
+          62
+        ],
+        [
+          213,
+          220
+        ],
+        [
+          306,
+          313
+        ],
+        [
+          532,
+          539
+        ],
+        [
+          588,
+          595
+        ],
+        [
+          644,
+          651
+        ],
+        [
+          711,
+          718
+        ],
+        [
+          890,
+          897
+        ],
+        [
+          976,
+          983
+        ],
+        [
+          1223,
+          1230
+        ],
+        [
+          1279,
+          1286
+        ],
+        [
+          1335,
+          1342
+        ],
+        [
+          1391,
+          1398
+        ],
+        [
+          1504,
+          1511
+        ],
+        [
+          1673,
+          1680
+        ],
+        [
+          1765,
+          1772
+        ]
+      ],
+      "selected_start_indices": [
+        50,
+        208,
+        301,
+        527,
+        583,
+        639,
+        706,
+        885,
+        971,
+        1218,
+        1274,
+        1330,
+        1386,
+        1499,
+        1668,
+        1760
+      ],
+      "template_id": "w8_21",
+      "unique_binding_count": 14,
+      "width": 8
+    },
+    {
+      "arbitrary_rotations_per_occurrence": 10,
+      "first_binding": {
+        "r0": 13,
+        "r1": 1,
+        "r2": 14
+      },
+      "first_ops": [
+        "rz(0.36485735178627726) q[13];",
+        "cx q[1],q[13];",
+        "rz(-pi/4) q[13];",
+        "cx q[14],q[13];",
+        "rz(pi/4) q[13];",
+        "cx q[1],q[13];",
+        "rz(-pi/4) q[13];",
+        "cx q[14],q[13];",
+        "rz(-3*pi/4) q[13];",
+        "ry(pi/2) q[13];",
+        "rz(3*pi/4) q[1];",
+        "cx q[14],q[1];"
+      ],
+      "nonoverlap_occurrences": 7,
+      "operation_occurrences_covered": 448,
+      "physical_arbitrary_occurrences_covered": 70,
+      "raw_occurrences": 7,
+      "selected_line_spans": [
+        [
+          34,
+          97
+        ],
+        [
+          192,
+          255
+        ],
+        [
+          285,
+          348
+        ],
+        [
+          869,
+          932
+        ],
+        [
+          955,
+          1018
+        ],
+        [
+          1483,
+          1546
+        ],
+        [
+          1652,
+          1715
+        ]
+      ],
+      "selected_start_indices": [
+        29,
+        187,
+        280,
+        864,
+        950,
+        1478,
+        1647
+      ],
+      "template_id": "w64_2396",
+      "unique_binding_count": 7,
+      "width": 64
+    },
+    {
+      "arbitrary_rotations_per_occurrence": 7,
+      "first_binding": {
+        "r0": 10,
+        "r1": 16,
+        "r2": 14
+      },
+      "first_ops": [
+        "rz(1.4922506383856682) q[10];",
+        "cx q[16],q[10];",
+        "rz(2.1870074319274799) q[10];",
+        "ry(0.52538524712872736) q[10];",
+        "rz(pi) q[10];",
+        "cx q[16],q[10];",
+        "rz(2.538142068316358) q[10];",
+        "ry(1.1254377896453873) q[10];",
+        "rz(3*pi/4) q[14];",
+        "cx q[16],q[14];",
+        "rz(-3*pi/4) q[14];",
+        "ry(pi/4) q[14];"
+      ],
+      "nonoverlap_occurrences": 10,
+      "operation_occurrences_covered": 320,
+      "physical_arbitrary_occurrences_covered": 70,
+      "raw_occurrences": 10,
+      "selected_line_spans": [
+        [
+          532,
+          563
+        ],
+        [
+          588,
+          619
+        ],
+        [
+          644,
+          675
+        ],
+        [
+          1223,
+          1254
+        ],
+        [
+          1279,
+          1310
+        ],
+        [
+          1335,
+          1366
+        ],
+        [
+          1391,
+          1422
+        ],
+        [
+          1836,
+          1867
+        ],
+        [
+          2133,
+          2164
+        ],
+        [
+          2189,
+          2220
+        ]
+      ],
+      "selected_start_indices": [
+        527,
+        583,
+        639,
+        1218,
+        1274,
+        1330,
+        1386,
+        1831,
+        2128,
+        2184
+      ],
+      "template_id": "w32_1701",
+      "unique_binding_count": 10,
+      "width": 32
+    },
+    {
+      "arbitrary_rotations_per_occurrence": 6,
+      "first_binding": {
+        "r0": 10,
+        "r1": 16,
+        "r2": 14
+      },
+      "first_ops": [
+        "rz(1.4922506383856682) q[10];",
+        "cx q[16],q[10];",
+        "rz(2.1870074319274799) q[10];",
+        "ry(0.52538524712872736) q[10];",
+        "rz(pi) q[10];",
+        "cx q[16],q[10];",
+        "rz(2.538142068316358) q[10];",
+        "ry(1.1254377896453873) q[10];",
+        "rz(3*pi/4) q[14];",
+        "cx q[16],q[14];",
+        "rz(-3*pi/4) q[14];",
+        "ry(pi/4) q[14];"
+      ],
+      "nonoverlap_occurrences": 11,
+      "operation_occurrences_covered": 176,
+      "physical_arbitrary_occurrences_covered": 66,
+      "raw_occurrences": 11,
+      "selected_line_spans": [
+        [
+          532,
+          547
+        ],
+        [
+          588,
+          603
+        ],
+        [
+          644,
+          659
+        ],
+        [
+          711,
+          726
+        ],
+        [
+          1223,
+          1238
+        ],
+        [
+          1279,
+          1294
+        ],
+        [
+          1335,
+          1350
+        ],
+        [
+          1391,
+          1406
+        ],
+        [
+          1836,
+          1851
+        ],
+        [
+          2133,
+          2148
+        ],
+        [
+          2189,
+          2204
+        ]
+      ],
+      "selected_start_indices": [
+        527,
+        583,
+        639,
+        706,
+        1218,
+        1274,
+        1330,
+        1386,
+        1831,
+        2128,
+        2184
+      ],
+      "template_id": "w16_790",
+      "unique_binding_count": 11,
+      "width": 16
+    },
+    {
+      "arbitrary_rotations_per_occurrence": 8,
+      "first_binding": {
+        "r0": 2,
+        "r1": 10,
+        "r2": 16
+      },
+      "first_ops": [
+        "rz(0.36485735178627726) q[2];",
+        "cx q[10],q[2];",
+        "rz(-pi/4) q[2];",
+        "cx q[16],q[2];",
+        "rz(pi/4) q[2];",
+        "cx q[10],q[2];",
+        "rz(-pi/4) q[2];",
+        "cx q[16],q[2];",
+        "rz(-3*pi/4) q[2];",
+        "ry(pi/2) q[2];",
+        "rz(3*pi/4) q[10];",
+        "cx q[16],q[10];"
+      ],
+      "nonoverlap_occurrences": 8,
+      "operation_occurrences_covered": 384,
+      "physical_arbitrary_occurrences_covered": 64,
+      "raw_occurrences": 8,
+      "selected_line_spans": [
+        [
+          574,
+          621
+        ],
+        [
+          630,
+          677
+        ],
+        [
+          1265,
+          1312
+        ],
+        [
+          1321,
+          1368
+        ],
+        [
+          1377,
+          1424
+        ],
+        [
+          1822,
+          1869
+        ],
+        [
+          2119,
+          2166
+        ],
+        [
+          2175,
+          2222
+        ]
+      ],
+      "selected_start_indices": [
+        569,
+        625,
+        1260,
+        1316,
+        1372,
+        1817,
+        2114,
+        2170
+      ],
+      "template_id": "w48_2317",
+      "unique_binding_count": 8,
+      "width": 48
+    },
+    {
+      "arbitrary_rotations_per_occurrence": 9,
+      "first_binding": {
+        "r0": 14,
+        "r1": 13,
+        "r2": 1
+      },
+      "first_ops": [
+        "cx q[14],q[13];",
+        "rz(-pi/4) q[13];",
+        "ry(0.36485735178627743) q[13];",
+        "rz(pi) q[13];",
+        "cx q[14],q[13];",
+        "rz(pi/2) q[13];",
+        "ry(pi/2) q[13];",
+        "rz(0.36485735178627726) q[13];",
+        "cx q[1],q[13];",
+        "rz(-pi/4) q[13];",
+        "cx q[14],q[13];",
+        "rz(pi/4) q[13];"
+      ],
+      "nonoverlap_occurrences": 7,
+      "operation_occurrences_covered": 448,
+      "physical_arbitrary_occurrences_covered": 63,
+      "raw_occurrences": 7,
+      "selected_line_spans": [
+        [
+          27,
+          90
+        ],
+        [
+          185,
+          248
+        ],
+        [
+          278,
+          341
+        ],
+        [
+          862,
+          925
+        ],
+        [
+          948,
+          1011
+        ],
+        [
+          1476,
+          1539
+        ],
+        [
+          1645,
+          1708
+        ]
+      ],
+      "selected_start_indices": [
+        22,
+        180,
+        273,
+        857,
+        943,
+        1471,
+        1640
+      ],
+      "template_id": "w64_2389",
+      "unique_binding_count": 7,
+      "width": 64
+    },
+    {
+      "arbitrary_rotations_per_occurrence": 9,
+      "first_binding": {
+        "r0": 13,
+        "r1": 14,
+        "r2": 1
+      },
+      "first_ops": [
+        "rz(-pi/4) q[13];",
+        "ry(0.36485735178627743) q[13];",
+        "rz(pi) q[13];",
+        "cx q[14],q[13];",
+        "rz(pi/2) q[13];",
+        "ry(pi/2) q[13];",
+        "rz(0.36485735178627726) q[13];",
+        "cx q[1],q[13];",
+        "rz(-pi/4) q[13];",
+        "cx q[14],q[13];",
+        "rz(pi/4) q[13];",
+        "cx q[1],q[13];"
+      ],
+      "nonoverlap_occurrences": 7,
+      "operation_occurrences_covered": 448,
+      "physical_arbitrary_occurrences_covered": 63,
+      "raw_occurrences": 7,
+      "selected_line_spans": [
+        [
+          28,
+          91
+        ],
+        [
+          186,
+          249
+        ],
+        [
+          279,
+          342
+        ],
+        [
+          863,
+          926
+        ],
+        [
+          949,
+          1012
+        ],
+        [
+          1477,
+          1540
+        ],
+        [
+          1646,
+          1709
+        ]
+      ],
+      "selected_start_indices": [
+        23,
+        181,
+        274,
+        858,
+        944,
+        1472,
+        1641
+      ],
+      "template_id": "w64_2390",
+      "unique_binding_count": 7,
+      "width": 64
+    },
+    {
+      "arbitrary_rotations_per_occurrence": 9,
+      "first_binding": {
+        "r0": 13,
+        "r1": 14,
+        "r2": 1
+      },
+      "first_ops": [
+        "ry(0.36485735178627743) q[13];",
+        "rz(pi) q[13];",
+        "cx q[14],q[13];",
+        "rz(pi/2) q[13];",
+        "ry(pi/2) q[13];",
+        "rz(0.36485735178627726) q[13];",
+        "cx q[1],q[13];",
+        "rz(-pi/4) q[13];",
+        "cx q[14],q[13];",
+        "rz(pi/4) q[13];",
+        "cx q[1],q[13];",
+        "rz(-pi/4) q[13];"
+      ],
+      "nonoverlap_occurrences": 7,
+      "operation_occurrences_covered": 448,
+      "physical_arbitrary_occurrences_covered": 63,
+      "raw_occurrences": 7,
+      "selected_line_spans": [
+        [
+          29,
+          92
+        ],
+        [
+          187,
+          250
+        ],
+        [
+          280,
+          343
+        ],
+        [
+          864,
+          927
+        ],
+        [
+          950,
+          1013
+        ],
+        [
+          1478,
+          1541
+        ],
+        [
+          1647,
+          1710
+        ]
+      ],
+      "selected_start_indices": [
+        24,
+        182,
+        275,
+        859,
+        945,
+        1473,
+        1642
+      ],
+      "template_id": "w64_2391",
+      "unique_binding_count": 7,
+      "width": 64
+    },
+    {
+      "arbitrary_rotations_per_occurrence": 9,
+      "first_binding": {
+        "r0": 14,
+        "r1": 13,
+        "r2": 1
+      },
+      "first_ops": [
+        "cx q[14],q[13];",
+        "rz(pi/2) q[13];",
+        "ry(pi/2) q[13];",
+        "rz(0.36485735178627726) q[13];",
+        "cx q[1],q[13];",
+        "rz(-pi/4) q[13];",
+        "cx q[14],q[13];",
+        "rz(pi/4) q[13];",
+        "cx q[1],q[13];",
+        "rz(-pi/4) q[13];",
+        "cx q[14],q[13];",
+        "rz(-3*pi/4) q[13];"
+      ],
+      "nonoverlap_occurrences": 7,
+      "operation_occurrences_covered": 448,
+      "physical_arbitrary_occurrences_covered": 63,
+      "raw_occurrences": 7,
+      "selected_line_spans": [
+        [
+          31,
+          94
+        ],
+        [
+          189,
+          252
+        ],
+        [
+          282,
+          345
+        ],
+        [
+          866,
+          929
+        ],
+        [
+          952,
+          1015
+        ],
+        [
+          1480,
+          1543
+        ],
+        [
+          1649,
+          1712
+        ]
+      ],
+      "selected_start_indices": [
+        26,
+        184,
+        277,
+        861,
+        947,
+        1475,
+        1644
+      ],
+      "template_id": "w64_2393",
+      "unique_binding_count": 7,
+      "width": 64
+    },
+    {
+      "arbitrary_rotations_per_occurrence": 9,
+      "first_binding": {
+        "r0": 13,
+        "r1": 1,
+        "r2": 14
+      },
+      "first_ops": [
+        "rz(pi/2) q[13];",
+        "ry(pi/2) q[13];",
+        "rz(0.36485735178627726) q[13];",
+        "cx q[1],q[13];",
+        "rz(-pi/4) q[13];",
+        "cx q[14],q[13];",
+        "rz(pi/4) q[13];",
+        "cx q[1],q[13];",
+        "rz(-pi/4) q[13];",
+        "cx q[14],q[13];",
+        "rz(-3*pi/4) q[13];",
+        "ry(pi/2) q[13];"
+      ],
+      "nonoverlap_occurrences": 7,
+      "operation_occurrences_covered": 448,
+      "physical_arbitrary_occurrences_covered": 63,
+      "raw_occurrences": 7,
+      "selected_line_spans": [
+        [
+          32,
+          95
+        ],
+        [
+          190,
+          253
+        ],
+        [
+          283,
+          346
+        ],
+        [
+          867,
+          930
+        ],
+        [
+          953,
+          1016
+        ],
+        [
+          1481,
+          1544
+        ],
+        [
+          1650,
+          1713
+        ]
+      ],
+      "selected_start_indices": [
+        27,
+        185,
+        278,
+        862,
+        948,
+        1476,
+        1645
+      ],
+      "template_id": "w64_2394",
+      "unique_binding_count": 7,
+      "width": 64
+    },
+    {
+      "arbitrary_rotations_per_occurrence": 9,
+      "first_binding": {
+        "r0": 13,
+        "r1": 1,
+        "r2": 14
+      },
+      "first_ops": [
+        "ry(pi/2) q[13];",
+        "rz(0.36485735178627726) q[13];",
+        "cx q[1],q[13];",
+        "rz(-pi/4) q[13];",
+        "cx q[14],q[13];",
+        "rz(pi/4) q[13];",
+        "cx q[1],q[13];",
+        "rz(-pi/4) q[13];",
+        "cx q[14],q[13];",
+        "rz(-3*pi/4) q[13];",
+        "ry(pi/2) q[13];",
+        "rz(3*pi/4) q[1];"
+      ],
+      "nonoverlap_occurrences": 7,
+      "operation_occurrences_covered": 448,
+      "physical_arbitrary_occurrences_covered": 63,
+      "raw_occurrences": 7,
+      "selected_line_spans": [
+        [
+          33,
+          96
+        ],
+        [
+          191,
+          254
+        ],
+        [
+          284,
+          347
+        ],
+        [
+          868,
+          931
+        ],
+        [
+          954,
+          1017
+        ],
+        [
+          1482,
+          1545
+        ],
+        [
+          1651,
+          1714
+        ]
+      ],
+      "selected_start_indices": [
+        28,
+        186,
+        279,
+        863,
+        949,
+        1477,
+        1646
+      ],
+      "template_id": "w64_2395",
+      "unique_binding_count": 7,
+      "width": 64
+    },
+    {
+      "arbitrary_rotations_per_occurrence": 9,
+      "first_binding": {
+        "r0": 1,
+        "r1": 13,
+        "r2": 14
+      },
+      "first_ops": [
+        "cx q[1],q[13];",
+        "rz(-pi/4) q[13];",
+        "cx q[14],q[13];",
+        "rz(pi/4) q[13];",
+        "cx q[1],q[13];",
+        "rz(-pi/4) q[13];",
+        "cx q[14],q[13];",
+        "rz(-3*pi/4) q[13];",
+        "ry(pi/2) q[13];",
+        "rz(3*pi/4) q[1];",
+        "cx q[14],q[1];",
+        "rz(-pi/4) q[1];"
+      ],
+      "nonoverlap_occurrences": 7,
+      "operation_occurrences_covered": 448,
+      "physical_arbitrary_occurrences_covered": 63,
+      "raw_occurrences": 7,
+      "selected_line_spans": [
+        [
+          35,
+          98
+        ],
+        [
+          193,
+          256
+        ],
+        [
+          286,
+          349
+        ],
+        [
+          870,
+          933
+        ],
+        [
+          956,
+          1019
+        ],
+        [
+          1484,
+          1547
+        ],
+        [
+          1653,
+          1716
+        ]
+      ],
+      "selected_start_indices": [
+        30,
+        188,
+        281,
+        865,
+        951,
+        1479,
+        1648
+      ],
+      "template_id": "w64_2397",
+      "unique_binding_count": 7,
+      "width": 64
+    }
+  ],
+  "version": "0.1",
+  "window_widths": [
+    8,
+    10,
+    12,
+    16,
+    20,
+    24,
+    32,
+    40,
+    48,
+    64
+  ]
+}

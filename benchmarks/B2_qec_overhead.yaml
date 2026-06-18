@@ -1,0 +1,271 @@
+id: B2
+problem_id: 22
+name: Low-Overhead Quantum Error Correction
+version: 0.1
+status: draft
+claim: >
+  A searched code family plus decoder can lower logical error per physical
+  qubit or reduce qubit-time overhead against a surface-code baseline under at
+  least one realistic noise regime.
+input_families:
+  - surface_code_memory
+  - repetition_code_control
+  - color_code_control
+  - candidate_quantum_ldpc_graphs
+  - candidate_subsystem_code_graphs
+  - hardware_constrained_syndrome_schedules
+simulation_tools:
+  - name: Stim
+    url: https://github.com/quantumlib/Stim
+  - name: matching_decoder_baseline
+  - name: learned_decoder_optional
+noise_models:
+  - depolarizing_circuit_level
+  - biased_dephasing
+  - measurement_error
+  - leakage_proxy
+  - correlated_two_qubit_stress_test
+metrics:
+  - logical_error_rate_per_round
+  - threshold_estimate
+  - threshold_confidence_interval
+  - space_time_volume_per_target_logical_error
+  - decoder_runtime_per_shot
+  - noise_mismatch_robustness
+acceptance_threshold:
+  space_time_overhead_improvement: ">=25%"
+  comparison_baseline: tuned_surface_code
+  confidence_intervals_required: true
+  reproducible_seeds_required: true
+failure_conditions:
+  - decoder_only_improves_on_training_noise
+  - impractical_measurement_schedule_or_connectivity
+  - decoder_runtime_scales_too_poorly
+next_actions:
+  - build_surface_code_memory_baseline
+  - choose_matching_decoder
+  - generate_initial_candidate_graphs
+  - define_noise_sweep_grid
+current_results:
+  repetition_code_memory_majority_baseline_v0:
+    status: control_baseline
+    distances: [3, 5, 7, 9, 11]
+    physical_error_rates: [0.001, 0.003, 0.005, 0.01, 0.02, 0.05, 0.1, 0.15]
+    shots_per_configuration: 20000
+    seed: 220626
+    configurations: 40
+    decoder: majority_vote
+    exact_logical_error_at_p_0_1:
+      d3: 2.800e-2
+      d5: 8.560e-3
+      d7: 2.728e-3
+      d9: 8.909e-4
+      d11: 2.957e-4
+    result: ../results/B2_repetition_code_memory_baseline_v0.json
+  repetition_code_target_volume_v0:
+    status: control_baseline_metric_layer
+    source: repetition_code_memory_majority_baseline_v0
+    target_logical_errors: [1.0e-2, 1.0e-3, 1.0e-4, 1.0e-5]
+    physical_error_rates: [0.001, 0.003, 0.005, 0.01, 0.02, 0.05, 0.1, 0.15]
+    target_combinations: 32
+    met_count: 27
+    unmet_count: 5
+    result: ../results/B2_repetition_code_target_volume_v0.json
+  surface_code_threshold_law_estimate_v0:
+    status: rough_analytic_estimate_not_circuit_level_simulation
+    threshold: 0.01
+    prefactor: 0.1
+    distances: [3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25]
+    physical_error_rates: [0.001, 0.003, 0.005, 0.007, 0.009]
+    target_logical_errors: [1.0e-2, 1.0e-3, 1.0e-4, 1.0e-5]
+    target_combinations: 20
+    met_count: 13
+    unmet_count: 7
+    physical_qubit_model: rotated_surface_code_data_plus_ancilla_proxy_2d2_minus_1
+    result: ../results/B2_surface_code_threshold_estimate_v0.json
+  phenomenological_repetition_decoder_v0:
+    status: phenomenological_decoder_fallback_not_surface_code_claim
+    code_family: phenomenological_repetition_memory
+    decoder: minimum_weight_syndrome_viterbi
+    comparison_decoder: final_majority_without_syndrome_history
+    distances: [3, 5, 7]
+    rounds: distance
+    data_error_rates: [0.003, 0.005, 0.01, 0.02]
+    measurement_error_ratio: 1.0
+    shots_per_configuration: 1000
+    seed: 220626
+    configurations: 12
+    improved_configurations: 2
+    best_relative_reduction_vs_majority: "85.71%"
+    max_decoder_runtime_seconds_per_shot: 1.02e-4
+    result: ../results/B2_phenomenological_repetition_decoder_v0.json
+    markdown_report: ../research/B2_phenomenological_repetition_decoder.md
+  stim_surface_code_memory_baseline_v0:
+    status: stim_pymatching_surface_code_memory_baseline
+    code_family: rotated_surface_code_memory
+    generator: Stim surface_code:rotated_memory_x/z
+    decoder: PyMatching detector_error_model decoder
+    distances: [3, 5, 7]
+    rounds: distance
+    memory_bases: [x, z]
+    physical_error_rates: [0.001, 0.003, 0.005, 0.007, 0.01]
+    shots_per_configuration: 3000
+    seed: 220627
+    configurations: 30
+    total_shots: 90000
+    nonincreasing_distance_trend_checks: 4
+    distance_trend_checks: 10
+    max_decoder_runtime_seconds_per_shot: 1.47e-5
+    caveat: baseline_not_new_code_claim_small_sweep_not_threshold_claim_not_calibrated_device_model
+    result: ../results/B2_stim_surface_code_memory_baseline_v0.json
+    markdown_report: ../research/B2_stim_surface_code_memory_baseline.md
+  stim_surface_code_target_volume_v0:
+    status: stim_surface_code_target_volume_baseline
+    source: stim_surface_code_memory_baseline_v0
+    criterion: wilson_95_high
+    target_logical_errors: [0.1, 0.05, 0.01, 0.001]
+    memory_bases: [x, z]
+    physical_error_rates: [0.001, 0.003, 0.005, 0.007, 0.01]
+    target_combinations: 40
+    met_count: 22
+    unmet_count: 18
+    caveat: wilson_upper_bound_conservative_small_distance_sweep_not_threshold_claim
+    result: ../results/B2_stim_surface_code_target_volume_v0.json
+    markdown_report: ../research/B2_stim_surface_code_target_volume.md
+  biased_schedule_target_volume_proxy_v0:
+    status: biased_schedule_proxy_not_new_code_claim
+    method: biased_schedule_target_volume_proxy_v0
+    source: stim_surface_code_target_volume_v0
+    criterion: wilson_95_high
+    candidate_variants:
+      - balanced_bias_aligned_schedule
+      - x_memory_bias_aligned_schedule
+      - z_memory_bias_aligned_schedule
+    target_combinations: 40
+    baseline_met_count: 22
+    candidate_met_count: 28
+    candidate_only_meets_target_count: 6
+    improved_volume_count: 0
+    interpretation: candidate_closes_six_wilson_target_gaps_but_does_not_reduce_volume_where_baseline_already_meets_target
+    caveat: parameterized_proxy_not_circuit_level_biased_noise_simulation_or_new_code_claim
+    result: ../results/B2_biased_schedule_proxy_v0.json
+    markdown_report: ../research/B2_biased_schedule_proxy.md
+  stim_biased_schedule_circuit_sweep_v0:
+    status: stim_biased_schedule_circuit_sweep_not_new_code_claim
+    method: stim_biased_schedule_circuit_level_noise_sweep_v0
+    source: stim_surface_code_target_volume_v0
+    criterion: wilson_95_high
+    candidate_variants:
+      - measurement_reset_hardened_schedule
+      - data_memory_hardened_schedule
+      - clifford_gate_hardened_schedule
+    distances: [3, 5, 7]
+    rounds: distance
+    memory_bases: [x, z]
+    physical_error_rates: [0.001, 0.003, 0.005, 0.007, 0.01]
+    shots_per_configuration: 3000
+    configurations: 90
+    total_shots: 270000
+    target_combinations: 40
+    baseline_met_count: 22
+    candidate_met_count: 26
+    candidate_only_meets_target_count: 4
+    improved_volume_count: 0
+    interpretation: real_stim_sweep_finds_clifford_gate_noise_hardening_closes_four_wilson_target_gaps_but_no_volume_reduction
+    caveat: circuit_level_noise_parameter_sweep_not_new_code_or_same_hardware_claim
+    result: ../results/B2_stim_biased_schedule_sweep_v0.json
+    markdown_report: ../research/B2_stim_biased_schedule_sweep.md
+  same_hardware_schedule_candidate_v0:
+    status: same_hardware_schedule_candidate_volume_positive_diagnostic_not_new_code_claim
+    method: b2_same_hardware_schedule_candidate_v0
+    source: stim_surface_code_target_volume_v0
+    criterion: wilson_95_high
+    candidate_variants:
+      - round_reduced_baseline_noise
+      - round_reduced_clifford_hardened
+      - round_reduced_all_ops_hardened
+      - aggressive_round_reduced_all_ops_hardened
+    distances: [3, 5, 7]
+    rounds: reduced_syndrome_rounds_same_distance
+    memory_bases: [x, z]
+    physical_error_rates: [0.001, 0.003, 0.005, 0.007, 0.01]
+    shots_per_configuration: 3000
+    configurations: 120
+    total_shots: 360000
+    target_combinations: 40
+    baseline_met_count: 22
+    candidate_met_count: 30
+    candidate_only_meets_target_count: 8
+    improved_volume_count: 22
+    max_volume_reduction: 3.0
+    mean_volume_reduction_on_improved: 3.0
+    same_hardware_contract: same_code_family_distance_basis_physical_qubits_shots_decoder
+    interpretation: reduced_round_same_hardware_schedule_candidate_produces_wilson_target_volume_positive_diagnostic
+    caveat: schedule_level_diagnostic_not_new_code_threshold_or_calibrated_device_claim
+    result: ../results/B2_same_hardware_schedule_candidate_v0.json
+    markdown_report: ../research/B2_same_hardware_schedule_candidate.md
+  same_hardware_schedule_robustness_v0:
+    status: same_hardware_schedule_robustness_boundary_aggressive_only_or_negative
+    method: b2_same_hardware_schedule_robustness_v0
+    source: same_hardware_schedule_candidate_v0
+    criterion: wilson_95_high
+    stress_profiles:
+      - higher_shot_reseed
+      - mild_noise_mismatch_0p60
+      - moderate_noise_mismatch_0p75
+      - clifford_only_mechanism
+    base_variants:
+      - round_reduced_all_ops_hardened
+      - aggressive_round_reduced_all_ops_hardened
+    distances: [3, 5, 7]
+    memory_bases: [x, z]
+    physical_error_rates: [0.001, 0.003, 0.005, 0.007, 0.01]
+    shots_per_configuration: 5000
+    configurations: 240
+    total_shots: 1200000
+    target_comparisons: 160
+    total_improved_volume_rows: 88
+    total_non_aggressive_improved_volume_rows: 0
+    total_aggressive_improved_volume_rows: 88
+    robust_non_aggressive_volume_improvement_found: false
+    any_aggressive_volume_improvement_under_stress: true
+    positive_signal_depends_on_aggressive_schedule: true
+    max_decoder_runtime_seconds_per_shot: 6.441541599633638e-06
+    interpretation: higher_shot_and_noise_mismatch_stress_preserves_only_aggressive_d_minus_4_volume_signal
+    caveat: finite_shot_synthetic_stress_not_new_code_threshold_or_calibrated_device_claim
+    result: ../results/B2_same_hardware_schedule_robustness_v0.json
+    markdown_report: ../research/B2_same_hardware_schedule_robustness.md
+  reduced_round_artifact_boundary_v0:
+    status: reduced_round_small_distance_aggressive_artifact_boundary
+    method: b2_reduced_round_artifact_boundary_v0
+    source: same_hardware_schedule_robustness_v0
+    criterion: wilson_95_high
+    candidate_improved_volume_count: 22
+    robustness_improved_volume_count: 88
+    robustness_non_aggressive_improved_volume_count: 0
+    all_robustness_improvements_aggressive: true
+    all_robustness_improvements_distance_3: true
+    all_robustness_improvements_one_round: true
+    non_aggressive_mechanism_survives: false
+    small_distance_artifact_flag: true
+    aggressive_schedule_dependency_flag: true
+    new_code_claimed: false
+    threshold_claimed: false
+    calibrated_device_claimed: false
+    interpretation: reduced_round_signal_closed_as_small_distance_aggressive_schedule_artifact_boundary
+    caveat: boundary_note_not_new_code_threshold_or_calibrated_device_claim
+    result: ../results/B2_reduced_round_artifact_boundary_v0.json
+    markdown_report: ../research/B2_reduced_round_artifact_boundary.md
+prototype_artifacts:
+  baseline_runner: ../tools/b2_repetition_code_baseline.py
+  target_volume_estimator: ../tools/b2_target_volume.py
+  surface_code_threshold_estimator: ../tools/b2_surface_code_threshold_estimator.py
+  phenomenological_repetition_decoder: ../tools/b2_phenomenological_repetition_decoder.py
+  stim_surface_code_baseline: ../tools/b2_stim_surface_code_baseline.py
+  stim_surface_code_target_volume: ../tools/b2_stim_surface_code_target_volume.py
+  biased_schedule_proxy: ../tools/b2_biased_schedule_proxy.py
+  stim_biased_schedule_sweep: ../tools/b2_stim_biased_schedule_sweep.py
+  same_hardware_schedule_candidate: ../tools/b2_same_hardware_schedule_candidate.py
+  same_hardware_schedule_robustness: ../tools/b2_same_hardware_schedule_robustness.py
+  reduced_round_artifact_boundary: ../tools/b2_reduced_round_artifact_boundary.py
+  prototype_notes: ../research/B2_prototype_notes.md

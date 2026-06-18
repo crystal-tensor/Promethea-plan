@@ -1,0 +1,79 @@
+id: B6
+problem_id: 37
+name: High-Temperature Superconductivity Search
+version: 0.1
+status: draft
+claim: >
+  Quantum-simulation-derived descriptors can improve candidate ranking for
+  strongly correlated superconductors before expensive synthesis or
+  high-fidelity simulation.
+candidate_families:
+  - cuprate_like
+  - iron_pnictide_like
+  - hydride_like
+  - nickelate_like
+  - flat_band_oxide_like
+  - organic_salt_like
+descriptor_channels:
+  - spin_fluctuation_pairing
+  - phonon_pairing
+  - carrier_optimality
+  - disorder_penalty
+  - competing_order_penalty
+  - pressure_penalty
+baselines:
+  - random_family_balanced_ranking
+  - literature_family_prior
+  - classical_feature_model
+  - quantum_descriptor_model
+metrics:
+  - known_family_precision_at_k
+  - known_family_recall_at_k
+  - descriptor_uncertainty
+  - active_learning_priority
+  - pressure_adjusted_score
+  - retrospective_validation_gap
+acceptance_threshold:
+  retrospective_precision_at_12: ">=0.50"
+  known_high_tc_families_in_top_12: ">=2"
+  explicit_not_material_discovery_claim: true
+failure_conditions:
+  - descriptor_only_recovers_family_prior
+  - ranking_ignores_synthesis_or_pressure_cost
+  - strong_correlation_descriptor_is_not_computable
+  - retrospective_validation_fails_against_known_families
+next_actions:
+  - connect_descriptors_to_b5_hubbard_or_plaquette_solver
+  - replace_toy_candidates_with_materials_database_records
+  - add_random_and_family_prior_baselines
+  - run_retrospective_validation_on_known_superconductor_families
+current_results:
+  toy_superconductivity_descriptor_ranker_v0:
+    status: toy_descriptor_ranking
+    model_status: toy_descriptor_ranking_not_material_discovery_claim
+    candidate_count: 72
+    candidates_per_family: 12
+    top_k: 12
+    known_high_tc_precision_at_k: 0.8333333333333334
+    known_high_tc_recall_at_k: 0.2777777777777778
+    top_family_counts:
+      cuprate_like: 8
+      iron_pnictide_like: 2
+      nickelate_like: 2
+    top_candidate_ids:
+      - cuprate_like_04
+      - iron_pnictide_like_06
+      - cuprate_like_01
+      - nickelate_like_08
+      - cuprate_like_08
+      - cuprate_like_03
+      - cuprate_like_12
+      - cuprate_like_02
+      - iron_pnictide_like_10
+      - nickelate_like_06
+      - cuprate_like_11
+      - cuprate_like_10
+    result: ../results/B6_superconductivity_descriptor_ranker_v0.json
+prototype_artifacts:
+  descriptor_ranker: ../tools/b6_superconductivity_descriptor_ranker.py
+  prototype_notes: ../research/B6_prototype_notes.md

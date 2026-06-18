@@ -1,0 +1,22 @@
+{
+  "errors": [],
+  "passed": true,
+  "rzz": {
+    "count": 27,
+    "max_delta": 0.0,
+    "modes": {
+      "adjacent": 25,
+      "commute_disjoint": 2
+    }
+  },
+  "single_qubit": {
+    "count": 164,
+    "max_delta": 3.1401849173675503e-16,
+    "rules": {
+      "remove_identity_gate": 1,
+      "single_qubit_run_to_u3": 163
+    }
+  },
+  "summary": "results/qasmbench_small_prooflog_pipeline/qasmbench_small_prooflog_summary.json",
+  "tolerance": 1e-09
+}

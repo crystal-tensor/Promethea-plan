@@ -1,0 +1,62 @@
+{
+  "b1_virtual_swap": {
+    "end_to_end_aer_failures": 0,
+    "exposure_reduction_pct": 32.64879262492005,
+    "local_aer_failures": 0,
+    "removed_cx_gates": 1443,
+    "report_status": "virtual_swap_elimination_diagnostic_not_layout_final_claim",
+    "rewritten_circuits": 30,
+    "skipped_circuits": 0,
+    "top_circuit": "qasmbench_medium_exact/gcm_h6.qasm",
+    "two_qubit_reduction_pct": 37.18113888173151,
+    "virtual_swaps_removed": 481
+  },
+  "b7_bridge": {
+    "comparison_count": 6,
+    "mean_space_time_volume_reduction": 1.353572610789181,
+    "min_space_time_volume_reduction": 1.1948051948051948,
+    "status": "dependency_schedule_bridge_not_physical_layout"
+  },
+  "certificate_gate_summary": {
+    "calibrated_heavy_hex_baseline_passed": false,
+    "exact_circuit_count": 30,
+    "exact_equivalence_failed": 0,
+    "global_equivalence_scope_passed": false,
+    "proof_log_verification_passed": true,
+    "status": "evidence_package_not_final_claim",
+    "unsupported_claim_count": 4
+  },
+  "customer_value": [
+    "Shows whether a routing/compiler change removes real two-qubit work or only shifts bookkeeping.",
+    "Packages proof replay, Aer cross-checks, and limitation labels into one report.",
+    "Creates a pilot-ready audit artifact before live calibrated hardware integration."
+  ],
+  "generated_on": "2026-06-13",
+  "headline": "Measurement-aware virtual-SWAP elimination produced replayable proof evidence on the current 30-circuit B1 suite.",
+  "limitations": [
+    "This is a topology/layout and synthetic-noise diagnostic, not a calibrated hardware claim.",
+    "Dynamic-circuit semantics and native-basis local optimization are not yet complete.",
+    "The current CLI packages existing artifacts; it does not yet run customer circuits end to end."
+  ],
+  "next_customer_pilot_steps": [
+    "Accept a customer QASM bundle and hardware profile.",
+    "Run baseline transpilation, virtual-SWAP audit, proof replay, and Aer cross-check.",
+    "Emit a signed JSON/HTML audit report with unsupported-claim warnings."
+  ],
+  "product": "Q-Cert Compiler Audit CLI",
+  "proof_replay": {
+    "error_count": 0,
+    "output_mismatches": 0,
+    "proof_events": 481,
+    "replayed_events": 481,
+    "status": "passed"
+  },
+  "schema_version": "0.1",
+  "status": "mvp_report_not_live_device_claim",
+  "synthetic_noise_proxy": {
+    "profile": "heavy_hex_like_sparse",
+    "source_vs_virtual_exposure_reduction_pct": 32.649071763883484,
+    "source_vs_virtual_success_proxy_ratio": 12748.386582112853,
+    "status": "synthetic_noise_proxy_not_calibrated_device_claim"
+  }
+}

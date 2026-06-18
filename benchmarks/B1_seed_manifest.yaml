@@ -1,0 +1,59 @@
+id: B1_seed_manifest
+benchmark_id: B1
+version: 0.1
+status: draft
+seed_circuits:
+  - id: bell_pair
+    path: b1_seed_circuits/01_bell_pair.qasm
+    family: entanglement_smoke_test
+    source: generated
+    expected_qubits: 2
+  - id: qft3
+    path: b1_seed_circuits/02_qft3.qasm
+    family: qft
+    source: generated_qasmbench_style
+    expected_qubits: 3
+  - id: grover2
+    path: b1_seed_circuits/03_grover2.qasm
+    family: search
+    source: generated_qasmbench_style
+    expected_qubits: 2
+  - id: adder3_toy
+    path: b1_seed_circuits/04_adder3_toy.qasm
+    family: arithmetic
+    source: generated_qasmbench_style
+    expected_qubits: 4
+  - id: vqe_h2_toy
+    path: b1_seed_circuits/05_vqe_h2_toy.qasm
+    family: chemistry_ansatz
+    source: generated_openfermion_style_placeholder
+    expected_qubits: 4
+  - id: qec_syndrome_toy
+    path: b1_seed_circuits/06_qec_syndrome_toy.qasm
+    family: qec_syndrome
+    source: generated_stabilizer_style
+    expected_qubits: 5
+  - id: toffoli_chain
+    path: b1_seed_circuits/07_toffoli_chain.qasm
+    family: arithmetic
+    source: generated
+    expected_qubits: 5
+  - id: clifford_random_toy
+    path: b1_seed_circuits/08_clifford_random_toy.qasm
+    family: clifford
+    source: generated_stabilizer_style
+    expected_qubits: 5
+  - id: hamiltonian_trotter_toy
+    path: b1_seed_circuits/09_hamiltonian_trotter_toy.qasm
+    family: simulation
+    source: generated
+    expected_qubits: 4
+  - id: phase_estimation_toy
+    path: b1_seed_circuits/10_phase_estimation_toy.qasm
+    family: phase_estimation
+    source: generated
+    expected_qubits: 4
+selection_notes:
+  - These are bootstrapping circuits, not the final publishable benchmark set.
+  - Replace or augment with exact QASMBench and MQT Bench circuits during B1 v0.2.
+  - Keep these toy circuits for regression tests because they are small enough for exact inspection.

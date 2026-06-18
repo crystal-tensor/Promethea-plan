@@ -1,0 +1,32 @@
+id: QASMBench_interaction_exact_manifest
+benchmark_id: B1
+version: 0.1
+status: imported
+source:
+  name: QASMBench
+  url: https://github.com/pnnl/QASMBench
+  commit: 357b942
+  import_date: 2026-06-13
+  import_method: sparse_checkout_then_copy_selected_interaction_openqasm_files
+selection_policy:
+  - Focus on Hamiltonian simulation / Trotter / Ising-style circuits where
+    `cx-rz-cx -> rzz` interaction-window resynthesis should be relevant.
+  - Keep circuits exact-statevector checkable in the current local workflow.
+  - Exclude `hhl_n10.qasm` from this first run despite being exact in qubit
+    count because it has over 180k operations and should be treated as a
+    separate stress test.
+circuits:
+  - id: qasmbench_basis_trotter_n4
+    path: qasmbench_interaction_exact/basis_trotter_n4.qasm
+    source_path: small/basis_trotter_n4/basis_trotter_n4.qasm
+    family: trotter_simulation
+    expected_qubits: 4
+  - id: qasmbench_ising_n10
+    path: qasmbench_interaction_exact/ising_n10.qasm
+    source_path: small/ising_n10/ising_n10.qasm
+    family: ising_simulation
+    expected_qubits: 10
+notes:
+  - Run with `tools/b1_run_pipeline.py --max-qubits 10`.
+  - This subset is intentionally narrow; it tests whether RZZ interaction
+    resynthesis improves simulation-like circuits more than generic circuits.

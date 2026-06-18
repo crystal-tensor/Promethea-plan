@@ -1,0 +1,109 @@
+{
+  "aggressive_schedule_dependency_flag": true,
+  "artifact_boundary_statement": "The current reduced-round B2 signal is a useful diagnostic but should be treated as a small-distance aggressive-schedule artifact: all 22 original volume-positive rows and all 88 stress-preserved rows are aggressive, distance-3, one-round candidates, while the non-aggressive reduced-round mechanism has zero volume-improved rows under robustness stress.",
+  "benchmark_id": "B2",
+  "calibrated_device_claimed": false,
+  "candidate_positive_rows": {
+    "aggressive_improved_volume_count": 22,
+    "all_improvements_are_aggressive": true,
+    "all_improvements_at_min_distance_3": true,
+    "all_improvements_at_one_round": true,
+    "candidate_distance_counts": {
+      "3": 22
+    },
+    "candidate_round_counts": {
+      "1": 22
+    },
+    "distance_pair_counts": {
+      "(3, 3)": 22
+    },
+    "improved_volume_count": 22,
+    "memory_basis_counts": {
+      "x": 11,
+      "z": 11
+    },
+    "non_aggressive_improved_volume_count": 0,
+    "physical_error_counts": {
+      "0.001": 6,
+      "0.003": 6,
+      "0.005": 4,
+      "0.007": 4,
+      "0.01": 2
+    },
+    "target_counts": {
+      "0.01": 4,
+      "0.05": 8,
+      "0.1": 10
+    },
+    "variant_counts": {
+      "aggressive_round_reduced_all_ops_hardened": 22
+    }
+  },
+  "claim_boundary": [
+    "Supported: finite-shot evidence that the current reduced-round lever does not survive as a non-aggressive volume-reducing mechanism.",
+    "Supported: an explicit boundary that all preserved volume-positive rows are distance-3 one-round aggressive schedules.",
+    "Not supported: a new quantum code, threshold theorem, calibrated-device schedule, or scalable low-overhead QEC solution."
+  ],
+  "criterion": "wilson_95_high",
+  "decision": "close_T_B2_002_as_artifact_boundary_until_new_non_aggressive_mechanism_exists",
+  "last_updated": "2026-06-17",
+  "method": "b2_reduced_round_artifact_boundary_v0",
+  "new_code_claimed": false,
+  "next_steps": [
+    "Do not use the aggressive d-4 one-round signal as a low-overhead QEC claim.",
+    "Open a new task only for a different mechanism: non-aggressive schedule, different code family, leakage-aware circuit model, or larger-distance validated decoder improvement.",
+    "If the reduced-round idea is revisited, require distance 5/7 positive rows and non-aggressive volume improvement under noise mismatch before promoting it."
+  ],
+  "non_aggressive_mechanism_survives": false,
+  "one_round_candidate_dependency_flag": true,
+  "problem_id": 22,
+  "robustness_positive_rows": {
+    "aggressive_improved_volume_count": 88,
+    "all_improvements_are_aggressive": true,
+    "all_improvements_at_min_distance_3": true,
+    "all_improvements_at_one_round": true,
+    "candidate_distance_counts": {
+      "3": 88
+    },
+    "candidate_round_counts": {
+      "1": 88
+    },
+    "distance_pair_counts": {
+      "(3, 3)": 88
+    },
+    "improved_volume_count": 88,
+    "memory_basis_counts": {
+      "x": 44,
+      "z": 44
+    },
+    "non_aggressive_improved_volume_count": 0,
+    "physical_error_counts": {
+      "0.001": 24,
+      "0.003": 24,
+      "0.005": 16,
+      "0.007": 16,
+      "0.01": 8
+    },
+    "target_counts": {
+      "0.01": 16,
+      "0.05": 32,
+      "0.1": 40
+    },
+    "variant_counts": {
+      "clifford_only_mechanism::aggressive_round_reduced_all_ops_hardened": 22,
+      "higher_shot_reseed::aggressive_round_reduced_all_ops_hardened": 22,
+      "mild_noise_mismatch_0p60::aggressive_round_reduced_all_ops_hardened": 22,
+      "moderate_noise_mismatch_0p75::aggressive_round_reduced_all_ops_hardened": 22
+    }
+  },
+  "small_distance_artifact_flag": true,
+  "source_candidate": "results/B2_same_hardware_schedule_candidate_v0.json",
+  "source_candidate_method": "b2_same_hardware_schedule_candidate_v0",
+  "source_robustness": "results/B2_same_hardware_schedule_robustness_v0.json",
+  "source_robustness_method": "b2_same_hardware_schedule_robustness_v0",
+  "status": "reduced_round_small_distance_aggressive_artifact_boundary",
+  "threshold_claimed": false,
+  "title": "B2 reduced-round small-distance/aggressive artifact boundary",
+  "validation_errors": [],
+  "version": "0.1"
+}

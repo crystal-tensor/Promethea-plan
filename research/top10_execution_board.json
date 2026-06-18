@@ -1,0 +1,216 @@
+{
+  "schema_version": "0.1",
+  "last_updated": "2026-06-18",
+  "purpose": "Execution board for turning the Top 10 quantum attack directions from v0 artifacts into a one-year technical-resolution portfolio.",
+  "portfolio_state": "stage_1g_b10_t2_backend_calibrated_style_bridge_complete_real_backend_or_hardware_next",
+  "decision_rules": {
+    "monthly_keep_rule": "Keep a direction only if the next 30-day artifact can falsify or improve a concrete claim.",
+    "merge_rule": "Merge directions when their validation stack is shared, such as B4 plus B8 or B1 plus B7.",
+    "technical_gate_rule": "Do not promote a direction into publication, patent, financing, or productization work until it has a reproduced baseline, a measurable delta, and an explicit limitation section.",
+    "replacement_rule": "Replace a Top 10 direction with a Tier 2 candidate if two consecutive monthly gates fail without producing a useful negative result."
+  },
+  "lanes": {
+    "technical_system_spine": [
+      "B1",
+      "B2",
+      "B7"
+    ],
+    "coupled_application": [
+      "B3",
+      "B5",
+      "B6"
+    ],
+    "verification_protocol": [
+      "B4",
+      "B8"
+    ],
+    "theory_and_negative_results": [
+      "B9",
+      "B10"
+    ]
+  },
+  "directions": [
+    {
+      "b_id": "B1",
+      "problem_id": 25,
+      "title": "Hardware-aware quantum circuit compression",
+      "priority_lane": "technical_system_spine",
+      "current_maturity": "virtual_swap_plus_weak_t_resource_diagnostic",
+      "strongest_evidence": "Virtual-SWAP elimination removes 481 routed SWAPs and 1443 CX gates; post-virtual-SWAP 1Q resynthesis removes 60 extra gates and gives 1.018x logical T-count proxy / 1.015x T-depth proxy reduction with 0/30 Aer failures; B7 propagation gives mean STV 1.034x but min STV remains 1.0x.",
+      "30_day_gate": "Strengthen local proof logs plus weak T-resource diagnostic into a native-basis non-Clifford/T-depth optimizer that improves the minimum B7 factory-dominated workload, not only the mean.",
+      "next_artifact": "B1 native-basis T-resource optimizer report with replayable proof logs, Aer checks, and B7 schedule delta.",
+      "kill_condition": "Demote if reductions disappear on a broader benchmark family or if certificate generation cannot scale beyond local rewrite evidence.",
+      "downstream_translation_route": "Deferred until B1 passes its technical gate; likely future route is certified hardware-aware circuit compression.",
+      "dependencies": [
+        "B7"
+      ]
+    },
+    {
+      "b_id": "B2",
+      "problem_id": 22,
+      "title": "Low-overhead quantum error-correcting codes",
+      "priority_lane": "technical_system_spine",
+      "current_maturity": "same_hardware_positive_diagnostic_closed_as_small_distance_artifact_boundary",
+      "strongest_evidence": "Stim/PyMatching baseline plus same-hardware reduced-round candidate and artifact boundary: 120 configs / 360k shots found 22 Wilson target-volume improved rows; robustness stress ran 240 configs / 1.2M shots and preserved 88 improved rows; the boundary check shows all original and stress-preserved improved rows are aggressive, distance-3, one-round candidates, with 0 non-aggressive improved rows.",
+      "30_day_gate": "Start a genuinely different B2 mechanism that can produce distance-5/7 Wilson target-volume reductions under noise mismatch without relying on aggressive one-round d=3 reduced-round schedules.",
+      "next_artifact": "B2 T-B2-003 non-aggressive schedule, different code family, leakage-aware circuit model, or larger-distance decoder-improvement report.",
+      "kill_condition": "Demote any B2 candidate that only reproduces distance-3 aggressive one-round target-volume rows without non-aggressive or larger-distance evidence.",
+      "downstream_translation_route": "Deferred until B2 shows Wilson-bounded target-volume reduction under a fair same-hardware comparison that does not depend on the closed small-distance/aggressive reduced-round artifact.",
+      "dependencies": [
+        "B1",
+        "B7"
+      ]
+    },
+    {
+      "b_id": "B3",
+      "problem_id": 49,
+      "title": "Quantum algorithms for molecular reaction dynamics",
+      "priority_lane": "coupled_application",
+      "current_maturity": "demoted_cross_molecule_negative_boundary",
+      "strongest_evidence": "T-B3-011 cross-molecule UCC/ADAPT pressure/demotion boundary: H2/LiH/H2O/N2 bounded high-coefficient sampled covariance pressure has 35 sampled groups total, 384 shots/group, mean/max variance error 0.0833/0.5029, max optimizer-loop shots lower bound 475,043,013,690,000, max optimizer-loop 2Q lower bound 281,225,464,104,480,000, and denominator wins remain 0.",
+      "30_day_gate": "Do not continue B3 as a breakthrough candidate unless a rescue-only T-B3-012 proposes real multi-parameter UCCSD/ADAPT covariance or stronger-than-QWC measurement with a credible denominator win path.",
+      "next_artifact": "B3 T-B3-012 rescue-only multi-parameter covariance/measurement report, or B3 negative-boundary note for B10-T1.",
+      "kill_condition": "Keep current one-parameter UCC/ADAPT + QWC route demoted; kill further B3 work without a concrete rescue mechanism.",
+      "downstream_translation_route": "Deferred until resource estimates become source-backed and reaction-specific.",
+      "dependencies": [
+        "B1",
+        "B7"
+      ]
+    },
+    {
+      "b_id": "B4",
+      "problem_id": 16,
+      "title": "Verifiable quantum advantage protocols",
+      "priority_lane": "verification_protocol",
+      "current_maturity": "toy_hidden_trap_plus_b4_b8_circuit_refresh_proxy",
+      "strongest_evidence": "Toy hidden-trap protocol rejects four spoofing families; shared B4/B8 CNOT hidden-projection refresh proxy runs 192 configs with honest completeness 1.0, no-refresh high-leakage max soundness 0.675, and repaired high-leakage max soundness 0.0.",
+      "30_day_gate": "Upgrade the CNOT/projection proxy to hardware-executable randomized measurement circuits or attack it with trained/generative spoofers.",
+      "next_artifact": "B4/B8 hardware-randomized hidden challenge task or generative-spoofer benchmark.",
+      "kill_condition": "Merge into B8 if circuit-level hardness remains absent beyond property-testing proxies.",
+      "downstream_translation_route": "Deferred until paired B4/B8 work moves beyond CNOT/projection proxy into hardware-executable hidden challenges with soundness assumptions.",
+      "dependencies": [
+        "B8",
+        "B10"
+      ]
+    },
+    {
+      "b_id": "B5",
+      "problem_id": 38,
+      "title": "Strongly correlated matter via hybrid quantum-tensor solvers",
+      "priority_lane": "coupled_application",
+      "current_maturity": "exact_hubbard_plus_non_oracle_embedding_plus_seeded_and_variational_mps_pressure_references",
+      "strongest_evidence": "Exact 1D Hubbard references show cluster-4 mean error per site improves 4.63x over cluster-2 proxy. T-B5-001 adds a B10-linked oracle-tuned denominator. T-B5-002 adds a non-oracle response embedding denominator with mean/max error 0.05098/0.12308. T-B5-003a adds an exact-state-seeded MPS/Schmidt pressure reference with mean/max error 0.000442/0.001695. T-B5-003b adds a non-exact-state-seeded variational MPS/ALS prototype with bond dimensions 2/4, 3 restarts x 8 sweeps, mean/max error 0.01806/0.03907, min overlap 0.9626, and 0 rows beating the seeded MPS reference.",
+      "30_day_gate": "Replace the MPS/ALS prototype with mature canonical-environment variational DMRG/MPS, or compare a candidate quantum impurity/response kernel after full state-preparation, measurement, optimizer-loop, and classical denominator costs.",
+      "next_artifact": "B5 mature DMRG/MPS response baseline or B5 quantum response-kernel cost accounting against the D5, seeded-MPS, and variational-MPS/ALS references.",
+      "kill_condition": "Demote if the benchmark remains 1D-only with prototype tensor references and no deployable DMRG/MPS baseline or quantum response-kernel costed comparison.",
+      "downstream_translation_route": "Deferred until a real hybrid baseline beats a classical proxy on a meaningful model.",
+      "dependencies": [
+        "B3",
+        "B6"
+      ]
+    },
+    {
+      "b_id": "B6",
+      "problem_id": 37,
+      "title": "High-temperature superconductivity search",
+      "priority_lane": "coupled_application",
+      "current_maturity": "toy_descriptor_ranking",
+      "strongest_evidence": "Synthetic descriptor ranking recovers known high-Tc family labels with precision@12 of 0.833333.",
+      "30_day_gate": "Connect the descriptor schema to a real materials table or curated retrospective dataset and separate family-prior leakage from physics signal.",
+      "next_artifact": "B6 retrospective materials-ranking report with leakage controls.",
+      "kill_condition": "Demote if rankings are driven by hand-authored family priors rather than measurable descriptors.",
+      "downstream_translation_route": "Deferred until real materials data and leakage controls support a mechanism-aware ranking claim.",
+      "dependencies": [
+        "B5"
+      ]
+    },
+    {
+      "b_id": "B7",
+      "problem_id": 21,
+      "title": "Architecture-level fault-tolerance co-design",
+      "priority_lane": "technical_system_spine",
+      "current_maturity": "b1_b2_bridge_plus_ft_ledger_plus_w8_21_claim_boundary",
+      "strongest_evidence": "B1/B2 bridge gives 1.195x-1.616x; workload-DAG factory schedule gives mean 1.475x; FT synthesis ledger exposes gcm_h6 as the current min row at 1.086008x; w8_21 negative searches total 43480 optimizer runs with 0 exact four-arbitrary-angle replacements and 0 ledger removal.",
+      "30_day_gate": "Either improve the B7 minimum row through B1 T-resource work, or produce a symbolic KAK/Clifford-scaffold proof or alternate occurrence-removing rewrite for gcm_h6; do not count repeated-template savings without a verified certificate.",
+      "next_artifact": "B7 v0.3 claim-separated resource ledger with T-B7-010 symbolic/rewrite evidence or B1 T-B1-004 min-row improvement.",
+      "kill_condition": "Demote if B1/B2-linked reductions collapse once physical layout, factory throughput, and feed-forward are explicit.",
+      "downstream_translation_route": "Deferred until cross-layer resource reductions survive workload DAGs, layout, factory throughput, feed-forward assumptions, and occurrence-level synthesis certificates.",
+      "dependencies": [
+        "B1",
+        "B2",
+        "B3"
+      ]
+    },
+    {
+      "b_id": "B8",
+      "problem_id": 30,
+      "title": "Classical verification of quantum outputs",
+      "priority_lane": "verification_protocol",
+      "current_maturity": "hidden_invariant_plus_circuit_refresh_plus_trained_spoofer_plus_backend_calibrated_style_bridge",
+      "strongest_evidence": "Hidden-invariant verifier has honest completeness 1.0 and rejects five toy adversaries; adaptive leakage exposes 75% leakage as dangerous; shared B4/B8 circuit-refresh proxy reduces high-leakage adaptive soundness from 0.675 without refresh to 0.0; trained/generative spoofer stress reaches learned soundness 1.0 without refresh; B10-T2 proof gate rejects no-refresh high-leakage claims; restricted lemma gives a 8.94e-44 single-unknown-mask bound; device-noise transcript bridge keeps challenge_refresh/refresh_plus_rotation high-leakage soundness <=0.0208 under bounded noise; Qiskit/Aer verifier bridge instantiates 216 ideal randomized parity circuits with 0 semantic mismatches; noisy Aer bridge executes 9600 randomized parity circuits with circuit-level adversary inputs, bridge-safe honest acceptance 1.0, and adversary acceptance 0.0; backend-calibrated-style bridge executes 5760 GenericBackendV2 target-property-derived noisy circuits with safe calibrated honest acceptance 1.0 and adversary acceptance 0.25.",
+      "30_day_gate": "Replace GenericBackendV2 calibration snapshots with real backend properties or run hardware randomized-measurement verifier execution for B10-T2.",
+      "next_artifact": "B10-T2 real-backend-properties verifier bridge or B4/B8 hardware randomized verifier.",
+      "kill_condition": "Demote if hidden invariants remain too easy to infer once challenge refresh and adaptive generative spoofers are added.",
+      "downstream_translation_route": "Deferred until the B4/B8 circuit-refresh proxy survives stronger trained spoofers and real-backend or hardware-executable randomized measurements.",
+      "dependencies": [
+        "B4",
+        "B10"
+      ]
+    },
+    {
+      "b_id": "B9",
+      "problem_id": 17,
+      "title": "Quantum PCP and local Hamiltonian hardness",
+      "priority_lane": "theory_and_negative_results",
+      "current_maturity": "exact_gap_lab_plus_negative_lemma_plus_symbolic_skeleton_plus_named_family_bound",
+      "strongest_evidence": "Exact small-instance gap lab plus finite-instance failed gap-amplification negative lemma, Lean-style symbolic skeleton, and named-family cluster-stabilizer width/locality skeleton: 18 configurations, 9 locality-preserving candidates, 0 accepted local candidates, 4 strict width-trap counterexamples, 9 dense locality traps, 5 symbolic definitions, 3 theorem skeletons, 5 open proof obligations, and n=4,5,6 cluster_stabilizer_open_uniform_reweight rows where all terms scale by 1.35, max locality remains 3, raw gap amplifies, normalized gap is invariant, and the certificate is rejected.",
+      "30_day_gate": "Create a real Lean/mathlib or equivalent proof-checkable project and formalize the open-boundary cluster-stabilizer support-size, uniform-scaling, spectral-width, and normalized-gap invariance lemmas for all n >= 4.",
+      "next_artifact": "B9 T-B9-004 proof-checkable named-family theorem or explicit proof-environment blocker.",
+      "kill_condition": "Keep only as a negative-result track unless a restricted theorem target becomes precise.",
+      "downstream_translation_route": "Deferred until a restricted theorem or reusable negative lemma is formalized.",
+      "dependencies": [
+        "B10"
+      ]
+    },
+    {
+      "b_id": "B10",
+      "problem_id": 11,
+      "title": "Mapping the boundary of BQP",
+      "priority_lane": "theory_and_negative_results",
+      "current_maturity": "reduction_graph_plus_t1_b3_b5_boundaries_plus_t2_backend_calibrated_style_bridge",
+      "strongest_evidence": "Reduction graph plus 2 formal targets; B10-T1 explicit-I/O boundary stack now includes B3 through T-B3-011 demotion boundary and B5 through a 9-instance D5 Hubbard table, oracle-tuned and non-oracle response embedding denominators, exact-state-seeded MPS/Schmidt pressure reference, and non-exact-state-seeded variational MPS/ALS prototype; B10-T2 has trained-spoofer, proof-gate, restricted-lemma, transcript/device-noise, ideal/noisy Aer, and GenericBackendV2 calibrated-style verifier bridges.",
+      "30_day_gate": "Replace the B5 MPS/ALS prototype with real variational DMRG/MPS evidence, compare a real B5 quantum response subroutine against D5, turn B3 demotion into a denominator/dequantization note, or replace B10-T2 GenericBackendV2 bridge with real backend properties/hardware verifier execution.",
+      "next_artifact": "B5 mature DMRG/MPS response baseline, B10-T1 B3 negative-boundary theorem note, B5 response-subroutine comparison against D5, or B10-T2 real-backend-properties verifier bridge.",
+      "kill_condition": "Demote if formal targets do not produce source-backed theorem notes, negative lemmas, or useful failed-proof records.",
+      "downstream_translation_route": "Deferred until one formal target yields a source-backed restricted theorem, reusable negative lemma, or strong proof-attempt record.",
+      "dependencies": [
+        "B5",
+        "B3",
+        "B4",
+        "B8"
+      ]
+    }
+  ],
+  "next_30_days": {
+    "week_1": [
+      "Freeze B1 proof-log report outline.",
+      "Advance B2 from aggressive-only same-hardware diagnostic to a non-aggressive/physical reduced-round mechanism or boundary note.",
+      "Pair B4 and B8 into one verification protocol lane."
+    ],
+    "week_2": [
+      "Run B1 on one broader benchmark family or document why the verifier blocks scale.",
+      "Upgrade the B7 dependency bridge to a real workload DAG.",
+      "Source-back B10-T1 or start B10-T2 proof pressure."
+    ],
+    "week_3": [
+      "Connect B3 to a reaction-coordinate toy path.",
+      "Promote B5 exact-state-seeded MPS pressure reference to real variational DMRG/MPS or costed quantum-kernel comparison.",
+      "Connect B6 to a real or curated retrospective materials table."
+    ],
+    "week_4": [
+      "Monthly keep/merge/kill review.",
+      "Select 2-3 directions for deeper technical validation.",
+      "Replace weak directions only if a Tier 2 candidate has a clearer validation path."
+    ]
+  }
+}

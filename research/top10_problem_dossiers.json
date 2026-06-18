@@ -1,0 +1,295 @@
+{
+  "schema_version": "0.1",
+  "last_updated": "2026-06-18",
+  "purpose": "Structured dossiers for the Top 10 quantum research attack directions.",
+  "progress_scale": {
+    "0_10": "Problem framed; no credible reproducible artifact yet.",
+    "11_25": "Toy/proxy artifact exists and can be audited locally.",
+    "26_45": "Reproducible baseline plus measurable delta exists, with limitations.",
+    "46_70": "Strong baseline comparison and partial external-style validation.",
+    "71_90": "Manuscript-grade evidence across broad benchmarks or formal targets.",
+    "91_100": "Community-grade solution candidate; requires independent validation."
+  },
+  "dossiers": [
+    {
+      "b_id": "B1",
+      "problem_id": 25,
+      "title": "Hardware-aware quantum circuit compression",
+      "what_to_solve": "Compile a quantum algorithm into fewer two-qubit gates, lower depth, lower error exposure, and a device-compatible layout while preserving auditable semantic equivalence.",
+      "lineage": "Universal quantum gate decomposition and quantum compilation; representative milestones include Barenco et al. elementary gates and SABRE-style NISQ qubit mapping.",
+      "unresolved_duration": "About 30+ years as a general compilation optimization problem; about 10 years as practical hardware-aware NISQ compilation.",
+      "current_difficulty": "Routing, commutation, measurement/reset semantics, native gate sets, device topology, and noise are coupled; exact equivalence checking becomes expensive as circuits grow.",
+      "prior_approaches": [
+        "peephole rewriting",
+        "phase-polynomial optimization",
+        "ZX-calculus",
+        "SAT/SMT synthesis",
+        "tensor equivalence",
+        "Qiskit/tket transpilers",
+        "SABRE mapping"
+      ],
+      "our_solution": "Proof-logged local rewrites plus measurement-aware virtual-SWAP elimination, followed by post-virtual-SWAP 1Q resynthesis to test whether B1 can also touch non-Clifford/T-resource proxies.",
+      "completed": "30/30 circuits rewritten; 481 virtual SWAPs and 1443 CX gates removed; 37.18% two-qubit reduction; 32.65% exposure reduction; proof replay passed 481/481. A post-virtual-SWAP 1Q pass removed 60 additional gates, reduced the logical T-count proxy 1.018x and T-depth proxy 1.015x, passed 30/30 Aer cross-checks, and propagated to B7 as mean STV 1.034x while min STV stayed 1.0x.",
+      "remaining_steps": [
+        "calibrated/live-like heavy-hex baseline",
+        "dynamic circuit and measurement/reset semantics",
+        "native-basis-aware non-Clifford/T-depth optimizer that improves minimum B7 factory STV",
+        "broader benchmarks",
+        "independent certificate package"
+      ],
+      "maturity_score": 37
+    },
+    {
+      "b_id": "B2",
+      "problem_id": 22,
+      "title": "Low-overhead quantum error correction",
+      "what_to_solve": "Reduce physical qubits, measurement rounds, and decoding resources needed to reach a target logical error rate on realistic hardware.",
+      "lineage": "Shor quantum error correction, Steane/CSS codes, Kitaev topological ideas, and Dennis-Kitaev-Landahl-Preskill topological memory.",
+      "unresolved_duration": "Roughly 30 years for practical low-overhead fault tolerance.",
+      "current_difficulty": "Overhead depends on noise, decoder latency, leakage, correlated errors, measurement schedules, and layout; paper-best codes may fail under circuit-level constraints.",
+      "prior_approaches": [
+        "Shor/Steane/CSS codes",
+        "surface codes",
+        "color codes",
+        "subsystem codes",
+        "quantum LDPC",
+        "biased-noise codes",
+        "lattice surgery",
+        "minimum-weight matching",
+        "learned decoders"
+      ],
+      "our_solution": "Use Wilson-bounded target-volume baselines and force every candidate code, schedule, or decoder to beat the same baseline; proxy and operation-class sweeps are now followed by same-hardware candidate tests plus explicit artifact-boundary checks before any B2 result may feed B7.",
+      "completed": "Stim/PyMatching rotated surface-code baseline with 30 configurations, 90,000 shots, distances 3/5/7, X/Z bases; target-volume table with 22 met and 18 unmet combinations; biased schedule proxy raises candidate-met targets to 28 with 0 volume-improvement rows; real circuit-level sweep with 90 configurations and 270,000 shots raises candidate-met targets to 26 with 0 volume-improvement rows; same-hardware reduced-round candidate runs 120 configurations / 360,000 shots and finds 22 Wilson target-volume improved rows with max 3.0x reduction; robustness stress runs 240 configurations / 1,200,000 shots and preserves 88 improved rows, all aggressive d-4 and 0 non-aggressive d-2; reduced-round artifact boundary confirms all original and stress-preserved improved rows are aggressive, distance-3, one-round candidates, so the lever is closed as a small-distance/aggressive-schedule artifact boundary rather than a low-overhead QEC claim.",
+      "remaining_steps": [
+        "start a different non-aggressive schedule or code-family mechanism",
+        "require distance-5/7 Wilson target-volume reductions before promotion",
+        "add leakage and correlated-noise fields",
+        "run noise-mismatch Wilson target-volume stress on the new mechanism",
+        "connect only non-artifact B2 rows into the B7 resource ledger"
+      ],
+      "maturity_score": 32
+    },
+    {
+      "b_id": "B3",
+      "problem_id": 49,
+      "title": "Quantum algorithms for molecular reaction dynamics",
+      "what_to_solve": "Predict reaction-path observables and dynamics with quantum algorithms, not only static small-molecule ground-state energies.",
+      "lineage": "Feynman quantum simulation, Lloyd universal quantum simulators, and Aspuru-Guzik molecular energy estimation.",
+      "unresolved_duration": "About 20 years for practical reaction-dynamics quantum advantage.",
+      "current_difficulty": "Electron correlation, active-space choice, nuclear motion, nonadiabatic effects, real-time dynamics, and observable-level errors interact; classical chemistry baselines are strong.",
+      "prior_approaches": [
+        "phase estimation",
+        "Trotterization",
+        "qubitization",
+        "VQE",
+        "adiabatic state preparation",
+        "active-space embedding",
+        "DMRG/FCI/CC baselines"
+      ],
+      "our_solution": "Observable-first reaction simulation that derives Hamiltonians, mappings, circuits, and resource estimates from a chosen reaction-coordinate observable.",
+      "completed": "PySCF-backed small-molecule resource proxy for H2, LiH, H2O, and N2; preliminary 6.11x-6.25x proxy reductions; B10-T1 supplies Hamiltonian-derived B3 reaction-coordinate denominators plus RHF/MP2/CCSD/FCI small-basis reference derivatives for the same four rows. T-B3-001 adds four OpenQASM observable-estimation proxy circuits aligned to those FCI derivative denominators, with max 21 qubits, max 441 controlled-phase gates, explicit measurement-shot floors, and 0 FCI denominator wins claimed. T-B3-003 replaces the proxy gap with Qiskit Nature Jordan-Wigner Hamiltonian Pauli-term measurement packets: 4 QASM packets, max 20 qubits, max 2951 mapped Pauli terms, max conservative total shot floor 30,504,129,929, state-preparation and variance costs included, and still 0 FCI wins. T-B3-004 adds sampled Pauli-estimator confidence intervals: 2048 pilot shots per random Pauli term, z=2.576 intervals all cover exact HF Pauli energy, max Neyman target shot floor 6,570,468, and 442x-34,544x reduction vs the previous conservative upper-bound shot floors; still 0 FCI wins and no selected-CI/larger-active-space denominator. T-B3-005 adds selected-CI larger-basis denominator and grouped Pauli boundary: 4 same reaction coordinates, H2/LiH cc-pVDZ and H2O/N2 3-21G selected-CI finite differences, all selected-CI points converged, max 19 spatial orbitals / 38 spin-orbital qubits, max selected determinant product 400, QWC packet reduction 1.0x-4.17x, max ansatz two-qubit executions 289,100,592, and 0 larger-basis denominator wins. T-B3-006 closes the larger-basis quantum-mapper gap: the same selected-CI denominator bases are now mapped to Jordan-Wigner qubits, with max 38 qubits, max 77,858 Pauli terms, max conservative same-basis bucket count 77,116, max Neyman target shot floor 6,464,114,739, max ansatz two-qubit executions 956,688,981,372, and still 0 larger-basis denominator wins. T-B3-007 adds actual larger-basis QWC grouping: bitmask first-fit covers reduce measurement settings 3.09x-3.96x across all four larger-basis Pauli sets, with LiH dropping from 77,116 conservative buckets to 19,644 QWC groups and max group size 291. This is a real measurement-setting reduction, but grouped covariance has not yet reduced the Neyman shot floor, so denominator wins remain 0. T-B3-008 propagates exact HF product-state covariance inside larger-basis QWC groups: grouped shot floors fall 4.91x-5.58x versus independent-term floors, max floor moves from 6,464,114,739 to 1,283,900,037, max ansatz two-qubit executions drop to 190,017,205,476, and denominator wins remain 0. T-B3-009 propagates grouped-covariance energy floors through three-point finite-difference derivative error: with delta=0.01, derivative-level shot floors inflate 10000x to a max of 12,839,000,370,000 shots. It adds UCCSD, ADAPT-VQE-envelope, and adiabatic-envelope two-qubit preparation costs; max UCCSD prep is 1,493,030 two-qubit gates and max UCCSD executions reach 18,497,517,970,970,500,000. Sampled correlated-state covariance is still unavailable and denominator wins remain 0. T-B3-010 adds the first compiled UCC/ADAPT covariance pilot: H2/cc-pVDZ one-parameter compiled UCC-double / ADAPT-seed state, 48 sampleable QWC groups, 512 shots/group, mean/max relative variance error 0.0068/0.0827, exact compiled-state center floor 66,955,026 versus HF 63,465,167, derivative floor 669,550,260,000, optimizer-loop total shots 24,773,359,620,000, optimizer-loop two-qubit executions 7,531,101,324,480,000, and still 0 denominator wins. T-B3-011 extends the pressure test across H2, LiH, H2O, and N2 using bounded high-coefficient sampled QWC subsets: 35 sampled groups total, 384 shots/group, mean/max relative variance error 0.0833/0.5029, max optimizer-loop shots lower bound 475,043,013,690,000, max optimizer-loop two-qubit lower bound 281,225,464,104,480,000, and 0 denominator wins. This demotes the current one-parameter UCC/ADAPT plus QWC route to a negative-boundary track.",
+      "remaining_steps": [
+        "keep B3 demoted unless a rescue-only mechanism is proposed",
+        "produce real multi-parameter UCCSD/ADAPT covariance if continuing B3",
+        "or produce stronger-than-QWC measurement with a credible denominator win path",
+        "compare against selected-CI, DMRG, and tensor-network denominators after optimizer-loop accounting",
+        "promote only if preparation, measurement, optimizer-loop, and strong classical denominator costs are all beaten"
+      ],
+      "maturity_score": 30
+    },
+    {
+      "b_id": "B4",
+      "problem_id": 16,
+      "title": "Verifiable quantum advantage protocols",
+      "what_to_solve": "Design a quantum task that a classical adversary cannot cheaply spoof and that a verifier can check under realistic noise.",
+      "lineage": "Interactive proofs, blind quantum computation, sampling advantage, and classical verification; representative milestones include UBQC and Mahadev verification.",
+      "unresolved_duration": "Roughly 15-20 years for practical verifiable advantage.",
+      "current_difficulty": "Easy-to-verify tasks can be easy to fake; hard-to-simulate tasks can be hard to verify; noise and adaptive spoofers narrow soundness.",
+      "prior_approaches": [
+        "trap-based verification",
+        "blind quantum computation",
+        "cross-entropy benchmarking",
+        "random circuit sampling",
+        "cryptographic verification",
+        "self-testing",
+        "interactive proofs"
+      ],
+      "our_solution": "Hidden-trap and hidden-invariant hybrid tasks with leakage stress tests, challenge refresh, and circuit-derived projection checks.",
+      "completed": "Toy hidden-trap statistical protocol; four spoofing families rejected; B8 identifies 75% leakage as dangerous; shared B4/B8 CNOT hidden-projection refresh proxy runs 3 circuit-derived tasks / 192 configs with honest completeness 1.0, no-refresh high-leakage max soundness 0.675, and repaired high-leakage max soundness 0.0.",
+      "remaining_steps": [
+        "hardware-executable randomized measurement hidden task",
+        "trained adaptive/generative spoofers",
+        "completeness and soundness proof",
+        "simulator and small-device trials"
+      ],
+      "maturity_score": 20
+    },
+    {
+      "b_id": "B5",
+      "problem_id": 38,
+      "title": "Strongly correlated matter via hybrid quantum-tensor solvers",
+      "what_to_solve": "Predict strongly correlated models where classical methods disagree, especially 2D doped, finite-temperature, or dynamical settings.",
+      "lineage": "Hubbard electron-correlation model and later many-body simulation methods.",
+      "unresolved_duration": "Roughly 60 years for broad strongly correlated electron problems.",
+      "current_difficulty": "Sign problem, entanglement growth, finite-size extrapolation, competing phases, and dynamical correlations.",
+      "prior_approaches": [
+        "exact diagonalization",
+        "quantum Monte Carlo",
+        "DMRG/tensor networks",
+        "DMFT",
+        "cluster embedding",
+        "variational Monte Carlo",
+        "cold-atom simulation"
+      ],
+      "our_solution": "Use quantum processors as entanglement or impurity kernels inside classical embedding/tensor workflows.",
+      "completed": "Exact small Hubbard reference and cluster-product proxy; cluster-4 mean error per site improves 4.63x over cluster-2. T-B5-001 adds an oracle-tuned classical boundary-field response embedding denominator on the same 9 B10 D5 Hubbard density-response rows. T-B5-002 closes the oracle-selection loophole with a non-oracle response embedding denominator: predeclared zero-field/finitesize-extrapolation policy, selected mean/max relative response error 0.05098/0.12308, 4 rows beating the oracle-tuned denominator after-the-fact, max exact D5 Hilbert dimension 4900 versus max selected cluster dimension 36, validation errors 0, and no quantum response or accuracy-per-resource win claimed. T-B5-003a adds an exact-state-seeded MPS/Schmidt truncation pressure reference on the same 9 rows: bond dimensions 2/4/8/16, selected bond dimension 16, selected mean/max relative response error 0.000442/0.001695, selected mean/max energy error per site 0.000244/0.001156, min exact-state overlap 0.999101, 6 rows beating the non-oracle embedding denominator, and explicit non-claim of variational DMRG, deployable tensor solving, quantum response, or accuracy-per-resource win. T-B5-003b adds a non-exact-state-seeded variational MPS/ALS prototype: bond dimensions 2/4, 3 restarts x 8 sweeps, selected mean/max relative response error 0.01806/0.03907, selected mean/max energy error per site 0.00303/0.00853, min exact-state overlap 0.9626, 0 rows beating the seeded MPS pressure reference, and explicit non-claim of production DMRG or quantum advantage.",
+      "remaining_steps": [
+        "replace the MPS/ALS prototype with a mature canonical-environment variational DMRG/MPS reference",
+        "2D/doped grids",
+        "high-disagreement observables",
+        "quantum impurity or response-kernel circuits",
+        "accuracy-per-resource comparison after state-preparation, measurement, optimizer-loop, and classical-denominator costs"
+      ],
+      "maturity_score": 21
+    },
+    {
+      "b_id": "B6",
+      "problem_id": 37,
+      "title": "High-temperature superconductivity search",
+      "what_to_solve": "Build a mechanism-aware candidate-ranking pipeline for unconventional superconductors without relying on historical family-label leakage.",
+      "lineage": "Bednorz and Muller high-Tc discovery in Ba-La-Cu-O and subsequent unconventional superconductivity research.",
+      "unresolved_duration": "Roughly 40 years for predictive high-Tc mechanism and candidate search.",
+      "current_difficulty": "Huge materials space, biased data, sparse labels, descriptor leakage, and hard-to-compute strong-correlation mechanisms.",
+      "prior_approaches": [
+        "Hubbard/t-J/RVB theories",
+        "spin-fluctuation models",
+        "DFT",
+        "DFT+DMFT",
+        "Eliashberg calculations",
+        "materials informatics",
+        "crystal graph neural networks"
+      ],
+      "our_solution": "Mechanism-aware descriptor ranking linked to B5-derived strong-correlation observables.",
+      "completed": "Toy descriptor-ranking harness with 72 candidates and precision@12 of 0.833333 on synthetic labels.",
+      "remaining_steps": [
+        "real or curated retrospective materials table",
+        "time/family splits",
+        "descriptor leakage audit",
+        "structure and correlation descriptors",
+        "B5 observable coupling",
+        "experimentally testable shortlist"
+      ],
+      "maturity_score": 10
+    },
+    {
+      "b_id": "B7",
+      "problem_id": 21,
+      "title": "Architecture-level fault-tolerance co-design",
+      "what_to_solve": "Jointly optimize algorithms, compilation, error correction, factories, layout, and scheduling to reduce fault-tolerant space-time volume.",
+      "lineage": "Shor error correction, threshold theorems, surface-code architectures, lattice surgery, and resource estimation.",
+      "unresolved_duration": "Roughly 30 years for practical large-scale co-designed fault tolerance.",
+      "current_difficulty": "Circuit savings, logical error targets, factory throughput, feed-forward, routing, and layout interact nonlinearly.",
+      "prior_approaches": [
+        "surface-code resource estimation",
+        "lattice-surgery scheduling",
+        "magic-state factories",
+        "modular architectures",
+        "compiler-resource co-design"
+      ],
+      "our_solution": "Bridge B1 circuit savings and B2 target-volume assumptions into a workload-level dependency schedule, then add workload-DAG, factory-throughput, logical T-resource, FT synthesis, and occurrence-level rewrite-certification pressure tests.",
+      "completed": "Scalar planning model, B1/B2 dependency-schedule bridge, workload-DAG factory-throughput schedule, logical T-factory boundary tests, FT synthesis ledger, gcm_h6 min-row boundary, repeated-template/cache boundary, nonlocal template scan, and w8_21 claim-boundary closure. The workload-DAG schedule has mean STV reduction 1.475x; the FT synthesis ledger exposes gcm_h6 as the current min row at 1.086008x; w8_21 was tested across same-skeleton, exhaustive two-CNOT Rz/Ry, target-informed Euler-local, and bounded three-CNOT families for 43480 optimizer runs, finding 0 exact four-arbitrary-angle replacements and 0 ledger removal.",
+      "remaining_steps": [
+        "symbolic KAK/Clifford-scaffold proof or alternate occurrence-removing rewrite for gcm_h6",
+        "strengthen B1 non-Clifford/T-depth optimization until min factory STV improves",
+        "data-path versus T-factory claim separation",
+        "physical layout constraints",
+        "feed-forward modeling",
+        "full algorithm resource ledger"
+      ],
+      "maturity_score": 33
+    },
+    {
+      "b_id": "B8",
+      "problem_id": 30,
+      "title": "Classical verification of quantum outputs",
+      "what_to_solve": "Verify task-relevant properties of quantum outputs without reconstructing the whole output distribution and without leaking hidden tests.",
+      "lineage": "Interactive proofs, property testing, blind computation, randomized measurements, and Mahadev-style verification.",
+      "unresolved_duration": "Roughly 15 years for practical low-overhead verification.",
+      "current_difficulty": "Verifier sees only samples; full distributions are exponentially large; hidden invariants leak; adaptive spoofers can learn verifier structure.",
+      "prior_approaches": [
+        "trap/invariant tests",
+        "randomized measurements",
+        "classical shadows",
+        "cryptographic verification",
+        "cross-device consistency",
+        "XEB",
+        "property testing"
+      ],
+      "our_solution": "Hidden-invariant tests plus adaptive leakage stress, followed by challenge refresh, projection rotation, and B4 circuit-derived hidden projection tasks.",
+      "completed": "Toy hidden-invariant verifier with honest completeness 1.0; five adversaries rejected; 48-configuration leakage test shows 0.75 leakage dangerous; toy refresh/rotation repair passes the <=5% high-leakage soundness gate; shared B4/B8 circuit-refresh proxy reduces high-leakage adaptive soundness from 0.675 without refresh to 0.0 under repaired modes; trained/generative spoofer stress runs 144 configs, reaches learned soundness 1.0 without refresh, and keeps projection_rotation/challenge_refresh/refresh_plus_rotation <=5% in this proxy; B10-T2 proof-obligation gate rejects no-refresh high-leakage claims; restricted refresh-independence lemma gives a 8.94e-44 single-unknown-mask bound under declared assumptions; transcript leakage simulator runs 192 configs and shows refreshed high-leakage modes retain >=6 unknown independent predicates with max empirical soundness 0.025 while no-refresh high leakage remains unsafe; device-noise transcript bridge runs 480 configs and keeps challenge_refresh/refresh_plus_rotation high-leakage soundness <=0.0208 under bounded noise, while projection_rotation is margin-sensitive and calibration side-channel leakage is rejected; Qiskit/Aer verifier bridge instantiates 216 ideal randomized parity-verifier circuits with 0 semantic mismatches, honest completeness 1.0, and up to 30 qubits including verifier ancillas; noisy Aer verifier bridge executes 9600 randomized parity-verifier circuits with honest and four adversary input families, bridge-safe noisy honest acceptance 1.0, bridge-safe noisy adversary acceptance 0.0, and at least 7 unknown independent predicates; backend-calibrated-style verifier bridge derives noise from Qiskit GenericBackendV2 target InstructionProperties and executes 5760 circuits with safe calibrated honest acceptance 1.0, safe calibrated adversary acceptance 0.25, max honest predicate-bit error 0.0703125, and no-refresh marked unsafe.",
+      "remaining_steps": [
+        "real backend properties bridge",
+        "hardware-executable randomized measurement verifier",
+        "stronger learned/generative adversaries against noisy/backend-calibrated circuits",
+        "soundness curves under realistic leakage models"
+      ],
+      "maturity_score": 32
+    },
+    {
+      "b_id": "B9",
+      "problem_id": 17,
+      "title": "Quantum PCP and local Hamiltonian hardness",
+      "what_to_solve": "Understand whether Quantum PCP or restricted variants hold, or identify formal barriers to local-Hamiltonian gap amplification.",
+      "lineage": "Classical PCP theorem, Kitaev local Hamiltonian QMA-completeness, and the Quantum PCP conjecture.",
+      "unresolved_duration": "Roughly 15-25 years for the core Quantum PCP problem.",
+      "current_difficulty": "Entanglement disrupts classical PCP intuition; gap amplification, locality, noncommuting constraints, NLTS, and quantum locally testable codes are coupled.",
+      "prior_approaches": [
+        "local Hamiltonian QMA-completeness",
+        "detectability lemma",
+        "product tests",
+        "gap amplification",
+        "NLTS",
+        "locally testable quantum codes",
+        "commuting-Hamiltonian special cases"
+      ],
+      "our_solution": "Exact small-instance lab plus counterexample database before attempting the full conjecture.",
+      "completed": "Exact small-instance gap lab with 18 configurations; nine locality-preserving candidates; zero candidate passes; four counterexample candidates. The first finite-instance failed gap-amplification negative lemma is now extracted from that lab: raw spectral-gap growth is rejected as a local Hamiltonian amplification certificate unless locality, ground-space overlap, and normalized-gap improvement are checked together. The lemma records 4 strict width-trap counterexamples, 9 dense locality traps, and 5 proof obligations, while explicitly not claiming a Quantum PCP proof or global gap-amplification impossibility. T-B9-002 adds a Lean-style symbolic skeleton with 5 definitions, 3 theorem skeletons, and the same 5 open obligations, but it is not proof-assistant checked and not a formal theorem. T-B9-003 instantiates the obstruction on `cluster_stabilizer_open_uniform_reweight`: for n=4,5,6 all terms have support 2 or 3 and are uniformly scaled by 1.35, max locality remains 3, raw gap amplifies, normalized gap is invariant, and the certificate is rejected as global energy rescaling; the available `lean` command failed and this is not a checked theorem.",
+      "remaining_steps": [
+        "create a real Lean/mathlib or equivalent proof-checkable project",
+        "formalize the open-boundary cluster-stabilizer family for all n >= 4",
+        "prove support-size, uniform-scaling, spectral-width, and normalized-gap invariance lemmas",
+        "decide whether the checked statement informs a restricted theorem or remains a negative-result artifact"
+      ],
+      "maturity_score": 12
+    },
+    {
+      "b_id": "B10",
+      "problem_id": 11,
+      "title": "Mapping the boundary of BQP",
+      "what_to_solve": "Separate robust quantum advantage claims from claims dependent on unrealistic data loading, oracle construction, precision, verification gaps, or noise assumptions.",
+      "lineage": "Bernstein-Vazirani quantum complexity theory, Shor algorithm, hidden subgroup work, Hamiltonian simulation, quantum walks, and sampling advantage.",
+      "unresolved_duration": "Roughly 30 years for the true boundary between BQP and classical computation.",
+      "current_difficulty": "Unconditional complexity separations are hard; oracle separations do not imply real-world advantage; input models and verification can erase speedups.",
+      "prior_approaches": [
+        "oracle separations",
+        "hidden subgroup algorithms",
+        "quantum walks",
+        "Hamiltonian simulation",
+        "boson sampling",
+        "random circuit sampling",
+        "dequantization",
+        "fine-grained complexity"
+      ],
+      "our_solution": "Reduction and failure-mode graph decomposing each advantage claim into promise, input, certificate, baseline, noise, and verification assumptions.",
+      "completed": "Reduction graph with 12 nodes, 14 edges, two connected components, eight advantage-preserving edges, six fragile edges, and 11 restricted theorem targets. Added two formal theorem target cards: B10-T1 for the HHL/data-loading negative boundary and B10-T2 for sampling-advantage verification under B4/B8 leakage and challenge-refresh assumptions. Both cards specify input, promise, output, verifier, cost-accounting, dependencies, and proof obligations, with 0 validation errors. B10-T1 now has a restricted explicit-I/O accounting lemma and corollary plus source-backed B3/B5 denominator tables. B10-T1/B5 also has oracle-tuned and non-oracle response embedding denominators on the same 9 Hubbard D5 rows: the oracle boundary-field denominator has mean/max relative response error 0.0541/0.1216, while the non-oracle predeclared zero-field/finitesize denominator has selected mean/max relative response error 0.05098/0.12308, 4 meaningful rows beating the oracle denominator after-the-fact, max exact D5 Hilbert dimension 4900 versus selected cluster dimension 36, validation errors 0, and no quantum response or accuracy-per-resource win claimed. B10-T1/B5 now also has the exact-state-seeded MPS/Schmidt truncation pressure reference: bond dimensions 2/4/8/16, selected bond dimension 16, selected mean/max relative response error 0.000442/0.001695, min exact-state overlap 0.999101, 6 rows beating the non-oracle embedding denominator, and explicit non-claim of variational DMRG or quantum advantage. B10-T1/B5 now also has the non-exact-state-seeded variational MPS/ALS prototype: bond dimensions 2/4, 3 restarts x 8 sweeps, selected mean/max relative response error 0.01806/0.03907, min exact-state overlap 0.9626, 0 rows beating the seeded pressure reference, and explicit non-claim of production DMRG or quantum advantage. B10-T2 now has a trained-spoofer minimum-refresh boundary, proof-obligation gate, restricted refresh-independence soundness lemma, transcript leakage simulator, device-noise transcript bridge, ideal Qiskit/Aer circuit-level verifier bridge, noisy Aer circuit-level verifier bridge, and backend-calibrated-style GenericBackendV2 verifier bridge from B8: no-refresh high leakage is rejected; if at least one refreshed predicate remains unknown and independent, current proxy parameters give a 8.94e-44 Hoeffding bound; in the device-noise bridge, challenge_refresh/refresh_plus_rotation keep high-leakage soundness <=0.0208 under bounded noise; in the ideal Aer bridge, 216 randomized parity-verifier circuits have 0 semantic mismatches; in the noisy Aer bridge, 9600 randomized parity-verifier circuits have bridge-safe noisy honest acceptance 1.0 and bridge-safe noisy adversary acceptance 0.0; in the backend-calibrated-style bridge, 5760 GenericBackendV2 target-property-derived noisy circuits have safe calibrated honest acceptance 1.0, adversary acceptance 0.25, and max honest predicate-bit error 0.0703125. B3 now adds T-B3-005 selected-CI larger-basis grouped Pauli boundary to the B10-T1 denominator chain; it strengthens the B3/B10 negative boundary but still gives 0 larger-basis denominator wins. B3 now also has T-B3-006 larger-basis Hamiltonian mapper boundary: the selected-CI denominator bases are mapped to qubits, but conservative measurement buckets and generic state-prep surcharge still give 0 larger-basis denominator wins. B3 now also has T-B3-007 larger-basis QWC grouping boundary: measurement-setting counts fall 3.09x-3.96x, but covariance and state-prep costs still prevent an advantage claim. B3 now also has T-B3-008 grouped covariance shot-floor boundary: HF grouped covariance lowers independent-term shot floors 4.91x-5.58x, but correlated state-prep covariance and derivative-level error propagation still prevent an advantage claim. B3 now also has T-B3-009 chemical state-prep derivative boundary: derivative propagation and UCCSD/ADAPT/adiabatic prep envelopes are explicit, but they inflate the resource ledger and still give 0 denominator wins. B3 now also has T-B3-010 compiled UCC/ADAPT covariance pilot: H2/cc-pVDZ one-parameter UCC-double / ADAPT-seed sampling runs on 48 sampleable QWC groups with mean/max variance error 0.0068/0.0827, but exact derivative and optimizer-loop accounting still give 0 denominator wins. B3 now also has T-B3-011 cross-molecule UCC/ADAPT pressure and demotion boundary: H2/LiH/H2O/N2 bounded sampled covariance pressure gives max optimizer-loop shots lower bound 475,043,013,690,000 and still 0 denominator wins, so B3 is now negative-boundary evidence in B10-T1 unless a rescue mechanism appears.",
+      "remaining_steps": [
+        "treat B3 as demoted unless a multi-parameter or measurement rescue succeeds",
+        "turn B3 demotion into a denominator or dequantization theorem note",
+        "replace the B5 MPS/ALS prototype with real variational DMRG/MPS evidence or compare a real candidate B5 response subroutine against the D5 table",
+        "replace B10-T2 GenericBackendV2 bridge with real backend properties or hardware randomized measurements",
+        "connect B4/B8 verification burdens back into the boundary map"
+      ],
+      "maturity_score": 39
+    }
+  ]
+}

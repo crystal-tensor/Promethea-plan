@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>未来量子计算研究计划 - 暂停状态与下一步计划</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17212b;
+      --muted: #5f6f80;
+      --line: #d7e0ea;
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --blue: #185abc;
+      --green: #16805b;
+      --amber: #9a5b00;
+      --red: #b42318;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.58;
+    }
+
+    main {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 30px 0 52px;
+    }
+
+    header {
+      padding: 24px 0 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      max-width: 980px;
+      font-size: clamp(30px, 5vw, 50px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin-bottom: 12px;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 7px;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+
+    section {
+      margin-top: 20px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .lead {
+      max-width: 940px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .answer {
+      border-color: #b8d2ff;
+      background: #f2f7ff;
+    }
+
+    .answer strong { color: var(--blue); }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric {
+      min-height: 108px;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfdff;
+    }
+
+    .metric strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--blue);
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .step {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfdff;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 3px 8px;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .done { background: var(--green); }
+    .current { background: var(--blue); }
+    .next { background: var(--amber); }
+    .risk { background: var(--red); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 10px 9px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      background: #fbfdff;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    li + li { margin-top: 7px; }
+
+    code {
+      padding: 2px 5px;
+      border-radius: 4px;
+      background: #eef3f8;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .92em;
+    }
+
+    .status-pass { color: var(--green); font-weight: 700; }
+    .status-caveat { color: var(--amber); font-weight: 700; }
+    .status-risk { color: var(--red); font-weight: 700; }
+
+    .note {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .metrics, .timeline { grid-template-columns: 1fr; }
+      section { padding: 18px; }
+      table { font-size: 13px; }
+      th, td { padding: 9px 7px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>未来量子计算研究计划：暂停状态与下一步计划</h1>
+      <p class="lead">
+        这页回答你刚才问的事：你到底在做什么，我已经推进到哪里，现在处在哪个阶段，接下来应该怎样走。
+      </p>
+      <div class="chips">
+        <span class="chip">日期：2026-06-13</span>
+        <span class="chip">工作区：/Users/avalok/work/FurturePlan</span>
+        <span class="chip">总目标状态：active，未完成</span>
+        <span class="chip">当前阶段：阶段 1B 收尾 / 阶段 2 入口</span>
+        <span class="chip">组合审计：PASS，0 warnings</span>
+      </div>
+    </header>
+
+    <section class="answer">
+      <h2>你在做什么</h2>
+      <p>
+        你正在启动一个一年期的未来量子计算攻关计划：先建立未来 50 年最困难、最值得研究的 100 个问题地图，
+        再从中挑出最可能形成突破的 Top 10，最后为至少 10 个问题提出足够新、足够可验证的算法或方法。
+      </p>
+      <p style="margin-top: 10px;">
+        我的当前角色不是只列清单，而是把这个宏大目标变成 <strong>可审计、可复现、可证伪的研究组合</strong>：
+        每个方向都要有问题定义、benchmark、baseline、实验脚本、失败条件和下一步门槛。
+      </p>
+      <p style="margin-top: 10px;">
+        刚才暂停后，我继续把计划往前推了一步：已经从“找出 100 个问题”推进到了“Top 10 原型组合 + B1/B2 深化验证”。
+        最强方向暂时是 B1 硬件感知量子线路压缩；B2 低开销量子纠错也已经从 syndrome-history decoder fallback
+        升级到第一版 Stim/PyMatching rotated surface-code memory baseline。
+      </p>
+    </section>
+
+    <section>
+      <h2>阶段读数</h2>
+      <div class="metrics">
+        <div class="metric">
+          <strong>100</strong>
+          <span>困难问题目录已建立</span>
+        </div>
+        <div class="metric">
+          <strong>20</strong>
+          <span>进入第一轮证据评分的问题</span>
+        </div>
+        <div class="metric">
+          <strong>10</strong>
+          <span>一年攻关方向已形成 execution board</span>
+        </div>
+        <div class="metric">
+          <strong>B1/B2</strong>
+          <span>目前重点深化的两条技术线</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>目前所处阶段</h2>
+      <div class="timeline">
+        <div class="step">
+          <span class="tag done">已完成</span>
+          <h3>阶段 0：问题地图</h3>
+          <p>完成 100 个困难问题目录、Top 20 评分矩阵、Top 10 攻关包和资料索引。</p>
+        </div>
+        <div class="step">
+          <span class="tag done">已完成</span>
+          <h3>阶段 1A：原型启动</h3>
+          <p>B1-B10 都已有 benchmark 或 prototype artifact，并通过组合审计。</p>
+        </div>
+        <div class="step">
+          <span class="tag current">当前</span>
+          <h3>阶段 1B：证据加固</h3>
+          <p>B1 完成 virtual-SWAP elimination、proof replay 和 synthetic noise proxy；B2 完成 Viterbi decoder fallback、Stim/PyMatching surface-code baseline 与 Wilson target-volume 表。</p>
+        </div>
+        <div class="step">
+          <span class="tag next">下一步</span>
+          <h3>阶段 2：真实 baseline</h3>
+          <p>把 diagnostic/proxy/fallback 结果推进到 live 或 calibrated baseline、真实 decoder、真实材料与真实验证任务。</p>
+        </div>
+      </div>
+      <p class="note">
+        最准确的阶段判断：研究基础设施已搭好，Top 10 已立项，B1/B2 正进入论文级验证前夜；但还没有任何一个问题可以声称已经被攻破。
+      </p>
+    </section>
+
+    <section>
+      <h2>当前证据状态</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>方向</th>
+            <th>已经做到</th>
+            <th>还缺什么</th>
+            <th>阶段判断</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>B1 硬件感知量子线路压缩</td>
+            <td>30/30 circuits rewritten；删除 481 个 virtual SWAP 和 1443 个 CX；2Q count 降低 37.18%；exposure 降低 32.65%；local/end-to-end Aer 失败数 0；proof replay 481/481 通过。</td>
+            <td>还缺 live/calibrated heavy-hex baseline、native-basis-aware 2-4 qubit optimizer、动态线路语义覆盖，以及更广 benchmark。</td>
+            <td><span class="status-pass">最强候选</span>，但仍是 diagnostic evidence，不是最终突破 claim。</td>
+          </tr>
+          <tr>
+            <td>B2 低开销量子纠错</td>
+            <td>已有 repetition baseline、target-volume 表、rough surface-code estimate、phenomenological Viterbi decoder fallback；新增 Stim/PyMatching rotated surface-code memory baseline，30 个配置、90,000 shots，最大 decoder runtime 约 1.47e-5 秒/shot；Wilson target-volume 表覆盖 40 个组合，22 个达标、18 个未达标。</td>
+            <td>还缺更大距离/更多 shots、1e-3 及更严格目标的置信证明、候选 schedule/code graph 对比和公开 baseline reproduction。</td>
+            <td><span class="status-caveat">真实 baseline 已起步</span>，下一步要扩大并拿候选方案正面对比。</td>
+          </tr>
+          <tr>
+            <td>B3-B8 应用与验证线</td>
+            <td>已有 PySCF resource proxy、toy hidden-trap protocol、Hubbard exact reference、descriptor ranking、FT co-design model、B1/B2 dependency-schedule bridge、hidden-invariant verifier 和 adaptive leakage stress test。</td>
+            <td>多数仍是 toy/proxy/synthetic/planning 结果，需要真实数据、真实任务或更强 classical baseline。</td>
+            <td><span class="status-caveat">可保留</span>，但必须经过 30 天 validation gate。</td>
+          </tr>
+          <tr>
+            <td>B9-B10 理论线</td>
+            <td>已有 Local Hamiltonian gap lab 和 BQP boundary reduction graph。</td>
+            <td>还缺明确可攻的 restricted theorem statement 或可复用负结果数据库。</td>
+            <td><span class="status-risk">高风险</span>，短期更适合作为理论目标与负结果线。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>我的计划</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>时间</th>
+            <th>主线</th>
+            <th>交付物</th>
+            <th>是否可证伪</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>接下来 7 天</td>
+            <td>冻结 B1/B2 证据包，不再扩张问题列表。</td>
+            <td>B1 证据包目录、B2 Stim/PyMatching baseline 与 Wilson target-volume 表、Top 10 每条线的 30 天 gate。</td>
+            <td>是：如果 B1 calibrated baseline 或 B2 real decoder 失败，就降级为诊断结果。</td>
+          </tr>
+          <tr>
+            <td>第 2-4 周</td>
+            <td>把 B1 接入 calibrated 或 live-like heavy-hex baseline；把 B2 baseline 扩展到更大距离/更多 shots，并用 Wilson target-volume 开始候选方案对比。</td>
+            <td>可复现实验脚本、baseline comparison、失败案例表、限制说明。</td>
+            <td>是：必须和 baseline 正面对比，不能只用 proxy。</td>
+          </tr>
+          <tr>
+            <td>第 2 个月</td>
+            <td>把 B7 的 B1/B2 bridge 升级为真实 workload DAG，形成 cross-layer fault-tolerance resource story。</td>
+            <td>真实 workload DAG、space-time-volume estimate、routing/factory assumptions。</td>
+            <td>是：如果显式调度后收益消失，就杀掉或降级。</td>
+          </tr>
+          <tr>
+            <td>第 3 个月</td>
+            <td>对 B3-B8 做真实 baseline 升级，对 B9-B10 写 restricted theorem target。</td>
+            <td>2-3 个可写论文的候选方向，其他方向转为负结果或后备。</td>
+            <td>是：每条线必须有 kill/merge 条件。</td>
+          </tr>
+          <tr>
+            <td>一年内</td>
+            <td>形成至少 10 个问题的创新方法包，其中 2-3 个冲击论文级结果。</td>
+            <td>算法、实验、证明草案、benchmark、复现实验和研究报告。</td>
+            <td>是：每个突破 claim 都要有独立 baseline 和限制说明。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>下一步行动</h2>
+      <ul>
+        <li>先不要继续扩大 100 问题列表，当前列表已经够用；接下来要提高证据质量。</li>
+        <li>优先攻 B1，因为它的验证链最完整：方法、proof log、exact/Aer cross-check、消融和 routing 诊断都已经存在。</li>
+        <li>同步推进 B2，因为低开销量子纠错是未来量子计算的核心瓶颈；现在已有 surface-code baseline 和 target-volume 表，下一步必须用候选 code/schedule 正面对比它。</li>
+        <li>把 B4/B8 合并成 verification protocol 线，并用 B8 的 0.75 泄漏危险边界设计 challenge refresh；把 B9/B10 作为 theorem/negative-result 线，避免研究组合发散。</li>
+        <li>每 30 天执行一次 keep/merge/kill 审计，只保留能产生真实增量或有价值负结果的方向。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>关键文件</h2>
+      <ul>
+        <li><code>research/problem_catalog_100.md</code>：100 个困难问题目录</li>
+        <li><code>research/attack_pack_10.md</code>：Top 10 攻关方向</li>
+        <li><code>research/top10_execution_board.md</code>：Top 10 执行看板</li>
+        <li><code>research/portfolio_status_report.md</code>：组合审计报告</li>
+        <li><code>research/B1_certificate_report.md</code>：B1 证据包</li>
+        <li><code>research/B2_phenomenological_repetition_decoder.md</code>：B2 decoder fallback 报告</li>
+        <li><code>research/B2_stim_surface_code_memory_baseline.md</code>：B2 Stim/PyMatching surface-code baseline 报告</li>
+        <li><code>research/B2_stim_surface_code_target_volume.md</code>：B2 Wilson target-volume 报告</li>
+        <li><code>research/pause_status_plan.html</code>：本暂停状态页</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

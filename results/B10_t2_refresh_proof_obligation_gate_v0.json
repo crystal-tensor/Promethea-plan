@@ -1,0 +1,249 @@
+{
+  "benchmark_id": "B10",
+  "candidate_lemma_schema": {
+    "name": "minimum_refresh_soundness_gate_for_hidden_projection_verifiers",
+    "not_yet_proved_statement": "For a sampling verifier with independent projection rotation or challenge refresh, bounded leakage lambda, and adversaries limited to the declared transcript model, adaptive-spoofer pass probability is at most s(lambda, m, N) below the declared soundness gate while honest completeness stays above c.",
+    "why_current_proxy_is_insufficient": [
+      "The B8 task uses finite CNOT hidden-projection proxies rather than a hardware randomized-measurement circuit family.",
+      "Candidate true masks are exposed through a side-channel quality model, not derived from unrestricted transcript access.",
+      "The adversary class is empirical and finite, not an asymptotic or cryptographic adaptive adversary model.",
+      "The refresh operations are modeled as projection rotation/challenge reset effects, not yet as a fully specified verifier protocol with seed timing and transcript distribution.",
+      "The stress result has strong negative evidence for no-refresh high leakage, but finite positive rows do not prove universal soundness for every learner."
+    ]
+  },
+  "completeness_gate": 0.95,
+  "configuration_count": 144,
+  "dependency_benchmark": "B8",
+  "explicit_not_bqp_separation": true,
+  "hardware_randomized_measurement_circuits_instantiated": false,
+  "high_leakage_fraction": 0.75,
+  "high_leakage_summary": [
+    {
+      "leakage_fraction": 0.75,
+      "learners_over_5pct_soundness": [],
+      "max_learned_soundness": 0.0,
+      "mean_learned_soundness": 0.0,
+      "refresh_mode": "challenge_refresh"
+    },
+    {
+      "leakage_fraction": 0.75,
+      "learners_over_5pct_soundness": [
+        "correlation_mask_learner",
+        "generative_projection_learner",
+        "leakage_augmented_generator"
+      ],
+      "max_learned_soundness": 1.0,
+      "mean_learned_soundness": 0.7263888888888889,
+      "refresh_mode": "none"
+    },
+    {
+      "leakage_fraction": 0.75,
+      "learners_over_5pct_soundness": [],
+      "max_learned_soundness": 0.025,
+      "mean_learned_soundness": 0.0041666666666666675,
+      "refresh_mode": "projection_rotation"
+    },
+    {
+      "leakage_fraction": 0.75,
+      "learners_over_5pct_soundness": [],
+      "max_learned_soundness": 0.0,
+      "mean_learned_soundness": 0.0,
+      "refresh_mode": "refresh_plus_rotation"
+    }
+  ],
+  "last_updated": "2026-06-17",
+  "learners_tested": [
+    "correlation_mask_learner",
+    "generative_projection_learner",
+    "leakage_augmented_generator"
+  ],
+  "lemma_status": "not_proved_proxy_insufficient_for_general_soundness",
+  "limits": [
+    "This gate is a proof-pressure artifact, not a cryptographic soundness proof.",
+    "It supports a rejection rule for no-refresh high-leakage claims in the current proxy.",
+    "It does not establish a BQP/classical separation or a universal verification theorem.",
+    "It should be used to drive B4/B8 protocol formalization, not to advertise a solved B10 result."
+  ],
+  "maximum_learned_soundness": 1.0,
+  "method": "b10_t2_refresh_proof_obligation_gate_v0",
+  "minimum_honest_completeness": 1.0,
+  "problem_id": 11,
+  "proof_obligations": [
+    {
+      "description": "Define the verifier transcript distribution, seed timing, and challenge-refresh schedule as a formal protocol.",
+      "id": "B10-T2-O1",
+      "status": "open"
+    },
+    {
+      "description": "Replace the side-channel candidate-mask model with a leakage channel L that maps transcripts to adversary information.",
+      "id": "B10-T2-O2",
+      "status": "open"
+    },
+    {
+      "description": "State an adversary class with allowed computation, samples, adaptivity, and access to refreshed challenges.",
+      "id": "B10-T2-O3",
+      "status": "open"
+    },
+    {
+      "description": "Prove or bound soundness as a function of leakage lambda, invariant count, verifier samples, and refresh entropy.",
+      "id": "B10-T2-O4",
+      "status": "open"
+    },
+    {
+      "description": "Instantiate hardware-executable randomized-measurement circuits or clearly declare that the result remains a proxy.",
+      "id": "B10-T2-O5",
+      "status": "open"
+    },
+    {
+      "description": "Separate the verifier soundness statement from the external sampling-hardness assumption used for advantage.",
+      "id": "B10-T2-O6",
+      "status": "open"
+    },
+    {
+      "description": "Audit verifier overhead so refresh does not erase the claimed sampling-advantage denominator.",
+      "id": "B10-T2-O7",
+      "status": "open"
+    }
+  ],
+  "result_dependency": {
+    "b8_result_path": "results/B8_generative_spoofer_refresh_v0.json",
+    "formal_target_path": "results/B10_formal_theorem_targets_v0.json"
+  },
+  "safe_high_leakage_refresh_modes": [
+    "challenge_refresh",
+    "projection_rotation",
+    "refresh_plus_rotation"
+  ],
+  "soundness_gate": 0.05,
+  "source_b8_stress": "b8_generative_spoofer_refresh_v0",
+  "source_formal_target": "B10_formal_theorem_targets_v0",
+  "source_target_id": "B10-T2",
+  "source_target_name": "sampling_advantage_verification_layer_target",
+  "status": "proof_obligation_gate_proxy_supports_rejection_rule_not_soundness_lemma",
+  "task_count": 3,
+  "title": "B10-T2 refresh proof-obligation gate",
+  "unsafe_high_leakage_refresh_modes": [
+    "none"
+  ],
+  "validation_claim": {
+    "admissible_next_claim": "A restricted soundness lemma may be attempted only after projection rotation or challenge refresh is formalized as an unpredictable post-sampling challenge with a declared leakage channel and asymptotic adversary model.",
+    "rejected_claim": "A B10-T2 sampling-advantage verification layer with fixed hidden projections, no challenge refresh, and lambda=0.75 leakage can claim soundness <= 0.05.",
+    "supported_rejection_rule": "Reject no-refresh verifier claims at lambda=0.75 in this CNOT hidden-projection proxy, because trained/generative spoofers reach learned soundness 1.0."
+  },
+  "validation_errors": [],
+  "version": "0.1",
+  "worst_learned_rows": [
+    {
+      "candidate_true_probability": 1.0,
+      "honest_completeness": 1.0,
+      "leakage_fraction": 0.75,
+      "learned_soundness": 1.0,
+      "learner": "generative_projection_learner",
+      "mean_abs_selected_training_score": 0.19966003417968753,
+      "mean_max_abs_error": 0.031712796875000004,
+      "mean_true_masks_in_candidate_pool": 10.0,
+      "mean_true_masks_selected": 10.0,
+      "qubits": 12,
+      "refresh_mode": "none",
+      "task_id": "cnot_hidden_projection_n12_d48"
+    },
+    {
+      "candidate_true_probability": 1.0,
+      "honest_completeness": 1.0,
+      "leakage_fraction": 0.75,
+      "learned_soundness": 1.0,
+      "learner": "leakage_augmented_generator",
+      "mean_abs_selected_training_score": 0.199927978515625,
+      "mean_max_abs_error": 0.03251730078125,
+      "mean_true_masks_in_candidate_pool": 10.0,
+      "mean_true_masks_selected": 10.0,
+      "qubits": 12,
+      "refresh_mode": "none",
+      "task_id": "cnot_hidden_projection_n12_d48"
+    },
+    {
+      "candidate_true_probability": 1.0,
+      "honest_completeness": 1.0,
+      "leakage_fraction": 0.75,
+      "learned_soundness": 1.0,
+      "learner": "generative_projection_learner",
+      "mean_abs_selected_training_score": 0.3200439453125,
+      "mean_max_abs_error": 0.030551707031250003,
+      "mean_true_masks_in_candidate_pool": 10.0,
+      "mean_true_masks_selected": 10.0,
+      "qubits": 16,
+      "refresh_mode": "none",
+      "task_id": "cnot_hidden_projection_n16_d64"
+    },
+    {
+      "candidate_true_probability": 1.0,
+      "honest_completeness": 1.0,
+      "leakage_fraction": 0.75,
+      "learned_soundness": 1.0,
+      "learner": "leakage_augmented_generator",
+      "mean_abs_selected_training_score": 0.31960266113281255,
+      "mean_max_abs_error": 0.030077792968750006,
+      "mean_true_masks_in_candidate_pool": 10.0,
+      "mean_true_masks_selected": 10.0,
+      "qubits": 16,
+      "refresh_mode": "none",
+      "task_id": "cnot_hidden_projection_n16_d64"
+    },
+    {
+      "candidate_true_probability": 1.0,
+      "honest_completeness": 1.0,
+      "leakage_fraction": 0.75,
+      "learned_soundness": 1.0,
+      "learner": "generative_projection_learner",
+      "mean_abs_selected_training_score": 0.262955322265625,
+      "mean_max_abs_error": 0.030816498046875,
+      "mean_true_masks_in_candidate_pool": 10.0,
+      "mean_true_masks_selected": 10.0,
+      "qubits": 20,
+      "refresh_mode": "none",
+      "task_id": "cnot_hidden_projection_n20_d80"
+    },
+    {
+      "candidate_true_probability": 1.0,
+      "honest_completeness": 1.0,
+      "leakage_fraction": 0.75,
+      "learned_soundness": 1.0,
+      "learner": "leakage_augmented_generator",
+      "mean_abs_selected_training_score": 0.2630914306640625,
+      "mean_max_abs_error": 0.029701996093750006,
+      "mean_true_masks_in_candidate_pool": 10.0,
+      "mean_true_masks_selected": 10.0,
+      "qubits": 20,
+      "refresh_mode": "none",
+      "task_id": "cnot_hidden_projection_n20_d80"
+    },
+    {
+      "candidate_true_probability": 0.95,
+      "honest_completeness": 1.0,
+      "leakage_fraction": 0.5,
+      "learned_soundness": 0.525,
+      "learner": "leakage_augmented_generator",
+      "mean_abs_selected_training_score": 0.1894989013671875,
+      "mean_max_abs_error": 0.23622213671874998,
+      "mean_true_masks_in_candidate_pool": 9.425,
+      "mean_true_masks_selected": 9.425,
+      "qubits": 12,
+      "refresh_mode": "none",
+      "task_id": "cnot_hidden_projection_n12_d48"
+    },
+    {
+      "candidate_true_probability": 0.95,
+      "honest_completeness": 1.0,
+      "leakage_fraction": 0.5,
+      "learned_soundness": 0.525,
+      "learner": "leakage_augmented_generator",
+      "mean_abs_selected_training_score": 0.30198486328124996,
+      "mean_max_abs_error": 0.28672789062500004,
+      "mean_true_masks_in_candidate_pool": 9.4,
+      "mean_true_masks_selected": 9.4,
+      "qubits": 16,
+      "refresh_mode": "none",
+      "task_id": "cnot_hidden_projection_n16_d64"
+    }
+  ]
+}

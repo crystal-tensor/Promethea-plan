@@ -1,0 +1,321 @@
+{
+  "benchmark_id": "B1",
+  "check": "qiskit_aer_shot_measurement_equivalence_crosscheck",
+  "failed": 0,
+  "max_threshold": 0.35,
+  "max_total_variation_distance": 0.24365234375,
+  "method": "matrix_product_state",
+  "pair_count": 30,
+  "passed": 30,
+  "results": [
+    {
+      "combined_support": 60,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/b1_exact_extension/01_trotter_ladder_n6.qasm",
+      "left_support": 58,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/b1_exact_extension/01_trotter_ladder_n6.qasm",
+      "right_support": 59,
+      "threshold": 0.21313710101159478,
+      "total_variation_distance": 0.05517578125
+    },
+    {
+      "combined_support": 256,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/b1_exact_extension/02_ring_interaction_n8.qasm",
+      "left_support": 256,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/b1_exact_extension/02_ring_interaction_n8.qasm",
+      "right_support": 256,
+      "threshold": 0.35,
+      "total_variation_distance": 0.18994140625
+    },
+    {
+      "combined_support": 20,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/b1_exact_extension/03_qec_syndrome_phase_n7.qasm",
+      "left_support": 20,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/b1_exact_extension/03_qec_syndrome_phase_n7.qasm",
+      "right_support": 20,
+      "threshold": 0.1315077572595482,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 2,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/b1_exact_extension/04_arithmetic_phase_n6.qasm",
+      "left_support": 2,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/b1_exact_extension/04_arithmetic_phase_n6.qasm",
+      "right_support": 2,
+      "threshold": 0.055261848971734764,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 32,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/b1_exact_extension/05_qft_phase_ladder_n5.qasm",
+      "left_support": 32,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/b1_exact_extension/05_qft_phase_ladder_n5.qasm",
+      "right_support": 32,
+      "threshold": 0.16104739588693906,
+      "total_variation_distance": 0.04248046875
+    },
+    {
+      "combined_support": 115,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/b1_exact_extension/06_long_range_echo_n10.qasm",
+      "left_support": 93,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/b1_exact_extension/06_long_range_echo_n10.qasm",
+      "right_support": 85,
+      "threshold": 0.287386208679622,
+      "total_variation_distance": 0.08984375
+    },
+    {
+      "combined_support": 31,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/b1_exact_extension/07_commuting_disjoint_windows_n8.qasm",
+      "left_support": 31,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/b1_exact_extension/07_commuting_disjoint_windows_n8.qasm",
+      "right_support": 29,
+      "threshold": 0.15882603822782743,
+      "total_variation_distance": 0.06591796875
+    },
+    {
+      "combined_support": 58,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/b1_exact_extension/08_chemistry_ansatz_n8.qasm",
+      "left_support": 47,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/b1_exact_extension/08_chemistry_ansatz_n8.qasm",
+      "right_support": 48,
+      "threshold": 0.20989086811707808,
+      "total_variation_distance": 0.04541015625
+    },
+    {
+      "combined_support": 32,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/b1_exact_extension/09_bv_phase_oracle_n9.qasm",
+      "left_support": 30,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/b1_exact_extension/09_bv_phase_oracle_n9.qasm",
+      "right_support": 22,
+      "threshold": 0.16104739588693906,
+      "total_variation_distance": 0.03564453125
+    },
+    {
+      "combined_support": 64,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "left_support": 64,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+      "right_support": 64,
+      "threshold": 0.21947114020071634,
+      "total_variation_distance": 0.03466796875
+    },
+    {
+      "combined_support": 16,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/b1_exact_extension/11_stabilizer_mixer_n10.qasm",
+      "left_support": 16,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/b1_exact_extension/11_stabilizer_mixer_n10.qasm",
+      "right_support": 16,
+      "threshold": 0.11973557010035818,
+      "total_variation_distance": 0.0419921875
+    },
+    {
+      "combined_support": 2,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/b1_exact_extension/12_toffoli_phase_n7.qasm",
+      "left_support": 2,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/b1_exact_extension/12_toffoli_phase_n7.qasm",
+      "right_support": 2,
+      "threshold": 0.055261848971734764,
+      "total_variation_distance": 0.01025390625
+    },
+    {
+      "combined_support": 1,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_interaction_exact/basis_trotter_n4.qasm",
+      "right_support": 1,
+      "threshold": 0.044933892525089544,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 557,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/qasmbench_interaction_exact/ising_n10.qasm",
+      "left_support": 455,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_interaction_exact/ising_n10.qasm",
+      "right_support": 457,
+      "threshold": 0.35,
+      "total_variation_distance": 0.24365234375
+    },
+    {
+      "combined_support": 1,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/qasmbench_medium_exact/bv_n14.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_medium_exact/bv_n14.qasm",
+      "right_support": 1,
+      "threshold": 0.044933892525089544,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 2,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/qasmbench_medium_exact/gcm_h6.qasm",
+      "left_support": 2,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_medium_exact/gcm_h6.qasm",
+      "right_support": 2,
+      "threshold": 0.055261848971734764,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 1,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/qasmbench_medium_exact/multiply_n13.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_medium_exact/multiply_n13.qasm",
+      "right_support": 1,
+      "threshold": 0.044933892525089544,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 8,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/qasmbench_medium_exact/qf21_n15.qasm",
+      "left_support": 8,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_medium_exact/qf21_n15.qasm",
+      "right_support": 8,
+      "threshold": 0.09052369794346954,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 16,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/qasmbench_medium_exact/sat_n11.qasm",
+      "left_support": 16,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_medium_exact/sat_n11.qasm",
+      "right_support": 16,
+      "threshold": 0.11973557010035818,
+      "total_variation_distance": 0.033203125
+    },
+    {
+      "combined_support": 4,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/qasmbench_medium_exact/seca_n11.qasm",
+      "left_support": 4,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_medium_exact/seca_n11.qasm",
+      "right_support": 4,
+      "threshold": 0.06986778505017908,
+      "total_variation_distance": 0.01513671875
+    },
+    {
+      "combined_support": 1,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/qasmbench_small/adder_n4.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_small/adder_n4.qasm",
+      "right_support": 1,
+      "threshold": 0.044933892525089544,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 1,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/qasmbench_small/basis_change_n3.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_small/basis_change_n3.qasm",
+      "right_support": 1,
+      "threshold": 0.044933892525089544,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 1,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/qasmbench_small/basis_test_n4.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_small/basis_test_n4.qasm",
+      "right_support": 1,
+      "threshold": 0.044933892525089544,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 16,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/qasmbench_small/bell_n4.qasm",
+      "left_support": 16,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_small/bell_n4.qasm",
+      "right_support": 16,
+      "threshold": 0.11973557010035818,
+      "total_variation_distance": 0.0341796875
+    },
+    {
+      "combined_support": 2,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/qasmbench_small/cat_state_n4.qasm",
+      "left_support": 2,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_small/cat_state_n4.qasm",
+      "right_support": 2,
+      "threshold": 0.055261848971734764,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 2,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/qasmbench_small/deutsch_n2.qasm",
+      "left_support": 2,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_small/deutsch_n2.qasm",
+      "right_support": 2,
+      "threshold": 0.055261848971734764,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 16,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/qasmbench_small/error_correctiond3_n5.qasm",
+      "left_support": 16,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_small/error_correctiond3_n5.qasm",
+      "right_support": 16,
+      "threshold": 0.11973557010035818,
+      "total_variation_distance": 0.04052734375
+    },
+    {
+      "combined_support": 1,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/qasmbench_small/fredkin_n3.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_small/fredkin_n3.qasm",
+      "right_support": 1,
+      "threshold": 0.044933892525089544,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 1,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/qasmbench_small/grover_n2.qasm",
+      "left_support": 1,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_small/grover_n2.qasm",
+      "right_support": 1,
+      "threshold": 0.044933892525089544,
+      "total_variation_distance": 0.0
+    },
+    {
+      "combined_support": 11,
+      "left": "/Users/avalok/work/FurturePlan/results/b1_heavyhex_end_to_end_30_level1_work/00_source/qasmbench_small/hhl_n7.qasm",
+      "left_support": 7,
+      "passed": true,
+      "right": "/Users/avalok/work/FurturePlan/results/b1_post_routing_swap_macro_level1_work/01_swap_macro/qasmbench_small/hhl_n7.qasm",
+      "right_support": 8,
+      "threshold": 0.10269636606876918,
+      "total_variation_distance": 0.0166015625
+    }
+  ],
+  "seed": 220626,
+  "shots": 2048,
+  "simulator": "qiskit_aer.AerSimulator",
+  "threshold_model": {
+    "base_tvd": 0.02,
+    "formula": "min(max_tvd, base_tvd + threshold_multiplier * sqrt(combined_support / (pi * shots)))",
+    "max_tvd": 0.35,
+    "threshold_multiplier": 2.0
+  }
+}

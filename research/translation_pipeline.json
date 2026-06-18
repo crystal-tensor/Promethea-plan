@@ -1,0 +1,307 @@
+{
+  "schema_version": "0.1",
+  "last_updated": "2026-06-13",
+  "purpose": "Deferred commercialization, publication, patent, financing, and tool roadmap for B1-B10 after technical gates pass.",
+  "status": "deferred_until_b1_b10_technical_gates_pass",
+  "activation_rule": "Do not treat translation outputs as current success criteria; use only after the relevant B-direction has passed its technical solution gate.",
+  "portfolio_thesis": "Verification-first quantum software stack: certified compression, QEC target-volume accounting, fault-tolerant resource scheduling, and output verification.",
+  "targets_12_months": {
+    "manuscripts_or_preprints": 4,
+    "patent_disclosures": 5,
+    "fundable_project_packages": 4,
+    "monetizable_tools": 4
+  },
+  "manuscripts": [
+    {
+      "id": "M1",
+      "title": "Certified virtual-SWAP elimination for topology-aware quantum circuit compression",
+      "lanes": [
+        "B1",
+        "B2",
+        "B7"
+      ],
+      "paper_type": "systems_and_compiler",
+      "claim_gate": "Reproduce virtual-SWAP benefit against at least one calibrated/live-like heavy-hex baseline and one broader benchmark family.",
+      "evidence_now": "30/30 circuits rewritten; 481 virtual SWAPs removed; 37.18% two-qubit reduction; 32.65% synthetic exposure reduction; proof replay passed 481/481.",
+      "next_artifact": "paper_m1_certified_compression_outline.md",
+      "readiness": "outline_ready"
+    },
+    {
+      "id": "M2",
+      "title": "Wilson-bounded target-volume accounting for QEC baselines and compiler-aware fault-tolerant scheduling",
+      "lanes": [
+        "B2",
+        "B7",
+        "B1"
+      ],
+      "paper_type": "qec_architecture",
+      "claim_gate": "A non-aggressive or physically motivated reduced-round variant must survive larger distances/shots, leakage/correlated-noise fields, and noise-mismatch stress; then B7 needs a real workload DAG with factory-throughput variants.",
+      "evidence_now": "B2 Stim/PyMatching 30 configs and 90,000 shots; B2 target-volume 40 combinations; B2 same-hardware reduced-round candidate 120 configs / 360,000 shots with 22 Wilson target-volume improved rows; B2 robustness stress 240 configs / 1,200,000 shots with 88 stressed improved rows, all aggressive d-4 and 0 non-aggressive d-2; B7 bridge 1.195x-1.616x conservative STV reduction.",
+      "next_artifact": "paper_m2_target_volume_codesign_outline.md",
+      "readiness": "needs_b2_b7_extension"
+    },
+    {
+      "id": "M3",
+      "title": "Challenge-refresh hidden-invariant tests for classically verifiable quantum outputs",
+      "lanes": [
+        "B4",
+        "B8",
+        "B10"
+      ],
+      "paper_type": "verification_protocol",
+      "claim_gate": "Implement circuit-level hidden task generator, challenge refresh, projection rotation, and adaptive generative spoofers.",
+      "evidence_now": "B4 rejects four spoofing families; B8 honest completeness 1.0; B8 leakage test identifies 0.75 leakage as dangerous.",
+      "next_artifact": "paper_m3_verification_protocol_outline.md",
+      "readiness": "needs_circuit_task"
+    },
+    {
+      "id": "M4",
+      "title": "Observable-first quantum simulation descriptors for correlated chemistry and superconducting-material search",
+      "lanes": [
+        "B3",
+        "B5",
+        "B6"
+      ],
+      "paper_type": "application_position_and_benchmark",
+      "claim_gate": "Add reaction-coordinate path, stronger tensor/boundary baseline, and real or curated materials table with leakage controls.",
+      "evidence_now": "B3 PySCF proxy; B5 exact Hubbard cluster proxy; B6 toy descriptor ranker.",
+      "next_artifact": "paper_m4_observable_descriptors_outline.md",
+      "readiness": "early_application"
+    },
+    {
+      "id": "M5",
+      "title": "Negative-result scaffolds for quantum PCP gap amplification and BQP advantage-boundary claims",
+      "lanes": [
+        "B9",
+        "B10"
+      ],
+      "paper_type": "theory_note",
+      "claim_gate": "Formalize one negative lemma or two restricted theorem targets.",
+      "evidence_now": "B9 has four counterexample candidates; B10 has 11 restricted theorem targets.",
+      "next_artifact": "paper_m5_theory_guardrails_note.md",
+      "readiness": "definition_needed"
+    }
+  ],
+  "patent_disclosures": [
+    {
+      "id": "IP1",
+      "title": "Measurement-aware virtual-SWAP elimination with proof replay",
+      "lanes": [
+        "B1",
+        "B7"
+      ],
+      "invention_summary": "Detect routed SWAP macros, replace them with tracked logical wire and measurement maps, and emit replayable proof events.",
+      "evidence_now": "481 virtual SWAPs removed and 481/481 proof events replayed.",
+      "pre_filing_tasks": [
+        "prior_art_search",
+        "claim_chart",
+        "failure_mode_examples",
+        "counsel_review"
+      ],
+      "status": "technical_disclosure_draft"
+    },
+    {
+      "id": "IP2",
+      "title": "Wilson-bounded target-volume selection for QEC code and schedule choice",
+      "lanes": [
+        "B2",
+        "B7"
+      ],
+      "invention_summary": "Select QEC codes, schedules, and decoder settings by confidence-bounded target space-time volume.",
+      "evidence_now": "40 surface-code target-volume combinations with Wilson 95% high criterion; same-hardware reduced-round candidate finds 22 improved target-volume rows, but robustness stress shows the positive signal is currently aggressive-only.",
+      "pre_filing_tasks": [
+        "prior_art_search",
+        "candidate_code_demo",
+        "statistical_claim_boundaries",
+        "counsel_review",
+        "prior_art_search_reduced_round_syndrome_extraction",
+        "schedule_level_qec_overhead_selection"
+      ],
+      "status": "technical_disclosure_draft"
+    },
+    {
+      "id": "IP3",
+      "title": "Challenge-refresh hidden-invariant verification",
+      "lanes": [
+        "B4",
+        "B8",
+        "B10"
+      ],
+      "invention_summary": "Rotate hidden invariants or projections after leakage-risk thresholds are detected.",
+      "evidence_now": "0.75 leakage identified as dangerous under adaptive spoofer stress.",
+      "pre_filing_tasks": [
+        "circuit_task_generator",
+        "refresh_policy",
+        "spoofer_comparison",
+        "counsel_review"
+      ],
+      "status": "concept_disclosure"
+    },
+    {
+      "id": "IP4",
+      "title": "Dependency-scheduled fault-tolerance co-design engine",
+      "lanes": [
+        "B1",
+        "B2",
+        "B7"
+      ],
+      "invention_summary": "Schedule algorithm blocks, compiler reductions, target-volume QEC rows, and factory throughput in one resource ledger.",
+      "evidence_now": "B7 dependency bridge gives 1.195x-1.616x conservative STV reduction; FT synthesis ledger exposes gcm_h6 as the current min row; w8_21 claim-boundary closure shows 43480 optimizer runs, 0 exact replacements, and 0 ledger removal, so repeated templates cannot be counted as physical savings without occurrence-removing certificates.",
+      "pre_filing_tasks": [
+        "real_workload_dag",
+        "factory_variants",
+        "occurrence_removing_rewrite_certificate",
+        "layout_assumptions",
+        "counsel_review"
+      ],
+      "status": "concept_disclosure"
+    },
+    {
+      "id": "IP5",
+      "title": "Leakage-audited mechanism-aware materials descriptor ranking",
+      "lanes": [
+        "B3",
+        "B5",
+        "B6"
+      ],
+      "invention_summary": "Rank materials candidates using strong-correlation descriptors with explicit family-prior leakage audits.",
+      "evidence_now": "B6 synthetic ranker, B5 cluster proxy, and B3 observable-first proxy exist.",
+      "pre_filing_tasks": [
+        "real_dataset",
+        "time_family_split",
+        "descriptor_provenance",
+        "counsel_review"
+      ],
+      "status": "early_concept"
+    }
+  ],
+  "fundable_projects": [
+    {
+      "id": "F1",
+      "title": "Quantum Compiler Assurance Platform",
+      "lanes": [
+        "B1",
+        "B7",
+        "B10"
+      ],
+      "route": "SBIR/STTR or seed round",
+      "first_customer": "Quantum software teams, hardware labs, and research groups running compiler benchmarks.",
+      "mvp": "Q-Cert Compiler Audit CLI with HTML/JSON report export.",
+      "status": "lead_project"
+    },
+    {
+      "id": "F2",
+      "title": "QEC Target-Volume Benchmarking Service",
+      "lanes": [
+        "B2",
+        "B7"
+      ],
+      "route": "DOE/NSF grant plus enterprise pilots",
+      "first_customer": "Hardware companies, national labs, and academic architecture groups.",
+      "mvp": "Reproducible Stim/PyMatching target-volume benchmark runner.",
+      "status": "strong_project",
+      "core_assets": "B2 Stim/PyMatching baseline, B2 target-volume table, B2 same-hardware schedule candidate and aggressive-only robustness boundary, B7 resource bridge.",
+      "milestone_budget_target": "Build reproducible runner, target-volume dashboard, same-hardware schedule stress suite, aggressive-only boundary warnings, and pilot benchmark reports."
+    },
+    {
+      "id": "F3",
+      "title": "Quantum Verification and Spoofing Lab",
+      "lanes": [
+        "B4",
+        "B8",
+        "B10"
+      ],
+      "route": "Security-oriented seed project, government grants, or enterprise pilots",
+      "first_customer": "Quantum cloud providers, benchmark authors, and audit teams.",
+      "mvp": "Hidden-task generator, spoofer library, and verification dashboard.",
+      "status": "strong_project"
+    },
+    {
+      "id": "F4",
+      "title": "Quantum-Risk and PQC Migration Adjacent Tool",
+      "lanes": [
+        "B10"
+      ],
+      "route": "Service revenue or lightweight SaaS",
+      "first_customer": "Security teams needing crypto inventory and PQC migration planning.",
+      "mvp": "Assessment templates, inventory connectors, and executive risk reports.",
+      "status": "near_term_revenue_adjacent"
+    }
+  ],
+  "tools": [
+    {
+      "id": "T1",
+      "name": "Q-Cert Compiler Audit CLI",
+      "lanes": [
+        "B1",
+        "B7",
+        "B10"
+      ],
+      "mvp": "Run benchmark circuits, emit reductions, proof logs, and limitation report.",
+      "paying_user": "Quantum software teams and labs.",
+      "deliverable_90_days": "Package existing B1 scripts behind one CLI with HTML/JSON report export.",
+      "current_mvp_artifacts": [
+        "tools/qcert_audit_cli.py",
+        "research/QCERT_MVP_REPORT.md",
+        "results/qcert_audit_mvp_report.json"
+      ],
+      "lead": true
+    },
+    {
+      "id": "T2",
+      "name": "QEC Target-Volume Bench",
+      "lanes": [
+        "B2",
+        "B7"
+      ],
+      "mvp": "Run Stim/PyMatching sweeps and produce Wilson-bounded target-volume tables.",
+      "paying_user": "Hardware and architecture teams.",
+      "deliverable_90_days": "Hosted or local benchmark runner with reproducible configs.",
+      "lead": false
+    },
+    {
+      "id": "T3",
+      "name": "Quantum Verification Red-Team Lab",
+      "lanes": [
+        "B4",
+        "B8",
+        "B10"
+      ],
+      "mvp": "Generate hidden tasks, run spoofers, show completeness/soundness/leakage curves.",
+      "paying_user": "Benchmark designers and quantum cloud evaluators.",
+      "deliverable_90_days": "Merge B4/B8 into a shared task interface.",
+      "lead": false
+    },
+    {
+      "id": "T4",
+      "name": "Materials Descriptor Screener",
+      "lanes": [
+        "B3",
+        "B5",
+        "B6"
+      ],
+      "mvp": "Rank candidate materials with leakage-audited descriptors and provenance.",
+      "paying_user": "Materials R&D teams.",
+      "deliverable_90_days": "Replace synthetic B6 data with curated retrospective dataset.",
+      "lead": false
+    }
+  ],
+  "external_reference_anchors": [
+    {
+      "name": "USPTO provisional patent application overview",
+      "url": "https://www.uspto.gov/patents/basics/apply/provisional-application"
+    },
+    {
+      "name": "NSF America's Seed Fund SBIR/STTR",
+      "url": "https://seedfund.nsf.gov/"
+    },
+    {
+      "name": "DOE SBIR/STTR",
+      "url": "https://science.osti.gov/sbir"
+    },
+    {
+      "name": "NIST post-quantum cryptography project",
+      "url": "https://csrc.nist.gov/projects/post-quantum-cryptography"
+    }
+  ]
+}

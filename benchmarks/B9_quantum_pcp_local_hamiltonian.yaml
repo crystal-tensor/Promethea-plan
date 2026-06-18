@@ -1,0 +1,117 @@
+id: B9
+problem_id: 17
+name: Quantum PCP and Local Hamiltonian Hardness
+version: 0.1
+status: draft
+claim: >
+  Small-instance local-Hamiltonian laboratories can expose proof-pattern
+  candidates and counterexamples for gap amplification and locality-preserving
+  transformations.
+model_families:
+  - transverse_ising_frustrated
+  - xxz_chain
+  - cluster_stabilizer_open
+transformations:
+  - local_interaction_reweight_v0
+  - shifted_square_spectral_filter_v0
+baselines:
+  - exact_diagonalization_spectrum
+  - normalized_gap_tracking
+  - ground_state_overlap_tracking
+metrics:
+  - spectral_gap
+  - normalized_gap
+  - gap_ratio
+  - normalized_gap_ratio
+  - ground_state_overlap
+  - locality_max
+  - counterexample_candidate_count
+acceptance_threshold:
+  exact_small_instances: true
+  candidate_pass_count: "tracked; zero is acceptable as a publishable negative signal"
+  counterexample_candidate_count: ">=1"
+  counterexample_tracking_required: true
+  explicit_not_quantum_pcp_proof: true
+failure_conditions:
+  - gap_gain_is_only_global_rescaling
+  - transformed_hamiltonian_loses_locality
+  - ground_space_changes_unacceptably
+  - normalized_gap_does_not_improve
+next_actions:
+  - add_product_test_inspired_transformations
+  - search_random_local_hamiltonian_instances
+  - export_counterexample_database
+  - formalize_promising_patterns_in_proof_assistant
+current_results:
+  small_local_hamiltonian_gap_lab_v0:
+    status: exact_small_instance_gap_lab
+    model_status: exact_small_instance_lab_not_quantum_pcp_proof
+    models: [transverse_ising_frustrated, xxz_chain, cluster_stabilizer_open]
+    qubits: [4, 5, 6]
+    configuration_count: 18
+    locality_preserving_candidate_count: 9
+    candidate_pass_count: 0
+    counterexample_candidate_count: 4
+    max_local_candidate_normalized_gap_ratio: 1.000000000000002
+    max_dense_filter_gap_ratio: 2.4142428682853314
+    result: ../results/B9_local_hamiltonian_gap_lab_v0.json
+  failed_gap_amplification_negative_lemma_v0:
+    status: finite_instance_negative_gap_amplification_lemma_not_quantum_pcp_proof
+    method: b9_failed_gap_amplification_negative_lemma_v0
+    source: small_local_hamiltonian_gap_lab_v0
+    theorem_count: 1
+    local_candidate_pass_count: 0
+    strict_counterexample_count: 4
+    tolerance_counterexample_count: 5
+    dense_locality_trap_count: 9
+    proof_obligation_count: 5
+    explicit_not_quantum_pcp_proof: true
+    global_gap_amplification_impossibility_claimed: false
+    proof_assistant_formalized: false
+    caveat: finite_instance_negative_lemma_not_global_gap_amplification_no_go
+    result: ../results/B9_failed_gap_amplification_lemma_v0.json
+    markdown_report: ../research/B9_failed_gap_amplification_lemma.md
+  symbolic_gap_amplification_skeleton_v0:
+    status: symbolic_proof_skeleton_not_formalized_theorem
+    method: b9_symbolic_gap_amplification_skeleton_v0
+    source: failed_gap_amplification_negative_lemma_v0
+    proof_assistant_target: Lean-style skeleton
+    symbolic_definition_count: 5
+    theorem_skeleton_count: 3
+    open_obligation_count: 5
+    strict_counterexample_count_inherited: 4
+    dense_locality_trap_count_inherited: 9
+    proof_assistant_checked: false
+    formal_theorem_proved: false
+    explicit_not_quantum_pcp_proof: true
+    global_gap_amplification_impossibility_claimed: false
+    caveat: symbolic_skeleton_only_not_checked_formal_theorem
+    result: ../results/B9_symbolic_gap_skeleton_v0.json
+    markdown_report: ../research/B9_symbolic_gap_skeleton.md
+    lean_skeleton: ../research/proof_skeletons/B9_failed_gap_amplification_skeleton.lean
+  named_family_width_locality_bound_v0:
+    status: named_family_width_locality_bound_skeleton_not_checked_theorem
+    method: b9_named_family_width_locality_bound_v0
+    source: small_local_hamiltonian_gap_lab_v0
+    named_family: cluster_stabilizer_open_uniform_reweight
+    rows_matched: 3
+    scaling_factor: 1.35
+    max_locality: 3
+    locality_bound_preserved: true
+    raw_gap_amplifies: true
+    normalized_gap_invariant_under_uniform_scaling: true
+    certificate_rejected: true
+    proof_assistant_checked: false
+    formal_theorem_proved: false
+    explicit_not_quantum_pcp_proof: true
+    global_gap_amplification_impossibility_claimed: false
+    caveat: named_family_skeleton_only_actual_lean_mathlib_check_failed
+    result: ../results/B9_named_family_width_locality_bounds_v0.json
+    markdown_report: ../research/B9_named_family_width_locality_bounds.md
+    lean_skeleton: ../research/proof_skeletons/B9_cluster_stabilizer_width_locality_bound.lean
+prototype_artifacts:
+  local_hamiltonian_gap_lab: ../tools/b9_local_hamiltonian_gap_lab.py
+  failed_gap_amplification_lemma_builder: ../tools/b9_failed_gap_amplification_lemma.py
+  symbolic_gap_skeleton_builder: ../tools/b9_symbolic_gap_skeleton.py
+  named_family_width_locality_bound_builder: ../tools/b9_named_family_width_locality_bounds.py
+  prototype_notes: ../research/B9_prototype_notes.md

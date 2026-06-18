@@ -1,0 +1,35 @@
+id: B1_exact_extension
+benchmark_id: B1
+name: B1 deterministic exact-checkable extension suite
+version: 0.1
+source: generated_by_tools/b1_generate_exact_extension.py
+purpose: >
+  Extend B1 exact statevector validation from 18 to at least 30 circuits
+  using deterministic nontrivial OpenQASM circuits with interaction windows.
+circuit_count: 12
+max_qubits: 10
+circuits:
+  - file: b1_exact_extension/01_trotter_ladder_n6.qasm
+    family: hamiltonian_trotter_ladder
+  - file: b1_exact_extension/02_ring_interaction_n8.qasm
+    family: ring_interaction_simulation
+  - file: b1_exact_extension/03_qec_syndrome_phase_n7.qasm
+    family: qec_syndrome_phase
+  - file: b1_exact_extension/04_arithmetic_phase_n6.qasm
+    family: arithmetic_phase
+  - file: b1_exact_extension/05_qft_phase_ladder_n5.qasm
+    family: qft_phase_ladder
+  - file: b1_exact_extension/06_long_range_echo_n10.qasm
+    family: long_range_echo
+  - file: b1_exact_extension/07_commuting_disjoint_windows_n8.qasm
+    family: commuting_disjoint_windows
+  - file: b1_exact_extension/08_chemistry_ansatz_n8.qasm
+    family: chemistry_ansatz
+  - file: b1_exact_extension/09_bv_phase_oracle_n9.qasm
+    family: bv_phase_oracle
+  - file: b1_exact_extension/10_qaoa_double_triangle_n6.qasm
+    family: qaoa_double_triangle
+  - file: b1_exact_extension/11_stabilizer_mixer_n10.qasm
+    family: stabilizer_mixer
+  - file: b1_exact_extension/12_toffoli_phase_n7.qasm
+    family: toffoli_phase

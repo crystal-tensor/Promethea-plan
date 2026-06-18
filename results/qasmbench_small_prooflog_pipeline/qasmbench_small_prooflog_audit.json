@@ -1,0 +1,34 @@
+{
+  "errors": [],
+  "oneq": {
+    "entries": 164,
+    "path": "results/qasmbench_small_prooflog_pipeline/qasmbench_small_prooflog_1q_proofs.jsonl",
+    "rules": {
+      "remove_identity_gate": 1,
+      "single_qubit_run_to_u3": 163
+    }
+  },
+  "passed": true,
+  "rzz": [
+    {
+      "entries": 25,
+      "modes": {
+        "adjacent": 25
+      },
+      "path": "results/qasmbench_small_prooflog_pipeline/qasmbench_small_prooflog_rzz_pass_1_proofs.jsonl"
+    },
+    {
+      "entries": 2,
+      "modes": {
+        "commute_disjoint": 2
+      },
+      "path": "results/qasmbench_small_prooflog_pipeline/qasmbench_small_prooflog_rzz_pass_2_proofs.jsonl"
+    },
+    {
+      "entries": 0,
+      "modes": {},
+      "path": "results/qasmbench_small_prooflog_pipeline/qasmbench_small_prooflog_rzz_pass_3_proofs.jsonl"
+    }
+  ],
+  "summary": "results/qasmbench_small_prooflog_pipeline/qasmbench_small_prooflog_summary.json"
+}

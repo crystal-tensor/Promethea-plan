@@ -1,0 +1,380 @@
+{
+  "b1_routed_metrics": "results/b1_heavyhex_end_to_end_30_level1/b1_optimized_routed_metrics.json",
+  "benchmark_id": "B1",
+  "best_comparison_by_exposure_reduction": "source_level1_routed_vs_virtual_swap",
+  "comparisons": [
+    {
+      "aggregate_failure_exposure_delta": -0.00011999999999900979,
+      "aggregate_log_success_proxy_after": -28.95372,
+      "aggregate_log_success_proxy_before": -28.95384,
+      "aggregate_success_proxy_after": 2.6641530678325256e-13,
+      "aggregate_success_proxy_before": 2.6638333886455234e-13,
+      "aggregate_success_proxy_ratio": 1.000120007200287,
+      "circuit_count": 30,
+      "metrics": {
+        "hardware_weighted_error_exposure": {
+          "after": 28.95372,
+          "before": 28.95384,
+          "delta": -0.00011999999999900979,
+          "reduction_pct": 0.00041445279796741913
+        },
+        "idle_layer_proxy": {
+          "after": 82213.0,
+          "before": 82211.0,
+          "delta": 2.0,
+          "reduction_pct": -0.0024327644719076523
+        },
+        "logical_depth": {
+          "after": 4923.0,
+          "before": 4923.0,
+          "delta": 0.0,
+          "reduction_pct": 0.0
+        },
+        "operation_count": {
+          "after": 7443.0,
+          "before": 7445.0,
+          "delta": -2.0,
+          "reduction_pct": 0.02686366689053056
+        },
+        "two_qubit_gate_count": {
+          "after": 3881.0,
+          "before": 3881.0,
+          "delta": 0.0,
+          "reduction_pct": 0.0
+        }
+      },
+      "missing_after": [],
+      "missing_before": [],
+      "name": "source_level1_routed_vs_b1_level1_routed",
+      "top_exposure_improvements": [
+        {
+          "after_exposure": 0.09766000000000001,
+          "before_exposure": 0.09778,
+          "circuit": "qasmbench_small/bell_n4.qasm",
+          "delta": -0.00011999999999999511,
+          "reduction_pct": 0.12272448353446011
+        },
+        {
+          "after_exposure": 0.2813,
+          "before_exposure": 0.2813,
+          "circuit": "b1_exact_extension/01_trotter_ladder_n6.qasm",
+          "delta": 0.0,
+          "reduction_pct": 0.0
+        },
+        {
+          "after_exposure": 0.40519999999999995,
+          "before_exposure": 0.40519999999999995,
+          "circuit": "b1_exact_extension/02_ring_interaction_n8.qasm",
+          "delta": 0.0,
+          "reduction_pct": 0.0
+        },
+        {
+          "after_exposure": 0.15282,
+          "before_exposure": 0.15282,
+          "circuit": "b1_exact_extension/03_qec_syndrome_phase_n7.qasm",
+          "delta": 0.0,
+          "reduction_pct": 0.0
+        },
+        {
+          "after_exposure": 0.25372,
+          "before_exposure": 0.25372,
+          "circuit": "b1_exact_extension/04_arithmetic_phase_n6.qasm",
+          "delta": 0.0,
+          "reduction_pct": 0.0
+        },
+        {
+          "after_exposure": 0.28764,
+          "before_exposure": 0.28764,
+          "circuit": "b1_exact_extension/05_qft_phase_ladder_n5.qasm",
+          "delta": 0.0,
+          "reduction_pct": 0.0
+        },
+        {
+          "after_exposure": 0.18486,
+          "before_exposure": 0.18486,
+          "circuit": "b1_exact_extension/06_long_range_echo_n10.qasm",
+          "delta": 0.0,
+          "reduction_pct": 0.0
+        },
+        {
+          "after_exposure": 0.13636,
+          "before_exposure": 0.13636,
+          "circuit": "b1_exact_extension/07_commuting_disjoint_windows_n8.qasm",
+          "delta": 0.0,
+          "reduction_pct": 0.0
+        },
+        {
+          "after_exposure": 0.19992,
+          "before_exposure": 0.19992,
+          "circuit": "b1_exact_extension/08_chemistry_ansatz_n8.qasm",
+          "delta": 0.0,
+          "reduction_pct": 0.0
+        },
+        {
+          "after_exposure": 0.18254,
+          "before_exposure": 0.18254,
+          "circuit": "b1_exact_extension/09_bv_phase_oracle_n9.qasm",
+          "delta": 0.0,
+          "reduction_pct": 0.0
+        }
+      ]
+    },
+    {
+      "aggregate_failure_exposure_delta": -9.453040000000001,
+      "aggregate_log_success_proxy_after": -19.50068,
+      "aggregate_log_success_proxy_before": -28.95372,
+      "aggregate_success_proxy_after": 3.3959577828792804e-09,
+      "aggregate_success_proxy_before": 2.6641530678325256e-13,
+      "aggregate_success_proxy_ratio": 12746.856867507724,
+      "circuit_count": 30,
+      "metrics": {
+        "hardware_weighted_error_exposure": {
+          "after": 19.50068,
+          "before": 28.95372,
+          "delta": -9.453040000000001,
+          "reduction_pct": 32.64879262492005
+        },
+        "idle_layer_proxy": {
+          "after": 62337.0,
+          "before": 82213.0,
+          "delta": -19876.0,
+          "reduction_pct": 24.176225171201633
+        },
+        "logical_depth": {
+          "after": 3725.0,
+          "before": 4923.0,
+          "delta": -1198.0,
+          "reduction_pct": 24.334755230550478
+        },
+        "operation_count": {
+          "after": 6000.0,
+          "before": 7443.0,
+          "delta": -1443.0,
+          "reduction_pct": 19.38734381297864
+        },
+        "two_qubit_gate_count": {
+          "after": 2438.0,
+          "before": 3881.0,
+          "delta": -1443.0,
+          "reduction_pct": 37.18113888173151
+        }
+      },
+      "missing_after": [],
+      "missing_before": [],
+      "name": "b1_level1_routed_vs_virtual_swap",
+      "top_exposure_improvements": [
+        {
+          "after_exposure": 5.91686,
+          "before_exposure": 9.0847,
+          "circuit": "qasmbench_medium_exact/gcm_h6.qasm",
+          "delta": -3.16784,
+          "reduction_pct": 34.87005624841767
+        },
+        {
+          "after_exposure": 2.10406,
+          "before_exposure": 3.99522,
+          "circuit": "qasmbench_medium_exact/sat_n11.qasm",
+          "delta": -1.8911600000000002,
+          "reduction_pct": 47.335566001371646
+        },
+        {
+          "after_exposure": 2.93524,
+          "before_exposure": 4.09204,
+          "circuit": "qasmbench_interaction_exact/basis_trotter_n4.qasm",
+          "delta": -1.1568,
+          "reduction_pct": 28.269518382029503
+        },
+        {
+          "after_exposure": 1.00004,
+          "before_exposure": 2.0457199999999998,
+          "circuit": "qasmbench_medium_exact/qf21_n15.qasm",
+          "delta": -1.0456799999999997,
+          "reduction_pct": 51.1154996773752
+        },
+        {
+          "after_exposure": 1.6945800000000002,
+          "before_exposure": 2.4071800000000003,
+          "circuit": "qasmbench_small/hhl_n7.qasm",
+          "delta": -0.7126000000000001,
+          "reduction_pct": 29.603104047059215
+        },
+        {
+          "after_exposure": 0.6999799999999999,
+          "before_exposure": 1.0663,
+          "circuit": "qasmbench_medium_exact/seca_n11.qasm",
+          "delta": -0.3663200000000001,
+          "reduction_pct": 34.35430929381976
+        },
+        {
+          "after_exposure": 0.3552,
+          "before_exposure": 0.6428800000000001,
+          "circuit": "qasmbench_medium_exact/multiply_n13.qasm",
+          "delta": -0.2876800000000001,
+          "reduction_pct": 44.74863115978099
+        },
+        {
+          "after_exposure": 0.31172,
+          "before_exposure": 0.46443999999999996,
+          "circuit": "b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+          "delta": -0.15271999999999997,
+          "reduction_pct": 32.88261131685471
+        },
+        {
+          "after_exposure": 0.24786,
+          "before_exposure": 0.36354000000000003,
+          "circuit": "qasmbench_small/basis_test_n4.qasm",
+          "delta": -0.11568000000000003,
+          "reduction_pct": 31.820432414589874
+        },
+        {
+          "after_exposure": 0.413,
+          "before_exposure": 0.5264000000000001,
+          "circuit": "qasmbench_small/error_correctiond3_n5.qasm",
+          "delta": -0.11340000000000011,
+          "reduction_pct": 21.54255319148938
+        }
+      ]
+    },
+    {
+      "aggregate_failure_exposure_delta": -9.45316,
+      "aggregate_log_success_proxy_after": -19.50068,
+      "aggregate_log_success_proxy_before": -28.95384,
+      "aggregate_success_proxy_after": 3.3959577828792804e-09,
+      "aggregate_success_proxy_before": 2.6638333886455234e-13,
+      "aggregate_success_proxy_ratio": 12748.386582112853,
+      "circuit_count": 30,
+      "metrics": {
+        "hardware_weighted_error_exposure": {
+          "after": 19.50068,
+          "before": 28.95384,
+          "delta": -9.45316,
+          "reduction_pct": 32.649071763883484
+        },
+        "idle_layer_proxy": {
+          "after": 62337.0,
+          "before": 82211.0,
+          "delta": -19874.0,
+          "reduction_pct": 24.17438055734634
+        },
+        "logical_depth": {
+          "after": 3725.0,
+          "before": 4923.0,
+          "delta": -1198.0,
+          "reduction_pct": 24.334755230550478
+        },
+        "operation_count": {
+          "after": 6000.0,
+          "before": 7445.0,
+          "delta": -1445.0,
+          "reduction_pct": 19.408999328408328
+        },
+        "two_qubit_gate_count": {
+          "after": 2438.0,
+          "before": 3881.0,
+          "delta": -1443.0,
+          "reduction_pct": 37.18113888173151
+        }
+      },
+      "missing_after": [],
+      "missing_before": [],
+      "name": "source_level1_routed_vs_virtual_swap",
+      "top_exposure_improvements": [
+        {
+          "after_exposure": 5.91686,
+          "before_exposure": 9.0847,
+          "circuit": "qasmbench_medium_exact/gcm_h6.qasm",
+          "delta": -3.16784,
+          "reduction_pct": 34.87005624841767
+        },
+        {
+          "after_exposure": 2.10406,
+          "before_exposure": 3.99522,
+          "circuit": "qasmbench_medium_exact/sat_n11.qasm",
+          "delta": -1.8911600000000002,
+          "reduction_pct": 47.335566001371646
+        },
+        {
+          "after_exposure": 2.93524,
+          "before_exposure": 4.09204,
+          "circuit": "qasmbench_interaction_exact/basis_trotter_n4.qasm",
+          "delta": -1.1568,
+          "reduction_pct": 28.269518382029503
+        },
+        {
+          "after_exposure": 1.00004,
+          "before_exposure": 2.0457199999999998,
+          "circuit": "qasmbench_medium_exact/qf21_n15.qasm",
+          "delta": -1.0456799999999997,
+          "reduction_pct": 51.1154996773752
+        },
+        {
+          "after_exposure": 1.6945800000000002,
+          "before_exposure": 2.4071800000000003,
+          "circuit": "qasmbench_small/hhl_n7.qasm",
+          "delta": -0.7126000000000001,
+          "reduction_pct": 29.603104047059215
+        },
+        {
+          "after_exposure": 0.6999799999999999,
+          "before_exposure": 1.0663,
+          "circuit": "qasmbench_medium_exact/seca_n11.qasm",
+          "delta": -0.3663200000000001,
+          "reduction_pct": 34.35430929381976
+        },
+        {
+          "after_exposure": 0.3552,
+          "before_exposure": 0.6428800000000001,
+          "circuit": "qasmbench_medium_exact/multiply_n13.qasm",
+          "delta": -0.2876800000000001,
+          "reduction_pct": 44.74863115978099
+        },
+        {
+          "after_exposure": 0.31172,
+          "before_exposure": 0.46443999999999996,
+          "circuit": "b1_exact_extension/10_qaoa_double_triangle_n6.qasm",
+          "delta": -0.15271999999999997,
+          "reduction_pct": 32.88261131685471
+        },
+        {
+          "after_exposure": 0.24786,
+          "before_exposure": 0.36354000000000003,
+          "circuit": "qasmbench_small/basis_test_n4.qasm",
+          "delta": -0.11568000000000003,
+          "reduction_pct": 31.820432414589874
+        },
+        {
+          "after_exposure": 0.413,
+          "before_exposure": 0.5264000000000001,
+          "circuit": "qasmbench_small/error_correctiond3_n5.qasm",
+          "delta": -0.11340000000000011,
+          "reduction_pct": 21.54255319148938
+        }
+      ]
+    }
+  ],
+  "last_updated": "2026-06-13",
+  "limits": [
+    "This is a documented synthetic heavy-hex-like noise proxy using fixed gate, readout, and idle error rates.",
+    "It is not calibrated from a live backend and does not close the true calibrated-device baseline gate.",
+    "The success proxy is exp(-hardware_weighted_error_exposure), useful for relative comparison rather than absolute device prediction.",
+    "Metric inputs are routed QASM metrics; no stochastic noisy simulation is performed here."
+  ],
+  "problem_id": 25,
+  "profile": {
+    "connectivity": "sparse_heavy_hex_like",
+    "description": "Sparse superconducting-style profile with expensive two-qubit operations.",
+    "gate_errors": {
+      "measurement": 0.012,
+      "single_qubit": 0.0001,
+      "t_gate": 0.0001,
+      "two_qubit": 0.006
+    },
+    "idle_error_per_layer": 4e-05
+  },
+  "profile_name": "heavy_hex_like_sparse",
+  "report_status": "synthetic_noise_proxy_not_calibrated_device_claim",
+  "source_routed_metrics": "results/b1_heavyhex_end_to_end_30_level1/source_routed_metrics.json",
+  "title": "B1 synthetic heavy-hex noise proxy",
+  "version": "0.1",
+  "virtual_swap_metrics": "results/b1_virtual_swap_elimination_level1/after_virtual_swap_metrics.json"
+}

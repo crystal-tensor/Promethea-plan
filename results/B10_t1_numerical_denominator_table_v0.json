@@ -1,0 +1,410 @@
+{
+  "benchmark_id": "B10",
+  "bits_per_float_output": 53,
+  "builds_on": "b10_t1_source_backed_boundaries_v0",
+  "claim_boundary": {
+    "next_proof_pressure": "Map one B3/B5 observable to a D5 linear-response denominator, or write the D4 sampling-access theorem note.",
+    "now_supported": "D1 and D2 denominator regimes have runnable sparse-CG/LSQR measurements with explicit input and full-output accounting.",
+    "still_not_supported": "This table does not benchmark a quantum implementation, does not prove BQP/classical separation, and does not settle dequantized sampling-access regimes."
+  },
+  "explicit_not_bqp_separation": true,
+  "last_updated": "2026-06-13",
+  "method": "b10_t1_numerical_denominator_table_v0",
+  "problem_id": 11,
+  "rows": [
+    {
+      "boundary_interpretation": "Full-vector output and explicit sparse input already impose an Omega(nnz(A)+n*bits) floor before any HHL-style subroutine claim can be counted end to end.",
+      "condition_estimate": 40.04145773783118,
+      "explicit_input_entries": 254,
+      "explicit_io_floor_units": 3646,
+      "family": "D1_explicit_spd_full_solution_cg",
+      "full_output_bits": 3392,
+      "iterations": 58,
+      "matvec_equivalent_ops": 11020,
+      "n": 64,
+      "nnz": 190,
+      "relative_residual": 7.278694608554108e-09,
+      "rtol": 1e-08,
+      "shape": [
+        64,
+        64
+      ],
+      "shift": 0.1,
+      "solver": "cg",
+      "solver_info": 0,
+      "wall_time_seconds": 0.0004412080015754327
+    },
+    {
+      "boundary_interpretation": "Full-vector output and explicit sparse input already impose an Omega(nnz(A)+n*bits) floor before any HHL-style subroutine claim can be counted end to end.",
+      "condition_estimate": 324.88747111111053,
+      "explicit_input_entries": 254,
+      "explicit_io_floor_units": 3646,
+      "family": "D1_explicit_spd_full_solution_cg",
+      "full_output_bits": 3392,
+      "iterations": 64,
+      "matvec_equivalent_ops": 12160,
+      "n": 64,
+      "nnz": 190,
+      "relative_residual": 4.243123379363308e-15,
+      "rtol": 1e-08,
+      "shape": [
+        64,
+        64
+      ],
+      "shift": 0.01,
+      "solver": "cg",
+      "solver_info": 0,
+      "wall_time_seconds": 0.000461667004856281
+    },
+    {
+      "boundary_interpretation": "Full-vector output and explicit sparse input already impose an Omega(nnz(A)+n*bits) floor before any HHL-style subroutine claim can be counted end to end.",
+      "condition_estimate": 1198.8034497650413,
+      "explicit_input_entries": 254,
+      "explicit_io_floor_units": 3646,
+      "family": "D1_explicit_spd_full_solution_cg",
+      "full_output_bits": 3392,
+      "iterations": 64,
+      "matvec_equivalent_ops": 12160,
+      "n": 64,
+      "nnz": 190,
+      "relative_residual": 2.8782323943775633e-15,
+      "rtol": 1e-08,
+      "shape": [
+        64,
+        64
+      ],
+      "shift": 0.001,
+      "solver": "cg",
+      "solver_info": 0,
+      "wall_time_seconds": 0.0004487080004764721
+    },
+    {
+      "boundary_interpretation": "Full-vector output and explicit sparse input already impose an Omega(nnz(A)+n*bits) floor before any HHL-style subroutine claim can be counted end to end.",
+      "condition_estimate": 40.752383186955385,
+      "explicit_input_entries": 510,
+      "explicit_io_floor_units": 7294,
+      "family": "D1_explicit_spd_full_solution_cg",
+      "full_output_bits": 6784,
+      "iterations": 59,
+      "matvec_equivalent_ops": 22538,
+      "n": 128,
+      "nnz": 382,
+      "relative_residual": 9.474949279484898e-09,
+      "rtol": 1e-08,
+      "shape": [
+        128,
+        128
+      ],
+      "shift": 0.1,
+      "solver": "cg",
+      "solver_info": 0,
+      "wall_time_seconds": 0.00042466699960641563
+    },
+    {
+      "boundary_interpretation": "Full-vector output and explicit sparse input already impose an Omega(nnz(A)+n*bits) floor before any HHL-style subroutine claim can be counted end to end.",
+      "condition_estimate": 378.4937329216293,
+      "explicit_input_entries": 510,
+      "explicit_io_floor_units": 7294,
+      "family": "D1_explicit_spd_full_solution_cg",
+      "full_output_bits": 6784,
+      "iterations": 128,
+      "matvec_equivalent_ops": 48896,
+      "n": 128,
+      "nnz": 382,
+      "relative_residual": 1.1126674360729068e-14,
+      "rtol": 1e-08,
+      "shape": [
+        128,
+        128
+      ],
+      "shift": 0.01,
+      "solver": "cg",
+      "solver_info": 0,
+      "wall_time_seconds": 0.0008705000072950497
+    },
+    {
+      "boundary_interpretation": "Full-vector output and explicit sparse input already impose an Omega(nnz(A)+n*bits) floor before any HHL-style subroutine claim can be counted end to end.",
+      "condition_estimate": 2511.1459467535506,
+      "explicit_input_entries": 510,
+      "explicit_io_floor_units": 7294,
+      "family": "D1_explicit_spd_full_solution_cg",
+      "full_output_bits": 6784,
+      "iterations": 128,
+      "matvec_equivalent_ops": 48896,
+      "n": 128,
+      "nnz": 382,
+      "relative_residual": 8.792316387986479e-15,
+      "rtol": 1e-08,
+      "shape": [
+        128,
+        128
+      ],
+      "shift": 0.001,
+      "solver": "cg",
+      "solver_info": 0,
+      "wall_time_seconds": 0.000844250011141412
+    },
+    {
+      "boundary_interpretation": "Full-vector output and explicit sparse input already impose an Omega(nnz(A)+n*bits) floor before any HHL-style subroutine claim can be counted end to end.",
+      "condition_estimate": 40.937334441626504,
+      "explicit_input_entries": 1022,
+      "explicit_io_floor_units": 14590,
+      "family": "D1_explicit_spd_full_solution_cg",
+      "full_output_bits": 13568,
+      "iterations": 59,
+      "matvec_equivalent_ops": 45194,
+      "n": 256,
+      "nnz": 766,
+      "relative_residual": 9.381475174550194e-09,
+      "rtol": 1e-08,
+      "shape": [
+        256,
+        256
+      ],
+      "shift": 0.1,
+      "solver": "cg",
+      "solver_info": 0,
+      "wall_time_seconds": 0.0004267499898560345
+    },
+    {
+      "boundary_interpretation": "Full-vector output and explicit sparse input already impose an Omega(nnz(A)+n*bits) floor before any HHL-style subroutine claim can be counted end to end.",
+      "condition_estimate": 395.0814866155442,
+      "explicit_input_entries": 1022,
+      "explicit_io_floor_units": 14590,
+      "family": "D1_explicit_spd_full_solution_cg",
+      "full_output_bits": 13568,
+      "iterations": 176,
+      "matvec_equivalent_ops": 134816,
+      "n": 256,
+      "nnz": 766,
+      "relative_residual": 9.885170334634483e-09,
+      "rtol": 1e-08,
+      "shape": [
+        256,
+        256
+      ],
+      "shift": 0.01,
+      "solver": "cg",
+      "solver_info": 0,
+      "wall_time_seconds": 0.0012093330005882308
+    },
+    {
+      "boundary_interpretation": "Full-vector output and explicit sparse input already impose an Omega(nnz(A)+n*bits) floor before any HHL-style subroutine claim can be counted end to end.",
+      "condition_estimate": 3480.735840491251,
+      "explicit_input_entries": 1022,
+      "explicit_io_floor_units": 14590,
+      "family": "D1_explicit_spd_full_solution_cg",
+      "full_output_bits": 13568,
+      "iterations": 256,
+      "matvec_equivalent_ops": 196096,
+      "n": 256,
+      "nnz": 766,
+      "relative_residual": 2.224071726974371e-14,
+      "rtol": 1e-08,
+      "shape": [
+        256,
+        256
+      ],
+      "shift": 0.001,
+      "solver": "cg",
+      "solver_info": 0,
+      "wall_time_seconds": 0.0017526669980725273
+    },
+    {
+      "boundary_interpretation": "Full-vector output and explicit sparse input already impose an Omega(nnz(A)+n*bits) floor before any HHL-style subroutine claim can be counted end to end.",
+      "condition_estimate": 40.9842547302204,
+      "explicit_input_entries": 2046,
+      "explicit_io_floor_units": 29182,
+      "family": "D1_explicit_spd_full_solution_cg",
+      "full_output_bits": 27136,
+      "iterations": 59,
+      "matvec_equivalent_ops": 90506,
+      "n": 512,
+      "nnz": 1534,
+      "relative_residual": 7.673544895619262e-09,
+      "rtol": 1e-08,
+      "shape": [
+        512,
+        512
+      ],
+      "shift": 0.1,
+      "solver": "cg",
+      "solver_info": 0,
+      "wall_time_seconds": 0.00048475000949110836
+    },
+    {
+      "boundary_interpretation": "Full-vector output and explicit sparse input already impose an Omega(nnz(A)+n*bits) floor before any HHL-style subroutine claim can be counted end to end.",
+      "condition_estimate": 399.49802040836533,
+      "explicit_input_entries": 2046,
+      "explicit_io_floor_units": 29182,
+      "family": "D1_explicit_spd_full_solution_cg",
+      "full_output_bits": 27136,
+      "iterations": 180,
+      "matvec_equivalent_ops": 276120,
+      "n": 512,
+      "nnz": 1534,
+      "relative_residual": 9.937286510966918e-09,
+      "rtol": 1e-08,
+      "shape": [
+        512,
+        512
+      ],
+      "shift": 0.01,
+      "solver": "cg",
+      "solver_info": 0,
+      "wall_time_seconds": 0.001378125001792796
+    },
+    {
+      "boundary_interpretation": "Full-vector output and explicit sparse input already impose an Omega(nnz(A)+n*bits) floor before any HHL-style subroutine claim can be counted end to end.",
+      "condition_estimate": 3856.3389989650823,
+      "explicit_input_entries": 2046,
+      "explicit_io_floor_units": 29182,
+      "family": "D1_explicit_spd_full_solution_cg",
+      "full_output_bits": 27136,
+      "iterations": 497,
+      "matvec_equivalent_ops": 762398,
+      "n": 512,
+      "nnz": 1534,
+      "relative_residual": 9.991256799952085e-09,
+      "rtol": 1e-08,
+      "shape": [
+        512,
+        512
+      ],
+      "shift": 0.001,
+      "solver": "cg",
+      "solver_info": 0,
+      "wall_time_seconds": 0.003765708999708295
+    },
+    {
+      "boundary_interpretation": "General sparse linear-system claims need a denominator such as LSQR; comparing a quantum oracle subroutine to an unstated classical baseline is not accepted.",
+      "condition_estimate": 21.120017658276492,
+      "explicit_input_entries": 285,
+      "explicit_io_floor_units": 3677,
+      "family": "D2_explicit_general_sparse_least_squares",
+      "full_output_bits": 3392,
+      "iterations": 20,
+      "matvec_equivalent_ops": 4260,
+      "n": 64,
+      "nnz": 213,
+      "relative_residual": 2.769334809508268e-06,
+      "rtol": 1e-08,
+      "seed": 81,
+      "shape": [
+        72,
+        64
+      ],
+      "solver": "lsqr",
+      "solver_info": 2,
+      "wall_time_seconds": 0.0004233750078128651
+    },
+    {
+      "boundary_interpretation": "General sparse linear-system claims need a denominator such as LSQR; comparing a quantum oracle subroutine to an unstated classical baseline is not accepted.",
+      "condition_estimate": 21.199360465656394,
+      "explicit_input_entries": 569,
+      "explicit_io_floor_units": 7353,
+      "family": "D2_explicit_general_sparse_least_squares",
+      "full_output_bits": 6784,
+      "iterations": 20,
+      "matvec_equivalent_ops": 8500,
+      "n": 128,
+      "nnz": 425,
+      "relative_residual": 3.885650409058836e-06,
+      "rtol": 1e-08,
+      "seed": 145,
+      "shape": [
+        144,
+        128
+      ],
+      "solver": "lsqr",
+      "solver_info": 2,
+      "wall_time_seconds": 0.0003678330103866756
+    },
+    {
+      "boundary_interpretation": "General sparse linear-system claims need a denominator such as LSQR; comparing a quantum oracle subroutine to an unstated classical baseline is not accepted.",
+      "condition_estimate": 21.2119393015135,
+      "explicit_input_entries": 1141,
+      "explicit_io_floor_units": 14709,
+      "family": "D2_explicit_general_sparse_least_squares",
+      "full_output_bits": 13568,
+      "iterations": 20,
+      "matvec_equivalent_ops": 17060,
+      "n": 256,
+      "nnz": 853,
+      "relative_residual": 2.7951966582402883e-06,
+      "rtol": 1e-08,
+      "seed": 273,
+      "shape": [
+        288,
+        256
+      ],
+      "solver": "lsqr",
+      "solver_info": 2,
+      "wall_time_seconds": 0.00038833300641272217
+    },
+    {
+      "boundary_interpretation": "General sparse linear-system claims need a denominator such as LSQR; comparing a quantum oracle subroutine to an unstated classical baseline is not accepted.",
+      "condition_estimate": 21.192146243784002,
+      "explicit_input_entries": 2282,
+      "explicit_io_floor_units": 29418,
+      "family": "D2_explicit_general_sparse_least_squares",
+      "full_output_bits": 27136,
+      "iterations": 20,
+      "matvec_equivalent_ops": 34120,
+      "n": 512,
+      "nnz": 1706,
+      "relative_residual": 2.8785299369110193e-06,
+      "rtol": 1e-08,
+      "seed": 529,
+      "shape": [
+        576,
+        512
+      ],
+      "solver": "lsqr",
+      "solver_info": 2,
+      "wall_time_seconds": 0.0004239999980200082
+    }
+  ],
+  "rtol": 1e-08,
+  "source_target_id": "B10-T1",
+  "source_target_name": "linear_systems_data_loading_negative_boundary",
+  "status": "numerical_denominator_table_instantiated_not_quantum_speedup_claim",
+  "summary": {
+    "cg_instance_count": 12,
+    "families": {
+      "D1_explicit_spd_full_solution_cg": {
+        "instance_count": 12,
+        "max_explicit_io_floor_units": 29182,
+        "max_matvec_equivalent_ops": 762398,
+        "max_relative_residual": 9.991256799952085e-09,
+        "median_iterations": 96.0,
+        "n_values": [
+          64,
+          128,
+          256,
+          512
+        ]
+      },
+      "D2_explicit_general_sparse_least_squares": {
+        "instance_count": 4,
+        "max_explicit_io_floor_units": 29418,
+        "max_matvec_equivalent_ops": 34120,
+        "max_relative_residual": 3.885650409058836e-06,
+        "median_iterations": 20.0,
+        "n_values": [
+          64,
+          128,
+          256,
+          512
+        ]
+      }
+    },
+    "family_count": 2,
+    "instance_count": 16,
+    "lsqr_instance_count": 4,
+    "max_relative_residual": 3.885650409058836e-06
+  },
+  "title": "B10-T1 numerical denominator table for explicit sparse linear systems",
+  "validation_errors": [],
+  "version": "0.3"
+}

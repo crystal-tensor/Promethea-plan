@@ -1,0 +1,779 @@
+# B1-B10 Solution Sprint 001
+
+Last updated: 2026-06-17
+
+Purpose: start the active technical push from B1 to B10. This sprint does not
+claim that any of the ten problems is solved. It turns each direction into a
+testable work package with a concrete hypothesis, algorithmic move, evidence
+standard, and PR-ready task. Publication, patent, financing, and product work
+remain downstream until the relevant technical gate is passed.
+
+## Sprint Thesis
+
+The fastest credible path is not ten isolated moonshots. It is four coupled
+spines:
+
+| Spine | Tracks | Sprint result we want |
+|---|---|---|
+| Systems spine | B1, B2, B7 | A compiler/QEC/FT ledger where local savings survive factories and schedules. |
+| Verification spine | B4, B8, B10 | A circuit-level hidden task whose verification cost and leakage assumptions are explicit. |
+| Application spine | B3, B5, B6, B10 | Observable-first chemistry/materials benchmarks with strong classical denominators. |
+| Theory spine | B9, B10 | Negative lemmas and boundary notes that prevent overclaiming. |
+
+## Sprint Rules
+
+1. A work package must be falsifiable in one PR.
+2. Every positive claim needs a named baseline and a limitation section.
+3. Every result that changes project status needs machine-readable output,
+   a human-readable report, and an audit hook.
+4. The translation pipeline is unlocked only after a technical gate passes.
+5. Failed approaches are kept if they produce a clean negative result.
+
+## B1: Hardware-Aware Circuit Compression
+
+**Technical target:** reduce routed two-qubit work, exposure, and
+fault-tolerant T-resource proxies while preserving replayable semantic
+certificates.
+
+**Sprint hypothesis:** the current virtual-SWAP and 1Q resynthesis evidence can
+be strengthened by adding a native-basis non-Clifford/T-depth pass that reduces
+minimum B7 factory-dominated STV, not only mean STV.
+
+**Algorithmic move:** build a proof-logged phase-gadget and Rz-commutation pass
+that detects same-wire and post-virtual-SWAP non-Clifford rotation chains,
+canonicalizes them under native-basis cost, and emits local certificate events.
+
+**Next PR:** `T-B1-001`. Expected artifacts:
+
+- `tools/b1_native_t_resource_optimizer.py`
+- `results/B1_native_t_resource_optimizer_v0.json`
+- `research/B1_native_t_resource_optimizer.md`
+- optional update to B7 retest inputs
+
+**Acceptance gate:** 30-circuit suite passes measurement-distribution or exact
+checks; T-count or T-depth proxy improves on at least one factory-bottlenecked
+workload; B7 retest reports whether min STV moves above 1.0x.
+
+**Failure value:** if min STV remains 1.0x, record the bottleneck class and
+split B7 claims into data-path and T-factory regimes.
+
+**Sprint 001 update, 2026-06-15:** first native pass is now implemented as
+`tools/b1_native_t_resource_optimizer.py`. It canonicalizes
+`u3(0, phi, lambda)` into native Z-phase form, emits 1691 proof events across
+30 circuits, changes 26 circuits, removes 4 identity 1Q gates, and passes a
+30/30 Aer measurement-distribution cross-check with max TVD 0.0. It reduces the
+incremental logical T-count proxy by 1.000990x after post-1Q resynthesis. B7
+propagation improves mean STV from 1.034436848x to 1.034608523x, but minimum
+STV remains 1.0x. This completes `T-B1-001` as a narrow positive diagnostic and
+creates `T-B1-002`: target the factory-boundary workloads
+`qasmbench_medium_exact/gcm_h6.qasm`, `qasmbench_medium_exact/sat_n11.qasm`,
+and `qasmbench_small/hhl_n7.qasm`, where T-count reduction is still 1.0x.
+
+**Sprint 001 update 2, 2026-06-15:** `T-B1-002` now has a positive diagnostic:
+`tools/b1_control_rz_commute_optimizer.py` accumulates RZ gates and commutes
+them only across CNOTs where the same qubit is the control. It removes 380 RZ
+gates, records 1172 CNOT-control commutations, emits 1307 certificate events,
+and passes 30/30 Aer measurement-distribution checks with max TVD 0.0. B1
+logical T-count proxy improves by 1.119320x over the native pass. B7 propagation
+breaks the previous min-STV boundary: min STV is now 1.121951x and mean STV is
+1.183921x under the current proxy schedule. This is a serious B1/B7 systems
+spine advance, but it remains a diagnostic because arbitrary U3 rotations and
+full fault-tolerant synthesis/layout are still outside the pass. New `T-B1-003`
+should target remaining arbitrary-rotation factory cost with a general
+phase-polynomial or native-U3 synthesis ledger.
+
+**Sprint 001 update 3, 2026-06-15:** `T-B1-003` is now implemented as
+`tools/b1_u3_phase_factored_optimizer.py`. The pass factors remaining
+`u3(theta, phi, lambda)` gates into the native QASM execution order
+`rz(lambda); ry(theta); rz(phi)` up to global phase, then reuses the
+control-RZ commute/merge rule. It factors 1641 U3 gates, emits 1641
+factorization certificate events plus 3242 RZ-commute certificate events,
+removes 313 additional RZ gates, records 540 CNOT-control commutations after
+factoring, and passes 30/30 Aer measurement-distribution checks with max TVD
+0.0. Incremental B1 logical T-count proxy improves by 1.036371x over the
+control-RZ pass, and B7 propagation improves mean STV from 1.183921x to
+1.234394x. Minimum STV remains 1.121951x, so the boundary has not moved again;
+the next B1/B7 work should either attack the remaining `sat_n11` minimum-STV
+regime or replace the proxy with a real FT synthesis/layout/factory ledger.
+
+## B2: Low-Overhead Quantum Error Correction
+
+**Technical target:** beat a surface-code baseline on Wilson-bounded target
+volume under identical assumptions.
+
+**Sprint hypothesis:** the previous Clifford/CX hardening signal is real, but
+it must be converted from a target-hit improvement into a volume improvement by
+using the same hardware footprint and a better schedule/noise mechanism.
+
+**Algorithmic move:** create a schedule family that couples Clifford/CX
+hardening with biased correlated noise fields, then selects rows by Wilson 95%
+high logical-error bounds and total space-time volume.
+
+**Next PR:** `T-B2-001`. Expected artifacts:
+
+- `tools/b2_same_hardware_schedule_candidate.py`
+- `results/B2_same_hardware_schedule_candidate_v0.json`
+- `research/B2_same_hardware_schedule_candidate.md`
+
+**Acceptance gate:** at least one Wilson-bounded target-volume reduction
+against the surface-code baseline at the same distance, basis, shot budget, and
+decoder.
+
+**Failure value:** if target hits improve but volume does not, preserve the
+result as evidence that schedule hardening helps reliability but not overhead.
+
+**Sprint update 15:** `T-B2-001` is now implemented as
+`tools/b2_same_hardware_schedule_candidate.py`. The tool keeps the same
+rotated-surface-code family, distance grid, memory bases, physical-error grid,
+shot budget, physical qubits per distance, and PyMatching decoder, then uses
+reduced syndrome rounds as the schedule-level volume lever. The official run
+tested 120 configurations and 360,000 shots. Against the same Wilson 95%
+target-volume table, candidate-met targets increased from 22 to 30, candidate-
+only target hits increased to 8, and 22 target rows showed lower space-time
+volume. The max and mean reduction on improved rows are both 3.0x because the
+best rows use the aggressive `d-4` round-reduced all-operations-hardened
+schedule at distance 3. This is the first B2 Wilson target-volume positive
+diagnostic, but it is not a new code, threshold, or calibrated-device claim.
+
+**Sprint update 16:** `T-B2-001` now has a robustness boundary report:
+`tools/b2_same_hardware_schedule_robustness.py` stress-tests the positive
+schedule over four profiles: higher-shot reseed, mild 0.60 noise mismatch,
+moderate 0.75 noise mismatch, and Clifford-only physical mechanism. The formal
+run used 240 configurations and 1,200,000 shots. It preserves 88 Wilson target-
+volume improved rows under stress, but all 88 come from the aggressive `d-4`
+variant and 0 come from non-aggressive `d-2` variants. Therefore B2 has a real
+schedule-level diagnostic, not a strengthened low-overhead QEC claim.
+
+**Next PR:** `T-B2-002`. Find a non-aggressive or physically motivated
+reduced-round schedule/code mechanism that survives larger-distance and
+noise-mismatch Wilson target-volume stress, or convert the reduced-round signal
+into a small-distance artifact/boundary note before allowing B2 to feed a
+stronger B7 ledger.
+
+**Sprint update 31:** `T-B2-002` is now merged as a reduced-round artifact
+boundary note, not as a low-overhead QEC win. The new tool
+`tools/b2_reduced_round_artifact_boundary.py` consumes
+`results/B2_same_hardware_schedule_candidate_v0.json` and
+`results/B2_same_hardware_schedule_robustness_v0.json`, then emits
+`results/B2_reduced_round_artifact_boundary_v0.json` and
+`research/B2_reduced_round_artifact_boundary.md`. It confirms that the 22
+original volume-positive rows and the 88 stress-preserved rows are all
+aggressive, distance-3, one-round candidates; robust non-aggressive improved
+rows remain 0. The reduced-round lever is therefore closed as a
+small-distance/aggressive-schedule artifact boundary until a genuinely
+different mechanism appears. Next: `T-B2-003` should start a new B2 mechanism:
+non-aggressive schedule, different code family, leakage-aware circuit model,
+or larger-distance decoder improvement with distance-5/7 Wilson target-volume
+reductions under noise mismatch.
+
+## B3: Molecular Reaction Dynamics
+
+**Technical target:** produce a reaction-coordinate quantum observable estimate
+that is compared against strong classical chemistry denominators.
+
+**Sprint hypothesis:** the B10 FCI-strength reference rows can become the first
+observable-level denominator for a quantum circuit comparison if B3 emits
+Hamiltonians along one toy reaction coordinate.
+
+**Algorithmic move:** generate a multi-point PySCF reaction path, map each
+Hamiltonian to qubit operators, and compare Trotter/LCU/qubitization-style
+observable estimation resources against RHF/MP2/CCSD/FCI denominator rows.
+
+**Next PR:** `T-B3-001`. Expected artifacts:
+
+- `tools/b3_reaction_path_observable_circuit.py`
+- `results/B3_reaction_path_observable_circuit_v0.json`
+- `research/B3_reaction_path_observable_circuit.md`
+
+**Acceptance gate:** one reaction-coordinate observable has Hamiltonian rows,
+classical denominator values, circuit/resource estimates, and propagated
+observable error.
+
+**Failure value:** if the quantum resource estimate loses to denominators, the
+negative result feeds B10 boundary notes.
+
+## B4: Verifiable Quantum Advantage
+
+**Technical target:** instantiate a circuit-level task that is checkable by the
+verifier but hard to spoof cheaply.
+
+**Sprint hypothesis:** B4 should merge its toy trap model with B8's
+refresh/rotation repair so the verifier can test adaptive spoofers on circuit
+outputs rather than abstract samples.
+
+**Algorithmic move:** generate hidden-trap circuits with embedded invariant
+checks, then rotate challenges between batches and measure completeness and
+soundness under adaptive spoofers.
+
+**Next PR:** `T-B4-001`. Expected artifacts:
+
+- `tools/b4_b8_hidden_task_generator.py`
+- `results/B4_B8_hidden_task_refresh_v0.json`
+- `research/B4_B8_hidden_task_refresh.md`
+
+**Acceptance gate:** honest completeness stays high while adaptive spoofer
+soundness remains below the configured threshold under at least two refresh
+modes.
+
+**Failure value:** if spoofers win, the leakage pattern becomes a B10 verifier
+burden condition.
+
+**Sprint update 18:** `T-B4-001` is now merged with `T-B8-001` as a shared
+B4/B8 circuit-level proxy task. The new tool
+`tools/b4_b8_circuit_refresh_task.py` builds random CNOT hidden-projection
+sampling tasks, derives verifier masks from explicit circuits, and attacks the
+tasks with four adaptive spoofer families across leakage fractions and refresh
+modes. The official run emits `results/B4_B8_circuit_refresh_task_v0.json` and
+`research/B4_B8_circuit_refresh_task.md`: 3 tasks, 192 configurations, minimum
+honest completeness 1.0, no-refresh high-leakage max soundness 0.675, and best
+repaired high-leakage max soundness 0.0. This is not a quantum advantage claim;
+it is the first circuit-level B4/B8 verification proxy with a clear leakage
+failure and refresh/rotation repair boundary.
+
+## B5: Strongly Correlated Matter
+
+**Technical target:** show an accuracy-per-resource improvement on a meaningful
+strongly correlated observable.
+
+**Sprint hypothesis:** the exact Hubbard denominator can be made more serious
+by adding a boundary-field or tensor-network embedding baseline before testing
+any quantum response subroutine.
+
+**Algorithmic move:** add a boundary-field embedding baseline for 2D or doped
+Hubbard patches and compare recovered cluster-product error fraction against
+the current exact small-system denominator.
+
+**Next PR:** `T-B5-001`. Expected artifacts:
+
+- `tools/b5_boundary_embedding_baseline.py`
+- `results/B5_boundary_embedding_baseline_v0.json`
+- `research/B5_boundary_embedding_baseline.md`
+
+**Acceptance gate:** report exact denominator, embedding baseline, error per
+site, observable choice, and where a quantum impurity/kernel would enter.
+
+**Failure value:** if the classical embedding baseline is already strong, use
+it as a denominator for B10 rather than overclaiming quantum advantage.
+
+## B6: High-Temperature Superconductivity Search
+
+**Technical target:** rank candidate materials using mechanism-aware
+descriptors while controlling family-prior leakage.
+
+**Sprint hypothesis:** the toy descriptor ranker should be replaced by a
+retrospective table with time/family splits before any candidate claim.
+
+**Algorithmic move:** build a curated data schema with material family,
+discovery year, Tc label, structural descriptors, correlation descriptors, and
+explicit leakage flags.
+
+**Next PR:** `T-B6-001`. Expected artifacts:
+
+- `data/B6_materials_retrospective_schema.md`
+- `tools/b6_family_time_leakage_audit.py`
+- `results/B6_family_time_leakage_audit_v0.json`
+- `research/B6_family_time_leakage_audit.md`
+
+**Acceptance gate:** ranking metrics are reported under random split,
+time-forward split, and family-held-out split; leakage-driven features are
+listed separately from physics descriptors.
+
+**Failure value:** if performance collapses under family-held-out evaluation,
+the project avoids false discovery claims and moves toward data-quality work.
+
+## B7: Fault-Tolerance Co-Design
+
+**Technical target:** create an end-to-end resource ledger where compiler and
+QEC improvements survive workload DAGs, factories, layout, and feed-forward.
+
+**Sprint hypothesis:** B7 should use B1 as the active lever, but only count
+savings that survive factory bottlenecks and minimum-STV tests.
+
+**Algorithmic move:** retest B7 with the new B1 native T-resource pass and
+separate data-path-dominated, factory-dominated, and feed-forward-dominated
+workloads.
+
+**Next PR:** `T-B7-001`. Expected artifacts:
+
+- `tools/b7_min_stv_regime_classifier.py`
+- `results/B7_min_stv_regime_classifier_v0.json`
+- `research/B7_min_stv_regime_classifier.md`
+
+**Acceptance gate:** every workload row reports dominant bottleneck, pre/post
+STV, min/mean reductions, and whether the improvement is data-path or
+T-factory driven.
+
+**Failure value:** if B1 cannot move factory-dominated min STV, B7 becomes a
+claim-separation paper rather than a universal reduction claim.
+
+**Sprint update 4:** `T-B7-001` is now merged. The classifier consumes
+`logical_t_factory_schedule_u3_phase_factored_v0` and identifies the remaining
+minimum-STV row as `qasmbench_medium_exact/sat_n11.qasm` under
+`throughput_heavy_factories`: STV reduction 1.121951x, logical T reduction
+1.122137x, after-T proxy 5240, and 18/18 schedule rows still factory-path
+bottlenecked. U3 phase factoring improves portfolio mean STV, but not this
+minimum row.
+
+**Next PR:** `T-B1-004` should remove another 344 logical T proxy from
+`sat_n11` to reach 1.20x min STV, or produce a negative boundary for the current
+local phase-pass family. `T-B7-002` should replace the fixed rotation T-cost
+proxy with an FT synthesis ledger; the 1.25x min-STV target currently requires
+544 additional T proxy removal if the same factory footprint is held fixed.
+
+**Sprint update 5:** `T-B7-002` is now merged. The new FT synthesis ledger
+classifies exact rotations instead of charging every non-Clifford rotation a
+fixed 20-T proxy. Under this ledger, `sat_n11` is re-costed from 294 to 262 T
+ledger units and reaches 1.611481x STV reduction under balanced and
+throughput-heavy factory variants, moving those rows from factory-path to
+data-path bottlenecks. The new minimum row is
+`qasmbench_medium_exact/gcm_h6.qasm` under `throughput_heavy_factories` at
+1.086008x STV reduction, with portfolio mean STV at 1.253640x.
+
+**Next PR:** `T-B7-003` should attack the new `gcm_h6` FT-ledger boundary or
+show that its remaining arbitrary numeric rotations require a stronger
+synthesis, routing, or layout assumption before B7 can claim a robust min-STV
+win.
+
+**Sprint update 6:** `T-B7-003` is now merged as a quantified boundary result.
+The current FT-ledger minimum row is `qasmbench_medium_exact/gcm_h6.qasm` under
+`throughput_heavy_factories`, with STV reduction 1.086008x and 270 after-side
+arbitrary numeric rotations contributing 5400 / 6224 T ledger units. To push
+that current row to 1.20x requires 592 additional T-ledger reduction, equivalent
+to about 30 arbitrary rotations at cost 20; 1.25x requires 824 T-ledger
+reduction, about 42 such rotations. A portfolio-wide arbitrary-rotation cost
+sweep from 20 down to 0 does **not** clear the all-variant 1.20x min-STV
+threshold, because other factory/layout variants become the bottleneck.
+
+**Next PR:** `T-B7-004` should add a precision-aware arbitrary-rotation
+synthesis/layout ledger for `gcm_h6`, or turn this into a formal negative
+boundary for local phase passes under the current factory variants.
+
+**Sprint update 7:** `T-B7-004` is now merged as a precision-aware negative
+boundary. The new ledger attaches an explicit uniform synthesis-error budget to
+the 270 after-side arbitrary numeric rotations in `gcm_h6`. Under a
+Ross-Selinger-style proxy, the most lenient tested total synthesis-error budget
+0.1 implies average arbitrary-rotation T cost 35, not below the fixed 20-cost
+assumption, and the best tested precision-budget row reaches only 1.079316x
+portfolio min STV. The one-sided after-row target would require average
+arbitrary-rotation cost <=17 for 1.20x and <=16 for 1.25x, which would require
+an impossible >1 total error budget under this proxy. The QASM reuse probe,
+however, finds 270 numeric rotation occurrences but only 26 unique numeric
+parameters/instructions.
+
+**Next PR:** `T-B7-005` should attack `gcm_h6` structurally: merge or cancel
+repeated numeric rotations, test a shared-synthesis/cache proxy for repeated
+angles, or prove that the remaining repeated numeric rotations cannot be
+reduced by local phase passes.
+
+**Sprint update 8:** `T-B7-005` is now merged as a conservative structural
+negative boundary. The pass applies only same-axis numeric rotation
+merge/cancel across operations on disjoint qubits, emits 172 certificate
+events, and passes a 1/1 Aer measurement-distribution cross-check with TVD
+0.0 on `gcm_h6`. It does not remove any arbitrary numeric rotations:
+270 -> 270, and the FT T ledger remains 6224 -> 6224. The portfolio min row
+therefore stays `gcm_h6` / throughput-heavy factories at 1.086008x STV.
+
+**Next PR:** `T-B7-006` must be nonlocal: either a phase-polynomial or
+template-aware compression pass for the `gcm_h6` repeated-angle blocks, or a
+proof-quality memo showing that shared synthesis/cache of repeated angles only
+saves classical compile effort and cannot reduce the fault-tolerant T ledger.
+
+**Sprint update 9:** `T-B7-006` is now merged as a shared-synthesis/cache
+boundary result. The repeated numeric rotations in `gcm_h6` compress from
+270 occurrences to 26 unique numeric instruction templates, a 10.384615x
+classical catalog reduction. Under the physical occurrence-injection model,
+however, every executed arbitrary rotation still consumes an FT rotation
+injection, so cache reuse removes 0 T-ledger units and the physical ledger
+remains 6760 -> 6224 with portfolio min STV 1.086008x. An intentionally
+invalid after-only unique-template accounting would make `gcm_h6` look like it
+clears 1.20x, but it still fails the all-variant portfolio gate and is not a
+valid physical resource model.
+
+**Next PR:** `T-B7-007` should stop treating repeated-angle cache as a physical
+resource reduction and instead attempt a nonlocal repeated-block rewrite:
+phase-polynomial, template-aware cancellation, shared magic-state gadget with a
+valid execution model, or a sharper no-go certificate for the `gcm_h6` block
+family.
+
+**Sprint update 10:** `T-B7-007` is now merged as a nonlocal repeated-block
+scan. The scanner emits 2633 role-normalized template certificates over window
+widths 8-64. The best exact repeated template, `w8_21`, has width 8, appears
+20 non-overlapping times, contains 5 arbitrary rotations per occurrence, and
+covers 100 physical arbitrary-rotation occurrences across 14 qubit bindings.
+However, the scan finds 0 adjacent inverse block pairs and 0 adjacent duplicate
+same-binding block pairs, so it emits no semantics-preserving QASM rewrite:
+arbitrary rotations remain 270 -> 270 and T ledger remains 6224 -> 6224. The
+target sweep says `gcm_h6` alone reaches 1.20x after removing 30 arbitrary
+occurrences / 600 T ledger units, but all-variant 1.20x is still not reached by
+changing `gcm_h6` alone because the old `sat_n11` row becomes the minimum at
+1.121827x.
+
+**Next PR:** `T-B7-008` should synthesize the best template `w8_21` as an
+actual small unitary block. The acceptance gate is strict: either replace each
+executed block with fewer than 5 arbitrary rotations and prove equivalence, or
+produce a basis-specific minimality/no-go certificate for that template family.
+
+**Sprint update 11:** `T-B7-008` is now merged as a same-skeleton exact
+small-block synthesis probe for `w8_21`. The probe tested 55 one-fixed-angle
+exact/Clifford candidates, with 16 numerical seeds per candidate, while
+re-optimizing the other four angles inside the same two-CNOT skeleton. No
+candidate preserved the target 2-qubit unitary within the strict 1e-8
+tolerance. The best near miss fixes `a = pi/2`, has residual norm
+3.936333737388844e-02 and max entry error 1.8235495914643154e-02. The
+finite-difference Jacobian has numerical rank 5, supporting that this
+same-skeleton family carries five independent continuous degrees. This closes
+the direct one-arbitrary-rotation exact-angle replacement path, but it is not a
+global two-qubit lower bound.
+
+**Next PR:** `T-B7-009` should broaden beyond the same two-CNOT skeleton:
+KAK/COSINE-style synthesis, alternate CNOT placements, or a sharper
+template-family minimality note. A positive result must emit a QASM rewrite for
+the 20 non-overlapping `w8_21` occurrences and then rerun proof/Aer/resource
+checks.
+
+**Sprint update 12:** `T-B7-009` has now completed a bounded broad-skeleton
+exhaustive scan. The new tool scans all length-6 circuits with two CNOTs placed
+anywhere, either CNOT direction, and four arbitrary Rz/Ry rotations on either
+qubit: 15360 skeleton families, two seeds per family, for 30720 optimizer runs.
+It found 0 exact four-arbitrary-rotation candidates; the best candidate
+`ry_q1-cx01-rz_q1-cx01-rz_q1-ry_q1` has residual norm 0.24437773599006635 and
+max entry error 0.12522813855335146, far above the 1e-8 exact gate. This is a
+bounded negative result for this Rz/Ry + two-CNOT + four-rotation family, not a
+global lower bound.
+
+**Follow-up completed below:** `T-B7-009` continued with a target-informed
+Euler-local family, then with a bounded three-CNOT/four-arbitrary family, and
+then with a scoped minimality note that states which searched families were
+exhausted.
+
+**Sprint update 13:** `T-B7-009` now has a second, more target-aware negative
+boundary. The new tool `tools/b7_w8_21_euler_local_search.py` tests a bounded
+Euler-local two-CNOT family with pre/mid/post local `Rz-Ry-Rz` layers on both
+qubits. The official run uses target-informed enumeration: it preserves the
+source `w8_21` fixed `pi` scaffold, keeps at least 3 of the 5 source arbitrary
+angle slots free, allows one remaining free slot to move into nearby Euler-local
+structure, and optimizes 500/500 families with 6 seeds each for 3000 optimizer
+runs. It found 0 exact four-arbitrary-angle candidates at 1e-8 tolerance. The
+best family is
+`cx01-cx01|fixed[mid:q1:rz1=pi]|free[pre:q1:ry,mid:q1:rz0,post:q1:rz0,post:q1:ry]`
+with residual norm 0.24437773599006604 and max entry error
+0.1252281345437596. This strengthens the broad-skeleton negative result by
+allowing Euler-local structure around the CNOTs, but it still does not prove a
+global KAK lower bound or exclude all Clifford scaffolds, three-CNOT circuits,
+ancillas, or measurements.
+
+**Follow-up completed below:** the bounded three-CNOT/four-arbitrary-angle
+search has been run, and the scoped minimality note now records why no B7
+resource claim can count a `w8_21` rewrite from the tested families.
+
+**Sprint update 14:** the bounded three-CNOT branch of `T-B7-009` is now also
+complete. `tools/b7_w8_21_three_cnot_search.py` tests target-informed
+pre/mid1/mid2/post local `Rz-Ry-Rz` Euler layers with three CNOTs, four free
+arbitrary angles, and the original source `pi` scaffold fixed. The official
+run exhausts 1480/1480 families with 6 seeds each, for 8880 optimizer runs.
+It found 0 exact candidates at 1e-8 tolerance. The best family is
+`cx01-cx10-cx10|fixed[mid1:q1:rz1=pi]|free[mid1:q1:rz0,mid1:q1:ry,post:q0:rz0,post:q1:rz0]`,
+with residual norm 1.0352761804100845 and max entry error
+0.4895711241454502. Within the tested target-informed family, adding one extra
+CNOT does not rescue the attempted 5-to-4 arbitrary-angle compression.
+
+**Next PR:** stop expanding `w8_21` numerical searches unless a new symbolic
+KAK/Clifford-scaffold argument is specified. Convert T-B7-008/T-B7-009 into a
+scoped minimality note and claim-boundary paper fragment: same-skeleton
+one-fixed-angle search, two-CNOT/four-Rz-Ry broad skeleton, two-CNOT
+target-informed Euler-local search, and three-CNOT target-informed
+Euler-local search all failed to produce a verified four-arbitrary-angle
+replacement, so B7 cannot count any `w8_21` resource reduction from these
+families.
+
+**Sprint update 17:** `T-B7-009` is now merged as a claim-boundary closure.
+The new fragment `research/B7_w8_21_claim_boundary_fragment.md` converts the
+four negative search families into a paper-ready boundary statement: repeated
+synthesis templates are not physical resource savings unless they come with an
+occurrence-removing certificate. Across 43480 optimizer runs, the tested
+families found 0 exact four-arbitrary-angle replacements, so `w8_21` removes
+0 arbitrary rotations and 0 proxy-T ledger units in B7. This closes the local
+numeric `w8_21` expansion path. The next useful work is symbolic
+KAK/Clifford-scaffold proof, a certified alternate rewrite for `gcm_h6`, or a
+return to `T-B1-004`.
+
+## B8: Classical Verification of Quantum Outputs
+
+**Technical target:** keep verifier soundness low under adaptive leakage by
+using challenge refresh and projection rotation.
+
+**Sprint hypothesis:** the toy repair result should survive when embedded in
+B4 circuit-level hidden tasks.
+
+**Algorithmic move:** extend the adaptive leakage spoofer to observe partial
+history, infer candidate invariants, and attack refreshed B4/B8 circuit tasks.
+
+**Next PR:** `T-B8-001`. Expected artifacts:
+
+- `tools/b8_circuit_adaptive_spoofer.py`
+- `results/B8_circuit_adaptive_spoofer_v0.json`
+- `research/B8_circuit_adaptive_spoofer.md`
+
+**Acceptance gate:** soundness curves are reported across leakage fractions,
+refresh intervals, projection rotations, and spoofer families.
+
+**Failure value:** if high leakage still wins, formalize a minimum-refresh or
+rotation-rate burden for B10-T2 instead of claiming a robust verifier.
+
+**Sprint update 19:** `T-B8-001` is now merged together with `T-B4-001` through
+the shared B4/B8 circuit refresh task. The adaptive suite covers
+metadata-only, known-projection replay, surrogate projection learner, and
+trap-aware leakage spoofers. It reproduces the 0.75 leakage failure when
+refresh is absent, then shows projection rotation, challenge refresh, and
+refresh-plus-rotation all pass the <=5% high-leakage soundness gate in this
+CNOT hidden-projection proxy. Next: replace heuristic projection-enforcement
+spoofers with trained/generative attackers and connect the minimum-refresh
+condition to B10-T2.
+
+**Sprint update 20:** `T-B8-002` is now merged as a trained/generative
+spoofer boundary, not as a soundness proof. The new tool
+`tools/b8_generative_spoofer_refresh.py` trains correlation-style projection
+generators against the B4/B8 circuit-refresh proxy. The official run emits
+`results/B8_generative_spoofer_refresh_v0.json` and
+`research/B8_generative_spoofer_refresh.md`: 144 configurations, minimum honest
+completeness 1.0, maximum learned soundness 1.0, no-refresh high leakage marked
+unsafe, and `projection_rotation`, `challenge_refresh`, and
+`refresh_plus_rotation` marked safe under this proxy. This gives B10-T2 a
+concrete minimum-refresh proof obligation: no sampling-advantage verification
+claim should pass through the B4/B8 layer unless projection rotation or a
+stronger refresh condition is explicit.
+
+**Sprint update 21:** `T-B10-002` is now merged as a proof-obligation gate, not
+as a soundness lemma. The new tool
+`tools/b10_t2_refresh_proof_obligation_gate.py` consumes the B8 trained-spoofer
+stress result and the B10 formal target card, then emits
+`results/B10_t2_refresh_proof_obligation_gate_v0.json` and
+`research/B10_t2_refresh_proof_obligation_gate.md`. The gate rejects
+no-refresh high-leakage verification claims in the current proxy because
+learned soundness reaches 1.0 at lambda=0.75. It records
+`projection_rotation`, `challenge_refresh`, and `refresh_plus_rotation` as
+admissible next-proof conditions under the 5% proxy gate, but explicitly marks
+the lemma status as `not_proved_proxy_insufficient_for_general_soundness`.
+Seven open proof obligations remain: formal protocol timing, leakage-channel
+definition, adversary class, soundness bound, hardware randomized-measurement
+instantiation, separation from sampling-hardness assumptions, and verifier
+overhead accounting.
+
+**Sprint update 22:** `T-B10-003` is now merged on the restricted-lemma path,
+not the hardware-verifier path. The new tool
+`tools/b10_t2_restricted_soundness_lemma.py` emits
+`results/B10_t2_restricted_soundness_lemma_v0.json` and
+`research/B10_t2_restricted_soundness_lemma.md`. The lemma states that, in a
+bounded-leakage transcript model where challenge refresh or projection rotation
+leaves at least one verifier predicate unknown and independent of the
+adversary, Hoeffding gives adversarial pass probability at most
+`exp(-N(mu-tau)^2/2)` for that predicate. With the current proxy parameters
+`N=4096`, `mu=0.30`, and `tau=0.08`, the single-unknown-mask bound is
+`8.94e-44`, well below the 5% soundness gate. This is explicitly not a
+hardware randomized-measurement verifier, cryptographic soundness theorem,
+sampling-hardness proof, or BQP/classical separation; it only discharges the
+restricted refresh-independence proof obligation.
+
+**Sprint update 23:** `T-B10-004` is now merged on the transcript-simulator
+path, not the hardware-verifier path. The new tool
+`tools/b10_t2_transcript_leakage_simulator.py` emits
+`results/B10_t2_transcript_leakage_simulator_v0.json` and
+`research/B10_t2_transcript_leakage_simulator.md`. It runs 192 configurations
+over four refresh modes, four leakage fractions, three CNOT hidden-projection
+tasks, and four adversary families. Honest completeness is 1.0. No-refresh
+high leakage remains unsafe. In refresh-independent high-leakage modes,
+`projection_rotation`, `challenge_refresh`, and `refresh_plus_rotation` retain
+at least 6 unknown independent predicates, and the maximum empirical soundness
+is 0.025. This supports the restricted lemma's transcript assumptions in this
+proxy, but it is still not a hardware randomized-measurement verifier,
+sampling-hardness proof, cryptographic soundness theorem, or BQP/classical
+separation. Next: `T-B10-005` should instantiate hardware-executable
+randomized-measurement circuits or a device-noise transcript bridge and attack
+that channel with unrestricted learned/generative adversaries.
+
+**Sprint update 24:** `T-B10-005` is now merged as a device-noise transcript
+bridge, not as hardware execution. The new tool
+`tools/b10_t2_device_noise_transcript_bridge.py` emits
+`results/B10_t2_device_noise_transcript_bridge_v0.json` and
+`research/B10_t2_device_noise_transcript_bridge.md`. It runs 480 configurations
+across five transcript-level noise profiles. Bounded bridge profiles preserve
+honest completeness 1.0, and `challenge_refresh` / `refresh_plus_rotation`
+keep high-leakage empirical soundness at most 0.0208 with at least 7 unknown
+independent predicates. `projection_rotation` is now marked margin-sensitive:
+under `low_noise_bridge` it reaches 0.0625 against the oracle-cover spoofer,
+so it should not be counted as device-noise bridge-safe without extra margin.
+The `calibration_side_channel` profile is rejected. Next: `T-B10-006` should
+instantiate hardware-executable randomized-measurement circuits or a Qiskit/Aer
+circuit-level verifier bridge.
+
+**Sprint update 25:** `T-B10-006` is now merged as an ideal Qiskit/Aer
+circuit-level verifier bridge, not as hardware execution. The new tool
+`tools/b10_t2_qiskit_aer_verifier_bridge.py` emits
+`results/B10_t2_qiskit_aer_verifier_bridge_v0.json` and
+`research/B10_t2_qiskit_aer_verifier_bridge.md`. It instantiates randomized
+parity-verifier circuits with ancilla challenge flips for the three B10-T2
+CNOT hidden-projection tasks and runs 216 Aer circuits across
+`projection_rotation`, `challenge_refresh`, and `refresh_plus_rotation`. The
+ideal Aer semantic mismatch count is 0, minimum honest completeness is 1.0,
+and the largest circuit uses 30 qubits including verifier ancillas. The
+adversary/noise soundness is inherited from the device-noise transcript bridge:
+`challenge_refresh` / `refresh_plus_rotation` remain at 0.0208 high-leakage
+max soundness, while `projection_rotation` remains margin-sensitive. Next:
+`T-B10-007` should add noisy Aer/backend-calibrated circuit execution or
+circuit-level adversary generation.
+
+**Sprint update 26:** `T-B10-007` is now merged as a noisy Qiskit/Aer
+circuit-level verifier bridge, still not as calibrated backend or hardware
+execution. The new tool `tools/b10_t2_noisy_aer_verifier_bridge.py` emits
+`results/B10_t2_noisy_aer_verifier_bridge_v0.json` and
+`research/B10_t2_noisy_aer_verifier_bridge.md`. It executes 9600 noisy Aer
+randomized parity-verifier circuits for the 12-qubit B10-T2 task, using
+honest inputs plus four circuit-level adversary input families constructed by
+choosing adversarial output bit strings and inverting the CNOT task map. Under
+the bridge-safe `challenge_refresh` / `refresh_plus_rotation` modes, bounded
+noise profiles keep noisy honest acceptance at 1.0 and noisy adversary
+acceptance at 0.0, with max honest predicate-bit error 0.1125 and at least 7
+unknown independent predicates. The `calibration_side_channel` profile remains
+rejected. Next: `T-B10-008` should add backend-calibrated noise parameters or
+real hardware randomized-measurement verifier execution.
+
+**Sprint update 27:** `T-B10-008` is now merged as a backend-calibrated-style
+Aer verifier bridge, still not as real backend properties or hardware
+execution. The new tool `tools/b10_t2_backend_calibrated_verifier_bridge.py`
+emits `results/B10_t2_backend_calibrated_verifier_bridge_v0.json` and
+`research/B10_t2_backend_calibrated_verifier_bridge.md`. It derives
+per-qubit readout errors and per-gate depolarizing errors from Qiskit
+`GenericBackendV2` target `InstructionProperties`, then executes 5760
+randomized parity-verifier circuits across three calibration snapshots. Under
+the bridge-safe `challenge_refresh` / `refresh_plus_rotation` modes, calibrated
+honest acceptance remains 1.0, calibrated adversary acceptance is 0.25, max
+honest predicate-bit error is 0.0703125, and at least 7 unknown independent
+predicates remain. The no-refresh mode remains unsafe. Next: `T-B10-009`
+should replace GenericBackendV2 snapshots with real backend properties or run
+hardware randomized-measurement verifier execution.
+
+## B9: Quantum PCP / Local Hamiltonian Hardness
+
+**Technical target:** extract a restricted theorem or negative lemma from the
+gap-amplification lab.
+
+**Sprint hypothesis:** a failed small-instance amplification pattern can become
+a useful negative lemma if the locality, normalization, and gap measurements
+are stated precisely.
+
+**Algorithmic move:** choose one counterexample family, write the attempted
+amplification rule, identify the violated condition, and package it as a proof
+obligation.
+
+**Next PR:** `T-B9-001`. Expected artifacts:
+
+- `research/B9_failed_gap_amplification_lemma.md`
+- `results/B9_failed_gap_amplification_lemma_v0.json`
+- optional proof-check notes
+
+**Acceptance gate:** the lemma names assumptions, shows the counterexample
+family, and states exactly what broader Quantum PCP claim it does not resolve.
+
+**Failure value:** even a failed proof becomes a reusable barrier record.
+
+**Sprint update 28:** `T-B9-001` is now merged as a finite-instance negative
+lemma extracted from the B9 exact gap lab. The new tool
+`tools/b9_failed_gap_amplification_lemma.py` consumes
+`results/B9_local_hamiltonian_gap_lab_v0.json` and emits
+`results/B9_failed_gap_amplification_lemma_v0.json` plus
+`research/B9_failed_gap_amplification_lemma.md`. The lemma states that raw
+spectral-gap growth is not an acceptable local-Hamiltonian gap-amplification
+certificate unless locality, ground-space overlap, and normalized-gap
+improvement are checked together. The current v0 screen has 0 accepted local
+candidate rows, 4 strict width-trap counterexamples, 9 dense locality traps,
+and 5 proof obligations. It explicitly does not claim a Quantum PCP proof,
+NLTS theorem, local-Hamiltonian hardness theorem, or global gap-amplification
+impossibility. Next: `T-B9-002` should turn this finite-instance failed-proof
+record into a symbolic family statement or proof-assistant skeleton.
+
+**Sprint update 29:** `T-B9-002` is now merged as a symbolic/proof-assistant
+skeleton, still not as a checked formal theorem. The new tool
+`tools/b9_symbolic_gap_skeleton.py` consumes
+`results/B9_failed_gap_amplification_lemma_v0.json` and emits
+`results/B9_symbolic_gap_skeleton_v0.json`,
+`research/B9_symbolic_gap_skeleton.md`, and
+`research/proof_skeletons/B9_failed_gap_amplification_skeleton.lean`. The
+Lean-style skeleton defines `LocalHamiltonianFamily`, `LocalTransform`,
+`RawGapAmplifies`, `NormalizedGapAmplifies`, and `AcceptableLocalGapStep`,
+then records three theorem skeletons separating raw-gap growth, normalized-gap
+failure, and locality failure. It carries forward five open obligations from
+the finite-instance lemma, inherits four strict counterexamples and nine dense
+locality traps, and explicitly remains unchecked by Lean/mathlib. Next:
+`T-B9-003` should instantiate the skeleton on a named Hamiltonian family with
+analytic width/locality bounds, then run an actual proof-check pass.
+
+**Sprint update 30:** `T-B9-003` is now merged as a named-family
+width/locality bound skeleton, still not as a checked theorem. The new tool
+`tools/b9_named_family_width_locality_bounds.py` consumes
+`results/B9_local_hamiltonian_gap_lab_v0.json` and emits
+`results/B9_named_family_width_locality_bounds_v0.json`,
+`research/B9_named_family_width_locality_bounds.md`, and
+`research/proof_skeletons/B9_cluster_stabilizer_width_locality_bound.lean`.
+The named family is `cluster_stabilizer_open_uniform_reweight`: for n=4,5,6
+all generated open-boundary cluster-stabilizer terms have support 2 or 3, so
+`local_interaction_reweight_v0` multiplies every term uniformly by 1.35. The
+raw spectral gap therefore grows, max locality stays 3, and spectral width
+scales by the same factor, leaving normalized gap invariant. The resulting
+certificate is rejected as global energy rescaling, not a Quantum PCP proof or
+global no-go theorem. A proof-check was attempted, but the current `lean`
+command on PATH is not a usable Lean/mathlib theorem prover in this workspace.
+Next: `T-B9-004` should create a real proof-checkable environment and
+formalize the support-size, uniform-scaling, spectral-width, and
+normalized-gap lemmas for all n >= 4.
+
+## B10: Boundary of BQP
+
+**Technical target:** separate robust quantum advantage claims from hidden
+input, oracle, loading, verification, precision, or output-cost assumptions.
+
+**Sprint hypothesis:** B10's most valuable near-term contribution is not a
+BQP/classical separation. It is an explicit boundary theorem or denominator
+comparison for one advantage claim linked to B3/B5/B8.
+
+**Algorithmic move:** compare a concrete B3 quantum observable-estimation
+circuit against the FCI reference denominator, and in parallel move B10-T2 from
+GenericBackendV2 calibration-style simulator evidence into real-backend
+properties or hardware randomized-measurement verification.
+
+**Next PR:** `T-B10-009` or `T-B10-001`. Expected artifacts:
+
+- `research/B4_B8_hardware_randomized_verifier.md` or `research/B10_t2_real_backend_verifier_bridge.md`
+- `results/B4_B8_hardware_randomized_verifier_v0.json` or `results/B10_t2_real_backend_verifier_bridge_v0.json`
+- optional update to `research/B10_formal_theorem_targets.md`
+
+**Acceptance gate:** a theorem target, proof attempt, counterexample, or
+denominator comparison states the input model, output model, verifier burden,
+and classical baseline.
+
+**Failure value:** if the target cannot be proven, the failed proof should
+still identify which assumption is too strong or too weak.
+
+## Sprint Promotion Matrix
+
+| Track | Can become paper after this sprint? | Can become patent after this sprint? | Can become fundable/tool after this sprint? |
+|---|---|---|---|
+| B1 | Only if B7 min-STV improves or claim is cleanly split. | Possible invention disclosure if certificate pass is novel after prior-art search. | QCert CLI packaging can begin only as research tooling. |
+| B2 | Only after at least one same-hardware volume reduction. | Possible if schedule selection method is novel and reproducible. | QEC benchmark tool can be packaged as baseline explorer. |
+| B3 | Not until reaction-coordinate circuit vs denominator exists. | Unlikely before stronger chemistry baseline. | Chemistry resource explorer after denominator comparison. |
+| B4/B8 | Only after circuit-level hidden task with adaptive spoofers. | Possible challenge-refresh protocol disclosure after novelty review. | Verification lab prototype after circuit-level generator. |
+| B5/B6 | Not until real baselines/data exist. | Possible later for leakage-audited descriptor pipeline. | Materials screener only after leakage audit. |
+| B7 | Only after regime-classified FT ledger. | Possible resource-ledger disclosure after layout assumptions. | Resource estimator prototype after workload schema stabilizes. |
+| B9/B10 | Theory note possible if negative lemma/proof target is precise. | Usually not the lead route. | Boundary checker can become a claim-audit tool. |
+
+## Immediate Assignment Order
+
+1. `compiler-agent`: B1 native T-resource optimizer.
+2. `ft-agent`: B7 min-STV regime classifier waiting on B1 output.
+3. `qec-agent`: B2 same-hardware schedule candidate.
+4. `verification-agent`: B4/B8 hidden task generator and adaptive spoofer.
+5. `chemistry-agent`: B3 reaction observable circuit vs FCI denominator.
+6. `theory-agent`: B10-T2 real-backend/hardware verifier bridge plus B9 negative lemma.
+7. `materials-agent`: B6 family/time leakage audit.
+
+This sprint is complete only when at least one PR-quality artifact exists for
+each spine and the portfolio audit still passes.

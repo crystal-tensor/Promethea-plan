@@ -1,0 +1,750 @@
+{
+  "b1_after_source": "results/b1_virtual_swap_elimination_level1/after_virtual_swap_metrics.json",
+  "b1_source": "results/b1_virtual_swap_elimination_level1/before_virtual_swap_metrics.json",
+  "b2_source": "results/B2_stim_surface_code_target_volume_v0.json",
+  "benchmark_id": "B7",
+  "comparison_count": 6,
+  "comparisons": [
+    {
+      "after": {
+        "b2_physical_qubits_per_logical_tile": 26,
+        "b2_rounds_per_logical_layer": 3,
+        "b2_space_time_volume_per_logical_layer": 78,
+        "dependency_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "memory",
+            "layers": 1
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "single_qubit_and_idle_layers",
+            "kind": "single_qubit_or_idle",
+            "layers": 0
+          },
+          {
+            "depends_on": [
+              "single_qubit_and_idle_layers"
+            ],
+            "id": "two_qubit_interaction_layers",
+            "kind": "two_qubit_interaction",
+            "layers": 3725
+          },
+          {
+            "depends_on": [
+              "two_qubit_interaction_layers"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "measurement",
+            "layers": 1
+          }
+        ],
+        "estimated_physical_qubits": 494,
+        "estimated_schedule_rounds": 11181,
+        "estimated_space_time_volume": 5523414,
+        "exposure_per_logical_depth": 0.00523508187919463,
+        "hardware_weighted_error_exposure": 19.50068,
+        "label": "after_b1_virtual_swap",
+        "logical_depth": 3725,
+        "logical_layer_count_with_init_readout": 3727,
+        "logical_qubits": 19,
+        "model_status": "dependency_schedule_bridge_not_physical_layout",
+        "operation_count": 6000,
+        "selected_b2_basis": "x",
+        "selected_b2_distance": 3,
+        "selected_b2_physical_error": 0.001,
+        "selected_b2_target_logical_error": 0.01,
+        "selected_b2_wilson_95_high": 0.0012788956648046956,
+        "two_qubit_gate_count": 2438,
+        "two_qubit_layer_fraction": 1.0,
+        "two_qubit_layers": 3725
+      },
+      "before": {
+        "b2_physical_qubits_per_logical_tile": 26,
+        "b2_rounds_per_logical_layer": 3,
+        "b2_space_time_volume_per_logical_layer": 78,
+        "dependency_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "memory",
+            "layers": 1
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "single_qubit_and_idle_layers",
+            "kind": "single_qubit_or_idle",
+            "layers": 0
+          },
+          {
+            "depends_on": [
+              "single_qubit_and_idle_layers"
+            ],
+            "id": "two_qubit_interaction_layers",
+            "kind": "two_qubit_interaction",
+            "layers": 4923
+          },
+          {
+            "depends_on": [
+              "two_qubit_interaction_layers"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "measurement",
+            "layers": 1
+          }
+        ],
+        "estimated_physical_qubits": 494,
+        "estimated_schedule_rounds": 14775,
+        "estimated_space_time_volume": 7298850,
+        "exposure_per_logical_depth": 0.005881316270566728,
+        "hardware_weighted_error_exposure": 28.95372,
+        "label": "before_b1_virtual_swap",
+        "logical_depth": 4923,
+        "logical_layer_count_with_init_readout": 4925,
+        "logical_qubits": 19,
+        "model_status": "dependency_schedule_bridge_not_physical_layout",
+        "operation_count": 7443,
+        "selected_b2_basis": "x",
+        "selected_b2_distance": 3,
+        "selected_b2_physical_error": 0.001,
+        "selected_b2_target_logical_error": 0.01,
+        "selected_b2_wilson_95_high": 0.0012788956648046956,
+        "two_qubit_gate_count": 3881,
+        "two_qubit_layer_fraction": 1.0,
+        "two_qubit_layers": 4923
+      },
+      "exposure_reduction": 1.4847543777960563,
+      "logical_depth_reduction": 1.3216107382550335,
+      "space_time_volume_reduction": 1.3214381540112692,
+      "two_qubit_gate_reduction": 1.591878589007383,
+      "workload": "aggregate_30_circuits"
+    },
+    {
+      "after": {
+        "b2_physical_qubits_per_logical_tile": 26,
+        "b2_rounds_per_logical_layer": 3,
+        "b2_space_time_volume_per_logical_layer": 78,
+        "dependency_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "memory",
+            "layers": 1
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "single_qubit_and_idle_layers",
+            "kind": "single_qubit_or_idle",
+            "layers": 0
+          },
+          {
+            "depends_on": [
+              "single_qubit_and_idle_layers"
+            ],
+            "id": "two_qubit_interaction_layers",
+            "kind": "two_qubit_interaction",
+            "layers": 614
+          },
+          {
+            "depends_on": [
+              "two_qubit_interaction_layers"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "measurement",
+            "layers": 1
+          }
+        ],
+        "estimated_physical_qubits": 494,
+        "estimated_schedule_rounds": 1848,
+        "estimated_space_time_volume": 912912,
+        "exposure_per_logical_depth": 0.004780521172638436,
+        "hardware_weighted_error_exposure": 2.93524,
+        "label": "after_b1_virtual_swap",
+        "logical_depth": 614,
+        "logical_layer_count_with_init_readout": 616,
+        "logical_qubits": 19,
+        "model_status": "dependency_schedule_bridge_not_physical_layout",
+        "operation_count": 1088,
+        "selected_b2_basis": "x",
+        "selected_b2_distance": 3,
+        "selected_b2_physical_error": 0.001,
+        "selected_b2_target_logical_error": 0.01,
+        "selected_b2_wilson_95_high": 0.0012788956648046956,
+        "two_qubit_gate_count": 402,
+        "two_qubit_layer_fraction": 1.0,
+        "two_qubit_layers": 614
+      },
+      "before": {
+        "b2_physical_qubits_per_logical_tile": 26,
+        "b2_rounds_per_logical_layer": 3,
+        "b2_space_time_volume_per_logical_layer": 78,
+        "dependency_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "memory",
+            "layers": 1
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "single_qubit_and_idle_layers",
+            "kind": "single_qubit_or_idle",
+            "layers": 0
+          },
+          {
+            "depends_on": [
+              "single_qubit_and_idle_layers"
+            ],
+            "id": "two_qubit_interaction_layers",
+            "kind": "two_qubit_interaction",
+            "layers": 734
+          },
+          {
+            "depends_on": [
+              "two_qubit_interaction_layers"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "measurement",
+            "layers": 1
+          }
+        ],
+        "estimated_physical_qubits": 494,
+        "estimated_schedule_rounds": 2208,
+        "estimated_space_time_volume": 1090752,
+        "exposure_per_logical_depth": 0.005574986376021798,
+        "hardware_weighted_error_exposure": 4.09204,
+        "label": "before_b1_virtual_swap",
+        "logical_depth": 734,
+        "logical_layer_count_with_init_readout": 736,
+        "logical_qubits": 19,
+        "model_status": "dependency_schedule_bridge_not_physical_layout",
+        "operation_count": 1268,
+        "selected_b2_basis": "x",
+        "selected_b2_distance": 3,
+        "selected_b2_physical_error": 0.001,
+        "selected_b2_target_logical_error": 0.01,
+        "selected_b2_wilson_95_high": 0.0012788956648046956,
+        "two_qubit_gate_count": 582,
+        "two_qubit_layer_fraction": 1.0,
+        "two_qubit_layers": 734
+      },
+      "exposure_reduction": 1.3941074665104047,
+      "logical_depth_reduction": 1.1954397394136809,
+      "space_time_volume_reduction": 1.1948051948051948,
+      "two_qubit_gate_reduction": 1.4477611940298507,
+      "workload": "qasmbench_interaction_exact/basis_trotter_n4.qasm"
+    },
+    {
+      "after": {
+        "b2_physical_qubits_per_logical_tile": 26,
+        "b2_rounds_per_logical_layer": 3,
+        "b2_space_time_volume_per_logical_layer": 78,
+        "dependency_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "memory",
+            "layers": 1
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "single_qubit_and_idle_layers",
+            "kind": "single_qubit_or_idle",
+            "layers": 0
+          },
+          {
+            "depends_on": [
+              "single_qubit_and_idle_layers"
+            ],
+            "id": "two_qubit_interaction_layers",
+            "kind": "two_qubit_interaction",
+            "layers": 1491
+          },
+          {
+            "depends_on": [
+              "two_qubit_interaction_layers"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "measurement",
+            "layers": 1
+          }
+        ],
+        "estimated_physical_qubits": 494,
+        "estimated_schedule_rounds": 4479,
+        "estimated_space_time_volume": 2212626,
+        "exposure_per_logical_depth": 0.003968383635144198,
+        "hardware_weighted_error_exposure": 5.91686,
+        "label": "after_b1_virtual_swap",
+        "logical_depth": 1491,
+        "logical_layer_count_with_init_readout": 1493,
+        "logical_qubits": 19,
+        "model_status": "dependency_schedule_bridge_not_physical_layout",
+        "operation_count": 1885,
+        "selected_b2_basis": "x",
+        "selected_b2_distance": 3,
+        "selected_b2_physical_error": 0.001,
+        "selected_b2_target_logical_error": 0.01,
+        "selected_b2_wilson_95_high": 0.0012788956648046956,
+        "two_qubit_gate_count": 795,
+        "two_qubit_layer_fraction": 1.0,
+        "two_qubit_layers": 1491
+      },
+      "before": {
+        "b2_physical_qubits_per_logical_tile": 26,
+        "b2_rounds_per_logical_layer": 3,
+        "b2_space_time_volume_per_logical_layer": 78,
+        "dependency_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "memory",
+            "layers": 1
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "single_qubit_and_idle_layers",
+            "kind": "single_qubit_or_idle",
+            "layers": 0
+          },
+          {
+            "depends_on": [
+              "single_qubit_and_idle_layers"
+            ],
+            "id": "two_qubit_interaction_layers",
+            "kind": "two_qubit_interaction",
+            "layers": 1967
+          },
+          {
+            "depends_on": [
+              "two_qubit_interaction_layers"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "measurement",
+            "layers": 1
+          }
+        ],
+        "estimated_physical_qubits": 494,
+        "estimated_schedule_rounds": 5907,
+        "estimated_space_time_volume": 2918058,
+        "exposure_per_logical_depth": 0.004618556176919166,
+        "hardware_weighted_error_exposure": 9.0847,
+        "label": "before_b1_virtual_swap",
+        "logical_depth": 1967,
+        "logical_layer_count_with_init_readout": 1969,
+        "logical_qubits": 19,
+        "model_status": "dependency_schedule_bridge_not_physical_layout",
+        "operation_count": 2359,
+        "selected_b2_basis": "x",
+        "selected_b2_distance": 3,
+        "selected_b2_physical_error": 0.001,
+        "selected_b2_target_logical_error": 0.01,
+        "selected_b2_wilson_95_high": 0.0012788956648046956,
+        "two_qubit_gate_count": 1269,
+        "two_qubit_layer_fraction": 1.0,
+        "two_qubit_layers": 1967
+      },
+      "exposure_reduction": 1.5353920829629228,
+      "logical_depth_reduction": 1.3192488262910798,
+      "space_time_volume_reduction": 1.318821165438714,
+      "two_qubit_gate_reduction": 1.5962264150943397,
+      "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+    },
+    {
+      "after": {
+        "b2_physical_qubits_per_logical_tile": 26,
+        "b2_rounds_per_logical_layer": 3,
+        "b2_space_time_volume_per_logical_layer": 78,
+        "dependency_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "memory",
+            "layers": 1
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "single_qubit_and_idle_layers",
+            "kind": "single_qubit_or_idle",
+            "layers": 0
+          },
+          {
+            "depends_on": [
+              "single_qubit_and_idle_layers"
+            ],
+            "id": "two_qubit_interaction_layers",
+            "kind": "two_qubit_interaction",
+            "layers": 241
+          },
+          {
+            "depends_on": [
+              "two_qubit_interaction_layers"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "measurement",
+            "layers": 1
+          }
+        ],
+        "estimated_physical_qubits": 494,
+        "estimated_schedule_rounds": 729,
+        "estimated_space_time_volume": 360126,
+        "exposure_per_logical_depth": 0.0041495435684647305,
+        "hardware_weighted_error_exposure": 1.00004,
+        "label": "after_b1_virtual_swap",
+        "logical_depth": 241,
+        "logical_layer_count_with_init_readout": 243,
+        "logical_qubits": 19,
+        "model_status": "dependency_schedule_bridge_not_physical_layout",
+        "operation_count": 323,
+        "selected_b2_basis": "x",
+        "selected_b2_distance": 3,
+        "selected_b2_physical_error": 0.001,
+        "selected_b2_target_logical_error": 0.01,
+        "selected_b2_wilson_95_high": 0.0012788956648046956,
+        "two_qubit_gate_count": 130,
+        "two_qubit_layer_fraction": 1.0,
+        "two_qubit_layers": 241
+      },
+      "before": {
+        "b2_physical_qubits_per_logical_tile": 26,
+        "b2_rounds_per_logical_layer": 3,
+        "b2_space_time_volume_per_logical_layer": 78,
+        "dependency_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "memory",
+            "layers": 1
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "single_qubit_and_idle_layers",
+            "kind": "single_qubit_or_idle",
+            "layers": 0
+          },
+          {
+            "depends_on": [
+              "single_qubit_and_idle_layers"
+            ],
+            "id": "two_qubit_interaction_layers",
+            "kind": "two_qubit_interaction",
+            "layers": 355
+          },
+          {
+            "depends_on": [
+              "two_qubit_interaction_layers"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "measurement",
+            "layers": 1
+          }
+        ],
+        "estimated_physical_qubits": 494,
+        "estimated_schedule_rounds": 1071,
+        "estimated_space_time_volume": 529074,
+        "exposure_per_logical_depth": 0.005762591549295774,
+        "hardware_weighted_error_exposure": 2.0457199999999998,
+        "label": "before_b1_virtual_swap",
+        "logical_depth": 355,
+        "logical_layer_count_with_init_readout": 357,
+        "logical_qubits": 19,
+        "model_status": "dependency_schedule_bridge_not_physical_layout",
+        "operation_count": 485,
+        "selected_b2_basis": "x",
+        "selected_b2_distance": 3,
+        "selected_b2_physical_error": 0.001,
+        "selected_b2_target_logical_error": 0.01,
+        "selected_b2_wilson_95_high": 0.0012788956648046956,
+        "two_qubit_gate_count": 292,
+        "two_qubit_layer_fraction": 1.0,
+        "two_qubit_layers": 355
+      },
+      "exposure_reduction": 2.0456381744730208,
+      "logical_depth_reduction": 1.4730290456431536,
+      "space_time_volume_reduction": 1.4691358024691359,
+      "two_qubit_gate_reduction": 2.246153846153846,
+      "workload": "qasmbench_medium_exact/qf21_n15.qasm"
+    },
+    {
+      "after": {
+        "b2_physical_qubits_per_logical_tile": 26,
+        "b2_rounds_per_logical_layer": 3,
+        "b2_space_time_volume_per_logical_layer": 78,
+        "dependency_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "memory",
+            "layers": 1
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "single_qubit_and_idle_layers",
+            "kind": "single_qubit_or_idle",
+            "layers": 0
+          },
+          {
+            "depends_on": [
+              "single_qubit_and_idle_layers"
+            ],
+            "id": "two_qubit_interaction_layers",
+            "kind": "two_qubit_interaction",
+            "layers": 396
+          },
+          {
+            "depends_on": [
+              "two_qubit_interaction_layers"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "measurement",
+            "layers": 1
+          }
+        ],
+        "estimated_physical_qubits": 494,
+        "estimated_schedule_rounds": 1194,
+        "estimated_space_time_volume": 589836,
+        "exposure_per_logical_depth": 0.0053132828282828285,
+        "hardware_weighted_error_exposure": 2.10406,
+        "label": "after_b1_virtual_swap",
+        "logical_depth": 396,
+        "logical_layer_count_with_init_readout": 398,
+        "logical_qubits": 19,
+        "model_status": "dependency_schedule_bridge_not_physical_layout",
+        "operation_count": 642,
+        "selected_b2_basis": "x",
+        "selected_b2_distance": 3,
+        "selected_b2_physical_error": 0.001,
+        "selected_b2_target_logical_error": 0.01,
+        "selected_b2_wilson_95_high": 0.0012788956648046956,
+        "two_qubit_gate_count": 293,
+        "two_qubit_layer_fraction": 1.0,
+        "two_qubit_layers": 396
+      },
+      "before": {
+        "b2_physical_qubits_per_logical_tile": 26,
+        "b2_rounds_per_logical_layer": 3,
+        "b2_space_time_volume_per_logical_layer": 78,
+        "dependency_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "memory",
+            "layers": 1
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "single_qubit_and_idle_layers",
+            "kind": "single_qubit_or_idle",
+            "layers": 0
+          },
+          {
+            "depends_on": [
+              "single_qubit_and_idle_layers"
+            ],
+            "id": "two_qubit_interaction_layers",
+            "kind": "two_qubit_interaction",
+            "layers": 641
+          },
+          {
+            "depends_on": [
+              "two_qubit_interaction_layers"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "measurement",
+            "layers": 1
+          }
+        ],
+        "estimated_physical_qubits": 494,
+        "estimated_schedule_rounds": 1929,
+        "estimated_space_time_volume": 952926,
+        "exposure_per_logical_depth": 0.0062327925117004685,
+        "hardware_weighted_error_exposure": 3.99522,
+        "label": "before_b1_virtual_swap",
+        "logical_depth": 641,
+        "logical_layer_count_with_init_readout": 643,
+        "logical_qubits": 19,
+        "model_status": "dependency_schedule_bridge_not_physical_layout",
+        "operation_count": 930,
+        "selected_b2_basis": "x",
+        "selected_b2_distance": 3,
+        "selected_b2_physical_error": 0.001,
+        "selected_b2_target_logical_error": 0.01,
+        "selected_b2_wilson_95_high": 0.0012788956648046956,
+        "two_qubit_gate_count": 581,
+        "two_qubit_layer_fraction": 1.0,
+        "two_qubit_layers": 641
+      },
+      "exposure_reduction": 1.8988146725853825,
+      "logical_depth_reduction": 1.6186868686868687,
+      "space_time_volume_reduction": 1.6155778894472361,
+      "two_qubit_gate_reduction": 1.9829351535836177,
+      "workload": "qasmbench_medium_exact/sat_n11.qasm"
+    },
+    {
+      "after": {
+        "b2_physical_qubits_per_logical_tile": 26,
+        "b2_rounds_per_logical_layer": 3,
+        "b2_space_time_volume_per_logical_layer": 78,
+        "dependency_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "memory",
+            "layers": 1
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "single_qubit_and_idle_layers",
+            "kind": "single_qubit_or_idle",
+            "layers": 0
+          },
+          {
+            "depends_on": [
+              "single_qubit_and_idle_layers"
+            ],
+            "id": "two_qubit_interaction_layers",
+            "kind": "two_qubit_interaction",
+            "layers": 360
+          },
+          {
+            "depends_on": [
+              "two_qubit_interaction_layers"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "measurement",
+            "layers": 1
+          }
+        ],
+        "estimated_physical_qubits": 494,
+        "estimated_schedule_rounds": 1086,
+        "estimated_space_time_volume": 536484,
+        "exposure_per_logical_depth": 0.004707166666666667,
+        "hardware_weighted_error_exposure": 1.6945800000000002,
+        "label": "after_b1_virtual_swap",
+        "logical_depth": 360,
+        "logical_layer_count_with_init_readout": 362,
+        "logical_qubits": 19,
+        "model_status": "dependency_schedule_bridge_not_physical_layout",
+        "operation_count": 515,
+        "selected_b2_basis": "x",
+        "selected_b2_distance": 3,
+        "selected_b2_physical_error": 0.001,
+        "selected_b2_target_logical_error": 0.01,
+        "selected_b2_wilson_95_high": 0.0012788956648046956,
+        "two_qubit_gate_count": 223,
+        "two_qubit_layer_fraction": 1.0,
+        "two_qubit_layers": 360
+      },
+      "before": {
+        "b2_physical_qubits_per_logical_tile": 26,
+        "b2_rounds_per_logical_layer": 3,
+        "b2_space_time_volume_per_logical_layer": 78,
+        "dependency_nodes": [
+          {
+            "depends_on": [],
+            "id": "logical_memory_init",
+            "kind": "memory",
+            "layers": 1
+          },
+          {
+            "depends_on": [
+              "logical_memory_init"
+            ],
+            "id": "single_qubit_and_idle_layers",
+            "kind": "single_qubit_or_idle",
+            "layers": 0
+          },
+          {
+            "depends_on": [
+              "single_qubit_and_idle_layers"
+            ],
+            "id": "two_qubit_interaction_layers",
+            "kind": "two_qubit_interaction",
+            "layers": 433
+          },
+          {
+            "depends_on": [
+              "two_qubit_interaction_layers"
+            ],
+            "id": "measurement_and_readout",
+            "kind": "measurement",
+            "layers": 1
+          }
+        ],
+        "estimated_physical_qubits": 494,
+        "estimated_schedule_rounds": 1305,
+        "estimated_space_time_volume": 644670,
+        "exposure_per_logical_depth": 0.005559307159353349,
+        "hardware_weighted_error_exposure": 2.4071800000000003,
+        "label": "before_b1_virtual_swap",
+        "logical_depth": 433,
+        "logical_layer_count_with_init_readout": 435,
+        "logical_qubits": 19,
+        "model_status": "dependency_schedule_bridge_not_physical_layout",
+        "operation_count": 626,
+        "selected_b2_basis": "x",
+        "selected_b2_distance": 3,
+        "selected_b2_physical_error": 0.001,
+        "selected_b2_target_logical_error": 0.01,
+        "selected_b2_wilson_95_high": 0.0012788956648046956,
+        "two_qubit_gate_count": 334,
+        "two_qubit_layer_fraction": 1.0,
+        "two_qubit_layers": 433
+      },
+      "exposure_reduction": 1.4205171782978674,
+      "logical_depth_reduction": 1.2027777777777777,
+      "space_time_volume_reduction": 1.201657458563536,
+      "two_qubit_gate_reduction": 1.4977578475336324,
+      "workload": "qasmbench_small/hhl_n7.qasm"
+    }
+  ],
+  "last_updated": "2026-06-13",
+  "limits": [
+    "This is a dependency-schedule bridge, not a physical layout or lattice-surgery compiler.",
+    "The B2 target row is a small-distance Stim/PyMatching baseline and not a threshold or hardware-calibrated claim.",
+    "The schedule maps QASM depth proxies to logical layers; it does not model magic-state factories or feed-forward.",
+    "The aggregate row sums benchmark circuits for a portfolio-level sensitivity check, not a single executable algorithm."
+  ],
+  "mean_exposure_reduction": 1.6298706587709424,
+  "mean_space_time_volume_reduction": 1.353572610789181,
+  "method": "b1_b2_dependency_schedule_bridge_v0",
+  "min_exposure_reduction": 1.3941074665104047,
+  "min_space_time_volume_reduction": 1.1948051948051948,
+  "problem_id": 21,
+  "selected_b2_target": {
+    "criterion": "wilson_95_high",
+    "distance": 3,
+    "memory_basis": "x",
+    "physical_error": 0.001,
+    "physical_qubits": 26,
+    "rounds": 3,
+    "space_time_volume": 78,
+    "target_logical_error": 0.01,
+    "wilson_95_high": 0.0012788956648046956
+  },
+  "status": "dependency_schedule_bridge_not_physical_layout",
+  "title": "B7 dependency-schedule bridge from B1 and B2",
+  "version": "0.1"
+}

@@ -1,0 +1,73 @@
+id: QASMBench_small_manifest
+benchmark_id: B1
+version: 0.1
+status: imported
+source:
+  name: QASMBench
+  url: https://github.com/pnnl/QASMBench
+  commit: 357b942
+  import_date: 2026-06-13
+  import_method: sparse_checkout_then_copy_selected_small_openqasm_files
+selection_policy:
+  - Prefer small circuits that are feasible for exact statevector equivalence.
+  - "Cover multiple families relevant to compilation: arithmetic, basis change,
+    simulation, entanglement, search, error correction, and HHL-style linear
+    systems."
+  - Import source circuits first; transpiled counterparts can be added later
+    for compiler-to-compiler comparisons.
+circuits:
+  - id: qasmbench_adder_n4
+    path: qasmbench_small/adder_n4.qasm
+    source_path: small/adder_n4/adder_n4.qasm
+    family: arithmetic
+    expected_qubits: 4
+  - id: qasmbench_basis_change_n3
+    path: qasmbench_small/basis_change_n3.qasm
+    source_path: small/basis_change_n3/basis_change_n3.qasm
+    family: basis_change
+    expected_qubits: 3
+  - id: qasmbench_basis_test_n4
+    path: qasmbench_small/basis_test_n4.qasm
+    source_path: small/basis_trotter_n4/basis_test_n4.qasm
+    family: simulation_basis_test
+    expected_qubits: 4
+  - id: qasmbench_bell_n4
+    path: qasmbench_small/bell_n4.qasm
+    source_path: small/bell_n4/bell_n4.qasm
+    family: entanglement
+    expected_qubits: 4
+  - id: qasmbench_cat_state_n4
+    path: qasmbench_small/cat_state_n4.qasm
+    source_path: small/cat_state_n4/cat_state_n4.qasm
+    family: entanglement
+    expected_qubits: 4
+  - id: qasmbench_deutsch_n2
+    path: qasmbench_small/deutsch_n2.qasm
+    source_path: small/deutsch_n2/deutsch_n2.qasm
+    family: oracle_algorithm
+    expected_qubits: 2
+  - id: qasmbench_error_correctiond3_n5
+    path: qasmbench_small/error_correctiond3_n5.qasm
+    source_path: small/error_correctiond3_n5/error_correctiond3_n5.qasm
+    family: error_correction
+    expected_qubits: 5
+  - id: qasmbench_fredkin_n3
+    path: qasmbench_small/fredkin_n3.qasm
+    source_path: small/fredkin_n3/fredkin_n3.qasm
+    family: controlled_swap
+    expected_qubits: 3
+  - id: qasmbench_grover_n2
+    path: qasmbench_small/grover_n2.qasm
+    source_path: small/grover_n2/grover_n2.qasm
+    family: search
+    expected_qubits: 2
+  - id: qasmbench_hhl_n7
+    path: qasmbench_small/hhl_n7.qasm
+    source_path: small/hhl_n7/hhl_n7.qasm
+    family: linear_systems
+    expected_qubits: 7
+notes:
+  - The imported files are benchmark artifacts from QASMBench and should not be
+    manually modified.
+  - The local rewriter should write transformed copies under `results/`, not
+    overwrite this source subset.
