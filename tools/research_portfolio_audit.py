@@ -7260,6 +7260,7 @@ def audit(root: Path) -> dict:
     b9_failed_gap_lemma = b9_results.get("failed_gap_amplification_negative_lemma_v0")
     b9_symbolic_gap_skeleton = b9_results.get("symbolic_gap_amplification_skeleton_v0")
     b9_named_family_bound = b9_results.get("named_family_width_locality_bound_v0")
+    b9_parametric_certificate = b9_results.get("cluster_stabilizer_parametric_certificate_v0")
     b9_status = {}
     if not b9_gap_lab:
         warnings.append("B9 manifest has no local-Hamiltonian gap-lab result")
@@ -7496,6 +7497,89 @@ def audit(root: Path) -> dict:
             errors.append("B9 named-family bound must not claim global impossibility")
         if len(payload.get("validation_errors", [])) != 0:
             errors.append("B9 named-family bound validation errors must be zero")
+
+    b9_parametric_certificate_status = {}
+    if not b9_parametric_certificate:
+        warnings.append("B9 manifest has no cluster-stabilizer parametric certificate")
+    else:
+        result_path = b9_parametric_certificate.get("result")
+        markdown_path = b9_parametric_certificate.get("markdown_report")
+        result_exists = bool(result_path and path_exists_from(benchmarks, result_path))
+        markdown_exists = bool(markdown_path and path_exists_from(benchmarks, markdown_path))
+        if not result_exists:
+            errors.append(f"B9 parametric certificate result path missing: {result_path}")
+        if not markdown_exists:
+            errors.append(f"B9 parametric certificate markdown missing: {markdown_path}")
+        payload = json.loads(read((benchmarks / result_path).resolve())) if result_exists else {}
+        claim_boundary = payload.get("claim_boundary", {})
+        b9_parametric_certificate_status = {
+            "status": b9_parametric_certificate.get("status"),
+            "method": b9_parametric_certificate.get("method"),
+            "source_method": payload.get("source_method"),
+            "named_family": payload.get("named_family"),
+            "parameterized_n_min": payload.get("parameterized_n_min"),
+            "finite_rows_checked": payload.get("finite_rows_checked"),
+            "support_size_set": payload.get("support_size_set"),
+            "max_locality": payload.get("max_locality"),
+            "uniform_scale": payload.get("uniform_scale"),
+            "term_count_formula": payload.get("term_count_formula"),
+            "interior_term_count_formula": payload.get("interior_term_count_formula"),
+            "boundary_term_count_formula": payload.get("boundary_term_count_formula"),
+            "normalized_gap_invariant_symbolically": payload.get("normalized_gap_invariant_symbolically"),
+            "certificate_rejected": payload.get("certificate_rejected"),
+            "local_verifier_checked": claim_boundary.get("local_verifier_checked"),
+            "proof_assistant_checked": payload.get("proof_assistant_checked"),
+            "formal_theorem_proved": payload.get("formal_theorem_proved"),
+            "explicit_not_quantum_pcp_proof": payload.get("explicit_not_quantum_pcp_proof"),
+            "global_gap_amplification_impossibility_claimed": payload.get(
+                "global_gap_amplification_impossibility_claimed"
+            ),
+            "validation_error_count": payload.get("validation_error_count"),
+            "result_exists": result_exists,
+            "markdown_exists": markdown_exists,
+            "result": result_path,
+            "markdown_report": markdown_path,
+        }
+        if payload.get("status") != "parametric_certificate_checked_by_local_verifier_not_formal_theorem":
+            errors.append("B9 parametric certificate status mismatch")
+        if payload.get("method") != b9_parametric_certificate.get("method"):
+            errors.append("B9 parametric certificate method mismatch")
+        if payload.get("source_method") != "b9_named_family_width_locality_bound_v0":
+            errors.append("B9 parametric certificate source method mismatch")
+        if payload.get("named_family") != "cluster_stabilizer_open_uniform_reweight":
+            errors.append("B9 parametric certificate family mismatch")
+        if payload.get("parameterized_n_min") != 4:
+            errors.append("B9 parametric certificate should target n >= 4")
+        if payload.get("finite_rows_checked") != [4, 5, 6]:
+            errors.append("B9 parametric certificate should check finite rows n=4,5,6")
+        if payload.get("support_size_set") != [2, 3]:
+            errors.append("B9 parametric certificate support set mismatch")
+        if payload.get("max_locality") != 3:
+            errors.append("B9 parametric certificate max locality should be 3")
+        if payload.get("uniform_scale") != "27/20":
+            errors.append("B9 parametric certificate uniform scale should be 27/20")
+        if payload.get("term_count_formula") != "n":
+            errors.append("B9 parametric certificate term-count formula mismatch")
+        if payload.get("interior_term_count_formula") != "n-2":
+            errors.append("B9 parametric certificate interior formula mismatch")
+        if payload.get("boundary_term_count_formula") != "2":
+            errors.append("B9 parametric certificate boundary formula mismatch")
+        if payload.get("normalized_gap_invariant_symbolically") is not True:
+            errors.append("B9 parametric certificate should symbolically check normalized-gap invariance")
+        if payload.get("certificate_rejected") is not True:
+            errors.append("B9 parametric certificate should reject raw-gap-only certificate")
+        if claim_boundary.get("local_verifier_checked") is not True:
+            errors.append("B9 parametric certificate local verifier should pass")
+        if payload.get("proof_assistant_checked") is not False:
+            errors.append("B9 parametric certificate must not claim proof-assistant checking")
+        if payload.get("formal_theorem_proved") is not False:
+            errors.append("B9 parametric certificate must not claim a formal theorem")
+        if payload.get("explicit_not_quantum_pcp_proof") is not True:
+            errors.append("B9 parametric certificate must explicitly avoid Quantum PCP proof claims")
+        if payload.get("global_gap_amplification_impossibility_claimed") is not False:
+            errors.append("B9 parametric certificate must not claim global impossibility")
+        if payload.get("validation_error_count") != 0 or len(payload.get("validation_errors", [])) != 0:
+            errors.append("B9 parametric certificate validation errors must be zero")
 
     b10_manifest = yaml.safe_load(read(b10_manifest_path))
     b10_results = b10_manifest.get("current_results", {})
@@ -9052,6 +9136,7 @@ def audit(root: Path) -> dict:
             "failed_gap_amplification_lemma": b9_failed_gap_lemma_status,
             "symbolic_gap_skeleton": b9_symbolic_gap_skeleton_status,
             "named_family_width_locality_bound": b9_named_family_bound_status,
+            "cluster_stabilizer_parametric_certificate": b9_parametric_certificate_status,
         },
         "b10": {
             "manifest": str(b10_manifest_path),
@@ -9239,6 +9324,9 @@ def audit(root: Path) -> dict:
             "b9_named_family_width_locality_bounds": str(research / "B9_named_family_width_locality_bounds.md"),
             "b9_named_family_width_locality_bound_lean_skeleton": str(
                 research / "proof_skeletons" / "B9_cluster_stabilizer_width_locality_bound.lean"
+            ),
+            "b9_cluster_stabilizer_parametric_certificate": str(
+                research / "B9_cluster_stabilizer_parametric_certificate.md"
             ),
             "b7_dependency_schedule_bridge": str(research / "B7_b1_b2_dependency_schedule_bridge.md"),
             "b7_workload_dag_factory_schedule": str(research / "B7_workload_dag_factory_schedule.md"),
@@ -10168,6 +10256,15 @@ def markdown_report(report: dict) -> str:
             f"- Named-family bound explicitly not Quantum PCP proof: {report['b9']['named_family_width_locality_bound'].get('explicit_not_quantum_pcp_proof')}",
             f"- Named-family bound validation errors: {report['b9']['named_family_width_locality_bound'].get('validation_error_count')}",
             f"- Named-family bound result/markdown/lean exists: {report['b9']['named_family_width_locality_bound'].get('result_exists')} / {report['b9']['named_family_width_locality_bound'].get('markdown_exists')} / {report['b9']['named_family_width_locality_bound'].get('lean_exists')}",
+            f"- Parametric certificate status: {report['b9']['cluster_stabilizer_parametric_certificate'].get('status')}",
+            f"- Parametric certificate family: {report['b9']['cluster_stabilizer_parametric_certificate'].get('named_family')}",
+            f"- Parametric certificate n-min/rows: {report['b9']['cluster_stabilizer_parametric_certificate'].get('parameterized_n_min')} / {report['b9']['cluster_stabilizer_parametric_certificate'].get('finite_rows_checked')}",
+            f"- Parametric certificate support/locality/scale: {report['b9']['cluster_stabilizer_parametric_certificate'].get('support_size_set')} / {report['b9']['cluster_stabilizer_parametric_certificate'].get('max_locality')} / {report['b9']['cluster_stabilizer_parametric_certificate'].get('uniform_scale')}",
+            f"- Parametric certificate normalized-gap invariant/rejected: {report['b9']['cluster_stabilizer_parametric_certificate'].get('normalized_gap_invariant_symbolically')} / {report['b9']['cluster_stabilizer_parametric_certificate'].get('certificate_rejected')}",
+            f"- Parametric certificate local/formal theorem: {report['b9']['cluster_stabilizer_parametric_certificate'].get('local_verifier_checked')} / {report['b9']['cluster_stabilizer_parametric_certificate'].get('formal_theorem_proved')}",
+            f"- Parametric certificate explicitly not Quantum PCP proof: {report['b9']['cluster_stabilizer_parametric_certificate'].get('explicit_not_quantum_pcp_proof')}",
+            f"- Parametric certificate validation errors: {report['b9']['cluster_stabilizer_parametric_certificate'].get('validation_error_count')}",
+            f"- Parametric certificate result/markdown exists: {report['b9']['cluster_stabilizer_parametric_certificate'].get('result_exists')} / {report['b9']['cluster_stabilizer_parametric_certificate'].get('markdown_exists')}",
             "",
             "## B10 BQP Boundary Graph Status",
             "",

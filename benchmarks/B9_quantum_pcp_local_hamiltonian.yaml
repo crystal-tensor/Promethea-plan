@@ -109,9 +109,33 @@ current_results:
     result: ../results/B9_named_family_width_locality_bounds_v0.json
     markdown_report: ../research/B9_named_family_width_locality_bounds.md
     lean_skeleton: ../research/proof_skeletons/B9_cluster_stabilizer_width_locality_bound.lean
+  cluster_stabilizer_parametric_certificate_v0:
+    status: parametric_certificate_checked_by_local_verifier_not_formal_theorem
+    method: b9_cluster_stabilizer_parametric_certificate_v0
+    source: named_family_width_locality_bound_v0
+    named_family: cluster_stabilizer_open_uniform_reweight
+    parameterized_n_min: 4
+    local_verifier_checked: true
+    finite_rows_checked: [4, 5, 6]
+    support_size_set: [2, 3]
+    max_locality: 3
+    uniform_scale: "27/20"
+    term_count_formula: n
+    interior_term_count_formula: n-2
+    boundary_term_count_formula: 2
+    normalized_gap_invariant_symbolically: true
+    certificate_rejected: true
+    proof_assistant_checked: false
+    formal_theorem_proved: false
+    explicit_not_quantum_pcp_proof: true
+    global_gap_amplification_impossibility_claimed: false
+    validation_error_count: 0
+    result: ../results/B9_cluster_stabilizer_parametric_certificate_v0.json
+    markdown_report: ../research/B9_cluster_stabilizer_parametric_certificate.md
 prototype_artifacts:
   local_hamiltonian_gap_lab: ../tools/b9_local_hamiltonian_gap_lab.py
   failed_gap_amplification_lemma_builder: ../tools/b9_failed_gap_amplification_lemma.py
   symbolic_gap_skeleton_builder: ../tools/b9_symbolic_gap_skeleton.py
   named_family_width_locality_bound_builder: ../tools/b9_named_family_width_locality_bounds.py
+  cluster_stabilizer_parametric_certificate: ../tools/b9_cluster_stabilizer_parametric_certificate.py
   prototype_notes: ../research/B9_prototype_notes.md

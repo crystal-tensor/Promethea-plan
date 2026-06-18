@@ -120,6 +120,14 @@ model is still not calibrated or hardware-derived. This is still not a
 circuit-level decoder, production decoder, threshold, hardware result,
 quantum-advantage result, or new-code claim.
 
+B9 now has a local parametric certificate checker for the
+`cluster_stabilizer_open_uniform_reweight` family. It checks the n >= 4
+formula-level term count, support set {2,3}, max locality 3, exact uniform
+scale 27/20, finite rows n=4,5,6, and normalized-gap invariance with a
+repo-local exact-rational verifier. The certificate remains rejected as
+raw-gap-only rescaling. This is not a Lean/mathlib theorem, not a Quantum PCP
+proof, not an NLTS theorem, and not a global gap-amplification no-go theorem.
+
 B1/B7 now has a template-priority gate for the current `gcm_h6` bottleneck.
 The gate evaluates the 12 retained nonlocal templates from the B7 scan and
 finds 0 single-template one-angle routes that clear the one-sided 1.20x

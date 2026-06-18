@@ -40,7 +40,7 @@ Overall audit: PASS
 - B IDs are B1..B10: True
 - Problem IDs match attack pack: True
 - All required fields present: True
-- Maturity scores: {'B1': 41, 'B2': 48, 'B3': 30, 'B4': 20, 'B5': 26, 'B6': 21, 'B7': 38, 'B8': 32, 'B9': 12, 'B10': 49}
+- Maturity scores: {'B1': 41, 'B2': 48, 'B3': 30, 'B4': 20, 'B5': 26, 'B6': 21, 'B7': 38, 'B8': 32, 'B9': 13, 'B10': 49}
 
 ## Technical Resolution Program
 
@@ -883,6 +883,15 @@ Overall audit: PASS
 - Named-family bound explicitly not Quantum PCP proof: True
 - Named-family bound validation errors: 0
 - Named-family bound result/markdown/lean exists: True / True / True
+- Parametric certificate status: parametric_certificate_checked_by_local_verifier_not_formal_theorem
+- Parametric certificate family: cluster_stabilizer_open_uniform_reweight
+- Parametric certificate n-min/rows: 4 / [4, 5, 6]
+- Parametric certificate support/locality/scale: [2, 3] / 3 / 27/20
+- Parametric certificate normalized-gap invariant/rejected: True / True
+- Parametric certificate local/formal theorem: True / False
+- Parametric certificate explicitly not Quantum PCP proof: True
+- Parametric certificate validation errors: 0
+- Parametric certificate result/markdown exists: True / True
 
 ## B10 BQP Boundary Graph Status
 

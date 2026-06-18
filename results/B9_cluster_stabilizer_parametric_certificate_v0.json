@@ -1,0 +1,137 @@
+{
+  "all_terms_are_interactions": true,
+  "boundary_term_count_formula": "2",
+  "certificate_rejected": true,
+  "claim_boundary": {
+    "explicit_not_quantum_pcp_proof": true,
+    "formal_theorem_proved": false,
+    "global_gap_amplification_impossibility_claimed": false,
+    "local_verifier_checked": true,
+    "nlts_theorem_claimed": false,
+    "proof_assistant_checked": false,
+    "quantum_advantage_claimed": false
+  },
+  "coefficient_scale_identity": "H'_n = (27/20) H_n",
+  "explicit_not_quantum_pcp_proof": true,
+  "finite_rows_checked": [
+    4,
+    5,
+    6
+  ],
+  "finite_source_row_checks": [
+    {
+      "checked": true,
+      "formula_max_locality": 3,
+      "formula_support_size_set": [
+        2,
+        3
+      ],
+      "formula_term_count": 4,
+      "qubits": 4,
+      "source_all_terms_scaled_uniformly": true,
+      "source_max_locality": 3,
+      "source_normalized_gap_invariant": true,
+      "source_support_size_set": [
+        2,
+        3
+      ],
+      "source_term_count": 4,
+      "source_unique_scales": [
+        "27/20"
+      ]
+    },
+    {
+      "checked": true,
+      "formula_max_locality": 3,
+      "formula_support_size_set": [
+        2,
+        3
+      ],
+      "formula_term_count": 5,
+      "qubits": 5,
+      "source_all_terms_scaled_uniformly": true,
+      "source_max_locality": 3,
+      "source_normalized_gap_invariant": true,
+      "source_support_size_set": [
+        2,
+        3
+      ],
+      "source_term_count": 5,
+      "source_unique_scales": [
+        "27/20"
+      ]
+    },
+    {
+      "checked": true,
+      "formula_max_locality": 3,
+      "formula_support_size_set": [
+        2,
+        3
+      ],
+      "formula_term_count": 6,
+      "qubits": 6,
+      "source_all_terms_scaled_uniformly": true,
+      "source_max_locality": 3,
+      "source_normalized_gap_invariant": true,
+      "source_support_size_set": [
+        2,
+        3
+      ],
+      "source_term_count": 6,
+      "source_unique_scales": [
+        "27/20"
+      ]
+    }
+  ],
+  "formal_theorem_proved": false,
+  "gap_width_scale_identity": {
+    "gap_prime": "(27/20) * gap",
+    "positive_scalar_multiplication_only": true,
+    "width_prime": "(27/20) * width"
+  },
+  "global_gap_amplification_impossibility_claimed": false,
+  "interior_term_count_formula": "n-2",
+  "max_locality": 3,
+  "method": "b9_cluster_stabilizer_parametric_certificate_v0",
+  "model_status": "executable_parametric_certificate_not_quantum_pcp_proof",
+  "named_family": "cluster_stabilizer_open_uniform_reweight",
+  "normalized_gap_identity": {
+    "checked": true,
+    "domain_conditions": [
+      "s > 0",
+      "w > 0"
+    ],
+    "identity": "(s*g)/(s*w) = g/w for s=27/20 and w>0",
+    "left_cross_product": {
+      "coefficient": "27/20",
+      "variables": [
+        "g",
+        "w"
+      ]
+    },
+    "right_cross_product": {
+      "coefficient": "27/20",
+      "variables": [
+        "g",
+        "w"
+      ]
+    }
+  },
+  "normalized_gap_invariant_symbolically": true,
+  "parameterized_domain": "integer n >= 4",
+  "parameterized_n_min": 4,
+  "proof_assistant_checked": false,
+  "rejection_reason": "Uniform positive rescaling preserves normalized gap, so this family cannot be counted as a raw-gap amplification certificate.",
+  "source_method": "b9_named_family_width_locality_bound_v0",
+  "source_result": "results/B9_named_family_width_locality_bounds_v0.json",
+  "status": "parametric_certificate_checked_by_local_verifier_not_formal_theorem",
+  "support_size_set": [
+    2,
+    3
+  ],
+  "term_count_formula": "n",
+  "uniform_scale": "27/20",
+  "uniform_scale_decimal": 1.35,
+  "validation_error_count": 0,
+  "validation_errors": []
+}

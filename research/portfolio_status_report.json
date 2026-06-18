@@ -2482,6 +2482,39 @@
     }
   },
   "b9": {
+    "cluster_stabilizer_parametric_certificate": {
+      "boundary_term_count_formula": "2",
+      "certificate_rejected": true,
+      "explicit_not_quantum_pcp_proof": true,
+      "finite_rows_checked": [
+        4,
+        5,
+        6
+      ],
+      "formal_theorem_proved": false,
+      "global_gap_amplification_impossibility_claimed": false,
+      "interior_term_count_formula": "n-2",
+      "local_verifier_checked": true,
+      "markdown_exists": true,
+      "markdown_report": "../research/B9_cluster_stabilizer_parametric_certificate.md",
+      "max_locality": 3,
+      "method": "b9_cluster_stabilizer_parametric_certificate_v0",
+      "named_family": "cluster_stabilizer_open_uniform_reweight",
+      "normalized_gap_invariant_symbolically": true,
+      "parameterized_n_min": 4,
+      "proof_assistant_checked": false,
+      "result": "../results/B9_cluster_stabilizer_parametric_certificate_v0.json",
+      "result_exists": true,
+      "source_method": "b9_named_family_width_locality_bound_v0",
+      "status": "parametric_certificate_checked_by_local_verifier_not_formal_theorem",
+      "support_size_set": [
+        2,
+        3
+      ],
+      "term_count_formula": "n",
+      "uniform_scale": "27/20",
+      "validation_error_count": 0
+    },
     "failed_gap_amplification_lemma": {
       "dense_locality_trap_count": 9,
       "explicit_not_quantum_pcp_proof": true,
@@ -2664,7 +2697,7 @@
       "B6": 21,
       "B7": 38,
       "B8": 32,
-      "B9": 12
+      "B9": 13
     },
     "path": "research/top10_problem_dossiers.json",
     "problem_ids_match_attack_pack": true
@@ -2776,6 +2809,7 @@
     "b8_adaptive_leakage_spoofer": "research/B8_adaptive_leakage_spoofer.md",
     "b8_challenge_refresh_repair": "research/B8_challenge_refresh_repair.md",
     "b8_generative_spoofer_refresh": "research/B8_generative_spoofer_refresh.md",
+    "b9_cluster_stabilizer_parametric_certificate": "research/B9_cluster_stabilizer_parametric_certificate.md",
     "b9_failed_gap_amplification_lemma": "research/B9_failed_gap_amplification_lemma.md",
     "b9_named_family_width_locality_bound_lean_skeleton": "research/proof_skeletons/B9_cluster_stabilizer_width_locality_bound.lean",
     "b9_named_family_width_locality_bounds": "research/B9_named_family_width_locality_bounds.md",

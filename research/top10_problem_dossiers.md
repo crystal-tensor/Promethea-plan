@@ -643,6 +643,11 @@ T-B9-003 instantiates the obstruction on
 amplifies, normalized gap is invariant, and the certificate is rejected as
 global energy rescaling. The available `lean` command failed and this is not a
 checked theorem.
+T-B9-004a adds a repo-local parametric certificate checker for the same family:
+it checks the n >= 4 formula-level term counts, support set {2,3}, max locality
+3, exact uniform scale 27/20, finite rows n=4,5,6, and normalized-gap
+invariance by exact rational algebra. The certificate is still rejected as
+raw-gap-only rescaling, and it is still not a proof-assistant theorem.
 
 **Remaining path to a serious solution:** create a real Lean/mathlib or
 equivalent proof-checkable project; formalize the open-boundary
@@ -650,7 +655,7 @@ cluster-stabilizer family for all n >= 4; prove support-size, uniform-scaling,
 spectral-width, and normalized-gap invariance lemmas; then decide whether the
 checked statement informs the full conjecture.
 
-**Current internal maturity:** 12/100.
+**Current internal maturity:** 13/100.
 
 ## B10: Mapping the Boundary of BQP
 

@@ -945,6 +945,20 @@ Next: `T-B9-004` should create a real proof-checkable environment and
 formalize the support-size, uniform-scaling, spectral-width, and
 normalized-gap lemmas for all n >= 4.
 
+**Sprint update 49:** `T-B9-004a` is now merged as a local parametric
+certificate checker, still not as a proof-assistant theorem. The new tool
+`tools/b9_cluster_stabilizer_parametric_certificate.py` consumes
+`results/B9_named_family_width_locality_bounds_v0.json` and emits
+`results/B9_cluster_stabilizer_parametric_certificate_v0.json` plus
+`research/B9_cluster_stabilizer_parametric_certificate.md`. It checks the
+open-chain cluster-stabilizer family with exact rational scale `27/20`,
+formula-level term counts for all integer n >= 4, support set {2,3}, max
+locality 3, and the symbolic identity `(s*g)/(s*w) = g/w` for positive width.
+The certificate remains rejected as raw-gap-only global rescaling. This closes
+a local verifier gap, but it is not a Lean/mathlib proof, Quantum PCP proof,
+NLTS theorem, or global gap-amplification impossibility. Next: keep
+`T-B9-004` open for an independently proof-checkable formalization.
+
 ## B10: Boundary of BQP
 
 **Technical target:** separate robust quantum advantage claims from hidden
