@@ -95,6 +95,35 @@ current_results:
     validation_error_count: 0
     result: ../results/B4_B8_openqasm3_packet_public_spoofer_gate_v0.json
     markdown_report: ../research/B4_B8_openqasm3_packet_public_spoofer_gate.md
+  late_bound_private_challenge_contract_gate_v0:
+    status: late_bound_private_challenge_contract_partial_not_protocol_soundness
+    model_status: private_challenge_boundary_contract_not_hardware_execution
+    method: b4_b8_late_bound_private_challenge_contract_gate_v0
+    source_method: b4_b8_openqasm3_randomized_measurement_packet_v0
+    packet_circuit_count: 36
+    public_skeleton_file_count: 36
+    source_private_material_embedded_file_count: 36
+    public_skeleton_private_material_embedded_file_count: 0
+    public_skeletons_hide_private_material: true
+    public_data_transcript_classically_predictable: true
+    late_bound_private_challenge_contract_defined: true
+    late_bound_private_challenge_alone_sufficient_for_soundness: false
+    non_stabilizer_or_hardware_entropy_source_present: false
+    real_backend_or_hardware_execution_present: false
+    acceptance_gate_count: 8
+    passed_gate_count: 4
+    failed_gate_count: 4
+    hardware_execution_performed: false
+    real_backend_properties_used: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    sampling_hardness_proved: false
+    cryptographic_soundness_proved: false
+    protocol_soundness_proved: false
+    validation_error_count: 0
+    public_skeleton_directory: ../results/B4_B8_late_bound_private_challenge_contract/public_skeletons
+    result: ../results/B4_B8_late_bound_private_challenge_contract_gate_v0.json
+    markdown_report: ../research/B4_B8_late_bound_private_challenge_contract_gate.md
   toy_hidden_invariant_output_verifier_v0:
     status: toy_invariant_property_test
     model_status: toy_invariant_property_test_not_full_distribution_verification
@@ -229,3 +258,4 @@ prototype_artifacts:
   generative_spoofer_refresh: ../tools/b8_generative_spoofer_refresh.py
   prototype_notes: ../research/B8_prototype_notes.md
   openqasm3_public_spoofer_gate: ../tools/b4_b8_openqasm3_packet_public_spoofer_gate.py
+  late_bound_private_challenge_contract_gate: ../tools/b4_b8_late_bound_private_challenge_contract_gate.py

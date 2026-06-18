@@ -366,6 +366,17 @@ not sampling hardness, and not quantum advantage. Next: late-bind private
 challenge material or move to real backend/hardware transcripts before making
 any verifier-soundness claim.
 
+**Sprint update 56:** `T-B8-003b` is now merged back into B4 as a late-bound
+private challenge contract gate. The new tool
+`tools/b4_b8_late_bound_private_challenge_contract_gate.py` emits 36 public
+skeleton QASM files with verifier-private masks and challenge flips removed.
+That separation gate passes, but the skeletons are still deterministic
+X/CX/measure circuits, so the public data transcripts remain classically
+predictable. The contract passes 4 of 8 gates and fails 4 of 8. Late-bound
+parity challenges alone are therefore not protocol soundness; the next gate
+needs non-stabilizer structure, real backend properties, hardware execution, or
+otherwise non-public/non-predictable transcripts.
+
 ## B5: Strongly Correlated Matter
 
 **Technical target:** show an accuracy-per-resource improvement on a meaningful
@@ -960,6 +971,17 @@ public-packet spoofer acceptance 1.0. The gate rejects public-packet protocol
 soundness and requires late-bound private challenge material, real backend
 properties, hardware randomized-measurement execution, or non-public
 transcripts before the verifier line can advance.
+
+**Sprint update 56:** `T-B8-003b` is now merged as the late-bound private
+challenge contract gate. The result
+`results/B4_B8_late_bound_private_challenge_contract_gate_v0.json` and report
+`research/B4_B8_late_bound_private_challenge_contract_gate.md` generate 36
+public skeleton QASM files under
+`results/B4_B8_late_bound_private_challenge_contract/public_skeletons/`.
+Those skeletons remove verifier-private masks/flips, but the public data
+transcripts are still deterministic and classically predictable. The gate
+therefore keeps late-bound private challenge alone marked insufficient for
+soundness, with 4 contract gates passed and 4 failed.
 
 ## B9: Quantum PCP / Local Hamiltonian Hardness
 

@@ -40,7 +40,7 @@ Overall audit: PASS
 - B IDs are B1..B10: True
 - Problem IDs match attack pack: True
 - All required fields present: True
-- Maturity scores: {'B1': 44, 'B2': 48, 'B3': 30, 'B4': 22, 'B5': 27, 'B6': 21, 'B7': 41, 'B8': 34, 'B9': 13, 'B10': 50}
+- Maturity scores: {'B1': 44, 'B2': 48, 'B3': 30, 'B4': 23, 'B5': 27, 'B6': 21, 'B7': 41, 'B8': 35, 'B9': 13, 'B10': 50}
 
 ## Technical Resolution Program
 
@@ -610,6 +610,11 @@ Overall audit: PASS
 - Public-QASM packet soundness rejected / late-bound private challenges required: True / True
 - Public-QASM spoofer hardware execution / advantage / BQP separation: False / False / False
 - Public-QASM spoofer result/markdown exists: True / True
+- Late-bound contract status: late_bound_private_challenge_contract_partial_not_protocol_soundness
+- Late-bound public skeletons / hide private material: 36 / True
+- Late-bound deterministic data blocker / late-binding alone sufficient: True / False
+- Late-bound gates passed/failed: 4 / 4
+- Late-bound contract result/markdown/skeleton-dir exists: True / True / True
 
 ## B5 Hubbard Embedding Status
 
@@ -905,6 +910,11 @@ Overall audit: PASS
 - Public-QASM packet soundness rejected / late-bound private challenges required: True / True
 - Public-QASM spoofer hardware execution / advantage / BQP separation: False / False / False
 - Public-QASM spoofer result/markdown exists: True / True
+- Late-bound contract status: late_bound_private_challenge_contract_partial_not_protocol_soundness
+- Late-bound public skeletons / hide private material: 36 / True
+- Late-bound deterministic data blocker / late-binding alone sufficient: True / False
+- Late-bound gates passed/failed: 4 / 4
+- Late-bound contract result/markdown/skeleton-dir exists: True / True / True
 - Generative spoofer status: trained_generative_spoofer_refresh_boundary_not_soundness_proof
 - Generative spoofer configurations: 144
 - Generative spoofer maximum learned soundness: 1.0

@@ -113,6 +113,15 @@ protocol: the next gate must late-bind private challenge material, use real
 backend or hardware execution, or attack transcripts that do not embed the
 verifier's private material in public QASM.
 
+The next B4/B8 late-bound private-challenge contract gate now separates the
+public skeleton from verifier-private masks and challenge flips for all 36
+packet circuits, but it also keeps the hard blocker visible: the public data
+skeletons are still deterministic X/CX/measure circuits, so the data transcript
+is classically predictable. The contract passes 4 of 8 gates and fails 4 of 8;
+late-bound private parity challenges alone are not enough for protocol
+soundness without non-stabilizer structure, real backend properties, hardware
+execution, or otherwise non-public/non-predictable transcripts.
+
 B6 has moved from a synthetic descriptor toy to curated leakage audits and a
 structural/electronic proxy boundary. The latest B6 screen keeps 38 records
 across 22 families with 12 expanded negative controls; structural/electronic

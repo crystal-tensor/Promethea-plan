@@ -352,13 +352,17 @@ hardware execution, sampling hardness, quantum advantage, or BQP separation.
 T-B8-003a then adds a public-QASM packet spoofer boundary: a deterministic
 parser/emulator predicts all 36 public packet transcripts, so public-packet
 protocol soundness is rejected and private late-binding is required.
+T-B8-003b adds the late-bound private challenge contract: all 36 public
+skeletons remove verifier-private masks and flips, but the public data
+transcripts remain deterministic and classically predictable, so late-bound
+parity challenges alone are insufficient.
 
-**Remaining path to a serious solution:** build late-bound private challenge
-material; run real backend properties or hardware randomized-measurement
-execution; attack non-public transcripts with stronger trained/generative
+**Remaining path to a serious solution:** add non-stabilizer task structure,
+real backend properties, hardware randomized-measurement execution, or otherwise
+non-public/non-predictable transcripts; attack those transcripts with stronger
 spoofers; prove completeness and soundness under explicit assumptions.
 
-**Current internal maturity:** 22/100.
+**Current internal maturity:** 23/100.
 
 ## B5: Strongly Correlated Matter via Hybrid Quantum-Tensor Solvers
 
@@ -617,6 +621,9 @@ packet and semantic check, not hardware execution or sampling hardness.
 T-B8-003a then adds a public-QASM packet spoofer boundary: a deterministic
 parser/emulator predicts all 36 public packet transcripts, public-packet
 spoofer acceptance is 1.0, and public-packet protocol soundness is rejected.
+T-B8-003b adds a late-bound private challenge contract: public skeletons hide
+private masks/flips for all 36 circuits, but deterministic public data
+transcripts remain classically predictable; 4/8 gates pass and 4/8 fail.
 The device-noise transcript bridge now adds 480 configurations across five
 noise profiles: bounded bridge profiles preserve honest completeness 1.0, and
 challenge_refresh / refresh_plus_rotation stay at max high-leakage soundness
@@ -638,13 +645,13 @@ acceptance at 1.0, calibrated adversary acceptance at 0.25, max honest
 predicate-bit error at 0.0703125, and at least 7 unknown independent
 predicates; no-refresh remains unsafe.
 
-**Remaining path to a serious solution:** create a late-bound private challenge
-verifier packet; replace GenericBackendV2 snapshots with real backend
-properties; instantiate hardware randomized-measurement verifier execution;
-attack non-public noisy/backend transcripts with stronger learned/generative
-spoofers.
+**Remaining path to a serious solution:** make the late-bound transcript
+non-predictable through non-stabilizer structure, real backend properties,
+hardware randomized-measurement execution, or another source of
+private/non-public challenge entropy; then attack it with stronger
+learned/generative spoofers.
 
-**Current internal maturity:** 34/100.
+**Current internal maturity:** 35/100.
 
 ## B9: Quantum PCP and Local Hamiltonian Hardness
 
