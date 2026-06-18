@@ -454,6 +454,32 @@ current_results:
     caveat: missing_assumption_note_not_dequantization_or_sampling_access_theorem
     result: ../results/B10_t1_missing_assumption_note_v0.json
     markdown_report: ../research/B10_t1_missing_assumption_note.md
+  b10_t1_asymptotic_access_contract_v0:
+    status: access_contract_skeleton_sampling_bridge_refuted_for_current_evidence
+    method: b10_t1_asymptotic_access_contract_v0
+    source: b10_t1_missing_assumption_note_v0
+    source_comparison: b10_t1_b3_b5_denominator_boundary_comparison_v0
+    source_target_id: B10-T1
+    dependency_benchmarks:
+      - B3
+      - B5
+      - B10
+    family_contract_count: 2
+    access_contract_count: 8
+    bridge_condition_count: 5
+    theorem_target_count: 2
+    sampling_access_bridge_proved: false
+    sampling_access_bridge_refuted_for_current_evidence: true
+    general_dequantization_theorem_proved: false
+    general_sampling_access_theorem_proved: false
+    bqp_separation_claimed: false
+    quantum_advantage_claimed: false
+    b3_demoted: true
+    b5_positive_claim_ready: false
+    validation_error_count: 0
+    caveat: access_contract_note_refutes_current_sampling_bridge_not_general_dequantization_theorem
+    result: ../results/B10_t1_asymptotic_access_contract_v0.json
+    markdown_report: ../research/B10_t1_asymptotic_access_contract.md
 prototype_artifacts:
   boundary_graph_builder: ../tools/b10_bqp_boundary_graph.py
   formal_theorem_target_builder: ../tools/b10_formal_theorem_targets.py
@@ -467,6 +493,7 @@ prototype_artifacts:
   t1_d5_b3_fci_reference_table_builder: ../tools/b10_t1_d5_b3_fci_reference_table.py
   t1_b3_b5_denominator_boundary_comparison_builder: ../tools/b10_t1_b3_b5_denominator_boundary_comparison.py
   t1_missing_assumption_note_builder: ../tools/b10_t1_missing_assumption_note.py
+  t1_asymptotic_access_contract_builder: ../tools/b10_t1_asymptotic_access_contract.py
   t2_refresh_proof_obligation_gate_builder: ../tools/b10_t2_refresh_proof_obligation_gate.py
   t2_restricted_soundness_lemma_builder: ../tools/b10_t2_restricted_soundness_lemma.py
   t2_transcript_leakage_simulator_builder: ../tools/b10_t2_transcript_leakage_simulator.py

@@ -5568,6 +5568,7 @@ def audit(root: Path) -> dict:
     b10_t1_d5_b3_fci_table = b10_results.get("b10_t1_d5_b3_fci_reference_table_v0")
     b10_t1_b3_b5_comparison = b10_results.get("b10_t1_b3_b5_denominator_boundary_comparison_v0")
     b10_t1_missing_assumption_note = b10_results.get("b10_t1_missing_assumption_note_v0")
+    b10_t1_asymptotic_access_contract = b10_results.get("b10_t1_asymptotic_access_contract_v0")
     b10_status = {}
     if not b10_graph:
         warnings.append("B10 manifest has no BQP-boundary graph result")
@@ -6672,6 +6673,87 @@ def audit(root: Path) -> dict:
         if claim_boundary.get("bqp_separation_claimed") is not False:
             errors.append("B10-T1 missing-assumption note payload claims BQP separation")
 
+    b10_t1_asymptotic_access_contract_status = {}
+    if not b10_t1_asymptotic_access_contract:
+        warnings.append("B10 manifest has no B10-T1 asymptotic access contract")
+    else:
+        result_path = b10_t1_asymptotic_access_contract.get("result")
+        markdown_path = b10_t1_asymptotic_access_contract.get("markdown_report")
+        result_exists = bool(result_path and path_exists_from(benchmarks, result_path))
+        markdown_exists = bool(markdown_path and path_exists_from(benchmarks, markdown_path))
+        if not result_exists:
+            errors.append(f"B10-T1 asymptotic access contract result path missing: {result_path}")
+        if not markdown_exists:
+            errors.append(f"B10-T1 asymptotic access contract markdown path missing: {markdown_path}")
+        payload = json.loads(read((benchmarks / result_path).resolve())) if result_exists else {}
+        summary = payload.get("summary", {})
+        b10_t1_asymptotic_access_contract_status = {
+            "status": b10_t1_asymptotic_access_contract.get("status"),
+            "method": b10_t1_asymptotic_access_contract.get("method"),
+            "source_target_id": payload.get("source_target_id"),
+            "dependency_benchmarks": payload.get("dependency_benchmarks"),
+            "family_contract_count": summary.get("family_contract_count"),
+            "access_contract_count": summary.get("access_contract_count"),
+            "bridge_condition_count": summary.get("bridge_condition_count"),
+            "theorem_target_count": summary.get("theorem_target_count"),
+            "sampling_access_bridge_proved": summary.get("sampling_access_bridge_proved"),
+            "sampling_access_bridge_refuted_for_current_evidence": summary.get(
+                "sampling_access_bridge_refuted_for_current_evidence"
+            ),
+            "general_dequantization_theorem_proved": summary.get("general_dequantization_theorem_proved"),
+            "general_sampling_access_theorem_proved": summary.get("general_sampling_access_theorem_proved"),
+            "bqp_separation_claimed": summary.get("bqp_separation_claimed"),
+            "quantum_advantage_claimed": summary.get("quantum_advantage_claimed"),
+            "b3_demoted": summary.get("b3_demoted"),
+            "b5_positive_claim_ready": summary.get("b5_positive_claim_ready"),
+            "validation_error_count": len(payload.get("validation_errors", [])),
+            "result_exists": result_exists,
+            "markdown_exists": markdown_exists,
+            "result": result_path,
+            "markdown_report": markdown_path,
+        }
+        if payload.get("status") != "access_contract_skeleton_sampling_bridge_refuted_for_current_evidence":
+            errors.append("B10-T1 asymptotic access contract must remain a current-evidence bridge refutation")
+        if payload.get("method") != b10_t1_asymptotic_access_contract.get("method"):
+            errors.append("B10-T1 asymptotic access contract method mismatch")
+        if payload.get("source_target_id") != b10_t1_asymptotic_access_contract.get("source_target_id"):
+            errors.append("B10-T1 asymptotic access contract source target mismatch")
+        for field in [
+            "family_contract_count",
+            "access_contract_count",
+            "bridge_condition_count",
+            "theorem_target_count",
+        ]:
+            if summary.get(field) != b10_t1_asymptotic_access_contract.get(field):
+                errors.append(f"B10-T1 asymptotic access contract {field} mismatch")
+        if summary.get("family_contract_count", 0) < 2:
+            errors.append("B10-T1 asymptotic access contract must cover B3 and B5 families")
+        if summary.get("access_contract_count", 0) < 8:
+            errors.append("B10-T1 asymptotic access contract must cover explicit/oracle/sampling/quantum access for both families")
+        if summary.get("sampling_access_bridge_proved") is not False:
+            errors.append("B10-T1 asymptotic access contract must not claim a sampling-access bridge proof")
+        if summary.get("sampling_access_bridge_refuted_for_current_evidence") is not True:
+            errors.append("B10-T1 asymptotic access contract must refute the current sampling bridge")
+        if summary.get("general_dequantization_theorem_proved") is not False:
+            errors.append("B10-T1 asymptotic access contract must not claim a general dequantization theorem")
+        if summary.get("general_sampling_access_theorem_proved") is not False:
+            errors.append("B10-T1 asymptotic access contract must not claim a general sampling-access theorem")
+        if summary.get("bqp_separation_claimed") is not False:
+            errors.append("B10-T1 asymptotic access contract must not claim BQP separation")
+        if summary.get("quantum_advantage_claimed") is not False:
+            errors.append("B10-T1 asymptotic access contract must not claim quantum advantage")
+        if summary.get("b3_demoted") is not True:
+            errors.append("B10-T1 asymptotic access contract must keep B3 demoted")
+        if summary.get("b5_positive_claim_ready") is not False:
+            errors.append("B10-T1 asymptotic access contract must not mark B5 positive-ready")
+        if len(payload.get("validation_errors", [])) != b10_t1_asymptotic_access_contract.get("validation_error_count"):
+            errors.append("B10-T1 asymptotic access contract validation-error count mismatch")
+        claim_boundary = payload.get("claim_boundary", {})
+        if claim_boundary.get("general_dequantization_theorem_proved") is not False:
+            errors.append("B10-T1 asymptotic access contract payload claims general dequantization theorem")
+        if claim_boundary.get("bqp_separation_claimed") is not False:
+            errors.append("B10-T1 asymptotic access contract payload claims BQP separation")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -6849,6 +6931,7 @@ def audit(root: Path) -> dict:
             "t1_d5_b3_fci_reference_table": b10_t1_d5_b3_fci_table_status,
             "t1_b3_b5_denominator_boundary_comparison": b10_t1_b3_b5_comparison_status,
             "t1_missing_assumption_note": b10_t1_missing_assumption_note_status,
+            "t1_asymptotic_access_contract": b10_t1_asymptotic_access_contract_status,
         },
         "status_artifacts": {
             "roadmap": str(roadmap_path),
@@ -6955,6 +7038,7 @@ def audit(root: Path) -> dict:
                 research / "B10_t1_b3_b5_denominator_boundary_comparison.md"
             ),
             "b10_t1_missing_assumption_note": str(research / "B10_t1_missing_assumption_note.md"),
+            "b10_t1_asymptotic_access_contract": str(research / "B10_t1_asymptotic_access_contract.md"),
             "b9_failed_gap_amplification_lemma": str(research / "B9_failed_gap_amplification_lemma.md"),
             "b9_symbolic_gap_skeleton": str(research / "B9_symbolic_gap_skeleton.md"),
             "b9_symbolic_gap_lean_skeleton": str(
@@ -7904,6 +7988,12 @@ def markdown_report(report: dict) -> str:
             f"- B10-T1 missing-assumption dequantization theorem / sampling-access theorem / BQP separation / quantum advantage: {report['b10']['t1_missing_assumption_note'].get('dequantization_theorem_proved')} / {report['b10']['t1_missing_assumption_note'].get('sampling_access_theorem_proved')} / {report['b10']['t1_missing_assumption_note'].get('bqp_separation_claimed')} / {report['b10']['t1_missing_assumption_note'].get('quantum_advantage_claimed')}",
             f"- B10-T1 missing-assumption validation errors: {report['b10']['t1_missing_assumption_note'].get('validation_error_count')}",
             f"- B10-T1 missing-assumption result/markdown exists: {report['b10']['t1_missing_assumption_note'].get('result_exists')} / {report['b10']['t1_missing_assumption_note'].get('markdown_exists')}",
+            f"- B10-T1 asymptotic access status: {report['b10']['t1_asymptotic_access_contract'].get('status')}",
+            f"- B10-T1 asymptotic families / access rows / bridge conditions: {report['b10']['t1_asymptotic_access_contract'].get('family_contract_count')} / {report['b10']['t1_asymptotic_access_contract'].get('access_contract_count')} / {report['b10']['t1_asymptotic_access_contract'].get('bridge_condition_count')}",
+            f"- B10-T1 sampling bridge proved / refuted for current evidence: {report['b10']['t1_asymptotic_access_contract'].get('sampling_access_bridge_proved')} / {report['b10']['t1_asymptotic_access_contract'].get('sampling_access_bridge_refuted_for_current_evidence')}",
+            f"- B10-T1 general dequantization theorem / sampling-access theorem / BQP separation / quantum advantage: {report['b10']['t1_asymptotic_access_contract'].get('general_dequantization_theorem_proved')} / {report['b10']['t1_asymptotic_access_contract'].get('general_sampling_access_theorem_proved')} / {report['b10']['t1_asymptotic_access_contract'].get('bqp_separation_claimed')} / {report['b10']['t1_asymptotic_access_contract'].get('quantum_advantage_claimed')}",
+            f"- B10-T1 asymptotic access validation errors: {report['b10']['t1_asymptotic_access_contract'].get('validation_error_count')}",
+            f"- B10-T1 asymptotic access result/markdown exists: {report['b10']['t1_asymptotic_access_contract'].get('result_exists')} / {report['b10']['t1_asymptotic_access_contract'].get('markdown_exists')}",
             "",
         ]
     )

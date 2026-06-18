@@ -292,6 +292,33 @@
       "validation_error_count": 0
     },
     "manifest": "benchmarks/B10_bqp_boundary_map.yaml",
+    "t1_asymptotic_access_contract": {
+      "access_contract_count": 8,
+      "b3_demoted": true,
+      "b5_positive_claim_ready": false,
+      "bqp_separation_claimed": false,
+      "bridge_condition_count": 5,
+      "dependency_benchmarks": [
+        "B3",
+        "B5",
+        "B10"
+      ],
+      "family_contract_count": 2,
+      "general_dequantization_theorem_proved": false,
+      "general_sampling_access_theorem_proved": false,
+      "markdown_exists": true,
+      "markdown_report": "../research/B10_t1_asymptotic_access_contract.md",
+      "method": "b10_t1_asymptotic_access_contract_v0",
+      "quantum_advantage_claimed": false,
+      "result": "../results/B10_t1_asymptotic_access_contract_v0.json",
+      "result_exists": true,
+      "sampling_access_bridge_proved": false,
+      "sampling_access_bridge_refuted_for_current_evidence": true,
+      "source_target_id": "B10-T1",
+      "status": "access_contract_skeleton_sampling_bridge_refuted_for_current_evidence",
+      "theorem_target_count": 2,
+      "validation_error_count": 0
+    },
     "t1_b3_b5_denominator_boundary_comparison": {
       "b3_demoted": true,
       "b3_max_optimizer_loop_total_shots_lower_bound": 475043013690000,
@@ -2057,7 +2084,7 @@
     "markdown_path": "research/top10_problem_dossiers.md",
     "maturity_scores": {
       "B1": 37,
-      "B10": 43,
+      "B10": 45,
       "B2": 39,
       "B3": 30,
       "B4": 20,
@@ -2072,6 +2099,7 @@
   },
   "status_artifacts": {
     "b10_formal_theorem_targets": "research/B10_formal_theorem_targets.md",
+    "b10_t1_asymptotic_access_contract": "research/B10_t1_asymptotic_access_contract.md",
     "b10_t1_b3_b5_denominator_boundary_comparison": "research/B10_t1_b3_b5_denominator_boundary_comparison.md",
     "b10_t1_d5_b3_correlated_reference_table": "research/B10_t1_d5_b3_correlated_reference_table.md",
     "b10_t1_d5_b3_fci_reference_table": "research/B10_t1_d5_b3_fci_reference_table.md",

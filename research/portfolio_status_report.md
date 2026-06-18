@@ -40,7 +40,7 @@ Overall audit: PASS
 - B IDs are B1..B10: True
 - Problem IDs match attack pack: True
 - All required fields present: True
-- Maturity scores: {'B1': 37, 'B2': 39, 'B3': 30, 'B4': 20, 'B5': 21, 'B6': 19, 'B7': 33, 'B8': 32, 'B9': 12, 'B10': 43}
+- Maturity scores: {'B1': 37, 'B2': 39, 'B3': 30, 'B4': 20, 'B5': 21, 'B6': 19, 'B7': 33, 'B8': 32, 'B9': 12, 'B10': 45}
 
 ## Technical Resolution Program
 
@@ -896,6 +896,12 @@ Overall audit: PASS
 - B10-T1 missing-assumption dequantization theorem / sampling-access theorem / BQP separation / quantum advantage: False / False / False / False
 - B10-T1 missing-assumption validation errors: 0
 - B10-T1 missing-assumption result/markdown exists: True / True
+- B10-T1 asymptotic access status: access_contract_skeleton_sampling_bridge_refuted_for_current_evidence
+- B10-T1 asymptotic families / access rows / bridge conditions: 2 / 8 / 5
+- B10-T1 sampling bridge proved / refuted for current evidence: False / True
+- B10-T1 general dequantization theorem / sampling-access theorem / BQP separation / quantum advantage: False / False / False / False
+- B10-T1 asymptotic access validation errors: 0
+- B10-T1 asymptotic access result/markdown exists: True / True
 
 ## Errors
 
