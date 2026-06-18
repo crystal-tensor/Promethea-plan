@@ -786,10 +786,50 @@ current_results:
     validation_error_count: 0
     report: ../results/B1_B7_cone01_shared_theta_independent_baseline_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_shared_theta_independent_baseline_gate.md
+  b1_b7_cone01_shared_theta_refreshed_b7_ledger_gate_v0:
+    circuits: 1
+    status: cone01_shared_theta_refreshed_b7_ledger_rejected
+    model_status: refreshed_b7_ledger_rejects_unaccepted_theta_sharing_model
+    method: b1_b7_cone01_shared_theta_refreshed_b7_ledger_gate_v0
+    source_theta_sharing_cost_model_gate: b1_b7_cone01_theta_sharing_cost_model_gate_v0
+    source_b7_ft_boundary: b7_gcm_h6_ft_boundary_v0
+    workload: qasmbench_medium_exact/gcm_h6.qasm
+    b7_ledger_refresh_attempted: true
+    b7_ledger_accepts_theta_sharing: false
+    cost_model_accepted: false
+    cost_model_acceptance_pass_count: 6
+    cost_model_acceptance_fail_count: 2
+    cm08_refreshed_b7_ledger_gate_passed: false
+    candidate_window_count: 35
+    distinct_theta_group_count: 4
+    optimistic_cache_proxy_t_reuse: 620
+    occurrence_ledger_removed_occurrences: 0
+    occurrence_ledger_proxy_t_reduction: 0
+    b7_ledger_proxy_t_reduction_before_refresh: 0
+    b7_ledger_proxy_t_reduction_after_refresh: 0
+    target_proxy_t_ledger_reduction_for_gcm_h6_1_20: 600
+    missing_proxy_t_ledger_reduction_for_gcm_h6_1_20: 600
+    gcm_h6_current_total_t_ledger: 6224
+    gcm_h6_target_max_after_t_ledger_1_20: 5632
+    gcm_h6_additional_t_ledger_to_remove_for_1_20: 592
+    gcm_h6_min_row_improved: false
+    current_min_space_time_volume_reduction: 1.086007702182285
+    refreshed_min_space_time_volume_reduction: 1.086007702182285
+    physical_device_layout_present: false
+    physical_factory_schedule_present: false
+    device_calibrated_validation_present: false
+    rewrite_claimed: false
+    resource_saving_claimed: false
+    semantic_certificate_claimed: false
+    physical_resource_reduction_claimed: false
+    b7_ledger_improvement_claimed: false
+    validation_error_count: 0
+    report: ../results/B1_B7_cone01_shared_theta_refreshed_b7_ledger_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_shared_theta_refreshed_b7_ledger_gate.md
   b1_b7_cone01_theta_sharing_cost_model_gate_v0:
     circuits: 1
     status: cone01_theta_sharing_cost_model_not_accepted
-    model_status: physical_theta_sharing_cost_model_requirements_independent_baseline_scaffolded
+    model_status: physical_theta_sharing_cost_model_requirements_refreshed_ledger_rejected
     method: b1_b7_cone01_theta_sharing_cost_model_gate_v0
     source_theta_sharing_ledger_gate: b1_b7_cone01_theta_sharing_ledger_gate_v0
     source_shared_theta_synthesis_object_gate: b1_b7_cone01_shared_theta_synthesis_object_gate_v0
@@ -798,6 +838,7 @@ current_results:
     source_shared_theta_factory_amortization_gate: b1_b7_cone01_shared_theta_factory_amortization_gate_v0
     source_shared_theta_error_budget_gate: b1_b7_cone01_shared_theta_error_budget_gate_v0
     source_shared_theta_independent_baseline_gate: b1_b7_cone01_shared_theta_independent_baseline_gate_v0
+    source_shared_theta_refreshed_b7_ledger_gate: b1_b7_cone01_shared_theta_refreshed_b7_ledger_gate_v0
     workload: qasmbench_medium_exact/gcm_h6.qasm
     candidate_window_count: 35
     distinct_theta_group_count: 4
@@ -830,6 +871,11 @@ current_results:
     shared_theta_double_counted_occurrence_count: 0
     shared_theta_double_counted_proxy_t_pressure: 0
     shared_theta_independent_baseline_gross_proxy_t_delta: 620
+    shared_theta_refreshed_b7_ledger_gate_passed: false
+    shared_theta_b7_ledger_refresh_attempted: true
+    shared_theta_b7_ledger_accepts_theta_sharing: false
+    shared_theta_b7_ledger_proxy_t_reduction_after_refresh: 0
+    shared_theta_gcm_h6_min_row_improved: false
     cost_model_acceptance_gate_count: 8
     cost_model_acceptance_pass_count: 6
     cost_model_acceptance_fail_count: 2
@@ -1001,5 +1047,6 @@ prototype_artifacts:
   b1_b7_cone01_shared_theta_factory_amortization_gate: ../tools/b1_b7_cone01_shared_theta_factory_amortization_gate.py
   b1_b7_cone01_shared_theta_error_budget_gate: ../tools/b1_b7_cone01_shared_theta_error_budget_gate.py
   b1_b7_cone01_shared_theta_independent_baseline_gate: ../tools/b1_b7_cone01_shared_theta_independent_baseline_gate.py
+  b1_b7_cone01_shared_theta_refreshed_b7_ledger_gate: ../tools/b1_b7_cone01_shared_theta_refreshed_b7_ledger_gate.py
   b1_b7_cone01_theta_sharing_cost_model_gate: ../tools/b1_b7_cone01_theta_sharing_cost_model_gate.py
   synthetic_noise_proxy: ../tools/b1_synthetic_noise_proxy.py

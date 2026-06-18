@@ -2,7 +2,7 @@
 
 Status: `cone01_theta_sharing_cost_model_not_accepted`
 
-This artifact asks whether the repeated-theta cache signal from T-B1-004f can already be promoted into a physical B7 cost model. The answer is no. A shared synthesis object proposal now exists for the four theta groups, a line-level replay verifier covers the shared objects, and a logical layout/routing scaffold assigns anchors and route packets. A factory-amortization scaffold now accounts for the 35-to-4 compilation-pressure change, a shared-error budget scaffold allocates the object-level synthesis-error budget, and an independent accounting baseline checks for double-counting. The current evidence still lacks occurrence-removing certificates, physical device layout, device-calibrated physical validation, and refreshed B7 ledger.
+This artifact asks whether the repeated-theta cache signal from T-B1-004f can already be promoted into a physical B7 cost model. The answer is no. A shared synthesis object proposal now exists for the four theta groups, a line-level replay verifier covers the shared objects, and a logical layout/routing scaffold assigns anchors and route packets. A factory-amortization scaffold now accounts for the 35-to-4 compilation-pressure change, a shared-error budget scaffold allocates the object-level synthesis-error budget, and an independent accounting baseline checks for double-counting. A refreshed-B7-ledger attempt is now explicit and rejects theta sharing under the current evidence. The current evidence still lacks occurrence-removing certificates, physical device layout, device-calibrated physical validation, and a passing refreshed B7 ledger.
 
 It is not a rewrite certificate, not a resource-saving claim, and not a physical cost-model acceptance.
 
@@ -33,6 +33,9 @@ It is not a rewrite certificate, not a resource-saving claim, and not a physical
 - Independent-baseline evidence present: `True`
 - Double-counted occurrences / proxy-T: `0` / `0`
 - Independent-baseline gross proxy-T delta: `620`
+- Refreshed-B7-ledger attempt / passed: `True` / `False`
+- B7 accepts theta sharing: `False`
+- Refreshed B7 proxy-T reduction / gcm_h6 min-row improved: `0` / `False`
 - Acceptance gates passed / total: `6` / `8`
 - Cost model accepted: `False`
 - B7 ledger proxy-T reduction after cost model: `0`
@@ -51,7 +54,7 @@ It is not a rewrite certificate, not a resource-saving claim, and not a physical
 | CM-05 | A factory-amortization model proving lower T-factory pressure under the shared object. | `620` | `True` | `True` |
 | CM-06 | A synthesis-error and correlation budget for shared theta reuse. | `True` | `True` | `True` |
 | CM-07 | An independent baseline showing cache-only accounting is not double-counting occurrence cost. | `True` | `True` | `True` |
-| CM-08 | A refreshed B7 FT ledger that accepts the model and improves the gcm_h6 min row. | `False` | `True` | `False` |
+| CM-08 | A refreshed B7 FT ledger that accepts the model and improves the gcm_h6 min row. | `True` | `True` | `False` |
 
 ## Interpretation
 

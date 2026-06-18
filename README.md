@@ -251,9 +251,12 @@ double-counted proxy-T pressure. The cost-model scaffold has moved from 0/8 to
 6/8 acceptance gates by passing CM-02 object existence, CM-03 replay, CM-04
 logical layout/routing, CM-05 factory amortization, CM-06 shared-error
 budgeting, and CM-07 independent accounting baseline. The model is still not
-accepted: there are no 30 occurrence-removing certificates, no physical device
-layout, no physical factory schedule, no device-calibrated physical validation,
-and no refreshed B7 ledger. The counted B7 ledger reduction remains 0.
+accepted: the refreshed-B7-ledger gate has now been attempted and explicitly
+rejects theta sharing under the current evidence because there are no 30
+occurrence-removing certificates, no accepted physical device layout, no physical
+factory schedule, no device-calibrated physical validation, no accepted proxy-T
+reduction, and no `gcm_h6` min-row improvement. The counted B7 ledger reduction
+remains 0.
 
 ## Repository Layout
 

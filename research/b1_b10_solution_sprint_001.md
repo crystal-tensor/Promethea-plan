@@ -817,8 +817,10 @@ refreshed B7 ledger. The follow-up `T-B1-004h` now supplies the shared object
 proposal, `T-B1-004i` adds a line-level replay verifier, and `T-B1-004j` adds a
 logical layout/routing scaffold. `T-B1-004k` adds a factory-amortization
 scaffold, `T-B1-004l` adds a shared-error budget scaffold, and `T-B1-004m`
-adds an independent accounting baseline, so the scaffold is now 6/8 gates
-passed. The cost model is still not accepted and B7 ledger reduction remains 0.
+adds an independent accounting baseline. `T-B1-004n` now makes the CM-08
+refreshed-B7-ledger attempt explicit and rejects the current shared-theta model,
+so the scaffold remains 6/8 gates passed. The cost model is still not accepted
+and B7 ledger reduction remains 0.
 
 **Sprint update 18i:** `T-B1-004h` is now merged as a shared-theta synthesis object
 proposal gate. The new artifact `research/B1_B7_cone01_shared_theta_synthesis_object_gate.md`
@@ -834,10 +836,12 @@ collapses 35 baseline synthesis requests to 4 shared-object requests. The
 follow-up `T-B1-004l` adds a shared-error budget scaffold across the 4 shared
 objects. `T-B1-004m` now adds an independent accounting baseline that confirms
 zero double-counted occurrences and zero double-counted proxy-T pressure. The
-updated cost model is 6/8 passed, 2/8 failed; it still has no physical device
-layout, physical factory schedule, device-calibrated physical validation,
-refreshed B7 ledger, or occurrence-removing certificates. The cost model remains
-unaccepted and B7 ledger reduction remains 0.
+follow-up `T-B1-004n` now attempts CM-08 and rejects the model at the B7 ledger:
+accepted proxy-T reduction remains 0 and the `gcm_h6` min row is unchanged. The
+updated cost model is 6/8 passed, 2/8 failed; it still has no occurrence-removing
+certificates, accepted physical device layout, physical factory schedule, or
+device-calibrated physical validation. The cost model remains unaccepted and B7
+ledger reduction remains 0.
 
 **Sprint update 18j:** `T-B1-004j` is now merged as a shared-theta logical
 layout/routing scaffold. The new artifact
@@ -882,6 +886,17 @@ accounting evidence only. It is not an independent physical device baseline,
 not device-calibrated validation, not a refreshed B7 ledger, and not a resource
 claim. The cost-model gate is now 6/8 passed and 2/8 failed, with counted B7
 ledger reduction still 0.
+
+**Sprint update 18n:** `T-B1-004n` is now merged as a shared-theta
+refreshed-B7-ledger rejection gate. The new artifact
+`research/B1_B7_cone01_shared_theta_refreshed_b7_ledger_gate.md` consumes the
+current 6/8 cost-model scaffold and the B7 `gcm_h6` FT boundary, then attempts
+CM-08 explicitly. It rejects theta sharing as a counted B7 saving because the
+cost model is unaccepted, occurrence-ledger proxy-T reduction remains 0, B7
+accepted proxy-T reduction after refresh remains 0, and the `gcm_h6` min row is
+unchanged. This is useful negative progress: the next route must either produce
+30 occurrence-removing certificates or supply a genuinely accepted physical
+model before the B7 ledger can count any resource delta.
 
 ## B8: Classical Verification of Quantum Outputs
 

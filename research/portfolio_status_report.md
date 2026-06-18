@@ -40,7 +40,7 @@ Overall audit: PASS
 - B IDs are B1..B10: True
 - Problem IDs match attack pack: True
 - All required fields present: True
-- Maturity scores: {'B1': 52, 'B2': 48, 'B3': 30, 'B4': 25, 'B5': 27, 'B6': 21, 'B7': 49, 'B8': 37, 'B9': 13, 'B10': 50}
+- Maturity scores: {'B1': 53, 'B2': 48, 'B3': 30, 'B4': 25, 'B5': 27, 'B6': 21, 'B7': 50, 'B8': 37, 'B9': 13, 'B10': 50}
 
 ## Technical Resolution Program
 
@@ -398,6 +398,22 @@ Overall audit: PASS
 - Rewrite/resource/semantic/physical/B7-ledger claims: False / False / False / False / False
 - Validation errors: 0
 
+## B1/B7 cone_01 Shared-Theta Refreshed-B7-Ledger Gate
+
+- Exists: True
+- Status: cone01_shared_theta_refreshed_b7_ledger_rejected
+- Refresh attempted / CM-08 passed: True / False
+- B7 accepts theta sharing / cost model accepted: False / False
+- Cost-model gates passed / failed: 6 / 2
+- Occurrence removals / occurrence proxy-T reduction: 0 / 0
+- B7 proxy-T reduction before / after refresh: 0 / 0
+- Target / missing proxy-T reduction: 600 / 600
+- gcm_h6 current T ledger / target max: 6224 / 5632
+- gcm_h6 min row improved: False
+- Physical layout / factory schedule / device validation: False / False / False
+- Rewrite/resource/semantic/physical/B7-ledger claims: False / False / False / False / False
+- Validation errors: 0
+
 ## B1/B7 cone_01 Theta-Sharing Cost-Model Gate
 
 - Exists: True
@@ -414,6 +430,8 @@ Overall audit: PASS
 - Error-budget correlation groups / max correlated occurrences: 4 / 16
 - Independent-baseline gate / gross delta: True / 620
 - Double-counted occurrences / proxy-T: 0 / 0
+- Refreshed-B7-ledger attempt / passed: True / False
+- B7 accepts theta sharing / refreshed proxy-T reduction / gcm_h6 improved: False / 0 / False
 - Acceptance gates passed / failed / total: 6 / 2 / 8
 - Cost model accepted: False
 - B7 ledger proxy-T reduction after cost model: 0

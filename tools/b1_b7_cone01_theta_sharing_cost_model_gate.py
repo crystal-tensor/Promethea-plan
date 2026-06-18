@@ -19,7 +19,7 @@ from typing import Any
 
 METHOD = "b1_b7_cone01_theta_sharing_cost_model_gate_v0"
 STATUS = "cone01_theta_sharing_cost_model_not_accepted"
-MODEL_STATUS = "physical_theta_sharing_cost_model_requirements_independent_baseline_scaffolded"
+MODEL_STATUS = "physical_theta_sharing_cost_model_requirements_refreshed_ledger_rejected"
 VERSION = "0.1"
 
 
@@ -54,6 +54,7 @@ def build_requirement_rows(
     factory_summary: dict[str, Any] | None,
     error_budget_summary: dict[str, Any] | None,
     independent_baseline_summary: dict[str, Any] | None,
+    refreshed_b7_ledger_summary: dict[str, Any] | None,
 ) -> list[dict[str, Any]]:
     """Return current acceptance gates for a physical theta-sharing model."""
     shared_object_count = 0
@@ -68,6 +69,8 @@ def build_requirement_rows(
     error_budget_gate_passed = False
     independent_baseline_current_evidence = False
     independent_baseline_gate_passed = False
+    refreshed_b7_ledger_current_evidence = False
+    refreshed_b7_ledger_gate_passed = False
     if shared_summary:
         shared_object_count = int(shared_summary["shared_synthesis_object_count"])
         shared_object_gate_passed = (
@@ -142,6 +145,17 @@ def build_requirement_rows(
             and independent_baseline_summary["independent_physical_baseline_present"] is False
             and independent_baseline_summary["device_calibrated_baseline_present"] is False
             and independent_baseline_summary["refreshed_b7_ledger_present"] is False
+        )
+    if refreshed_b7_ledger_summary:
+        refreshed_b7_ledger_current_evidence = bool(
+            refreshed_b7_ledger_summary["b7_ledger_refresh_attempted"]
+        )
+        refreshed_b7_ledger_gate_passed = (
+            refreshed_b7_ledger_summary["cm08_refreshed_b7_ledger_gate_passed"] is True
+            and refreshed_b7_ledger_summary["b7_ledger_accepts_theta_sharing"] is True
+            and int(refreshed_b7_ledger_summary["b7_ledger_proxy_t_reduction_after_refresh"])
+            >= int(theta_summary["target_proxy_t_ledger_reduction_for_gcm_h6_1_20"])
+            and refreshed_b7_ledger_summary["gcm_h6_min_row_improved"] is True
         )
     return [
         {
@@ -236,10 +250,16 @@ def build_requirement_rows(
         {
             "gate_id": "CM-08",
             "requirement": "A refreshed B7 FT ledger that accepts the model and improves the gcm_h6 min row.",
-            "current_evidence": False,
+            "current_evidence": refreshed_b7_ledger_current_evidence,
             "required_evidence": True,
-            "passed": False,
-            "failure_reason": "No refreshed B7 ledger accepts theta sharing as a physical saving.",
+            "passed": refreshed_b7_ledger_gate_passed,
+            "failure_reason": (
+                "A refreshed-B7-ledger attempt is now explicit, but it rejects theta sharing: "
+                "the cost model is unaccepted, accepted B7 proxy-T reduction remains 0, "
+                "and the gcm_h6 min row is unchanged."
+                if refreshed_b7_ledger_current_evidence
+                else "No refreshed B7 ledger accepts theta sharing as a physical saving."
+            ),
         },
     ]
 
@@ -254,6 +274,9 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
     independent_baseline_gate = (
         read_json(args.independent_baseline_gate) if args.independent_baseline_gate.exists() else None
     )
+    refreshed_b7_ledger_gate = (
+        read_json(args.refreshed_b7_ledger_gate) if args.refreshed_b7_ledger_gate.exists() else None
+    )
     theta_summary = theta_gate["summary"]
     shared_summary = shared_object_gate["summary"] if shared_object_gate else None
     replay_summary = replay_gate["summary"] if replay_gate else None
@@ -261,6 +284,7 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
     factory_summary = factory_gate["summary"] if factory_gate else None
     error_budget_summary = error_budget_gate["summary"] if error_budget_gate else None
     independent_baseline_summary = independent_baseline_gate["summary"] if independent_baseline_gate else None
+    refreshed_b7_ledger_summary = refreshed_b7_ledger_gate["summary"] if refreshed_b7_ledger_gate else None
     rows = build_requirement_rows(
         theta_summary,
         shared_summary,
@@ -269,6 +293,7 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
         factory_summary,
         error_budget_summary,
         independent_baseline_summary,
+        refreshed_b7_ledger_summary,
     )
     passed_count = sum(1 for row in rows if row["passed"])
     failed_count = len(rows) - passed_count
@@ -306,6 +331,9 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
         ),
         "source_shared_theta_independent_baseline_gate": (
             display_path(args.independent_baseline_gate) if independent_baseline_gate else None
+        ),
+        "source_shared_theta_refreshed_b7_ledger_gate": (
+            display_path(args.refreshed_b7_ledger_gate) if refreshed_b7_ledger_gate else None
         ),
         "workload": "qasmbench_medium_exact/gcm_h6.qasm",
         "summary": {
@@ -402,13 +430,42 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
                 if independent_baseline_summary
                 else 0
             ),
+            "shared_theta_refreshed_b7_ledger_gate_passed": (
+                bool(refreshed_b7_ledger_summary["cm08_refreshed_b7_ledger_gate_passed"])
+                if refreshed_b7_ledger_summary
+                else False
+            ),
+            "shared_theta_b7_ledger_refresh_attempted": (
+                bool(refreshed_b7_ledger_summary["b7_ledger_refresh_attempted"])
+                if refreshed_b7_ledger_summary
+                else False
+            ),
+            "shared_theta_b7_ledger_accepts_theta_sharing": (
+                bool(refreshed_b7_ledger_summary["b7_ledger_accepts_theta_sharing"])
+                if refreshed_b7_ledger_summary
+                else False
+            ),
+            "shared_theta_b7_ledger_proxy_t_reduction_after_refresh": (
+                int(refreshed_b7_ledger_summary["b7_ledger_proxy_t_reduction_after_refresh"])
+                if refreshed_b7_ledger_summary
+                else 0
+            ),
+            "shared_theta_gcm_h6_min_row_improved": (
+                bool(refreshed_b7_ledger_summary["gcm_h6_min_row_improved"])
+                if refreshed_b7_ledger_summary
+                else False
+            ),
             "cost_model_acceptance_gate_count": len(rows),
             "cost_model_acceptance_pass_count": passed_count,
             "cost_model_acceptance_fail_count": failed_count,
             "cost_model_accepted": False,
             "occurrence_ledger_removed_occurrences": int(theta_summary["occurrence_ledger_removed_occurrences"]),
             "occurrence_ledger_proxy_t_reduction": int(theta_summary["occurrence_ledger_proxy_t_reduction"]),
-            "b7_ledger_proxy_t_reduction_after_cost_model": 0,
+            "b7_ledger_proxy_t_reduction_after_cost_model": (
+                int(refreshed_b7_ledger_summary["b7_ledger_proxy_t_reduction_after_refresh"])
+                if refreshed_b7_ledger_summary
+                else 0
+            ),
             "additional_occurrence_certificates_required": int(
                 theta_summary["additional_occurrence_certificates_required"]
             ),
@@ -434,7 +491,8 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
                 "objects. A factory-amortization scaffold accounts for the 35-to-4 "
                 "compilation-pressure change, a shared-error budget scaffold allocates "
                 "error across the four shared-theta objects, and an independent accounting "
-                "baseline checks that the gross cache signal is not double-counted. The "
+                "baseline checks that the gross cache signal is not double-counted. A "
+                "refreshed-B7-ledger attempt is now explicit and rejects the current model. The "
                 "physical theta-sharing cost model is still not acceptable under the "
                 "current evidence; the optimistic 620 proxy-T cache signal remains unaccepted."
             ),
@@ -444,12 +502,13 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
                 "The logical layout scaffold is not a physical device layout.",
                 "The shared-error budget scaffold is not device-calibrated or independently validated.",
                 "The independent accounting baseline is not an independent physical device baseline.",
+                "The refreshed-B7-ledger attempt rejects theta sharing as a counted B7 saving.",
                 "No B7 min-row resource improvement is counted.",
             ],
             "next_gate": (
                 "A future PR must produce 30 occurrence-removing certificates, or satisfy "
-                "CM-08 after the existing CM-02/CM-03/CM-04/CM-05/CM-06/CM-07 scaffold, before "
-                "any B7 resource delta can be counted."
+                "CM-01 and a passing CM-08 after the existing CM-02/CM-03/CM-04/CM-05/CM-06/CM-07 "
+                "scaffold, before any B7 resource delta can be counted."
             ),
         },
     }
@@ -525,6 +584,16 @@ def validate(payload: dict[str, Any]) -> list[str]:
         errors.append("expected zero double-counted shared theta proxy-T pressure")
     if summary["shared_theta_independent_baseline_gross_proxy_t_delta"] != 620:
         errors.append("expected independent-baseline gross proxy-T delta of 620")
+    if summary["shared_theta_b7_ledger_refresh_attempted"] is not True:
+        errors.append("shared theta refreshed B7 ledger attempt should now be explicit")
+    if summary["shared_theta_refreshed_b7_ledger_gate_passed"] is not False:
+        errors.append("refreshed B7 ledger gate must remain failed")
+    if summary["shared_theta_b7_ledger_accepts_theta_sharing"] is not False:
+        errors.append("B7 ledger must reject theta sharing under current evidence")
+    if summary["shared_theta_b7_ledger_proxy_t_reduction_after_refresh"] != 0:
+        errors.append("refreshed B7 ledger proxy-T reduction must remain 0")
+    if summary["shared_theta_gcm_h6_min_row_improved"] is not False:
+        errors.append("gcm_h6 min row must not improve under current evidence")
     if summary["cost_model_acceptance_pass_count"] != 6:
         errors.append("current cost-model acceptance passes must be 6")
     if summary["cost_model_acceptance_fail_count"] != 2:
@@ -569,9 +638,10 @@ def markdown(payload: dict[str, Any]) -> str:
         "layout/routing scaffold assigns anchors and route packets. A factory-amortization "
         "scaffold now accounts for the 35-to-4 compilation-pressure change, a shared-error "
         "budget scaffold allocates the object-level synthesis-error budget, and an "
-        "independent accounting baseline checks for double-counting. The current "
+        "independent accounting baseline checks for double-counting. A refreshed-B7-ledger "
+        "attempt is now explicit and rejects theta sharing under the current evidence. The current "
         "evidence still lacks occurrence-removing certificates, physical device "
-        "layout, device-calibrated physical validation, and refreshed B7 ledger.",
+        "layout, device-calibrated physical validation, and a passing refreshed B7 ledger.",
         "",
         "It is not a rewrite certificate, not a resource-saving claim, and not a "
         "physical cost-model acceptance.",
@@ -603,6 +673,9 @@ def markdown(payload: dict[str, Any]) -> str:
         f"- Independent-baseline evidence present: `{summary['shared_theta_independent_baseline_present']}`",
         f"- Double-counted occurrences / proxy-T: `{summary['shared_theta_double_counted_occurrence_count']}` / `{summary['shared_theta_double_counted_proxy_t_pressure']}`",
         f"- Independent-baseline gross proxy-T delta: `{summary['shared_theta_independent_baseline_gross_proxy_t_delta']}`",
+        f"- Refreshed-B7-ledger attempt / passed: `{summary['shared_theta_b7_ledger_refresh_attempted']}` / `{summary['shared_theta_refreshed_b7_ledger_gate_passed']}`",
+        f"- B7 accepts theta sharing: `{summary['shared_theta_b7_ledger_accepts_theta_sharing']}`",
+        f"- Refreshed B7 proxy-T reduction / gcm_h6 min-row improved: `{summary['shared_theta_b7_ledger_proxy_t_reduction_after_refresh']}` / `{summary['shared_theta_gcm_h6_min_row_improved']}`",
         f"- Acceptance gates passed / total: `{summary['cost_model_acceptance_pass_count']}` / `{summary['cost_model_acceptance_gate_count']}`",
         f"- Cost model accepted: `{summary['cost_model_accepted']}`",
         f"- B7 ledger proxy-T reduction after cost model: `{summary['b7_ledger_proxy_t_reduction_after_cost_model']}`",
@@ -679,6 +752,11 @@ def main() -> None:
         "--independent-baseline-gate",
         type=Path,
         default=root / "results" / "B1_B7_cone01_shared_theta_independent_baseline_gate_v0.json",
+    )
+    parser.add_argument(
+        "--refreshed-b7-ledger-gate",
+        type=Path,
+        default=root / "results" / "B1_B7_cone01_shared_theta_refreshed_b7_ledger_gate_v0.json",
     )
     parser.add_argument(
         "--markdown-output",

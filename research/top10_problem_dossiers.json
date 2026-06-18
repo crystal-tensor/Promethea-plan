@@ -29,7 +29,7 @@
         "SABRE mapping"
       ],
       "our_solution": "Proof-logged local rewrites plus measurement-aware virtual-SWAP elimination, followed by post-virtual-SWAP 1Q resynthesis to test whether B1 can also touch non-Clifford/T-resource proxies.",
-      "completed": "Shared-theta object, replay, logical layout/routing, factory-amortization, shared-error budget, and independent-baseline scaffolds are present: 4 objects, 35 replayed occurrences, 35 route packets, total/max logical hops 139/11, 35-to-4 synthesis-request sharing, 31 amortized saved compiles, gross proxy-T pressure delta 620, 1e-6 aggregate synthesis-error budget, 4 correlation groups, and 0 double-counted occurrences/proxy-T pressure. Cost-model gate is 6/8 passed and 2/8 failed, with no B7 ledger reduction.",
+    "completed": "Shared-theta object, replay, logical layout/routing, factory-amortization, shared-error budget, independent-baseline, and refreshed-B7-ledger rejection scaffolds are present: 4 objects, 35 replayed occurrences, 35 route packets, total/max logical hops 139/11, 35-to-4 synthesis-request sharing, 31 amortized saved compiles, gross proxy-T pressure delta 620, 1e-6 aggregate synthesis-error budget, 4 correlation groups, 0 double-counted occurrences/proxy-T pressure, and an explicit CM-08 rejection. Cost-model gate is 6/8 passed and 2/8 failed, with no B7 ledger reduction.",
       "remaining_steps": [
         "calibrated/live-like heavy-hex baseline",
         "dynamic circuit and measurement/reset semantics",
@@ -37,8 +37,8 @@
         "broader benchmarks",
         "independent certificate package"
       ],
-      "maturity_score": 52,
-      "remaining": "Need occurrence-removing semantic certificates or CM-08 refreshed B7 ledger before any physical theta-sharing cost model can count."
+    "maturity_score": 53,
+    "remaining": "Need occurrence-removing semantic certificates or a reversed CM-08 with accepted physical model evidence before any physical theta-sharing cost model can count."
     },
     {
       "b_id": "B2",
@@ -187,7 +187,7 @@
         "compiler-resource co-design"
       ],
       "our_solution": "Bridge B1 circuit savings and B2 target-volume assumptions into a workload-level dependency schedule, then add workload-DAG, factory-throughput, logical T-resource, FT synthesis, and occurrence-level rewrite-certification pressure tests.",
-      "completed": "B1/B7 shared-theta scaffolding now includes object proposals, replay verification, logical layout/routing packets, factory-amortization accounting, shared-error budget accounting, and independent-baseline accounting. CM-02 through CM-07 pass, cost model remains unaccepted at 6/8 passed and 2/8 failed, B7 ledger reduction 0.",
+    "completed": "B1/B7 shared-theta scaffolding now includes object proposals, replay verification, logical layout/routing packets, factory-amortization accounting, shared-error budget accounting, independent-baseline accounting, and an explicit refreshed-B7-ledger rejection. CM-02 through CM-07 pass, CM-08 fails, cost model remains unaccepted at 6/8 passed and 2/8 failed, B7 ledger reduction 0.",
       "remaining_steps": [
         "symbolic KAK/Clifford-scaffold proof, scoped obstruction, certified broader cone_01 occurrence-removing rewrite for gcm_h6 with explicit theta-carrier accounting, or the remaining CM gates for the shared-theta physical cost model after CM-02/CM-03",
         "strengthen B1 non-Clifford/T-depth optimization until a certified occurrence-removing rewrite improves min factory STV",
@@ -196,8 +196,8 @@
         "feed-forward modeling",
         "full algorithm resource ledger"
       ],
-      "maturity_score": 49,
-      "remaining": "Need physical device layout, physical factory schedule, and refreshed B7 ledger, or a certified occurrence-removing cone_01 rewrite."
+    "maturity_score": 50,
+    "remaining": "Need accepted physical device layout, physical factory schedule, device-calibrated validation, and a passing refreshed B7 ledger, or a certified occurrence-removing cone_01 rewrite."
     },
     {
       "b_id": "B8",
