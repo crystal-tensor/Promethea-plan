@@ -40,7 +40,7 @@ Overall audit: PASS
 - B IDs are B1..B10: True
 - Problem IDs match attack pack: True
 - All required fields present: True
-- Maturity scores: {'B1': 48, 'B2': 48, 'B3': 30, 'B4': 25, 'B5': 27, 'B6': 21, 'B7': 45, 'B8': 37, 'B9': 13, 'B10': 50}
+- Maturity scores: {'B1': 50, 'B2': 48, 'B3': 30, 'B4': 25, 'B5': 27, 'B6': 21, 'B7': 47, 'B8': 37, 'B9': 13, 'B10': 50}
 
 ## Technical Resolution Program
 
@@ -371,6 +371,20 @@ Overall audit: PASS
 - Rewrite/resource/semantic/physical/B7-ledger claims: False / False / False / False / False
 - Validation errors: 0
 
+## B1/B7 cone_01 Shared-Theta Error-Budget Gate
+
+- Exists: True
+- Status: cone01_shared_theta_error_budget_scaffold
+- Candidate windows / shared objects / routed occurrences: 35 / 4 / 35
+- Total / per-object / per-occurrence error budget: 1e-06 / 2.5e-07 / 1e-08
+- Aggregate occurrence / object error budget: 3.5e-07 / 1e-06
+- Correlation groups / max correlated occurrences: 4 / 16
+- Shared-error gate / factory gate passed: True / True
+- Independent calibration / hardware noise / independent baseline / refreshed B7 ledger: False / False / False / False
+- Occurrence-ledger removed occurrences / proxy-T reduction: 0 / 0
+- Rewrite/resource/semantic/physical/B7-ledger claims: False / False / False / False / False
+- Validation errors: 0
+
 ## B1/B7 cone_01 Theta-Sharing Cost-Model Gate
 
 - Exists: True
@@ -383,10 +397,12 @@ Overall audit: PASS
 - Layout total / max logical hops: 139 / 11
 - Factory gate / baseline compiles / shared compiles: True / 35 / 4
 - Factory gross proxy-T delta: 620
-- Acceptance gates passed / failed / total: 4 / 4 / 8
+- Error-budget gate / total budget / aggregate occurrence budget: True / 1e-06 / 3.5e-07
+- Error-budget correlation groups / max correlated occurrences: 4 / 16
+- Acceptance gates passed / failed / total: 5 / 3 / 8
 - Cost model accepted: False
 - B7 ledger proxy-T reduction after cost model: 0
-- Additional occurrence certificates / cost-model gates required: 30 / 4
+- Additional occurrence certificates / cost-model gates required: 30 / 3
 - Rewrite/resource/semantic/physical/B7-ledger claims: False / False / False / False / False
 - Validation errors: 0
 

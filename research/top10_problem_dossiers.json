@@ -29,16 +29,16 @@
         "SABRE mapping"
       ],
       "our_solution": "Proof-logged local rewrites plus measurement-aware virtual-SWAP elimination, followed by post-virtual-SWAP 1Q resynthesis to test whether B1 can also touch non-Clifford/T-resource proxies.",
-      "completed": "Shared-theta object, replay, logical layout/routing, and factory-amortization scaffolds are present: 4 objects, 35 replayed occurrences, 35 route packets, total/max logical hops 139/11, 35-to-4 synthesis-request sharing, 31 amortized saved compiles, and gross proxy-T pressure delta 620. Cost-model gate is 4/8 passed and 4/8 failed, with no B7 ledger reduction.",
+      "completed": "Shared-theta object, replay, logical layout/routing, factory-amortization, and shared-error budget scaffolds are present: 4 objects, 35 replayed occurrences, 35 route packets, total/max logical hops 139/11, 35-to-4 synthesis-request sharing, 31 amortized saved compiles, gross proxy-T pressure delta 620, 1e-6 aggregate synthesis-error budget, and 4 correlation groups. Cost-model gate is 5/8 passed and 3/8 failed, with no B7 ledger reduction.",
       "remaining_steps": [
         "calibrated/live-like heavy-hex baseline",
         "dynamic circuit and measurement/reset semantics",
-        "broader replayable cone_01 semantic rewrite certificate, KAK/Clifford scaffold, scoped obstruction report, or CM-06/CM-07/CM-08 for the shared-theta physical cost model while explicitly carrying, sharing, or eliminating theta across at least 30 arbitrary rotation occurrences / 600 proxy-T units",
+        "broader replayable cone_01 semantic rewrite certificate, KAK/Clifford scaffold, scoped obstruction report, or CM-07/CM-08 for the shared-theta physical cost model while explicitly carrying, sharing, or eliminating theta across at least 30 arbitrary rotation occurrences / 600 proxy-T units",
         "broader benchmarks",
         "independent certificate package"
       ],
-      "maturity_score": 48,
-      "remaining": "Need occurrence-removing semantic certificates or CM-06 shared-error budget, CM-07 independent baseline, and CM-08 refreshed B7 ledger before any physical theta-sharing cost model can count."
+      "maturity_score": 50,
+      "remaining": "Need occurrence-removing semantic certificates or CM-07 independent baseline and CM-08 refreshed B7 ledger before any physical theta-sharing cost model can count."
     },
     {
       "b_id": "B2",
@@ -187,7 +187,7 @@
         "compiler-resource co-design"
       ],
       "our_solution": "Bridge B1 circuit savings and B2 target-volume assumptions into a workload-level dependency schedule, then add workload-DAG, factory-throughput, logical T-resource, FT synthesis, and occurrence-level rewrite-certification pressure tests.",
-      "completed": "B1/B7 shared-theta scaffolding now includes object proposals, replay verification, logical layout/routing packets, and factory-amortization accounting. CM-02/CM-03/CM-04/CM-05 pass, cost model remains unaccepted at 4/8 passed and 4/8 failed, B7 ledger reduction 0.",
+      "completed": "B1/B7 shared-theta scaffolding now includes object proposals, replay verification, logical layout/routing packets, factory-amortization accounting, and shared-error budget accounting. CM-02 through CM-06 pass, cost model remains unaccepted at 5/8 passed and 3/8 failed, B7 ledger reduction 0.",
       "remaining_steps": [
         "symbolic KAK/Clifford-scaffold proof, scoped obstruction, certified broader cone_01 occurrence-removing rewrite for gcm_h6 with explicit theta-carrier accounting, or the remaining CM gates for the shared-theta physical cost model after CM-02/CM-03",
         "strengthen B1 non-Clifford/T-depth optimization until a certified occurrence-removing rewrite improves min factory STV",
@@ -196,8 +196,8 @@
         "feed-forward modeling",
         "full algorithm resource ledger"
       ],
-      "maturity_score": 45,
-      "remaining": "Need physical device layout, physical factory schedule, shared-error budget, independent baseline, and refreshed B7 ledger, or a certified occurrence-removing cone_01 rewrite."
+      "maturity_score": 47,
+      "remaining": "Need physical device layout, physical factory schedule, independent baseline, and refreshed B7 ledger, or a certified occurrence-removing cone_01 rewrite."
     },
     {
       "b_id": "B8",

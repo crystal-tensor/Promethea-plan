@@ -816,7 +816,7 @@ factory-amortization ledger, shared-error budget, independent baseline, or
 refreshed B7 ledger. The follow-up `T-B1-004h` now supplies the shared object
 proposal, `T-B1-004i` adds a line-level replay verifier, and `T-B1-004j` adds a
 logical layout/routing scaffold. `T-B1-004k` now adds a factory-amortization
-scaffold, so the scaffold is now 4/8 gates passed. The cost model is still not
+scaffold, and `T-B1-004l` adds a shared-error budget scaffold, so the scaffold is now 5/8 gates passed. The cost model is still not
 accepted and B7 ledger reduction remains 0.
 
 **Sprint update 18i:** `T-B1-004h` is now merged as a shared-theta synthesis object
@@ -830,8 +830,10 @@ follow-up `T-B1-004j` is now merged as a logical layout/routing scaffold: all 4
 objects and all 35 occurrences receive anchor/route packets, with total/max
 logical hops 139/11. `T-B1-004k` adds a factory-amortization scaffold that
 collapses 35 baseline synthesis requests to 4 shared-object requests. The
-updated cost model is 4/8 passed, 4/8 failed; it still has no physical device
-layout, physical factory schedule, shared-error budget, independent baseline,
+follow-up `T-B1-004l` adds a shared-error budget scaffold across the 4 shared
+objects. The updated cost model is 5/8 passed, 3/8 failed; it still has no
+physical device layout, physical factory schedule, device-calibrated error
+validation, independent baseline,
 refreshed B7 ledger, or occurrence-removing certificates. The cost model remains
 unaccepted and B7 ledger reduction remains 0.
 
@@ -855,6 +857,17 @@ a scaffold only. It is not a physical factory schedule, not a shared-error
 budget, not an independent baseline, not a refreshed B7 ledger, and not a
 resource claim. The cost-model gate is now 4/8 passed and 4/8 failed, with
 counted B7 ledger reduction still 0.
+
+**Sprint update 18l:** `T-B1-004l` is now merged as a shared-theta
+error-budget scaffold. The new artifact
+`research/B1_B7_cone01_shared_theta_error_budget_gate.md` consumes the
+factory-amortized shared-theta objects and allocates a scaffold-level
+1e-6 aggregate synthesis-error budget: 2.5e-7 per shared object, 1e-8 per
+occurrence, 4 correlation groups, and max correlated occurrence count 16.
+This satisfies CM-06 as bookkeeping only. It is not device-calibrated, not
+independently validated, not an independent physical baseline, not a refreshed
+B7 ledger, and not a resource claim. The cost-model gate is now 5/8 passed and
+3/8 failed, with counted B7 ledger reduction still 0.
 
 ## B8: Classical Verification of Quantum Outputs
 

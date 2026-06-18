@@ -154,6 +154,9 @@ def audit(root: Path) -> dict:
     b1_b7_cone01_shared_theta_factory_amortization_path = (
         results / "B1_B7_cone01_shared_theta_factory_amortization_gate_v0.json"
     )
+    b1_b7_cone01_shared_theta_error_budget_path = (
+        results / "B1_B7_cone01_shared_theta_error_budget_gate_v0.json"
+    )
     b1_b7_cone01_theta_sharing_cost_model_path = (
         results / "B1_B7_cone01_theta_sharing_cost_model_gate_v0.json"
     )
@@ -643,6 +646,9 @@ def audit(root: Path) -> dict:
     )
     b1_b7_cone01_shared_theta_factory_amortization_manifest = current_results.get(
         "b1_b7_cone01_shared_theta_factory_amortization_gate_v0"
+    )
+    b1_b7_cone01_shared_theta_error_budget_manifest = current_results.get(
+        "b1_b7_cone01_shared_theta_error_budget_gate_v0"
     )
     b1_b7_cone01_theta_sharing_cost_model_manifest = current_results.get(
         "b1_b7_cone01_theta_sharing_cost_model_gate_v0"
@@ -2301,6 +2307,152 @@ def audit(root: Path) -> dict:
             f"{b1_b7_cone01_shared_theta_factory_amortization_path}"
         )
 
+    b1_b7_cone01_shared_theta_error_budget = {
+        "path": str(b1_b7_cone01_shared_theta_error_budget_path),
+        "exists": b1_b7_cone01_shared_theta_error_budget_path.exists(),
+    }
+    if not b1_b7_cone01_shared_theta_error_budget_manifest:
+        errors.append("B1 manifest missing current result: b1_b7_cone01_shared_theta_error_budget_gate_v0")
+    else:
+        if (
+            b1_b7_cone01_shared_theta_error_budget_manifest.get("status")
+            != "cone01_shared_theta_error_budget_scaffold"
+        ):
+            errors.append("B1/B7 cone_01 shared-theta error-budget gate must remain a scaffold")
+        for field in ["report", "markdown_report"]:
+            value = b1_b7_cone01_shared_theta_error_budget_manifest.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(f"B1/B7 cone_01 shared-theta error-budget gate missing existing {field} path: {value}")
+    if b1_b7_cone01_shared_theta_error_budget_path.exists():
+        error_budget_payload = json.loads(read(b1_b7_cone01_shared_theta_error_budget_path))
+        error_budget_summary = error_budget_payload.get("summary", {})
+        error_budget_claims = error_budget_payload.get("claim_boundary", {})
+        b1_b7_cone01_shared_theta_error_budget.update(
+            {
+                "status": error_budget_payload.get("status"),
+                "model_status": error_budget_payload.get("model_status"),
+                "method": error_budget_payload.get("method"),
+                "workload": error_budget_payload.get("workload"),
+                "candidate_window_count": error_budget_summary.get("candidate_window_count"),
+                "shared_synthesis_object_count": error_budget_summary.get("shared_synthesis_object_count"),
+                "layout_routed_occurrence_count": error_budget_summary.get("layout_routed_occurrence_count"),
+                "distinct_theta_group_count": error_budget_summary.get("distinct_theta_group_count"),
+                "duplicate_theta_occurrence_count": error_budget_summary.get("duplicate_theta_occurrence_count"),
+                "total_shared_theta_error_budget": error_budget_summary.get("total_shared_theta_error_budget"),
+                "per_object_error_budget": error_budget_summary.get("per_object_error_budget"),
+                "per_occurrence_error_budget": error_budget_summary.get("per_occurrence_error_budget"),
+                "aggregate_per_occurrence_error_budget": error_budget_summary.get(
+                    "aggregate_per_occurrence_error_budget"
+                ),
+                "aggregate_object_error_budget": error_budget_summary.get("aggregate_object_error_budget"),
+                "unused_total_error_budget": error_budget_summary.get("unused_total_error_budget"),
+                "correlation_group_count": error_budget_summary.get("correlation_group_count"),
+                "max_correlated_occurrence_count": error_budget_summary.get("max_correlated_occurrence_count"),
+                "shared_error_budget_gate_passed": error_budget_summary.get("shared_error_budget_gate_passed"),
+                "factory_amortization_gate_passed": error_budget_summary.get("factory_amortization_gate_passed"),
+                "independent_calibration_present": error_budget_summary.get("independent_calibration_present"),
+                "hardware_noise_model_present": error_budget_summary.get("hardware_noise_model_present"),
+                "independent_baseline_present": error_budget_summary.get("independent_baseline_present"),
+                "refreshed_b7_ledger_present": error_budget_summary.get("refreshed_b7_ledger_present"),
+                "occurrence_ledger_removed_occurrences": error_budget_summary.get("occurrence_ledger_removed_occurrences"),
+                "occurrence_ledger_proxy_t_reduction": error_budget_summary.get("occurrence_ledger_proxy_t_reduction"),
+                "cost_model_accepted": error_budget_summary.get("cost_model_accepted"),
+                "rewrite_claimed": error_budget_claims.get("rewrite_claimed"),
+                "resource_saving_claimed": error_budget_claims.get("resource_saving_claimed"),
+                "semantic_certificate_claimed": error_budget_claims.get("semantic_certificate_claimed"),
+                "physical_resource_reduction_claimed": error_budget_claims.get("physical_resource_reduction_claimed"),
+                "b7_ledger_improvement_claimed": error_budget_claims.get("b7_ledger_improvement_claimed"),
+                "validation_error_count": error_budget_summary.get("validation_error_count"),
+            }
+        )
+        if error_budget_payload.get("benchmark_id") != "B1":
+            errors.append("B1/B7 cone_01 shared-theta error-budget gate report must have benchmark_id B1")
+        if error_budget_payload.get("method") != "b1_b7_cone01_shared_theta_error_budget_gate_v0":
+            errors.append("B1/B7 cone_01 shared-theta error-budget gate method mismatch")
+        if error_budget_payload.get("status") != "cone01_shared_theta_error_budget_scaffold":
+            errors.append("B1/B7 cone_01 shared-theta error-budget gate status mismatch")
+        if error_budget_payload.get("model_status") != "shared_error_budget_scaffold_not_physical_cost_model":
+            errors.append("B1/B7 cone_01 shared-theta error-budget gate model_status mismatch")
+        for field in [
+            "candidate_window_count",
+            "shared_synthesis_object_count",
+            "layout_routed_occurrence_count",
+            "distinct_theta_group_count",
+            "duplicate_theta_occurrence_count",
+            "total_shared_theta_error_budget",
+            "per_object_error_budget",
+            "per_occurrence_error_budget",
+            "aggregate_per_occurrence_error_budget",
+            "aggregate_object_error_budget",
+            "unused_total_error_budget",
+            "correlation_group_count",
+            "max_correlated_occurrence_count",
+            "shared_error_budget_gate_passed",
+            "factory_amortization_gate_passed",
+            "independent_calibration_present",
+            "hardware_noise_model_present",
+            "independent_baseline_present",
+            "refreshed_b7_ledger_present",
+            "occurrence_ledger_removed_occurrences",
+            "occurrence_ledger_proxy_t_reduction",
+            "cost_model_accepted",
+            "rewrite_claimed",
+            "resource_saving_claimed",
+            "semantic_certificate_claimed",
+            "physical_resource_reduction_claimed",
+            "b7_ledger_improvement_claimed",
+        ]:
+            if error_budget_summary.get(field) != b1_b7_cone01_shared_theta_error_budget_manifest.get(field):
+                errors.append(f"B1/B7 cone_01 shared-theta error-budget gate {field} mismatch")
+        expected_error_budget_values = {
+            "candidate_window_count": 35,
+            "shared_synthesis_object_count": 4,
+            "layout_routed_occurrence_count": 35,
+            "distinct_theta_group_count": 4,
+            "duplicate_theta_occurrence_count": 31,
+            "total_shared_theta_error_budget": 1.0e-6,
+            "per_object_error_budget": 2.5e-7,
+            "per_occurrence_error_budget": 1.0e-8,
+            "aggregate_per_occurrence_error_budget": 3.5e-7,
+            "aggregate_object_error_budget": 1.0e-6,
+            "unused_total_error_budget": 0.0,
+            "correlation_group_count": 4,
+            "max_correlated_occurrence_count": 16,
+        }
+        for field, value in expected_error_budget_values.items():
+            if error_budget_summary.get(field) != value:
+                errors.append(f"B1/B7 cone_01 shared-theta error-budget gate {field} must be {value}")
+        if error_budget_summary.get("shared_error_budget_gate_passed") is not True:
+            errors.append("B1/B7 cone_01 shared-theta error-budget gate should pass")
+        if error_budget_summary.get("factory_amortization_gate_passed") is not True:
+            errors.append("B1/B7 cone_01 shared-theta error-budget gate should depend on passed factory gate")
+        for field in [
+            "independent_calibration_present",
+            "hardware_noise_model_present",
+            "independent_baseline_present",
+            "refreshed_b7_ledger_present",
+            "cost_model_accepted",
+            "rewrite_claimed",
+            "resource_saving_claimed",
+            "semantic_certificate_claimed",
+            "physical_resource_reduction_claimed",
+            "b7_ledger_improvement_claimed",
+        ]:
+            if error_budget_summary.get(field) is not False:
+                errors.append(f"B1/B7 cone_01 shared-theta error-budget gate summary must not claim {field}")
+            if field in error_budget_claims and error_budget_claims.get(field) is not False:
+                errors.append(f"B1/B7 cone_01 shared-theta error-budget gate must not claim {field}")
+        for field in ["occurrence_ledger_removed_occurrences", "occurrence_ledger_proxy_t_reduction"]:
+            if error_budget_summary.get(field) != 0:
+                errors.append(f"B1/B7 cone_01 shared-theta error-budget gate {field} must remain 0")
+        if error_budget_summary.get("validation_error_count") != 0:
+            errors.append("B1/B7 cone_01 shared-theta error-budget gate validation errors must remain zero")
+    else:
+        errors.append(
+            f"missing B1/B7 cone_01 shared-theta error-budget gate report: "
+            f"{b1_b7_cone01_shared_theta_error_budget_path}"
+        )
+
     b1_b7_cone01_theta_sharing_cost_model = {
         "path": str(b1_b7_cone01_theta_sharing_cost_model_path),
         "exists": b1_b7_cone01_theta_sharing_cost_model_path.exists(),
@@ -2372,6 +2524,19 @@ def audit(root: Path) -> dict:
                 "shared_theta_factory_gross_proxy_t_delta": cost_summary.get(
                     "shared_theta_factory_gross_proxy_t_delta"
                 ),
+                "shared_theta_error_budget_gate_passed": cost_summary.get(
+                    "shared_theta_error_budget_gate_passed"
+                ),
+                "shared_theta_total_error_budget": cost_summary.get("shared_theta_total_error_budget"),
+                "shared_theta_aggregate_per_occurrence_error_budget": cost_summary.get(
+                    "shared_theta_aggregate_per_occurrence_error_budget"
+                ),
+                "shared_theta_correlation_group_count": cost_summary.get(
+                    "shared_theta_correlation_group_count"
+                ),
+                "shared_theta_max_correlated_occurrence_count": cost_summary.get(
+                    "shared_theta_max_correlated_occurrence_count"
+                ),
                 "cost_model_acceptance_gate_count": cost_summary.get("cost_model_acceptance_gate_count"),
                 "cost_model_acceptance_pass_count": cost_summary.get("cost_model_acceptance_pass_count"),
                 "cost_model_acceptance_fail_count": cost_summary.get("cost_model_acceptance_fail_count"),
@@ -2401,7 +2566,7 @@ def audit(root: Path) -> dict:
             errors.append("B1/B7 cone_01 theta-sharing cost-model gate method mismatch")
         if cost_payload.get("status") != "cone01_theta_sharing_cost_model_not_accepted":
             errors.append("B1/B7 cone_01 theta-sharing cost-model gate status mismatch")
-        if cost_payload.get("model_status") != "physical_theta_sharing_cost_model_requirements_factory_scaffolded":
+        if cost_payload.get("model_status") != "physical_theta_sharing_cost_model_requirements_error_budget_scaffolded":
             errors.append("B1/B7 cone_01 theta-sharing cost-model gate model_status mismatch")
         for field in [
             "candidate_window_count",
@@ -2425,6 +2590,11 @@ def audit(root: Path) -> dict:
             "shared_theta_factory_baseline_compilation_count",
             "shared_theta_factory_shared_object_compilation_count",
             "shared_theta_factory_gross_proxy_t_delta",
+            "shared_theta_error_budget_gate_passed",
+            "shared_theta_total_error_budget",
+            "shared_theta_aggregate_per_occurrence_error_budget",
+            "shared_theta_correlation_group_count",
+            "shared_theta_max_correlated_occurrence_count",
             "cost_model_acceptance_gate_count",
             "cost_model_acceptance_pass_count",
             "cost_model_acceptance_fail_count",
@@ -2482,10 +2652,20 @@ def audit(root: Path) -> dict:
             errors.append("B1/B7 cone_01 theta-sharing cost-model gate must see 4 shared factory requests")
         if cost_summary.get("shared_theta_factory_gross_proxy_t_delta") != 620:
             errors.append("B1/B7 cone_01 theta-sharing cost-model gate must see 620 gross factory proxy-T delta")
-        if cost_summary.get("cost_model_acceptance_pass_count") != 4:
-            errors.append("B1/B7 cone_01 theta-sharing cost-model gate pass count must now be 4")
-        if cost_summary.get("cost_model_acceptance_fail_count") != 4:
-            errors.append("B1/B7 cone_01 theta-sharing cost-model gate fail count must now be 4")
+        if cost_summary.get("shared_theta_error_budget_gate_passed") is not True:
+            errors.append("B1/B7 cone_01 theta-sharing cost-model gate CM-06 error-budget evidence must pass")
+        if cost_summary.get("shared_theta_total_error_budget") != 1.0e-6:
+            errors.append("B1/B7 cone_01 theta-sharing cost-model gate must see total error budget 1e-6")
+        if cost_summary.get("shared_theta_aggregate_per_occurrence_error_budget") != 3.5e-7:
+            errors.append("B1/B7 cone_01 theta-sharing cost-model gate must see aggregate occurrence error budget 3.5e-7")
+        if cost_summary.get("shared_theta_correlation_group_count") != 4:
+            errors.append("B1/B7 cone_01 theta-sharing cost-model gate must see 4 correlation groups")
+        if cost_summary.get("shared_theta_max_correlated_occurrence_count") != 16:
+            errors.append("B1/B7 cone_01 theta-sharing cost-model gate must see max correlated occurrence count 16")
+        if cost_summary.get("cost_model_acceptance_pass_count") != 5:
+            errors.append("B1/B7 cone_01 theta-sharing cost-model gate pass count must now be 5")
+        if cost_summary.get("cost_model_acceptance_fail_count") != 3:
+            errors.append("B1/B7 cone_01 theta-sharing cost-model gate fail count must now be 3")
         if cost_summary.get("cost_model_accepted") is not False:
             errors.append("B1/B7 cone_01 theta-sharing cost model must not be accepted")
         if cost_summary.get("b7_ledger_proxy_t_reduction_after_cost_model") != 0:
@@ -10808,6 +10988,7 @@ def audit(root: Path) -> dict:
             "b7_cone01_shared_theta_replay_verifier_gate": b1_b7_cone01_shared_theta_replay_verifier,
             "b7_cone01_shared_theta_layout_routing_gate": b1_b7_cone01_shared_theta_layout_routing,
             "b7_cone01_shared_theta_factory_amortization_gate": b1_b7_cone01_shared_theta_factory_amortization,
+            "b7_cone01_shared_theta_error_budget_gate": b1_b7_cone01_shared_theta_error_budget,
             "b7_cone01_theta_sharing_cost_model_gate": b1_b7_cone01_theta_sharing_cost_model,
             "synthetic_noise_proxy": b1_synthetic_noise,
         },
@@ -10990,6 +11171,9 @@ def audit(root: Path) -> dict:
             ),
             "b1_b7_cone01_shared_theta_factory_amortization_gate": str(
                 b1_b7_cone01_shared_theta_factory_amortization_path
+            ),
+            "b1_b7_cone01_shared_theta_error_budget_gate": str(
+                b1_b7_cone01_shared_theta_error_budget_path
             ),
             "b1_b7_cone01_theta_sharing_cost_model_gate": str(
                 b1_b7_cone01_theta_sharing_cost_model_path
@@ -11565,6 +11749,20 @@ def markdown_report(report: dict) -> str:
             f"- Rewrite/resource/semantic/physical/B7-ledger claims: {report['b1']['b7_cone01_shared_theta_factory_amortization_gate'].get('rewrite_claimed')} / {report['b1']['b7_cone01_shared_theta_factory_amortization_gate'].get('resource_saving_claimed')} / {report['b1']['b7_cone01_shared_theta_factory_amortization_gate'].get('semantic_certificate_claimed')} / {report['b1']['b7_cone01_shared_theta_factory_amortization_gate'].get('physical_resource_reduction_claimed')} / {report['b1']['b7_cone01_shared_theta_factory_amortization_gate'].get('b7_ledger_improvement_claimed')}",
             f"- Validation errors: {report['b1']['b7_cone01_shared_theta_factory_amortization_gate'].get('validation_error_count')}",
             "",
+            "## B1/B7 cone_01 Shared-Theta Error-Budget Gate",
+            "",
+            f"- Exists: {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('exists')}",
+            f"- Status: {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('status')}",
+            f"- Candidate windows / shared objects / routed occurrences: {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('candidate_window_count')} / {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('shared_synthesis_object_count')} / {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('layout_routed_occurrence_count')}",
+            f"- Total / per-object / per-occurrence error budget: {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('total_shared_theta_error_budget')} / {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('per_object_error_budget')} / {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('per_occurrence_error_budget')}",
+            f"- Aggregate occurrence / object error budget: {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('aggregate_per_occurrence_error_budget')} / {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('aggregate_object_error_budget')}",
+            f"- Correlation groups / max correlated occurrences: {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('correlation_group_count')} / {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('max_correlated_occurrence_count')}",
+            f"- Shared-error gate / factory gate passed: {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('shared_error_budget_gate_passed')} / {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('factory_amortization_gate_passed')}",
+            f"- Independent calibration / hardware noise / independent baseline / refreshed B7 ledger: {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('independent_calibration_present')} / {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('hardware_noise_model_present')} / {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('independent_baseline_present')} / {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('refreshed_b7_ledger_present')}",
+            f"- Occurrence-ledger removed occurrences / proxy-T reduction: {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('occurrence_ledger_removed_occurrences')} / {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('occurrence_ledger_proxy_t_reduction')}",
+            f"- Rewrite/resource/semantic/physical/B7-ledger claims: {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('rewrite_claimed')} / {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('resource_saving_claimed')} / {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('semantic_certificate_claimed')} / {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('physical_resource_reduction_claimed')} / {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('b7_ledger_improvement_claimed')}",
+            f"- Validation errors: {report['b1']['b7_cone01_shared_theta_error_budget_gate'].get('validation_error_count')}",
+            "",
             "## B1/B7 cone_01 Theta-Sharing Cost-Model Gate",
             "",
             f"- Exists: {report['b1']['b7_cone01_theta_sharing_cost_model_gate'].get('exists')}",
@@ -11577,6 +11775,8 @@ def markdown_report(report: dict) -> str:
             f"- Layout total / max logical hops: {report['b1']['b7_cone01_theta_sharing_cost_model_gate'].get('shared_theta_layout_total_logical_hop_count')} / {report['b1']['b7_cone01_theta_sharing_cost_model_gate'].get('shared_theta_layout_max_logical_hop_count')}",
             f"- Factory gate / baseline compiles / shared compiles: {report['b1']['b7_cone01_theta_sharing_cost_model_gate'].get('shared_theta_factory_amortization_gate_passed')} / {report['b1']['b7_cone01_theta_sharing_cost_model_gate'].get('shared_theta_factory_baseline_compilation_count')} / {report['b1']['b7_cone01_theta_sharing_cost_model_gate'].get('shared_theta_factory_shared_object_compilation_count')}",
             f"- Factory gross proxy-T delta: {report['b1']['b7_cone01_theta_sharing_cost_model_gate'].get('shared_theta_factory_gross_proxy_t_delta')}",
+            f"- Error-budget gate / total budget / aggregate occurrence budget: {report['b1']['b7_cone01_theta_sharing_cost_model_gate'].get('shared_theta_error_budget_gate_passed')} / {report['b1']['b7_cone01_theta_sharing_cost_model_gate'].get('shared_theta_total_error_budget')} / {report['b1']['b7_cone01_theta_sharing_cost_model_gate'].get('shared_theta_aggregate_per_occurrence_error_budget')}",
+            f"- Error-budget correlation groups / max correlated occurrences: {report['b1']['b7_cone01_theta_sharing_cost_model_gate'].get('shared_theta_correlation_group_count')} / {report['b1']['b7_cone01_theta_sharing_cost_model_gate'].get('shared_theta_max_correlated_occurrence_count')}",
             f"- Acceptance gates passed / failed / total: {report['b1']['b7_cone01_theta_sharing_cost_model_gate'].get('cost_model_acceptance_pass_count')} / {report['b1']['b7_cone01_theta_sharing_cost_model_gate'].get('cost_model_acceptance_fail_count')} / {report['b1']['b7_cone01_theta_sharing_cost_model_gate'].get('cost_model_acceptance_gate_count')}",
             f"- Cost model accepted: {report['b1']['b7_cone01_theta_sharing_cost_model_gate'].get('cost_model_accepted')}",
             f"- B7 ledger proxy-T reduction after cost model: {report['b1']['b7_cone01_theta_sharing_cost_model_gate'].get('b7_ledger_proxy_t_reduction_after_cost_model')}",
