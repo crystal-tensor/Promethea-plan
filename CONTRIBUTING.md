@@ -54,13 +54,14 @@ Run the checks that match your PR:
 ```bash
 python3 -m py_compile tools/<changed_script>.py
 python3 -m json.tool results/<changed_result>.json >/tmp/result.jsoncheck
-python3 tools/research_portfolio_audit.py \
-  --json-output research/portfolio_status_report.json \
-  --markdown-output research/portfolio_status_report.md \
-  --pretty
+python3 tools/portfolio_refresh_check.py
 ```
 
-For YAML or HTML changes, also run:
+`tools/portfolio_refresh_check.py` also parses benchmark YAML, key portfolio
+JSON files, and the current HTML status page. Use `--require-clean` in CI or
+release gates when regenerated audit/status artifacts must already be committed.
+
+For ad hoc YAML or HTML-only debugging, you can still run:
 
 ```bash
 python3 - <<'PY'

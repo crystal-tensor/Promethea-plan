@@ -253,7 +253,7 @@
         <span class="chip">工作区：/Users/avalok/work/FurturePlan</span>
         <span class="chip">目标状态：active，未完成</span>
         <span class="chip">当前阶段：B1-B10 技术解决推进</span>
-        <span class="chip">最新动作：B5 canonical-environment smoke gate</span>
+        <span class="chip">最新动作：T-AUDIT unified portfolio refresh/check</span>
         <span class="chip">组合审计：PASS / 0 warnings</span>
       </div>
     </header>
@@ -305,6 +305,9 @@
       </p>
       <p style="margin-top: 10px;">
         最新推进 42：B5/T-B5-006a 已完成 canonical-environment smoke gate，但仍是 negative boundary。新工具读取 two-site finite-DMRG-style prototype 的同一组 9 个 B5/B10 D5 Hubbard response rows，检查 environment ledger、fixed-sector norm、energy variance、discarded-weight pressure、energy monotonicity 和 response closeness。结果：9 个 environment ledgers 存在，0 行通过完整 smoke gate，3 行通过 fixed-sector norm / energy variance / discarded-weight / monotonicity 检查，0 行 close to seeded MPS pressure，0 行 beat seeded MPS pressure。它不是 mature canonical DMRG、不是 production DMRG、不是 quantum response win，也不是 accuracy-per-resource win；T-B5-006 仍必须实现真正 canonical-environment DMRG/MPS 或全成本 quantum response kernel。
+      </p>
+      <p style="margin-top: 10px;">
+        最新推进 43：T-AUDIT-001 已完成 unified portfolio refresh/check command。新增 <code>tools/portfolio_refresh_check.py</code>，统一执行 <code>tools/*.py</code> 编译、portfolio audit JSON/Markdown 刷新、benchmark YAML 解析、关键 JSON/HTML 解析、README 无中文字符检查，以及 audit passed/errors/warnings 验证；脚本支持 <code>--require-clean</code>，后续可用于 CI 或 release gate，防止 agent 忘记提交刷新后的审计报告或状态文件。这不是科学结果，但它把后续 B1-B10 每一次推进都绑到同一个可重复质量门上。
       </p>
       <p style="margin-top: 10px;">
         最新推进 28：B10/T-B10-001 已完成 B3/B5 denominator boundary comparison。新工具汇总 B3 cross-molecule UCC/ADAPT pressure、B5 oracle/non-oracle response embedding、seeded MPS pressure reference、variational MPS/ALS prototype 和 B10 D5 denominator tables，输出 4 张 route cards。结论：B3 当前保持 negative-boundary，selected-CI larger-basis denominator wins 为 0，max optimizer-loop shots lower bound 为 475,043,013,690,000；B5 有 classical denominator pressure，non-oracle-over-oracle rows 为 4、seeded-MPS-over-non-oracle rows 为 6，但 variational MPS/ALS-over-seeded rows 为 0。它不是 BQP separation、不是 quantum advantage，也不是 B3/B5 solution；下一步 T-B10-010 是把这个 comparison 写成 dequantization/sampling-access theorem-note skeleton，或明确缺失的关键假设。
@@ -882,6 +885,7 @@
         <li><code>research/B3_hamiltonian_pauli_mapper_comparison.md</code> 与 <code>results/b3_hamiltonian_pauli_mapper_comparison/circuits/</code>：B3/T-B3-003 Hamiltonian Pauli-term mapper comparison，4 个 Qiskit Nature Jordan-Wigner QASM packets，max 20 qubits、2951 mapped Pauli terms、max conservative shot floor 30,504,129,929，FCI wins 为 0</li>
         <li><code>research/B3_sampled_pauli_estimator_confidence.md</code>：B3/T-B3-004 sampled Pauli-estimator confidence intervals，z=2.576，max Neyman target shot floor 6,570,468，shot-floor reduction 442x-34,544x，FCI wins 为 0</li>
         <li><code>research/portfolio_status_report.md</code>：最新组合审计报告</li>
+        <li><code>tools/portfolio_refresh_check.py</code>：统一 portfolio refresh/check 命令，刷新审计输出并校验 Python、YAML、JSON、HTML、README policy 和 CI clean state</li>
         <li><code>research/project_status_plan.html</code>：长版项目状态页</li>
       </ul>
     </section>
@@ -921,6 +925,7 @@
         <li>最新 B8/B10：trained/generative spoofer refresh stress、B10-T2 proof gate、restricted lemma、transcript/device-noise bridge、ideal Qiskit/Aer verifier bridge、noisy Aer verifier bridge 与 GenericBackendV2 backend-calibrated-style verifier bridge 已完成；下一步升级到 real backend properties 或硬件 randomized-measurement verifier。</li>
         <li>最新 B9：T-B9-001 finite-instance failed gap-amplification negative lemma、T-B9-002 Lean-style symbolic skeleton 与 T-B9-003 cluster-stabilizer named-family width/locality bound skeleton 已完成；下一步 T-B9-004，建立真正 Lean/mathlib 或等价 proof-check 环境，并把 support-size、uniform-scaling、spectral-width、normalized-gap invariance 做成全 n 形式化引理。</li>
         <li>推进 B10/B5/B3：B10-T1 已完成 missing-assumption theorem note、asymptotic access-contract note、B5 same-access sampling-or-DMRG bridge、optimistic response-sampler cost stress、canonical DMRG readiness gate 和 canonical-environment smoke gate；T-B5-006a 显示 9 个 environment ledgers 但 0 个 smoke-passed rows，T-B10-013 又显示 sampler shot cost 仍不能打开 positive same-access route；下一步 T-B10-014/T-B5-006 做 production DMRG/MPS 或真实 same-access response oracle。B5 已完成 oracle-tuned boundary-field response denominator、non-oracle response embedding denominator、exact-state-seeded MPS/Schmidt pressure reference、non-exact-state-seeded variational MPS/ALS prototype、two-site finite-DMRG-style pressure prototype、canonical DMRG readiness gate 和 canonical-environment smoke gate；下一步优先替换成真实 production DMRG/MPS reference，或拿候选 B5 response subroutine 与 D5 表做全成本比较。B3 已完成 proxy circuit vs FCI denominator comparison、Hamiltonian Pauli mapper cost boundary、sampled Pauli confidence artifact、selected-CI larger-basis grouped Pauli boundary、larger-basis Hamiltonian mapper boundary、larger-basis QWC grouping boundary、grouped covariance shot-floor boundary、chemical state-prep derivative boundary、compiled UCC/ADAPT covariance pilot 和 cross-molecule demotion boundary；B3 仅在 rescue 机制出现时继续。B10-T2 下一步做 real-backend/hardware verifier。</li>
+        <li>最新 T-AUDIT-001：统一 portfolio refresh/check 命令已完成；后续 agent 每次推进 B1-B10 时统一运行 <code>python3 tools/portfolio_refresh_check.py</code>，需要生成物漂移检查时加 <code>--require-clean</code>。</li>
         <li>后置转化：只有当对应 B 方向通过技术门槛后，再提炼论文、专利、融资和工具；当前不把这些作为 B1-B10 之前的主目标。</li>
       </ul>
       <p class="note">

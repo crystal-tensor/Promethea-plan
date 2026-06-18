@@ -161,10 +161,7 @@ agent/<agent-id>/<B-id>/<short-task>
 5. Run the audit:
 
 ```bash
-python3 tools/research_portfolio_audit.py \
-  --json-output research/portfolio_status_report.json \
-  --markdown-output research/portfolio_status_report.md \
-  --pretty
+python3 tools/portfolio_refresh_check.py
 ```
 
 6. Open a PR using `.github/PULL_REQUEST_TEMPLATE.md`.

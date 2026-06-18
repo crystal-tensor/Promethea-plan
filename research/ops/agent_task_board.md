@@ -89,7 +89,7 @@ Status values:
 | T-B10-012 | B10/B5 | merged | codex | Theorist/Baseline Adversary | B5 same-access sampling-or-DMRG bridge: 4 denominator ladder rows, 5 sampling requirements all blocking, seeded MPS pressure beats non-oracle embedding on 6 rows, variational MPS/ALS beats seeded pressure on 0 rows, no sampling oracle, no production DMRG, no same-access positive route, and no dequantization/sampling theorem or advantage claim. |
 | T-B10-013 | B10/B5 | merged | codex | Builder/Baseline Adversary | B5 response-sampler cost stress: an optimistic bounded-density finite-difference sampler lower bound on the same 9 B5/B10 Hubbard rows needs min/median/max 3.861e9 / 7.645e12 / 2.849e29 shots to match exact-state-seeded MPS pressure, with 0 rows beating explicit D5 matvec ops by shots; no sampling oracle, same-access positive route, quantum advantage, or BQP separation claim. |
 | T-B10-014 | B10/B5 | open | unassigned | Builder/Baseline Adversary | Replace the sampler-cost negative boundary with either mature canonical-environment production DMRG/MPS for the same B5 Hubbard response rows, or a real same-access response oracle with state-preparation, mixing, measurement, and confidence costs that beats the full denominator ladder. |
-| T-AUDIT-001 | all | open | unassigned | Audit Agent | CI-style audit script and status-page refresh command. |
+| T-AUDIT-001 | all | merged | codex | Audit Agent | Unified portfolio refresh/check command: `tools/portfolio_refresh_check.py` refreshes portfolio audit JSON/Markdown, compiles `tools/*.py`, parses benchmark YAML and key JSON/HTML status artifacts, enforces README no-Han-character policy, verifies audit pass/warnings, and supports `--require-clean` for CI or release gates. |
 
 ## Task Template
 
@@ -119,7 +119,7 @@ Reviewers needed:
 | correlated-matter-agent | T-B5-006 |
 | materials-agent | T-B6-004 |
 | theory-agent | T-B9-004, T-B10-009, T-B10-014 |
-| audit-agent | T-AUDIT-001 |
+| audit-agent | Watch future generated-artifact drift and extend `tools/portfolio_refresh_check.py` when new status artifacts are added. |
 
 ## Sprint 001 Work Packages
 
