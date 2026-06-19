@@ -309,6 +309,14 @@ source off-pi/4 parameter with 40 replacement off-pi/4 local-U3 parameters,
 adding 780 proxy-T pressure. Accepted full-circuit replay certificates,
 occurrence removal, proxy-T reduction, and B7 ledger improvement remain 0.
 
+The next local-U3 exactification gate now closes the cheapest repair attempt.
+It snaps all 40 replacement off-pi/4 local-U3 parameters to the pi/4 grid and
+replays the same three packet targets. The snapped packets have 0/3 exact
+passes with residuals from 0.4757435265 to 0.7803612881, so cheap grid snapping
+breaks the bounded replay instead of producing an accepted exact decomposition.
+Accepted local-U3 exactification, absorption certificates, full-circuit replay,
+occurrence removal, proxy-T reduction, and B7 ledger improvement remain 0.
+
 ## Repository Layout
 
 ```text

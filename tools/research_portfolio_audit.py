@@ -198,6 +198,9 @@ def audit(root: Path) -> dict:
     b1_b7_cone01_packet_replay_resource_path = (
         results / "B1_B7_cone01_packet_replay_resource_gate_v0.json"
     )
+    b1_b7_cone01_local_u3_exactification_path = (
+        results / "B1_B7_cone01_local_u3_exactification_gate_v0.json"
+    )
     b1_b7_cone01_theta_sharing_path = results / "B1_B7_cone01_theta_sharing_ledger_gate_v0.json"
     b1_b7_cone01_shared_theta_synthesis_object_path = (
         results / "B1_B7_cone01_shared_theta_synthesis_object_gate_v0.json"
@@ -751,6 +754,9 @@ def audit(root: Path) -> dict:
     )
     b1_b7_cone01_packet_replay_resource_manifest = current_results.get(
         "b1_b7_cone01_packet_replay_resource_gate_v0"
+    )
+    b1_b7_cone01_local_u3_exactification_manifest = current_results.get(
+        "b1_b7_cone01_local_u3_exactification_gate_v0"
     )
     b1_b7_cone01_theta_sharing_manifest = current_results.get(
         "b1_b7_cone01_theta_sharing_ledger_gate_v0"
@@ -5025,6 +5031,206 @@ def audit(root: Path) -> dict:
         errors.append(
             f"missing B1/B7 cone_01 packet replay resource report: "
             f"{b1_b7_cone01_packet_replay_resource_path}"
+        )
+
+    b1_b7_cone01_local_u3_exactification = {
+        "path": str(b1_b7_cone01_local_u3_exactification_path),
+        "exists": b1_b7_cone01_local_u3_exactification_path.exists(),
+    }
+    if not b1_b7_cone01_local_u3_exactification_manifest:
+        errors.append("B1 manifest missing current result: b1_b7_cone01_local_u3_exactification_gate_v0")
+    else:
+        if (
+            b1_b7_cone01_local_u3_exactification_manifest.get("status")
+            != "cone01_local_u3_exactification_negative_gate"
+        ):
+            errors.append("B1/B7 cone_01 local-U3 exactification gate status mismatch")
+        for field in ["report", "markdown_report"]:
+            value = b1_b7_cone01_local_u3_exactification_manifest.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(
+                    f"B1/B7 cone_01 local-U3 exactification gate missing existing {field} path: {value}"
+                )
+    if b1_b7_cone01_local_u3_exactification_path.exists():
+        exactification_payload = json.loads(read(b1_b7_cone01_local_u3_exactification_path))
+        exactification_summary = exactification_payload.get("summary", {})
+        exactification_claims = exactification_payload.get("claim_boundary", {})
+        b1_b7_cone01_local_u3_exactification.update(
+            {
+                "status": exactification_payload.get("status"),
+                "model_status": exactification_payload.get("model_status"),
+                "method": exactification_payload.get("method"),
+                "workload": exactification_payload.get("workload"),
+                "source_semantic_method": exactification_summary.get("source_semantic_method"),
+                "source_synthesis_method": exactification_summary.get("source_synthesis_method"),
+                "source_resource_method": exactification_summary.get("source_resource_method"),
+                "packet_count": exactification_summary.get("packet_count"),
+                "pi_over_four_snap_packet_count": exactification_summary.get(
+                    "pi_over_four_snap_packet_count"
+                ),
+                "exact_snap_pass_count": exactification_summary.get("exact_snap_pass_count"),
+                "exact_snap_fail_count": exactification_summary.get("exact_snap_fail_count"),
+                "min_snapped_residual_norm": exactification_summary.get(
+                    "min_snapped_residual_norm"
+                ),
+                "max_snapped_residual_norm": exactification_summary.get(
+                    "max_snapped_residual_norm"
+                ),
+                "candidate_cnot_reduction_if_accepted": exactification_summary.get(
+                    "candidate_cnot_reduction_if_accepted"
+                ),
+                "source_off_pi_over_four_parameter_count": exactification_summary.get(
+                    "source_off_pi_over_four_parameter_count"
+                ),
+                "replacement_off_pi_over_four_parameter_count": exactification_summary.get(
+                    "replacement_off_pi_over_four_parameter_count"
+                ),
+                "projected_off_pi_over_four_parameter_count": exactification_summary.get(
+                    "projected_off_pi_over_four_parameter_count"
+                ),
+                "snapped_remaining_off_pi_over_four_parameter_count": exactification_summary.get(
+                    "snapped_remaining_off_pi_over_four_parameter_count"
+                ),
+                "exactified_off_pi_over_four_parameter_count": exactification_summary.get(
+                    "exactified_off_pi_over_four_parameter_count"
+                ),
+                "residual_resource_burden_parameter_count": exactification_summary.get(
+                    "residual_resource_burden_parameter_count"
+                ),
+                "replacement_off_grid_proxy_t_pressure": exactification_summary.get(
+                    "replacement_off_grid_proxy_t_pressure"
+                ),
+                "accepted_local_u3_exactification_count": exactification_summary.get(
+                    "accepted_local_u3_exactification_count"
+                ),
+                "accepted_absorption_certificate_count": exactification_summary.get(
+                    "accepted_absorption_certificate_count"
+                ),
+                "accepted_full_circuit_replay_certificate_count": exactification_summary.get(
+                    "accepted_full_circuit_replay_certificate_count"
+                ),
+                "accepted_occurrence_removal": exactification_summary.get(
+                    "accepted_occurrence_removal"
+                ),
+                "accepted_proxy_t_reduction": exactification_summary.get(
+                    "accepted_proxy_t_reduction"
+                ),
+                "missing_occurrences_after_gate": exactification_summary.get(
+                    "missing_occurrences_after_gate"
+                ),
+                "missing_proxy_t_after_gate": exactification_summary.get(
+                    "missing_proxy_t_after_gate"
+                ),
+                "direct_pi_over_four_snap_claimed_exact": exactification_summary.get(
+                    "direct_pi_over_four_snap_claimed_exact"
+                ),
+                "local_u3_absorption_claimed": exactification_summary.get(
+                    "local_u3_absorption_claimed"
+                ),
+                "symbolic_exact_decomposition_claimed": exactification_summary.get(
+                    "symbolic_exact_decomposition_claimed"
+                ),
+                "resource_saving_claimed": exactification_summary.get("resource_saving_claimed"),
+                "b7_ledger_improvement_claimed": exactification_summary.get(
+                    "b7_ledger_improvement_claimed"
+                ),
+                "validation_error_count": exactification_summary.get("validation_error_count"),
+                "local_u3_exactification_row_count": len(
+                    exactification_payload.get("local_u3_exactification_rows", [])
+                ),
+            }
+        )
+        if exactification_payload.get("benchmark_id") != "B1":
+            errors.append("B1/B7 cone_01 local-U3 exactification report must have benchmark_id B1")
+        if exactification_payload.get("method") != "b1_b7_cone01_local_u3_exactification_gate_v0":
+            errors.append("B1/B7 cone_01 local-U3 exactification method mismatch")
+        if exactification_payload.get("status") != "cone01_local_u3_exactification_negative_gate":
+            errors.append("B1/B7 cone_01 local-U3 exactification status mismatch")
+        if (
+            exactification_payload.get("model_status")
+            != "pi_over_four_snapping_fails_to_absorb_reduced_cnot_local_u3_burden"
+        ):
+            errors.append("B1/B7 cone_01 local-U3 exactification model_status mismatch")
+        for field in [
+            "packet_count",
+            "pi_over_four_snap_packet_count",
+            "exact_snap_pass_count",
+            "exact_snap_fail_count",
+            "candidate_cnot_reduction_if_accepted",
+            "source_off_pi_over_four_parameter_count",
+            "replacement_off_pi_over_four_parameter_count",
+            "projected_off_pi_over_four_parameter_count",
+            "snapped_remaining_off_pi_over_four_parameter_count",
+            "exactified_off_pi_over_four_parameter_count",
+            "residual_resource_burden_parameter_count",
+            "replacement_off_grid_proxy_t_pressure",
+            "accepted_local_u3_exactification_count",
+            "accepted_absorption_certificate_count",
+            "accepted_full_circuit_replay_certificate_count",
+            "accepted_occurrence_removal",
+            "accepted_proxy_t_reduction",
+            "missing_occurrences_after_gate",
+            "missing_proxy_t_after_gate",
+            "direct_pi_over_four_snap_claimed_exact",
+            "local_u3_absorption_claimed",
+            "symbolic_exact_decomposition_claimed",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+            "validation_error_count",
+        ]:
+            if exactification_summary.get(field) != b1_b7_cone01_local_u3_exactification_manifest.get(field):
+                errors.append(f"B1/B7 cone_01 local-U3 exactification {field} mismatch")
+        expected_exactification_fields = {
+            "packet_count": 3,
+            "pi_over_four_snap_packet_count": 3,
+            "exact_snap_pass_count": 0,
+            "exact_snap_fail_count": 3,
+            "candidate_cnot_reduction_if_accepted": 9,
+            "source_off_pi_over_four_parameter_count": 1,
+            "replacement_off_pi_over_four_parameter_count": 40,
+            "projected_off_pi_over_four_parameter_count": 40,
+            "snapped_remaining_off_pi_over_four_parameter_count": 0,
+            "exactified_off_pi_over_four_parameter_count": 0,
+            "residual_resource_burden_parameter_count": 40,
+            "replacement_off_grid_proxy_t_pressure": 800,
+            "accepted_local_u3_exactification_count": 0,
+            "accepted_absorption_certificate_count": 0,
+            "accepted_full_circuit_replay_certificate_count": 0,
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "missing_occurrences_after_gate": 30,
+            "missing_proxy_t_after_gate": 600,
+            "validation_error_count": 0,
+        }
+        for field, value in expected_exactification_fields.items():
+            if exactification_summary.get(field) != value:
+                errors.append(f"B1/B7 cone_01 local-U3 exactification expected {field}={value}")
+        if exactification_summary.get("min_snapped_residual_norm", 0) <= 1e-8:
+            errors.append("B1/B7 cone_01 local-U3 exactification must fail exact residual tolerance")
+        for field in [
+            "direct_pi_over_four_snap_claimed_exact",
+            "local_u3_absorption_claimed",
+            "symbolic_exact_decomposition_claimed",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+        ]:
+            if exactification_summary.get(field) is not False:
+                errors.append(f"B1/B7 cone_01 local-U3 exactification must not claim {field}")
+            if exactification_claims.get(field) is not False:
+                errors.append(f"B1/B7 cone_01 local-U3 exactification claim boundary must not claim {field}")
+        if len(exactification_payload.get("local_u3_exactification_rows", [])) != 3:
+            errors.append("B1/B7 cone_01 local-U3 exactification row count must be 3")
+        for row in exactification_payload.get("local_u3_exactification_rows", []):
+            if row.get("exactification_pass") is not False:
+                errors.append("B1/B7 cone_01 local-U3 exactification rows must fail direct snapping")
+            if row.get("snapped_parameter_stats", {}).get("off_pi_over_four_parameter_count") != 0:
+                errors.append("B1/B7 cone_01 local-U3 exactification snapped rows must be on-grid")
+            if row.get("accepted_occurrence_removal") != 0:
+                errors.append("B1/B7 cone_01 local-U3 exactification rows must not remove occurrences")
+    else:
+        errors.append(
+            f"missing B1/B7 cone_01 local-U3 exactification report: "
+            f"{b1_b7_cone01_local_u3_exactification_path}"
         )
 
     b1_b7_cone01_theta_sharing = {
@@ -14946,6 +15152,7 @@ def audit(root: Path) -> dict:
             "b7_cone01_semantic_replay_packet_gate": b1_b7_cone01_semantic_replay_packet,
             "b7_cone01_packet_synthesis_search_gate": b1_b7_cone01_packet_synthesis_search,
             "b7_cone01_packet_replay_resource_gate": b1_b7_cone01_packet_replay_resource,
+            "b7_cone01_local_u3_exactification_gate": b1_b7_cone01_local_u3_exactification,
             "b7_cone01_theta_sharing_ledger_gate": b1_b7_cone01_theta_sharing,
             "b7_cone01_shared_theta_synthesis_object_gate": b1_b7_cone01_shared_theta_synthesis_object,
             "b7_cone01_shared_theta_replay_verifier_gate": b1_b7_cone01_shared_theta_replay_verifier,
@@ -15183,6 +15390,9 @@ def audit(root: Path) -> dict:
             ),
             "b1_b7_cone01_packet_replay_resource_gate": str(
                 b1_b7_cone01_packet_replay_resource_path
+            ),
+            "b1_b7_cone01_local_u3_exactification_gate": str(
+                b1_b7_cone01_local_u3_exactification_path
             ),
             "b1_b7_cone01_theta_sharing_ledger_gate": str(b1_b7_cone01_theta_sharing_path),
             "b1_b7_cone01_shared_theta_synthesis_object_gate": str(
@@ -15953,6 +16163,17 @@ def markdown_report(report: dict) -> str:
             f"- Accepted full-circuit replay / occurrence / proxy-T reduction: {report['b1']['b7_cone01_packet_replay_resource_gate'].get('accepted_full_circuit_replay_certificate_count')} / {report['b1']['b7_cone01_packet_replay_resource_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_packet_replay_resource_gate'].get('accepted_proxy_t_reduction')}",
             f"- Candidate accepted after accounting / B7 claim: {report['b1']['b7_cone01_packet_replay_resource_gate'].get('candidate_accepted_after_resource_accounting')} / {report['b1']['b7_cone01_packet_replay_resource_gate'].get('b7_ledger_improvement_claimed')}",
             f"- Validation errors: {report['b1']['b7_cone01_packet_replay_resource_gate'].get('validation_error_count')}",
+            "",
+            "## B1/B7 cone_01 Local-U3 Exactification Gate",
+            "",
+            f"- Exists: {report['b1']['b7_cone01_local_u3_exactification_gate'].get('exists')}",
+            f"- Status: {report['b1']['b7_cone01_local_u3_exactification_gate'].get('status')}",
+            f"- Snap packets / exact passes / exact fails: {report['b1']['b7_cone01_local_u3_exactification_gate'].get('pi_over_four_snap_packet_count')} / {report['b1']['b7_cone01_local_u3_exactification_gate'].get('exact_snap_pass_count')} / {report['b1']['b7_cone01_local_u3_exactification_gate'].get('exact_snap_fail_count')}",
+            f"- Snapped residual range: {report['b1']['b7_cone01_local_u3_exactification_gate'].get('min_snapped_residual_norm')} - {report['b1']['b7_cone01_local_u3_exactification_gate'].get('max_snapped_residual_norm')}",
+            f"- Replacement off-grid params / projected off-grid params / residual burden params: {report['b1']['b7_cone01_local_u3_exactification_gate'].get('replacement_off_pi_over_four_parameter_count')} / {report['b1']['b7_cone01_local_u3_exactification_gate'].get('projected_off_pi_over_four_parameter_count')} / {report['b1']['b7_cone01_local_u3_exactification_gate'].get('residual_resource_burden_parameter_count')}",
+            f"- Accepted exactification / absorption / full-circuit replay: {report['b1']['b7_cone01_local_u3_exactification_gate'].get('accepted_local_u3_exactification_count')} / {report['b1']['b7_cone01_local_u3_exactification_gate'].get('accepted_absorption_certificate_count')} / {report['b1']['b7_cone01_local_u3_exactification_gate'].get('accepted_full_circuit_replay_certificate_count')}",
+            f"- Accepted occurrence / proxy-T reduction / B7 claim: {report['b1']['b7_cone01_local_u3_exactification_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_local_u3_exactification_gate'].get('accepted_proxy_t_reduction')} / {report['b1']['b7_cone01_local_u3_exactification_gate'].get('b7_ledger_improvement_claimed')}",
+            f"- Validation errors: {report['b1']['b7_cone01_local_u3_exactification_gate'].get('validation_error_count')}",
             "",
             "## B1/B7 cone_01 Theta-Sharing Ledger Gate",
             "",

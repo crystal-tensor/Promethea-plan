@@ -1535,6 +1535,18 @@ under the current accounting rule. The route is therefore rejected as a B7
 ledger improvement: accepted full-circuit replay certificates, occurrence
 removal, proxy-T reduction, and B7 improvement remain 0.
 
+**Sprint update 18ah:** `T-B1-004ah` is now merged as a local-U3
+exactification gate. The new artifact
+`research/B1_B7_cone01_local_u3_exactification_gate.md` consumes the
+T-B1-004af/T-B1-004ag reduced-CNOT packet candidates and tests direct pi/4-grid
+snapping of their local-U3 layers. All 40 replacement off-grid parameters can
+be projected onto the grid, but replay breaks: exact snapped packet passes are
+0/3 and the snapped residual range is 0.4757435265-0.7803612881. Accepted
+local-U3 exactification, absorption certificates, full-circuit replay,
+occurrence removal, proxy-T reduction, and B7 improvement remain 0. The next
+route must use stronger symbolic/local synthesis, context absorption with
+replay certificates, or a different occurrence-removing scaffold.
+
 ## Sprint Promotion Matrix
 
 | Track | Can become paper after this sprint? | Can become patent after this sprint? | Can become fundable/tool after this sprint? |

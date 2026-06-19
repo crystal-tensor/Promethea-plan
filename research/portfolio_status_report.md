@@ -541,6 +541,17 @@ Overall audit: PASS
 - Candidate accepted after accounting / B7 claim: False / False
 - Validation errors: 0
 
+## B1/B7 cone_01 Local-U3 Exactification Gate
+
+- Exists: True
+- Status: cone01_local_u3_exactification_negative_gate
+- Snap packets / exact passes / exact fails: 3 / 0 / 3
+- Snapped residual range: 0.47574352650518004 - 0.7803612880646379
+- Replacement off-grid params / projected off-grid params / residual burden params: 40 / 40 / 40
+- Accepted exactification / absorption / full-circuit replay: 0 / 0 / 0
+- Accepted occurrence / proxy-T reduction / B7 claim: 0 / 0 / False
+- Validation errors: 0
+
 ## B1/B7 cone_01 Theta-Sharing Ledger Gate
 
 - Exists: True
