@@ -1,0 +1,103 @@
+{
+  "benchmark_id": "B1",
+  "claim_boundary": {
+    "b7_ledger_improvement_claimed": false,
+    "local_clifford_certificate_claimed": false,
+    "resource_saving_claimed": false,
+    "rewrite_claimed": false,
+    "semantic_certificate_claimed": false,
+    "supported_claim": "A complete finite search over left/right pair-local Clifford dressings does not find an exact certificate for the three flat-pattern packets.",
+    "unsupported_claims": [
+      "This does not rule out non-Clifford exact local dressing.",
+      "This does not rule out a broader two-qubit rewrite with changed envelope.",
+      "This is not a resource saving or B7 ledger improvement."
+    ]
+  },
+  "linked_b7_problem_id": 21,
+  "method": "b1_b7_cone01_local_clifford_dressing_gate_v0",
+  "model_status": "no_plain_local_clifford_dressing_certificate_found",
+  "pattern_local_clifford_results": [
+    {
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "best_local_clifford_labels": {
+        "left_pair_label": "HSSH|SSHSSH",
+        "right_pair_label": "HSSH|SSSHS"
+      },
+      "best_local_clifford_residual_norm": 0.3643516233170526,
+      "local_clifford_exact_pass": false,
+      "local_clifford_exact_pass_count": 0,
+      "local_clifford_left_right_trial_count": 331776,
+      "nearest_grid_label": "-7*pi/4",
+      "occurrence_count": 8,
+      "pattern_id": "flat_pattern_01",
+      "same_envelope_grid_residual_norm": 0.3643516233170534
+    },
+    {
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "best_local_clifford_labels": {
+        "left_pair_label": "HSSH|HSSH",
+        "right_pair_label": "HSSH|HSSH"
+      },
+      "best_local_clifford_residual_norm": 0.2125365671136259,
+      "local_clifford_exact_pass": false,
+      "local_clifford_exact_pass_count": 0,
+      "local_clifford_left_right_trial_count": 331776,
+      "nearest_grid_label": "-7*pi/4",
+      "occurrence_count": 2,
+      "pattern_id": "flat_pattern_02",
+      "same_envelope_grid_residual_norm": 0.21253656711362615
+    },
+    {
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "best_local_clifford_labels": {
+        "left_pair_label": "HSSH|SSHSSH",
+        "right_pair_label": "HSSH|SSHSSH"
+      },
+      "best_local_clifford_residual_norm": 0.3277563331389184,
+      "local_clifford_exact_pass": false,
+      "local_clifford_exact_pass_count": 0,
+      "local_clifford_left_right_trial_count": 331776,
+      "nearest_grid_label": "-4*pi/4",
+      "occurrence_count": 1,
+      "pattern_id": "flat_pattern_03",
+      "same_envelope_grid_residual_norm": 0.3277563331389188
+    }
+  ],
+  "problem_id": 25,
+  "source_absorption_result": "results/B1_B7_cone01_dressing_absorption_gate_v0.json",
+  "source_method": "b1_b7_cone01_flat_pattern_kak_packet_v0",
+  "source_result": "results/B1_B7_cone01_flat_pattern_kak_packet_v0.json",
+  "status": "cone01_local_clifford_dressing_negative_gate",
+  "summary": {
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "all_packets_have_local_clifford_dressing": false,
+    "b7_ledger_improvement_claimed": false,
+    "best_local_clifford_residual_norm": 0.2125365671136259,
+    "covered_invariant_flat_occurrence_count": 11,
+    "left_right_pair_trial_count_per_pattern": 331776,
+    "local_clifford_certificate_claimed": false,
+    "local_clifford_exact_packet_count": 0,
+    "max_best_local_clifford_residual_norm": 0.3643516233170526,
+    "missing_occurrences_after_gate": 30,
+    "missing_proxy_t_after_gate": 600,
+    "pair_local_clifford_count": 576,
+    "pattern_group_count": 3,
+    "required_occurrence_removals_for_b7_target": 30,
+    "resource_saving_claimed": false,
+    "rewrite_claimed": false,
+    "semantic_certificate_claimed": false,
+    "single_qubit_clifford_count": 24,
+    "source_absorption_method": "b1_b7_cone01_dressing_absorption_gate_v0",
+    "source_absorption_status": "cone01_dressing_absorption_negative_gate",
+    "source_method": "b1_b7_cone01_flat_pattern_kak_packet_v0",
+    "source_status": "cone01_flat_pattern_kak_packet_not_rewrite_certificate",
+    "validation_error_count": 0
+  },
+  "title": "B1/B7 cone_01 local Clifford dressing gate",
+  "validation_errors": [],
+  "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+}

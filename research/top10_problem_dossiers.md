@@ -131,6 +131,13 @@ dressings to the pi/4 grid and gets 0/3 exact passes, projected residuals
 parameters, and 0 single-parameter snap exact passes. This closes the cheap
 rounding/shared-signature route but does not prove that no other exact dressing
 or replayable rewrite exists.
+The local Clifford dressing gate then enumerates 24 one-qubit Clifford
+representatives, 576 pair-local Clifford representatives, and 331,776
+left/right pair-local Clifford dressing candidates per residual packet. It
+finds 0/3 exact packets, with best residual norms still in the 0.2125-0.3644
+range. This closes the plain local Clifford route but still leaves open
+stronger non-Clifford exact local dressing, broader two-qubit rewrite
+certificates, or a scoped obstruction theorem.
 
 **Remaining path to a serious solution:** connect to calibrated/live-like
 heavy-hex baselines; cover dynamic circuits and reset/measurement semantics;
@@ -145,7 +152,7 @@ packets only as part of a larger
 evidence after CM-02/CM-07; broaden benchmarks; package certificates for independent
 reproduction.
 
-**Current internal maturity:** 57/100.
+**Current internal maturity:** 58/100.
 
 ## B2: Low-Overhead Quantum Error Correction
 
@@ -647,6 +654,12 @@ The dressing absorption/exactification gate then rejects direct rounding:
 pi/4 projection gives 0/3 exact passes with projected residuals 0.3000-0.8416,
 the three packets have 3 distinct grid signatures, and 26 local dressing
 parameters remain off-grid. Accepted occurrence and proxy-T reduction remain 0.
+The local Clifford dressing gate then performs a finite local-Clifford closure
+check over 24 one-qubit Clifford representatives, 576 pair-local Clifford
+representatives, and 331,776 left/right dressing candidates per residual
+packet. It finds 0/3 exact packets, so plain local Clifford dressing is not the
+missing B7 certificate route. Accepted occurrence and proxy-T reduction remain
+0.
 
 **Remaining path to a serious solution:** produce a symbolic KAK/Clifford-
 scaffold proof, scoped obstruction, or certified broader `cone_01`
@@ -661,7 +674,7 @@ separate claims by data-path versus T-factory dominated regimes; include
 physical layout, routing, and feed-forward constraints; run a full algorithm
 resource ledger.
 
-**Current internal maturity:** 54/100.
+**Current internal maturity:** 55/100.
 
 ## B8: Classical Verification of Quantum Outputs
 

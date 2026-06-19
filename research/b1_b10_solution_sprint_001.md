@@ -973,6 +973,18 @@ remaining route must be a stronger exact local-dressing theorem, a replayable
 rewrite certificate, a broader 30-occurrence certificate set, or an accepted
 physical cost-model path.
 
+**Sprint update 18t:** `T-B1-004t` is now merged as the local Clifford
+dressing finite-search gate. The new artifact
+`research/B1_B7_cone01_local_clifford_dressing_gate.md` generates 24
+one-qubit Clifford representatives and 576 pair-local Clifford representatives,
+then checks all 331,776 left/right pair-local Clifford dressings for each of
+the three flat packets. The exact packet count is 0/3 and the best residual
+range is 0.2125365671136259 to 0.3643516233170526, so accepted occurrence
+removal and accepted proxy-T reduction remain 0. This closes the plain local
+Clifford dressing route only; the remaining route must be non-Clifford exact
+dressing, a broader two-qubit rewrite certificate, a larger 30-occurrence
+certificate set, or an accepted physical cost model.
+
 ## B8: Classical Verification of Quantum Outputs
 
 **Technical target:** keep verifier soundness low under adaptive leakage by

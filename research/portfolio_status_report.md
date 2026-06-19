@@ -40,7 +40,7 @@ Overall audit: PASS
 - B IDs are B1..B10: True
 - Problem IDs match attack pack: True
 - All required fields present: True
-- Maturity scores: {'B1': 57, 'B2': 48, 'B3': 30, 'B4': 27, 'B5': 27, 'B6': 21, 'B7': 54, 'B8': 39, 'B9': 15, 'B10': 50}
+- Maturity scores: {'B1': 58, 'B2': 48, 'B3': 30, 'B4': 27, 'B5': 27, 'B6': 21, 'B7': 55, 'B8': 39, 'B9': 15, 'B10': 50}
 
 ## Technical Resolution Program
 
@@ -368,6 +368,20 @@ Overall audit: PASS
 - Accepted occurrence/proxy-T reduction: 0 / 0
 - Missing occurrences/proxy-T after gate: 30 / 600
 - Absorption/exactification/shared-dressing/rewrite/semantic/resource/B7-ledger claims: False / False / False / False / False / False / False
+- Validation errors: 0
+
+## B1/B7 cone_01 Local Clifford Dressing Gate
+
+- Exists: True
+- Status: cone01_local_clifford_dressing_negative_gate
+- Clifford sizes: 24 one-qubit / 576 pair-local
+- Left/right pair trials per pattern: 331776
+- Pattern groups / covered occurrences: 3 / 11
+- Local Clifford exact packet count / all-packets flag: 0 / False
+- Best/max best local-Clifford residual: 0.2125365671136259 / 0.3643516233170526
+- Accepted occurrence/proxy-T reduction: 0 / 0
+- Missing occurrences/proxy-T after gate: 30 / 600
+- Local-Clifford/rewrite/semantic/resource/B7-ledger claims: False / False / False / False / False
 - Validation errors: 0
 
 ## B1/B7 cone_01 Theta-Sharing Ledger Gate

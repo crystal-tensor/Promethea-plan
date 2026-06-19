@@ -710,6 +710,36 @@ current_results:
     validation_error_count: 0
     report: ../results/B1_B7_cone01_dressing_absorption_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_dressing_absorption_gate.md
+  b1_b7_cone01_local_clifford_dressing_gate_v0:
+    circuits: 1
+    status: cone01_local_clifford_dressing_negative_gate
+    model_status: no_plain_local_clifford_dressing_certificate_found
+    method: b1_b7_cone01_local_clifford_dressing_gate_v0
+    source_flat_pattern_kak_packet: b1_b7_cone01_flat_pattern_kak_packet_v0
+    source_dressing_absorption_gate: b1_b7_cone01_dressing_absorption_gate_v0
+    workload: qasmbench_medium_exact/gcm_h6.qasm
+    single_qubit_clifford_count: 24
+    pair_local_clifford_count: 576
+    left_right_pair_trial_count_per_pattern: 331776
+    pattern_group_count: 3
+    covered_invariant_flat_occurrence_count: 11
+    local_clifford_exact_packet_count: 0
+    all_packets_have_local_clifford_dressing: false
+    best_local_clifford_residual_norm: 0.2125365671136259
+    max_best_local_clifford_residual_norm: 0.3643516233170526
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    required_occurrence_removals_for_b7_target: 30
+    missing_occurrences_after_gate: 30
+    missing_proxy_t_after_gate: 600
+    local_clifford_certificate_claimed: false
+    rewrite_claimed: false
+    semantic_certificate_claimed: false
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    validation_error_count: 0
+    report: ../results/B1_B7_cone01_local_clifford_dressing_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_local_clifford_dressing_gate.md
   b1_b7_cone01_theta_sharing_ledger_gate_v0:
     circuits: 1
     status: cone01_theta_sharing_ledger_guardrail
@@ -1208,6 +1238,7 @@ prototype_artifacts:
   b1_b7_cone01_flat_pattern_kak_packet: ../tools/b1_b7_cone01_flat_pattern_kak_packet.py
   b1_b7_cone01_local_dressing_search_gate: ../tools/b1_b7_cone01_local_dressing_search_gate.py
   b1_b7_cone01_dressing_absorption_gate: ../tools/b1_b7_cone01_dressing_absorption_gate.py
+  b1_b7_cone01_local_clifford_dressing_gate: ../tools/b1_b7_cone01_local_clifford_dressing_gate.py
   b1_b7_cone01_theta_sharing_ledger_gate: ../tools/b1_b7_cone01_theta_sharing_ledger_gate.py
   b1_b7_cone01_shared_theta_synthesis_object_gate: ../tools/b1_b7_cone01_shared_theta_synthesis_object_gate.py
   b1_b7_cone01_shared_theta_replay_verifier_gate: ../tools/b1_b7_cone01_shared_theta_replay_verifier_gate.py
