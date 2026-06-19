@@ -1463,6 +1463,18 @@ removal, proxy-T reduction, and B7 ledger improvement all remain 0. The next
 `T-B1-004` route must therefore use a real CNOT-stack rewrite/semantic replay,
 not only proximity, source alignment, or a single-qubit commute-through story.
 
+**Sprint update 18ab:** `T-B1-004ab` is now merged as a carrier
+blocker-motif pressure gate. The new artifact
+`research/B1_B7_cone01_carrier_blocker_motif_gate.md` consumes `T-B1-004aa`
+and asks whether the 3 blocked source-aligned candidates share a reusable
+CNOT-stack template motif. They do not: the 3 candidates form 3 distinct exact
+stack motifs and 2 edge-family motifs; the largest exact motif group has 1
+candidate, the largest edge-family group has 2 candidates, and no cross-pattern
+motif exists. Accepted template motifs, occurrence removal, proxy-T reduction,
+and B7 ledger improvement all remain 0. The next `T-B1-004` route must either
+perform a real semantic CNOT-stack rewrite or leave the carrier route as a
+negative boundary.
+
 ## Sprint Promotion Matrix
 
 | Track | Can become paper after this sprint? | Can become patent after this sprint? | Can become fundable/tool after this sprint? |

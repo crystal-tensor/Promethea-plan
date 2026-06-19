@@ -180,6 +180,9 @@ def audit(root: Path) -> dict:
     b1_b7_cone01_carrier_blocker_stack_path = (
         results / "B1_B7_cone01_carrier_blocker_stack_gate_v0.json"
     )
+    b1_b7_cone01_carrier_blocker_motif_path = (
+        results / "B1_B7_cone01_carrier_blocker_motif_gate_v0.json"
+    )
     b1_b7_cone01_theta_sharing_path = results / "B1_B7_cone01_theta_sharing_ledger_gate_v0.json"
     b1_b7_cone01_shared_theta_synthesis_object_path = (
         results / "B1_B7_cone01_shared_theta_synthesis_object_gate_v0.json"
@@ -715,6 +718,9 @@ def audit(root: Path) -> dict:
     )
     b1_b7_cone01_carrier_blocker_stack_manifest = current_results.get(
         "b1_b7_cone01_carrier_blocker_stack_gate_v0"
+    )
+    b1_b7_cone01_carrier_blocker_motif_manifest = current_results.get(
+        "b1_b7_cone01_carrier_blocker_motif_gate_v0"
     )
     b1_b7_cone01_theta_sharing_manifest = current_results.get(
         "b1_b7_cone01_theta_sharing_ledger_gate_v0"
@@ -3898,6 +3904,190 @@ def audit(root: Path) -> dict:
         errors.append(
             f"missing B1/B7 cone_01 carrier blocker-stack report: "
             f"{b1_b7_cone01_carrier_blocker_stack_path}"
+        )
+
+    b1_b7_cone01_carrier_blocker_motif = {
+        "path": str(b1_b7_cone01_carrier_blocker_motif_path),
+        "exists": b1_b7_cone01_carrier_blocker_motif_path.exists(),
+    }
+    if not b1_b7_cone01_carrier_blocker_motif_manifest:
+        errors.append("B1 manifest missing current result: b1_b7_cone01_carrier_blocker_motif_gate_v0")
+    else:
+        if (
+            b1_b7_cone01_carrier_blocker_motif_manifest.get("status")
+            != "cone01_carrier_blocker_motif_negative_gate"
+        ):
+            errors.append("B1/B7 cone_01 carrier blocker-motif gate status must remain negative")
+        for field in ["report", "markdown_report"]:
+            value = b1_b7_cone01_carrier_blocker_motif_manifest.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(
+                    f"B1/B7 cone_01 carrier blocker-motif gate missing existing {field} path: {value}"
+                )
+    if b1_b7_cone01_carrier_blocker_motif_path.exists():
+        carrier_motif_payload = json.loads(read(b1_b7_cone01_carrier_blocker_motif_path))
+        carrier_motif_summary = carrier_motif_payload.get("summary", {})
+        carrier_motif_claims = carrier_motif_payload.get("claim_boundary", {})
+        b1_b7_cone01_carrier_blocker_motif.update(
+            {
+                "status": carrier_motif_payload.get("status"),
+                "model_status": carrier_motif_payload.get("model_status"),
+                "method": carrier_motif_payload.get("method"),
+                "workload": carrier_motif_payload.get("workload"),
+                "source_method": carrier_motif_payload.get("source_method"),
+                "pattern_group_count": carrier_motif_summary.get("pattern_group_count"),
+                "covered_invariant_flat_occurrence_count": carrier_motif_summary.get(
+                    "covered_invariant_flat_occurrence_count"
+                ),
+                "source_aligned_candidate_count": carrier_motif_summary.get(
+                    "source_aligned_candidate_count"
+                ),
+                "blocker_motif_candidate_count": carrier_motif_summary.get(
+                    "blocker_motif_candidate_count"
+                ),
+                "unique_exact_stack_motif_count": carrier_motif_summary.get(
+                    "unique_exact_stack_motif_count"
+                ),
+                "unique_edge_family_motif_count": carrier_motif_summary.get(
+                    "unique_edge_family_motif_count"
+                ),
+                "largest_exact_stack_motif_candidate_count": carrier_motif_summary.get(
+                    "largest_exact_stack_motif_candidate_count"
+                ),
+                "largest_edge_family_motif_candidate_count": carrier_motif_summary.get(
+                    "largest_edge_family_motif_candidate_count"
+                ),
+                "single_edge_stack_candidate_count": carrier_motif_summary.get(
+                    "single_edge_stack_candidate_count"
+                ),
+                "mixed_edge_stack_candidate_count": carrier_motif_summary.get(
+                    "mixed_edge_stack_candidate_count"
+                ),
+                "patterns_with_blocker_motif_candidates": carrier_motif_summary.get(
+                    "patterns_with_blocker_motif_candidates"
+                ),
+                "patterns_without_blocker_motif_candidates": carrier_motif_summary.get(
+                    "patterns_without_blocker_motif_candidates"
+                ),
+                "all_candidates_share_exact_stack_motif": carrier_motif_summary.get(
+                    "all_candidates_share_exact_stack_motif"
+                ),
+                "all_candidates_share_edge_family_motif": carrier_motif_summary.get(
+                    "all_candidates_share_edge_family_motif"
+                ),
+                "cross_pattern_motif_present": carrier_motif_summary.get("cross_pattern_motif_present"),
+                "template_generalization_gate_passed": carrier_motif_summary.get(
+                    "template_generalization_gate_passed"
+                ),
+                "accepted_template_motif_count": carrier_motif_summary.get("accepted_template_motif_count"),
+                "accepted_occurrence_removal": carrier_motif_summary.get("accepted_occurrence_removal"),
+                "accepted_proxy_t_reduction": carrier_motif_summary.get("accepted_proxy_t_reduction"),
+                "missing_occurrences_after_gate": carrier_motif_summary.get("missing_occurrences_after_gate"),
+                "missing_proxy_t_after_gate": carrier_motif_summary.get("missing_proxy_t_after_gate"),
+                "template_rewrite_claimed": carrier_motif_summary.get("template_rewrite_claimed"),
+                "semantic_certificate_claimed": carrier_motif_claims.get("semantic_certificate_claimed"),
+                "rewrite_claimed": carrier_motif_claims.get("rewrite_claimed"),
+                "resource_saving_claimed": carrier_motif_claims.get("resource_saving_claimed"),
+                "b7_ledger_improvement_claimed": carrier_motif_claims.get("b7_ledger_improvement_claimed"),
+                "validation_error_count": carrier_motif_summary.get("validation_error_count"),
+                "carrier_blocker_motif_row_count": len(
+                    carrier_motif_payload.get("carrier_blocker_motif_rows", [])
+                ),
+            }
+        )
+        if carrier_motif_payload.get("benchmark_id") != "B1":
+            errors.append("B1/B7 cone_01 carrier blocker-motif report must have benchmark_id B1")
+        if carrier_motif_payload.get("method") != "b1_b7_cone01_carrier_blocker_motif_gate_v0":
+            errors.append("B1/B7 cone_01 carrier blocker-motif method mismatch")
+        if carrier_motif_payload.get("status") != "cone01_carrier_blocker_motif_negative_gate":
+            errors.append("B1/B7 cone_01 carrier blocker-motif status mismatch")
+        if (
+            carrier_motif_payload.get("model_status")
+            != "blocker_stacks_do_not_form_single_reusable_template_motif"
+        ):
+            errors.append("B1/B7 cone_01 carrier blocker-motif model_status mismatch")
+        if carrier_motif_payload.get("source_method") != "b1_b7_cone01_carrier_blocker_stack_gate_v0":
+            errors.append("B1/B7 cone_01 carrier blocker-motif source method mismatch")
+        for field in [
+            "pattern_group_count",
+            "covered_invariant_flat_occurrence_count",
+            "source_aligned_candidate_count",
+            "blocker_motif_candidate_count",
+            "unique_exact_stack_motif_count",
+            "unique_edge_family_motif_count",
+            "largest_exact_stack_motif_candidate_count",
+            "largest_edge_family_motif_candidate_count",
+            "single_edge_stack_candidate_count",
+            "mixed_edge_stack_candidate_count",
+            "patterns_with_blocker_motif_candidates",
+            "patterns_without_blocker_motif_candidates",
+            "all_candidates_share_exact_stack_motif",
+            "all_candidates_share_edge_family_motif",
+            "cross_pattern_motif_present",
+            "template_generalization_gate_passed",
+            "accepted_template_motif_count",
+            "accepted_occurrence_removal",
+            "accepted_proxy_t_reduction",
+            "missing_occurrences_after_gate",
+            "missing_proxy_t_after_gate",
+            "template_rewrite_claimed",
+            "semantic_certificate_claimed",
+            "rewrite_claimed",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+            "validation_error_count",
+        ]:
+            if carrier_motif_summary.get(field) != b1_b7_cone01_carrier_blocker_motif_manifest.get(field):
+                errors.append(f"B1/B7 cone_01 carrier blocker-motif {field} mismatch")
+        expected_motif_fields = {
+            "pattern_group_count": 3,
+            "covered_invariant_flat_occurrence_count": 11,
+            "source_aligned_candidate_count": 3,
+            "blocker_motif_candidate_count": 3,
+            "unique_exact_stack_motif_count": 3,
+            "unique_edge_family_motif_count": 2,
+            "largest_exact_stack_motif_candidate_count": 1,
+            "largest_edge_family_motif_candidate_count": 2,
+            "single_edge_stack_candidate_count": 2,
+            "mixed_edge_stack_candidate_count": 1,
+            "accepted_template_motif_count": 0,
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "missing_occurrences_after_gate": 30,
+            "missing_proxy_t_after_gate": 600,
+            "validation_error_count": 0,
+        }
+        for field, value in expected_motif_fields.items():
+            if carrier_motif_summary.get(field) != value:
+                errors.append(f"B1/B7 cone_01 carrier blocker-motif expected {field}={value}")
+        if carrier_motif_summary.get("patterns_with_blocker_motif_candidates") != ["flat_pattern_01"]:
+            errors.append("B1/B7 cone_01 carrier blocker-motif candidate-pattern list mismatch")
+        if carrier_motif_summary.get("patterns_without_blocker_motif_candidates") != [
+            "flat_pattern_02",
+            "flat_pattern_03",
+        ]:
+            errors.append("B1/B7 cone_01 carrier blocker-motif missing-pattern list mismatch")
+        if len(carrier_motif_payload.get("carrier_blocker_motif_rows", [])) != 3:
+            errors.append("B1/B7 cone_01 carrier blocker-motif row count must be 3")
+        for row in carrier_motif_payload.get("carrier_blocker_motif_rows", []):
+            if row.get("accepted_occurrence_removal") != 0:
+                errors.append("B1/B7 cone_01 carrier blocker-motif rows must not remove occurrences")
+            for candidate in row.get("motif_candidates", []):
+                if candidate.get("template_generalization_accepted"):
+                    errors.append("B1/B7 cone_01 carrier blocker-motif must not accept template candidates")
+        for field in [
+            "template_rewrite_claimed",
+            "semantic_certificate_claimed",
+            "rewrite_claimed",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+        ]:
+            if carrier_motif_summary.get(field) is not False or carrier_motif_claims.get(field) is not False:
+                errors.append(f"B1/B7 cone_01 carrier blocker-motif must not claim {field}")
+    else:
+        errors.append(
+            f"missing B1/B7 cone_01 carrier blocker-motif report: "
+            f"{b1_b7_cone01_carrier_blocker_motif_path}"
         )
 
     b1_b7_cone01_theta_sharing = {
@@ -13811,6 +14001,7 @@ def audit(root: Path) -> dict:
             ),
             "b7_cone01_carrier_source_alignment_gate": b1_b7_cone01_carrier_source_alignment,
             "b7_cone01_carrier_blocker_stack_gate": b1_b7_cone01_carrier_blocker_stack,
+            "b7_cone01_carrier_blocker_motif_gate": b1_b7_cone01_carrier_blocker_motif,
             "b7_cone01_theta_sharing_ledger_gate": b1_b7_cone01_theta_sharing,
             "b7_cone01_shared_theta_synthesis_object_gate": b1_b7_cone01_shared_theta_synthesis_object,
             "b7_cone01_shared_theta_replay_verifier_gate": b1_b7_cone01_shared_theta_replay_verifier,
@@ -14030,6 +14221,9 @@ def audit(root: Path) -> dict:
             ),
             "b1_b7_cone01_carrier_blocker_stack_gate": str(
                 b1_b7_cone01_carrier_blocker_stack_path
+            ),
+            "b1_b7_cone01_carrier_blocker_motif_gate": str(
+                b1_b7_cone01_carrier_blocker_motif_path
             ),
             "b1_b7_cone01_theta_sharing_ledger_gate": str(b1_b7_cone01_theta_sharing_path),
             "b1_b7_cone01_shared_theta_synthesis_object_gate": str(
@@ -14733,6 +14927,18 @@ def markdown_report(report: dict) -> str:
             f"- Accepted blocker-clearance certificates / occurrence / proxy-T reduction: {report['b1']['b7_cone01_carrier_blocker_stack_gate'].get('accepted_simple_commutation_clearance_count')} / {report['b1']['b7_cone01_carrier_blocker_stack_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_carrier_blocker_stack_gate'].get('accepted_proxy_t_reduction')}",
             f"- Blocker/commutation/rewrite/semantic/resource/B7 claims: {report['b1']['b7_cone01_carrier_blocker_stack_gate'].get('blocker_clearance_certificate_claimed')} / {report['b1']['b7_cone01_carrier_blocker_stack_gate'].get('commutation_certificate_claimed')} / {report['b1']['b7_cone01_carrier_blocker_stack_gate'].get('rewrite_claimed')} / {report['b1']['b7_cone01_carrier_blocker_stack_gate'].get('semantic_certificate_claimed')} / {report['b1']['b7_cone01_carrier_blocker_stack_gate'].get('resource_saving_claimed')} / {report['b1']['b7_cone01_carrier_blocker_stack_gate'].get('b7_ledger_improvement_claimed')}",
             f"- Validation errors: {report['b1']['b7_cone01_carrier_blocker_stack_gate'].get('validation_error_count')}",
+            "",
+            "## B1/B7 cone_01 Carrier Blocker Motif Gate",
+            "",
+            f"- Exists: {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('exists')}",
+            f"- Status: {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('status')}",
+            f"- Motif candidates / exact motifs / edge-family motifs: {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('blocker_motif_candidate_count')} / {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('unique_exact_stack_motif_count')} / {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('unique_edge_family_motif_count')}",
+            f"- Largest exact / edge-family candidate group: {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('largest_exact_stack_motif_candidate_count')} / {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('largest_edge_family_motif_candidate_count')}",
+            f"- Single-edge / mixed-edge candidates: {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('single_edge_stack_candidate_count')} / {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('mixed_edge_stack_candidate_count')}",
+            f"- All share exact / all share edge-family / cross-pattern motif / template gate: {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('all_candidates_share_exact_stack_motif')} / {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('all_candidates_share_edge_family_motif')} / {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('cross_pattern_motif_present')} / {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('template_generalization_gate_passed')}",
+            f"- Accepted template motifs / occurrence / proxy-T reduction: {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('accepted_template_motif_count')} / {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('accepted_proxy_t_reduction')}",
+            f"- Template/semantic/rewrite/resource/B7 claims: {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('template_rewrite_claimed')} / {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('semantic_certificate_claimed')} / {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('rewrite_claimed')} / {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('resource_saving_claimed')} / {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('b7_ledger_improvement_claimed')}",
+            f"- Validation errors: {report['b1']['b7_cone01_carrier_blocker_motif_gate'].get('validation_error_count')}",
             "",
             "## B1/B7 cone_01 Theta-Sharing Ledger Gate",
             "",

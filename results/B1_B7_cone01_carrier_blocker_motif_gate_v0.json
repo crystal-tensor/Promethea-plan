@@ -1,0 +1,171 @@
+{
+  "benchmark_id": "B1",
+  "carrier_blocker_motif_rows": [
+    {
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "accepted_template_motif_count": 0,
+      "all_candidates_share_edge_family_motif": false,
+      "all_candidates_share_exact_stack_motif": false,
+      "claim_boundary": "Blocker motif grouping is a template-prioritization diagnostic only; it is not a CNOT-stack rewrite, semantic replay certificate, or B7 resource certificate.",
+      "largest_edge_family_motif_candidate_count": 2,
+      "largest_exact_stack_motif_candidate_count": 1,
+      "mixed_edge_stack_candidate_count": 1,
+      "motif_candidate_count": 3,
+      "motif_candidates": [
+        {
+          "candidate_line_number": 1378,
+          "candidate_qubit": 8,
+          "dominant_edge_count": 4,
+          "dominant_edge_signature": "4-8",
+          "edge_counts": {
+            "4-8": 4
+          },
+          "edge_family_signature": "4-8",
+          "exact_stack_signature": "4-8|4-8|4-8|4-8",
+          "nearest_source_line": 1366,
+          "rejection_reason": "no exact repeated motif or cross-pattern motif certificate",
+          "single_edge_stack": true,
+          "source_distance": 12,
+          "stack_length": 4,
+          "template_generalization_accepted": false
+        },
+        {
+          "candidate_line_number": 1381,
+          "candidate_qubit": 8,
+          "dominant_edge_count": 5,
+          "dominant_edge_signature": "4-8",
+          "edge_counts": {
+            "4-8": 5
+          },
+          "edge_family_signature": "4-8",
+          "exact_stack_signature": "4-8|4-8|4-8|4-8|4-8",
+          "nearest_source_line": 1366,
+          "rejection_reason": "no exact repeated motif or cross-pattern motif certificate",
+          "single_edge_stack": true,
+          "source_distance": 15,
+          "stack_length": 5,
+          "template_generalization_accepted": false
+        },
+        {
+          "candidate_line_number": 268,
+          "candidate_qubit": 2,
+          "dominant_edge_count": 5,
+          "dominant_edge_signature": "2-14",
+          "edge_counts": {
+            "10-14": 1,
+            "2-14": 5
+          },
+          "edge_family_signature": "10-14+2-14",
+          "exact_stack_signature": "10-14|2-14|2-14|2-14|2-14|2-14",
+          "nearest_source_line": 252,
+          "rejection_reason": "no exact repeated motif or cross-pattern motif certificate",
+          "single_edge_stack": false,
+          "source_distance": 16,
+          "stack_length": 6,
+          "template_generalization_accepted": false
+        }
+      ],
+      "occurrence_count": 8,
+      "pattern_id": "flat_pattern_01",
+      "single_edge_stack_candidate_count": 2,
+      "unique_edge_family_motif_count": 2,
+      "unique_exact_stack_motif_count": 3
+    },
+    {
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "accepted_template_motif_count": 0,
+      "all_candidates_share_edge_family_motif": false,
+      "all_candidates_share_exact_stack_motif": false,
+      "claim_boundary": "Blocker motif grouping is a template-prioritization diagnostic only; it is not a CNOT-stack rewrite, semantic replay certificate, or B7 resource certificate.",
+      "largest_edge_family_motif_candidate_count": 0,
+      "largest_exact_stack_motif_candidate_count": 0,
+      "mixed_edge_stack_candidate_count": 0,
+      "motif_candidate_count": 0,
+      "motif_candidates": [],
+      "occurrence_count": 2,
+      "pattern_id": "flat_pattern_02",
+      "single_edge_stack_candidate_count": 0,
+      "unique_edge_family_motif_count": 0,
+      "unique_exact_stack_motif_count": 0
+    },
+    {
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "accepted_template_motif_count": 0,
+      "all_candidates_share_edge_family_motif": false,
+      "all_candidates_share_exact_stack_motif": false,
+      "claim_boundary": "Blocker motif grouping is a template-prioritization diagnostic only; it is not a CNOT-stack rewrite, semantic replay certificate, or B7 resource certificate.",
+      "largest_edge_family_motif_candidate_count": 0,
+      "largest_exact_stack_motif_candidate_count": 0,
+      "mixed_edge_stack_candidate_count": 0,
+      "motif_candidate_count": 0,
+      "motif_candidates": [],
+      "occurrence_count": 1,
+      "pattern_id": "flat_pattern_03",
+      "single_edge_stack_candidate_count": 0,
+      "unique_edge_family_motif_count": 0,
+      "unique_exact_stack_motif_count": 0
+    }
+  ],
+  "claim_boundary": {
+    "b7_ledger_improvement_claimed": false,
+    "resource_saving_claimed": false,
+    "rewrite_claimed": false,
+    "semantic_certificate_claimed": false,
+    "supported_claim": "The blocked source-aligned candidates do not share a single exact or cross-pattern blocker motif.",
+    "template_rewrite_claimed": false,
+    "unsupported_claims": [
+      "No CNOT-stack template rewrite is produced.",
+      "No semantic replay certificate is produced.",
+      "No occurrence is removed from the B7 ledger."
+    ]
+  },
+  "linked_b7_problem_id": 21,
+  "method": "b1_b7_cone01_carrier_blocker_motif_gate_v0",
+  "model_status": "blocker_stacks_do_not_form_single_reusable_template_motif",
+  "problem_id": 25,
+  "source_method": "b1_b7_cone01_carrier_blocker_stack_gate_v0",
+  "source_result": "results/B1_B7_cone01_carrier_blocker_stack_gate_v0.json",
+  "status": "cone01_carrier_blocker_motif_negative_gate",
+  "summary": {
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "accepted_template_motif_count": 0,
+    "all_candidates_share_edge_family_motif": false,
+    "all_candidates_share_exact_stack_motif": false,
+    "b7_ledger_improvement_claimed": false,
+    "blocker_motif_candidate_count": 3,
+    "covered_invariant_flat_occurrence_count": 11,
+    "cross_pattern_motif_present": false,
+    "largest_edge_family_motif_candidate_count": 2,
+    "largest_exact_stack_motif_candidate_count": 1,
+    "missing_occurrences_after_gate": 30,
+    "missing_proxy_t_after_gate": 600,
+    "mixed_edge_stack_candidate_count": 1,
+    "pattern_group_count": 3,
+    "patterns_with_blocker_motif_candidates": [
+      "flat_pattern_01"
+    ],
+    "patterns_without_blocker_motif_candidates": [
+      "flat_pattern_02",
+      "flat_pattern_03"
+    ],
+    "resource_saving_claimed": false,
+    "rewrite_claimed": false,
+    "semantic_certificate_claimed": false,
+    "single_edge_stack_candidate_count": 2,
+    "source_aligned_candidate_count": 3,
+    "source_method": "b1_b7_cone01_carrier_blocker_stack_gate_v0",
+    "source_status": "cone01_carrier_blocker_stack_negative_gate",
+    "template_generalization_gate_passed": false,
+    "template_rewrite_claimed": false,
+    "unique_edge_family_motif_count": 2,
+    "unique_exact_stack_motif_count": 3,
+    "validation_error_count": 0
+  },
+  "title": "B1/B7 cone_01 carrier blocker motif gate",
+  "validation_errors": [],
+  "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+}

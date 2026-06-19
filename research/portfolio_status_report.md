@@ -474,6 +474,18 @@ Overall audit: PASS
 - Blocker/commutation/rewrite/semantic/resource/B7 claims: False / False / False / False / False / False
 - Validation errors: 0
 
+## B1/B7 cone_01 Carrier Blocker Motif Gate
+
+- Exists: True
+- Status: cone01_carrier_blocker_motif_negative_gate
+- Motif candidates / exact motifs / edge-family motifs: 3 / 3 / 2
+- Largest exact / edge-family candidate group: 1 / 2
+- Single-edge / mixed-edge candidates: 2 / 1
+- All share exact / all share edge-family / cross-pattern motif / template gate: False / False / False / False
+- Accepted template motifs / occurrence / proxy-T reduction: 0 / 0 / 0
+- Template/semantic/rewrite/resource/B7 claims: False / False / False / False / False
+- Validation errors: 0
+
 ## B1/B7 cone_01 Theta-Sharing Ledger Gate
 
 - Exists: True
