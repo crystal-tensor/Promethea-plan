@@ -776,6 +776,42 @@ current_results:
     validation_error_count: 0
     report: ../results/B1_B7_cone01_single_carrier_dressing_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_single_carrier_dressing_gate.md
+  b1_b7_cone01_single_carrier_ledger_gate_v0:
+    circuits: 1
+    status: cone01_single_carrier_ledger_pressure_not_accepted_reduction
+    model_status: single_carrier_exact_packets_replace_not_remove_arbitrary_occurrences
+    method: b1_b7_cone01_single_carrier_ledger_gate_v0
+    source_single_carrier_dressing_gate: b1_b7_cone01_single_carrier_dressing_gate_v0
+    workload: qasmbench_medium_exact/gcm_h6.qasm
+    source_exact_packet_count: 3
+    pattern_group_count: 3
+    covered_invariant_flat_occurrence_count: 11
+    unique_carrier_signature_count: 3
+    all_best_carriers_target_x: true
+    per_occurrence_inserted_carrier_occurrences: 11
+    per_occurrence_net_arbitrary_occurrence_delta: 0
+    optimistic_template_carrier_count: 3
+    optimistic_duplicate_carrier_occurrences: 8
+    optimistic_template_proxy_t_reuse: 160
+    max_occurrence_removal_if_all_carriers_absorbed: 11
+    max_proxy_t_reduction_if_all_carriers_absorbed: 220
+    all_carriers_absorbed_clears_b7_target: false
+    missing_occurrences_even_if_all_carriers_absorbed: 19
+    missing_proxy_t_even_if_all_carriers_absorbed: 380
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    missing_occurrences_after_gate: 30
+    missing_proxy_t_after_gate: 600
+    single_carrier_exact_packet_found: true
+    single_carrier_resource_certificate_claimed: false
+    carrier_ledger_reduction_claimed: false
+    rewrite_claimed: false
+    semantic_certificate_claimed: false
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    validation_error_count: 0
+    report: ../results/B1_B7_cone01_single_carrier_ledger_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_single_carrier_ledger_gate.md
   b1_b7_cone01_theta_sharing_ledger_gate_v0:
     circuits: 1
     status: cone01_theta_sharing_ledger_guardrail
@@ -1276,6 +1312,7 @@ prototype_artifacts:
   b1_b7_cone01_dressing_absorption_gate: ../tools/b1_b7_cone01_dressing_absorption_gate.py
   b1_b7_cone01_local_clifford_dressing_gate: ../tools/b1_b7_cone01_local_clifford_dressing_gate.py
   b1_b7_cone01_single_carrier_dressing_gate: ../tools/b1_b7_cone01_single_carrier_dressing_gate.py
+  b1_b7_cone01_single_carrier_ledger_gate: ../tools/b1_b7_cone01_single_carrier_ledger_gate.py
   b1_b7_cone01_theta_sharing_ledger_gate: ../tools/b1_b7_cone01_theta_sharing_ledger_gate.py
   b1_b7_cone01_shared_theta_synthesis_object_gate: ../tools/b1_b7_cone01_shared_theta_synthesis_object_gate.py
   b1_b7_cone01_shared_theta_replay_verifier_gate: ../tools/b1_b7_cone01_shared_theta_replay_verifier_gate.py

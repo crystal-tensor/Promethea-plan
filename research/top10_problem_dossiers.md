@@ -141,7 +141,12 @@ certificates, or a scoped obstruction theorem. The single-carrier local
 dressing gate then checks 143,327,232 candidates and exactifies all 3 flat
 packets with residuals 3.20e-16-4.68e-16, but each packet still carries one
 arbitrary local carrier, so accepted occurrence removal and accepted proxy-T
-reduction remain 0.
+reduction remain 0. The single-carrier ledger pressure gate then shows the
+ledger sees this as replacement rather than removal: 3 unique carrier
+signatures cover 11 flat occurrences, 11 carrier occurrences are inserted for
+11 originals, net arbitrary-occurrence delta is 0, optimistic template reuse is
+160 proxy-T but unaccepted, and even full carrier absorption would still leave
+a 19-occurrence / 380 proxy-T B7 gap.
 
 **Remaining path to a serious solution:** connect to calibrated/live-like
 heavy-hex baselines; cover dynamic circuits and reset/measurement semantics;
@@ -150,7 +155,7 @@ KAK/Clifford scaffold, or scoped obstruction report that explicitly carries,
 shares, or eliminates theta while addressing at least 30 arbitrary rotation
 occurrences / 600
 proxy-T units, turn the single-carrier exact packets into replayable occurrence-removing
-certificates, or produce a method beyond direct pi/4 projection or shared grid
+certificates that beat the T-B1-004v replacement ledger, or produce a method beyond direct pi/4 projection or shared grid
 signatures for the carrier-bearing packets only as part of a larger
 30-occurrence certificate set, or reverse the rejected CM-08 with accepted physical model
 evidence after CM-02/CM-07; broaden benchmarks; package certificates for independent
@@ -665,15 +670,19 @@ packet. It finds 0/3 exact packets, so plain local Clifford dressing is not the
 missing B7 certificate route. The single-carrier local dressing gate then
 exactifies all 3 flat packets after 143,327,232 checked candidates, but leaves
 one arbitrary local carrier per packet. Accepted occurrence and proxy-T
-reduction remain 0.
+reduction remain 0. The single-carrier ledger pressure gate then shows
+that the current ledger treats this as replacement rather than removal: 11
+inserted carrier occurrences replace 11 original flat occurrences, accepted
+reduction remains 0, optimistic template reuse is unaccepted, and even absorbing
+all carriers would still leave a 19-occurrence / 380 proxy-T target gap.
 
 **Remaining path to a serious solution:** produce a symbolic KAK/Clifford-
 scaffold proof, scoped obstruction, or certified broader `cone_01`
 occurrence-removing rewrite for `gcm_h6` with explicit theta-carrier
 accounting, turn the single-carrier exact packets into occurrence-removing certificates
-or otherwise absorb/share the carrier in the 3 invariant-flat residual KAK
+or otherwise absorb/share/remove the carrier in the 3 invariant-flat residual KAK
 packets only as part of a
-larger 30-occurrence certificate set, or reverse the rejected CM-08 with accepted physical model evidence after CM-02/CM-07; strengthen B1 non-Clifford/T-depth
+larger 30-occurrence certificate set that turns ledger replacement into accepted removal, or reverse the rejected CM-08 with accepted physical model evidence after CM-02/CM-07; strengthen B1 non-Clifford/T-depth
 optimization until a certified occurrence-removing rewrite improves minimum
 factory STV;
 separate claims by data-path versus T-factory dominated regimes; include

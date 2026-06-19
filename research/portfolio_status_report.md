@@ -398,6 +398,19 @@ Overall audit: PASS
 - Exact-packet/resource-certificate/rewrite/semantic/resource/B7-ledger claims: True / False / False / False / False / False
 - Validation errors: 0
 
+## B1/B7 cone_01 Single-Carrier Ledger Pressure Gate
+
+- Exists: True
+- Status: cone01_single_carrier_ledger_pressure_not_accepted_reduction
+- Source exact packets / pattern groups / covered occurrences: 3 / 3 / 11
+- Unique carrier signatures / all best carriers target-X: 3 / True
+- Per-occurrence carrier insertions / net arbitrary occurrence delta: 11 / 0
+- Optimistic carrier templates / duplicate occurrences / proxy-T reuse: 3 / 8 / 160
+- Max removal if all carriers absorbed / clears B7 target / still-missing occurrences: 11 / False / 19
+- Accepted occurrence/proxy-T reduction: 0 / 0
+- Carrier-ledger/rewrite/semantic/resource/B7-ledger claims: False / False / False / False / False
+- Validation errors: 0
+
 ## B1/B7 cone_01 Theta-Sharing Ledger Gate
 
 - Exists: True

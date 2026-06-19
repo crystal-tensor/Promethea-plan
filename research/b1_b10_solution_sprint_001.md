@@ -999,6 +999,18 @@ single-carrier structure into replayable occurrence-removing certificates,
 extend beyond the 11 flat-window subset by at least 19 more occurrences, or
 produce an accepted physical cost-model path.
 
+**Sprint update 18v:** `T-B1-004v` is now merged as the single-carrier ledger
+pressure gate. The new artifact
+`research/B1_B7_cone01_single_carrier_ledger_gate.md` consumes the exact
+packets from T-B1-004u and applies the current B7 occurrence-ledger rule. The
+three carrier signatures cover 11 occurrences, but the per-occurrence model
+inserts 11 carrier occurrences for 11 original arbitrary occurrences, giving
+net arbitrary occurrence delta 0 and accepted proxy-T reduction 0. An
+optimistic carrier-template view has only 3 carrier templates and 8 duplicate
+carrier occurrences, but that is not accepted as a B7 resource reduction. Even
+if all carriers are later absorbed, the route removes at most 11 occurrences
+and still misses the 30-occurrence target by 19.
+
 ## B8: Classical Verification of Quantum Outputs
 
 **Technical target:** keep verifier soundness low under adaptive leakage by

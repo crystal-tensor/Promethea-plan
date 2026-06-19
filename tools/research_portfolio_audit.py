@@ -162,6 +162,9 @@ def audit(root: Path) -> dict:
     b1_b7_cone01_single_carrier_dressing_path = (
         results / "B1_B7_cone01_single_carrier_dressing_gate_v0.json"
     )
+    b1_b7_cone01_single_carrier_ledger_path = (
+        results / "B1_B7_cone01_single_carrier_ledger_gate_v0.json"
+    )
     b1_b7_cone01_theta_sharing_path = results / "B1_B7_cone01_theta_sharing_ledger_gate_v0.json"
     b1_b7_cone01_shared_theta_synthesis_object_path = (
         results / "B1_B7_cone01_shared_theta_synthesis_object_gate_v0.json"
@@ -679,6 +682,9 @@ def audit(root: Path) -> dict:
     )
     b1_b7_cone01_single_carrier_dressing_manifest = current_results.get(
         "b1_b7_cone01_single_carrier_dressing_gate_v0"
+    )
+    b1_b7_cone01_single_carrier_ledger_manifest = current_results.get(
+        "b1_b7_cone01_single_carrier_ledger_gate_v0"
     )
     b1_b7_cone01_theta_sharing_manifest = current_results.get(
         "b1_b7_cone01_theta_sharing_ledger_gate_v0"
@@ -2757,6 +2763,177 @@ def audit(root: Path) -> dict:
         errors.append(
             f"missing B1/B7 cone_01 single-carrier dressing report: "
             f"{b1_b7_cone01_single_carrier_dressing_path}"
+        )
+
+    b1_b7_cone01_single_carrier_ledger = {
+        "path": str(b1_b7_cone01_single_carrier_ledger_path),
+        "exists": b1_b7_cone01_single_carrier_ledger_path.exists(),
+    }
+    if not b1_b7_cone01_single_carrier_ledger_manifest:
+        errors.append("B1 manifest missing current result: b1_b7_cone01_single_carrier_ledger_gate_v0")
+    else:
+        if (
+            b1_b7_cone01_single_carrier_ledger_manifest.get("status")
+            != "cone01_single_carrier_ledger_pressure_not_accepted_reduction"
+        ):
+            errors.append("B1/B7 cone_01 single-carrier ledger gate status must remain a pressure boundary")
+        for field in ["report", "markdown_report"]:
+            value = b1_b7_cone01_single_carrier_ledger_manifest.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(f"B1/B7 cone_01 single-carrier ledger missing existing {field} path: {value}")
+    if b1_b7_cone01_single_carrier_ledger_path.exists():
+        carrier_ledger_payload = json.loads(read(b1_b7_cone01_single_carrier_ledger_path))
+        carrier_ledger_summary = carrier_ledger_payload.get("summary", {})
+        carrier_ledger_claims = carrier_ledger_payload.get("claim_boundary", {})
+        b1_b7_cone01_single_carrier_ledger.update(
+            {
+                "status": carrier_ledger_payload.get("status"),
+                "model_status": carrier_ledger_payload.get("model_status"),
+                "method": carrier_ledger_payload.get("method"),
+                "workload": carrier_ledger_payload.get("workload"),
+                "source_method": carrier_ledger_payload.get("source_method"),
+                "source_exact_packet_count": carrier_ledger_summary.get("source_exact_packet_count"),
+                "pattern_group_count": carrier_ledger_summary.get("pattern_group_count"),
+                "covered_invariant_flat_occurrence_count": carrier_ledger_summary.get(
+                    "covered_invariant_flat_occurrence_count"
+                ),
+                "unique_carrier_signature_count": carrier_ledger_summary.get("unique_carrier_signature_count"),
+                "all_best_carriers_target_x": carrier_ledger_summary.get("all_best_carriers_target_x"),
+                "per_occurrence_inserted_carrier_occurrences": carrier_ledger_summary.get(
+                    "per_occurrence_inserted_carrier_occurrences"
+                ),
+                "per_occurrence_net_arbitrary_occurrence_delta": carrier_ledger_summary.get(
+                    "per_occurrence_net_arbitrary_occurrence_delta"
+                ),
+                "optimistic_template_carrier_count": carrier_ledger_summary.get(
+                    "optimistic_template_carrier_count"
+                ),
+                "optimistic_duplicate_carrier_occurrences": carrier_ledger_summary.get(
+                    "optimistic_duplicate_carrier_occurrences"
+                ),
+                "optimistic_template_proxy_t_reuse": carrier_ledger_summary.get(
+                    "optimistic_template_proxy_t_reuse"
+                ),
+                "max_occurrence_removal_if_all_carriers_absorbed": carrier_ledger_summary.get(
+                    "max_occurrence_removal_if_all_carriers_absorbed"
+                ),
+                "max_proxy_t_reduction_if_all_carriers_absorbed": carrier_ledger_summary.get(
+                    "max_proxy_t_reduction_if_all_carriers_absorbed"
+                ),
+                "all_carriers_absorbed_clears_b7_target": carrier_ledger_summary.get(
+                    "all_carriers_absorbed_clears_b7_target"
+                ),
+                "missing_occurrences_even_if_all_carriers_absorbed": carrier_ledger_summary.get(
+                    "missing_occurrences_even_if_all_carriers_absorbed"
+                ),
+                "missing_proxy_t_even_if_all_carriers_absorbed": carrier_ledger_summary.get(
+                    "missing_proxy_t_even_if_all_carriers_absorbed"
+                ),
+                "accepted_occurrence_removal": carrier_ledger_summary.get("accepted_occurrence_removal"),
+                "accepted_proxy_t_reduction": carrier_ledger_summary.get("accepted_proxy_t_reduction"),
+                "missing_occurrences_after_gate": carrier_ledger_summary.get("missing_occurrences_after_gate"),
+                "missing_proxy_t_after_gate": carrier_ledger_summary.get("missing_proxy_t_after_gate"),
+                "single_carrier_exact_packet_found": carrier_ledger_summary.get(
+                    "single_carrier_exact_packet_found"
+                ),
+                "single_carrier_resource_certificate_claimed": carrier_ledger_summary.get(
+                    "single_carrier_resource_certificate_claimed"
+                ),
+                "carrier_ledger_reduction_claimed": carrier_ledger_summary.get(
+                    "carrier_ledger_reduction_claimed"
+                ),
+                "rewrite_claimed": carrier_ledger_claims.get("rewrite_claimed"),
+                "semantic_certificate_claimed": carrier_ledger_claims.get("semantic_certificate_claimed"),
+                "resource_saving_claimed": carrier_ledger_claims.get("resource_saving_claimed"),
+                "b7_ledger_improvement_claimed": carrier_ledger_claims.get("b7_ledger_improvement_claimed"),
+                "validation_error_count": carrier_ledger_summary.get("validation_error_count"),
+                "carrier_ledger_row_count": len(carrier_ledger_payload.get("carrier_ledger_rows", [])),
+            }
+        )
+        if carrier_ledger_payload.get("benchmark_id") != "B1":
+            errors.append("B1/B7 cone_01 single-carrier ledger report must have benchmark_id B1")
+        if carrier_ledger_payload.get("method") != "b1_b7_cone01_single_carrier_ledger_gate_v0":
+            errors.append("B1/B7 cone_01 single-carrier ledger method mismatch")
+        if carrier_ledger_payload.get("status") != "cone01_single_carrier_ledger_pressure_not_accepted_reduction":
+            errors.append("B1/B7 cone_01 single-carrier ledger status mismatch")
+        if (
+            carrier_ledger_payload.get("model_status")
+            != "single_carrier_exact_packets_replace_not_remove_arbitrary_occurrences"
+        ):
+            errors.append("B1/B7 cone_01 single-carrier ledger model_status mismatch")
+        if carrier_ledger_payload.get("source_method") != "b1_b7_cone01_single_carrier_dressing_gate_v0":
+            errors.append("B1/B7 cone_01 single-carrier ledger source method mismatch")
+        for field in [
+            "source_exact_packet_count",
+            "pattern_group_count",
+            "covered_invariant_flat_occurrence_count",
+            "unique_carrier_signature_count",
+            "all_best_carriers_target_x",
+            "per_occurrence_inserted_carrier_occurrences",
+            "per_occurrence_net_arbitrary_occurrence_delta",
+            "optimistic_template_carrier_count",
+            "optimistic_duplicate_carrier_occurrences",
+            "optimistic_template_proxy_t_reuse",
+            "max_occurrence_removal_if_all_carriers_absorbed",
+            "max_proxy_t_reduction_if_all_carriers_absorbed",
+            "all_carriers_absorbed_clears_b7_target",
+            "missing_occurrences_even_if_all_carriers_absorbed",
+            "missing_proxy_t_even_if_all_carriers_absorbed",
+            "accepted_occurrence_removal",
+            "accepted_proxy_t_reduction",
+            "missing_occurrences_after_gate",
+            "missing_proxy_t_after_gate",
+            "single_carrier_exact_packet_found",
+            "single_carrier_resource_certificate_claimed",
+            "carrier_ledger_reduction_claimed",
+            "rewrite_claimed",
+            "semantic_certificate_claimed",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+            "validation_error_count",
+        ]:
+            if carrier_ledger_summary.get(field) != b1_b7_cone01_single_carrier_ledger_manifest.get(field):
+                errors.append(f"B1/B7 cone_01 single-carrier ledger {field} mismatch")
+        if carrier_ledger_summary.get("source_exact_packet_count") != 3:
+            errors.append("B1/B7 cone_01 single-carrier ledger must consume 3 exact packets")
+        if carrier_ledger_summary.get("covered_invariant_flat_occurrence_count") != 11:
+            errors.append("B1/B7 cone_01 single-carrier ledger must cover 11 occurrences")
+        if carrier_ledger_summary.get("unique_carrier_signature_count") != 3:
+            errors.append("B1/B7 cone_01 single-carrier ledger must preserve 3 carrier signatures")
+        if carrier_ledger_summary.get("per_occurrence_inserted_carrier_occurrences") != 11:
+            errors.append("B1/B7 cone_01 single-carrier ledger must insert 11 carrier occurrences")
+        if carrier_ledger_summary.get("per_occurrence_net_arbitrary_occurrence_delta") != 0:
+            errors.append("B1/B7 cone_01 single-carrier ledger net arbitrary occurrence delta must be 0")
+        if carrier_ledger_summary.get("optimistic_template_proxy_t_reuse") != 160:
+            errors.append("B1/B7 cone_01 single-carrier ledger optimistic template proxy-T reuse must be 160")
+        if carrier_ledger_summary.get("max_occurrence_removal_if_all_carriers_absorbed") != 11:
+            errors.append("B1/B7 cone_01 single-carrier ledger absorbed max occurrence removal must be 11")
+        if carrier_ledger_summary.get("all_carriers_absorbed_clears_b7_target") is not False:
+            errors.append("B1/B7 cone_01 single-carrier ledger must not clear B7 target even if absorbed")
+        if carrier_ledger_summary.get("missing_occurrences_even_if_all_carriers_absorbed") != 19:
+            errors.append("B1/B7 cone_01 single-carrier ledger absorbed route must still miss by 19")
+        if carrier_ledger_summary.get("accepted_occurrence_removal") != 0:
+            errors.append("B1/B7 cone_01 single-carrier ledger accepted occurrence removal must be 0")
+        if carrier_ledger_summary.get("accepted_proxy_t_reduction") != 0:
+            errors.append("B1/B7 cone_01 single-carrier ledger accepted proxy-T reduction must be 0")
+        if len(carrier_ledger_payload.get("carrier_ledger_rows", [])) != 3:
+            errors.append("B1/B7 cone_01 single-carrier ledger row count must be 3")
+        for field in [
+            "single_carrier_resource_certificate_claimed",
+            "carrier_ledger_reduction_claimed",
+            "rewrite_claimed",
+            "semantic_certificate_claimed",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+        ]:
+            if carrier_ledger_summary.get(field) is not False or carrier_ledger_claims.get(field) is not False:
+                errors.append(f"B1/B7 cone_01 single-carrier ledger must not claim {field}")
+        if carrier_ledger_summary.get("validation_error_count") != 0:
+            errors.append("B1/B7 cone_01 single-carrier ledger validation errors must remain zero")
+    else:
+        errors.append(
+            f"missing B1/B7 cone_01 single-carrier ledger report: "
+            f"{b1_b7_cone01_single_carrier_ledger_path}"
         )
 
     b1_b7_cone01_theta_sharing = {
@@ -12662,6 +12839,7 @@ def audit(root: Path) -> dict:
             "b7_cone01_dressing_absorption_gate": b1_b7_cone01_dressing_absorption,
             "b7_cone01_local_clifford_dressing_gate": b1_b7_cone01_local_clifford_dressing,
             "b7_cone01_single_carrier_dressing_gate": b1_b7_cone01_single_carrier_dressing,
+            "b7_cone01_single_carrier_ledger_gate": b1_b7_cone01_single_carrier_ledger,
             "b7_cone01_theta_sharing_ledger_gate": b1_b7_cone01_theta_sharing,
             "b7_cone01_shared_theta_synthesis_object_gate": b1_b7_cone01_shared_theta_synthesis_object,
             "b7_cone01_shared_theta_replay_verifier_gate": b1_b7_cone01_shared_theta_replay_verifier,
@@ -12863,6 +13041,9 @@ def audit(root: Path) -> dict:
             ),
             "b1_b7_cone01_single_carrier_dressing_gate": str(
                 b1_b7_cone01_single_carrier_dressing_path
+            ),
+            "b1_b7_cone01_single_carrier_ledger_gate": str(
+                b1_b7_cone01_single_carrier_ledger_path
             ),
             "b1_b7_cone01_theta_sharing_ledger_gate": str(b1_b7_cone01_theta_sharing_path),
             "b1_b7_cone01_shared_theta_synthesis_object_gate": str(
@@ -13490,6 +13671,19 @@ def markdown_report(report: dict) -> str:
             f"- Missing occurrences/proxy-T after gate: {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('missing_occurrences_after_gate')} / {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('missing_proxy_t_after_gate')}",
             f"- Exact-packet/resource-certificate/rewrite/semantic/resource/B7-ledger claims: {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('single_carrier_exact_packet_found')} / {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('single_carrier_resource_certificate_claimed')} / {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('rewrite_claimed')} / {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('semantic_certificate_claimed')} / {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('resource_saving_claimed')} / {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('b7_ledger_improvement_claimed')}",
             f"- Validation errors: {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('validation_error_count')}",
+            "",
+            "## B1/B7 cone_01 Single-Carrier Ledger Pressure Gate",
+            "",
+            f"- Exists: {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('exists')}",
+            f"- Status: {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('status')}",
+            f"- Source exact packets / pattern groups / covered occurrences: {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('source_exact_packet_count')} / {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('pattern_group_count')} / {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('covered_invariant_flat_occurrence_count')}",
+            f"- Unique carrier signatures / all best carriers target-X: {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('unique_carrier_signature_count')} / {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('all_best_carriers_target_x')}",
+            f"- Per-occurrence carrier insertions / net arbitrary occurrence delta: {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('per_occurrence_inserted_carrier_occurrences')} / {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('per_occurrence_net_arbitrary_occurrence_delta')}",
+            f"- Optimistic carrier templates / duplicate occurrences / proxy-T reuse: {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('optimistic_template_carrier_count')} / {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('optimistic_duplicate_carrier_occurrences')} / {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('optimistic_template_proxy_t_reuse')}",
+            f"- Max removal if all carriers absorbed / clears B7 target / still-missing occurrences: {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('max_occurrence_removal_if_all_carriers_absorbed')} / {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('all_carriers_absorbed_clears_b7_target')} / {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('missing_occurrences_even_if_all_carriers_absorbed')}",
+            f"- Accepted occurrence/proxy-T reduction: {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('accepted_proxy_t_reduction')}",
+            f"- Carrier-ledger/rewrite/semantic/resource/B7-ledger claims: {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('carrier_ledger_reduction_claimed')} / {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('rewrite_claimed')} / {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('semantic_certificate_claimed')} / {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('resource_saving_claimed')} / {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('b7_ledger_improvement_claimed')}",
+            f"- Validation errors: {report['b1']['b7_cone01_single_carrier_ledger_gate'].get('validation_error_count')}",
             "",
             "## B1/B7 cone_01 Theta-Sharing Ledger Gate",
             "",
