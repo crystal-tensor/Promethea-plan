@@ -48,4 +48,4 @@ No direction moves into the publication/patent/financing/tool pipeline as an
 active deliverable until it passes its technical gate. Translation artifacts may
 exist as parking-lot notes, but they do not define current success.
 
- Future work must beat both the T-B1-004x inventory-only boundary and the T-B1-004y neighborhood-only boundary with line-local, commutation-certified, semantic-replay, or broader occurrence-removing evidence.
+ Future work must beat the T-B1-004x inventory-only boundary, the T-B1-004y neighborhood-only boundary, and the T-B1-004z source-alignment-only boundary with line-local, blocker-free, source-aligned, commutation-certified, semantic-replay, or broader occurrence-removing evidence.

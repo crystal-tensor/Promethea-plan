@@ -452,6 +452,17 @@ Overall audit: PASS
 - Neighborhood/commutation/ledger/rewrite/semantic/resource/B7 claims: False / False / False / False / False / False / False
 - Validation errors: 0
 
+## B1/B7 cone_01 Carrier Source Alignment Gate
+
+- Exists: True
+- Status: cone01_carrier_source_alignment_negative_gate
+- Reviewed / blocker-free radius-16 candidates: 5 / 1
+- Source-aligned / blocker-free source-aligned candidates: 3 / 0
+- Patterns with reviewed / blocker-free / source-aligned / accepted joint candidates: ['flat_pattern_01'] / ['flat_pattern_01'] / ['flat_pattern_01'] / []
+- Accepted source-alignment certificates / occurrence / proxy-T reduction: 0 / 0 / 0
+- Alignment/commutation/rewrite/semantic/resource/B7 claims: False / False / False / False / False / False
+- Validation errors: 0
+
 ## B1/B7 cone_01 Theta-Sharing Ledger Gate
 
 - Exists: True

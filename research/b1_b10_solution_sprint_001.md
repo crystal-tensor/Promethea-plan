@@ -1438,6 +1438,20 @@ ledger improvement all remain 0. The next `T-B1-004` route must now beat both
 the inventory-only boundary and the neighborhood-only boundary with line-local,
 commutation-certified, semantic-replay, or broader occurrence-removing evidence.
 
+**Sprint update 18z:** `T-B1-004z` is now merged as a carrier
+source-alignment pressure gate. The new artifact
+`research/B1_B7_cone01_carrier_source_alignment_gate.md` consumes the
+neighborhood boundary from `T-B1-004y` and asks whether nearby carrier candidates
+also align with their nearest source lines. The answer remains negative for
+accepted B7 progress: 5 radius-16 candidates were reviewed, 1 is blocker-free,
+3 are source-qubit-aligned, and 0 are both blocker-free and source-qubit-aligned.
+The only blocker-free candidate is line 337 on q[10] near source line 345 on
+q[14], so accepted source-alignment certificates, occurrence removal, proxy-T
+reduction, commutation claims, and B7 ledger improvement all remain 0. The next
+`T-B1-004` route must now beat the inventory-only, neighborhood-only, and
+source-alignment-only boundaries with replayable occurrence-removing evidence or
+an accepted physical cost model.
+
 ## Sprint Promotion Matrix
 
 | Track | Can become paper after this sprint? | Can become patent after this sprint? | Can become fundable/tool after this sprint? |

@@ -1,0 +1,201 @@
+{
+  "benchmark_id": "B1",
+  "carrier_source_alignment_rows": [
+    {
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "accepted_source_alignment_certificate_count": 0,
+      "blocker_free_radius_16_candidate_count_reviewed": 1,
+      "blocker_free_source_qubit_aligned_candidate_count": 0,
+      "claim_boundary": "Source-line alignment is a syntactic replay precondition only. Even a passing row would still require a semantic rewrite certificate before B7 could count savings.",
+      "nearest_same_target_distance": 8,
+      "occurrence_count": 8,
+      "pattern_id": "flat_pattern_01",
+      "radius_16_candidate_count_reviewed": 5,
+      "reviewed_candidates": [
+        {
+          "candidate_line_number": 337,
+          "candidate_qubit": 10,
+          "candidate_text": "u3(pi/2,0.36485735178627726,pi/2) q[10];",
+          "nearest_source_line": 345,
+          "nearest_source_qubits": [
+            14
+          ],
+          "nearest_source_text": "rz(pi/2) q[14];",
+          "rejection_reason": "candidate is blocked or nearest source line does not touch the candidate qubit",
+          "source_alignment_certificate_accepted": false,
+          "source_distance": 8,
+          "source_touches_candidate_qubit": false,
+          "source_touches_pattern_target": false,
+          "target_blocker_free": true
+        },
+        {
+          "candidate_line_number": 333,
+          "candidate_qubit": 10,
+          "candidate_text": "u3(0.36485735178627743,pi,-pi/4) q[10];",
+          "nearest_source_line": 345,
+          "nearest_source_qubits": [
+            14
+          ],
+          "nearest_source_text": "rz(pi/2) q[14];",
+          "rejection_reason": "candidate is blocked or nearest source line does not touch the candidate qubit",
+          "source_alignment_certificate_accepted": false,
+          "source_distance": 12,
+          "source_touches_candidate_qubit": false,
+          "source_touches_pattern_target": false,
+          "target_blocker_free": false
+        },
+        {
+          "candidate_line_number": 1378,
+          "candidate_qubit": 8,
+          "candidate_text": "u3(0.36485735178627743,pi,-pi/4) q[8];",
+          "nearest_source_line": 1366,
+          "nearest_source_qubits": [
+            4,
+            8
+          ],
+          "nearest_source_text": "cx q[4],q[8];",
+          "rejection_reason": "candidate is blocked or nearest source line does not touch the candidate qubit",
+          "source_alignment_certificate_accepted": false,
+          "source_distance": 12,
+          "source_touches_candidate_qubit": true,
+          "source_touches_pattern_target": true,
+          "target_blocker_free": false
+        },
+        {
+          "candidate_line_number": 1381,
+          "candidate_qubit": 8,
+          "candidate_text": "u3(pi/2,0.36485735178627726,pi/2) q[8];",
+          "nearest_source_line": 1366,
+          "nearest_source_qubits": [
+            4,
+            8
+          ],
+          "nearest_source_text": "cx q[4],q[8];",
+          "rejection_reason": "candidate is blocked or nearest source line does not touch the candidate qubit",
+          "source_alignment_certificate_accepted": false,
+          "source_distance": 15,
+          "source_touches_candidate_qubit": true,
+          "source_touches_pattern_target": true,
+          "target_blocker_free": false
+        },
+        {
+          "candidate_line_number": 268,
+          "candidate_qubit": 2,
+          "candidate_text": "u3(0.36485735178627743,pi,-pi/4) q[2];",
+          "nearest_source_line": 252,
+          "nearest_source_qubits": [
+            2
+          ],
+          "nearest_source_text": "rz(pi/4) q[2];",
+          "rejection_reason": "candidate is blocked or nearest source line does not touch the candidate qubit",
+          "source_alignment_certificate_accepted": false,
+          "source_distance": 16,
+          "source_touches_candidate_qubit": true,
+          "source_touches_pattern_target": true,
+          "target_blocker_free": false
+        }
+      ],
+      "source_qubit_aligned_radius_16_candidate_count": 3,
+      "target_qubits": [
+        1,
+        2,
+        8,
+        10,
+        13
+      ]
+    },
+    {
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "accepted_source_alignment_certificate_count": 0,
+      "blocker_free_radius_16_candidate_count_reviewed": 0,
+      "blocker_free_source_qubit_aligned_candidate_count": 0,
+      "claim_boundary": "Source-line alignment is a syntactic replay precondition only. Even a passing row would still require a semantic rewrite certificate before B7 could count savings.",
+      "nearest_same_target_distance": null,
+      "occurrence_count": 2,
+      "pattern_id": "flat_pattern_02",
+      "radius_16_candidate_count_reviewed": 0,
+      "reviewed_candidates": [],
+      "source_qubit_aligned_radius_16_candidate_count": 0,
+      "target_qubits": [
+        10,
+        15
+      ]
+    },
+    {
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "accepted_source_alignment_certificate_count": 0,
+      "blocker_free_radius_16_candidate_count_reviewed": 0,
+      "blocker_free_source_qubit_aligned_candidate_count": 0,
+      "claim_boundary": "Source-line alignment is a syntactic replay precondition only. Even a passing row would still require a semantic rewrite certificate before B7 could count savings.",
+      "nearest_same_target_distance": 99,
+      "occurrence_count": 1,
+      "pattern_id": "flat_pattern_03",
+      "radius_16_candidate_count_reviewed": 0,
+      "reviewed_candidates": [],
+      "source_qubit_aligned_radius_16_candidate_count": 0,
+      "target_qubits": [
+        5
+      ]
+    }
+  ],
+  "claim_boundary": {
+    "b7_ledger_improvement_claimed": false,
+    "commutation_certificate_claimed": false,
+    "resource_saving_claimed": false,
+    "rewrite_claimed": false,
+    "semantic_certificate_claimed": false,
+    "source_alignment_certificate_claimed": false,
+    "supported_claim": "The only blocker-free radius-16 carrier candidate does not touch the nearest source line qubit and is not accepted as an absorption certificate.",
+    "unsupported_claims": [
+      "No carrier absorption certificate is produced.",
+      "No commutation or semantic replay certificate is produced.",
+      "No occurrence is removed from the B7 ledger."
+    ]
+  },
+  "linked_b7_problem_id": 21,
+  "method": "b1_b7_cone01_carrier_source_alignment_gate_v0",
+  "model_status": "blocker_free_neighborhood_candidate_not_source_line_aligned",
+  "problem_id": 25,
+  "source_method": "b1_b7_cone01_carrier_neighborhood_commutation_gate_v0",
+  "source_result": "results/B1_B7_cone01_carrier_neighborhood_commutation_gate_v0.json",
+  "status": "cone01_carrier_source_alignment_negative_gate",
+  "summary": {
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "accepted_source_alignment_certificate_count": 0,
+    "b7_ledger_improvement_claimed": false,
+    "blocker_free_radius_16_candidate_count_reviewed": 1,
+    "blocker_free_source_qubit_aligned_candidate_count": 0,
+    "commutation_certificate_claimed": false,
+    "covered_invariant_flat_occurrence_count": 11,
+    "inventory_qasm": "results/b1_native_t_resource_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+    "missing_occurrences_after_gate": 30,
+    "missing_proxy_t_after_gate": 600,
+    "pattern_group_count": 3,
+    "patterns_with_blocker_free_radius_16_candidate": [
+      "flat_pattern_01"
+    ],
+    "patterns_with_blocker_free_source_qubit_aligned_candidate": [],
+    "patterns_with_reviewed_radius_16_candidate": [
+      "flat_pattern_01"
+    ],
+    "patterns_with_source_qubit_aligned_candidate": [
+      "flat_pattern_01"
+    ],
+    "radius_16_candidate_count_reviewed": 5,
+    "resource_saving_claimed": false,
+    "rewrite_claimed": false,
+    "semantic_certificate_claimed": false,
+    "source_alignment_certificate_claimed": false,
+    "source_method": "b1_b7_cone01_carrier_neighborhood_commutation_gate_v0",
+    "source_qubit_aligned_radius_16_candidate_count": 3,
+    "source_status": "cone01_carrier_neighborhood_commutation_negative_gate",
+    "validation_error_count": 0
+  },
+  "title": "B1/B7 cone_01 carrier source alignment gate",
+  "validation_errors": [],
+  "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+}
