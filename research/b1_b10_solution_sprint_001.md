@@ -1512,6 +1512,18 @@ precise local unitary targets. It is not a solution: semantic replay
 certificates, shorter rewrites, accepted occurrence removal, proxy-T reduction,
 and B7 ledger improvement remain 0.
 
+**Sprint update 18af:** `T-B1-004af` is now merged as a packet synthesis search
+gate. The new artifact
+`research/B1_B7_cone01_packet_synthesis_search_gate.md` consumes the 3 exact
+semantic replay packets and searches fixed-direction 0/1/2/3-CNOT scaffolds
+with arbitrary local U3 layers. It finds numerical exact reduced-CNOT
+candidates for all 3 packets: candidate line 1378 reaches 1 CNOT from source 4,
+and candidate lines 1381 and 268 reach 2 CNOTs from source 5. If these were
+later accepted, the candidate CNOT reduction would be 9. They are not accepted
+yet: the local U3 layers need resource accounting, the candidates need
+full-circuit replay certificates, and B7 occurrence/proxy-T reduction remains
+0.
+
 ## Sprint Promotion Matrix
 
 | Track | Can become paper after this sprint? | Can become patent after this sprint? | Can become fundable/tool after this sprint? |

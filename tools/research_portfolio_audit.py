@@ -192,6 +192,9 @@ def audit(root: Path) -> dict:
     b1_b7_cone01_semantic_replay_packet_path = (
         results / "B1_B7_cone01_semantic_replay_packet_gate_v0.json"
     )
+    b1_b7_cone01_packet_synthesis_search_path = (
+        results / "B1_B7_cone01_packet_synthesis_search_gate_v0.json"
+    )
     b1_b7_cone01_theta_sharing_path = results / "B1_B7_cone01_theta_sharing_ledger_gate_v0.json"
     b1_b7_cone01_shared_theta_synthesis_object_path = (
         results / "B1_B7_cone01_shared_theta_synthesis_object_gate_v0.json"
@@ -739,6 +742,9 @@ def audit(root: Path) -> dict:
     )
     b1_b7_cone01_semantic_replay_packet_manifest = current_results.get(
         "b1_b7_cone01_semantic_replay_packet_gate_v0"
+    )
+    b1_b7_cone01_packet_synthesis_search_manifest = current_results.get(
+        "b1_b7_cone01_packet_synthesis_search_gate_v0"
     )
     b1_b7_cone01_theta_sharing_manifest = current_results.get(
         "b1_b7_cone01_theta_sharing_ledger_gate_v0"
@@ -4638,6 +4644,179 @@ def audit(root: Path) -> dict:
         errors.append(
             f"missing B1/B7 cone_01 semantic replay packet report: "
             f"{b1_b7_cone01_semantic_replay_packet_path}"
+        )
+
+    b1_b7_cone01_packet_synthesis_search = {
+        "path": str(b1_b7_cone01_packet_synthesis_search_path),
+        "exists": b1_b7_cone01_packet_synthesis_search_path.exists(),
+    }
+    if not b1_b7_cone01_packet_synthesis_search_manifest:
+        errors.append("B1 manifest missing current result: b1_b7_cone01_packet_synthesis_search_gate_v0")
+    else:
+        if (
+            b1_b7_cone01_packet_synthesis_search_manifest.get("status")
+            != "cone01_packet_synthesis_search_candidate_not_replay_certificate"
+        ):
+            errors.append("B1/B7 cone_01 packet synthesis search gate status mismatch")
+        for field in ["report", "markdown_report"]:
+            value = b1_b7_cone01_packet_synthesis_search_manifest.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(
+                    f"B1/B7 cone_01 packet synthesis search gate missing existing {field} path: {value}"
+                )
+    if b1_b7_cone01_packet_synthesis_search_path.exists():
+        packet_synthesis_payload = json.loads(read(b1_b7_cone01_packet_synthesis_search_path))
+        packet_synthesis_summary = packet_synthesis_payload.get("summary", {})
+        packet_synthesis_claims = packet_synthesis_payload.get("claim_boundary", {})
+        b1_b7_cone01_packet_synthesis_search.update(
+            {
+                "status": packet_synthesis_payload.get("status"),
+                "model_status": packet_synthesis_payload.get("model_status"),
+                "method": packet_synthesis_payload.get("method"),
+                "workload": packet_synthesis_payload.get("workload"),
+                "source_method": packet_synthesis_payload.get("source_method"),
+                "packet_count": packet_synthesis_summary.get("packet_count"),
+                "fixed_direction_scaffold_packet_count": packet_synthesis_summary.get(
+                    "fixed_direction_scaffold_packet_count"
+                ),
+                "searched_scaffold_count": packet_synthesis_summary.get("searched_scaffold_count"),
+                "optimizer_seed_count_per_scaffold": packet_synthesis_summary.get(
+                    "optimizer_seed_count_per_scaffold"
+                ),
+                "optimizer_max_nfev": packet_synthesis_summary.get("optimizer_max_nfev"),
+                "exact_reduced_scaffold_packet_count": packet_synthesis_summary.get(
+                    "exact_reduced_scaffold_packet_count"
+                ),
+                "min_exact_reduced_cnot_count": packet_synthesis_summary.get(
+                    "min_exact_reduced_cnot_count"
+                ),
+                "total_candidate_cnot_reduction_if_accepted": packet_synthesis_summary.get(
+                    "total_candidate_cnot_reduction_if_accepted"
+                ),
+                "accepted_replay_certificate_count": packet_synthesis_summary.get(
+                    "accepted_replay_certificate_count"
+                ),
+                "accepted_occurrence_removal": packet_synthesis_summary.get(
+                    "accepted_occurrence_removal"
+                ),
+                "accepted_proxy_t_reduction": packet_synthesis_summary.get(
+                    "accepted_proxy_t_reduction"
+                ),
+                "missing_occurrences_after_gate": packet_synthesis_summary.get(
+                    "missing_occurrences_after_gate"
+                ),
+                "missing_proxy_t_after_gate": packet_synthesis_summary.get(
+                    "missing_proxy_t_after_gate"
+                ),
+                "candidate_synthesis_found": packet_synthesis_summary.get(
+                    "candidate_synthesis_found"
+                ),
+                "candidate_synthesis_claimed_as_resource_saving": packet_synthesis_summary.get(
+                    "candidate_synthesis_claimed_as_resource_saving"
+                ),
+                "semantic_replay_certificate_claimed": packet_synthesis_summary.get(
+                    "semantic_replay_certificate_claimed"
+                ),
+                "shorter_rewrite_claimed": packet_synthesis_summary.get("shorter_rewrite_claimed"),
+                "resource_saving_claimed": packet_synthesis_summary.get("resource_saving_claimed"),
+                "b7_ledger_improvement_claimed": packet_synthesis_summary.get(
+                    "b7_ledger_improvement_claimed"
+                ),
+                "validation_error_count": packet_synthesis_summary.get("validation_error_count"),
+                "packet_synthesis_row_count": len(
+                    packet_synthesis_payload.get("packet_synthesis_rows", [])
+                ),
+            }
+        )
+        if packet_synthesis_payload.get("benchmark_id") != "B1":
+            errors.append("B1/B7 cone_01 packet synthesis search report must have benchmark_id B1")
+        if packet_synthesis_payload.get("method") != "b1_b7_cone01_packet_synthesis_search_gate_v0":
+            errors.append("B1/B7 cone_01 packet synthesis search method mismatch")
+        if (
+            packet_synthesis_payload.get("status")
+            != "cone01_packet_synthesis_search_candidate_not_replay_certificate"
+        ):
+            errors.append("B1/B7 cone_01 packet synthesis search status mismatch")
+        if (
+            packet_synthesis_payload.get("model_status")
+            != "restricted_cnot_scaffold_search_finds_candidates_without_b7_ledger_acceptance"
+        ):
+            errors.append("B1/B7 cone_01 packet synthesis search model_status mismatch")
+        if (
+            packet_synthesis_payload.get("source_method")
+            != "b1_b7_cone01_semantic_replay_packet_gate_v0"
+        ):
+            errors.append("B1/B7 cone_01 packet synthesis search source method mismatch")
+        for field in [
+            "packet_count",
+            "fixed_direction_scaffold_packet_count",
+            "searched_scaffold_count",
+            "optimizer_seed_count_per_scaffold",
+            "optimizer_max_nfev",
+            "exact_reduced_scaffold_packet_count",
+            "min_exact_reduced_cnot_count",
+            "total_candidate_cnot_reduction_if_accepted",
+            "accepted_replay_certificate_count",
+            "accepted_occurrence_removal",
+            "accepted_proxy_t_reduction",
+            "missing_occurrences_after_gate",
+            "missing_proxy_t_after_gate",
+            "candidate_synthesis_found",
+            "candidate_synthesis_claimed_as_resource_saving",
+            "semantic_replay_certificate_claimed",
+            "shorter_rewrite_claimed",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+            "validation_error_count",
+        ]:
+            if packet_synthesis_summary.get(field) != b1_b7_cone01_packet_synthesis_search_manifest.get(field):
+                errors.append(f"B1/B7 cone_01 packet synthesis search {field} mismatch")
+        expected_packet_synthesis_fields = {
+            "packet_count": 3,
+            "fixed_direction_scaffold_packet_count": 3,
+            "searched_scaffold_count": 12,
+            "optimizer_seed_count_per_scaffold": 10,
+            "optimizer_max_nfev": 1800,
+            "exact_reduced_scaffold_packet_count": 3,
+            "min_exact_reduced_cnot_count": 1,
+            "total_candidate_cnot_reduction_if_accepted": 9,
+            "accepted_replay_certificate_count": 0,
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "missing_occurrences_after_gate": 30,
+            "missing_proxy_t_after_gate": 600,
+            "validation_error_count": 0,
+        }
+        for field, value in expected_packet_synthesis_fields.items():
+            if packet_synthesis_summary.get(field) != value:
+                errors.append(f"B1/B7 cone_01 packet synthesis search expected {field}={value}")
+        if packet_synthesis_summary.get("candidate_synthesis_found") is not True:
+            errors.append("B1/B7 cone_01 packet synthesis search must record candidate synthesis found")
+        for field in [
+            "candidate_synthesis_claimed_as_resource_saving",
+            "semantic_replay_certificate_claimed",
+            "shorter_rewrite_claimed",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+        ]:
+            if (
+                packet_synthesis_summary.get(field) is not False
+                or packet_synthesis_claims.get(field) is not False
+            ):
+                errors.append(f"B1/B7 cone_01 packet synthesis search must not claim {field}")
+        if len(packet_synthesis_payload.get("packet_synthesis_rows", [])) != 3:
+            errors.append("B1/B7 cone_01 packet synthesis search row count must be 3")
+        for row in packet_synthesis_payload.get("packet_synthesis_rows", []):
+            if row.get("accepted_replay_certificate") is not False:
+                errors.append("B1/B7 cone_01 packet synthesis rows must not accept replay certificates")
+            if row.get("accepted_occurrence_removal") != 0:
+                errors.append("B1/B7 cone_01 packet synthesis rows must not remove occurrences")
+            if len(row.get("scaffold_results", [])) != 4:
+                errors.append("B1/B7 cone_01 packet synthesis rows must contain four scaffold results")
+    else:
+        errors.append(
+            f"missing B1/B7 cone_01 packet synthesis search report: "
+            f"{b1_b7_cone01_packet_synthesis_search_path}"
         )
 
     b1_b7_cone01_theta_sharing = {
@@ -14557,6 +14736,7 @@ def audit(root: Path) -> dict:
                 b1_b7_cone01_carrier_interleaving_commutation
             ),
             "b7_cone01_semantic_replay_packet_gate": b1_b7_cone01_semantic_replay_packet,
+            "b7_cone01_packet_synthesis_search_gate": b1_b7_cone01_packet_synthesis_search,
             "b7_cone01_theta_sharing_ledger_gate": b1_b7_cone01_theta_sharing,
             "b7_cone01_shared_theta_synthesis_object_gate": b1_b7_cone01_shared_theta_synthesis_object,
             "b7_cone01_shared_theta_replay_verifier_gate": b1_b7_cone01_shared_theta_replay_verifier,
@@ -14788,6 +14968,9 @@ def audit(root: Path) -> dict:
             ),
             "b1_b7_cone01_semantic_replay_packet_gate": str(
                 b1_b7_cone01_semantic_replay_packet_path
+            ),
+            "b1_b7_cone01_packet_synthesis_search_gate": str(
+                b1_b7_cone01_packet_synthesis_search_path
             ),
             "b1_b7_cone01_theta_sharing_ledger_gate": str(b1_b7_cone01_theta_sharing_path),
             "b1_b7_cone01_shared_theta_synthesis_object_gate": str(
@@ -15536,6 +15719,17 @@ def markdown_report(report: dict) -> str:
             f"- Targets constructed / certificate / rewrite / resource / B7 claims: {report['b1']['b7_cone01_semantic_replay_packet_gate'].get('semantic_replay_targets_constructed')} / {report['b1']['b7_cone01_semantic_replay_packet_gate'].get('semantic_replay_certificate_claimed')} / {report['b1']['b7_cone01_semantic_replay_packet_gate'].get('shorter_rewrite_claimed')} / {report['b1']['b7_cone01_semantic_replay_packet_gate'].get('resource_saving_claimed')} / {report['b1']['b7_cone01_semantic_replay_packet_gate'].get('b7_ledger_improvement_claimed')}",
             f"- Accepted occurrence / proxy-T reduction: {report['b1']['b7_cone01_semantic_replay_packet_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_semantic_replay_packet_gate'].get('accepted_proxy_t_reduction')}",
             f"- Validation errors: {report['b1']['b7_cone01_semantic_replay_packet_gate'].get('validation_error_count')}",
+            "",
+            "## B1/B7 cone_01 Packet Synthesis Search Gate",
+            "",
+            f"- Exists: {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('exists')}",
+            f"- Status: {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('status')}",
+            f"- Packets / scaffolds searched / seeds per scaffold: {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('packet_count')} / {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('searched_scaffold_count')} / {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('optimizer_seed_count_per_scaffold')}",
+            f"- Exact reduced-scaffold packets / min exact CNOT count / candidate CNOT reduction: {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('exact_reduced_scaffold_packet_count')} / {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('min_exact_reduced_cnot_count')} / {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('total_candidate_cnot_reduction_if_accepted')}",
+            f"- Candidate found / accepted replay certificates: {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('candidate_synthesis_found')} / {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('accepted_replay_certificate_count')}",
+            f"- Candidate-as-saving / semantic / rewrite / resource / B7 claims: {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('candidate_synthesis_claimed_as_resource_saving')} / {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('semantic_replay_certificate_claimed')} / {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('shorter_rewrite_claimed')} / {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('resource_saving_claimed')} / {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('b7_ledger_improvement_claimed')}",
+            f"- Accepted occurrence / proxy-T reduction: {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('accepted_proxy_t_reduction')}",
+            f"- Validation errors: {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('validation_error_count')}",
             "",
             "## B1/B7 cone_01 Theta-Sharing Ledger Gate",
             "",

@@ -40,7 +40,7 @@ Overall audit: PASS
 - B IDs are B1..B10: True
 - Problem IDs match attack pack: True
 - All required fields present: True
-- Maturity scores: {'B1': 60, 'B2': 48, 'B3': 30, 'B4': 27, 'B5': 27, 'B6': 21, 'B7': 57, 'B8': 39, 'B9': 15, 'B10': 50}
+- Maturity scores: {'B1': 62, 'B2': 48, 'B3': 30, 'B4': 27, 'B5': 27, 'B6': 21, 'B7': 58, 'B8': 39, 'B9': 15, 'B10': 50}
 
 ## Technical Resolution Program
 
@@ -516,6 +516,17 @@ Overall audit: PASS
 - Window gates / CNOT / 1Q gates: 32 / 14 / 18
 - Unique semantic fingerprints / exact matrix targets: 3 / True
 - Targets constructed / certificate / rewrite / resource / B7 claims: True / False / False / False / False
+- Accepted occurrence / proxy-T reduction: 0 / 0
+- Validation errors: 0
+
+## B1/B7 cone_01 Packet Synthesis Search Gate
+
+- Exists: True
+- Status: cone01_packet_synthesis_search_candidate_not_replay_certificate
+- Packets / scaffolds searched / seeds per scaffold: 3 / 12 / 10
+- Exact reduced-scaffold packets / min exact CNOT count / candidate CNOT reduction: 3 / 1 / 9
+- Candidate found / accepted replay certificates: True / 0
+- Candidate-as-saving / semantic / rewrite / resource / B7 claims: False / False / False / False / False
 - Accepted occurrence / proxy-T reduction: 0 / 0
 - Validation errors: 0
 

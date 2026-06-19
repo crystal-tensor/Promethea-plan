@@ -292,6 +292,16 @@ window gates total, 14 CNOTs, 18 single-qubit gates, and 3 distinct semantic
 fingerprints. No shorter replay, occurrence removal, proxy-T reduction, B7
 ledger improvement, or solved-problem claim is made.
 
+B1/B7 now also has a restricted packet-synthesis search over those exact
+targets. It searches fixed-direction 0/1/2/3-CNOT scaffolds with arbitrary local
+U3 layers and finds numerical exact reduced-CNOT candidates for all 3 packets:
+candidate line 1378 reaches 1 CNOT from source 4, and candidate lines 1381 and
+268 reach 2 CNOTs from source 5. The candidate CNOT reduction is 9 if a later
+gate accepts the replacements. The current gate does not accept them yet:
+full-circuit replay, symbolic/exact decomposition boundaries, local-layer
+resource accounting, occurrence removal, proxy-T reduction, and B7 ledger
+improvement all remain open.
+
 ## Repository Layout
 
 ```text
