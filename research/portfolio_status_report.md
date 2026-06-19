@@ -40,7 +40,7 @@ Overall audit: PASS
 - B IDs are B1..B10: True
 - Problem IDs match attack pack: True
 - All required fields present: True
-- Maturity scores: {'B1': 62, 'B2': 48, 'B3': 30, 'B4': 27, 'B5': 27, 'B6': 21, 'B7': 58, 'B8': 39, 'B9': 15, 'B10': 50}
+- Maturity scores: {'B1': 63, 'B2': 48, 'B3': 30, 'B4': 27, 'B5': 27, 'B6': 21, 'B7': 59, 'B8': 39, 'B9': 15, 'B10': 50}
 
 ## Technical Resolution Program
 
@@ -528,6 +528,17 @@ Overall audit: PASS
 - Candidate found / accepted replay certificates: True / 0
 - Candidate-as-saving / semantic / rewrite / resource / B7 claims: False / False / False / False / False
 - Accepted occurrence / proxy-T reduction: 0 / 0
+- Validation errors: 0
+
+## B1/B7 cone_01 Packet Replay Resource Gate
+
+- Exists: True
+- Status: cone01_packet_replay_resource_accounting_rejects_ledger_acceptance
+- Bounded packet replay count / candidate CNOT reduction: 3 / 9
+- Source off-grid params / replacement local U3 gates / replacement off-grid params: 1 / 16 / 40
+- Incremental proxy-T pressure / local-U3 burden packets: 780 / 3
+- Accepted full-circuit replay / occurrence / proxy-T reduction: 0 / 0 / 0
+- Candidate accepted after accounting / B7 claim: False / False
 - Validation errors: 0
 
 ## B1/B7 cone_01 Theta-Sharing Ledger Gate

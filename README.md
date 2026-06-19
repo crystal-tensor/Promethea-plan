@@ -302,6 +302,13 @@ full-circuit replay, symbolic/exact decomposition boundaries, local-layer
 resource accounting, occurrence removal, proxy-T reduction, and B7 ledger
 improvement all remain open.
 
+The follow-up replay/resource gate now rejects that route as a B7 ledger
+improvement under the current accounting rules. The 3 bounded packet targets
+remain numerically replay-consistent, but the reduced-CNOT scaffolds replace 1
+source off-pi/4 parameter with 40 replacement off-pi/4 local-U3 parameters,
+adding 780 proxy-T pressure. Accepted full-circuit replay certificates,
+occurrence removal, proxy-T reduction, and B7 ledger improvement remain 0.
+
 ## Repository Layout
 
 ```text

@@ -1524,6 +1524,17 @@ yet: the local U3 layers need resource accounting, the candidates need
 full-circuit replay certificates, and B7 occurrence/proxy-T reduction remains
 0.
 
+**Sprint update 18ag:** `T-B1-004ag` is now merged as a packet replay/resource
+accounting gate. The new artifact
+`research/B1_B7_cone01_packet_replay_resource_gate.md` consumes the T-B1-004ae
+semantic packets and T-B1-004af reduced-CNOT candidates. The 3 bounded packet
+targets remain numerically replay-consistent and preserve the candidate
+9-CNOT reduction signal, but the replacements introduce 40 off-pi/4 local-U3
+parameters versus 1 source off-pi/4 parameter, adding 780 proxy-T pressure
+under the current accounting rule. The route is therefore rejected as a B7
+ledger improvement: accepted full-circuit replay certificates, occurrence
+removal, proxy-T reduction, and B7 improvement remain 0.
+
 ## Sprint Promotion Matrix
 
 | Track | Can become paper after this sprint? | Can become patent after this sprint? | Can become fundable/tool after this sprint? |

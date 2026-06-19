@@ -195,6 +195,9 @@ def audit(root: Path) -> dict:
     b1_b7_cone01_packet_synthesis_search_path = (
         results / "B1_B7_cone01_packet_synthesis_search_gate_v0.json"
     )
+    b1_b7_cone01_packet_replay_resource_path = (
+        results / "B1_B7_cone01_packet_replay_resource_gate_v0.json"
+    )
     b1_b7_cone01_theta_sharing_path = results / "B1_B7_cone01_theta_sharing_ledger_gate_v0.json"
     b1_b7_cone01_shared_theta_synthesis_object_path = (
         results / "B1_B7_cone01_shared_theta_synthesis_object_gate_v0.json"
@@ -745,6 +748,9 @@ def audit(root: Path) -> dict:
     )
     b1_b7_cone01_packet_synthesis_search_manifest = current_results.get(
         "b1_b7_cone01_packet_synthesis_search_gate_v0"
+    )
+    b1_b7_cone01_packet_replay_resource_manifest = current_results.get(
+        "b1_b7_cone01_packet_replay_resource_gate_v0"
     )
     b1_b7_cone01_theta_sharing_manifest = current_results.get(
         "b1_b7_cone01_theta_sharing_ledger_gate_v0"
@@ -4817,6 +4823,208 @@ def audit(root: Path) -> dict:
         errors.append(
             f"missing B1/B7 cone_01 packet synthesis search report: "
             f"{b1_b7_cone01_packet_synthesis_search_path}"
+        )
+
+    b1_b7_cone01_packet_replay_resource = {
+        "path": str(b1_b7_cone01_packet_replay_resource_path),
+        "exists": b1_b7_cone01_packet_replay_resource_path.exists(),
+    }
+    if not b1_b7_cone01_packet_replay_resource_manifest:
+        errors.append("B1 manifest missing current result: b1_b7_cone01_packet_replay_resource_gate_v0")
+    else:
+        if (
+            b1_b7_cone01_packet_replay_resource_manifest.get("status")
+            != "cone01_packet_replay_resource_accounting_rejects_ledger_acceptance"
+        ):
+            errors.append("B1/B7 cone_01 packet replay resource gate status mismatch")
+        for field in ["report", "markdown_report"]:
+            value = b1_b7_cone01_packet_replay_resource_manifest.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(
+                    f"B1/B7 cone_01 packet replay resource gate missing existing {field} path: {value}"
+                )
+    if b1_b7_cone01_packet_replay_resource_path.exists():
+        packet_replay_resource_payload = json.loads(read(b1_b7_cone01_packet_replay_resource_path))
+        packet_replay_resource_summary = packet_replay_resource_payload.get("summary", {})
+        packet_replay_resource_claims = packet_replay_resource_payload.get("claim_boundary", {})
+        b1_b7_cone01_packet_replay_resource.update(
+            {
+                "status": packet_replay_resource_payload.get("status"),
+                "model_status": packet_replay_resource_payload.get("model_status"),
+                "method": packet_replay_resource_payload.get("method"),
+                "workload": packet_replay_resource_payload.get("workload"),
+                "source_semantic_method": packet_replay_resource_summary.get(
+                    "source_semantic_method"
+                ),
+                "source_synthesis_method": packet_replay_resource_summary.get(
+                    "source_synthesis_method"
+                ),
+                "packet_count": packet_replay_resource_summary.get("packet_count"),
+                "bounded_packet_replay_numerically_consistent_count": (
+                    packet_replay_resource_summary.get(
+                        "bounded_packet_replay_numerically_consistent_count"
+                    )
+                ),
+                "candidate_cnot_reduction_if_accepted": packet_replay_resource_summary.get(
+                    "candidate_cnot_reduction_if_accepted"
+                ),
+                "source_off_pi_over_four_parameter_count": packet_replay_resource_summary.get(
+                    "source_off_pi_over_four_parameter_count"
+                ),
+                "replacement_local_u3_gate_count": packet_replay_resource_summary.get(
+                    "replacement_local_u3_gate_count"
+                ),
+                "replacement_parameter_count": packet_replay_resource_summary.get(
+                    "replacement_parameter_count"
+                ),
+                "replacement_off_pi_over_four_parameter_count": (
+                    packet_replay_resource_summary.get(
+                        "replacement_off_pi_over_four_parameter_count"
+                    )
+                ),
+                "incremental_proxy_t_pressure": packet_replay_resource_summary.get(
+                    "incremental_proxy_t_pressure"
+                ),
+                "local_u3_resource_burden_packet_count": packet_replay_resource_summary.get(
+                    "local_u3_resource_burden_packet_count"
+                ),
+                "accepted_full_circuit_replay_certificate_count": (
+                    packet_replay_resource_summary.get(
+                        "accepted_full_circuit_replay_certificate_count"
+                    )
+                ),
+                "accepted_occurrence_removal": packet_replay_resource_summary.get(
+                    "accepted_occurrence_removal"
+                ),
+                "accepted_proxy_t_reduction": packet_replay_resource_summary.get(
+                    "accepted_proxy_t_reduction"
+                ),
+                "missing_occurrences_after_gate": packet_replay_resource_summary.get(
+                    "missing_occurrences_after_gate"
+                ),
+                "missing_proxy_t_after_gate": packet_replay_resource_summary.get(
+                    "missing_proxy_t_after_gate"
+                ),
+                "candidate_accepted_after_resource_accounting": (
+                    packet_replay_resource_summary.get(
+                        "candidate_accepted_after_resource_accounting"
+                    )
+                ),
+                "bounded_packet_replay_claimed_as_full_circuit_certificate": (
+                    packet_replay_resource_summary.get(
+                        "bounded_packet_replay_claimed_as_full_circuit_certificate"
+                    )
+                ),
+                "symbolic_exact_decomposition_claimed": packet_replay_resource_summary.get(
+                    "symbolic_exact_decomposition_claimed"
+                ),
+                "resource_saving_claimed": packet_replay_resource_summary.get(
+                    "resource_saving_claimed"
+                ),
+                "b7_ledger_improvement_claimed": packet_replay_resource_summary.get(
+                    "b7_ledger_improvement_claimed"
+                ),
+                "validation_error_count": packet_replay_resource_summary.get(
+                    "validation_error_count"
+                ),
+                "packet_replay_resource_row_count": len(
+                    packet_replay_resource_payload.get("packet_replay_resource_rows", [])
+                ),
+            }
+        )
+        if packet_replay_resource_payload.get("benchmark_id") != "B1":
+            errors.append("B1/B7 cone_01 packet replay resource report must have benchmark_id B1")
+        if (
+            packet_replay_resource_payload.get("method")
+            != "b1_b7_cone01_packet_replay_resource_gate_v0"
+        ):
+            errors.append("B1/B7 cone_01 packet replay resource method mismatch")
+        if (
+            packet_replay_resource_payload.get("status")
+            != "cone01_packet_replay_resource_accounting_rejects_ledger_acceptance"
+        ):
+            errors.append("B1/B7 cone_01 packet replay resource status mismatch")
+        if (
+            packet_replay_resource_payload.get("model_status")
+            != "reduced_cnot_packet_candidates_fail_local_u3_resource_accounting"
+        ):
+            errors.append("B1/B7 cone_01 packet replay resource model_status mismatch")
+        for field in [
+            "packet_count",
+            "bounded_packet_replay_numerically_consistent_count",
+            "candidate_cnot_reduction_if_accepted",
+            "source_off_pi_over_four_parameter_count",
+            "replacement_local_u3_gate_count",
+            "replacement_parameter_count",
+            "replacement_off_pi_over_four_parameter_count",
+            "incremental_off_pi_over_four_parameter_count",
+            "source_off_grid_proxy_t_pressure",
+            "replacement_off_grid_proxy_t_pressure",
+            "incremental_proxy_t_pressure",
+            "local_u3_resource_burden_packet_count",
+            "accepted_full_circuit_replay_certificate_count",
+            "accepted_occurrence_removal",
+            "accepted_proxy_t_reduction",
+            "missing_occurrences_after_gate",
+            "missing_proxy_t_after_gate",
+            "candidate_accepted_after_resource_accounting",
+            "bounded_packet_replay_claimed_as_full_circuit_certificate",
+            "symbolic_exact_decomposition_claimed",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+            "validation_error_count",
+        ]:
+            if packet_replay_resource_summary.get(field) != b1_b7_cone01_packet_replay_resource_manifest.get(field):
+                errors.append(f"B1/B7 cone_01 packet replay resource {field} mismatch")
+        expected_packet_replay_resource_fields = {
+            "packet_count": 3,
+            "bounded_packet_replay_numerically_consistent_count": 3,
+            "candidate_cnot_reduction_if_accepted": 9,
+            "source_off_pi_over_four_parameter_count": 1,
+            "replacement_local_u3_gate_count": 16,
+            "replacement_parameter_count": 48,
+            "replacement_off_pi_over_four_parameter_count": 40,
+            "incremental_off_pi_over_four_parameter_count": 39,
+            "source_off_grid_proxy_t_pressure": 20,
+            "replacement_off_grid_proxy_t_pressure": 800,
+            "incremental_proxy_t_pressure": 780,
+            "local_u3_resource_burden_packet_count": 3,
+            "accepted_full_circuit_replay_certificate_count": 0,
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "missing_occurrences_after_gate": 30,
+            "missing_proxy_t_after_gate": 600,
+            "validation_error_count": 0,
+        }
+        for field, value in expected_packet_replay_resource_fields.items():
+            if packet_replay_resource_summary.get(field) != value:
+                errors.append(f"B1/B7 cone_01 packet replay resource expected {field}={value}")
+        for field in [
+            "candidate_accepted_after_resource_accounting",
+            "bounded_packet_replay_claimed_as_full_circuit_certificate",
+            "symbolic_exact_decomposition_claimed",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+        ]:
+            if packet_replay_resource_summary.get(field) is not False:
+                errors.append(f"B1/B7 cone_01 packet replay resource must not claim {field}")
+            if field != "candidate_accepted_after_resource_accounting" and packet_replay_resource_claims.get(field) is not False:
+                errors.append(f"B1/B7 cone_01 packet replay resource claim boundary must not claim {field}")
+        if len(packet_replay_resource_payload.get("packet_replay_resource_rows", [])) != 3:
+            errors.append("B1/B7 cone_01 packet replay resource row count must be 3")
+        for row in packet_replay_resource_payload.get("packet_replay_resource_rows", []):
+            if row.get("bounded_packet_replay_numerically_consistent") is not True:
+                errors.append("B1/B7 cone_01 packet replay rows must replay bounded packets numerically")
+            if row.get("local_u3_resource_burden_detected") is not True:
+                errors.append("B1/B7 cone_01 packet replay rows must detect local-U3 burden")
+            if row.get("accepted_full_circuit_replay_certificate") is not False:
+                errors.append("B1/B7 cone_01 packet replay rows must not accept replay certificates")
+            if row.get("accepted_occurrence_removal") != 0:
+                errors.append("B1/B7 cone_01 packet replay rows must not remove occurrences")
+    else:
+        errors.append(
+            f"missing B1/B7 cone_01 packet replay resource report: "
+            f"{b1_b7_cone01_packet_replay_resource_path}"
         )
 
     b1_b7_cone01_theta_sharing = {
@@ -14737,6 +14945,7 @@ def audit(root: Path) -> dict:
             ),
             "b7_cone01_semantic_replay_packet_gate": b1_b7_cone01_semantic_replay_packet,
             "b7_cone01_packet_synthesis_search_gate": b1_b7_cone01_packet_synthesis_search,
+            "b7_cone01_packet_replay_resource_gate": b1_b7_cone01_packet_replay_resource,
             "b7_cone01_theta_sharing_ledger_gate": b1_b7_cone01_theta_sharing,
             "b7_cone01_shared_theta_synthesis_object_gate": b1_b7_cone01_shared_theta_synthesis_object,
             "b7_cone01_shared_theta_replay_verifier_gate": b1_b7_cone01_shared_theta_replay_verifier,
@@ -14971,6 +15180,9 @@ def audit(root: Path) -> dict:
             ),
             "b1_b7_cone01_packet_synthesis_search_gate": str(
                 b1_b7_cone01_packet_synthesis_search_path
+            ),
+            "b1_b7_cone01_packet_replay_resource_gate": str(
+                b1_b7_cone01_packet_replay_resource_path
             ),
             "b1_b7_cone01_theta_sharing_ledger_gate": str(b1_b7_cone01_theta_sharing_path),
             "b1_b7_cone01_shared_theta_synthesis_object_gate": str(
@@ -15730,6 +15942,17 @@ def markdown_report(report: dict) -> str:
             f"- Candidate-as-saving / semantic / rewrite / resource / B7 claims: {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('candidate_synthesis_claimed_as_resource_saving')} / {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('semantic_replay_certificate_claimed')} / {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('shorter_rewrite_claimed')} / {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('resource_saving_claimed')} / {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('b7_ledger_improvement_claimed')}",
             f"- Accepted occurrence / proxy-T reduction: {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('accepted_proxy_t_reduction')}",
             f"- Validation errors: {report['b1']['b7_cone01_packet_synthesis_search_gate'].get('validation_error_count')}",
+            "",
+            "## B1/B7 cone_01 Packet Replay Resource Gate",
+            "",
+            f"- Exists: {report['b1']['b7_cone01_packet_replay_resource_gate'].get('exists')}",
+            f"- Status: {report['b1']['b7_cone01_packet_replay_resource_gate'].get('status')}",
+            f"- Bounded packet replay count / candidate CNOT reduction: {report['b1']['b7_cone01_packet_replay_resource_gate'].get('bounded_packet_replay_numerically_consistent_count')} / {report['b1']['b7_cone01_packet_replay_resource_gate'].get('candidate_cnot_reduction_if_accepted')}",
+            f"- Source off-grid params / replacement local U3 gates / replacement off-grid params: {report['b1']['b7_cone01_packet_replay_resource_gate'].get('source_off_pi_over_four_parameter_count')} / {report['b1']['b7_cone01_packet_replay_resource_gate'].get('replacement_local_u3_gate_count')} / {report['b1']['b7_cone01_packet_replay_resource_gate'].get('replacement_off_pi_over_four_parameter_count')}",
+            f"- Incremental proxy-T pressure / local-U3 burden packets: {report['b1']['b7_cone01_packet_replay_resource_gate'].get('incremental_proxy_t_pressure')} / {report['b1']['b7_cone01_packet_replay_resource_gate'].get('local_u3_resource_burden_packet_count')}",
+            f"- Accepted full-circuit replay / occurrence / proxy-T reduction: {report['b1']['b7_cone01_packet_replay_resource_gate'].get('accepted_full_circuit_replay_certificate_count')} / {report['b1']['b7_cone01_packet_replay_resource_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_packet_replay_resource_gate'].get('accepted_proxy_t_reduction')}",
+            f"- Candidate accepted after accounting / B7 claim: {report['b1']['b7_cone01_packet_replay_resource_gate'].get('candidate_accepted_after_resource_accounting')} / {report['b1']['b7_cone01_packet_replay_resource_gate'].get('b7_ledger_improvement_claimed')}",
+            f"- Validation errors: {report['b1']['b7_cone01_packet_replay_resource_gate'].get('validation_error_count')}",
             "",
             "## B1/B7 cone_01 Theta-Sharing Ledger Gate",
             "",
