@@ -463,6 +463,17 @@ Overall audit: PASS
 - Alignment/commutation/rewrite/semantic/resource/B7 claims: False / False / False / False / False / False
 - Validation errors: 0
 
+## B1/B7 cone_01 Carrier Blocker Stack Gate
+
+- Exists: True
+- Status: cone01_carrier_blocker_stack_negative_gate
+- Source-aligned / blocked candidates: 3 / 3
+- Target CNOT blockers / candidate-qubit blockers / other target blockers: 15 / 14 / 1
+- Unique blocker lines / edge signatures: 11 / ['10-14', '2-14', '4-8']
+- Accepted blocker-clearance certificates / occurrence / proxy-T reduction: 0 / 0 / 0
+- Blocker/commutation/rewrite/semantic/resource/B7 claims: False / False / False / False / False / False
+- Validation errors: 0
+
 ## B1/B7 cone_01 Theta-Sharing Ledger Gate
 
 - Exists: True

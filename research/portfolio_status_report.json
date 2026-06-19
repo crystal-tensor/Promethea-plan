@@ -56,6 +56,48 @@
       "validation_error_count": 0,
       "workload": "qasmbench_medium_exact/gcm_h6.qasm"
     },
+    "b7_cone01_carrier_blocker_stack_gate": {
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "accepted_simple_commutation_clearance_count": 0,
+      "b7_ledger_improvement_claimed": false,
+      "blocker_clearance_certificate_claimed": false,
+      "candidate_qubit_blocker_count": 14,
+      "carrier_blocker_stack_row_count": 3,
+      "commutation_certificate_claimed": false,
+      "covered_invariant_flat_occurrence_count": 11,
+      "exists": true,
+      "inventory_qasm": "results/b1_native_t_resource_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+      "method": "b1_b7_cone01_carrier_blocker_stack_gate_v0",
+      "missing_occurrences_after_gate": 30,
+      "missing_proxy_t_after_gate": 600,
+      "model_status": "source_aligned_candidates_have_target_touching_cx_blocker_stacks",
+      "non_candidate_target_blocker_count": 1,
+      "path": "results/B1_B7_cone01_carrier_blocker_stack_gate_v0.json",
+      "pattern_group_count": 3,
+      "patterns_with_source_aligned_blocked_candidates": [
+        "flat_pattern_01"
+      ],
+      "patterns_with_source_aligned_candidates": [
+        "flat_pattern_01"
+      ],
+      "resource_saving_claimed": false,
+      "rewrite_claimed": false,
+      "semantic_certificate_claimed": false,
+      "source_aligned_blocked_candidate_count": 3,
+      "source_aligned_candidate_count": 3,
+      "source_method": "b1_b7_cone01_carrier_source_alignment_gate_v0",
+      "status": "cone01_carrier_blocker_stack_negative_gate",
+      "total_source_aligned_target_blocker_count": 15,
+      "unique_blocker_edge_signatures": [
+        "10-14",
+        "2-14",
+        "4-8"
+      ],
+      "unique_target_blocker_line_count": 11,
+      "validation_error_count": 0,
+      "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+    },
     "b7_cone01_carrier_neighborhood_commutation_gate": {
       "accepted_neighborhood_absorption_certificate_count": 0,
       "accepted_occurrence_removal": 0,
@@ -3817,6 +3859,7 @@
     "b10_t2_transcript_leakage_simulator": "research/B10_t2_transcript_leakage_simulator.md",
     "b1_ablation_report": "research/B1_ablation_report.json",
     "b1_b7_cone01_carrier_absorption_inventory_gate": "results/B1_B7_cone01_carrier_absorption_inventory_gate_v0.json",
+    "b1_b7_cone01_carrier_blocker_stack_gate": "results/B1_B7_cone01_carrier_blocker_stack_gate_v0.json",
     "b1_b7_cone01_carrier_neighborhood_commutation_gate": "results/B1_B7_cone01_carrier_neighborhood_commutation_gate_v0.json",
     "b1_b7_cone01_carrier_source_alignment_gate": "results/B1_B7_cone01_carrier_source_alignment_gate_v0.json",
     "b1_b7_cone01_dressing_absorption_gate": "results/B1_B7_cone01_dressing_absorption_gate_v0.json",

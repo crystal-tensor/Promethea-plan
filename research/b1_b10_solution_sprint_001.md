@@ -1452,6 +1452,17 @@ reduction, commutation claims, and B7 ledger improvement all remain 0. The next
 source-alignment-only boundaries with replayable occurrence-removing evidence or
 an accepted physical cost model.
 
+**Sprint update 18aa:** `T-B1-004aa` is now merged as a carrier
+blocker-stack pressure gate. The new artifact
+`research/B1_B7_cone01_carrier_blocker_stack_gate.md` consumes the
+source-alignment boundary from `T-B1-004z` and inspects the 3 source-qubit-aligned
+radius-16 candidates. All 3 are blocked. Together they have 15 target-touching
+CNOT blockers; 14 touch the candidate qubit directly and 1 touches another
+target qubit. Accepted simple commutation-clearance certificates, occurrence
+removal, proxy-T reduction, and B7 ledger improvement all remain 0. The next
+`T-B1-004` route must therefore use a real CNOT-stack rewrite/semantic replay,
+not only proximity, source alignment, or a single-qubit commute-through story.
+
 ## Sprint Promotion Matrix
 
 | Track | Can become paper after this sprint? | Can become patent after this sprint? | Can become fundable/tool after this sprint? |
