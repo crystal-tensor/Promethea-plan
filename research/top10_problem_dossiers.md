@@ -137,7 +137,11 @@ left/right pair-local Clifford dressing candidates per residual packet. It
 finds 0/3 exact packets, with best residual norms still in the 0.2125-0.3644
 range. This closes the plain local Clifford route but still leaves open
 stronger non-Clifford exact local dressing, broader two-qubit rewrite
-certificates, or a scoped obstruction theorem.
+certificates, or a scoped obstruction theorem. The single-carrier local
+dressing gate then checks 143,327,232 candidates and exactifies all 3 flat
+packets with residuals 3.20e-16-4.68e-16, but each packet still carries one
+arbitrary local carrier, so accepted occurrence removal and accepted proxy-T
+reduction remain 0.
 
 **Remaining path to a serious solution:** connect to calibrated/live-like
 heavy-hex baselines; cover dynamic circuits and reset/measurement semantics;
@@ -145,14 +149,14 @@ turn `cone_01` into a broader replayable semantic rewrite certificate,
 KAK/Clifford scaffold, or scoped obstruction report that explicitly carries,
 shares, or eliminates theta while addressing at least 30 arbitrary rotation
 occurrences / 600
-proxy-T units, produce a method beyond direct pi/4 projection or shared grid
-signatures for the off-grid dressing parameters in the 3 invariant-flat KAK
-packets only as part of a larger
+proxy-T units, turn the single-carrier exact packets into replayable occurrence-removing
+certificates, or produce a method beyond direct pi/4 projection or shared grid
+signatures for the carrier-bearing packets only as part of a larger
 30-occurrence certificate set, or reverse the rejected CM-08 with accepted physical model
 evidence after CM-02/CM-07; broaden benchmarks; package certificates for independent
 reproduction.
 
-**Current internal maturity:** 58/100.
+**Current internal maturity:** 59/100.
 
 ## B2: Low-Overhead Quantum Error Correction
 
@@ -658,14 +662,16 @@ The local Clifford dressing gate then performs a finite local-Clifford closure
 check over 24 one-qubit Clifford representatives, 576 pair-local Clifford
 representatives, and 331,776 left/right dressing candidates per residual
 packet. It finds 0/3 exact packets, so plain local Clifford dressing is not the
-missing B7 certificate route. Accepted occurrence and proxy-T reduction remain
-0.
+missing B7 certificate route. The single-carrier local dressing gate then
+exactifies all 3 flat packets after 143,327,232 checked candidates, but leaves
+one arbitrary local carrier per packet. Accepted occurrence and proxy-T
+reduction remain 0.
 
 **Remaining path to a serious solution:** produce a symbolic KAK/Clifford-
 scaffold proof, scoped obstruction, or certified broader `cone_01`
 occurrence-removing rewrite for `gcm_h6` with explicit theta-carrier
-accounting, go beyond direct pi/4 projection/shared-signature exactification
-for the off-grid local dressing parameters in the 3 invariant-flat residual KAK
+accounting, turn the single-carrier exact packets into occurrence-removing certificates
+or otherwise absorb/share the carrier in the 3 invariant-flat residual KAK
 packets only as part of a
 larger 30-occurrence certificate set, or reverse the rejected CM-08 with accepted physical model evidence after CM-02/CM-07; strengthen B1 non-Clifford/T-depth
 optimization until a certified occurrence-removing rewrite improves minimum
@@ -674,7 +680,7 @@ separate claims by data-path versus T-factory dominated regimes; include
 physical layout, routing, and feed-forward constraints; run a full algorithm
 resource ledger.
 
-**Current internal maturity:** 55/100.
+**Current internal maturity:** 56/100.
 
 ## B8: Classical Verification of Quantum Outputs
 

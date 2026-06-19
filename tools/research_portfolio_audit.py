@@ -159,6 +159,9 @@ def audit(root: Path) -> dict:
     b1_b7_cone01_local_clifford_dressing_path = (
         results / "B1_B7_cone01_local_clifford_dressing_gate_v0.json"
     )
+    b1_b7_cone01_single_carrier_dressing_path = (
+        results / "B1_B7_cone01_single_carrier_dressing_gate_v0.json"
+    )
     b1_b7_cone01_theta_sharing_path = results / "B1_B7_cone01_theta_sharing_ledger_gate_v0.json"
     b1_b7_cone01_shared_theta_synthesis_object_path = (
         results / "B1_B7_cone01_shared_theta_synthesis_object_gate_v0.json"
@@ -673,6 +676,9 @@ def audit(root: Path) -> dict:
     )
     b1_b7_cone01_local_clifford_dressing_manifest = current_results.get(
         "b1_b7_cone01_local_clifford_dressing_gate_v0"
+    )
+    b1_b7_cone01_single_carrier_dressing_manifest = current_results.get(
+        "b1_b7_cone01_single_carrier_dressing_gate_v0"
     )
     b1_b7_cone01_theta_sharing_manifest = current_results.get(
         "b1_b7_cone01_theta_sharing_ledger_gate_v0"
@@ -2603,6 +2609,154 @@ def audit(root: Path) -> dict:
         errors.append(
             f"missing B1/B7 cone_01 local Clifford dressing report: "
             f"{b1_b7_cone01_local_clifford_dressing_path}"
+        )
+
+    b1_b7_cone01_single_carrier_dressing = {
+        "path": str(b1_b7_cone01_single_carrier_dressing_path),
+        "exists": b1_b7_cone01_single_carrier_dressing_path.exists(),
+    }
+    if not b1_b7_cone01_single_carrier_dressing_manifest:
+        errors.append("B1 manifest missing current result: b1_b7_cone01_single_carrier_dressing_gate_v0")
+    else:
+        if (
+            b1_b7_cone01_single_carrier_dressing_manifest.get("status")
+            != "cone01_single_carrier_exact_packet_not_resource_certificate"
+        ):
+            errors.append("B1/B7 cone_01 single-carrier dressing gate status must remain exact-packet diagnostic")
+        for field in ["report", "markdown_report"]:
+            value = b1_b7_cone01_single_carrier_dressing_manifest.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(f"B1/B7 cone_01 single-carrier dressing missing existing {field} path: {value}")
+    if b1_b7_cone01_single_carrier_dressing_path.exists():
+        carrier_payload = json.loads(read(b1_b7_cone01_single_carrier_dressing_path))
+        carrier_summary = carrier_payload.get("summary", {})
+        carrier_claims = carrier_payload.get("claim_boundary", {})
+        b1_b7_cone01_single_carrier_dressing.update(
+            {
+                "status": carrier_payload.get("status"),
+                "model_status": carrier_payload.get("model_status"),
+                "method": carrier_payload.get("method"),
+                "workload": carrier_payload.get("workload"),
+                "source_method": carrier_payload.get("source_method"),
+                "source_clifford_method": carrier_summary.get("source_clifford_method"),
+                "single_qubit_clifford_count": carrier_summary.get("single_qubit_clifford_count"),
+                "pair_local_clifford_count": carrier_summary.get("pair_local_clifford_count"),
+                "carrier_source_count": carrier_summary.get("carrier_source_count"),
+                "carrier_coefficient_count": carrier_summary.get("carrier_coefficient_count"),
+                "carrier_axis_count": carrier_summary.get("carrier_axis_count"),
+                "carrier_local_role_count": carrier_summary.get("carrier_local_role_count"),
+                "side_count": carrier_summary.get("side_count"),
+                "pattern_group_count": carrier_summary.get("pattern_group_count"),
+                "covered_invariant_flat_occurrence_count": carrier_summary.get(
+                    "covered_invariant_flat_occurrence_count"
+                ),
+                "total_single_carrier_trial_count": carrier_summary.get("total_single_carrier_trial_count"),
+                "single_carrier_exact_packet_count": carrier_summary.get("single_carrier_exact_packet_count"),
+                "all_packets_have_single_carrier_certificate": carrier_summary.get(
+                    "all_packets_have_single_carrier_certificate"
+                ),
+                "best_single_carrier_residual_norm": carrier_summary.get("best_single_carrier_residual_norm"),
+                "max_best_single_carrier_residual_norm": carrier_summary.get(
+                    "max_best_single_carrier_residual_norm"
+                ),
+                "accepted_occurrence_removal": carrier_summary.get("accepted_occurrence_removal"),
+                "accepted_proxy_t_reduction": carrier_summary.get("accepted_proxy_t_reduction"),
+                "missing_occurrences_after_gate": carrier_summary.get("missing_occurrences_after_gate"),
+                "missing_proxy_t_after_gate": carrier_summary.get("missing_proxy_t_after_gate"),
+                "single_carrier_exact_packet_found": carrier_summary.get("single_carrier_exact_packet_found"),
+                "single_carrier_resource_certificate_claimed": carrier_summary.get(
+                    "single_carrier_resource_certificate_claimed"
+                ),
+                "rewrite_claimed": carrier_claims.get("rewrite_claimed"),
+                "semantic_certificate_claimed": carrier_claims.get("semantic_certificate_claimed"),
+                "resource_saving_claimed": carrier_claims.get("resource_saving_claimed"),
+                "b7_ledger_improvement_claimed": carrier_claims.get("b7_ledger_improvement_claimed"),
+                "validation_error_count": carrier_summary.get("validation_error_count"),
+                "pattern_single_carrier_result_count": len(
+                    carrier_payload.get("pattern_single_carrier_results", [])
+                ),
+            }
+        )
+        if carrier_payload.get("benchmark_id") != "B1":
+            errors.append("B1/B7 cone_01 single-carrier dressing report must have benchmark_id B1")
+        if carrier_payload.get("method") != "b1_b7_cone01_single_carrier_dressing_gate_v0":
+            errors.append("B1/B7 cone_01 single-carrier dressing method mismatch")
+        if carrier_payload.get("status") != "cone01_single_carrier_exact_packet_not_resource_certificate":
+            errors.append("B1/B7 cone_01 single-carrier dressing status mismatch")
+        if (
+            carrier_payload.get("model_status")
+            != "single_nonclifford_carrier_exactifies_flat_packets_without_resource_saving"
+        ):
+            errors.append("B1/B7 cone_01 single-carrier dressing model_status mismatch")
+        if carrier_payload.get("source_method") != "b1_b7_cone01_flat_pattern_kak_packet_v0":
+            errors.append("B1/B7 cone_01 single-carrier dressing source method mismatch")
+        for field in [
+            "single_qubit_clifford_count",
+            "pair_local_clifford_count",
+            "carrier_source_count",
+            "carrier_coefficient_count",
+            "carrier_axis_count",
+            "carrier_local_role_count",
+            "side_count",
+            "pattern_group_count",
+            "covered_invariant_flat_occurrence_count",
+            "total_single_carrier_trial_count",
+            "single_carrier_exact_packet_count",
+            "all_packets_have_single_carrier_certificate",
+            "best_single_carrier_residual_norm",
+            "max_best_single_carrier_residual_norm",
+            "accepted_occurrence_removal",
+            "accepted_proxy_t_reduction",
+            "missing_occurrences_after_gate",
+            "missing_proxy_t_after_gate",
+            "single_carrier_exact_packet_found",
+            "single_carrier_resource_certificate_claimed",
+            "rewrite_claimed",
+            "semantic_certificate_claimed",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+            "validation_error_count",
+        ]:
+            if carrier_summary.get(field) != b1_b7_cone01_single_carrier_dressing_manifest.get(field):
+                errors.append(f"B1/B7 cone_01 single-carrier dressing {field} mismatch")
+        if carrier_summary.get("source_clifford_method") != "b1_b7_cone01_local_clifford_dressing_gate_v0":
+            errors.append("B1/B7 cone_01 single-carrier dressing source Clifford method mismatch")
+        if carrier_summary.get("single_carrier_exact_packet_count") != 3:
+            errors.append("B1/B7 cone_01 single-carrier dressing must exactify 3 packets")
+        if carrier_summary.get("all_packets_have_single_carrier_certificate") is not True:
+            errors.append("B1/B7 cone_01 single-carrier dressing all-packets flag must be true")
+        if carrier_summary.get("covered_invariant_flat_occurrence_count") != 11:
+            errors.append("B1/B7 cone_01 single-carrier dressing must cover 11 occurrences")
+        if carrier_summary.get("accepted_occurrence_removal") != 0:
+            errors.append("B1/B7 cone_01 single-carrier dressing must not accept occurrence removal")
+        if carrier_summary.get("accepted_proxy_t_reduction") != 0:
+            errors.append("B1/B7 cone_01 single-carrier dressing must not accept proxy-T reduction")
+        if carrier_summary.get("missing_occurrences_after_gate") != 30:
+            errors.append("B1/B7 cone_01 single-carrier dressing must leave 30 missing occurrences")
+        if carrier_summary.get("missing_proxy_t_after_gate") != 600:
+            errors.append("B1/B7 cone_01 single-carrier dressing must leave 600 missing proxy-T")
+        if len(carrier_payload.get("pattern_single_carrier_results", [])) != 3:
+            errors.append("B1/B7 cone_01 single-carrier dressing pattern result count must remain 3")
+        for row in carrier_payload.get("pattern_single_carrier_results", []):
+            if not row.get("single_carrier_exact_pass"):
+                errors.append(f"B1/B7 cone_01 single-carrier dressing missing exact pass for {row.get('pattern_id')}")
+            if row.get("accepted_occurrence_removal") != 0:
+                errors.append(f"B1/B7 cone_01 single-carrier dressing accepted removal nonzero for {row.get('pattern_id')}")
+        for field in [
+            "single_carrier_resource_certificate_claimed",
+            "rewrite_claimed",
+            "semantic_certificate_claimed",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+        ]:
+            if carrier_summary.get(field) is not False or carrier_claims.get(field) is not False:
+                errors.append(f"B1/B7 cone_01 single-carrier dressing must not claim {field}")
+        if carrier_summary.get("validation_error_count") != 0:
+            errors.append("B1/B7 cone_01 single-carrier dressing validation errors must remain zero")
+    else:
+        errors.append(
+            f"missing B1/B7 cone_01 single-carrier dressing report: "
+            f"{b1_b7_cone01_single_carrier_dressing_path}"
         )
 
     b1_b7_cone01_theta_sharing = {
@@ -12507,6 +12661,7 @@ def audit(root: Path) -> dict:
             "b7_cone01_local_dressing_search_gate": b1_b7_cone01_local_dressing_search,
             "b7_cone01_dressing_absorption_gate": b1_b7_cone01_dressing_absorption,
             "b7_cone01_local_clifford_dressing_gate": b1_b7_cone01_local_clifford_dressing,
+            "b7_cone01_single_carrier_dressing_gate": b1_b7_cone01_single_carrier_dressing,
             "b7_cone01_theta_sharing_ledger_gate": b1_b7_cone01_theta_sharing,
             "b7_cone01_shared_theta_synthesis_object_gate": b1_b7_cone01_shared_theta_synthesis_object,
             "b7_cone01_shared_theta_replay_verifier_gate": b1_b7_cone01_shared_theta_replay_verifier,
@@ -12705,6 +12860,9 @@ def audit(root: Path) -> dict:
             ),
             "b1_b7_cone01_local_clifford_dressing_gate": str(
                 b1_b7_cone01_local_clifford_dressing_path
+            ),
+            "b1_b7_cone01_single_carrier_dressing_gate": str(
+                b1_b7_cone01_single_carrier_dressing_path
             ),
             "b1_b7_cone01_theta_sharing_ledger_gate": str(b1_b7_cone01_theta_sharing_path),
             "b1_b7_cone01_shared_theta_synthesis_object_gate": str(
@@ -13318,6 +13476,20 @@ def markdown_report(report: dict) -> str:
             f"- Missing occurrences/proxy-T after gate: {report['b1']['b7_cone01_local_clifford_dressing_gate'].get('missing_occurrences_after_gate')} / {report['b1']['b7_cone01_local_clifford_dressing_gate'].get('missing_proxy_t_after_gate')}",
             f"- Local-Clifford/rewrite/semantic/resource/B7-ledger claims: {report['b1']['b7_cone01_local_clifford_dressing_gate'].get('local_clifford_certificate_claimed')} / {report['b1']['b7_cone01_local_clifford_dressing_gate'].get('rewrite_claimed')} / {report['b1']['b7_cone01_local_clifford_dressing_gate'].get('semantic_certificate_claimed')} / {report['b1']['b7_cone01_local_clifford_dressing_gate'].get('resource_saving_claimed')} / {report['b1']['b7_cone01_local_clifford_dressing_gate'].get('b7_ledger_improvement_claimed')}",
             f"- Validation errors: {report['b1']['b7_cone01_local_clifford_dressing_gate'].get('validation_error_count')}",
+            "",
+            "## B1/B7 cone_01 Single-Carrier Local Dressing Gate",
+            "",
+            f"- Exists: {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('exists')}",
+            f"- Status: {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('status')}",
+            f"- Carrier sources / coefficients / axes / local roles / sides: {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('carrier_source_count')} / {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('carrier_coefficient_count')} / {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('carrier_axis_count')} / {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('carrier_local_role_count')} / {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('side_count')}",
+            f"- Pattern groups / covered occurrences: {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('pattern_group_count')} / {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('covered_invariant_flat_occurrence_count')}",
+            f"- Total single-carrier trials: {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('total_single_carrier_trial_count')}",
+            f"- Single-carrier exact packet count / all-packets flag: {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('single_carrier_exact_packet_count')} / {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('all_packets_have_single_carrier_certificate')}",
+            f"- Best/max best single-carrier residual: {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('best_single_carrier_residual_norm')} / {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('max_best_single_carrier_residual_norm')}",
+            f"- Accepted occurrence/proxy-T reduction: {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('accepted_proxy_t_reduction')}",
+            f"- Missing occurrences/proxy-T after gate: {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('missing_occurrences_after_gate')} / {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('missing_proxy_t_after_gate')}",
+            f"- Exact-packet/resource-certificate/rewrite/semantic/resource/B7-ledger claims: {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('single_carrier_exact_packet_found')} / {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('single_carrier_resource_certificate_claimed')} / {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('rewrite_claimed')} / {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('semantic_certificate_claimed')} / {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('resource_saving_claimed')} / {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('b7_ledger_improvement_claimed')}",
+            f"- Validation errors: {report['b1']['b7_cone01_single_carrier_dressing_gate'].get('validation_error_count')}",
             "",
             "## B1/B7 cone_01 Theta-Sharing Ledger Gate",
             "",

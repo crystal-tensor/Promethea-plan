@@ -40,7 +40,7 @@ Overall audit: PASS
 - B IDs are B1..B10: True
 - Problem IDs match attack pack: True
 - All required fields present: True
-- Maturity scores: {'B1': 58, 'B2': 48, 'B3': 30, 'B4': 27, 'B5': 27, 'B6': 21, 'B7': 55, 'B8': 39, 'B9': 15, 'B10': 50}
+- Maturity scores: {'B1': 59, 'B2': 48, 'B3': 30, 'B4': 27, 'B5': 27, 'B6': 21, 'B7': 56, 'B8': 39, 'B9': 15, 'B10': 50}
 
 ## Technical Resolution Program
 
@@ -382,6 +382,20 @@ Overall audit: PASS
 - Accepted occurrence/proxy-T reduction: 0 / 0
 - Missing occurrences/proxy-T after gate: 30 / 600
 - Local-Clifford/rewrite/semantic/resource/B7-ledger claims: False / False / False / False / False
+- Validation errors: 0
+
+## B1/B7 cone_01 Single-Carrier Local Dressing Gate
+
+- Exists: True
+- Status: cone01_single_carrier_exact_packet_not_resource_certificate
+- Carrier sources / coefficients / axes / local roles / sides: 2 / 6 / 3 / 2 / 2
+- Pattern groups / covered occurrences: 3 / 11
+- Total single-carrier trials: 143327232
+- Single-carrier exact packet count / all-packets flag: 3 / True
+- Best/max best single-carrier residual: 3.2009291313835888e-16 / 4.677452743560217e-16
+- Accepted occurrence/proxy-T reduction: 0 / 0
+- Missing occurrences/proxy-T after gate: 30 / 600
+- Exact-packet/resource-certificate/rewrite/semantic/resource/B7-ledger claims: True / False / False / False / False / False
 - Validation errors: 0
 
 ## B1/B7 cone_01 Theta-Sharing Ledger Gate

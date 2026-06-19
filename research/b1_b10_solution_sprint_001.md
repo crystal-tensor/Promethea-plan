@@ -985,6 +985,20 @@ Clifford dressing route only; the remaining route must be non-Clifford exact
 dressing, a broader two-qubit rewrite certificate, a larger 30-occurrence
 certificate set, or an accepted physical cost model.
 
+**Sprint update 18u:** `T-B1-004u` is now merged as the single-carrier local
+dressing gate. The new artifact
+`research/B1_B7_cone01_single_carrier_dressing_gate.md` checks 143,327,232
+finite candidates across one theta/delta-derived carrier rotation, X/Y/Z
+axes, partner/target roles, left/right side placement, and pair-local Clifford
+wrappers. All three flat packets exactify with residuals from
+3.2009291313835888e-16 to 4.677452743560217e-16. This is the first positive
+structure packet after the local-Clifford failure, but it still leaves one
+arbitrary local carrier rotation per packet, so accepted occurrence removal and
+accepted proxy-T reduction remain 0. The next route must convert this
+single-carrier structure into replayable occurrence-removing certificates,
+extend beyond the 11 flat-window subset by at least 19 more occurrences, or
+produce an accepted physical cost-model path.
+
 ## B8: Classical Verification of Quantum Outputs
 
 **Technical target:** keep verifier soundness low under adaptive leakage by
