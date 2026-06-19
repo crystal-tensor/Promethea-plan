@@ -1,0 +1,1073 @@
+{
+  "benchmark_id": "B1",
+  "claim_boundary": {
+    "b7_ledger_improvement_claimed": false,
+    "full_circuit_rewrite_claimed": false,
+    "multi_rotation_context_absorption_claimed": false,
+    "resource_saving_claimed": false,
+    "supported_claim": "The five remaining line-1381 parameters have no exact two- or three-rotation signed same-support context absorption back to the pi/4 grid inside the configured window.",
+    "unsupported_claims": [
+      "This is not a global obstruction theorem for line 1381.",
+      "This does not reject four-or-more-rotation symbolic absorption.",
+      "This does not reject commutation-aware or full-circuit replay routes.",
+      "No B7 occurrence or proxy-T ledger reduction is accepted."
+    ]
+  },
+  "inventory_qasm": "results/b1_native_t_resource_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+  "line1381_multi_rotation_context_rows": [
+    {
+      "accepted_multi_rotation_context_absorption": false,
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "best_multi_rotation_context_candidate": {
+        "combined_angle": 0.8120577151468567,
+        "context_argument_indices": [
+          0,
+          1,
+          0
+        ],
+        "context_gates": [
+          "rz",
+          "u3",
+          "rz"
+        ],
+        "context_lines": [
+          1322,
+          1349,
+          1352
+        ],
+        "context_qubits": [
+          4,
+          8,
+          4
+        ],
+        "context_raw_angles": [
+          "pi/2",
+          "pi",
+          "0.95458522166231319"
+        ],
+        "context_rows": [
+          {
+            "argument_index": 0,
+            "gate": "rz",
+            "line_number": 1322,
+            "qubit": 4,
+            "raw_angle": "pi/2",
+            "text": "rz(pi/2) q[4];"
+          },
+          {
+            "argument_index": 1,
+            "gate": "u3",
+            "line_number": 1349,
+            "qubit": 8,
+            "raw_angle": "pi",
+            "text": "u3(pi/4,pi,-3*pi/4) q[8];"
+          },
+          {
+            "argument_index": 0,
+            "gate": "rz",
+            "line_number": 1352,
+            "qubit": 4,
+            "raw_angle": "0.95458522166231319",
+            "text": "rz(0.95458522166231319) q[4];"
+          }
+        ],
+        "distance_to_pi_over_four_grid": 0.026659551749408372,
+        "signed_context_sum": 5.666974202047003,
+        "signs": [
+          1,
+          1,
+          1
+        ],
+        "width": 3
+      },
+      "claim_boundary": "Two- and three-rotation signed context sums are bounded search hints only. They are not commutation, symbolic replay, full-circuit replay, or B7 resource certificates.",
+      "context_end_line": 1443,
+      "context_rotation_argument_count": 44,
+      "context_start_line": 1305,
+      "exact_two_or_three_rotation_absorption": false,
+      "parameter_index": 3,
+      "parameter_value": 1.428268820279441,
+      "search_widths": [
+        2,
+        3
+      ],
+      "support_qubits": [
+        4,
+        8
+      ],
+      "value_over_pi": 0.45463208562300583,
+      "width_results": [
+        {
+          "accepted_multi_rotation_context_absorption": false,
+          "best_absorption_candidate": {
+            "combined_angle": 1.5974558785443058,
+            "context_argument_indices": [
+              0,
+              0
+            ],
+            "context_gates": [
+              "rz",
+              "rz"
+            ],
+            "context_lines": [
+              1311,
+              1352
+            ],
+            "context_qubits": [
+              4,
+              4
+            ],
+            "context_raw_angles": [
+              "pi/4",
+              "0.95458522166231319"
+            ],
+            "context_rows": [
+              {
+                "argument_index": 0,
+                "gate": "rz",
+                "line_number": 1311,
+                "qubit": 4,
+                "raw_angle": "pi/4",
+                "text": "rz(pi/4) q[4];"
+              },
+              {
+                "argument_index": 0,
+                "gate": "rz",
+                "line_number": 1352,
+                "qubit": 4,
+                "raw_angle": "0.95458522166231319",
+                "text": "rz(0.95458522166231319) q[4];"
+              }
+            ],
+            "distance_to_pi_over_four_grid": 0.02665955174940926,
+            "signed_context_sum": 0.1691870582648649,
+            "signs": [
+              -1,
+              1
+            ],
+            "width": 2
+          },
+          "exact_absorption_candidate_count": 0,
+          "exact_absorption_candidates_sample": [],
+          "signed_combination_count": 3784,
+          "width": 2
+        },
+        {
+          "accepted_multi_rotation_context_absorption": false,
+          "best_absorption_candidate": {
+            "combined_angle": 0.8120577151468567,
+            "context_argument_indices": [
+              0,
+              1,
+              0
+            ],
+            "context_gates": [
+              "rz",
+              "u3",
+              "rz"
+            ],
+            "context_lines": [
+              1322,
+              1349,
+              1352
+            ],
+            "context_qubits": [
+              4,
+              8,
+              4
+            ],
+            "context_raw_angles": [
+              "pi/2",
+              "pi",
+              "0.95458522166231319"
+            ],
+            "context_rows": [
+              {
+                "argument_index": 0,
+                "gate": "rz",
+                "line_number": 1322,
+                "qubit": 4,
+                "raw_angle": "pi/2",
+                "text": "rz(pi/2) q[4];"
+              },
+              {
+                "argument_index": 1,
+                "gate": "u3",
+                "line_number": 1349,
+                "qubit": 8,
+                "raw_angle": "pi",
+                "text": "u3(pi/4,pi,-3*pi/4) q[8];"
+              },
+              {
+                "argument_index": 0,
+                "gate": "rz",
+                "line_number": 1352,
+                "qubit": 4,
+                "raw_angle": "0.95458522166231319",
+                "text": "rz(0.95458522166231319) q[4];"
+              }
+            ],
+            "distance_to_pi_over_four_grid": 0.026659551749408372,
+            "signed_context_sum": 5.666974202047003,
+            "signs": [
+              1,
+              1,
+              1
+            ],
+            "width": 3
+          },
+          "exact_absorption_candidate_count": 0,
+          "exact_absorption_candidates_sample": [],
+          "signed_combination_count": 105952,
+          "width": 3
+        }
+      ]
+    },
+    {
+      "accepted_multi_rotation_context_absorption": false,
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "best_multi_rotation_context_candidate": {
+        "combined_angle": -1.5680497715828485,
+        "context_argument_indices": [
+          0,
+          0
+        ],
+        "context_gates": [
+          "rz",
+          "u3"
+        ],
+        "context_lines": [
+          1311,
+          1378
+        ],
+        "context_qubits": [
+          4,
+          8
+        ],
+        "context_raw_angles": [
+          "pi/4",
+          "0.36485735178627743"
+        ],
+        "context_rows": [
+          {
+            "argument_index": 0,
+            "gate": "rz",
+            "line_number": 1311,
+            "qubit": 4,
+            "raw_angle": "pi/4",
+            "text": "rz(pi/4) q[4];"
+          },
+          {
+            "argument_index": 0,
+            "gate": "u3",
+            "line_number": 1378,
+            "qubit": 8,
+            "raw_angle": "0.36485735178627743",
+            "text": "u3(0.36485735178627743,pi,-pi/4) q[8];"
+          }
+        ],
+        "distance_to_pi_over_four_grid": 0.0027465552120480297,
+        "signed_context_sum": -0.42054081161117085,
+        "signs": [
+          -1,
+          1
+        ],
+        "width": 2
+      },
+      "claim_boundary": "Two- and three-rotation signed context sums are bounded search hints only. They are not commutation, symbolic replay, full-circuit replay, or B7 resource certificates.",
+      "context_end_line": 1443,
+      "context_rotation_argument_count": 44,
+      "context_start_line": 1305,
+      "exact_two_or_three_rotation_absorption": false,
+      "parameter_index": 4,
+      "parameter_value": -1.1475089599716777,
+      "search_widths": [
+        2,
+        3
+      ],
+      "support_qubits": [
+        4,
+        8
+      ],
+      "value_over_pi": -0.36526344644346476,
+      "width_results": [
+        {
+          "accepted_multi_rotation_context_absorption": false,
+          "best_absorption_candidate": {
+            "combined_angle": -1.5680497715828485,
+            "context_argument_indices": [
+              0,
+              0
+            ],
+            "context_gates": [
+              "rz",
+              "u3"
+            ],
+            "context_lines": [
+              1311,
+              1378
+            ],
+            "context_qubits": [
+              4,
+              8
+            ],
+            "context_raw_angles": [
+              "pi/4",
+              "0.36485735178627743"
+            ],
+            "context_rows": [
+              {
+                "argument_index": 0,
+                "gate": "rz",
+                "line_number": 1311,
+                "qubit": 4,
+                "raw_angle": "pi/4",
+                "text": "rz(pi/4) q[4];"
+              },
+              {
+                "argument_index": 0,
+                "gate": "u3",
+                "line_number": 1378,
+                "qubit": 8,
+                "raw_angle": "0.36485735178627743",
+                "text": "u3(0.36485735178627743,pi,-pi/4) q[8];"
+              }
+            ],
+            "distance_to_pi_over_four_grid": 0.0027465552120480297,
+            "signed_context_sum": -0.42054081161117085,
+            "signs": [
+              -1,
+              1
+            ],
+            "width": 2
+          },
+          "exact_absorption_candidate_count": 0,
+          "exact_absorption_candidates_sample": [],
+          "signed_combination_count": 3784,
+          "width": 2
+        },
+        {
+          "accepted_multi_rotation_context_absorption": false,
+          "best_absorption_candidate": {
+            "combined_angle": -2.353447934980297,
+            "context_argument_indices": [
+              0,
+              0,
+              0
+            ],
+            "context_gates": [
+              "rz",
+              "rz",
+              "u3"
+            ],
+            "context_lines": [
+              1311,
+              1318,
+              1378
+            ],
+            "context_qubits": [
+              4,
+              4,
+              8
+            ],
+            "context_raw_angles": [
+              "pi/4",
+              "pi/4",
+              "0.36485735178627743"
+            ],
+            "context_rows": [
+              {
+                "argument_index": 0,
+                "gate": "rz",
+                "line_number": 1311,
+                "qubit": 4,
+                "raw_angle": "pi/4",
+                "text": "rz(pi/4) q[4];"
+              },
+              {
+                "argument_index": 0,
+                "gate": "rz",
+                "line_number": 1318,
+                "qubit": 4,
+                "raw_angle": "pi/4",
+                "text": "rz(pi/4) q[4];"
+              },
+              {
+                "argument_index": 0,
+                "gate": "u3",
+                "line_number": 1378,
+                "qubit": 8,
+                "raw_angle": "0.36485735178627743",
+                "text": "u3(0.36485735178627743,pi,-pi/4) q[8];"
+              }
+            ],
+            "distance_to_pi_over_four_grid": 0.0027465552120480297,
+            "signed_context_sum": -1.2059389750086191,
+            "signs": [
+              -1,
+              -1,
+              1
+            ],
+            "width": 3
+          },
+          "exact_absorption_candidate_count": 0,
+          "exact_absorption_candidates_sample": [],
+          "signed_combination_count": 105952,
+          "width": 3
+        }
+      ]
+    },
+    {
+      "accepted_multi_rotation_context_absorption": false,
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "best_multi_rotation_context_candidate": {
+        "combined_angle": -2.3719598641352,
+        "context_argument_indices": [
+          0,
+          0
+        ],
+        "context_gates": [
+          "rz",
+          "u3"
+        ],
+        "context_lines": [
+          1352,
+          1378
+        ],
+        "context_qubits": [
+          4,
+          8
+        ],
+        "context_raw_angles": [
+          "0.95458522166231319",
+          "0.36485735178627743"
+        ],
+        "context_rows": [
+          {
+            "argument_index": 0,
+            "gate": "rz",
+            "line_number": 1352,
+            "qubit": 4,
+            "raw_angle": "0.95458522166231319",
+            "text": "rz(0.95458522166231319) q[4];"
+          },
+          {
+            "argument_index": 0,
+            "gate": "u3",
+            "line_number": 1378,
+            "qubit": 8,
+            "raw_angle": "0.36485735178627743",
+            "text": "u3(0.36485735178627743,pi,-pi/4) q[8];"
+          }
+        ],
+        "distance_to_pi_over_four_grid": 0.015765373942855376,
+        "signed_context_sum": -1.3194425734485906,
+        "signs": [
+          -1,
+          -1
+        ],
+        "width": 2
+      },
+      "claim_boundary": "Two- and three-rotation signed context sums are bounded search hints only. They are not commutation, symbolic replay, full-circuit replay, or B7 resource certificates.",
+      "context_end_line": 1443,
+      "context_rotation_argument_count": 44,
+      "context_start_line": 1305,
+      "exact_two_or_three_rotation_absorption": false,
+      "parameter_index": 9,
+      "parameter_value": -1.0525172906866098,
+      "search_widths": [
+        2,
+        3
+      ],
+      "support_qubits": [
+        4,
+        8
+      ],
+      "value_over_pi": -0.3350266590049265,
+      "width_results": [
+        {
+          "accepted_multi_rotation_context_absorption": false,
+          "best_absorption_candidate": {
+            "combined_angle": -2.3719598641352,
+            "context_argument_indices": [
+              0,
+              0
+            ],
+            "context_gates": [
+              "rz",
+              "u3"
+            ],
+            "context_lines": [
+              1352,
+              1378
+            ],
+            "context_qubits": [
+              4,
+              8
+            ],
+            "context_raw_angles": [
+              "0.95458522166231319",
+              "0.36485735178627743"
+            ],
+            "context_rows": [
+              {
+                "argument_index": 0,
+                "gate": "rz",
+                "line_number": 1352,
+                "qubit": 4,
+                "raw_angle": "0.95458522166231319",
+                "text": "rz(0.95458522166231319) q[4];"
+              },
+              {
+                "argument_index": 0,
+                "gate": "u3",
+                "line_number": 1378,
+                "qubit": 8,
+                "raw_angle": "0.36485735178627743",
+                "text": "u3(0.36485735178627743,pi,-pi/4) q[8];"
+              }
+            ],
+            "distance_to_pi_over_four_grid": 0.015765373942855376,
+            "signed_context_sum": -1.3194425734485906,
+            "signs": [
+              -1,
+              -1
+            ],
+            "width": 2
+          },
+          "exact_absorption_candidate_count": 0,
+          "exact_absorption_candidates_sample": [],
+          "signed_combination_count": 3784,
+          "width": 2
+        },
+        {
+          "accepted_multi_rotation_context_absorption": false,
+          "best_absorption_candidate": {
+            "combined_angle": 3.1258272796469377,
+            "context_argument_indices": [
+              0,
+              0,
+              0
+            ],
+            "context_gates": [
+              "rz",
+              "rz",
+              "u3"
+            ],
+            "context_lines": [
+              1311,
+              1352,
+              1378
+            ],
+            "context_qubits": [
+              4,
+              4,
+              8
+            ],
+            "context_raw_angles": [
+              "pi/4",
+              "0.95458522166231319",
+              "0.36485735178627743"
+            ],
+            "context_rows": [
+              {
+                "argument_index": 0,
+                "gate": "rz",
+                "line_number": 1311,
+                "qubit": 4,
+                "raw_angle": "pi/4",
+                "text": "rz(pi/4) q[4];"
+              },
+              {
+                "argument_index": 0,
+                "gate": "rz",
+                "line_number": 1352,
+                "qubit": 4,
+                "raw_angle": "0.95458522166231319",
+                "text": "rz(0.95458522166231319) q[4];"
+              },
+              {
+                "argument_index": 0,
+                "gate": "u3",
+                "line_number": 1378,
+                "qubit": 8,
+                "raw_angle": "0.36485735178627743",
+                "text": "u3(0.36485735178627743,pi,-pi/4) q[8];"
+              }
+            ],
+            "distance_to_pi_over_four_grid": 0.015765373942855376,
+            "signed_context_sum": -2.1048407368460387,
+            "signs": [
+              -1,
+              -1,
+              -1
+            ],
+            "width": 3
+          },
+          "exact_absorption_candidate_count": 0,
+          "exact_absorption_candidates_sample": [],
+          "signed_combination_count": 105952,
+          "width": 3
+        }
+      ]
+    },
+    {
+      "accepted_multi_rotation_context_absorption": false,
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "best_multi_rotation_context_candidate": {
+        "combined_angle": 0.7838161722881143,
+        "context_argument_indices": [
+          0,
+          0,
+          1
+        ],
+        "context_gates": [
+          "rz",
+          "u3",
+          "u3"
+        ],
+        "context_lines": [
+          1352,
+          1378,
+          1381
+        ],
+        "context_qubits": [
+          4,
+          8,
+          8
+        ],
+        "context_raw_angles": [
+          "0.95458522166231319",
+          "0.36485735178627743",
+          "0.36485735178627726"
+        ],
+        "context_rows": [
+          {
+            "argument_index": 0,
+            "gate": "rz",
+            "line_number": 1352,
+            "qubit": 4,
+            "raw_angle": "0.95458522166231319",
+            "text": "rz(0.95458522166231319) q[4];"
+          },
+          {
+            "argument_index": 0,
+            "gate": "u3",
+            "line_number": 1378,
+            "qubit": 8,
+            "raw_angle": "0.36485735178627743",
+            "text": "u3(0.36485735178627743,pi,-pi/4) q[8];"
+          },
+          {
+            "argument_index": 1,
+            "gate": "u3",
+            "line_number": 1381,
+            "qubit": 8,
+            "raw_angle": "0.36485735178627726",
+            "text": "u3(pi/2,0.36485735178627726,pi/2) q[8];"
+          }
+        ],
+        "distance_to_pi_over_four_grid": 0.0015819911093339911,
+        "signed_context_sum": 0.2248705180897585,
+        "signs": [
+          1,
+          -1,
+          -1
+        ],
+        "width": 3
+      },
+      "claim_boundary": "Two- and three-rotation signed context sums are bounded search hints only. They are not commutation, symbolic replay, full-circuit replay, or B7 resource certificates.",
+      "context_end_line": 1443,
+      "context_rotation_argument_count": 44,
+      "context_start_line": 1305,
+      "exact_two_or_three_rotation_absorption": false,
+      "parameter_index": 16,
+      "parameter_value": 0.5589456541983555,
+      "search_widths": [
+        2,
+        3
+      ],
+      "support_qubits": [
+        4,
+        8
+      ],
+      "value_over_pi": 0.17791792757080296,
+      "width_results": [
+        {
+          "accepted_multi_rotation_context_absorption": false,
+          "best_absorption_candidate": {
+            "combined_angle": -0.7604969192502349,
+            "context_argument_indices": [
+              0,
+              0
+            ],
+            "context_gates": [
+              "rz",
+              "u3"
+            ],
+            "context_lines": [
+              1352,
+              1378
+            ],
+            "context_qubits": [
+              4,
+              8
+            ],
+            "context_raw_angles": [
+              "0.95458522166231319",
+              "0.36485735178627743"
+            ],
+            "context_rows": [
+              {
+                "argument_index": 0,
+                "gate": "rz",
+                "line_number": 1352,
+                "qubit": 4,
+                "raw_angle": "0.95458522166231319",
+                "text": "rz(0.95458522166231319) q[4];"
+              },
+              {
+                "argument_index": 0,
+                "gate": "u3",
+                "line_number": 1378,
+                "qubit": 8,
+                "raw_angle": "0.36485735178627743",
+                "text": "u3(0.36485735178627743,pi,-pi/4) q[8];"
+              }
+            ],
+            "distance_to_pi_over_four_grid": 0.024901244147213397,
+            "signed_context_sum": -1.3194425734485906,
+            "signs": [
+              -1,
+              -1
+            ],
+            "width": 2
+          },
+          "exact_absorption_candidate_count": 0,
+          "exact_absorption_candidates_sample": [],
+          "signed_combination_count": 3784,
+          "width": 2
+        },
+        {
+          "accepted_multi_rotation_context_absorption": false,
+          "best_absorption_candidate": {
+            "combined_angle": 0.7838161722881143,
+            "context_argument_indices": [
+              0,
+              0,
+              1
+            ],
+            "context_gates": [
+              "rz",
+              "u3",
+              "u3"
+            ],
+            "context_lines": [
+              1352,
+              1378,
+              1381
+            ],
+            "context_qubits": [
+              4,
+              8,
+              8
+            ],
+            "context_raw_angles": [
+              "0.95458522166231319",
+              "0.36485735178627743",
+              "0.36485735178627726"
+            ],
+            "context_rows": [
+              {
+                "argument_index": 0,
+                "gate": "rz",
+                "line_number": 1352,
+                "qubit": 4,
+                "raw_angle": "0.95458522166231319",
+                "text": "rz(0.95458522166231319) q[4];"
+              },
+              {
+                "argument_index": 0,
+                "gate": "u3",
+                "line_number": 1378,
+                "qubit": 8,
+                "raw_angle": "0.36485735178627743",
+                "text": "u3(0.36485735178627743,pi,-pi/4) q[8];"
+              },
+              {
+                "argument_index": 1,
+                "gate": "u3",
+                "line_number": 1381,
+                "qubit": 8,
+                "raw_angle": "0.36485735178627726",
+                "text": "u3(pi/2,0.36485735178627726,pi/2) q[8];"
+              }
+            ],
+            "distance_to_pi_over_four_grid": 0.0015819911093339911,
+            "signed_context_sum": 0.2248705180897585,
+            "signs": [
+              1,
+              -1,
+              -1
+            ],
+            "width": 3
+          },
+          "exact_absorption_candidate_count": 0,
+          "exact_absorption_candidates_sample": [],
+          "signed_combination_count": 105952,
+          "width": 3
+        }
+      ]
+    },
+    {
+      "accepted_multi_rotation_context_absorption": false,
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "best_multi_rotation_context_candidate": {
+        "combined_angle": 2.3589410454046966,
+        "context_argument_indices": [
+          0,
+          1
+        ],
+        "context_gates": [
+          "rz",
+          "u3"
+        ],
+        "context_lines": [
+          1322,
+          1381
+        ],
+        "context_qubits": [
+          4,
+          8
+        ],
+        "context_raw_angles": [
+          "pi/2",
+          "0.36485735178627726"
+        ],
+        "context_rows": [
+          {
+            "argument_index": 0,
+            "gate": "rz",
+            "line_number": 1322,
+            "qubit": 4,
+            "raw_angle": "pi/2",
+            "text": "rz(pi/2) q[4];"
+          },
+          {
+            "argument_index": 1,
+            "gate": "u3",
+            "line_number": 1381,
+            "qubit": 8,
+            "raw_angle": "0.36485735178627726",
+            "text": "u3(pi/2,0.36485735178627726,pi/2) q[8];"
+          }
+        ],
+        "distance_to_pi_over_four_grid": 0.0027465552123517867,
+        "signed_context_sum": 1.9356536785811738,
+        "signs": [
+          1,
+          1
+        ],
+        "width": 2
+      },
+      "claim_boundary": "Two- and three-rotation signed context sums are bounded search hints only. They are not commutation, symbolic replay, full-circuit replay, or B7 resource certificates.",
+      "context_end_line": 1443,
+      "context_rotation_argument_count": 44,
+      "context_start_line": 1305,
+      "exact_two_or_three_rotation_absorption": false,
+      "parameter_index": 17,
+      "parameter_value": 0.4232873668235233,
+      "search_widths": [
+        2,
+        3
+      ],
+      "support_qubits": [
+        4,
+        8
+      ],
+      "value_over_pi": 0.13473655355663217,
+      "width_results": [
+        {
+          "accepted_multi_rotation_context_absorption": false,
+          "best_absorption_candidate": {
+            "combined_angle": 2.3589410454046966,
+            "context_argument_indices": [
+              0,
+              1
+            ],
+            "context_gates": [
+              "rz",
+              "u3"
+            ],
+            "context_lines": [
+              1322,
+              1381
+            ],
+            "context_qubits": [
+              4,
+              8
+            ],
+            "context_raw_angles": [
+              "pi/2",
+              "0.36485735178627726"
+            ],
+            "context_rows": [
+              {
+                "argument_index": 0,
+                "gate": "rz",
+                "line_number": 1322,
+                "qubit": 4,
+                "raw_angle": "pi/2",
+                "text": "rz(pi/2) q[4];"
+              },
+              {
+                "argument_index": 1,
+                "gate": "u3",
+                "line_number": 1381,
+                "qubit": 8,
+                "raw_angle": "0.36485735178627726",
+                "text": "u3(pi/2,0.36485735178627726,pi/2) q[8];"
+              }
+            ],
+            "distance_to_pi_over_four_grid": 0.0027465552123517867,
+            "signed_context_sum": 1.9356536785811738,
+            "signs": [
+              1,
+              1
+            ],
+            "width": 2
+          },
+          "exact_absorption_candidate_count": 0,
+          "exact_absorption_candidates_sample": [],
+          "signed_combination_count": 3784,
+          "width": 2
+        },
+        {
+          "accepted_multi_rotation_context_absorption": false,
+          "best_absorption_candidate": {
+            "combined_angle": 2.3589410454046966,
+            "context_argument_indices": [
+              0,
+              0,
+              1
+            ],
+            "context_gates": [
+              "rz",
+              "rz",
+              "u3"
+            ],
+            "context_lines": [
+              1311,
+              1318,
+              1381
+            ],
+            "context_qubits": [
+              4,
+              4,
+              8
+            ],
+            "context_raw_angles": [
+              "pi/4",
+              "pi/4",
+              "0.36485735178627726"
+            ],
+            "context_rows": [
+              {
+                "argument_index": 0,
+                "gate": "rz",
+                "line_number": 1311,
+                "qubit": 4,
+                "raw_angle": "pi/4",
+                "text": "rz(pi/4) q[4];"
+              },
+              {
+                "argument_index": 0,
+                "gate": "rz",
+                "line_number": 1318,
+                "qubit": 4,
+                "raw_angle": "pi/4",
+                "text": "rz(pi/4) q[4];"
+              },
+              {
+                "argument_index": 1,
+                "gate": "u3",
+                "line_number": 1381,
+                "qubit": 8,
+                "raw_angle": "0.36485735178627726",
+                "text": "u3(pi/2,0.36485735178627726,pi/2) q[8];"
+              }
+            ],
+            "distance_to_pi_over_four_grid": 0.0027465552123517867,
+            "signed_context_sum": 1.9356536785811738,
+            "signs": [
+              1,
+              1,
+              1
+            ],
+            "width": 3
+          },
+          "exact_absorption_candidate_count": 0,
+          "exact_absorption_candidates_sample": [],
+          "signed_combination_count": 105952,
+          "width": 3
+        }
+      ]
+    }
+  ],
+  "linked_b7_problem_id": 21,
+  "method": "b1_b7_cone01_line1381_multi_rotation_context_gate_v0",
+  "model_status": "remaining_five_line1381_parameters_have_no_two_or_three_rotation_context_absorption",
+  "source_context_absorption_result": "results/B1_B7_cone01_line1381_context_absorption_gate_v0.json",
+  "source_exact_decomposition_pressure_result": "results/B1_B7_cone01_line1381_exact_decomposition_pressure_gate_v0.json",
+  "source_five_parameter_line1381_exact_repair_result": "results/B1_B7_cone01_five_parameter_line1381_exact_repair_gate_v0.json",
+  "status": "cone01_line1381_multi_rotation_context_not_accepted",
+  "summary": {
+    "accepted_full_circuit_replay_certificate_count": 0,
+    "accepted_multi_rotation_context_absorption_count": 0,
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "b7_ledger_improvement_claimed": false,
+    "context_end_line": 1443,
+    "context_radius": 64,
+    "context_rotation_argument_count": 44,
+    "context_start_line": 1305,
+    "full_circuit_rewrite_claimed": false,
+    "max_best_width2_context_grid_error": 0.02665955174940926,
+    "max_best_width3_context_grid_error": 0.026659551749408372,
+    "min_best_width2_context_grid_error": 0.0027465552120480297,
+    "min_best_width3_context_grid_error": 0.0015819911093339911,
+    "missing_occurrences_after_gate": 30,
+    "missing_proxy_t_after_gate": 600,
+    "multi_rotation_context_absorption_claimed": false,
+    "resource_saving_claimed": false,
+    "rotation_argument_inventory_count": 2049,
+    "search_widths": [
+      2,
+      3
+    ],
+    "source_context_absorption_method": "b1_b7_cone01_line1381_context_absorption_gate_v0",
+    "source_exact_decomposition_pressure_method": "b1_b7_cone01_line1381_exact_decomposition_pressure_gate_v0",
+    "source_five_parameter_line1381_exact_repair_method": "b1_b7_cone01_five_parameter_line1381_exact_repair_gate_v0",
+    "support_qubits": [
+      4,
+      8
+    ],
+    "target_candidate_line_number": 1381,
+    "tested_remaining_parameter_count": 5,
+    "total_signed_combination_tests": 548680,
+    "two_or_three_rotation_exact_absorption_parameter_count": 0,
+    "validation_error_count": 0,
+    "width2_exact_absorption_parameter_count": 0,
+    "width2_signed_combination_count_per_parameter": 3784,
+    "width3_exact_absorption_parameter_count": 0,
+    "width3_signed_combination_count_per_parameter": 105952,
+    "window_end_line": 1379,
+    "window_start_line": 1369
+  },
+  "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+}

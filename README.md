@@ -384,6 +384,18 @@ accepted occurrence/proxy-T reduction remains 0. This closes only a cheap
 single-step context route; multi-rotation symbolic absorption and full-circuit
 replay remain open.
 
+The next line-1381 multi-rotation context gate broadens that pressure test to
+signed sums of two or three same-support context rotations. Across the same 44
+context rotation arguments, it evaluates 3,784 width-2 signed combinations and
+105,952 width-3 signed combinations per parameter, or 548,680 total signed
+combination tests across the five remaining parameters. The result remains
+negative: 0/5 parameters have exact width-2 or width-3 absorption back to the
+pi/4 grid, the best width-3 grid error is 1.5819911093339911e-3, and accepted
+full-circuit replay, occurrence removal, proxy-T reduction, and B7 ledger
+improvement remain 0. This closes a bounded two-/three-rotation context route;
+four-or-more-rotation symbolic absorption, commutation-aware replay, and
+different occurrence-removing scaffolds remain open.
+
 ## Repository Layout
 
 ```text

@@ -222,6 +222,9 @@ def audit(root: Path) -> dict:
     b1_b7_cone01_line1381_context_absorption_path = (
         results / "B1_B7_cone01_line1381_context_absorption_gate_v0.json"
     )
+    b1_b7_cone01_line1381_multi_rotation_context_path = (
+        results / "B1_B7_cone01_line1381_multi_rotation_context_gate_v0.json"
+    )
     b1_b7_cone01_theta_sharing_path = results / "B1_B7_cone01_theta_sharing_ledger_gate_v0.json"
     b1_b7_cone01_shared_theta_synthesis_object_path = (
         results / "B1_B7_cone01_shared_theta_synthesis_object_gate_v0.json"
@@ -799,6 +802,9 @@ def audit(root: Path) -> dict:
     )
     b1_b7_cone01_line1381_context_absorption_manifest = current_results.get(
         "b1_b7_cone01_line1381_context_absorption_gate_v0"
+    )
+    b1_b7_cone01_line1381_multi_rotation_context_manifest = current_results.get(
+        "b1_b7_cone01_line1381_multi_rotation_context_gate_v0"
     )
     b1_b7_cone01_theta_sharing_manifest = current_results.get(
         "b1_b7_cone01_theta_sharing_ledger_gate_v0"
@@ -6696,6 +6702,244 @@ def audit(root: Path) -> dict:
         errors.append(
             f"missing B1/B7 cone_01 line-1381 context absorption report: "
             f"{b1_b7_cone01_line1381_context_absorption_path}"
+        )
+
+    b1_b7_cone01_line1381_multi_rotation_context = {
+        "path": str(b1_b7_cone01_line1381_multi_rotation_context_path),
+        "exists": b1_b7_cone01_line1381_multi_rotation_context_path.exists(),
+    }
+    if not b1_b7_cone01_line1381_multi_rotation_context_manifest:
+        errors.append(
+            "B1 manifest missing current result: "
+            "b1_b7_cone01_line1381_multi_rotation_context_gate_v0"
+        )
+    else:
+        if (
+            b1_b7_cone01_line1381_multi_rotation_context_manifest.get("status")
+            != "cone01_line1381_multi_rotation_context_not_accepted"
+        ):
+            errors.append("B1/B7 cone_01 line-1381 multi-rotation context gate status mismatch")
+        for field in ["report", "markdown_report"]:
+            value = b1_b7_cone01_line1381_multi_rotation_context_manifest.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(
+                    "B1/B7 cone_01 line-1381 multi-rotation context gate missing "
+                    f"existing {field} path: {value}"
+                )
+    if b1_b7_cone01_line1381_multi_rotation_context_path.exists():
+        multi_context_payload = json.loads(read(b1_b7_cone01_line1381_multi_rotation_context_path))
+        multi_context_summary = multi_context_payload.get("summary", {})
+        multi_context_claims = multi_context_payload.get("claim_boundary", {})
+        b1_b7_cone01_line1381_multi_rotation_context.update(
+            {
+                "status": multi_context_payload.get("status"),
+                "model_status": multi_context_payload.get("model_status"),
+                "method": multi_context_payload.get("method"),
+                "workload": multi_context_payload.get("workload"),
+                "target_candidate_line_number": multi_context_summary.get(
+                    "target_candidate_line_number"
+                ),
+                "support_qubits": multi_context_summary.get("support_qubits"),
+                "window_start_line": multi_context_summary.get("window_start_line"),
+                "window_end_line": multi_context_summary.get("window_end_line"),
+                "context_radius": multi_context_summary.get("context_radius"),
+                "context_start_line": multi_context_summary.get("context_start_line"),
+                "context_end_line": multi_context_summary.get("context_end_line"),
+                "rotation_argument_inventory_count": multi_context_summary.get(
+                    "rotation_argument_inventory_count"
+                ),
+                "context_rotation_argument_count": multi_context_summary.get(
+                    "context_rotation_argument_count"
+                ),
+                "tested_remaining_parameter_count": multi_context_summary.get(
+                    "tested_remaining_parameter_count"
+                ),
+                "search_widths": multi_context_summary.get("search_widths"),
+                "width2_signed_combination_count_per_parameter": multi_context_summary.get(
+                    "width2_signed_combination_count_per_parameter"
+                ),
+                "width3_signed_combination_count_per_parameter": multi_context_summary.get(
+                    "width3_signed_combination_count_per_parameter"
+                ),
+                "total_signed_combination_tests": multi_context_summary.get(
+                    "total_signed_combination_tests"
+                ),
+                "width2_exact_absorption_parameter_count": multi_context_summary.get(
+                    "width2_exact_absorption_parameter_count"
+                ),
+                "width3_exact_absorption_parameter_count": multi_context_summary.get(
+                    "width3_exact_absorption_parameter_count"
+                ),
+                "two_or_three_rotation_exact_absorption_parameter_count": multi_context_summary.get(
+                    "two_or_three_rotation_exact_absorption_parameter_count"
+                ),
+                "min_best_width2_context_grid_error": multi_context_summary.get(
+                    "min_best_width2_context_grid_error"
+                ),
+                "min_best_width3_context_grid_error": multi_context_summary.get(
+                    "min_best_width3_context_grid_error"
+                ),
+                "accepted_multi_rotation_context_absorption_count": multi_context_summary.get(
+                    "accepted_multi_rotation_context_absorption_count"
+                ),
+                "accepted_full_circuit_replay_certificate_count": multi_context_summary.get(
+                    "accepted_full_circuit_replay_certificate_count"
+                ),
+                "accepted_occurrence_removal": multi_context_summary.get(
+                    "accepted_occurrence_removal"
+                ),
+                "accepted_proxy_t_reduction": multi_context_summary.get(
+                    "accepted_proxy_t_reduction"
+                ),
+                "missing_occurrences_after_gate": multi_context_summary.get(
+                    "missing_occurrences_after_gate"
+                ),
+                "missing_proxy_t_after_gate": multi_context_summary.get(
+                    "missing_proxy_t_after_gate"
+                ),
+                "multi_rotation_context_absorption_claimed": multi_context_summary.get(
+                    "multi_rotation_context_absorption_claimed"
+                ),
+                "full_circuit_rewrite_claimed": multi_context_summary.get(
+                    "full_circuit_rewrite_claimed"
+                ),
+                "resource_saving_claimed": multi_context_summary.get("resource_saving_claimed"),
+                "b7_ledger_improvement_claimed": multi_context_summary.get(
+                    "b7_ledger_improvement_claimed"
+                ),
+                "validation_error_count": multi_context_summary.get("validation_error_count"),
+                "line1381_multi_rotation_context_row_count": len(
+                    multi_context_payload.get("line1381_multi_rotation_context_rows", [])
+                ),
+            }
+        )
+        if multi_context_payload.get("benchmark_id") != "B1":
+            errors.append(
+                "B1/B7 cone_01 line-1381 multi-rotation context report must have benchmark_id B1"
+            )
+        if (
+            multi_context_payload.get("method")
+            != "b1_b7_cone01_line1381_multi_rotation_context_gate_v0"
+        ):
+            errors.append("B1/B7 cone_01 line-1381 multi-rotation context method mismatch")
+        if (
+            multi_context_payload.get("status")
+            != "cone01_line1381_multi_rotation_context_not_accepted"
+        ):
+            errors.append("B1/B7 cone_01 line-1381 multi-rotation context status mismatch")
+        if (
+            multi_context_payload.get("model_status")
+            != "remaining_five_line1381_parameters_have_no_two_or_three_rotation_context_absorption"
+        ):
+            errors.append("B1/B7 cone_01 line-1381 multi-rotation context model_status mismatch")
+        for field in [
+            "target_candidate_line_number",
+            "support_qubits",
+            "window_start_line",
+            "window_end_line",
+            "context_radius",
+            "context_start_line",
+            "context_end_line",
+            "rotation_argument_inventory_count",
+            "context_rotation_argument_count",
+            "tested_remaining_parameter_count",
+            "search_widths",
+            "width2_signed_combination_count_per_parameter",
+            "width3_signed_combination_count_per_parameter",
+            "total_signed_combination_tests",
+            "width2_exact_absorption_parameter_count",
+            "width3_exact_absorption_parameter_count",
+            "two_or_three_rotation_exact_absorption_parameter_count",
+            "accepted_multi_rotation_context_absorption_count",
+            "accepted_full_circuit_replay_certificate_count",
+            "accepted_occurrence_removal",
+            "accepted_proxy_t_reduction",
+            "missing_occurrences_after_gate",
+            "missing_proxy_t_after_gate",
+            "multi_rotation_context_absorption_claimed",
+            "full_circuit_rewrite_claimed",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+            "validation_error_count",
+        ]:
+            if (
+                multi_context_summary.get(field)
+                != b1_b7_cone01_line1381_multi_rotation_context_manifest.get(field)
+            ):
+                errors.append(
+                    f"B1/B7 cone_01 line-1381 multi-rotation context {field} mismatch"
+                )
+        expected_multi_context_fields = {
+            "target_candidate_line_number": 1381,
+            "support_qubits": [4, 8],
+            "window_start_line": 1369,
+            "window_end_line": 1379,
+            "context_radius": 64,
+            "context_start_line": 1305,
+            "context_end_line": 1443,
+            "rotation_argument_inventory_count": 2049,
+            "context_rotation_argument_count": 44,
+            "tested_remaining_parameter_count": 5,
+            "search_widths": [2, 3],
+            "width2_signed_combination_count_per_parameter": 3784,
+            "width3_signed_combination_count_per_parameter": 105952,
+            "total_signed_combination_tests": 548680,
+            "width2_exact_absorption_parameter_count": 0,
+            "width3_exact_absorption_parameter_count": 0,
+            "two_or_three_rotation_exact_absorption_parameter_count": 0,
+            "accepted_multi_rotation_context_absorption_count": 0,
+            "accepted_full_circuit_replay_certificate_count": 0,
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "missing_occurrences_after_gate": 30,
+            "missing_proxy_t_after_gate": 600,
+            "validation_error_count": 0,
+        }
+        for field, value in expected_multi_context_fields.items():
+            if multi_context_summary.get(field) != value:
+                errors.append(
+                    f"B1/B7 cone_01 line-1381 multi-rotation context expected {field}={value}"
+                )
+        for field in [
+            "multi_rotation_context_absorption_claimed",
+            "full_circuit_rewrite_claimed",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+        ]:
+            if multi_context_summary.get(field) is not False:
+                errors.append(
+                    f"B1/B7 cone_01 line-1381 multi-rotation context must not claim {field}"
+                )
+            if multi_context_claims.get(field) is not False:
+                errors.append(
+                    "B1/B7 cone_01 line-1381 multi-rotation context claim boundary "
+                    f"must not claim {field}"
+                )
+        rows = multi_context_payload.get("line1381_multi_rotation_context_rows", [])
+        if len(rows) != 5:
+            errors.append("B1/B7 cone_01 line-1381 multi-rotation context row count must be 5")
+        elif [row.get("parameter_index") for row in rows] != [3, 4, 9, 16, 17]:
+            errors.append(
+                "B1/B7 cone_01 line-1381 multi-rotation context parameter indices mismatch"
+            )
+        for row in rows:
+            if row.get("accepted_multi_rotation_context_absorption") is not False:
+                errors.append(
+                    "B1/B7 cone_01 line-1381 multi-rotation context rows must not accept absorption"
+                )
+            if row.get("exact_two_or_three_rotation_absorption") is not False:
+                errors.append(
+                    "B1/B7 cone_01 line-1381 multi-rotation context rows must not exact absorb"
+                )
+            for result in row.get("width_results", []):
+                if result.get("exact_absorption_candidate_count") != 0:
+                    errors.append(
+                        "B1/B7 cone_01 line-1381 multi-rotation context rows must keep exact hits at 0"
+                    )
+    else:
+        errors.append(
+            f"missing B1/B7 cone_01 line-1381 multi-rotation context report: "
+            f"{b1_b7_cone01_line1381_multi_rotation_context_path}"
         )
 
     b1_b7_cone01_theta_sharing = {
@@ -16637,6 +16881,9 @@ def audit(root: Path) -> dict:
             "b7_cone01_line1381_context_absorption_gate": (
                 b1_b7_cone01_line1381_context_absorption
             ),
+            "b7_cone01_line1381_multi_rotation_context_gate": (
+                b1_b7_cone01_line1381_multi_rotation_context
+            ),
             "b7_cone01_theta_sharing_ledger_gate": b1_b7_cone01_theta_sharing,
             "b7_cone01_shared_theta_synthesis_object_gate": b1_b7_cone01_shared_theta_synthesis_object,
             "b7_cone01_shared_theta_replay_verifier_gate": b1_b7_cone01_shared_theta_replay_verifier,
@@ -16898,6 +17145,9 @@ def audit(root: Path) -> dict:
             ),
             "b1_b7_cone01_line1381_context_absorption_gate": str(
                 b1_b7_cone01_line1381_context_absorption_path
+            ),
+            "b1_b7_cone01_line1381_multi_rotation_context_gate": str(
+                b1_b7_cone01_line1381_multi_rotation_context_path
             ),
             "b1_b7_cone01_theta_sharing_ledger_gate": str(b1_b7_cone01_theta_sharing_path),
             "b1_b7_cone01_shared_theta_synthesis_object_gate": str(
@@ -17764,6 +18014,20 @@ def markdown_report(report: dict) -> str:
             f"- Min / max best context grid-cancellation error: {report['b1']['b7_cone01_line1381_context_absorption_gate'].get('min_best_context_grid_cancellation_error')} / {report['b1']['b7_cone01_line1381_context_absorption_gate'].get('max_best_context_grid_cancellation_error')}",
             f"- Accepted replay / occurrence / proxy-T reduction / B7 claim: {report['b1']['b7_cone01_line1381_context_absorption_gate'].get('accepted_full_circuit_replay_certificate_count')} / {report['b1']['b7_cone01_line1381_context_absorption_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_line1381_context_absorption_gate'].get('accepted_proxy_t_reduction')} / {report['b1']['b7_cone01_line1381_context_absorption_gate'].get('b7_ledger_improvement_claimed')}",
             f"- Validation errors: {report['b1']['b7_cone01_line1381_context_absorption_gate'].get('validation_error_count')}",
+            "",
+            "## B1/B7 cone_01 Line-1381 Multi-Rotation Context Gate",
+            "",
+            f"- Exists: {report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('exists')}",
+            f"- Status: {report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('status')}",
+            f"- Target line / support qubits: {report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('target_candidate_line_number')} / {report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('support_qubits')}",
+            f"- Window / context radius: {report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('window_start_line')}-{report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('window_end_line')} / {report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('context_radius')}",
+            f"- Search widths / context rotation arguments: {report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('search_widths')} / {report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('context_rotation_argument_count')}",
+            f"- Signed combinations per parameter, width 2 / width 3: {report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('width2_signed_combination_count_per_parameter')} / {report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('width3_signed_combination_count_per_parameter')}",
+            f"- Total signed combination tests: {report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('total_signed_combination_tests')}",
+            f"- Width-2 / width-3 exact absorption parameters: {report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('width2_exact_absorption_parameter_count')} / {report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('width3_exact_absorption_parameter_count')}",
+            f"- Min best width-2 / width-3 context grid error: {report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('min_best_width2_context_grid_error')} / {report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('min_best_width3_context_grid_error')}",
+            f"- Accepted replay / occurrence / proxy-T reduction / B7 claim: {report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('accepted_full_circuit_replay_certificate_count')} / {report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('accepted_proxy_t_reduction')} / {report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('b7_ledger_improvement_claimed')}",
+            f"- Validation errors: {report['b1']['b7_cone01_line1381_multi_rotation_context_gate'].get('validation_error_count')}",
             "",
             "## B1/B7 cone_01 Theta-Sharing Ledger Gate",
             "",

@@ -253,7 +253,7 @@
         <span class="chip">工作区：/Users/avalok/work/FurturePlan</span>
         <span class="chip">目标状态：active，未完成</span>
         <span class="chip">当前阶段：B1-B10 技术解决推进</span>
-        <span class="chip">最新动作：T-B1-004ao line-1381 context-absorption gate</span>
+        <span class="chip">最新动作：T-B1-004ap line-1381 multi-rotation context gate</span>
         <span class="chip">组合审计：PASS / 0 warnings</span>
       </div>
     </header>
@@ -284,6 +284,9 @@
       </p>
       <p style="margin-top: 10px;">
         最新推进 94：B1/B7/T-B1-004ao 已完成 line-1381 context-absorption gate。新增 <code>tools/b1_b7_cone01_line1381_context_absorption_gate.py</code>、<code>results/B1_B7_cone01_line1381_context_absorption_gate_v0.json</code> 和 <code>research/B1_B7_cone01_line1381_context_absorption_gate.md</code>，把这 5 个剩余参数拿去对 native optimized <code>gcm_h6.qasm</code> 的 2049 个 rotation arguments 和 line 1381 附近 +/-64 行同支撑 qubits {4,8} 的 44 个 context rotation arguments 做 absorption pressure。结论：0/5 exact 或 absolute-angle inventory match，0/5 same-support context match，0/5 可以通过单个 context rotation 精确并回 pi/4 grid；accepted full-circuit replay、occurrence removal、proxy-T reduction 和 B7 improvement 仍全为 0。这关闭的是 single-step context absorption 近路；下一步必须进入 multi-rotation/context-symbolic absorption、full-circuit replay 或另一个 occurrence-removing scaffold。
+      </p>
+      <p style="margin-top: 10px;">
+        最新推进 95：B1/B7/T-B1-004ap 已完成 line-1381 multi-rotation context gate。新增 <code>tools/b1_b7_cone01_line1381_multi_rotation_context_gate.py</code>、<code>results/B1_B7_cone01_line1381_multi_rotation_context_gate_v0.json</code> 和 <code>research/B1_B7_cone01_line1381_multi_rotation_context_gate.md</code>，把同一批 44 个同支撑 context rotation arguments 扩展成 2 项与 3 项 signed sums：每个参数测试 3,784 个 width-2 组合和 105,952 个 width-3 组合，5 个参数合计 548,680 次 signed combination tests。结论：0/5 参数可以通过 width-2 或 width-3 context combination 精确回到 pi/4 grid；best width-3 grid error 为 0.0015819911093339911；accepted full-circuit replay、occurrence removal、proxy-T reduction 和 B7 improvement 仍全为 0。这关闭的是 bounded two-/three-rotation context route；下一步必须进入 four-or-more-rotation symbolic absorption、commutation-aware full-circuit replay 或另一个 occurrence-removing scaffold。
       </p>
       <p style="margin-top: 10px;">
         最新推进 26：B5/T-B5-003b 已完成 non-exact-state-seeded variational MPS/ALS pressure prototype。新工具覆盖同一组 9 个 B10 D5 Hubbard density-response rows，从产品态加随机扰动出发，使用 one-site generalized-eigenproblem sweeps，测试 bond dimensions 2/4、3 restarts x 8 sweeps；selected mean/max relative response error 为 0.01806/0.03907，selected mean/max energy error per site 为 0.00303/0.00853，min exact-state overlap 为 0.9626，0 行优于 exact-state-seeded MPS pressure reference，validation errors 为 0。它把 B5 从“精确态截断压力参考”推进到“非 exact-seeded 变分 MPS 原型”，但仍不是 canonical-environment production DMRG、不是 2D/doped correlated-matter solver、不是量子 response kernel，也不是 accuracy-per-resource win。
@@ -1015,6 +1018,7 @@
         <li><code>research/B1_B7_cone01_packet_synthesis_search_gate.md</code>：B1/B7 cone_01 packet synthesis search gate，3/3 exact packet targets 找到 numerical reduced-CNOT scaffold candidates；accepted reduction 仍为 0</li>
         <li><code>research/B1_B7_cone01_line1381_exact_decomposition_pressure_gate.md</code>：B1/B7 cone_01 line-1381 exact-decomposition pressure gate，5 个剩余 off-grid local-U3 parameters 在 pi/4、dyadic-pi、rational-pi denominator &lt;=512 和 source-absorption contracts 下 0/5 accepted；full-circuit replay、occurrence removal、proxy-T reduction 与 B7 improvement 仍为 0</li>
         <li><code>research/B1_B7_cone01_line1381_context_absorption_gate.md</code>：B1/B7 cone_01 line-1381 context-absorption gate，2049 个 inventory rotation arguments 与 44 个同支撑 context rotation arguments 被检查；5 个剩余参数 0/5 inventory/context match，0/5 single-step context pi/4-grid cancellation accepted，B7 reduction 仍为 0</li>
+        <li><code>research/B1_B7_cone01_line1381_multi_rotation_context_gate.md</code>：B1/B7 cone_01 line-1381 multi-rotation context gate，44 个同支撑 context rotations 形成 548,680 次 width-2/width-3 signed combination tests；5 个剩余参数 0/5 exact absorption accepted，best width-3 grid error 为 0.0015819911093339911，B7 reduction 仍为 0</li>
         <li><code>research/B1_B7_cone01_shared_theta_factory_amortization_gate.md</code>：B1/B7 cone_01 shared-theta factory-amortization scaffold，35 个 baseline synthesis requests 折算为 4 个 shared-object requests，gross proxy-T pressure delta 620；仍不是 physical factory schedule 或 B7 resource claim</li>
         <li><code>research/B1_B7_cone01_shared_theta_error_budget_gate.md</code>：B1/B7 cone_01 shared-theta error-budget scaffold，4 个 shared objects 获得 1e-6 aggregate synthesis-error budget 与 4 个 correlation groups；仍不是 device-calibrated error model 或 B7 resource claim</li>
         <li><code>research/B1_B7_cone01_shared_theta_independent_baseline_gate.md</code>：B1/B7 cone_01 shared-theta independent-baseline scaffold，35 个 baseline synthesis requests 与 4 个 shared-object requests 独立对账，确认 0 double-counted occurrences 与 0 double-counted proxy-T pressure；仍不是 independent physical device baseline 或 B7 resource claim</li>
