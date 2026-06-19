@@ -497,6 +497,17 @@ Overall audit: PASS
 - CNOT-parity/semantic/rewrite/resource/B7 claims: False / False / False / False / False
 - Validation errors: 0
 
+## B1/B7 cone_01 Carrier Interleaving Commutation Gate
+
+- Exists: True
+- Status: cone01_carrier_interleaving_commutation_negative_gate
+- Candidates / interleaving ops / unique lines: 3 / 18 / 13
+- Cheap control phases / target-side phase obstructions / non-diagonal obstructions: 7 / 4 / 7
+- Candidates with non-diagonal interleavings / accepted commutation clearances: 3 / 0
+- Interleaving gate passed / accepted occurrence / proxy-T reduction: False / 0 / 0
+- Commutation/semantic/rewrite/resource/B7 claims: False / False / False / False / False
+- Validation errors: 0
+
 ## B1/B7 cone_01 Theta-Sharing Ledger Gate
 
 - Exists: True

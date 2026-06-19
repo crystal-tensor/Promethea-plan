@@ -1488,6 +1488,18 @@ clearance, occurrence removal, proxy-T reduction, and B7 ledger improvement
 all remain 0. The next `T-B1-004` route must now perform real semantic
 CNOT-stack synthesis/replay rather than parity-level clearance.
 
+**Sprint update 18ad:** `T-B1-004ad` is now merged as a carrier interleaving
+commutation pressure gate. The new artifact
+`research/B1_B7_cone01_carrier_interleaving_commutation_gate.md` consumes the
+CNOT-parity gate and classifies the one-qubit gates between repeated blocker
+CNOTs. Across 3 candidates it finds 18 interleaving operations on 13 unique
+lines: 7 are cheap control-side phase commutations, but 4 are target-side phase
+obstructions and 7 are non-diagonal obstructions. All 3 candidates contain
+non-diagonal interleavings, so accepted interleaving-commutation clearance,
+occurrence removal, proxy-T reduction, and B7 ledger improvement remain 0. The
+next `T-B1-004` route must stop relying on cheap CNOT/local-gate clearance and
+move into real CNOT-stack semantic synthesis/replay.
+
 ## Sprint Promotion Matrix
 
 | Track | Can become paper after this sprint? | Can become patent after this sprint? | Can become fundable/tool after this sprint? |

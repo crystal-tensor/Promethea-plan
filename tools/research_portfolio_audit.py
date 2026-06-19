@@ -186,6 +186,9 @@ def audit(root: Path) -> dict:
     b1_b7_cone01_carrier_blocker_parity_path = (
         results / "B1_B7_cone01_carrier_blocker_parity_gate_v0.json"
     )
+    b1_b7_cone01_carrier_interleaving_commutation_path = (
+        results / "B1_B7_cone01_carrier_interleaving_commutation_gate_v0.json"
+    )
     b1_b7_cone01_theta_sharing_path = results / "B1_B7_cone01_theta_sharing_ledger_gate_v0.json"
     b1_b7_cone01_shared_theta_synthesis_object_path = (
         results / "B1_B7_cone01_shared_theta_synthesis_object_gate_v0.json"
@@ -727,6 +730,9 @@ def audit(root: Path) -> dict:
     )
     b1_b7_cone01_carrier_blocker_parity_manifest = current_results.get(
         "b1_b7_cone01_carrier_blocker_parity_gate_v0"
+    )
+    b1_b7_cone01_carrier_interleaving_commutation_manifest = current_results.get(
+        "b1_b7_cone01_carrier_interleaving_commutation_gate_v0"
     )
     b1_b7_cone01_theta_sharing_manifest = current_results.get(
         "b1_b7_cone01_theta_sharing_ledger_gate_v0"
@@ -4261,6 +4267,202 @@ def audit(root: Path) -> dict:
         errors.append(
             f"missing B1/B7 cone_01 carrier blocker-parity report: "
             f"{b1_b7_cone01_carrier_blocker_parity_path}"
+        )
+
+    b1_b7_cone01_carrier_interleaving_commutation = {
+        "path": str(b1_b7_cone01_carrier_interleaving_commutation_path),
+        "exists": b1_b7_cone01_carrier_interleaving_commutation_path.exists(),
+    }
+    if not b1_b7_cone01_carrier_interleaving_commutation_manifest:
+        errors.append(
+            "B1 manifest missing current result: "
+            "b1_b7_cone01_carrier_interleaving_commutation_gate_v0"
+        )
+    else:
+        if (
+            b1_b7_cone01_carrier_interleaving_commutation_manifest.get("status")
+            != "cone01_carrier_interleaving_commutation_negative_gate"
+        ):
+            errors.append("B1/B7 cone_01 carrier interleaving-commutation gate status must remain negative")
+        for field in ["report", "markdown_report"]:
+            value = b1_b7_cone01_carrier_interleaving_commutation_manifest.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(
+                    f"B1/B7 cone_01 carrier interleaving-commutation gate missing "
+                    f"existing {field} path: {value}"
+                )
+    if b1_b7_cone01_carrier_interleaving_commutation_path.exists():
+        carrier_interleaving_payload = json.loads(
+            read(b1_b7_cone01_carrier_interleaving_commutation_path)
+        )
+        carrier_interleaving_summary = carrier_interleaving_payload.get("summary", {})
+        carrier_interleaving_claims = carrier_interleaving_payload.get("claim_boundary", {})
+        b1_b7_cone01_carrier_interleaving_commutation.update(
+            {
+                "status": carrier_interleaving_payload.get("status"),
+                "model_status": carrier_interleaving_payload.get("model_status"),
+                "method": carrier_interleaving_payload.get("method"),
+                "workload": carrier_interleaving_payload.get("workload"),
+                "source_method": carrier_interleaving_payload.get("source_method"),
+                "pattern_group_count": carrier_interleaving_summary.get("pattern_group_count"),
+                "covered_invariant_flat_occurrence_count": carrier_interleaving_summary.get(
+                    "covered_invariant_flat_occurrence_count"
+                ),
+                "commutation_candidate_count": carrier_interleaving_summary.get(
+                    "commutation_candidate_count"
+                ),
+                "candidate_with_interleaving_count": carrier_interleaving_summary.get(
+                    "candidate_with_interleaving_count"
+                ),
+                "interleaving_op_count": carrier_interleaving_summary.get("interleaving_op_count"),
+                "unique_interleaving_line_count": carrier_interleaving_summary.get(
+                    "unique_interleaving_line_count"
+                ),
+                "cheap_commuting_control_phase_count": carrier_interleaving_summary.get(
+                    "cheap_commuting_control_phase_count"
+                ),
+                "target_side_phase_obstruction_count": carrier_interleaving_summary.get(
+                    "target_side_phase_obstruction_count"
+                ),
+                "non_diagonal_interleaving_count": carrier_interleaving_summary.get(
+                    "non_diagonal_interleaving_count"
+                ),
+                "candidate_with_non_diagonal_interleaving_count": carrier_interleaving_summary.get(
+                    "candidate_with_non_diagonal_interleaving_count"
+                ),
+                "accepted_interleaving_commutation_clearance_count": carrier_interleaving_summary.get(
+                    "accepted_interleaving_commutation_clearance_count"
+                ),
+                "interleaving_commutation_gate_passed": carrier_interleaving_summary.get(
+                    "interleaving_commutation_gate_passed"
+                ),
+                "accepted_occurrence_removal": carrier_interleaving_summary.get(
+                    "accepted_occurrence_removal"
+                ),
+                "accepted_proxy_t_reduction": carrier_interleaving_summary.get(
+                    "accepted_proxy_t_reduction"
+                ),
+                "missing_occurrences_after_gate": carrier_interleaving_summary.get(
+                    "missing_occurrences_after_gate"
+                ),
+                "missing_proxy_t_after_gate": carrier_interleaving_summary.get(
+                    "missing_proxy_t_after_gate"
+                ),
+                "commutation_clearance_claimed": carrier_interleaving_summary.get(
+                    "commutation_clearance_claimed"
+                ),
+                "semantic_certificate_claimed": carrier_interleaving_claims.get(
+                    "semantic_certificate_claimed"
+                ),
+                "rewrite_claimed": carrier_interleaving_claims.get("rewrite_claimed"),
+                "resource_saving_claimed": carrier_interleaving_claims.get("resource_saving_claimed"),
+                "b7_ledger_improvement_claimed": carrier_interleaving_claims.get(
+                    "b7_ledger_improvement_claimed"
+                ),
+                "validation_error_count": carrier_interleaving_summary.get("validation_error_count"),
+                "carrier_interleaving_commutation_row_count": len(
+                    carrier_interleaving_payload.get("carrier_interleaving_commutation_rows", [])
+                ),
+            }
+        )
+        if carrier_interleaving_payload.get("benchmark_id") != "B1":
+            errors.append("B1/B7 cone_01 carrier interleaving-commutation report must have benchmark_id B1")
+        if (
+            carrier_interleaving_payload.get("method")
+            != "b1_b7_cone01_carrier_interleaving_commutation_gate_v0"
+        ):
+            errors.append("B1/B7 cone_01 carrier interleaving-commutation method mismatch")
+        if (
+            carrier_interleaving_payload.get("status")
+            != "cone01_carrier_interleaving_commutation_negative_gate"
+        ):
+            errors.append("B1/B7 cone_01 carrier interleaving-commutation status mismatch")
+        if (
+            carrier_interleaving_payload.get("model_status")
+            != "interleaved_single_qubit_gates_block_cheap_cnot_commutation_clearance"
+        ):
+            errors.append("B1/B7 cone_01 carrier interleaving-commutation model_status mismatch")
+        if (
+            carrier_interleaving_payload.get("source_method")
+            != "b1_b7_cone01_carrier_blocker_parity_gate_v0"
+        ):
+            errors.append("B1/B7 cone_01 carrier interleaving-commutation source method mismatch")
+        for field in [
+            "pattern_group_count",
+            "covered_invariant_flat_occurrence_count",
+            "commutation_candidate_count",
+            "candidate_with_interleaving_count",
+            "interleaving_op_count",
+            "unique_interleaving_line_count",
+            "cheap_commuting_control_phase_count",
+            "target_side_phase_obstruction_count",
+            "non_diagonal_interleaving_count",
+            "candidate_with_non_diagonal_interleaving_count",
+            "accepted_interleaving_commutation_clearance_count",
+            "interleaving_commutation_gate_passed",
+            "accepted_occurrence_removal",
+            "accepted_proxy_t_reduction",
+            "missing_occurrences_after_gate",
+            "missing_proxy_t_after_gate",
+            "commutation_clearance_claimed",
+            "semantic_certificate_claimed",
+            "rewrite_claimed",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+            "validation_error_count",
+        ]:
+            if (
+                carrier_interleaving_summary.get(field)
+                != b1_b7_cone01_carrier_interleaving_commutation_manifest.get(field)
+            ):
+                errors.append(f"B1/B7 cone_01 carrier interleaving-commutation {field} mismatch")
+        expected_interleaving_fields = {
+            "pattern_group_count": 3,
+            "covered_invariant_flat_occurrence_count": 11,
+            "commutation_candidate_count": 3,
+            "candidate_with_interleaving_count": 3,
+            "interleaving_op_count": 18,
+            "unique_interleaving_line_count": 13,
+            "cheap_commuting_control_phase_count": 7,
+            "target_side_phase_obstruction_count": 4,
+            "non_diagonal_interleaving_count": 7,
+            "candidate_with_non_diagonal_interleaving_count": 3,
+            "accepted_interleaving_commutation_clearance_count": 0,
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "missing_occurrences_after_gate": 30,
+            "missing_proxy_t_after_gate": 600,
+            "validation_error_count": 0,
+        }
+        for field, value in expected_interleaving_fields.items():
+            if carrier_interleaving_summary.get(field) != value:
+                errors.append(
+                    f"B1/B7 cone_01 carrier interleaving-commutation expected {field}={value}"
+                )
+        if len(carrier_interleaving_payload.get("carrier_interleaving_commutation_rows", [])) != 3:
+            errors.append("B1/B7 cone_01 carrier interleaving-commutation row count must be 3")
+        for row in carrier_interleaving_payload.get("carrier_interleaving_commutation_rows", []):
+            if row.get("accepted_occurrence_removal") != 0:
+                errors.append("B1/B7 cone_01 carrier interleaving rows must not remove occurrences")
+            for candidate in row.get("commutation_candidates", []):
+                if candidate.get("interleaving_commutation_clearance_accepted"):
+                    errors.append("B1/B7 cone_01 carrier interleaving must not accept candidates")
+        for field in [
+            "commutation_clearance_claimed",
+            "semantic_certificate_claimed",
+            "rewrite_claimed",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+        ]:
+            if (
+                carrier_interleaving_summary.get(field) is not False
+                or carrier_interleaving_claims.get(field) is not False
+            ):
+                errors.append(f"B1/B7 cone_01 carrier interleaving-commutation must not claim {field}")
+    else:
+        errors.append(
+            f"missing B1/B7 cone_01 carrier interleaving-commutation report: "
+            f"{b1_b7_cone01_carrier_interleaving_commutation_path}"
         )
 
     b1_b7_cone01_theta_sharing = {
@@ -14176,6 +14378,9 @@ def audit(root: Path) -> dict:
             "b7_cone01_carrier_blocker_stack_gate": b1_b7_cone01_carrier_blocker_stack,
             "b7_cone01_carrier_blocker_motif_gate": b1_b7_cone01_carrier_blocker_motif,
             "b7_cone01_carrier_blocker_parity_gate": b1_b7_cone01_carrier_blocker_parity,
+            "b7_cone01_carrier_interleaving_commutation_gate": (
+                b1_b7_cone01_carrier_interleaving_commutation
+            ),
             "b7_cone01_theta_sharing_ledger_gate": b1_b7_cone01_theta_sharing,
             "b7_cone01_shared_theta_synthesis_object_gate": b1_b7_cone01_shared_theta_synthesis_object,
             "b7_cone01_shared_theta_replay_verifier_gate": b1_b7_cone01_shared_theta_replay_verifier,
@@ -14401,6 +14606,9 @@ def audit(root: Path) -> dict:
             ),
             "b1_b7_cone01_carrier_blocker_parity_gate": str(
                 b1_b7_cone01_carrier_blocker_parity_path
+            ),
+            "b1_b7_cone01_carrier_interleaving_commutation_gate": str(
+                b1_b7_cone01_carrier_interleaving_commutation_path
             ),
             "b1_b7_cone01_theta_sharing_ledger_gate": str(b1_b7_cone01_theta_sharing_path),
             "b1_b7_cone01_shared_theta_synthesis_object_gate": str(
@@ -15127,6 +15335,17 @@ def markdown_report(report: dict) -> str:
             f"- Parity gate passed / accepted occurrence / proxy-T reduction: {report['b1']['b7_cone01_carrier_blocker_parity_gate'].get('parity_clearance_gate_passed')} / {report['b1']['b7_cone01_carrier_blocker_parity_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_carrier_blocker_parity_gate'].get('accepted_proxy_t_reduction')}",
             f"- CNOT-parity/semantic/rewrite/resource/B7 claims: {report['b1']['b7_cone01_carrier_blocker_parity_gate'].get('cnot_parity_rewrite_claimed')} / {report['b1']['b7_cone01_carrier_blocker_parity_gate'].get('semantic_certificate_claimed')} / {report['b1']['b7_cone01_carrier_blocker_parity_gate'].get('rewrite_claimed')} / {report['b1']['b7_cone01_carrier_blocker_parity_gate'].get('resource_saving_claimed')} / {report['b1']['b7_cone01_carrier_blocker_parity_gate'].get('b7_ledger_improvement_claimed')}",
             f"- Validation errors: {report['b1']['b7_cone01_carrier_blocker_parity_gate'].get('validation_error_count')}",
+            "",
+            "## B1/B7 cone_01 Carrier Interleaving Commutation Gate",
+            "",
+            f"- Exists: {report['b1']['b7_cone01_carrier_interleaving_commutation_gate'].get('exists')}",
+            f"- Status: {report['b1']['b7_cone01_carrier_interleaving_commutation_gate'].get('status')}",
+            f"- Candidates / interleaving ops / unique lines: {report['b1']['b7_cone01_carrier_interleaving_commutation_gate'].get('commutation_candidate_count')} / {report['b1']['b7_cone01_carrier_interleaving_commutation_gate'].get('interleaving_op_count')} / {report['b1']['b7_cone01_carrier_interleaving_commutation_gate'].get('unique_interleaving_line_count')}",
+            f"- Cheap control phases / target-side phase obstructions / non-diagonal obstructions: {report['b1']['b7_cone01_carrier_interleaving_commutation_gate'].get('cheap_commuting_control_phase_count')} / {report['b1']['b7_cone01_carrier_interleaving_commutation_gate'].get('target_side_phase_obstruction_count')} / {report['b1']['b7_cone01_carrier_interleaving_commutation_gate'].get('non_diagonal_interleaving_count')}",
+            f"- Candidates with non-diagonal interleavings / accepted commutation clearances: {report['b1']['b7_cone01_carrier_interleaving_commutation_gate'].get('candidate_with_non_diagonal_interleaving_count')} / {report['b1']['b7_cone01_carrier_interleaving_commutation_gate'].get('accepted_interleaving_commutation_clearance_count')}",
+            f"- Interleaving gate passed / accepted occurrence / proxy-T reduction: {report['b1']['b7_cone01_carrier_interleaving_commutation_gate'].get('interleaving_commutation_gate_passed')} / {report['b1']['b7_cone01_carrier_interleaving_commutation_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_carrier_interleaving_commutation_gate'].get('accepted_proxy_t_reduction')}",
+            f"- Commutation/semantic/rewrite/resource/B7 claims: {report['b1']['b7_cone01_carrier_interleaving_commutation_gate'].get('commutation_clearance_claimed')} / {report['b1']['b7_cone01_carrier_interleaving_commutation_gate'].get('semantic_certificate_claimed')} / {report['b1']['b7_cone01_carrier_interleaving_commutation_gate'].get('rewrite_claimed')} / {report['b1']['b7_cone01_carrier_interleaving_commutation_gate'].get('resource_saving_claimed')} / {report['b1']['b7_cone01_carrier_interleaving_commutation_gate'].get('b7_ledger_improvement_claimed')}",
+            f"- Validation errors: {report['b1']['b7_cone01_carrier_interleaving_commutation_gate'].get('validation_error_count')}",
             "",
             "## B1/B7 cone_01 Theta-Sharing Ledger Gate",
             "",
