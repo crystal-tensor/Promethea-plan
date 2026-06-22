@@ -543,6 +543,16 @@ low-CNOT scaffold is found: the best 1-CNOT residual is
 branch, and no extra delta, occurrence removal, proxy-T reduction, or B7 ledger
 credit is accepted. This is not a global CNOT lower-bound theorem.
 
+T-B1-004bf now checks that 2-CNOT boundary directly with an all-orientation
+sequence census. For the same line-1378/1381 union target [1369, 1379], all
+four length-2 CNOT direction sequences pass the numerical exact threshold. The
+best exact sequence is `01-10`, with residual 5.812946138498332e-13, max entry
+error 3.4095575404049453e-13, and 13 off-pi/4 local-U3 parameters among 18
+total parameters. This confirms the current 2-CNOT union-region candidate is
+not a fragile single-orientation artifact, but it remains candidate-only: no
+full-circuit replay certificate, QASM patch, local-U3 pricing acceptance,
+occurrence removal, proxy-T reduction, or B7 ledger credit is accepted.
+
 ## Repository Layout
 
 ```text

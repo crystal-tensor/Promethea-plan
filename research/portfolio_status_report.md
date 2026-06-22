@@ -847,6 +847,19 @@ Overall audit: PASS
 - Accepted occurrence / proxy-T reduction / B7 claim: 0 / 0 / False
 - Validation errors: 0
 
+## B1/B7 cone_01 Union-Region Two-CNOT Orientation Census Gate
+
+- Exists: True
+- Status: cone01_union_region_two_cnot_orientation_census_candidate_only
+- Union window / support: [1369, 1379] / [4, 8]
+- Source CNOT / current replacement CNOT / current delta: 5 / 2 / 3
+- Searched CNOT count / orientation sequences / seeds: 2 / 4 / 18
+- Exact 2-CNOT sequences: 4 / ['01-01', '01-10', '10-01', '10-10']
+- Best exact sequence / residual / entry error: 01-10 / 5.812946138498332e-13 / 3.4095575404049453e-13
+- Best exact off-grid / nonzero / total U3 parameters: 13 / 17 / 18
+- Extra delta beyond current replacement / replay certificates / B7 claim: 0 / 0 / False
+- Validation errors: 0
+
 ## B1/B7 cone_01 Theta-Sharing Ledger Gate
 
 - Exists: True

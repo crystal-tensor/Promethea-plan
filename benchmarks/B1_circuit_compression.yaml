@@ -2083,6 +2083,62 @@ current_results:
     validation_error_count: 0
     report: ../results/B1_B7_cone01_union_region_low_cnot_search_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_union_region_low_cnot_search_gate.md
+  b1_b7_cone01_union_region_two_cnot_orientation_census_gate_v0:
+    circuits: 1
+    status: cone01_union_region_two_cnot_orientation_census_candidate_only
+    model_status: two_cnot_union_candidate_confirmed_without_replay_or_b7_credit
+    method: b1_b7_cone01_union_region_two_cnot_orientation_census_gate_v0
+    source_semantic_packet_gate: b1_b7_cone01_semantic_replay_packet_gate_v0
+    source_packet_synthesis_gate: b1_b7_cone01_packet_synthesis_search_gate_v0
+    source_low_cnot_gate: b1_b7_cone01_union_region_low_cnot_search_gate_v0
+    workload: qasmbench_medium_exact/gcm_h6.qasm
+    target_line_number: 1381
+    union_window:
+      - 1369
+      - 1379
+    support_qubits:
+      - 4
+      - 8
+    source_cnot_count: 5
+    current_min_exact_replacement_cnot_count: 2
+    current_candidate_cnot_delta: 3
+    searched_cnot_count: 2
+    searched_orientation_sequence_count: 4
+    search_seed_count_per_sequence: 18
+    search_max_nfev: 3000
+    two_cnot_exact_sequence_count: 4
+    two_cnot_exact_sequence_ids:
+      - 01-01
+      - 01-10
+      - 10-01
+      - 10-10
+    best_sequence_id: 01-10
+    best_residual_norm: 5.812946138498332e-13
+    best_max_abs_entry_error: 3.4095575404049453e-13
+    best_exact_sequence_id: 01-10
+    best_exact_residual_norm: 5.812946138498332e-13
+    best_exact_max_abs_entry_error: 3.4095575404049453e-13
+    best_exact_off_pi_over_four_parameter_count: 13
+    best_exact_nonzero_parameter_count: 17
+    best_exact_parameter_count: 18
+    two_cnot_union_candidate_confirmed: true
+    extra_delta_found_beyond_current_line1381_replacement: 0
+    lower_than_two_cnot_rewrite_found: false
+    two_cnot_union_replay_certificate_count: 0
+    two_cnot_union_qasm_patch_count: 0
+    local_u3_pricing_completed: false
+    global_minimality_claimed: false
+    accepted_full_circuit_replay_certificate_count: 0
+    accepted_full_circuit_qasm_patch_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    missing_occurrences_after_gate: 30
+    missing_proxy_t_after_gate: 600
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    validation_error_count: 0
+    report: ../results/B1_B7_cone01_union_region_two_cnot_orientation_census_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_union_region_two_cnot_orientation_census_gate.md
   b1_b7_cone01_theta_sharing_ledger_gate_v0:
     circuits: 1
     status: cone01_theta_sharing_ledger_guardrail

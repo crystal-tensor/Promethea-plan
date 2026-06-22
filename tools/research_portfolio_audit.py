@@ -270,6 +270,9 @@ def audit(root: Path) -> dict:
     b1_b7_cone01_union_region_low_cnot_search_path = (
         results / "B1_B7_cone01_union_region_low_cnot_search_gate_v0.json"
     )
+    b1_b7_cone01_union_region_two_cnot_orientation_census_path = (
+        results / "B1_B7_cone01_union_region_two_cnot_orientation_census_gate_v0.json"
+    )
     b1_b7_cone01_theta_sharing_path = results / "B1_B7_cone01_theta_sharing_ledger_gate_v0.json"
     b1_b7_cone01_shared_theta_synthesis_object_path = (
         results / "B1_B7_cone01_shared_theta_synthesis_object_gate_v0.json"
@@ -895,6 +898,9 @@ def audit(root: Path) -> dict:
     )
     b1_b7_cone01_union_region_low_cnot_search_manifest = current_results.get(
         "b1_b7_cone01_union_region_low_cnot_search_gate_v0"
+    )
+    b1_b7_cone01_union_region_two_cnot_orientation_census_manifest = current_results.get(
+        "b1_b7_cone01_union_region_two_cnot_orientation_census_gate_v0"
     )
     b1_b7_cone01_theta_sharing_manifest = current_results.get(
         "b1_b7_cone01_theta_sharing_ledger_gate_v0"
@@ -9883,6 +9889,222 @@ def audit(root: Path) -> dict:
         errors.append(
             f"missing B1/B7 cone_01 union-region low-CNOT search report: "
             f"{b1_b7_cone01_union_region_low_cnot_search_path}"
+        )
+
+    b1_b7_cone01_union_region_two_cnot_orientation_census = {
+        "path": str(b1_b7_cone01_union_region_two_cnot_orientation_census_path),
+        "exists": b1_b7_cone01_union_region_two_cnot_orientation_census_path.exists(),
+    }
+    if not b1_b7_cone01_union_region_two_cnot_orientation_census_manifest:
+        errors.append(
+            "B1 manifest missing current result: "
+            "b1_b7_cone01_union_region_two_cnot_orientation_census_gate_v0"
+        )
+    else:
+        if (
+            b1_b7_cone01_union_region_two_cnot_orientation_census_manifest.get("status")
+            != "cone01_union_region_two_cnot_orientation_census_candidate_only"
+        ):
+            errors.append("B1/B7 cone_01 union-region 2-CNOT orientation census status mismatch")
+        for field in ["report", "markdown_report"]:
+            value = b1_b7_cone01_union_region_two_cnot_orientation_census_manifest.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(
+                    "B1/B7 cone_01 union-region 2-CNOT orientation census missing "
+                    f"existing {field} path: {value}"
+                )
+    if b1_b7_cone01_union_region_two_cnot_orientation_census_path.exists():
+        two_cnot_payload = json.loads(
+            read(b1_b7_cone01_union_region_two_cnot_orientation_census_path)
+        )
+        two_cnot_summary = two_cnot_payload.get("summary", {})
+        two_cnot_claims = two_cnot_payload.get("claim_boundary", {})
+        b1_b7_cone01_union_region_two_cnot_orientation_census.update(
+            {
+                "status": two_cnot_payload.get("status"),
+                "model_status": two_cnot_payload.get("model_status"),
+                "method": two_cnot_payload.get("method"),
+                "workload": two_cnot_payload.get("workload"),
+                "target_line_number": two_cnot_summary.get("target_line_number"),
+                "union_window": two_cnot_summary.get("union_window"),
+                "support_qubits": two_cnot_summary.get("support_qubits"),
+                "source_cnot_count": two_cnot_summary.get("source_cnot_count"),
+                "current_min_exact_replacement_cnot_count": two_cnot_summary.get(
+                    "current_min_exact_replacement_cnot_count"
+                ),
+                "current_candidate_cnot_delta": two_cnot_summary.get(
+                    "current_candidate_cnot_delta"
+                ),
+                "searched_cnot_count": two_cnot_summary.get("searched_cnot_count"),
+                "searched_orientation_sequence_count": two_cnot_summary.get(
+                    "searched_orientation_sequence_count"
+                ),
+                "search_seed_count_per_sequence": two_cnot_summary.get(
+                    "search_seed_count_per_sequence"
+                ),
+                "search_max_nfev": two_cnot_summary.get("search_max_nfev"),
+                "two_cnot_exact_sequence_count": two_cnot_summary.get(
+                    "two_cnot_exact_sequence_count"
+                ),
+                "two_cnot_exact_sequence_ids": two_cnot_summary.get(
+                    "two_cnot_exact_sequence_ids"
+                ),
+                "best_sequence_id": two_cnot_summary.get("best_sequence_id"),
+                "best_residual_norm": two_cnot_summary.get("best_residual_norm"),
+                "best_max_abs_entry_error": two_cnot_summary.get("best_max_abs_entry_error"),
+                "best_exact_sequence_id": two_cnot_summary.get("best_exact_sequence_id"),
+                "best_exact_residual_norm": two_cnot_summary.get("best_exact_residual_norm"),
+                "best_exact_max_abs_entry_error": two_cnot_summary.get(
+                    "best_exact_max_abs_entry_error"
+                ),
+                "best_exact_off_pi_over_four_parameter_count": two_cnot_summary.get(
+                    "best_exact_off_pi_over_four_parameter_count"
+                ),
+                "best_exact_nonzero_parameter_count": two_cnot_summary.get(
+                    "best_exact_nonzero_parameter_count"
+                ),
+                "best_exact_parameter_count": two_cnot_summary.get(
+                    "best_exact_parameter_count"
+                ),
+                "two_cnot_union_candidate_confirmed": two_cnot_summary.get(
+                    "two_cnot_union_candidate_confirmed"
+                ),
+                "extra_delta_found_beyond_current_line1381_replacement": two_cnot_summary.get(
+                    "extra_delta_found_beyond_current_line1381_replacement"
+                ),
+                "lower_than_two_cnot_rewrite_found": two_cnot_summary.get(
+                    "lower_than_two_cnot_rewrite_found"
+                ),
+                "two_cnot_union_replay_certificate_count": two_cnot_summary.get(
+                    "two_cnot_union_replay_certificate_count"
+                ),
+                "two_cnot_union_qasm_patch_count": two_cnot_summary.get(
+                    "two_cnot_union_qasm_patch_count"
+                ),
+                "local_u3_pricing_completed": two_cnot_summary.get("local_u3_pricing_completed"),
+                "global_minimality_claimed": two_cnot_summary.get("global_minimality_claimed"),
+                "accepted_full_circuit_replay_certificate_count": two_cnot_summary.get(
+                    "accepted_full_circuit_replay_certificate_count"
+                ),
+                "accepted_full_circuit_qasm_patch_count": two_cnot_summary.get(
+                    "accepted_full_circuit_qasm_patch_count"
+                ),
+                "accepted_occurrence_removal": two_cnot_summary.get(
+                    "accepted_occurrence_removal"
+                ),
+                "accepted_proxy_t_reduction": two_cnot_summary.get(
+                    "accepted_proxy_t_reduction"
+                ),
+                "missing_occurrences_after_gate": two_cnot_summary.get(
+                    "missing_occurrences_after_gate"
+                ),
+                "missing_proxy_t_after_gate": two_cnot_summary.get(
+                    "missing_proxy_t_after_gate"
+                ),
+                "resource_saving_claimed": two_cnot_summary.get("resource_saving_claimed"),
+                "b7_ledger_improvement_claimed": two_cnot_summary.get(
+                    "b7_ledger_improvement_claimed"
+                ),
+                "validation_error_count": two_cnot_summary.get("validation_error_count"),
+            }
+        )
+        if two_cnot_payload.get("benchmark_id") != "B1":
+            errors.append("B1/B7 cone_01 union-region 2-CNOT orientation census must have benchmark_id B1")
+        if (
+            two_cnot_payload.get("method")
+            != "b1_b7_cone01_union_region_two_cnot_orientation_census_gate_v0"
+        ):
+            errors.append("B1/B7 cone_01 union-region 2-CNOT orientation census method mismatch")
+        if (
+            two_cnot_payload.get("status")
+            != "cone01_union_region_two_cnot_orientation_census_candidate_only"
+        ):
+            errors.append("B1/B7 cone_01 union-region 2-CNOT orientation census status mismatch")
+        if (
+            two_cnot_payload.get("model_status")
+            != "two_cnot_union_candidate_confirmed_without_replay_or_b7_credit"
+        ):
+            errors.append("B1/B7 cone_01 union-region 2-CNOT orientation census model_status mismatch")
+        expected_two_cnot_fields = {
+            "target_line_number": 1381,
+            "union_window": [1369, 1379],
+            "support_qubits": [4, 8],
+            "source_cnot_count": 5,
+            "current_min_exact_replacement_cnot_count": 2,
+            "current_candidate_cnot_delta": 3,
+            "searched_cnot_count": 2,
+            "searched_orientation_sequence_count": 4,
+            "search_seed_count_per_sequence": 18,
+            "search_max_nfev": 3000,
+            "two_cnot_exact_sequence_count": 4,
+            "two_cnot_exact_sequence_ids": ["01-01", "01-10", "10-01", "10-10"],
+            "best_sequence_id": "01-10",
+            "best_residual_norm": 5.812946138498332e-13,
+            "best_max_abs_entry_error": 3.4095575404049453e-13,
+            "best_exact_sequence_id": "01-10",
+            "best_exact_residual_norm": 5.812946138498332e-13,
+            "best_exact_max_abs_entry_error": 3.4095575404049453e-13,
+            "best_exact_off_pi_over_four_parameter_count": 13,
+            "best_exact_nonzero_parameter_count": 17,
+            "best_exact_parameter_count": 18,
+            "two_cnot_union_candidate_confirmed": True,
+            "extra_delta_found_beyond_current_line1381_replacement": 0,
+            "lower_than_two_cnot_rewrite_found": False,
+            "two_cnot_union_replay_certificate_count": 0,
+            "two_cnot_union_qasm_patch_count": 0,
+            "local_u3_pricing_completed": False,
+            "global_minimality_claimed": False,
+            "accepted_full_circuit_replay_certificate_count": 0,
+            "accepted_full_circuit_qasm_patch_count": 0,
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "missing_occurrences_after_gate": 30,
+            "missing_proxy_t_after_gate": 600,
+            "resource_saving_claimed": False,
+            "b7_ledger_improvement_claimed": False,
+            "validation_error_count": 0,
+        }
+        for field, value in expected_two_cnot_fields.items():
+            if two_cnot_summary.get(field) != value:
+                errors.append(
+                    f"B1/B7 cone_01 union-region 2-CNOT orientation census expected {field}={value}"
+                )
+            if (
+                b1_b7_cone01_union_region_two_cnot_orientation_census_manifest
+                and field in b1_b7_cone01_union_region_two_cnot_orientation_census_manifest
+                and two_cnot_summary.get(field)
+                != b1_b7_cone01_union_region_two_cnot_orientation_census_manifest.get(field)
+            ):
+                errors.append(
+                    f"B1/B7 cone_01 union-region 2-CNOT orientation census {field} mismatch"
+                )
+        rows = two_cnot_payload.get("union_region_two_cnot_orientation_rows", [])
+        if len(rows) != 4:
+            errors.append("B1/B7 cone_01 union-region 2-CNOT orientation census must have 4 rows")
+        if any(row.get("exact_pass") is not True for row in rows):
+            errors.append("B1/B7 cone_01 union-region 2-CNOT orientation census rows must all pass exact")
+        for field in [
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+            "local_u3_pricing_completed",
+            "global_minimality_claimed",
+        ]:
+            if two_cnot_summary.get(field) is not False:
+                errors.append(f"B1/B7 cone_01 union-region 2-CNOT orientation census must not claim {field}")
+            if two_cnot_claims.get(field) is not False:
+                errors.append(
+                    "B1/B7 cone_01 union-region 2-CNOT orientation census claim boundary "
+                    f"must not claim {field}"
+                )
+        if two_cnot_claims.get("two_cnot_union_replay_certificate_count") != 0:
+            errors.append(
+                "B1/B7 cone_01 union-region 2-CNOT orientation census claim boundary "
+                "must not claim replay certificates"
+            )
+    else:
+        errors.append(
+            f"missing B1/B7 cone_01 union-region 2-CNOT orientation census report: "
+            f"{b1_b7_cone01_union_region_two_cnot_orientation_census_path}"
         )
 
     b1_b7_cone01_theta_sharing = {
@@ -19872,6 +20094,9 @@ def audit(root: Path) -> dict:
             "b7_cone01_union_region_low_cnot_search_gate": (
                 b1_b7_cone01_union_region_low_cnot_search
             ),
+            "b7_cone01_union_region_two_cnot_orientation_census_gate": (
+                b1_b7_cone01_union_region_two_cnot_orientation_census
+            ),
             "b7_cone01_theta_sharing_ledger_gate": b1_b7_cone01_theta_sharing,
             "b7_cone01_shared_theta_synthesis_object_gate": b1_b7_cone01_shared_theta_synthesis_object,
             "b7_cone01_shared_theta_replay_verifier_gate": b1_b7_cone01_shared_theta_replay_verifier,
@@ -20181,6 +20406,9 @@ def audit(root: Path) -> dict:
             ),
             "b1_b7_cone01_union_region_low_cnot_search_gate": str(
                 b1_b7_cone01_union_region_low_cnot_search_path
+            ),
+            "b1_b7_cone01_union_region_two_cnot_orientation_census_gate": str(
+                b1_b7_cone01_union_region_two_cnot_orientation_census_path
             ),
             "b1_b7_cone01_theta_sharing_ledger_gate": str(b1_b7_cone01_theta_sharing_path),
             "b1_b7_cone01_shared_theta_synthesis_object_gate": str(
@@ -21257,6 +21485,19 @@ def markdown_report(report: dict) -> str:
             f"- Extra delta beyond current line-1381 replacement / global lower bound claimed: {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('extra_delta_found_beyond_current_line1381_replacement')} / {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('global_lower_bound_claimed')}",
             f"- Accepted occurrence / proxy-T reduction / B7 claim: {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('accepted_proxy_t_reduction')} / {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('b7_ledger_improvement_claimed')}",
             f"- Validation errors: {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('validation_error_count')}",
+            "",
+            "## B1/B7 cone_01 Union-Region Two-CNOT Orientation Census Gate",
+            "",
+            f"- Exists: {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('exists')}",
+            f"- Status: {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('status')}",
+            f"- Union window / support: {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('union_window')} / {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('support_qubits')}",
+            f"- Source CNOT / current replacement CNOT / current delta: {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('source_cnot_count')} / {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('current_min_exact_replacement_cnot_count')} / {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('current_candidate_cnot_delta')}",
+            f"- Searched CNOT count / orientation sequences / seeds: {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('searched_cnot_count')} / {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('searched_orientation_sequence_count')} / {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('search_seed_count_per_sequence')}",
+            f"- Exact 2-CNOT sequences: {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('two_cnot_exact_sequence_count')} / {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('two_cnot_exact_sequence_ids')}",
+            f"- Best exact sequence / residual / entry error: {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('best_exact_sequence_id')} / {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('best_exact_residual_norm')} / {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('best_exact_max_abs_entry_error')}",
+            f"- Best exact off-grid / nonzero / total U3 parameters: {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('best_exact_off_pi_over_four_parameter_count')} / {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('best_exact_nonzero_parameter_count')} / {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('best_exact_parameter_count')}",
+            f"- Extra delta beyond current replacement / replay certificates / B7 claim: {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('extra_delta_found_beyond_current_line1381_replacement')} / {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('two_cnot_union_replay_certificate_count')} / {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('b7_ledger_improvement_claimed')}",
+            f"- Validation errors: {report['b1']['b7_cone01_union_region_two_cnot_orientation_census_gate'].get('validation_error_count')}",
             "",
             "## B1/B7 cone_01 Theta-Sharing Ledger Gate",
             "",

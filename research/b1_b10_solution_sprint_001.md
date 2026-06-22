@@ -1797,3 +1797,13 @@ current exact candidate in this branch. This closes the scoped 0/1-CNOT
 shortcut but is not a global lower-bound theorem: accepted union rewrite,
 full-circuit replay, occurrence removal, proxy-T reduction, and B7 improvement
 remain 0.
+
+Sprint update 18bf: B1/B7 now has a 2-CNOT orientation census for that same
+union target. T-B1-004bf searches all four length-2 CNOT direction sequences
+for the line-1378/1381 union window [1369, 1379]. All 4/4 sequences pass exact
+numerical replay; the best exact sequence is 01-10 with residual
+5.812946138498332e-13, max entry error 3.4095575404049453e-13, and 13 off-pi/4
+local-U3 parameters among 18 total parameters. This makes the 2-CNOT candidate
+robust rather than fragile, but it remains candidate-only: accepted
+full-circuit replay, QASM patch, local-U3 pricing, occurrence removal,
+proxy-T reduction, and B7 improvement remain 0.
