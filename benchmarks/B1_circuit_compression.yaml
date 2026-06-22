@@ -1674,6 +1674,40 @@ current_results:
     validation_error_count: 0
     report: ../results/B1_B7_cone01_bounded_replacement_patch_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_bounded_replacement_patch_gate.md
+  b1_b7_cone01_nonoverlap_patch_subset_gate_v0:
+    circuits: 1
+    status: cone01_nonoverlap_bounded_patch_subset_not_full_circuit_replay
+    model_status: nonoverlap_subset_reduces_naive_patch_delta_before_full_circuit_replay
+    method: b1_b7_cone01_nonoverlap_patch_subset_gate_v0
+    source_bounded_replacement_patch_gate: b1_b7_cone01_bounded_replacement_patch_gate_v0
+    workload: qasmbench_medium_exact/gcm_h6.qasm
+    input_bounded_patch_count: 3
+    input_bounded_patch_exact_pass_count: 3
+    input_naive_candidate_cnot_reduction: 9
+    nonoverlap_subset_available: true
+    selected_nonoverlap_patch_count: 2
+    selected_candidate_line_numbers: [268, 1381]
+    dropped_overlap_candidate_line_numbers: [1378]
+    selected_bounded_patch_exact_pass_count: 2
+    selected_candidate_cnot_reduction: 6
+    lost_candidate_cnot_reduction_due_to_overlap: 3
+    selected_replacement_off_pi_over_four_parameter_count: 5
+    source_qasm_dialect: OPENQASM 2.0
+    source_to_replacement_dialect_bridge_required: true
+    full_circuit_qasm_rewrite_emitted: false
+    accepted_full_circuit_qasm_patch_count: 0
+    accepted_full_circuit_replay_certificate_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    missing_occurrences_after_gate: 30
+    missing_proxy_t_after_gate: 600
+    nonoverlap_subset_claimed_as_full_circuit_patch: false
+    full_circuit_rewrite_claimed: false
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    validation_error_count: 0
+    report: ../results/B1_B7_cone01_nonoverlap_patch_subset_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_nonoverlap_patch_subset_gate.md
   b1_b7_cone01_theta_sharing_ledger_gate_v0:
     circuits: 1
     status: cone01_theta_sharing_ledger_guardrail
@@ -2195,4 +2229,5 @@ prototype_artifacts:
   b1_b7_cone01_line1381_commutation_corridor_gate: ../tools/b1_b7_cone01_line1381_commutation_corridor_gate.py
   b1_b7_cone01_full_circuit_replay_obligation_gate: ../tools/b1_b7_cone01_full_circuit_replay_obligation_gate.py
   b1_b7_cone01_bounded_replacement_patch_gate: ../tools/b1_b7_cone01_bounded_replacement_patch_gate.py
+  b1_b7_cone01_nonoverlap_patch_subset_gate: ../tools/b1_b7_cone01_nonoverlap_patch_subset_gate.py
   synthetic_noise_proxy: ../tools/b1_synthetic_noise_proxy.py

@@ -1,0 +1,180 @@
+{
+  "benchmark_id": "B1",
+  "claim_boundary": {
+    "b7_ledger_improvement_claimed": false,
+    "full_circuit_rewrite_claimed": false,
+    "nonoverlap_subset_claimed_as_full_circuit_patch": false,
+    "resource_saving_claimed": false,
+    "supported_claim": "The best non-overlapping bounded patch subset keeps line 1381 and line 268, dropping line 1378 because its window is contained inside the line-1381 window.",
+    "unsupported_claims": [
+      "The selected bounded subset is not yet a full-circuit QASM rewrite.",
+      "The selected bounded subset is not yet a full-circuit replay certificate.",
+      "The selected bounded subset does not recover the dropped line-1378 CNOT delta.",
+      "No occurrence or proxy-T reduction is accepted by B7."
+    ]
+  },
+  "dropped_overlap_patch_rows": [
+    {
+      "accepted_full_circuit_qasm_patch": false,
+      "accepted_full_circuit_replay_certificate": false,
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "bounded_patch_exact_pass": true,
+      "bounded_patch_max_abs_entry_error": 6.398911863522162e-13,
+      "bounded_patch_residual_norm": 9.049428032408627e-13,
+      "bounded_replacement_qasm3_patch_available": true,
+      "candidate_cnot_reduction": 3,
+      "candidate_line_number": 1378,
+      "free_parameter_indices": [
+        7
+      ],
+      "qasm3_patch_line_count": 6,
+      "qasm3_patch_snippet": [
+        "// OPENQASM 3 bounded replacement snippet",
+        "U(0, 0, 0) q[4];",
+        "U(0.7853981633974483, 0, 0) q[8];",
+        "cx q[4], q[8];",
+        "U(0, 1.570796326794897, 0) q[4];",
+        "U(-0.7853981633974483, -0.7853981633974483, 0) q[8];"
+      ],
+      "repair_gate_id": "T-B1-004ai",
+      "replacement_cnot_count": 1,
+      "replacement_off_pi_over_four_parameter_count": 0,
+      "replacement_parameter_count": 12,
+      "source_cnot_count": 4,
+      "support_qubits": [
+        4,
+        8
+      ],
+      "window_end_line": 1377,
+      "window_start_line": 1369
+    }
+  ],
+  "linked_b7_problem_id": 21,
+  "method": "b1_b7_cone01_nonoverlap_patch_subset_gate_v0",
+  "model_status": "nonoverlap_subset_reduces_naive_patch_delta_before_full_circuit_replay",
+  "selected_nonoverlap_patch_rows": [
+    {
+      "accepted_full_circuit_qasm_patch": false,
+      "accepted_full_circuit_replay_certificate": false,
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "bounded_patch_exact_pass": true,
+      "bounded_patch_max_abs_entry_error": 4.525273102184799e-13,
+      "bounded_patch_residual_norm": 6.39893112687052e-13,
+      "bounded_replacement_qasm3_patch_available": true,
+      "candidate_cnot_reduction": 3,
+      "candidate_line_number": 268,
+      "free_parameter_indices": [
+        1,
+        8,
+        13
+      ],
+      "qasm3_patch_line_count": 9,
+      "qasm3_patch_snippet": [
+        "// OPENQASM 3 bounded replacement snippet",
+        "U(0, 0, 0) q[2];",
+        "U(0, 0, 0) q[14];",
+        "cx q[14], q[2];",
+        "U(0.7853981633974483, 0, -0.7853981633974474) q[2];",
+        "U(0, 0.7853981633974483, 1.570796326794897) q[14];",
+        "cx q[14], q[2];",
+        "U(-0.7853981633974483, -0.7853981633974505, 0) q[2];",
+        "U(0, 0.7853981633974483, -0.7853981633974483) q[14];"
+      ],
+      "repair_gate_id": "T-B1-004aj",
+      "replacement_cnot_count": 2,
+      "replacement_off_pi_over_four_parameter_count": 0,
+      "replacement_parameter_count": 18,
+      "source_cnot_count": 5,
+      "support_qubits": [
+        2,
+        14
+      ],
+      "window_end_line": 267,
+      "window_start_line": 256
+    },
+    {
+      "accepted_full_circuit_qasm_patch": false,
+      "accepted_full_circuit_replay_certificate": false,
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "bounded_patch_exact_pass": true,
+      "bounded_patch_max_abs_entry_error": 3.4460057102876843e-13,
+      "bounded_patch_residual_norm": 6.513210005207597e-13,
+      "bounded_replacement_qasm3_patch_available": true,
+      "candidate_cnot_reduction": 3,
+      "candidate_line_number": 1381,
+      "free_parameter_indices": [
+        3,
+        4,
+        9,
+        16,
+        17
+      ],
+      "qasm3_patch_line_count": 9,
+      "qasm3_patch_snippet": [
+        "// OPENQASM 3 bounded replacement snippet",
+        "U(0, -1.570796326794897, -1.570796326794897) q[4];",
+        "U(1.428268820279441, -1.147508959971678, 0) q[8];",
+        "cx q[4], q[8];",
+        "U(0, -2.356194490192345, -2.356194490192345) q[4];",
+        "U(-1.05251729068661, 0.7853981633974483, 0.7853981633974483) q[8];",
+        "cx q[4], q[8];",
+        "U(0, -1.570796326794897, -1.570796326794897) q[4];",
+        "U(-0.7853981633974483, 0.5589456541983555, 0.4232873668235233) q[8];"
+      ],
+      "repair_gate_id": "T-B1-004al",
+      "replacement_cnot_count": 2,
+      "replacement_off_pi_over_four_parameter_count": 5,
+      "replacement_parameter_count": 18,
+      "source_cnot_count": 5,
+      "support_qubits": [
+        4,
+        8
+      ],
+      "window_end_line": 1379,
+      "window_start_line": 1369
+    }
+  ],
+  "source_bounded_replacement_patch_result": "results/B1_B7_cone01_bounded_replacement_patch_gate_v0.json",
+  "source_qasm": "results/b1_native_t_resource_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+  "status": "cone01_nonoverlap_bounded_patch_subset_not_full_circuit_replay",
+  "summary": {
+    "accepted_full_circuit_qasm_patch_count": 0,
+    "accepted_full_circuit_replay_certificate_count": 0,
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "b7_ledger_improvement_claimed": false,
+    "dropped_overlap_candidate_line_numbers": [
+      1378
+    ],
+    "full_circuit_qasm_rewrite_emitted": false,
+    "full_circuit_rewrite_claimed": false,
+    "input_bounded_patch_count": 3,
+    "input_bounded_patch_exact_pass_count": 3,
+    "input_naive_candidate_cnot_reduction": 9,
+    "lost_candidate_cnot_reduction_due_to_overlap": 3,
+    "missing_occurrences_after_gate": 30,
+    "missing_proxy_t_after_gate": 600,
+    "nonoverlap_subset_available": true,
+    "nonoverlap_subset_claimed_as_full_circuit_patch": false,
+    "replacement_patch_dialect": "OPENQASM 3 bounded snippets",
+    "resource_saving_claimed": false,
+    "selected_bounded_patch_exact_pass_count": 2,
+    "selected_candidate_cnot_reduction": 6,
+    "selected_candidate_line_numbers": [
+      268,
+      1381
+    ],
+    "selected_nonoverlap_patch_count": 2,
+    "selected_patch_qasm3_line_count": 18,
+    "selected_replacement_off_pi_over_four_parameter_count": 5,
+    "selected_source_window_line_count": 23,
+    "source_bounded_patch_method": "b1_b7_cone01_bounded_replacement_patch_gate_v0",
+    "source_qasm_dialect": "OPENQASM 2.0",
+    "source_to_replacement_dialect_bridge_required": true,
+    "validation_error_count": 0
+  },
+  "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+}

@@ -701,6 +701,18 @@ Overall audit: PASS
 - B7 ledger improvement claimed: False
 - Validation errors: 0
 
+## B1/B7 cone_01 Non-Overlap Patch Subset Gate
+
+- Exists: True
+- Status: cone01_nonoverlap_bounded_patch_subset_not_full_circuit_replay
+- Input patches / naive CNOT reduction: 3 / 9
+- Selected lines / dropped lines: [268, 1381] / [1378]
+- Selected CNOT reduction / lost overlap delta: 6 / 3
+- Source dialect / dialect bridge required: OPENQASM 2.0 / True
+- Full-circuit QASM rewrite emitted / accepted patch count: False / 0
+- Accepted replay / occurrence / proxy-T reduction / B7 claim: 0 / 0 / 0 / False
+- Validation errors: 0
+
 ## B1/B7 cone_01 Theta-Sharing Ledger Gate
 
 - Exists: True

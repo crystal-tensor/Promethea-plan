@@ -237,6 +237,9 @@ def audit(root: Path) -> dict:
     b1_b7_cone01_bounded_replacement_patch_path = (
         results / "B1_B7_cone01_bounded_replacement_patch_gate_v0.json"
     )
+    b1_b7_cone01_nonoverlap_patch_subset_path = (
+        results / "B1_B7_cone01_nonoverlap_patch_subset_gate_v0.json"
+    )
     b1_b7_cone01_theta_sharing_path = results / "B1_B7_cone01_theta_sharing_ledger_gate_v0.json"
     b1_b7_cone01_shared_theta_synthesis_object_path = (
         results / "B1_B7_cone01_shared_theta_synthesis_object_gate_v0.json"
@@ -829,6 +832,9 @@ def audit(root: Path) -> dict:
     )
     b1_b7_cone01_bounded_replacement_patch_manifest = current_results.get(
         "b1_b7_cone01_bounded_replacement_patch_gate_v0"
+    )
+    b1_b7_cone01_nonoverlap_patch_subset_manifest = current_results.get(
+        "b1_b7_cone01_nonoverlap_patch_subset_gate_v0"
     )
     b1_b7_cone01_theta_sharing_manifest = current_results.get(
         "b1_b7_cone01_theta_sharing_ledger_gate_v0"
@@ -7834,6 +7840,216 @@ def audit(root: Path) -> dict:
         errors.append(
             f"missing B1/B7 cone_01 bounded replacement patch report: "
             f"{b1_b7_cone01_bounded_replacement_patch_path}"
+        )
+
+    b1_b7_cone01_nonoverlap_patch_subset = {
+        "path": str(b1_b7_cone01_nonoverlap_patch_subset_path),
+        "exists": b1_b7_cone01_nonoverlap_patch_subset_path.exists(),
+    }
+    if not b1_b7_cone01_nonoverlap_patch_subset_manifest:
+        errors.append(
+            "B1 manifest missing current result: "
+            "b1_b7_cone01_nonoverlap_patch_subset_gate_v0"
+        )
+    else:
+        if (
+            b1_b7_cone01_nonoverlap_patch_subset_manifest.get("status")
+            != "cone01_nonoverlap_bounded_patch_subset_not_full_circuit_replay"
+        ):
+            errors.append("B1/B7 cone_01 non-overlap patch subset gate status mismatch")
+        for field in ["report", "markdown_report"]:
+            value = b1_b7_cone01_nonoverlap_patch_subset_manifest.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(
+                    "B1/B7 cone_01 non-overlap patch subset gate missing "
+                    f"existing {field} path: {value}"
+                )
+    if b1_b7_cone01_nonoverlap_patch_subset_path.exists():
+        subset_payload = json.loads(read(b1_b7_cone01_nonoverlap_patch_subset_path))
+        subset_summary = subset_payload.get("summary", {})
+        subset_claims = subset_payload.get("claim_boundary", {})
+        b1_b7_cone01_nonoverlap_patch_subset.update(
+            {
+                "status": subset_payload.get("status"),
+                "model_status": subset_payload.get("model_status"),
+                "method": subset_payload.get("method"),
+                "workload": subset_payload.get("workload"),
+                "input_bounded_patch_count": subset_summary.get("input_bounded_patch_count"),
+                "input_bounded_patch_exact_pass_count": subset_summary.get(
+                    "input_bounded_patch_exact_pass_count"
+                ),
+                "input_naive_candidate_cnot_reduction": subset_summary.get(
+                    "input_naive_candidate_cnot_reduction"
+                ),
+                "nonoverlap_subset_available": subset_summary.get(
+                    "nonoverlap_subset_available"
+                ),
+                "selected_nonoverlap_patch_count": subset_summary.get(
+                    "selected_nonoverlap_patch_count"
+                ),
+                "selected_candidate_line_numbers": subset_summary.get(
+                    "selected_candidate_line_numbers"
+                ),
+                "dropped_overlap_candidate_line_numbers": subset_summary.get(
+                    "dropped_overlap_candidate_line_numbers"
+                ),
+                "selected_bounded_patch_exact_pass_count": subset_summary.get(
+                    "selected_bounded_patch_exact_pass_count"
+                ),
+                "selected_candidate_cnot_reduction": subset_summary.get(
+                    "selected_candidate_cnot_reduction"
+                ),
+                "lost_candidate_cnot_reduction_due_to_overlap": subset_summary.get(
+                    "lost_candidate_cnot_reduction_due_to_overlap"
+                ),
+                "selected_replacement_off_pi_over_four_parameter_count": subset_summary.get(
+                    "selected_replacement_off_pi_over_four_parameter_count"
+                ),
+                "source_qasm_dialect": subset_summary.get("source_qasm_dialect"),
+                "source_to_replacement_dialect_bridge_required": subset_summary.get(
+                    "source_to_replacement_dialect_bridge_required"
+                ),
+                "full_circuit_qasm_rewrite_emitted": subset_summary.get(
+                    "full_circuit_qasm_rewrite_emitted"
+                ),
+                "accepted_full_circuit_qasm_patch_count": subset_summary.get(
+                    "accepted_full_circuit_qasm_patch_count"
+                ),
+                "accepted_full_circuit_replay_certificate_count": subset_summary.get(
+                    "accepted_full_circuit_replay_certificate_count"
+                ),
+                "accepted_occurrence_removal": subset_summary.get(
+                    "accepted_occurrence_removal"
+                ),
+                "accepted_proxy_t_reduction": subset_summary.get(
+                    "accepted_proxy_t_reduction"
+                ),
+                "missing_occurrences_after_gate": subset_summary.get(
+                    "missing_occurrences_after_gate"
+                ),
+                "missing_proxy_t_after_gate": subset_summary.get(
+                    "missing_proxy_t_after_gate"
+                ),
+                "nonoverlap_subset_claimed_as_full_circuit_patch": subset_summary.get(
+                    "nonoverlap_subset_claimed_as_full_circuit_patch"
+                ),
+                "full_circuit_rewrite_claimed": subset_summary.get(
+                    "full_circuit_rewrite_claimed"
+                ),
+                "resource_saving_claimed": subset_summary.get("resource_saving_claimed"),
+                "b7_ledger_improvement_claimed": subset_summary.get(
+                    "b7_ledger_improvement_claimed"
+                ),
+                "validation_error_count": subset_summary.get("validation_error_count"),
+                "selected_nonoverlap_patch_row_count": len(
+                    subset_payload.get("selected_nonoverlap_patch_rows", [])
+                ),
+                "dropped_overlap_patch_row_count": len(
+                    subset_payload.get("dropped_overlap_patch_rows", [])
+                ),
+            }
+        )
+        if subset_payload.get("benchmark_id") != "B1":
+            errors.append("B1/B7 cone_01 non-overlap patch subset report must have benchmark_id B1")
+        if subset_payload.get("method") != "b1_b7_cone01_nonoverlap_patch_subset_gate_v0":
+            errors.append("B1/B7 cone_01 non-overlap patch subset method mismatch")
+        if (
+            subset_payload.get("status")
+            != "cone01_nonoverlap_bounded_patch_subset_not_full_circuit_replay"
+        ):
+            errors.append("B1/B7 cone_01 non-overlap patch subset status mismatch")
+        if (
+            subset_payload.get("model_status")
+            != "nonoverlap_subset_reduces_naive_patch_delta_before_full_circuit_replay"
+        ):
+            errors.append("B1/B7 cone_01 non-overlap patch subset model_status mismatch")
+        for field in [
+            "input_bounded_patch_count",
+            "input_bounded_patch_exact_pass_count",
+            "input_naive_candidate_cnot_reduction",
+            "nonoverlap_subset_available",
+            "selected_nonoverlap_patch_count",
+            "selected_candidate_line_numbers",
+            "dropped_overlap_candidate_line_numbers",
+            "selected_bounded_patch_exact_pass_count",
+            "selected_candidate_cnot_reduction",
+            "lost_candidate_cnot_reduction_due_to_overlap",
+            "selected_replacement_off_pi_over_four_parameter_count",
+            "source_qasm_dialect",
+            "source_to_replacement_dialect_bridge_required",
+            "full_circuit_qasm_rewrite_emitted",
+            "accepted_full_circuit_qasm_patch_count",
+            "accepted_full_circuit_replay_certificate_count",
+            "accepted_occurrence_removal",
+            "accepted_proxy_t_reduction",
+            "missing_occurrences_after_gate",
+            "missing_proxy_t_after_gate",
+            "nonoverlap_subset_claimed_as_full_circuit_patch",
+            "full_circuit_rewrite_claimed",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+            "validation_error_count",
+        ]:
+            if subset_summary.get(field) != b1_b7_cone01_nonoverlap_patch_subset_manifest.get(field):
+                errors.append(f"B1/B7 cone_01 non-overlap patch subset {field} mismatch")
+        expected_subset_fields = {
+            "input_bounded_patch_count": 3,
+            "input_bounded_patch_exact_pass_count": 3,
+            "input_naive_candidate_cnot_reduction": 9,
+            "nonoverlap_subset_available": True,
+            "selected_nonoverlap_patch_count": 2,
+            "selected_candidate_line_numbers": [268, 1381],
+            "dropped_overlap_candidate_line_numbers": [1378],
+            "selected_bounded_patch_exact_pass_count": 2,
+            "selected_candidate_cnot_reduction": 6,
+            "lost_candidate_cnot_reduction_due_to_overlap": 3,
+            "selected_replacement_off_pi_over_four_parameter_count": 5,
+            "source_qasm_dialect": "OPENQASM 2.0",
+            "source_to_replacement_dialect_bridge_required": True,
+            "full_circuit_qasm_rewrite_emitted": False,
+            "accepted_full_circuit_qasm_patch_count": 0,
+            "accepted_full_circuit_replay_certificate_count": 0,
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "missing_occurrences_after_gate": 30,
+            "missing_proxy_t_after_gate": 600,
+            "validation_error_count": 0,
+        }
+        for field, value in expected_subset_fields.items():
+            if subset_summary.get(field) != value:
+                errors.append(f"B1/B7 cone_01 non-overlap patch subset expected {field}={value}")
+        for field in [
+            "nonoverlap_subset_claimed_as_full_circuit_patch",
+            "full_circuit_rewrite_claimed",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+        ]:
+            if subset_summary.get(field) is not False:
+                errors.append(f"B1/B7 cone_01 non-overlap patch subset must not claim {field}")
+            if subset_claims.get(field) is not False:
+                errors.append(
+                    "B1/B7 cone_01 non-overlap patch subset claim boundary "
+                    f"must not claim {field}"
+                )
+        selected_rows = subset_payload.get("selected_nonoverlap_patch_rows", [])
+        dropped_rows = subset_payload.get("dropped_overlap_patch_rows", [])
+        if [row.get("candidate_line_number") for row in selected_rows] != [268, 1381]:
+            errors.append("B1/B7 cone_01 non-overlap selected rows must be 268/1381")
+        if [row.get("candidate_line_number") for row in dropped_rows] != [1378]:
+            errors.append("B1/B7 cone_01 non-overlap dropped row must be 1378")
+        for row in selected_rows:
+            if row.get("bounded_patch_exact_pass") is not True:
+                errors.append(
+                    f"B1/B7 cone_01 non-overlap line {row.get('candidate_line_number')} must exact-pass"
+                )
+            if row.get("accepted_full_circuit_qasm_patch") is not False:
+                errors.append(
+                    f"B1/B7 cone_01 non-overlap line {row.get('candidate_line_number')} must not accept patch"
+                )
+    else:
+        errors.append(
+            f"missing B1/B7 cone_01 non-overlap patch subset report: "
+            f"{b1_b7_cone01_nonoverlap_patch_subset_path}"
         )
 
     b1_b7_cone01_theta_sharing = {
@@ -17790,6 +18006,9 @@ def audit(root: Path) -> dict:
             "b7_cone01_bounded_replacement_patch_gate": (
                 b1_b7_cone01_bounded_replacement_patch
             ),
+            "b7_cone01_nonoverlap_patch_subset_gate": (
+                b1_b7_cone01_nonoverlap_patch_subset
+            ),
             "b7_cone01_theta_sharing_ledger_gate": b1_b7_cone01_theta_sharing,
             "b7_cone01_shared_theta_synthesis_object_gate": b1_b7_cone01_shared_theta_synthesis_object,
             "b7_cone01_shared_theta_replay_verifier_gate": b1_b7_cone01_shared_theta_replay_verifier,
@@ -18066,6 +18285,9 @@ def audit(root: Path) -> dict:
             ),
             "b1_b7_cone01_bounded_replacement_patch_gate": str(
                 b1_b7_cone01_bounded_replacement_patch_path
+            ),
+            "b1_b7_cone01_nonoverlap_patch_subset_gate": str(
+                b1_b7_cone01_nonoverlap_patch_subset_path
             ),
             "b1_b7_cone01_theta_sharing_ledger_gate": str(b1_b7_cone01_theta_sharing_path),
             "b1_b7_cone01_shared_theta_synthesis_object_gate": str(
@@ -18996,6 +19218,18 @@ def markdown_report(report: dict) -> str:
             f"- Accepted full-circuit patch / replay / occurrence / proxy-T reduction: {report['b1']['b7_cone01_bounded_replacement_patch_gate'].get('accepted_full_circuit_qasm_patch_count')} / {report['b1']['b7_cone01_bounded_replacement_patch_gate'].get('accepted_full_circuit_replay_certificate_count')} / {report['b1']['b7_cone01_bounded_replacement_patch_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_bounded_replacement_patch_gate'].get('accepted_proxy_t_reduction')}",
             f"- B7 ledger improvement claimed: {report['b1']['b7_cone01_bounded_replacement_patch_gate'].get('b7_ledger_improvement_claimed')}",
             f"- Validation errors: {report['b1']['b7_cone01_bounded_replacement_patch_gate'].get('validation_error_count')}",
+            "",
+            "## B1/B7 cone_01 Non-Overlap Patch Subset Gate",
+            "",
+            f"- Exists: {report['b1']['b7_cone01_nonoverlap_patch_subset_gate'].get('exists')}",
+            f"- Status: {report['b1']['b7_cone01_nonoverlap_patch_subset_gate'].get('status')}",
+            f"- Input patches / naive CNOT reduction: {report['b1']['b7_cone01_nonoverlap_patch_subset_gate'].get('input_bounded_patch_count')} / {report['b1']['b7_cone01_nonoverlap_patch_subset_gate'].get('input_naive_candidate_cnot_reduction')}",
+            f"- Selected lines / dropped lines: {report['b1']['b7_cone01_nonoverlap_patch_subset_gate'].get('selected_candidate_line_numbers')} / {report['b1']['b7_cone01_nonoverlap_patch_subset_gate'].get('dropped_overlap_candidate_line_numbers')}",
+            f"- Selected CNOT reduction / lost overlap delta: {report['b1']['b7_cone01_nonoverlap_patch_subset_gate'].get('selected_candidate_cnot_reduction')} / {report['b1']['b7_cone01_nonoverlap_patch_subset_gate'].get('lost_candidate_cnot_reduction_due_to_overlap')}",
+            f"- Source dialect / dialect bridge required: {report['b1']['b7_cone01_nonoverlap_patch_subset_gate'].get('source_qasm_dialect')} / {report['b1']['b7_cone01_nonoverlap_patch_subset_gate'].get('source_to_replacement_dialect_bridge_required')}",
+            f"- Full-circuit QASM rewrite emitted / accepted patch count: {report['b1']['b7_cone01_nonoverlap_patch_subset_gate'].get('full_circuit_qasm_rewrite_emitted')} / {report['b1']['b7_cone01_nonoverlap_patch_subset_gate'].get('accepted_full_circuit_qasm_patch_count')}",
+            f"- Accepted replay / occurrence / proxy-T reduction / B7 claim: {report['b1']['b7_cone01_nonoverlap_patch_subset_gate'].get('accepted_full_circuit_replay_certificate_count')} / {report['b1']['b7_cone01_nonoverlap_patch_subset_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_nonoverlap_patch_subset_gate'].get('accepted_proxy_t_reduction')} / {report['b1']['b7_cone01_nonoverlap_patch_subset_gate'].get('b7_ledger_improvement_claimed')}",
+            f"- Validation errors: {report['b1']['b7_cone01_nonoverlap_patch_subset_gate'].get('validation_error_count')}",
             "",
             "## B1/B7 cone_01 Theta-Sharing Ledger Gate",
             "",

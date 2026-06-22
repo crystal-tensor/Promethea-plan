@@ -441,6 +441,15 @@ proxy-T reduction, and B7 ledger improvement remain 0. The next useful PR must
 merge or resynthesize the overlapping patch region and then replay it against
 the source circuit.
 
+T-B1-004au now prevents double-counting that overlap. It enumerates
+non-overlapping bounded patch subsets and selects line 268 plus the larger
+line-1381 window, dropping line 1378 because it is contained in the line-1381
+source window. The candidate CNOT signal is therefore 6 for the current
+composable bounded subset, not the naive 9. No full-circuit QASM rewrite is
+emitted yet because the source circuit is OpenQASM 2.0 while the bounded
+replacement snippets are OpenQASM 3 snippets, and no replay certificate,
+occurrence removal, proxy-T reduction, or B7 improvement is accepted.
+
 ## Repository Layout
 
 ```text
