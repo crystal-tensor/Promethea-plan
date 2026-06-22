@@ -2012,3 +2012,16 @@ Min state fidelity is 0.9999999999999547, max infidelity is
 This accepts one project-local OpenQASM 3 multi-input replay artifact only;
 Qiskit-loader replay, symbolic/arbitrary-input equivalence, local-U3 pricing,
 occurrence removal, proxy-T reduction, and B7 ledger improvement remain 0.
+
+Sprint update 18bz: B1/B7 now has a project-local OpenQASM 3 phase-consistent
+replay gate. T-B1-004bz consumes the OpenQASM 3 multi-input replay artifact and
+checks 4 phase-anchor inputs plus 4 superposition inputs through the parsed
+OpenQASM 3 candidate and the optimized source after final measurement removal.
+All 8 cases pass. The overlap phase spread is 1.3722356584366935e-13 radians,
+min overlap magnitude is 0.9999999999999772, min state fidelity is
+0.9999999999999547, max infidelity is 4.529709940470639e-14, max aligned
+amplitude delta is 1.392888964263601e-13, and max probability delta is
+1.074140776324839e-14. This accepts one project-local OpenQASM 3
+phase-consistent replay artifact only; Qiskit-loader replay,
+symbolic/arbitrary-input equivalence, local-U3 pricing, occurrence removal,
+proxy-T reduction, and B7 ledger improvement remain 0.

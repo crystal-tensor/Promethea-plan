@@ -258,6 +258,9 @@ def audit(root: Path) -> dict:
     b1_b7_cone01_openqasm3_multi_input_replay_path = (
         results / "B1_B7_cone01_openqasm3_multi_input_replay_gate_v0.json"
     )
+    b1_b7_cone01_openqasm3_phase_consistent_replay_path = (
+        results / "B1_B7_cone01_openqasm3_phase_consistent_replay_gate_v0.json"
+    )
     b1_b7_cone01_full_statevector_replay_probe_path = (
         results / "B1_B7_cone01_full_statevector_replay_probe_gate_v0.json"
     )
@@ -943,6 +946,9 @@ def audit(root: Path) -> dict:
     )
     b1_b7_cone01_openqasm3_multi_input_replay_manifest = current_results.get(
         "b1_b7_cone01_openqasm3_multi_input_replay_gate_v0"
+    )
+    b1_b7_cone01_openqasm3_phase_consistent_replay_manifest = current_results.get(
+        "b1_b7_cone01_openqasm3_phase_consistent_replay_gate_v0"
     )
     b1_b7_cone01_full_statevector_replay_probe_manifest = current_results.get(
         "b1_b7_cone01_full_statevector_replay_probe_gate_v0"
@@ -9396,6 +9402,232 @@ def audit(root: Path) -> dict:
         errors.append(
             f"missing B1/B7 cone_01 OpenQASM 3 multi-input replay report: "
             f"{b1_b7_cone01_openqasm3_multi_input_replay_path}"
+        )
+
+    b1_b7_cone01_openqasm3_phase_consistent_replay = {
+        "path": str(b1_b7_cone01_openqasm3_phase_consistent_replay_path),
+        "exists": b1_b7_cone01_openqasm3_phase_consistent_replay_path.exists(),
+    }
+    if not b1_b7_cone01_openqasm3_phase_consistent_replay_manifest:
+        errors.append(
+            "B1 manifest missing current result: "
+            "b1_b7_cone01_openqasm3_phase_consistent_replay_gate_v0"
+        )
+    else:
+        if (
+            b1_b7_cone01_openqasm3_phase_consistent_replay_manifest.get("status")
+            != "cone01_openqasm3_phase_consistent_replay_passed_not_symbolic_certificate"
+        ):
+            errors.append("B1/B7 cone_01 OpenQASM 3 phase-consistent replay status mismatch")
+        for field in ["report", "markdown_report", "openqasm3_candidate_path"]:
+            value = b1_b7_cone01_openqasm3_phase_consistent_replay_manifest.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(
+                    "B1/B7 cone_01 OpenQASM 3 phase-consistent replay missing "
+                    f"existing {field} path: {value}"
+                )
+    if b1_b7_cone01_openqasm3_phase_consistent_replay_path.exists():
+        qasm3_phase_payload = json.loads(read(b1_b7_cone01_openqasm3_phase_consistent_replay_path))
+        qasm3_phase_summary = qasm3_phase_payload.get("summary", {})
+        qasm3_phase_claims = qasm3_phase_payload.get("claim_boundary", {})
+        b1_b7_cone01_openqasm3_phase_consistent_replay.update(
+            {
+                "status": qasm3_phase_payload.get("status"),
+                "model_status": qasm3_phase_payload.get("model_status"),
+                "method": qasm3_phase_payload.get("method"),
+                "workload": qasm3_phase_payload.get("workload"),
+                "openqasm3_candidate_path": qasm3_phase_summary.get(
+                    "openqasm3_candidate_path"
+                ),
+                "project_local_openqasm3_parser_passed": qasm3_phase_summary.get(
+                    "project_local_openqasm3_parser_passed"
+                ),
+                "project_local_openqasm3_parser_error_count": qasm3_phase_summary.get(
+                    "project_local_openqasm3_parser_error_count"
+                ),
+                "project_local_operation_counts": qasm3_phase_summary.get(
+                    "project_local_operation_counts"
+                ),
+                "qubit_count": qasm3_phase_summary.get("qubit_count"),
+                "bit_count": qasm3_phase_summary.get("bit_count"),
+                "statement_count": qasm3_phase_summary.get("statement_count"),
+                "operation_row_count": qasm3_phase_summary.get("operation_row_count"),
+                "statevector_dimension": qasm3_phase_summary.get("statevector_dimension"),
+                "input_case_count": qasm3_phase_summary.get("input_case_count"),
+                "phase_anchor_input_count": qasm3_phase_summary.get(
+                    "phase_anchor_input_count"
+                ),
+                "superposition_input_count": qasm3_phase_summary.get(
+                    "superposition_input_count"
+                ),
+                "failed_input_case_count": qasm3_phase_summary.get("failed_input_case_count"),
+                "source_cnot_count": qasm3_phase_summary.get("source_cnot_count"),
+                "openqasm3_cnot_count": qasm3_phase_summary.get("openqasm3_cnot_count"),
+                "openqasm3_cnot_delta": qasm3_phase_summary.get("openqasm3_cnot_delta"),
+                "overlap_phase_spread_radians": qasm3_phase_summary.get(
+                    "overlap_phase_spread_radians"
+                ),
+                "min_overlap_magnitude": qasm3_phase_summary.get("min_overlap_magnitude"),
+                "min_state_fidelity": qasm3_phase_summary.get("min_state_fidelity"),
+                "max_infidelity": qasm3_phase_summary.get("max_infidelity"),
+                "max_global_phase_aligned_amplitude_delta": qasm3_phase_summary.get(
+                    "max_global_phase_aligned_amplitude_delta"
+                ),
+                "max_probability_delta": qasm3_phase_summary.get("max_probability_delta"),
+                "phase_consistent_replay_passed": qasm3_phase_summary.get(
+                    "phase_consistent_replay_passed"
+                ),
+                "accepted_project_local_openqasm3_phase_consistent_replay_artifact_count": (
+                    qasm3_phase_summary.get(
+                        "accepted_project_local_openqasm3_phase_consistent_replay_artifact_count"
+                    )
+                ),
+                "accepted_qiskit_loader_parse_artifact_count": qasm3_phase_summary.get(
+                    "accepted_qiskit_loader_parse_artifact_count"
+                ),
+                "accepted_symbolic_unitary_equivalence_count": qasm3_phase_summary.get(
+                    "accepted_symbolic_unitary_equivalence_count"
+                ),
+                "accepted_full_circuit_replay_certificate_count": qasm3_phase_summary.get(
+                    "accepted_full_circuit_replay_certificate_count"
+                ),
+                "accepted_local_u3_pricing_certificate_count": qasm3_phase_summary.get(
+                    "accepted_local_u3_pricing_certificate_count"
+                ),
+                "accepted_occurrence_removal": qasm3_phase_summary.get(
+                    "accepted_occurrence_removal"
+                ),
+                "accepted_proxy_t_reduction": qasm3_phase_summary.get(
+                    "accepted_proxy_t_reduction"
+                ),
+                "missing_occurrences_after_gate": qasm3_phase_summary.get(
+                    "missing_occurrences_after_gate"
+                ),
+                "missing_proxy_t_after_gate": qasm3_phase_summary.get(
+                    "missing_proxy_t_after_gate"
+                ),
+                "project_local_openqasm3_replay_claimed": qasm3_phase_summary.get(
+                    "project_local_openqasm3_replay_claimed"
+                ),
+                "qiskit_loader_parse_claimed": qasm3_phase_summary.get(
+                    "qiskit_loader_parse_claimed"
+                ),
+                "symbolic_unitary_equivalence_claimed": qasm3_phase_summary.get(
+                    "symbolic_unitary_equivalence_claimed"
+                ),
+                "arbitrary_input_equivalence_claimed": qasm3_phase_summary.get(
+                    "arbitrary_input_equivalence_claimed"
+                ),
+                "local_u3_pricing_accepted": qasm3_phase_summary.get(
+                    "local_u3_pricing_accepted"
+                ),
+                "resource_saving_claimed": qasm3_phase_summary.get("resource_saving_claimed"),
+                "b7_ledger_improvement_claimed": qasm3_phase_summary.get(
+                    "b7_ledger_improvement_claimed"
+                ),
+                "validation_error_count": qasm3_phase_summary.get("validation_error_count"),
+            }
+        )
+        if qasm3_phase_payload.get("benchmark_id") != "B1":
+            errors.append("B1/B7 cone_01 OpenQASM 3 phase-consistent replay must have benchmark_id B1")
+        if (
+            qasm3_phase_payload.get("method")
+            != "b1_b7_cone01_openqasm3_phase_consistent_replay_gate_v0"
+        ):
+            errors.append("B1/B7 cone_01 OpenQASM 3 phase-consistent replay method mismatch")
+        if (
+            qasm3_phase_payload.get("status")
+            != "cone01_openqasm3_phase_consistent_replay_passed_not_symbolic_certificate"
+        ):
+            errors.append("B1/B7 cone_01 OpenQASM 3 phase-consistent replay status mismatch")
+        if (
+            qasm3_phase_payload.get("model_status")
+            != "project_local_openqasm3_candidate_has_phase_consistent_sampled_replay_without_b7_credit"
+        ):
+            errors.append("B1/B7 cone_01 OpenQASM 3 phase-consistent replay model_status mismatch")
+        expected_qasm3_phase_fields = {
+            "project_local_openqasm3_parser_passed": True,
+            "project_local_openqasm3_parser_error_count": 0,
+            "project_local_operation_counts": {"U": 487, "rz": 601, "cx": 789, "measure": 1},
+            "qubit_count": 19,
+            "bit_count": 1,
+            "statement_count": 1884,
+            "operation_row_count": 1878,
+            "statevector_dimension": 524288,
+            "input_case_count": 8,
+            "phase_anchor_input_count": 4,
+            "superposition_input_count": 4,
+            "failed_input_case_count": 0,
+            "source_cnot_count": 795,
+            "openqasm3_cnot_count": 789,
+            "openqasm3_cnot_delta": 6,
+            "phase_consistent_replay_passed": True,
+            "accepted_project_local_openqasm3_phase_consistent_replay_artifact_count": 1,
+            "accepted_qiskit_loader_parse_artifact_count": 0,
+            "accepted_symbolic_unitary_equivalence_count": 0,
+            "accepted_full_circuit_replay_certificate_count": 0,
+            "accepted_local_u3_pricing_certificate_count": 0,
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "missing_occurrences_after_gate": 30,
+            "missing_proxy_t_after_gate": 600,
+            "project_local_openqasm3_replay_claimed": True,
+            "qiskit_loader_parse_claimed": False,
+            "symbolic_unitary_equivalence_claimed": False,
+            "arbitrary_input_equivalence_claimed": False,
+            "local_u3_pricing_accepted": False,
+            "resource_saving_claimed": False,
+            "b7_ledger_improvement_claimed": False,
+            "validation_error_count": 0,
+        }
+        for field, value in expected_qasm3_phase_fields.items():
+            if qasm3_phase_summary.get(field) != value:
+                errors.append(f"B1/B7 cone_01 OpenQASM 3 phase replay expected {field}={value}")
+            if (
+                b1_b7_cone01_openqasm3_phase_consistent_replay_manifest
+                and field in b1_b7_cone01_openqasm3_phase_consistent_replay_manifest
+                and qasm3_phase_summary.get(field)
+                != b1_b7_cone01_openqasm3_phase_consistent_replay_manifest.get(field)
+            ):
+                errors.append(f"B1/B7 cone_01 OpenQASM 3 phase replay {field} mismatch")
+        numeric_bounds = {
+            "overlap_phase_spread_radians": 1e-10,
+            "max_infidelity": 1e-10,
+            "max_global_phase_aligned_amplitude_delta": 1e-10,
+            "max_probability_delta": 1e-10,
+        }
+        for field, upper_bound in numeric_bounds.items():
+            if float(qasm3_phase_summary.get(field, 1.0)) > upper_bound:
+                errors.append(
+                    f"B1/B7 cone_01 OpenQASM 3 phase replay {field} exceeds {upper_bound}"
+                )
+        if 1.0 - float(qasm3_phase_summary.get("min_overlap_magnitude", 0.0)) > 1e-10:
+            errors.append("B1/B7 cone_01 OpenQASM 3 phase replay min overlap below tolerance")
+        if 1.0 - float(qasm3_phase_summary.get("min_state_fidelity", 0.0)) > 1e-10:
+            errors.append("B1/B7 cone_01 OpenQASM 3 phase replay min fidelity below tolerance")
+        if qasm3_phase_payload.get("project_local_parser_errors"):
+            errors.append("B1/B7 cone_01 OpenQASM 3 phase replay parser errors not empty")
+        if qasm3_phase_summary.get("failed_input_cases") != []:
+            errors.append("B1/B7 cone_01 OpenQASM 3 phase replay failed cases not empty")
+        for field in [
+            "qiskit_loader_parse_claimed",
+            "symbolic_unitary_equivalence_claimed",
+            "arbitrary_input_equivalence_claimed",
+            "local_u3_pricing_accepted",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+        ]:
+            if qasm3_phase_summary.get(field) is not False:
+                errors.append(f"B1/B7 cone_01 OpenQASM 3 phase replay must not claim {field}")
+            if qasm3_phase_claims.get(field) is not False:
+                errors.append(
+                    "B1/B7 cone_01 OpenQASM 3 phase replay claim boundary "
+                    f"must not claim {field}"
+                )
+    else:
+        errors.append(
+            f"missing B1/B7 cone_01 OpenQASM 3 phase-consistent replay report: "
+            f"{b1_b7_cone01_openqasm3_phase_consistent_replay_path}"
         )
 
     b1_b7_cone01_full_statevector_replay_probe = {
@@ -24175,6 +24407,9 @@ def audit(root: Path) -> dict:
             "b7_cone01_openqasm3_multi_input_replay_gate": (
                 b1_b7_cone01_openqasm3_multi_input_replay
             ),
+            "b7_cone01_openqasm3_phase_consistent_replay_gate": (
+                b1_b7_cone01_openqasm3_phase_consistent_replay
+            ),
             "b7_cone01_full_statevector_replay_probe_gate": (
                 b1_b7_cone01_full_statevector_replay_probe
             ),
@@ -24544,6 +24779,9 @@ def audit(root: Path) -> dict:
             ),
             "b1_b7_cone01_openqasm3_multi_input_replay_gate": str(
                 b1_b7_cone01_openqasm3_multi_input_replay_path
+            ),
+            "b1_b7_cone01_openqasm3_phase_consistent_replay_gate": str(
+                b1_b7_cone01_openqasm3_phase_consistent_replay_path
             ),
             "b1_b7_cone01_full_statevector_replay_probe_gate": str(
                 b1_b7_cone01_full_statevector_replay_probe_path
@@ -25643,6 +25881,22 @@ def markdown_report(report: dict) -> str:
             f"- Multi-input replay passed / symbolic unitary claimed / arbitrary input claimed: {report['b1']['b7_cone01_openqasm3_multi_input_replay_gate'].get('openqasm3_multi_input_replay_passed')} / {report['b1']['b7_cone01_openqasm3_multi_input_replay_gate'].get('symbolic_unitary_equivalence_claimed')} / {report['b1']['b7_cone01_openqasm3_multi_input_replay_gate'].get('arbitrary_input_equivalence_claimed')}",
             f"- Accepted OpenQASM 3 multi-input replay / occurrence / proxy-T reduction / B7 claim: {report['b1']['b7_cone01_openqasm3_multi_input_replay_gate'].get('accepted_project_local_openqasm3_multi_input_replay_artifact_count')} / {report['b1']['b7_cone01_openqasm3_multi_input_replay_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_openqasm3_multi_input_replay_gate'].get('accepted_proxy_t_reduction')} / {report['b1']['b7_cone01_openqasm3_multi_input_replay_gate'].get('b7_ledger_improvement_claimed')}",
             f"- Validation errors: {report['b1']['b7_cone01_openqasm3_multi_input_replay_gate'].get('validation_error_count')}",
+            "",
+            "## B1/B7 cone_01 OpenQASM 3 Phase-Consistent Replay Gate",
+            "",
+            f"- Exists: {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('exists')}",
+            f"- Status: {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('status')}",
+            f"- OpenQASM 3 path: {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('openqasm3_candidate_path')}",
+            f"- Project-local parser passed / error count: {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('project_local_openqasm3_parser_passed')} / {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('project_local_openqasm3_parser_error_count')}",
+            f"- Input cases / failed cases: {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('input_case_count')} / {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('failed_input_case_count')}",
+            f"- Phase anchors / superposition inputs: {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('phase_anchor_input_count')} / {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('superposition_input_count')}",
+            f"- Source / OpenQASM 3 CNOT count / delta: {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('source_cnot_count')} / {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('openqasm3_cnot_count')} / {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('openqasm3_cnot_delta')}",
+            f"- Phase spread / min overlap magnitude: {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('overlap_phase_spread_radians')} / {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('min_overlap_magnitude')}",
+            f"- Min fidelity / max infidelity: {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('min_state_fidelity')} / {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('max_infidelity')}",
+            f"- Max amplitude / probability delta: {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('max_global_phase_aligned_amplitude_delta')} / {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('max_probability_delta')}",
+            f"- Phase-consistent replay passed / symbolic unitary claimed / arbitrary input claimed: {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('phase_consistent_replay_passed')} / {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('symbolic_unitary_equivalence_claimed')} / {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('arbitrary_input_equivalence_claimed')}",
+            f"- Accepted OpenQASM 3 phase replay / occurrence / proxy-T reduction / B7 claim: {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('accepted_project_local_openqasm3_phase_consistent_replay_artifact_count')} / {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('accepted_proxy_t_reduction')} / {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('b7_ledger_improvement_claimed')}",
+            f"- Validation errors: {report['b1']['b7_cone01_openqasm3_phase_consistent_replay_gate'].get('validation_error_count')}",
             "",
             "## B1/B7 cone_01 Full-Statevector Replay Probe Gate",
             "",

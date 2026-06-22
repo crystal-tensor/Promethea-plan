@@ -849,3 +849,15 @@ aligned amplitude delta 1.392888964263601e-13, and max probability delta
 replay artifact, but Qiskit-loader replay, symbolic/arbitrary-input
 equivalence, local-U3 pricing, occurrence removal, proxy-T reduction, and B7
 ledger credit remain 0.
+
+T-B1-004bz adds phase-consistent replay pressure to that OpenQASM 3 branch. The
+project-local parser replays the candidate over 4 phase-anchor inputs and 4
+superposition inputs, then checks overlap-phase spread rather than relying only
+on per-input global-phase alignment. All 8 cases pass with overlap phase spread
+1.3722356584366935e-13 radians, min overlap magnitude
+0.9999999999999772, min state fidelity 0.9999999999999547, max aligned
+amplitude delta 1.392888964263601e-13, and max probability delta
+1.074140776324839e-14. This accepts one project-local OpenQASM 3
+phase-consistent replay artifact, but Qiskit-loader replay,
+symbolic/arbitrary-input equivalence, local-U3 pricing, occurrence removal,
+proxy-T reduction, and B7 ledger credit remain 0.
