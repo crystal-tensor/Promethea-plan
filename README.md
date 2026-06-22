@@ -826,3 +826,15 @@ same operation counts: 789 `cx`, 601 `rz`, 487 `U`, and 1 measurement. This
 accepts one structural roundtrip artifact, but Qiskit-loader artifacts, replay
 proof, local-U3 pricing, occurrence removal, proxy-T reduction, and B7 ledger
 credit remain 0.
+
+T-B1-004bx moves that OpenQASM 3 artifact from structural portability into a
+project-local semantic replay check. The gate parses the OpenQASM 3 file with
+the project's strict subset parser, constructs a `QuantumCircuit` directly, and
+compares the resulting 19-qubit default-input statevector against the optimized
+source circuit after final measurement removal. The replay passes with fidelity
+0.9999999999999551, infidelity 4.4853010194856324e-14, max aligned amplitude
+delta 1.3908205762322243e-13, max probability delta 5.551115123125783e-16, and
+measured q[4] marginal delta 5.551115123125783e-16. This accepts one
+project-local OpenQASM 3 replay artifact, but it is still not a Qiskit loader
+parse, symbolic equivalence, arbitrary-input equivalence, local-U3 pricing,
+occurrence removal, proxy-T reduction, or B7 ledger credit.

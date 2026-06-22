@@ -768,6 +768,21 @@ Overall audit: PASS
 - Accepted occurrence / proxy-T reduction / B7 claim: 0 / 0 / False
 - Validation errors: 0
 
+## B1/B7 cone_01 OpenQASM 3 Local Semantic Replay Gate
+
+- Exists: True
+- Status: cone01_openqasm3_local_semantic_replay_passed_default_input_only
+- OpenQASM 3 path: results/B1_B7_cone01_openqasm3_candidate_export_gate/gcm_h6_line268_line1381_candidate_openqasm3.qasm
+- Project-local parser passed / error count: True / 0
+- Operation counts: {'U': 487, 'cx': 789, 'measure': 1, 'rz': 601}
+- Qubits / bits / statements / operation rows: 19 / 1 / 1884 / 1878
+- Source / OpenQASM 3 CNOT count / delta: 795 / 789 / 6
+- State fidelity / infidelity: 0.9999999999999551 / 4.4853010194856324e-14
+- Max amplitude / probability / measured marginal delta: 1.3908205762322243e-13 / 5.551115123125783e-16 / 5.551115123125783e-16
+- Accepted local replay / Qiskit loader / symbolic equivalence artifacts: 1 / 0 / 0
+- Accepted replay certificate / local-U3 pricing / occurrence / proxy-T reduction / B7 claim: 0 / 0 / 0 / 0 / False
+- Validation errors: 0
+
 ## B1/B7 cone_01 Full-Statevector Replay Probe Gate
 
 - Exists: True
