@@ -270,6 +270,9 @@ def audit(root: Path) -> dict:
     b1_b7_cone01_openqasm3_composable_patch_lift_path = (
         results / "B1_B7_cone01_openqasm3_composable_patch_lift_gate_v0.json"
     )
+    b1_b7_cone01_openqasm3_provenance_seal_path = (
+        results / "B1_B7_cone01_openqasm3_provenance_seal_gate_v0.json"
+    )
     b1_b7_cone01_full_statevector_replay_probe_path = (
         results / "B1_B7_cone01_full_statevector_replay_probe_gate_v0.json"
     )
@@ -967,6 +970,9 @@ def audit(root: Path) -> dict:
     )
     b1_b7_cone01_openqasm3_composable_patch_lift_manifest = current_results.get(
         "b1_b7_cone01_openqasm3_composable_patch_lift_gate_v0"
+    )
+    b1_b7_cone01_openqasm3_provenance_seal_manifest = current_results.get(
+        "b1_b7_cone01_openqasm3_provenance_seal_gate_v0"
     )
     b1_b7_cone01_full_statevector_replay_probe_manifest = current_results.get(
         "b1_b7_cone01_full_statevector_replay_probe_gate_v0"
@@ -10365,6 +10371,208 @@ def audit(root: Path) -> dict:
         errors.append(
             f"missing B1/B7 cone_01 OpenQASM 3 composable patch lift report: "
             f"{b1_b7_cone01_openqasm3_composable_patch_lift_path}"
+        )
+
+    b1_b7_cone01_openqasm3_provenance_seal = {
+        "path": str(b1_b7_cone01_openqasm3_provenance_seal_path),
+        "exists": b1_b7_cone01_openqasm3_provenance_seal_path.exists(),
+    }
+    if not b1_b7_cone01_openqasm3_provenance_seal_manifest:
+        errors.append(
+            "B1 manifest missing current result: "
+            "b1_b7_cone01_openqasm3_provenance_seal_gate_v0"
+        )
+    else:
+        if (
+            b1_b7_cone01_openqasm3_provenance_seal_manifest.get("status")
+            != "cone01_openqasm3_provenance_seal_passed_without_b7_resource_credit"
+        ):
+            errors.append("B1/B7 cone_01 OpenQASM 3 provenance seal status mismatch")
+        for field in ["report", "markdown_report", "openqasm3_candidate_path", "qasm2_candidate_path"]:
+            value = b1_b7_cone01_openqasm3_provenance_seal_manifest.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(
+                    "B1/B7 cone_01 OpenQASM 3 provenance seal missing "
+                    f"existing {field} path: {value}"
+                )
+    if b1_b7_cone01_openqasm3_provenance_seal_path.exists():
+        qasm3_seal_payload = json.loads(read(b1_b7_cone01_openqasm3_provenance_seal_path))
+        qasm3_seal_summary = qasm3_seal_payload.get("summary", {})
+        qasm3_seal_claims = qasm3_seal_payload.get("claim_boundary", {})
+        b1_b7_cone01_openqasm3_provenance_seal.update(
+            {
+                "status": qasm3_seal_payload.get("status"),
+                "model_status": qasm3_seal_payload.get("model_status"),
+                "method": qasm3_seal_payload.get("method"),
+                "workload": qasm3_seal_payload.get("workload"),
+                "qasm2_candidate_path": qasm3_seal_summary.get("qasm2_candidate_path"),
+                "openqasm3_candidate_path": qasm3_seal_summary.get("openqasm3_candidate_path"),
+                "qasm2_raw_line_count": qasm3_seal_summary.get("qasm2_raw_line_count"),
+                "openqasm3_raw_line_count": qasm3_seal_summary.get("openqasm3_raw_line_count"),
+                "normalized_instruction_count": qasm3_seal_summary.get(
+                    "normalized_instruction_count"
+                ),
+                "normalized_streams_match": qasm3_seal_summary.get("normalized_streams_match"),
+                "normalized_stream_sha256": qasm3_seal_summary.get("normalized_stream_sha256"),
+                "provenance_seal_sha256": qasm3_seal_summary.get("provenance_seal_sha256"),
+                "selected_line_numbers": qasm3_seal_summary.get("selected_line_numbers"),
+                "dropped_overlap_candidate_line_numbers": qasm3_seal_summary.get(
+                    "dropped_overlap_candidate_line_numbers"
+                ),
+                "max_selected_patch_residual_norm": qasm3_seal_summary.get(
+                    "max_selected_patch_residual_norm"
+                ),
+                "max_selected_patch_entry_error": qasm3_seal_summary.get(
+                    "max_selected_patch_entry_error"
+                ),
+                "openqasm3_linear_span_error_spectral_norm": qasm3_seal_summary.get(
+                    "openqasm3_linear_span_error_spectral_norm"
+                ),
+                "openqasm3_provenance_seal_passed": qasm3_seal_summary.get(
+                    "openqasm3_provenance_seal_passed"
+                ),
+                "accepted_project_local_openqasm3_provenance_seal_count": qasm3_seal_summary.get(
+                    "accepted_project_local_openqasm3_provenance_seal_count"
+                ),
+                "accepted_qiskit_loader_parse_artifact_count": qasm3_seal_summary.get(
+                    "accepted_qiskit_loader_parse_artifact_count"
+                ),
+                "accepted_symbolic_unitary_equivalence_count": qasm3_seal_summary.get(
+                    "accepted_symbolic_unitary_equivalence_count"
+                ),
+                "accepted_local_u3_pricing_certificate_count": qasm3_seal_summary.get(
+                    "accepted_local_u3_pricing_certificate_count"
+                ),
+                "accepted_occurrence_removal": qasm3_seal_summary.get(
+                    "accepted_occurrence_removal"
+                ),
+                "accepted_proxy_t_reduction": qasm3_seal_summary.get("accepted_proxy_t_reduction"),
+                "missing_occurrences_after_gate": qasm3_seal_summary.get(
+                    "missing_occurrences_after_gate"
+                ),
+                "missing_proxy_t_after_gate": qasm3_seal_summary.get(
+                    "missing_proxy_t_after_gate"
+                ),
+                "qiskit_loader_parse_claimed": qasm3_seal_summary.get(
+                    "qiskit_loader_parse_claimed"
+                ),
+                "symbolic_unitary_equivalence_claimed": qasm3_seal_summary.get(
+                    "symbolic_unitary_equivalence_claimed"
+                ),
+                "arbitrary_input_equivalence_claimed": qasm3_seal_summary.get(
+                    "arbitrary_input_equivalence_claimed"
+                ),
+                "full_hilbert_space_certificate_claimed": qasm3_seal_summary.get(
+                    "full_hilbert_space_certificate_claimed"
+                ),
+                "local_u3_pricing_accepted": qasm3_seal_summary.get(
+                    "local_u3_pricing_accepted"
+                ),
+                "resource_saving_claimed": qasm3_seal_summary.get("resource_saving_claimed"),
+                "b7_ledger_improvement_claimed": qasm3_seal_summary.get(
+                    "b7_ledger_improvement_claimed"
+                ),
+                "validation_error_count": qasm3_seal_summary.get("validation_error_count"),
+            }
+        )
+        if qasm3_seal_payload.get("benchmark_id") != "B1":
+            errors.append("B1/B7 cone_01 OpenQASM 3 provenance seal must have benchmark_id B1")
+        if qasm3_seal_payload.get("method") != "b1_b7_cone01_openqasm3_provenance_seal_gate_v0":
+            errors.append("B1/B7 cone_01 OpenQASM 3 provenance seal method mismatch")
+        if (
+            qasm3_seal_payload.get("status")
+            != "cone01_openqasm3_provenance_seal_passed_without_b7_resource_credit"
+        ):
+            errors.append("B1/B7 cone_01 OpenQASM 3 provenance seal status mismatch")
+        if (
+            qasm3_seal_payload.get("model_status")
+            != "openqasm3_patch_lift_artifacts_are_file_hash_sealed_without_b7_credit"
+        ):
+            errors.append("B1/B7 cone_01 OpenQASM 3 provenance seal model_status mismatch")
+        expected_qasm3_seal_fields = {
+            "qasm2_raw_line_count": 1884,
+            "openqasm3_raw_line_count": 1884,
+            "normalized_instruction_count": 1878,
+            "normalized_streams_match": True,
+            "normalized_stream_sha256": "7cd50bea1f5a3c191c5735c0891d3f70f8c07a9cfca9d6e93724e6d49cb36343",
+            "selected_line_numbers": [268, 1381],
+            "dropped_overlap_candidate_line_numbers": [1378],
+            "openqasm3_provenance_seal_passed": True,
+            "accepted_project_local_openqasm3_provenance_seal_count": 1,
+            "accepted_qiskit_loader_parse_artifact_count": 0,
+            "accepted_symbolic_unitary_equivalence_count": 0,
+            "accepted_local_u3_pricing_certificate_count": 0,
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "missing_occurrences_after_gate": 30,
+            "missing_proxy_t_after_gate": 600,
+            "qiskit_loader_parse_claimed": False,
+            "symbolic_unitary_equivalence_claimed": False,
+            "arbitrary_input_equivalence_claimed": False,
+            "full_hilbert_space_certificate_claimed": False,
+            "local_u3_pricing_accepted": False,
+            "resource_saving_claimed": False,
+            "b7_ledger_improvement_claimed": False,
+            "validation_error_count": 0,
+        }
+        for field, value in expected_qasm3_seal_fields.items():
+            if qasm3_seal_summary.get(field) != value:
+                errors.append(f"B1/B7 cone_01 OpenQASM 3 provenance seal expected {field}={value}")
+            if (
+                b1_b7_cone01_openqasm3_provenance_seal_manifest
+                and field in b1_b7_cone01_openqasm3_provenance_seal_manifest
+                and qasm3_seal_summary.get(field)
+                != b1_b7_cone01_openqasm3_provenance_seal_manifest.get(field)
+            ):
+                errors.append(f"B1/B7 cone_01 OpenQASM 3 provenance seal {field} mismatch")
+        numeric_bounds = {
+            "max_selected_patch_residual_norm": 1e-10,
+            "max_selected_patch_entry_error": 1e-10,
+            "openqasm3_linear_span_error_spectral_norm": 1e-10,
+        }
+        for field, upper_bound in numeric_bounds.items():
+            if float(qasm3_seal_summary.get(field, 1.0)) > upper_bound:
+                errors.append(
+                    f"B1/B7 cone_01 OpenQASM 3 provenance seal {field} exceeds {upper_bound}"
+                )
+        source_hashes = qasm3_seal_summary.get("source_artifact_hashes", {})
+        if not source_hashes or not isinstance(source_hashes, dict):
+            errors.append("B1/B7 cone_01 OpenQASM 3 provenance seal missing source hashes")
+        else:
+            recomputed_hashes = {}
+            for path, recorded_hash in source_hashes.items():
+                source_path = root / path
+                if not source_path.exists():
+                    errors.append(f"B1/B7 cone_01 OpenQASM 3 provenance seal source missing: {path}")
+                    continue
+                actual_hash = hashlib.sha256(read(source_path).encode("utf-8")).hexdigest()
+                recomputed_hashes[path] = actual_hash
+                if actual_hash != recorded_hash:
+                    errors.append(f"B1/B7 cone_01 OpenQASM 3 provenance seal hash mismatch: {path}")
+            seal_material = json.dumps(recomputed_hashes, sort_keys=True, separators=(",", ":"))
+            recomputed_seal = hashlib.sha256(seal_material.encode("utf-8")).hexdigest()
+            if recomputed_seal != qasm3_seal_summary.get("provenance_seal_sha256"):
+                errors.append("B1/B7 cone_01 OpenQASM 3 provenance seal digest mismatch")
+        for field in [
+            "qiskit_loader_parse_claimed",
+            "symbolic_unitary_equivalence_claimed",
+            "arbitrary_input_equivalence_claimed",
+            "full_hilbert_space_certificate_claimed",
+            "local_u3_pricing_accepted",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+        ]:
+            if qasm3_seal_summary.get(field) is not False:
+                errors.append(f"B1/B7 cone_01 OpenQASM 3 provenance seal must not claim {field}")
+            if qasm3_seal_claims.get(field) is not False:
+                errors.append(
+                    "B1/B7 cone_01 OpenQASM 3 provenance seal claim boundary "
+                    f"must not claim {field}"
+                )
+    else:
+        errors.append(
+            f"missing B1/B7 cone_01 OpenQASM 3 provenance seal report: "
+            f"{b1_b7_cone01_openqasm3_provenance_seal_path}"
         )
 
     b1_b7_cone01_full_statevector_replay_probe = {
@@ -25156,6 +25364,9 @@ def audit(root: Path) -> dict:
             "b7_cone01_openqasm3_composable_patch_lift_gate": (
                 b1_b7_cone01_openqasm3_composable_patch_lift
             ),
+            "b7_cone01_openqasm3_provenance_seal_gate": (
+                b1_b7_cone01_openqasm3_provenance_seal
+            ),
             "b7_cone01_full_statevector_replay_probe_gate": (
                 b1_b7_cone01_full_statevector_replay_probe
             ),
@@ -25537,6 +25748,9 @@ def audit(root: Path) -> dict:
             ),
             "b1_b7_cone01_openqasm3_composable_patch_lift_gate": str(
                 b1_b7_cone01_openqasm3_composable_patch_lift_path
+            ),
+            "b1_b7_cone01_openqasm3_provenance_seal_gate": str(
+                b1_b7_cone01_openqasm3_provenance_seal_path
             ),
             "b1_b7_cone01_full_statevector_replay_probe_gate": str(
                 b1_b7_cone01_full_statevector_replay_probe_path
@@ -26701,6 +26915,20 @@ def markdown_report(report: dict) -> str:
             f"- Accepted OpenQASM 3 patch lift / Qiskit loader / symbolic artifacts: {report['b1']['b7_cone01_openqasm3_composable_patch_lift_gate'].get('accepted_project_local_openqasm3_composable_patch_lift_count')} / {report['b1']['b7_cone01_openqasm3_composable_patch_lift_gate'].get('accepted_qiskit_loader_parse_artifact_count')} / {report['b1']['b7_cone01_openqasm3_composable_patch_lift_gate'].get('accepted_symbolic_unitary_equivalence_count')}",
             f"- Accepted occurrence / proxy-T reduction / B7 claim: {report['b1']['b7_cone01_openqasm3_composable_patch_lift_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_openqasm3_composable_patch_lift_gate'].get('accepted_proxy_t_reduction')} / {report['b1']['b7_cone01_openqasm3_composable_patch_lift_gate'].get('b7_ledger_improvement_claimed')}",
             f"- Validation errors: {report['b1']['b7_cone01_openqasm3_composable_patch_lift_gate'].get('validation_error_count')}",
+            "",
+            "## B1/B7 cone_01 OpenQASM 3 Provenance Seal Gate",
+            "",
+            f"- Exists: {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('exists')}",
+            f"- Status: {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('status')}",
+            f"- QASM2 / OpenQASM 3 paths: {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('qasm2_candidate_path')} / {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('openqasm3_candidate_path')}",
+            f"- Raw QASM2 / OpenQASM 3 line counts: {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('qasm2_raw_line_count')} / {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('openqasm3_raw_line_count')}",
+            f"- Normalized stream match / instruction count / hash: {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('normalized_streams_match')} / {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('normalized_instruction_count')} / {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('normalized_stream_sha256')}",
+            f"- Provenance seal hash: {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('provenance_seal_sha256')}",
+            f"- Selected lines / dropped overlap lines: {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('selected_line_numbers')} / {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('dropped_overlap_candidate_line_numbers')}",
+            f"- Max selected patch residual / entry error / OpenQASM 3 span spectral error: {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('max_selected_patch_residual_norm')} / {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('max_selected_patch_entry_error')} / {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('openqasm3_linear_span_error_spectral_norm')}",
+            f"- Accepted provenance seal / Qiskit loader / symbolic artifacts: {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('accepted_project_local_openqasm3_provenance_seal_count')} / {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('accepted_qiskit_loader_parse_artifact_count')} / {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('accepted_symbolic_unitary_equivalence_count')}",
+            f"- Accepted occurrence / proxy-T reduction / B7 claim: {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('accepted_proxy_t_reduction')} / {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('b7_ledger_improvement_claimed')}",
+            f"- Validation errors: {report['b1']['b7_cone01_openqasm3_provenance_seal_gate'].get('validation_error_count')}",
             "",
             "## B1/B7 cone_01 Full-Statevector Replay Probe Gate",
             "",

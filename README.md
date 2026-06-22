@@ -900,3 +900,15 @@ error remains `2.7889440543898627e-13`. This accepts one project-local
 OpenQASM 3 composable patch-lift artifact, but it is still not a Qiskit-loader
 parse, full-space symbolic/unitary proof, local-U3 pricing certificate,
 occurrence removal, proxy-T reduction, or B7 ledger credit.
+
+T-B1-004cd adds a provenance seal for the OpenQASM 3 patch-lift chain. It
+hash-seals the QASM2 candidate, OpenQASM 3 candidate, QASM2 composable patch
+certificate, OpenQASM 3 structural roundtrip certificate, OpenQASM 3 finite-span
+certificate, and OpenQASM 3 patch-lift certificate. Both QASM files have 1,884
+raw lines and normalize to the same 1,878-instruction stream with SHA-256
+`7cd50bea1f5a3c191c5735c0891d3f70f8c07a9cfca9d6e93724e6d49cb36343`; the
+provenance seal digest is
+`159c9b1d99a607d463fe712a190b35460603712561a4ea8eb4033bf4de495902`. This
+accepts one project-local OpenQASM 3 provenance-seal artifact, but it still does
+not claim Qiskit-loader parsing, symbolic equivalence, local-U3 pricing,
+occurrence removal, proxy-T reduction, or B7 ledger credit.

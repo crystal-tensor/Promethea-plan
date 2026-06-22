@@ -1,0 +1,78 @@
+{
+  "benchmark_id": "B1",
+  "claim_boundary": {
+    "arbitrary_input_equivalence_claimed": false,
+    "b7_ledger_improvement_claimed": false,
+    "full_hilbert_space_certificate_claimed": false,
+    "local_u3_pricing_accepted": false,
+    "qiskit_loader_parse_claimed": false,
+    "resource_saving_claimed": false,
+    "supported_claim": "The OpenQASM 3 patch-lift evidence chain is file-hash sealed: the QASM2 candidate, OpenQASM 3 candidate, source patch certificate, roundtrip certificate, finite-span certificate, and patch-lift certificate all match the recorded provenance seal.",
+    "symbolic_unitary_equivalence_claimed": false,
+    "unsupported_claims": [
+      "This is not a Qiskit OpenQASM 3 loader parse.",
+      "This is not a symbolic exact full-circuit unitary proof.",
+      "This is not arbitrary-input or full-Hilbert-space coverage.",
+      "This does not price or eliminate the remaining local-U3 parameters.",
+      "This does not improve the B7 resource ledger."
+    ]
+  },
+  "linked_b7_problem_id": 21,
+  "method": "b1_b7_cone01_openqasm3_provenance_seal_gate_v0",
+  "model_status": "openqasm3_patch_lift_artifacts_are_file_hash_sealed_without_b7_credit",
+  "source_openqasm3_composable_patch_lift_gate": "results/B1_B7_cone01_openqasm3_composable_patch_lift_gate_v0.json",
+  "status": "cone01_openqasm3_provenance_seal_passed_without_b7_resource_credit",
+  "summary": {
+    "accepted_local_u3_pricing_certificate_count": 0,
+    "accepted_occurrence_removal": 0,
+    "accepted_project_local_openqasm3_provenance_seal_count": 1,
+    "accepted_proxy_t_reduction": 0,
+    "accepted_qiskit_loader_parse_artifact_count": 0,
+    "accepted_symbolic_unitary_equivalence_count": 0,
+    "arbitrary_input_equivalence_claimed": false,
+    "b7_ledger_improvement_claimed": false,
+    "dropped_overlap_candidate_line_numbers": [
+      1378
+    ],
+    "full_hilbert_space_certificate_claimed": false,
+    "local_u3_pricing_accepted": false,
+    "max_selected_patch_entry_error": 4.525273102184799e-13,
+    "max_selected_patch_residual_norm": 6.513210005207597e-13,
+    "missing_occurrences_after_gate": 30,
+    "missing_proxy_t_after_gate": 600,
+    "normalized_instruction_count": 1878,
+    "normalized_stream_sha256": "7cd50bea1f5a3c191c5735c0891d3f70f8c07a9cfca9d6e93724e6d49cb36343",
+    "normalized_streams_match": true,
+    "openqasm3_candidate_path": "results/B1_B7_cone01_openqasm3_candidate_export_gate/gcm_h6_line268_line1381_candidate_openqasm3.qasm",
+    "openqasm3_linear_span_error_spectral_norm": 2.7889440543898627e-13,
+    "openqasm3_provenance_seal_passed": true,
+    "openqasm3_raw_line_count": 1884,
+    "operation_counts": {
+      "U": 487,
+      "cx": 789,
+      "measure": 1,
+      "rz": 601
+    },
+    "provenance_seal_sha256": "159c9b1d99a607d463fe712a190b35460603712561a4ea8eb4033bf4de495902",
+    "qasm2_candidate_path": "results/B1_B7_cone01_qasm2_candidate_rewrite_gate/gcm_h6_line268_line1381_candidate.qasm",
+    "qasm2_raw_line_count": 1884,
+    "qiskit_loader_parse_claimed": false,
+    "resource_saving_claimed": false,
+    "selected_line_numbers": [
+      268,
+      1381
+    ],
+    "source_artifact_hashes": {
+      "results/B1_B7_cone01_composable_patch_certificate_gate_v0.json": "220fea09694bd2d57f800a7d88842eed3713e28a1d76b4bf6136f97ac694371d",
+      "results/B1_B7_cone01_openqasm3_candidate_export_gate/gcm_h6_line268_line1381_candidate_openqasm3.qasm": "258bda18c5b77aa58dd36463357b3431a406ce33205994dfdc875aa6373d16a3",
+      "results/B1_B7_cone01_openqasm3_composable_patch_lift_gate_v0.json": "38e700c22376fc1356f5a1dc8e4770c7e9c2538edd3aae164c6a23afc6a04779",
+      "results/B1_B7_cone01_openqasm3_linear_span_replay_certificate_gate_v0.json": "f391bf34932121c7d6f1835ef8e301240a9d81c3c4b5c26b2e6d385f287fafa4",
+      "results/B1_B7_cone01_openqasm3_structural_roundtrip_gate_v0.json": "154b9fbd611aabed424ae19d1432d33b2a606a0f6d9f8a0a70e5723030eb99f5",
+      "results/B1_B7_cone01_qasm2_candidate_rewrite_gate/gcm_h6_line268_line1381_candidate.qasm": "2dfd0bee2dcdf02282839a6a5216d1fffda000ebb439581130d57b9cca455a38"
+    },
+    "symbolic_unitary_equivalence_claimed": false,
+    "validation_error_count": 0
+  },
+  "validation_errors": [],
+  "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+}

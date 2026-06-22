@@ -863,6 +863,20 @@ Overall audit: PASS
 - Accepted occurrence / proxy-T reduction / B7 claim: 0 / 0 / False
 - Validation errors: 0
 
+## B1/B7 cone_01 OpenQASM 3 Provenance Seal Gate
+
+- Exists: True
+- Status: cone01_openqasm3_provenance_seal_passed_without_b7_resource_credit
+- QASM2 / OpenQASM 3 paths: results/B1_B7_cone01_qasm2_candidate_rewrite_gate/gcm_h6_line268_line1381_candidate.qasm / results/B1_B7_cone01_openqasm3_candidate_export_gate/gcm_h6_line268_line1381_candidate_openqasm3.qasm
+- Raw QASM2 / OpenQASM 3 line counts: 1884 / 1884
+- Normalized stream match / instruction count / hash: True / 1878 / 7cd50bea1f5a3c191c5735c0891d3f70f8c07a9cfca9d6e93724e6d49cb36343
+- Provenance seal hash: 159c9b1d99a607d463fe712a190b35460603712561a4ea8eb4033bf4de495902
+- Selected lines / dropped overlap lines: [268, 1381] / [1378]
+- Max selected patch residual / entry error / OpenQASM 3 span spectral error: 6.513210005207597e-13 / 4.525273102184799e-13 / 2.7889440543898627e-13
+- Accepted provenance seal / Qiskit loader / symbolic artifacts: 1 / 0 / 0
+- Accepted occurrence / proxy-T reduction / B7 claim: 0 / 0 / False
+- Validation errors: 0
+
 ## B1/B7 cone_01 Full-Statevector Replay Probe Gate
 
 - Exists: True

@@ -2039,6 +2039,19 @@ subspace replay artifact only; Qiskit-loader replay, symbolic/arbitrary-input
 equivalence, local-U3 pricing, occurrence removal, proxy-T reduction, and B7
 ledger improvement remain 0.
 
+Sprint update 18cd: B1/B7 now has an OpenQASM 3 provenance seal gate.
+T-B1-004cd consumes the T-B1-004cc patch-lift artifact and seals the underlying
+QASM2 candidate, OpenQASM 3 candidate, source patch certificate, structural
+roundtrip certificate, finite-span certificate, and patch-lift certificate with
+file-level SHA-256 hashes. Both QASM files have 1,884 raw lines and normalize to
+the same 1,878-instruction stream with hash
+`7cd50bea1f5a3c191c5735c0891d3f70f8c07a9cfca9d6e93724e6d49cb36343`; the
+combined provenance seal hash is
+`159c9b1d99a607d463fe712a190b35460603712561a4ea8eb4033bf4de495902`. This
+accepts one project-local provenance-seal artifact only; Qiskit-loader replay,
+full-space symbolic/local-unitary equivalence, local-U3 pricing, occurrence
+removal, proxy-T reduction, and B7 ledger improvement remain 0.
+
 Sprint update 18cb: B1/B7 now has a project-local OpenQASM 3 finite linear-span
 replay certificate. T-B1-004cb consumes T-B1-004ca, rebuilds the candidate
 through the project-local OpenQASM 3 parser, and computes the restricted error

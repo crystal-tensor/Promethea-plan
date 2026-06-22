@@ -2153,6 +2153,41 @@ current_results:
     validation_error_count: 0
     report: ../results/B1_B7_cone01_openqasm3_composable_patch_lift_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_openqasm3_composable_patch_lift_gate.md
+  b1_b7_cone01_openqasm3_provenance_seal_gate_v0:
+    circuits: 1
+    status: cone01_openqasm3_provenance_seal_passed_without_b7_resource_credit
+    model_status: openqasm3_patch_lift_artifacts_are_file_hash_sealed_without_b7_credit
+    method: b1_b7_cone01_openqasm3_provenance_seal_gate_v0
+    source_openqasm3_composable_patch_lift_gate: b1_b7_cone01_openqasm3_composable_patch_lift_gate_v0
+    workload: qasmbench_medium_exact/gcm_h6.qasm
+    qasm2_candidate_path: ../results/B1_B7_cone01_qasm2_candidate_rewrite_gate/gcm_h6_line268_line1381_candidate.qasm
+    openqasm3_candidate_path: ../results/B1_B7_cone01_openqasm3_candidate_export_gate/gcm_h6_line268_line1381_candidate_openqasm3.qasm
+    qasm2_raw_line_count: 1884
+    openqasm3_raw_line_count: 1884
+    normalized_instruction_count: 1878
+    normalized_streams_match: true
+    normalized_stream_sha256: 7cd50bea1f5a3c191c5735c0891d3f70f8c07a9cfca9d6e93724e6d49cb36343
+    selected_line_numbers: [268, 1381]
+    dropped_overlap_candidate_line_numbers: [1378]
+    openqasm3_provenance_seal_passed: true
+    accepted_project_local_openqasm3_provenance_seal_count: 1
+    accepted_qiskit_loader_parse_artifact_count: 0
+    accepted_symbolic_unitary_equivalence_count: 0
+    accepted_local_u3_pricing_certificate_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    missing_occurrences_after_gate: 30
+    missing_proxy_t_after_gate: 600
+    qiskit_loader_parse_claimed: false
+    symbolic_unitary_equivalence_claimed: false
+    arbitrary_input_equivalence_claimed: false
+    full_hilbert_space_certificate_claimed: false
+    local_u3_pricing_accepted: false
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    validation_error_count: 0
+    report: ../results/B1_B7_cone01_openqasm3_provenance_seal_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_openqasm3_provenance_seal_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate
