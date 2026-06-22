@@ -1,0 +1,2254 @@
+{
+  "benchmark_id": "B1",
+  "claim_boundary": {
+    "b7_ledger_improvement_claimed": false,
+    "local_u3_pricing_completed": false,
+    "one_free_pricing_accepted": false,
+    "resource_saving_claimed": false,
+    "supported_claim": "Within the T-B1-004bf union-region two-CNOT census candidates, no one-free-parameter pi/4-grid repair reaches exact replay.",
+    "unsupported_claims": [
+      "This is not a global lower bound for the union target.",
+      "This does not rule out two or more free parameters, a different scaffold, or symbolic absorption.",
+      "This does not accept local-U3 pricing, occurrence removal, or a B7 ledger improvement."
+    ]
+  },
+  "linked_b7_problem_id": 21,
+  "method": "b1_b7_cone01_union_region_one_free_parameter_pricing_gate_v0",
+  "model_status": "one_free_parameter_union_census_candidates_do_not_recover_exactness",
+  "source_grid_snap_pricing_result": "results/B1_B7_cone01_union_region_grid_snap_pricing_gate_v0.json",
+  "source_orientation_census_result": "results/B1_B7_cone01_union_region_two_cnot_orientation_census_gate_v0.json",
+  "source_semantic_packet_result": "results/B1_B7_cone01_semantic_replay_packet_gate_v0.json",
+  "status": "cone01_union_region_one_free_parameter_pricing_rejected",
+  "summary": {
+    "accepted_full_circuit_qasm_patch_count": 0,
+    "accepted_full_circuit_replay_certificate_count": 0,
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "all_one_free_trials_fail": true,
+    "b7_ledger_improvement_claimed": false,
+    "best_one_free_parameter_index": 7,
+    "best_one_free_residual_norm": 0.25709607640616583,
+    "best_one_free_residual_ratio_to_exact_tolerance": 25709607.64061658,
+    "best_one_free_sequence_id": "10-10",
+    "best_source_proxy_t_pressure": 260,
+    "current_line1381_proxy_t_pressure": 100,
+    "local_u3_pricing_completed": false,
+    "missing_occurrences_after_gate": 30,
+    "missing_proxy_t_after_gate": 600,
+    "one_free_exact_fail_count": 72,
+    "one_free_exact_pass_count": 0,
+    "one_free_pricing_accepted": false,
+    "one_free_proxy_t_pressure_if_accepted": 20,
+    "one_free_trial_count": 72,
+    "orientation_sequence_count": 4,
+    "orientation_sequence_ids": [
+      "01-01",
+      "01-10",
+      "10-01",
+      "10-10"
+    ],
+    "resource_saving_claimed": false,
+    "searched_cnot_count": 2,
+    "source_cnot_count": 5,
+    "source_grid_snap_pricing_method": "b1_b7_cone01_union_region_grid_snap_pricing_gate_v0",
+    "source_orientation_census_method": "b1_b7_cone01_union_region_two_cnot_orientation_census_gate_v0",
+    "source_semantic_packet_method": "b1_b7_cone01_semantic_replay_packet_gate_v0",
+    "support_qubits": [
+      4,
+      8
+    ],
+    "target_line_number": 1381,
+    "union_window": [
+      1369,
+      1379
+    ],
+    "validation_error_count": 0,
+    "worst_best_sequence_id": "10-01",
+    "worst_best_sequence_residual_norm": 0.6857140007440164
+  },
+  "union_region_one_free_sequence_rows": [
+    {
+      "best_one_free_nonzero_parameter_count": 17,
+      "best_one_free_off_pi_over_four_parameter_count": 1,
+      "best_one_free_parameter_index": 10,
+      "best_one_free_residual_norm": 0.38978167843451345,
+      "best_one_free_residual_ratio_to_exact_tolerance": 38978167.84345134,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "grid_snap_residual_norm": 0.656090143720822,
+      "one_free_exact_pass_count": 0,
+      "one_free_trial_count": 18,
+      "sequence_id": "01-01",
+      "source_off_pi_over_four_parameter_count": 15,
+      "source_residual_norm": 5.843214470341767e-13
+    },
+    {
+      "best_one_free_nonzero_parameter_count": 17,
+      "best_one_free_off_pi_over_four_parameter_count": 1,
+      "best_one_free_parameter_index": 11,
+      "best_one_free_residual_norm": 0.3891819621525939,
+      "best_one_free_residual_ratio_to_exact_tolerance": 38918196.21525939,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "grid_snap_residual_norm": 0.5773113079336994,
+      "one_free_exact_pass_count": 0,
+      "one_free_trial_count": 18,
+      "sequence_id": "01-10",
+      "source_off_pi_over_four_parameter_count": 13,
+      "source_residual_norm": 5.812946138498332e-13
+    },
+    {
+      "best_one_free_nonzero_parameter_count": 17,
+      "best_one_free_off_pi_over_four_parameter_count": 0,
+      "best_one_free_parameter_index": 7,
+      "best_one_free_residual_norm": 0.6857140007440164,
+      "best_one_free_residual_ratio_to_exact_tolerance": 68571400.07440165,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "grid_snap_residual_norm": 1.021457442072864,
+      "one_free_exact_pass_count": 0,
+      "one_free_trial_count": 18,
+      "sequence_id": "10-01",
+      "source_off_pi_over_four_parameter_count": 14,
+      "source_residual_norm": 5.896475870720445e-13
+    },
+    {
+      "best_one_free_nonzero_parameter_count": 15,
+      "best_one_free_off_pi_over_four_parameter_count": 1,
+      "best_one_free_parameter_index": 7,
+      "best_one_free_residual_norm": 0.25709607640616583,
+      "best_one_free_residual_ratio_to_exact_tolerance": 25709607.64061658,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "grid_snap_residual_norm": 0.36435162331693166,
+      "one_free_exact_pass_count": 0,
+      "one_free_trial_count": 18,
+      "sequence_id": "10-10",
+      "source_off_pi_over_four_parameter_count": 13,
+      "source_residual_norm": 5.874430624497437e-13
+    }
+  ],
+  "union_region_one_free_trial_rows": [
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 0,
+      "free_parameter_value": 0.0,
+      "grid_parameter_value": 0.0,
+      "optimizer_nfev": 1,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.656090143720822,
+      "residual_ratio_to_exact_tolerance": 65609014.372082196,
+      "sequence_id": "01-01",
+      "source_parameter_value": 0.0
+    },
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 1,
+      "free_parameter_value": 1.5707963267948966,
+      "grid_parameter_value": 1.5707963267948966,
+      "optimizer_nfev": 7,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.656090143720822,
+      "residual_ratio_to_exact_tolerance": 65609014.372082196,
+      "sequence_id": "01-01",
+      "source_parameter_value": 1.474184834888426
+    },
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 2,
+      "free_parameter_value": 2.356194490192345,
+      "grid_parameter_value": 2.356194490192345,
+      "optimizer_nfev": 6,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.656090143720822,
+      "residual_ratio_to_exact_tolerance": 65609014.372082196,
+      "sequence_id": "01-01",
+      "source_parameter_value": 2.3022468641828207
+    },
+    {
+      "absolute_delta_from_grid": 0.058397142286577886,
+      "best_seed_index": 2,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 3,
+      "free_parameter_value": -2.4145916324789227,
+      "grid_parameter_value": -2.356194490192345,
+      "optimizer_nfev": 9,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.6536255783619812,
+      "residual_ratio_to_exact_tolerance": 65362557.83619812,
+      "sequence_id": "01-01",
+      "source_parameter_value": -2.291336824921576
+    },
+    {
+      "absolute_delta_from_grid": 0.2344737315603842,
+      "best_seed_index": 2,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 4,
+      "free_parameter_value": 2.590668221752729,
+      "grid_parameter_value": 2.356194490192345,
+      "optimizer_nfev": 9,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.6149267815205104,
+      "residual_ratio_to_exact_tolerance": 61492678.15205104,
+      "sequence_id": "01-01",
+      "source_parameter_value": 2.585503440512559
+    },
+    {
+      "absolute_delta_from_grid": 0.05839715271569901,
+      "best_seed_index": 1,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 5,
+      "free_parameter_value": -0.7270010106817493,
+      "grid_parameter_value": -0.7853981633974483,
+      "optimizer_nfev": 7,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.6536255783620318,
+      "residual_ratio_to_exact_tolerance": 65362557.83620318,
+      "sequence_id": "01-01",
+      "source_parameter_value": -0.4354486908208086
+    },
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 6,
+      "free_parameter_value": -3.141592653589793,
+      "grid_parameter_value": -3.141592653589793,
+      "optimizer_nfev": 7,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.656090143720822,
+      "residual_ratio_to_exact_tolerance": 65609014.372082196,
+      "sequence_id": "01-01",
+      "source_parameter_value": -3.141592653589793
+    },
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 7,
+      "free_parameter_value": -0.7853981633974483,
+      "grid_parameter_value": -0.7853981633974483,
+      "optimizer_nfev": 8,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.656090143720822,
+      "residual_ratio_to_exact_tolerance": 65609014.372082196,
+      "sequence_id": "01-01",
+      "source_parameter_value": -0.7757763580131289
+    },
+    {
+      "absolute_delta_from_grid": 4.8336445956920215e-11,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 8,
+      "free_parameter_value": 0.7853981633491118,
+      "grid_parameter_value": 0.7853981633974483,
+      "optimizer_nfev": 5,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.656090143720822,
+      "residual_ratio_to_exact_tolerance": 65609014.372082196,
+      "sequence_id": "01-01",
+      "source_parameter_value": 1.0864329313746381
+    },
+    {
+      "absolute_delta_from_grid": 6.121359337976913,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 9,
+      "free_parameter_value": 2.97976668438712,
+      "grid_parameter_value": -3.141592653589793,
+      "optimizer_nfev": 7,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.6368735596422296,
+      "residual_ratio_to_exact_tolerance": 63687355.96422296,
+      "sequence_id": "01-01",
+      "source_parameter_value": 2.9276787049389323
+    },
+    {
+      "absolute_delta_from_grid": 0.5344266659041925,
+      "best_seed_index": 1,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 10,
+      "free_parameter_value": -2.105222992699089,
+      "grid_parameter_value": -1.5707963267948966,
+      "optimizer_nfev": 6,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.38978167843451345,
+      "residual_ratio_to_exact_tolerance": 38978167.84345134,
+      "sequence_id": "01-01",
+      "source_parameter_value": -1.851068621252261
+    },
+    {
+      "absolute_delta_from_grid": 0.534426663970569,
+      "best_seed_index": 5,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 11,
+      "free_parameter_value": -0.25097149942687924,
+      "grid_parameter_value": -0.7853981633974483,
+      "optimizer_nfev": 7,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.38978167843451345,
+      "residual_ratio_to_exact_tolerance": 38978167.84345134,
+      "sequence_id": "01-01",
+      "source_parameter_value": -0.5297174446801067
+    },
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 12,
+      "free_parameter_value": -3.141592653589793,
+      "grid_parameter_value": -3.141592653589793,
+      "optimizer_nfev": 6,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.656090143720822,
+      "residual_ratio_to_exact_tolerance": 65609014.372082196,
+      "sequence_id": "01-01",
+      "source_parameter_value": -3.141592653589793
+    },
+    {
+      "absolute_delta_from_grid": 1.1443823666468234e-10,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 13,
+      "free_parameter_value": -2.356194490306783,
+      "grid_parameter_value": -2.356194490192345,
+      "optimizer_nfev": 3,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.656090143720822,
+      "residual_ratio_to_exact_tolerance": 65609014.372082196,
+      "sequence_id": "01-01",
+      "source_parameter_value": -2.3885558552228403
+    },
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 14,
+      "free_parameter_value": 1.5707963267948966,
+      "grid_parameter_value": 1.5707963267948966,
+      "optimizer_nfev": 8,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.656090143720822,
+      "residual_ratio_to_exact_tolerance": 65609014.372082196,
+      "sequence_id": "01-01",
+      "source_parameter_value": 1.6792888064412832
+    },
+    {
+      "absolute_delta_from_grid": 0.1618259705792897,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 15,
+      "free_parameter_value": -2.5180204607716345,
+      "grid_parameter_value": -2.356194490192345,
+      "optimizer_nfev": 7,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.6368735596422296,
+      "residual_ratio_to_exact_tolerance": 63687355.96422296,
+      "sequence_id": "01-01",
+      "source_parameter_value": -2.204869416868837
+    },
+    {
+      "absolute_delta_from_grid": 0.2344737283811802,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 16,
+      "free_parameter_value": -1.8052700551760767,
+      "grid_parameter_value": -1.5707963267948966,
+      "optimizer_nfev": 7,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.6149267815206623,
+      "residual_ratio_to_exact_tolerance": 61492678.15206622,
+      "sequence_id": "01-01",
+      "source_parameter_value": -1.6297934889309014
+    },
+    {
+      "absolute_delta_from_grid": 0.2344737305250435,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 17,
+      "free_parameter_value": 1.80527005731994,
+      "grid_parameter_value": 1.5707963267948966,
+      "optimizer_nfev": 7,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.6149267815205105,
+      "residual_ratio_to_exact_tolerance": 61492678.15205105,
+      "sequence_id": "01-01",
+      "source_parameter_value": 1.7850421365185234
+    },
+    {
+      "absolute_delta_from_grid": 8.15880696336535e-12,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 0,
+      "free_parameter_value": -8.15880696336535e-12,
+      "grid_parameter_value": 0.0,
+      "optimizer_nfev": 5,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.5773113079336994,
+      "residual_ratio_to_exact_tolerance": 57731130.79336994,
+      "sequence_id": "01-10",
+      "source_parameter_value": -1.3322676295501878e-15
+    },
+    {
+      "absolute_delta_from_grid": 1.20525811553307e-12,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 1,
+      "free_parameter_value": 2.35619449019355,
+      "grid_parameter_value": 2.356194490192345,
+      "optimizer_nfev": 7,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.5773113079336994,
+      "residual_ratio_to_exact_tolerance": 57731130.79336994,
+      "sequence_id": "01-10",
+      "source_parameter_value": 1.9899521406125373
+    },
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 2,
+      "free_parameter_value": 0.7853981633974483,
+      "grid_parameter_value": 0.7853981633974483,
+      "optimizer_nfev": 8,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.5773113079336994,
+      "residual_ratio_to_exact_tolerance": 57731130.79336994,
+      "sequence_id": "01-10",
+      "source_parameter_value": 1.0359060085505423
+    },
+    {
+      "absolute_delta_from_grid": 0.15328743122790023,
+      "best_seed_index": 2,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 3,
+      "free_parameter_value": 1.7240837580227968,
+      "grid_parameter_value": 1.5707963267948966,
+      "optimizer_nfev": 8,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.5574181301751758,
+      "residual_ratio_to_exact_tolerance": 55741813.01751758,
+      "sequence_id": "01-10",
+      "source_parameter_value": 1.4965560220708118
+    },
+    {
+      "absolute_delta_from_grid": 0.26330565047279864,
+      "best_seed_index": 3,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 4,
+      "free_parameter_value": -2.092888839719546,
+      "grid_parameter_value": -2.356194490192345,
+      "optimizer_nfev": 9,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.5161042515365054,
+      "residual_ratio_to_exact_tolerance": 51610425.15365054,
+      "sequence_id": "01-10",
+      "source_parameter_value": -1.979179702618067
+    },
+    {
+      "absolute_delta_from_grid": 0.22468115506675845,
+      "best_seed_index": 2,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 5,
+      "free_parameter_value": -2.9169114985230347,
+      "grid_parameter_value": -3.141592653589793,
+      "optimizer_nfev": 9,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.5335298783649876,
+      "residual_ratio_to_exact_tolerance": 53352987.83649875,
+      "sequence_id": "01-10",
+      "source_parameter_value": -3.059675873543383
+    },
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 6,
+      "free_parameter_value": -1.5707963267948966,
+      "grid_parameter_value": -1.5707963267948966,
+      "optimizer_nfev": 6,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.5773113079336994,
+      "residual_ratio_to_exact_tolerance": 57731130.79336994,
+      "sequence_id": "01-10",
+      "source_parameter_value": -1.5707963267948963
+    },
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 7,
+      "free_parameter_value": -3.141592653589793,
+      "grid_parameter_value": -3.141592653589793,
+      "optimizer_nfev": 6,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.5773113079336994,
+      "residual_ratio_to_exact_tolerance": 57731130.79336994,
+      "sequence_id": "01-10",
+      "source_parameter_value": 3.1415926535897913
+    },
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 8,
+      "free_parameter_value": -3.141592653589793,
+      "grid_parameter_value": -3.141592653589793,
+      "optimizer_nfev": 6,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.5773113079336994,
+      "residual_ratio_to_exact_tolerance": 57731130.79336994,
+      "sequence_id": "01-10",
+      "source_parameter_value": 3.037706843361951
+    },
+    {
+      "absolute_delta_from_grid": 0.024410765316137173,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 9,
+      "free_parameter_value": 0.8098089287135855,
+      "grid_parameter_value": 0.7853981633974483,
+      "optimizer_nfev": 6,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.5768164790917072,
+      "residual_ratio_to_exact_tolerance": 57681647.90917072,
+      "sequence_id": "01-10",
+      "source_parameter_value": 0.693042207665429
+    },
+    {
+      "absolute_delta_from_grid": 0.2744074086091244,
+      "best_seed_index": 2,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 10,
+      "free_parameter_value": 2.630601898801469,
+      "grid_parameter_value": 2.356194490192345,
+      "optimizer_nfev": 8,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.5104464548347014,
+      "residual_ratio_to_exact_tolerance": 51044645.48347014,
+      "sequence_id": "01-10",
+      "source_parameter_value": 2.3932020419270534
+    },
+    {
+      "absolute_delta_from_grid": 0.43134059953774506,
+      "best_seed_index": 3,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 11,
+      "free_parameter_value": -1.9248538906545998,
+      "grid_parameter_value": -2.356194490192345,
+      "optimizer_nfev": 8,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.3891819621525939,
+      "residual_ratio_to_exact_tolerance": 38918196.21525939,
+      "sequence_id": "01-10",
+      "source_parameter_value": -1.9767776858851613
+    },
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 12,
+      "free_parameter_value": 1.5707963267948966,
+      "grid_parameter_value": 1.5707963267948966,
+      "optimizer_nfev": 5,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.5773113079336994,
+      "residual_ratio_to_exact_tolerance": 57731130.79336994,
+      "sequence_id": "01-10",
+      "source_parameter_value": 1.5707963267948974
+    },
+    {
+      "absolute_delta_from_grid": 5.011782100439177e-10,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 13,
+      "free_parameter_value": -1.5707963272960748,
+      "grid_parameter_value": -1.5707963267948966,
+      "optimizer_nfev": 2,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.5773113079336994,
+      "residual_ratio_to_exact_tolerance": 57731130.79336994,
+      "sequence_id": "01-10",
+      "source_parameter_value": -1.3511760121403427
+    },
+    {
+      "absolute_delta_from_grid": 6.28318530703374,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 14,
+      "free_parameter_value": 3.141592653443947,
+      "grid_parameter_value": -3.141592653589793,
+      "optimizer_nfev": 3,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.5773113079336993,
+      "residual_ratio_to_exact_tolerance": 57731130.793369934,
+      "sequence_id": "01-10",
+      "source_parameter_value": 3.141592653589793
+    },
+    {
+      "absolute_delta_from_grid": 0.27440741180234784,
+      "best_seed_index": 1,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 15,
+      "free_parameter_value": 1.0598055751997961,
+      "grid_parameter_value": 0.7853981633974483,
+      "optimizer_nfev": 6,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.5104464548347014,
+      "residual_ratio_to_exact_tolerance": 51044645.48347014,
+      "sequence_id": "01-10",
+      "source_parameter_value": 0.8652033981245726
+    },
+    {
+      "absolute_delta_from_grid": 0.27440741903184485,
+      "best_seed_index": 1,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 16,
+      "free_parameter_value": 1.0598055824292931,
+      "grid_parameter_value": 0.7853981633974483,
+      "optimizer_nfev": 6,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.5104464548348647,
+      "residual_ratio_to_exact_tolerance": 51044645.48348647,
+      "sequence_id": "01-10",
+      "source_parameter_value": 1.1479439483596554
+    },
+    {
+      "absolute_delta_from_grid": 0.2744074162780661,
+      "best_seed_index": 1,
+      "cnot_sequence": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 17,
+      "free_parameter_value": -1.2963889105168305,
+      "grid_parameter_value": -1.5707963267948966,
+      "optimizer_nfev": 7,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.5104464548347013,
+      "residual_ratio_to_exact_tolerance": 51044645.48347013,
+      "sequence_id": "01-10",
+      "source_parameter_value": -1.789894874078063
+    },
+    {
+      "absolute_delta_from_grid": 0.09629917294696089,
+      "best_seed_index": 2,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 0,
+      "free_parameter_value": 2.259895317245384,
+      "grid_parameter_value": 2.356194490192345,
+      "optimizer_nfev": 11,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 1.0174986252224092,
+      "residual_ratio_to_exact_tolerance": 101749862.52224092,
+      "sequence_id": "10-01",
+      "source_parameter_value": 2.585124428210724
+    },
+    {
+      "absolute_delta_from_grid": 2.533040444063772e-10,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 1,
+      "free_parameter_value": 1.5707963270482006,
+      "grid_parameter_value": 1.5707963267948966,
+      "optimizer_nfev": 4,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 1.0214574420728637,
+      "residual_ratio_to_exact_tolerance": 102145744.20728637,
+      "sequence_id": "10-01",
+      "source_parameter_value": 1.5707963267949152
+    },
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 2,
+      "free_parameter_value": 2.356194490192345,
+      "grid_parameter_value": 2.356194490192345,
+      "optimizer_nfev": 7,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 1.021457442072864,
+      "residual_ratio_to_exact_tolerance": 102145744.20728639,
+      "sequence_id": "10-01",
+      "source_parameter_value": 2.5097728518155167
+    },
+    {
+      "absolute_delta_from_grid": 0.03991394873047671,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 3,
+      "free_parameter_value": 2.3961084389228215,
+      "grid_parameter_value": 2.356194490192345,
+      "optimizer_nfev": 8,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 1.0207789816360022,
+      "residual_ratio_to_exact_tolerance": 102077898.16360022,
+      "sequence_id": "10-01",
+      "source_parameter_value": 2.322174845940758
+    },
+    {
+      "absolute_delta_from_grid": 0.2155498837871086,
+      "best_seed_index": 1,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 4,
+      "free_parameter_value": 1.0009480471845569,
+      "grid_parameter_value": 0.7853981633974483,
+      "optimizer_nfev": 9,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 1.001387392273956,
+      "residual_ratio_to_exact_tolerance": 100138739.2273956,
+      "sequence_id": "10-01",
+      "source_parameter_value": 0.6448355954216574
+    },
+    {
+      "absolute_delta_from_grid": 5.929470847606272,
+      "best_seed_index": 2,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 5,
+      "free_parameter_value": 2.7878781940164785,
+      "grid_parameter_value": -3.141592653589793,
+      "optimizer_nfev": 11,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.9659931750529981,
+      "residual_ratio_to_exact_tolerance": 96599317.5052998,
+      "sequence_id": "10-01",
+      "source_parameter_value": 2.7767353018036065
+    },
+    {
+      "absolute_delta_from_grid": 0.09629909768591727,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 6,
+      "free_parameter_value": -0.8816972610833655,
+      "grid_parameter_value": -0.7853981633974483,
+      "optimizer_nfev": 8,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 1.0174986252224107,
+      "residual_ratio_to_exact_tolerance": 101749862.52224107,
+      "sequence_id": "10-01",
+      "source_parameter_value": -1.0343297419521376
+    },
+    {
+      "absolute_delta_from_grid": 0.7853981632966969,
+      "best_seed_index": 4,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 7,
+      "free_parameter_value": -0.7853981634981997,
+      "grid_parameter_value": -1.5707963267948966,
+      "optimizer_nfev": 4,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.6857140007440164,
+      "residual_ratio_to_exact_tolerance": 68571400.07440165,
+      "sequence_id": "10-01",
+      "source_parameter_value": -1.2494856181905867
+    },
+    {
+      "absolute_delta_from_grid": 0.7178100736212838,
+      "best_seed_index": 1,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 8,
+      "free_parameter_value": -0.8529862531736128,
+      "grid_parameter_value": -1.5707963267948966,
+      "optimizer_nfev": 8,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.7549484208220726,
+      "residual_ratio_to_exact_tolerance": 75494842.08220726,
+      "sequence_id": "10-01",
+      "source_parameter_value": -1.272864132210096
+    },
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 9,
+      "free_parameter_value": 1.5707963267948966,
+      "grid_parameter_value": 1.5707963267948966,
+      "optimizer_nfev": 8,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 1.021457442072864,
+      "residual_ratio_to_exact_tolerance": 102145744.20728639,
+      "sequence_id": "10-01",
+      "source_parameter_value": 1.5707963267948957
+    },
+    {
+      "absolute_delta_from_grid": 5.014166859496072e-11,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 10,
+      "free_parameter_value": 5.014166859496072e-11,
+      "grid_parameter_value": 0.0,
+      "optimizer_nfev": 5,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 1.0214574420728637,
+      "residual_ratio_to_exact_tolerance": 102145744.20728637,
+      "sequence_id": "10-01",
+      "source_parameter_value": 9.769962616701378e-15
+    },
+    {
+      "absolute_delta_from_grid": 0.2155499314403495,
+      "best_seed_index": 2,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 11,
+      "free_parameter_value": -1.355246395354547,
+      "grid_parameter_value": -1.5707963267948966,
+      "optimizer_nfev": 10,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 1.001387392273956,
+      "residual_ratio_to_exact_tolerance": 100138739.2273956,
+      "sequence_id": "10-01",
+      "source_parameter_value": -1.4613168300692312
+    },
+    {
+      "absolute_delta_from_grid": 1.2132739257708636e-11,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 12,
+      "free_parameter_value": -1.5707963268070293,
+      "grid_parameter_value": -1.5707963267948966,
+      "optimizer_nfev": 6,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 1.0214574420728637,
+      "residual_ratio_to_exact_tolerance": 102145744.20728637,
+      "sequence_id": "10-01",
+      "source_parameter_value": -1.5707963267948752
+    },
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 13,
+      "free_parameter_value": -2.356194490192345,
+      "grid_parameter_value": -2.356194490192345,
+      "optimizer_nfev": 8,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 1.021457442072864,
+      "residual_ratio_to_exact_tolerance": 102145744.20728639,
+      "sequence_id": "10-01",
+      "source_parameter_value": -2.5097728518155087
+    },
+    {
+      "absolute_delta_from_grid": 0.7853981606640907,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 14,
+      "free_parameter_value": 1.570796324061539,
+      "grid_parameter_value": 0.7853981633974483,
+      "optimizer_nfev": 8,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.6857140007440164,
+      "residual_ratio_to_exact_tolerance": 68571400.07440165,
+      "sequence_id": "10-01",
+      "source_parameter_value": 1.0938103452385821
+    },
+    {
+      "absolute_delta_from_grid": 0.5109907325814405,
+      "best_seed_index": 1,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 15,
+      "free_parameter_value": 2.081787059376337,
+      "grid_parameter_value": 1.5707963267948966,
+      "optimizer_nfev": 8,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.8999857119917553,
+      "residual_ratio_to_exact_tolerance": 89998571.19917552,
+      "sequence_id": "10-01",
+      "source_parameter_value": 1.9427455350590659
+    },
+    {
+      "absolute_delta_from_grid": 0.21554994058504962,
+      "best_seed_index": 2,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 16,
+      "free_parameter_value": -0.5698482228123987,
+      "grid_parameter_value": -0.7853981633974483,
+      "optimizer_nfev": 9,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 1.0013873922740426,
+      "residual_ratio_to_exact_tolerance": 100138739.22740425,
+      "sequence_id": "10-01",
+      "source_parameter_value": -0.43079761822594786
+    },
+    {
+      "absolute_delta_from_grid": 0.215549948838885,
+      "best_seed_index": 2,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 17,
+      "free_parameter_value": 0.5698482145585633,
+      "grid_parameter_value": 0.7853981633974483,
+      "optimizer_nfev": 9,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 17,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 1.0013873922739562,
+      "residual_ratio_to_exact_tolerance": 100138739.22739562,
+      "sequence_id": "10-01",
+      "source_parameter_value": 0.6690936856051586
+    },
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 0,
+      "free_parameter_value": -3.141592653589793,
+      "grid_parameter_value": -3.141592653589793,
+      "optimizer_nfev": 6,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 15,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.36435162331693166,
+      "residual_ratio_to_exact_tolerance": 36435162.331693165,
+      "sequence_id": "10-10",
+      "source_parameter_value": 3.141592653589779
+    },
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 1,
+      "free_parameter_value": 0.7853981633974483,
+      "grid_parameter_value": 0.7853981633974483,
+      "optimizer_nfev": 8,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 15,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.36435162331693166,
+      "residual_ratio_to_exact_tolerance": 36435162.331693165,
+      "sequence_id": "10-10",
+      "source_parameter_value": 0.5824430715858231
+    },
+    {
+      "absolute_delta_from_grid": 7.146994107642968e-11,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 2,
+      "free_parameter_value": 1.5707963268663665,
+      "grid_parameter_value": 1.5707963267948966,
+      "optimizer_nfev": 4,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 15,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.3643516233169316,
+      "residual_ratio_to_exact_tolerance": 36435162.33169316,
+      "sequence_id": "10-10",
+      "source_parameter_value": 1.4014217329533993
+    },
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 3,
+      "free_parameter_value": -0.7853981633974483,
+      "grid_parameter_value": -0.7853981633974483,
+      "optimizer_nfev": 7,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 15,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.36435162331693166,
+      "residual_ratio_to_exact_tolerance": 36435162.331693165,
+      "sequence_id": "10-10",
+      "source_parameter_value": -0.8194178076490624
+    },
+    {
+      "absolute_delta_from_grid": 1.1797380849998262e-09,
+      "best_seed_index": 1,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 4,
+      "free_parameter_value": 2.356194491372083,
+      "grid_parameter_value": 2.356194490192345,
+      "optimizer_nfev": 6,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 15,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.3643516233169316,
+      "residual_ratio_to_exact_tolerance": 36435162.33169316,
+      "sequence_id": "10-10",
+      "source_parameter_value": 2.454849385007332
+    },
+    {
+      "absolute_delta_from_grid": 6.099226106198053,
+      "best_seed_index": 3,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 5,
+      "free_parameter_value": 2.9576334526082597,
+      "grid_parameter_value": -3.141592653589793,
+      "optimizer_nfev": 7,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 15,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.31520621539389404,
+      "residual_ratio_to_exact_tolerance": 31520621.5393894,
+      "sequence_id": "10-10",
+      "source_parameter_value": 2.7767353018036065
+    },
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 6,
+      "free_parameter_value": 0.0,
+      "grid_parameter_value": 0.0,
+      "optimizer_nfev": 1,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 15,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.36435162331693166,
+      "residual_ratio_to_exact_tolerance": 36435162.331693165,
+      "sequence_id": "10-10",
+      "source_parameter_value": -6.128431095930864e-14
+    },
+    {
+      "absolute_delta_from_grid": 0.2594288543595764,
+      "best_seed_index": 2,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 7,
+      "free_parameter_value": -1.830225181154473,
+      "grid_parameter_value": -1.5707963267948966,
+      "optimizer_nfev": 7,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 15,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.25709607640616583,
+      "residual_ratio_to_exact_tolerance": 25709607.64061658,
+      "sequence_id": "10-10",
+      "source_parameter_value": -1.7473426655108948
+    },
+    {
+      "absolute_delta_from_grid": 0.2594288541709866,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 8,
+      "free_parameter_value": -0.2594288541709866,
+      "grid_parameter_value": 0.0,
+      "optimizer_nfev": 5,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 16,
+        "off_pi_over_four_grid_parameter_count": 1,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.2570960764061659,
+      "residual_ratio_to_exact_tolerance": 25709607.64061659,
+      "sequence_id": "10-10",
+      "source_parameter_value": -0.07851735412819849
+    },
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 9,
+      "free_parameter_value": -3.141592653589793,
+      "grid_parameter_value": -3.141592653589793,
+      "optimizer_nfev": 7,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 15,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.36435162331693166,
+      "residual_ratio_to_exact_tolerance": 36435162.331693165,
+      "sequence_id": "10-10",
+      "source_parameter_value": -3.141592653589793
+    },
+    {
+      "absolute_delta_from_grid": 2.803278498220152e-09,
+      "best_seed_index": 2,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 10,
+      "free_parameter_value": -0.7853981605941698,
+      "grid_parameter_value": -0.7853981633974483,
+      "optimizer_nfev": 6,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 15,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.3643516233169316,
+      "residual_ratio_to_exact_tolerance": 36435162.33169316,
+      "sequence_id": "10-10",
+      "source_parameter_value": -0.9008048878763804
+    },
+    {
+      "absolute_delta_from_grid": 2.7495756782514036e-09,
+      "best_seed_index": 3,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 11,
+      "free_parameter_value": 2.356194487442769,
+      "grid_parameter_value": 2.356194490192345,
+      "optimizer_nfev": 7,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 15,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.3643516233169316,
+      "residual_ratio_to_exact_tolerance": 36435162.33169316,
+      "sequence_id": "10-10",
+      "source_parameter_value": 2.55926738094729
+    },
+    {
+      "absolute_delta_from_grid": 0.0,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 12,
+      "free_parameter_value": 0.0,
+      "grid_parameter_value": 0.0,
+      "optimizer_nfev": 1,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 15,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.36435162331693166,
+      "residual_ratio_to_exact_tolerance": 36435162.331693165,
+      "sequence_id": "10-10",
+      "source_parameter_value": -6.572520305780927e-14
+    },
+    {
+      "absolute_delta_from_grid": 2.786642028240749e-09,
+      "best_seed_index": 5,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 13,
+      "free_parameter_value": -0.7853981606108063,
+      "grid_parameter_value": -0.7853981633974483,
+      "optimizer_nfev": 7,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 15,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.3643516233169316,
+      "residual_ratio_to_exact_tolerance": 36435162.33169316,
+      "sequence_id": "10-10",
+      "source_parameter_value": -0.7671422810705204
+    },
+    {
+      "absolute_delta_from_grid": 3.0953395402377737e-10,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 14,
+      "free_parameter_value": -1.5707963271044305,
+      "grid_parameter_value": -1.5707963267948966,
+      "optimizer_nfev": 2,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 15,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.3643516233169316,
+      "residual_ratio_to_exact_tolerance": 36435162.33169316,
+      "sequence_id": "10-10",
+      "source_parameter_value": -1.6226327070919684
+    },
+    {
+      "absolute_delta_from_grid": 4.700329014895033e-11,
+      "best_seed_index": 0,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 15,
+      "free_parameter_value": -2.356194490239348,
+      "grid_parameter_value": -2.356194490192345,
+      "optimizer_nfev": 2,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 15,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.3643516233169316,
+      "residual_ratio_to_exact_tolerance": 36435162.33169316,
+      "sequence_id": "10-10",
+      "source_parameter_value": -2.390214134443893
+    },
+    {
+      "absolute_delta_from_grid": 6.410427744185654e-13,
+      "best_seed_index": 1,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 16,
+      "free_parameter_value": -1.5707963267942555,
+      "grid_parameter_value": -1.5707963267948966,
+      "optimizer_nfev": 7,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 15,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.3643516233169316,
+      "residual_ratio_to_exact_tolerance": 36435162.33169316,
+      "sequence_id": "10-10",
+      "source_parameter_value": -1.5707963267942555
+    },
+    {
+      "absolute_delta_from_grid": 1.7519772299579017e-09,
+      "best_seed_index": 5,
+      "cnot_sequence": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_pass": false,
+      "free_parameter_index": 17,
+      "free_parameter_value": 0.7853981651494255,
+      "grid_parameter_value": 0.7853981633974483,
+      "optimizer_nfev": 6,
+      "optimizer_success": true,
+      "repaired_parameter_stats": {
+        "nonzero_parameter_count": 15,
+        "off_pi_over_four_grid_parameter_count": 0,
+        "parameter_count": 18
+      },
+      "residual_norm": 0.3643516233169316,
+      "residual_ratio_to_exact_tolerance": 36435162.33169316,
+      "sequence_id": "10-10",
+      "source_parameter_value": 0.9474689806030936
+    }
+  ],
+  "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+}

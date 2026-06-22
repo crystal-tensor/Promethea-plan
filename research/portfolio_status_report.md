@@ -885,6 +885,18 @@ Overall audit: PASS
 - Grid-snap pricing accepted / B7 claim: False / False
 - Validation errors: 0
 
+## B1/B7 cone_01 Union-Region One-Free-Parameter Pricing Gate
+
+- Exists: True
+- Status: cone01_union_region_one_free_parameter_pricing_rejected
+- Orientation sequences: ['01-01', '01-10', '10-01', '10-10']
+- One-free exact pass / fail: 0 / 72
+- Best one-free residual / sequence / parameter: 0.25709607640616583 / 10-10 / 7
+- Worst best-sequence residual / sequence: 0.6857140007440164 / 10-01
+- One-free proxy-T if accepted / current line-1381 proxy-T / source census proxy-T: 20 / 100 / 260
+- One-free pricing accepted / B7 claim: False / False
+- Validation errors: 0
+
 ## B1/B7 cone_01 Line-1381 Leave-One-Out Parameter Gate
 
 - Exists: True

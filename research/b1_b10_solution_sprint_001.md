@@ -1879,3 +1879,14 @@ tolerance; the worst residual is 1.021457442072864 on sequence `10-01`. This
 blocks a cheap grid-priced adoption of the union-census route and keeps
 occurrence removal, proxy-T reduction, local-U3 pricing acceptance, and B7
 improvement at 0.
+
+Sprint update 18bn: B1/B7 now has a union-region one-free-parameter pricing
+gate. T-B1-004bn consumes the same four exact 2-CNOT union-region census
+candidates from T-B1-004bf, snaps all local-U3 parameters to the pi/4 grid, and
+then frees exactly one parameter at a time. All 72 one-free-parameter trials
+fail exact replay. The best residual is 0.25709607640616583 on sequence
+`10-10` at parameter index 7, about 2.57e7 times the 1e-8 exact tolerance; the
+worst best-sequence residual is 0.6857140007440164 on sequence `10-01`. This
+blocks a 20-proxy-T one-free-parameter adoption of the union route and keeps
+occurrence removal, proxy-T reduction, local-U3 pricing acceptance, and B7
+improvement at 0.

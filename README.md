@@ -571,6 +571,16 @@ sequence `10-01`. This rejects a free grid-priced adoption of the union census
 route; occurrence removal, proxy-T reduction, local-U3 pricing acceptance, and
 B7 ledger credit remain 0.
 
+T-B1-004bn tests the next-cheapest union-census pricing escape hatch. For each
+of the four exact 2-CNOT union-region candidates, it snaps all local-U3
+parameters to the pi/4 grid, frees exactly one parameter, and re-optimizes that
+single degree of freedom. All 72 one-free-parameter trials fail exact replay.
+The best residual is 0.25709607640616583 on sequence `10-10` at parameter index
+7; the worst best-sequence residual is 0.6857140007440164 on sequence `10-01`.
+This blocks a 20-proxy-T one-free-parameter adoption of the union route;
+occurrence removal, proxy-T reduction, local-U3 pricing acceptance, and B7
+ledger credit remain 0.
+
 T-B1-004bh sharpens the remaining line-1381 blocker. It snaps each one of the
 five current off-pi/4 local-U3 parameters back to the pi/4 grid, then
 re-optimizes the other four parameters on the same two-CNOT scaffold. All 5/5
