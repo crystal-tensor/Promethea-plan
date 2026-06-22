@@ -500,6 +500,15 @@ independently aligned sampled replay, but it is still a sampled subspace
 check, not symbolic unitary equivalence, and accepted B7 occurrence, proxy-T,
 and ledger credit remain 0.
 
+T-B1-004ba turns the six basis anchors from T-B1-004az into a finite
+linear-span replay certificate. It builds the source/candidate error operator
+restricted to the six-dimensional input span under the same zero-input global
+phase anchor. The restricted error spectral norm is
+2.7889440543898627e-13, max basis L2 error is 2.534056605707275e-13, and 15
+coherent pair witnesses remain passed. This certifies only 6 of 524,288 input
+dimensions, so it is not a full Hilbert-space unitary proof; accepted B7
+occurrence, proxy-T, and ledger credit remain 0.
+
 ## Repository Layout
 
 ```text

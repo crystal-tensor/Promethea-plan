@@ -780,6 +780,20 @@ Overall audit: PASS
 - Accepted replay / occurrence / proxy-T reduction / B7 claim: 0 / 0 / 0 / False
 - Validation errors: 0
 
+## B1/B7 cone_01 Linear-Span Replay Certificate Gate
+
+- Exists: True
+- Status: cone01_linear_span_replay_certificate_passed_not_full_unitary
+- Certified input subspace / full input space / fraction: 6 / 524288 / 1.1444091796875e-05
+- Linear-span spectral / Frobenius error: 2.7889440543898627e-13 / 6.134324404657074e-13
+- Max basis L2 / amplitude / probability delta: 2.534056605707275e-13 / 1.3928889642636009e-13 / 7.771561172376096e-16
+- Max source-candidate Gram / cross-Gram delta: 1.9984014443252818e-15 / 4.403624367368429e-14
+- Coherent witnesses passed / count: True / 15
+- Source / candidate CNOT count / delta: 795 / 789 / 6
+- Linear-span passed / symbolic unitary claimed / full-space claimed: True / False / False
+- Accepted replay / occurrence / proxy-T reduction / B7 claim: 0 / 0 / 0 / False
+- Validation errors: 0
+
 ## B1/B7 cone_01 Theta-Sharing Ledger Gate
 
 - Exists: True

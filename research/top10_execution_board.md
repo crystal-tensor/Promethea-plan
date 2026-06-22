@@ -23,6 +23,8 @@ Latest B1/B7 addendum: **T-B1-004ay now adds phase-consistent replay pressure wi
 
 Latest B1/B7 addendum: **T-B1-004az now upgrades that evidence to global-phase anchored sampled subspace replay. One zero-input global phase anchor is reused across 6 computational-basis anchors and 15 coherent pair superpositions; all 21 pass with max global-anchor phase delta 3.142993331217661e-14 radians, min overlap magnitude 0.9999999999999772, min fidelity 0.9999999999999547, and max probability delta 1.074140776324839e-14. This is still sampled subspace evidence, not symbolic arbitrary-input equivalence or B7 ledger credit.**
 
+Latest B1/B7 addendum: **T-B1-004ba now converts the six T-B1-004az basis anchors into a finite linear-span replay certificate. Under the same zero-input global phase anchor, the restricted source/candidate error operator over the 6-dimensional input span has spectral norm 2.7889440543898627e-13, max basis L2 error 2.534056605707275e-13, and max basis probability delta 7.771561172376096e-16; all 15 coherent pair witnesses remain passed. This is certificate-grade only for 6/524,288 input dimensions, not full-space symbolic equivalence or B7 ledger credit.**
+
 The first research pass created:
 
 - a 100-problem catalog,

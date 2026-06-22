@@ -1740,3 +1740,13 @@ max probability delta 1.074140776324839e-14. This is stronger sampled subspace
 evidence, but still not symbolic arbitrary-input equivalence; accepted
 occurrence removal, proxy-T reduction, local-U3 pricing, and B7 improvement
 remain 0.
+
+Sprint update 18ba: B1/B7 now has a finite linear-span replay certificate for
+the T-B1-004az basis anchors. T-B1-004ba computes the restricted
+source/candidate error operator over the six-dimensional input span under the
+same zero-input global phase anchor. The spectral norm is
+2.7889440543898627e-13, max basis L2 error is 2.534056605707275e-13, max basis
+probability delta is 7.771561172376096e-16, and all 15 coherent pair witnesses
+remain passed. This certifies only 6/524,288 input dimensions; full-space
+symbolic equivalence, occurrence removal, proxy-T reduction, local-U3 pricing,
+and B7 improvement remain 0.

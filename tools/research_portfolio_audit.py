@@ -255,6 +255,9 @@ def audit(root: Path) -> dict:
     b1_b7_cone01_global_phase_subspace_replay_path = (
         results / "B1_B7_cone01_global_phase_subspace_replay_gate_v0.json"
     )
+    b1_b7_cone01_linear_span_replay_certificate_path = (
+        results / "B1_B7_cone01_linear_span_replay_certificate_gate_v0.json"
+    )
     b1_b7_cone01_theta_sharing_path = results / "B1_B7_cone01_theta_sharing_ledger_gate_v0.json"
     b1_b7_cone01_shared_theta_synthesis_object_path = (
         results / "B1_B7_cone01_shared_theta_synthesis_object_gate_v0.json"
@@ -865,6 +868,9 @@ def audit(root: Path) -> dict:
     )
     b1_b7_cone01_global_phase_subspace_replay_manifest = current_results.get(
         "b1_b7_cone01_global_phase_subspace_replay_gate_v0"
+    )
+    b1_b7_cone01_linear_span_replay_certificate_manifest = current_results.get(
+        "b1_b7_cone01_linear_span_replay_certificate_gate_v0"
     )
     b1_b7_cone01_theta_sharing_manifest = current_results.get(
         "b1_b7_cone01_theta_sharing_ledger_gate_v0"
@@ -8967,6 +8973,180 @@ def audit(root: Path) -> dict:
         errors.append(
             f"missing B1/B7 cone_01 global-phase subspace replay report: "
             f"{b1_b7_cone01_global_phase_subspace_replay_path}"
+        )
+
+    b1_b7_cone01_linear_span_replay_certificate = {
+        "path": str(b1_b7_cone01_linear_span_replay_certificate_path),
+        "exists": b1_b7_cone01_linear_span_replay_certificate_path.exists(),
+    }
+    if not b1_b7_cone01_linear_span_replay_certificate_manifest:
+        errors.append(
+            "B1 manifest missing current result: "
+            "b1_b7_cone01_linear_span_replay_certificate_gate_v0"
+        )
+    else:
+        if (
+            b1_b7_cone01_linear_span_replay_certificate_manifest.get("status")
+            != "cone01_linear_span_replay_certificate_passed_not_full_unitary"
+        ):
+            errors.append("B1/B7 cone_01 linear-span replay certificate status mismatch")
+        for field in ["report", "markdown_report"]:
+            value = b1_b7_cone01_linear_span_replay_certificate_manifest.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(
+                    "B1/B7 cone_01 linear-span replay certificate missing "
+                    f"existing {field} path: {value}"
+                )
+    if b1_b7_cone01_linear_span_replay_certificate_path.exists():
+        span_payload = json.loads(read(b1_b7_cone01_linear_span_replay_certificate_path))
+        span_summary = span_payload.get("summary", {})
+        span_claims = span_payload.get("claim_boundary", {})
+        b1_b7_cone01_linear_span_replay_certificate.update(
+            {
+                "status": span_payload.get("status"),
+                "model_status": span_payload.get("model_status"),
+                "method": span_payload.get("method"),
+                "workload": span_payload.get("workload"),
+                "qubit_count": span_summary.get("qubit_count"),
+                "statevector_dimension": span_summary.get("statevector_dimension"),
+                "certified_input_subspace_dimension": span_summary.get(
+                    "certified_input_subspace_dimension"
+                ),
+                "full_input_space_dimension": span_summary.get("full_input_space_dimension"),
+                "certified_input_subspace_fraction": span_summary.get(
+                    "certified_input_subspace_fraction"
+                ),
+                "coherent_pair_witness_count": span_summary.get("coherent_pair_witness_count"),
+                "coherent_pair_witness_passed": span_summary.get("coherent_pair_witness_passed"),
+                "finite_linear_span_certificate_passed": span_summary.get(
+                    "finite_linear_span_certificate_passed"
+                ),
+                "linear_span_error_spectral_norm": span_summary.get(
+                    "linear_span_error_spectral_norm"
+                ),
+                "linear_span_error_frobenius_norm": span_summary.get(
+                    "linear_span_error_frobenius_norm"
+                ),
+                "max_basis_l2_error": span_summary.get("max_basis_l2_error"),
+                "max_basis_amplitude_delta": span_summary.get("max_basis_amplitude_delta"),
+                "max_basis_probability_delta": span_summary.get("max_basis_probability_delta"),
+                "max_source_candidate_gram_delta": span_summary.get(
+                    "max_source_candidate_gram_delta"
+                ),
+                "max_cross_gram_delta": span_summary.get("max_cross_gram_delta"),
+                "source_cnot_count": span_summary.get("source_cnot_count"),
+                "candidate_cnot_count": span_summary.get("candidate_cnot_count"),
+                "candidate_cnot_delta": span_summary.get("candidate_cnot_delta"),
+                "symbolic_unitary_equivalence_claimed": span_summary.get(
+                    "symbolic_unitary_equivalence_claimed"
+                ),
+                "arbitrary_input_equivalence_claimed": span_summary.get(
+                    "arbitrary_input_equivalence_claimed"
+                ),
+                "full_hilbert_space_certificate_claimed": span_summary.get(
+                    "full_hilbert_space_certificate_claimed"
+                ),
+                "accepted_full_circuit_replay_certificate_count": span_summary.get(
+                    "accepted_full_circuit_replay_certificate_count"
+                ),
+                "accepted_full_circuit_qasm_patch_count": span_summary.get(
+                    "accepted_full_circuit_qasm_patch_count"
+                ),
+                "accepted_occurrence_removal": span_summary.get("accepted_occurrence_removal"),
+                "accepted_proxy_t_reduction": span_summary.get("accepted_proxy_t_reduction"),
+                "missing_occurrences_after_gate": span_summary.get(
+                    "missing_occurrences_after_gate"
+                ),
+                "missing_proxy_t_after_gate": span_summary.get("missing_proxy_t_after_gate"),
+                "resource_saving_claimed": span_summary.get("resource_saving_claimed"),
+                "b7_ledger_improvement_claimed": span_summary.get(
+                    "b7_ledger_improvement_claimed"
+                ),
+                "validation_error_count": span_summary.get("validation_error_count"),
+            }
+        )
+        if span_payload.get("benchmark_id") != "B1":
+            errors.append("B1/B7 cone_01 linear-span replay certificate must have benchmark_id B1")
+        if span_payload.get("method") != "b1_b7_cone01_linear_span_replay_certificate_gate_v0":
+            errors.append("B1/B7 cone_01 linear-span replay certificate method mismatch")
+        if (
+            span_payload.get("status")
+            != "cone01_linear_span_replay_certificate_passed_not_full_unitary"
+        ):
+            errors.append("B1/B7 cone_01 linear-span replay certificate status mismatch")
+        if (
+            span_payload.get("model_status")
+            != "qasm2_candidate_has_six_dimensional_linear_span_replay_certificate_without_b7_credit"
+        ):
+            errors.append("B1/B7 cone_01 linear-span replay certificate model_status mismatch")
+        expected_span_fields = {
+            "qubit_count": 19,
+            "statevector_dimension": 524288,
+            "source_cnot_count": 795,
+            "candidate_cnot_count": 789,
+            "candidate_cnot_delta": 6,
+            "final_measurement_removed_for_statevector": True,
+            "certified_input_subspace_dimension": 6,
+            "full_input_space_dimension": 524288,
+            "coherent_pair_witness_count": 15,
+            "coherent_pair_witness_passed": True,
+            "finite_linear_span_certificate_passed": True,
+            "symbolic_unitary_equivalence_claimed": False,
+            "arbitrary_input_equivalence_claimed": False,
+            "full_hilbert_space_certificate_claimed": False,
+            "accepted_full_circuit_replay_certificate_count": 0,
+            "accepted_full_circuit_qasm_patch_count": 0,
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "missing_occurrences_after_gate": 30,
+            "missing_proxy_t_after_gate": 600,
+            "resource_saving_claimed": False,
+            "b7_ledger_improvement_claimed": False,
+            "validation_error_count": 0,
+        }
+        for field, value in expected_span_fields.items():
+            if span_summary.get(field) != value:
+                errors.append(f"B1/B7 cone_01 linear-span replay expected {field}={value}")
+            if (
+                b1_b7_cone01_linear_span_replay_certificate_manifest
+                and field in b1_b7_cone01_linear_span_replay_certificate_manifest
+                and span_summary.get(field)
+                != b1_b7_cone01_linear_span_replay_certificate_manifest.get(field)
+            ):
+                errors.append(f"B1/B7 cone_01 linear-span replay {field} mismatch")
+        if float(span_summary.get("linear_span_error_spectral_norm", 1.0)) > 1e-10:
+            errors.append("B1/B7 cone_01 linear-span replay spectral norm too high")
+        if float(span_summary.get("max_basis_l2_error", 1.0)) > 1e-10:
+            errors.append("B1/B7 cone_01 linear-span replay basis L2 error too high")
+        if float(span_summary.get("max_basis_amplitude_delta", 1.0)) > 1e-10:
+            errors.append("B1/B7 cone_01 linear-span replay basis amplitude delta too high")
+        if float(span_summary.get("max_basis_probability_delta", 1.0)) > 1e-10:
+            errors.append("B1/B7 cone_01 linear-span replay basis probability delta too high")
+        if float(span_summary.get("max_source_candidate_gram_delta", 1.0)) > 1e-10:
+            errors.append("B1/B7 cone_01 linear-span replay source/candidate Gram delta too high")
+        if float(span_summary.get("max_cross_gram_delta", 1.0)) > 1e-10:
+            errors.append("B1/B7 cone_01 linear-span replay cross-Gram delta too high")
+        expected_fraction = 6 / 524288
+        if abs(float(span_summary.get("certified_input_subspace_fraction", 0.0)) - expected_fraction) > 1e-18:
+            errors.append("B1/B7 cone_01 linear-span replay subspace fraction mismatch")
+        for field in [
+            "symbolic_unitary_equivalence_claimed",
+            "arbitrary_input_equivalence_claimed",
+            "full_hilbert_space_certificate_claimed",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+        ]:
+            if span_summary.get(field) is not False:
+                errors.append(f"B1/B7 cone_01 linear-span replay must not claim {field}")
+            if span_claims.get(field) is not False:
+                errors.append(
+                    "B1/B7 cone_01 linear-span replay claim boundary "
+                    f"must not claim {field}"
+                )
+    else:
+        errors.append(
+            f"missing B1/B7 cone_01 linear-span replay report: "
+            f"{b1_b7_cone01_linear_span_replay_certificate_path}"
         )
 
     b1_b7_cone01_theta_sharing = {
@@ -18941,6 +19121,9 @@ def audit(root: Path) -> dict:
             "b7_cone01_global_phase_subspace_replay_gate": (
                 b1_b7_cone01_global_phase_subspace_replay
             ),
+            "b7_cone01_linear_span_replay_certificate_gate": (
+                b1_b7_cone01_linear_span_replay_certificate
+            ),
             "b7_cone01_theta_sharing_ledger_gate": b1_b7_cone01_theta_sharing,
             "b7_cone01_shared_theta_synthesis_object_gate": b1_b7_cone01_shared_theta_synthesis_object,
             "b7_cone01_shared_theta_replay_verifier_gate": b1_b7_cone01_shared_theta_replay_verifier,
@@ -19235,6 +19418,9 @@ def audit(root: Path) -> dict:
             ),
             "b1_b7_cone01_global_phase_subspace_replay_gate": str(
                 b1_b7_cone01_global_phase_subspace_replay_path
+            ),
+            "b1_b7_cone01_linear_span_replay_certificate_gate": str(
+                b1_b7_cone01_linear_span_replay_certificate_path
             ),
             "b1_b7_cone01_theta_sharing_ledger_gate": str(b1_b7_cone01_theta_sharing_path),
             "b1_b7_cone01_shared_theta_synthesis_object_gate": str(
@@ -20244,6 +20430,20 @@ def markdown_report(report: dict) -> str:
             f"- Subspace replay passed / symbolic unitary claimed / arbitrary input claimed: {report['b1']['b7_cone01_global_phase_subspace_replay_gate'].get('global_phase_subspace_replay_passed')} / {report['b1']['b7_cone01_global_phase_subspace_replay_gate'].get('symbolic_unitary_equivalence_claimed')} / {report['b1']['b7_cone01_global_phase_subspace_replay_gate'].get('arbitrary_input_equivalence_claimed')}",
             f"- Accepted replay / occurrence / proxy-T reduction / B7 claim: {report['b1']['b7_cone01_global_phase_subspace_replay_gate'].get('accepted_full_circuit_replay_certificate_count')} / {report['b1']['b7_cone01_global_phase_subspace_replay_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_global_phase_subspace_replay_gate'].get('accepted_proxy_t_reduction')} / {report['b1']['b7_cone01_global_phase_subspace_replay_gate'].get('b7_ledger_improvement_claimed')}",
             f"- Validation errors: {report['b1']['b7_cone01_global_phase_subspace_replay_gate'].get('validation_error_count')}",
+            "",
+            "## B1/B7 cone_01 Linear-Span Replay Certificate Gate",
+            "",
+            f"- Exists: {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('exists')}",
+            f"- Status: {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('status')}",
+            f"- Certified input subspace / full input space / fraction: {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('certified_input_subspace_dimension')} / {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('full_input_space_dimension')} / {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('certified_input_subspace_fraction')}",
+            f"- Linear-span spectral / Frobenius error: {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('linear_span_error_spectral_norm')} / {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('linear_span_error_frobenius_norm')}",
+            f"- Max basis L2 / amplitude / probability delta: {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('max_basis_l2_error')} / {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('max_basis_amplitude_delta')} / {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('max_basis_probability_delta')}",
+            f"- Max source-candidate Gram / cross-Gram delta: {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('max_source_candidate_gram_delta')} / {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('max_cross_gram_delta')}",
+            f"- Coherent witnesses passed / count: {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('coherent_pair_witness_passed')} / {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('coherent_pair_witness_count')}",
+            f"- Source / candidate CNOT count / delta: {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('source_cnot_count')} / {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('candidate_cnot_count')} / {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('candidate_cnot_delta')}",
+            f"- Linear-span passed / symbolic unitary claimed / full-space claimed: {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('finite_linear_span_certificate_passed')} / {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('symbolic_unitary_equivalence_claimed')} / {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('full_hilbert_space_certificate_claimed')}",
+            f"- Accepted replay / occurrence / proxy-T reduction / B7 claim: {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('accepted_full_circuit_replay_certificate_count')} / {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('accepted_proxy_t_reduction')} / {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('b7_ledger_improvement_claimed')}",
+            f"- Validation errors: {report['b1']['b7_cone01_linear_span_replay_certificate_gate'].get('validation_error_count')}",
             "",
             "## B1/B7 cone_01 Theta-Sharing Ledger Gate",
             "",
