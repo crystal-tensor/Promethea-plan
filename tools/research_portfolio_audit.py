@@ -246,6 +246,9 @@ def audit(root: Path) -> dict:
     b1_b7_cone01_openqasm3_candidate_export_path = (
         results / "B1_B7_cone01_openqasm3_candidate_export_gate_v0.json"
     )
+    b1_b7_cone01_openqasm3_parser_readiness_path = (
+        results / "B1_B7_cone01_openqasm3_parser_readiness_gate_v0.json"
+    )
     b1_b7_cone01_full_statevector_replay_probe_path = (
         results / "B1_B7_cone01_full_statevector_replay_probe_gate_v0.json"
     )
@@ -919,6 +922,9 @@ def audit(root: Path) -> dict:
     )
     b1_b7_cone01_openqasm3_candidate_export_manifest = current_results.get(
         "b1_b7_cone01_openqasm3_candidate_export_gate_v0"
+    )
+    b1_b7_cone01_openqasm3_parser_readiness_manifest = current_results.get(
+        "b1_b7_cone01_openqasm3_parser_readiness_gate_v0"
     )
     b1_b7_cone01_full_statevector_replay_probe_manifest = current_results.get(
         "b1_b7_cone01_full_statevector_replay_probe_gate_v0"
@@ -8581,6 +8587,183 @@ def audit(root: Path) -> dict:
         errors.append(
             f"missing B1/B7 cone_01 OpenQASM 3 candidate export report: "
             f"{b1_b7_cone01_openqasm3_candidate_export_path}"
+        )
+
+    b1_b7_cone01_openqasm3_parser_readiness = {
+        "path": str(b1_b7_cone01_openqasm3_parser_readiness_path),
+        "exists": b1_b7_cone01_openqasm3_parser_readiness_path.exists(),
+    }
+    if not b1_b7_cone01_openqasm3_parser_readiness_manifest:
+        errors.append(
+            "B1 manifest missing current result: "
+            "b1_b7_cone01_openqasm3_parser_readiness_gate_v0"
+        )
+    else:
+        if (
+            b1_b7_cone01_openqasm3_parser_readiness_manifest.get("status")
+            != "cone01_openqasm3_local_parse_passed_qiskit_loader_dependency_missing"
+        ):
+            errors.append("B1/B7 cone_01 OpenQASM 3 parser-readiness status mismatch")
+        for field in ["report", "markdown_report", "openqasm3_candidate_path"]:
+            value = b1_b7_cone01_openqasm3_parser_readiness_manifest.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(
+                    "B1/B7 cone_01 OpenQASM 3 parser-readiness missing "
+                    f"existing {field} path: {value}"
+                )
+    if b1_b7_cone01_openqasm3_parser_readiness_path.exists():
+        parser_payload = json.loads(read(b1_b7_cone01_openqasm3_parser_readiness_path))
+        parser_summary = parser_payload.get("summary", {})
+        parser_claims = parser_payload.get("claim_boundary", {})
+        b1_b7_cone01_openqasm3_parser_readiness.update(
+            {
+                "status": parser_payload.get("status"),
+                "model_status": parser_payload.get("model_status"),
+                "method": parser_payload.get("method"),
+                "workload": parser_payload.get("workload"),
+                "openqasm3_candidate_path": parser_summary.get("openqasm3_candidate_path"),
+                "local_parser_passed": parser_summary.get("local_parser_passed"),
+                "local_parser_error_count": parser_summary.get("local_parser_error_count"),
+                "local_parser_operation_counts": parser_summary.get(
+                    "local_parser_operation_counts"
+                ),
+                "expected_operation_counts": parser_summary.get("expected_operation_counts"),
+                "operation_counts_match_export": parser_summary.get(
+                    "operation_counts_match_export"
+                ),
+                "qubit_count": parser_summary.get("qubit_count"),
+                "bit_count": parser_summary.get("bit_count"),
+                "statement_count": parser_summary.get("statement_count"),
+                "operation_row_count": parser_summary.get("operation_row_count"),
+                "first_operation_line": parser_summary.get("first_operation_line"),
+                "last_operation_kind": parser_summary.get("last_operation_kind"),
+                "qiskit_available": parser_summary.get("qiskit_available"),
+                "qiskit_qasm3_import_available": parser_summary.get(
+                    "qiskit_qasm3_import_available"
+                ),
+                "qiskit_loader_attempted": parser_summary.get("qiskit_loader_attempted"),
+                "qiskit_loader_passed": parser_summary.get("qiskit_loader_passed"),
+                "qiskit_loader_status": parser_summary.get("qiskit_loader_status"),
+                "qiskit_loader_error_type": parser_summary.get("qiskit_loader_error_type"),
+                "accepted_local_openqasm3_parse_artifact_count": parser_summary.get(
+                    "accepted_local_openqasm3_parse_artifact_count"
+                ),
+                "accepted_qiskit_loader_parse_artifact_count": parser_summary.get(
+                    "accepted_qiskit_loader_parse_artifact_count"
+                ),
+                "accepted_full_circuit_replay_certificate_count": parser_summary.get(
+                    "accepted_full_circuit_replay_certificate_count"
+                ),
+                "accepted_local_u3_pricing_certificate_count": parser_summary.get(
+                    "accepted_local_u3_pricing_certificate_count"
+                ),
+                "accepted_occurrence_removal": parser_summary.get("accepted_occurrence_removal"),
+                "accepted_proxy_t_reduction": parser_summary.get("accepted_proxy_t_reduction"),
+                "missing_occurrences_after_gate": parser_summary.get(
+                    "missing_occurrences_after_gate"
+                ),
+                "missing_proxy_t_after_gate": parser_summary.get("missing_proxy_t_after_gate"),
+                "local_parse_claimed": parser_summary.get("local_parse_claimed"),
+                "qiskit_loader_parse_claimed": parser_summary.get(
+                    "qiskit_loader_parse_claimed"
+                ),
+                "full_circuit_replay_claimed": parser_summary.get(
+                    "full_circuit_replay_claimed"
+                ),
+                "local_u3_pricing_accepted": parser_summary.get("local_u3_pricing_accepted"),
+                "resource_saving_claimed": parser_summary.get("resource_saving_claimed"),
+                "b7_ledger_improvement_claimed": parser_summary.get(
+                    "b7_ledger_improvement_claimed"
+                ),
+                "validation_error_count": parser_summary.get("validation_error_count"),
+            }
+        )
+        if parser_payload.get("benchmark_id") != "B1":
+            errors.append("B1/B7 cone_01 OpenQASM 3 parser-readiness must have benchmark_id B1")
+        if (
+            parser_payload.get("method")
+            != "b1_b7_cone01_openqasm3_parser_readiness_gate_v0"
+        ):
+            errors.append("B1/B7 cone_01 OpenQASM 3 parser-readiness method mismatch")
+        if (
+            parser_payload.get("status")
+            != "cone01_openqasm3_local_parse_passed_qiskit_loader_dependency_missing"
+        ):
+            errors.append("B1/B7 cone_01 OpenQASM 3 parser-readiness status mismatch")
+        if (
+            parser_payload.get("model_status")
+            != "local_openqasm3_parse_passes_but_qiskit_loader_optional_dependency_missing"
+        ):
+            errors.append("B1/B7 cone_01 OpenQASM 3 parser-readiness model_status mismatch")
+        expected_parser_fields = {
+            "local_parser_passed": True,
+            "local_parser_error_count": 0,
+            "operation_counts_match_export": True,
+            "qubit_count": 19,
+            "bit_count": 1,
+            "statement_count": 1884,
+            "operation_row_count": 1878,
+            "first_operation_line": 5,
+            "last_operation_kind": "measure",
+            "qiskit_available": True,
+            "qiskit_qasm3_import_available": False,
+            "qiskit_loader_attempted": True,
+            "qiskit_loader_passed": False,
+            "qiskit_loader_status": "optional_dependency_missing",
+            "qiskit_loader_error_type": "MissingOptionalLibraryError",
+            "accepted_local_openqasm3_parse_artifact_count": 1,
+            "accepted_qiskit_loader_parse_artifact_count": 0,
+            "accepted_full_circuit_replay_certificate_count": 0,
+            "accepted_local_u3_pricing_certificate_count": 0,
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "missing_occurrences_after_gate": 30,
+            "missing_proxy_t_after_gate": 600,
+            "local_parse_claimed": True,
+            "qiskit_loader_parse_claimed": False,
+            "full_circuit_replay_claimed": False,
+            "local_u3_pricing_accepted": False,
+            "resource_saving_claimed": False,
+            "b7_ledger_improvement_claimed": False,
+            "validation_error_count": 0,
+        }
+        for field, value in expected_parser_fields.items():
+            if parser_summary.get(field) != value:
+                errors.append(
+                    f"B1/B7 cone_01 OpenQASM 3 parser-readiness expected {field}={value}"
+                )
+            if (
+                b1_b7_cone01_openqasm3_parser_readiness_manifest
+                and field in b1_b7_cone01_openqasm3_parser_readiness_manifest
+                and parser_summary.get(field)
+                != b1_b7_cone01_openqasm3_parser_readiness_manifest.get(field)
+            ):
+                errors.append(f"B1/B7 cone_01 OpenQASM 3 parser-readiness {field} mismatch")
+        expected_counts = {"U": 487, "rz": 601, "cx": 789, "measure": 1, "other_operation": 0}
+        if parser_summary.get("local_parser_operation_counts") != expected_counts:
+            errors.append("B1/B7 cone_01 OpenQASM 3 parser-readiness local counts mismatch")
+        if parser_summary.get("expected_operation_counts") != expected_counts:
+            errors.append("B1/B7 cone_01 OpenQASM 3 parser-readiness expected counts mismatch")
+        if parser_payload.get("local_parser_errors"):
+            errors.append("B1/B7 cone_01 OpenQASM 3 parser-readiness local errors must be empty")
+        for field in [
+            "qiskit_loader_parse_claimed",
+            "full_circuit_replay_claimed",
+            "local_u3_pricing_accepted",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+        ]:
+            if parser_summary.get(field) is not False:
+                errors.append(f"B1/B7 cone_01 OpenQASM 3 parser-readiness must not claim {field}")
+            if parser_claims.get(field) is not False:
+                errors.append(
+                    "B1/B7 cone_01 OpenQASM 3 parser-readiness claim boundary "
+                    f"must not claim {field}"
+                )
+    else:
+        errors.append(
+            f"missing B1/B7 cone_01 OpenQASM 3 parser-readiness report: "
+            f"{b1_b7_cone01_openqasm3_parser_readiness_path}"
         )
 
     b1_b7_cone01_full_statevector_replay_probe = {
@@ -23348,6 +23531,9 @@ def audit(root: Path) -> dict:
             "b7_cone01_openqasm3_candidate_export_gate": (
                 b1_b7_cone01_openqasm3_candidate_export
             ),
+            "b7_cone01_openqasm3_parser_readiness_gate": (
+                b1_b7_cone01_openqasm3_parser_readiness
+            ),
             "b7_cone01_full_statevector_replay_probe_gate": (
                 b1_b7_cone01_full_statevector_replay_probe
             ),
@@ -23705,6 +23891,9 @@ def audit(root: Path) -> dict:
             ),
             "b1_b7_cone01_openqasm3_candidate_export_gate": str(
                 b1_b7_cone01_openqasm3_candidate_export_path
+            ),
+            "b1_b7_cone01_openqasm3_parser_readiness_gate": str(
+                b1_b7_cone01_openqasm3_parser_readiness_path
             ),
             "b1_b7_cone01_full_statevector_replay_probe_gate": str(
                 b1_b7_cone01_full_statevector_replay_probe_path
@@ -24746,6 +24935,21 @@ def markdown_report(report: dict) -> str:
             f"- Accepted export / replay / local-U3 pricing / occurrence / proxy-T reduction: {report['b1']['b7_cone01_openqasm3_candidate_export_gate'].get('accepted_openqasm3_export_artifact_count')} / {report['b1']['b7_cone01_openqasm3_candidate_export_gate'].get('accepted_full_circuit_replay_certificate_count')} / {report['b1']['b7_cone01_openqasm3_candidate_export_gate'].get('accepted_local_u3_pricing_certificate_count')} / {report['b1']['b7_cone01_openqasm3_candidate_export_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_openqasm3_candidate_export_gate'].get('accepted_proxy_t_reduction')}",
             f"- B7 ledger improvement claimed: {report['b1']['b7_cone01_openqasm3_candidate_export_gate'].get('b7_ledger_improvement_claimed')}",
             f"- Validation errors: {report['b1']['b7_cone01_openqasm3_candidate_export_gate'].get('validation_error_count')}",
+            "",
+            "## B1/B7 cone_01 OpenQASM 3 Parser-Readiness Gate",
+            "",
+            f"- Exists: {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('exists')}",
+            f"- Status: {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('status')}",
+            f"- OpenQASM 3 path: {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('openqasm3_candidate_path')}",
+            f"- Local parser passed / error count: {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('local_parser_passed')} / {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('local_parser_error_count')}",
+            f"- Local operation counts: {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('local_parser_operation_counts')}",
+            f"- Qubits / bits / statements / operation rows: {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('qubit_count')} / {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('bit_count')} / {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('statement_count')} / {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('operation_row_count')}",
+            f"- Qiskit available / qiskit_qasm3_import available: {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('qiskit_available')} / {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('qiskit_qasm3_import_available')}",
+            f"- Qiskit loader attempted / passed / status: {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('qiskit_loader_attempted')} / {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('qiskit_loader_passed')} / {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('qiskit_loader_status')}",
+            f"- Accepted local parse / Qiskit loader parse artifacts: {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('accepted_local_openqasm3_parse_artifact_count')} / {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('accepted_qiskit_loader_parse_artifact_count')}",
+            f"- Accepted replay / local-U3 pricing / occurrence / proxy-T reduction: {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('accepted_full_circuit_replay_certificate_count')} / {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('accepted_local_u3_pricing_certificate_count')} / {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('accepted_proxy_t_reduction')}",
+            f"- B7 ledger improvement claimed: {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('b7_ledger_improvement_claimed')}",
+            f"- Validation errors: {report['b1']['b7_cone01_openqasm3_parser_readiness_gate'].get('validation_error_count')}",
             "",
             "## B1/B7 cone_01 Full-Statevector Replay Probe Gate",
             "",

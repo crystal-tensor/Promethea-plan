@@ -806,3 +806,14 @@ not a new replay proof, not a local-U3 pricing certificate, not occurrence
 removal, and not B7 ledger credit. The next useful gate must parse or replay
 the OpenQASM 3 artifact through a modern toolchain and then connect it to
 symbolic equivalence or honest resource pricing.
+
+T-B1-004bv then turns that next gate into an explicit dependency boundary. It
+strictly parses the OpenQASM 3 artifact with the project's local parser and
+confirms 19 qubits, 1 bit, 1,884 statements, 1,878 operation rows, and the same
+operation counts as the export gate: 789 `cx`, 601 `rz`, 487 `U`, and 1
+measurement. Local parser errors are 0, so one local OpenQASM 3 parse artifact
+is accepted. The installed Qiskit core is present, but `qiskit_qasm3_import` is
+not installed, so Qiskit's OpenQASM 3 loader is attempted and rejected with a
+`MissingOptionalLibraryError`. Qiskit loader parse artifacts, replay proof,
+local-U3 pricing, occurrence removal, proxy-T reduction, and B7 ledger credit
+all remain 0.

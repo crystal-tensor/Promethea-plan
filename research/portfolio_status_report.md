@@ -740,6 +740,21 @@ Overall audit: PASS
 - B7 ledger improvement claimed: False
 - Validation errors: 0
 
+## B1/B7 cone_01 OpenQASM 3 Parser-Readiness Gate
+
+- Exists: True
+- Status: cone01_openqasm3_local_parse_passed_qiskit_loader_dependency_missing
+- OpenQASM 3 path: results/B1_B7_cone01_openqasm3_candidate_export_gate/gcm_h6_line268_line1381_candidate_openqasm3.qasm
+- Local parser passed / error count: True / 0
+- Local operation counts: {'U': 487, 'cx': 789, 'measure': 1, 'other_operation': 0, 'rz': 601}
+- Qubits / bits / statements / operation rows: 19 / 1 / 1884 / 1878
+- Qiskit available / qiskit_qasm3_import available: True / False
+- Qiskit loader attempted / passed / status: True / False / optional_dependency_missing
+- Accepted local parse / Qiskit loader parse artifacts: 1 / 0
+- Accepted replay / local-U3 pricing / occurrence / proxy-T reduction: 0 / 0 / 0 / 0
+- B7 ledger improvement claimed: False
+- Validation errors: 0
+
 ## B1/B7 cone_01 Full-Statevector Replay Probe Gate
 
 - Exists: True

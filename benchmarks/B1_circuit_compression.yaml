@@ -1781,6 +1781,46 @@ current_results:
     validation_error_count: 0
     report: ../results/B1_B7_cone01_openqasm3_candidate_export_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_openqasm3_candidate_export_gate.md
+  b1_b7_cone01_openqasm3_parser_readiness_gate_v0:
+    circuits: 1
+    status: cone01_openqasm3_local_parse_passed_qiskit_loader_dependency_missing
+    model_status: local_openqasm3_parse_passes_but_qiskit_loader_optional_dependency_missing
+    method: b1_b7_cone01_openqasm3_parser_readiness_gate_v0
+    source_openqasm3_candidate_export_gate: b1_b7_cone01_openqasm3_candidate_export_gate_v0
+    workload: qasmbench_medium_exact/gcm_h6.qasm
+    openqasm3_candidate_path: ../results/B1_B7_cone01_openqasm3_candidate_export_gate/gcm_h6_line268_line1381_candidate_openqasm3.qasm
+    local_parser_passed: true
+    local_parser_error_count: 0
+    operation_counts_match_export: true
+    qubit_count: 19
+    bit_count: 1
+    statement_count: 1884
+    operation_row_count: 1878
+    first_operation_line: 5
+    last_operation_kind: measure
+    qiskit_available: true
+    qiskit_qasm3_import_available: false
+    qiskit_loader_attempted: true
+    qiskit_loader_passed: false
+    qiskit_loader_status: optional_dependency_missing
+    qiskit_loader_error_type: MissingOptionalLibraryError
+    accepted_local_openqasm3_parse_artifact_count: 1
+    accepted_qiskit_loader_parse_artifact_count: 0
+    accepted_full_circuit_replay_certificate_count: 0
+    accepted_local_u3_pricing_certificate_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    missing_occurrences_after_gate: 30
+    missing_proxy_t_after_gate: 600
+    local_parse_claimed: true
+    qiskit_loader_parse_claimed: false
+    full_circuit_replay_claimed: false
+    local_u3_pricing_accepted: false
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    validation_error_count: 0
+    report: ../results/B1_B7_cone01_openqasm3_parser_readiness_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_openqasm3_parser_readiness_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate

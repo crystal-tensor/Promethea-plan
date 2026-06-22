@@ -1969,3 +1969,11 @@ final measurement into assignment syntax, and preserves operation counts: 789
 `cx`, 601 `rz`, 487 `U`, and 1 measurement. This accepts one QASM3 export
 artifact, but replay proof, local-U3 pricing, occurrence removal, proxy-T
 reduction, and B7 ledger improvement remain 0.
+
+Sprint update 18bv: B1/B7 now has an OpenQASM 3 parser-readiness gate. The
+T-B1-004bv local strict parser accepts the T-B1-004bu artifact with 0 errors,
+19 qubits, 1 bit, 1,884 statements, 1,878 operation rows, and preserved counts
+of 789 `cx`, 601 `rz`, 487 `U`, and 1 measurement. Qiskit core is installed,
+but the OpenQASM 3 loader cannot run because `qiskit_qasm3_import` is missing,
+so accepted Qiskit-loader parse artifacts remain 0. This is honest progress on
+toolchain readiness, not replay proof or B7 resource credit.
