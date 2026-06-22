@@ -1936,3 +1936,14 @@ best one-step grid-cancellation error is 0.000655799901145393, which is close
 but not exact. The 3-CNOT route remains pricing-dominated, and occurrence
 removal, proxy-T reduction, local-U3 pricing acceptance, and B7 ledger
 improvement remain 0.
+
+Sprint update 18bs: B1/B7 now has a bounded multi-rotation context gate for the
+same best exact 3-CNOT priced candidate. T-B1-004bs keeps sequence `10-10-01`,
+the 18 off-pi/4 local-U3 parameters, and the 44 same-support context rotation
+arguments, then tests signed sums of two or three context rotations. It checks
+3,784 width-2 combinations and 105,952 width-3 combinations per parameter, for
+1,975,248 signed-combination tests overall. Exact width-2 absorption is 0/18,
+exact width-3 absorption is 0/18, and the best width-2/width-3 grid error
+remains 0.000655799901145393. This closes the bounded two-/three-rotation
+context escape hatch for the direct 3-CNOT route; occurrence removal, proxy-T
+reduction, local-U3 pricing acceptance, and B7 ledger improvement remain 0.

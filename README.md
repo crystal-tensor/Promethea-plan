@@ -771,3 +771,13 @@ matches, 0/18 have same-support context matches, and 0/18 exactly cancel back
 to the pi/4 grid with one context rotation. The best one-step grid-cancellation
 error is 0.000655799901145393, still outside the exact tolerance. The 3-CNOT
 route therefore remains pricing-dominated; B7 ledger credit remains 0.
+
+T-B1-004bs then broadens the same 3-CNOT absorption test from one context
+rotation to signed sums of two or three same-support context rotations. For the
+same sequence `10-10-01`, it checks all 18 off-pi/4 parameters against 44
+context rotations, with 3,784 width-2 combinations and 105,952 width-3
+combinations per parameter. Across 1,975,248 signed-combination tests, exact
+width-2 absorption is 0/18, exact width-3 absorption is 0/18, and the best
+width-2/width-3 grid error remains 0.000655799901145393. This closes the
+bounded two-/three-rotation context escape hatch for the direct 3-CNOT branch;
+accepted occurrence removal, proxy-T reduction, and B7 ledger credit remain 0.
