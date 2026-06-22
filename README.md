@@ -861,3 +861,13 @@ amplitude delta 1.392888964263601e-13, and max probability delta
 phase-consistent replay artifact, but Qiskit-loader replay,
 symbolic/arbitrary-input equivalence, local-U3 pricing, occurrence removal,
 proxy-T reduction, and B7 ledger credit remain 0.
+
+T-B1-004ca fixes the zero-input global phase anchor for the OpenQASM 3 branch
+and reuses that same anchor across 6 basis-subspace anchors and 15 coherent
+pair superpositions. All 21 cases pass with max global-anchor phase delta
+3.142993331217661e-14 radians, min overlap magnitude 0.9999999999999772, min
+state fidelity 0.9999999999999547, max aligned amplitude delta
+1.3928889642636009e-13, and max probability delta 1.074140776324839e-14. This
+accepts one project-local OpenQASM 3 global-phase subspace replay artifact, but
+Qiskit-loader replay, symbolic/arbitrary-input equivalence, local-U3 pricing,
+occurrence removal, proxy-T reduction, and B7 ledger credit remain 0.

@@ -814,6 +814,23 @@ Overall audit: PASS
 - Accepted OpenQASM 3 phase replay / occurrence / proxy-T reduction / B7 claim: 1 / 0 / 0 / False
 - Validation errors: 0
 
+## B1/B7 cone_01 OpenQASM 3 Global-Phase Subspace Replay Gate
+
+- Exists: True
+- Status: cone01_openqasm3_global_phase_subspace_replay_passed_not_symbolic_certificate
+- OpenQASM 3 path: results/B1_B7_cone01_openqasm3_candidate_export_gate/gcm_h6_line268_line1381_candidate_openqasm3.qasm
+- Project-local parser passed / error count: True / 0
+- Input cases / failed cases: 21 / 0
+- Basis anchors / coherent superpositions: 6 / 15
+- Global phase anchor / radians: zero / -2.4388324596671658
+- Source / OpenQASM 3 CNOT count / delta: 795 / 789 / 6
+- Max anchor phase delta / min overlap magnitude: 3.142993331217661e-14 / 0.9999999999999772
+- Min fidelity / max infidelity: 0.9999999999999547 / 4.529709940470639e-14
+- Max anchored amplitude / probability delta: 1.3928889642636009e-13 / 1.074140776324839e-14
+- Subspace replay passed / symbolic unitary claimed / arbitrary input claimed: True / False / False
+- Accepted OpenQASM 3 anchored replay / occurrence / proxy-T reduction / B7 claim: 1 / 0 / 0 / False
+- Validation errors: 0
+
 ## B1/B7 cone_01 Full-Statevector Replay Probe Gate
 
 - Exists: True
