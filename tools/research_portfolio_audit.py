@@ -267,6 +267,9 @@ def audit(root: Path) -> dict:
     b1_b7_cone01_overlap_additivity_bound_path = (
         results / "B1_B7_cone01_overlap_additivity_bound_gate_v0.json"
     )
+    b1_b7_cone01_union_region_low_cnot_search_path = (
+        results / "B1_B7_cone01_union_region_low_cnot_search_gate_v0.json"
+    )
     b1_b7_cone01_theta_sharing_path = results / "B1_B7_cone01_theta_sharing_ledger_gate_v0.json"
     b1_b7_cone01_shared_theta_synthesis_object_path = (
         results / "B1_B7_cone01_shared_theta_synthesis_object_gate_v0.json"
@@ -889,6 +892,9 @@ def audit(root: Path) -> dict:
     )
     b1_b7_cone01_overlap_additivity_bound_manifest = current_results.get(
         "b1_b7_cone01_overlap_additivity_bound_gate_v0"
+    )
+    b1_b7_cone01_union_region_low_cnot_search_manifest = current_results.get(
+        "b1_b7_cone01_union_region_low_cnot_search_gate_v0"
     )
     b1_b7_cone01_theta_sharing_manifest = current_results.get(
         "b1_b7_cone01_theta_sharing_ledger_gate_v0"
@@ -9704,6 +9710,179 @@ def audit(root: Path) -> dict:
         errors.append(
             f"missing B1/B7 cone_01 overlap additivity bound report: "
             f"{b1_b7_cone01_overlap_additivity_bound_path}"
+        )
+
+    b1_b7_cone01_union_region_low_cnot_search = {
+        "path": str(b1_b7_cone01_union_region_low_cnot_search_path),
+        "exists": b1_b7_cone01_union_region_low_cnot_search_path.exists(),
+    }
+    if not b1_b7_cone01_union_region_low_cnot_search_manifest:
+        errors.append(
+            "B1 manifest missing current result: "
+            "b1_b7_cone01_union_region_low_cnot_search_gate_v0"
+        )
+    else:
+        if (
+            b1_b7_cone01_union_region_low_cnot_search_manifest.get("status")
+            != "cone01_union_region_low_cnot_search_no_extra_delta"
+        ):
+            errors.append("B1/B7 cone_01 union-region low-CNOT search status mismatch")
+        for field in ["report", "markdown_report"]:
+            value = b1_b7_cone01_union_region_low_cnot_search_manifest.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(
+                    "B1/B7 cone_01 union-region low-CNOT search missing "
+                    f"existing {field} path: {value}"
+                )
+    if b1_b7_cone01_union_region_low_cnot_search_path.exists():
+        union_payload = json.loads(read(b1_b7_cone01_union_region_low_cnot_search_path))
+        union_summary = union_payload.get("summary", {})
+        union_claims = union_payload.get("claim_boundary", {})
+        b1_b7_cone01_union_region_low_cnot_search.update(
+            {
+                "status": union_payload.get("status"),
+                "model_status": union_payload.get("model_status"),
+                "method": union_payload.get("method"),
+                "workload": union_payload.get("workload"),
+                "target_line_number": union_summary.get("target_line_number"),
+                "union_window": union_summary.get("union_window"),
+                "support_qubits": union_summary.get("support_qubits"),
+                "source_cnot_count": union_summary.get("source_cnot_count"),
+                "current_min_exact_replacement_cnot_count": union_summary.get(
+                    "current_min_exact_replacement_cnot_count"
+                ),
+                "current_candidate_cnot_delta": union_summary.get(
+                    "current_candidate_cnot_delta"
+                ),
+                "searched_cnot_counts": union_summary.get("searched_cnot_counts"),
+                "searched_orientation_count": union_summary.get("searched_orientation_count"),
+                "search_seed_count_per_orientation": union_summary.get(
+                    "search_seed_count_per_orientation"
+                ),
+                "search_max_nfev": union_summary.get("search_max_nfev"),
+                "low_cnot_exact_pass_count": union_summary.get("low_cnot_exact_pass_count"),
+                "zero_cnot_exact_pass_count": union_summary.get("zero_cnot_exact_pass_count"),
+                "one_cnot_exact_pass_count": union_summary.get("one_cnot_exact_pass_count"),
+                "best_low_cnot_residual_norm": union_summary.get(
+                    "best_low_cnot_residual_norm"
+                ),
+                "best_low_cnot_max_abs_entry_error": union_summary.get(
+                    "best_low_cnot_max_abs_entry_error"
+                ),
+                "best_low_cnot_cnot_count": union_summary.get("best_low_cnot_cnot_count"),
+                "best_low_cnot_orientation": union_summary.get("best_low_cnot_orientation"),
+                "best_low_cnot_exact_replacement_cnot_count": union_summary.get(
+                    "best_low_cnot_exact_replacement_cnot_count"
+                ),
+                "extra_delta_found_beyond_current_line1381_replacement": union_summary.get(
+                    "extra_delta_found_beyond_current_line1381_replacement"
+                ),
+                "line1378_full_delta_recovered": union_summary.get(
+                    "line1378_full_delta_recovered"
+                ),
+                "low_cnot_union_rewrite_emitted": union_summary.get(
+                    "low_cnot_union_rewrite_emitted"
+                ),
+                "low_cnot_union_replay_certificate_count": union_summary.get(
+                    "low_cnot_union_replay_certificate_count"
+                ),
+                "global_lower_bound_claimed": union_summary.get("global_lower_bound_claimed"),
+                "accepted_full_circuit_replay_certificate_count": union_summary.get(
+                    "accepted_full_circuit_replay_certificate_count"
+                ),
+                "accepted_full_circuit_qasm_patch_count": union_summary.get(
+                    "accepted_full_circuit_qasm_patch_count"
+                ),
+                "accepted_occurrence_removal": union_summary.get("accepted_occurrence_removal"),
+                "accepted_proxy_t_reduction": union_summary.get("accepted_proxy_t_reduction"),
+                "missing_occurrences_after_gate": union_summary.get(
+                    "missing_occurrences_after_gate"
+                ),
+                "missing_proxy_t_after_gate": union_summary.get("missing_proxy_t_after_gate"),
+                "resource_saving_claimed": union_summary.get("resource_saving_claimed"),
+                "b7_ledger_improvement_claimed": union_summary.get(
+                    "b7_ledger_improvement_claimed"
+                ),
+                "validation_error_count": union_summary.get("validation_error_count"),
+            }
+        )
+        if union_payload.get("benchmark_id") != "B1":
+            errors.append("B1/B7 cone_01 union-region low-CNOT search must have benchmark_id B1")
+        if union_payload.get("method") != "b1_b7_cone01_union_region_low_cnot_search_gate_v0":
+            errors.append("B1/B7 cone_01 union-region low-CNOT search method mismatch")
+        if union_payload.get("status") != "cone01_union_region_low_cnot_search_no_extra_delta":
+            errors.append("B1/B7 cone_01 union-region low-CNOT search status mismatch")
+        if (
+            union_payload.get("model_status")
+            != "union_region_zero_one_cnot_scaffolds_fail_both_orientations"
+        ):
+            errors.append("B1/B7 cone_01 union-region low-CNOT search model_status mismatch")
+        expected_union_fields = {
+            "target_line_number": 1381,
+            "union_window": [1369, 1379],
+            "support_qubits": [4, 8],
+            "source_cnot_count": 5,
+            "current_min_exact_replacement_cnot_count": 2,
+            "current_candidate_cnot_delta": 3,
+            "searched_cnot_counts": [0, 1],
+            "searched_orientation_count": 3,
+            "search_seed_count_per_orientation": 16,
+            "search_max_nfev": 2200,
+            "low_cnot_exact_pass_count": 0,
+            "zero_cnot_exact_pass_count": 0,
+            "one_cnot_exact_pass_count": 0,
+            "best_low_cnot_residual_norm": 0.2548908758679516,
+            "best_low_cnot_max_abs_entry_error": 0.12724247975106365,
+            "best_low_cnot_cnot_count": 1,
+            "best_low_cnot_orientation": [1, 0],
+            "best_low_cnot_exact_replacement_cnot_count": None,
+            "extra_delta_found_beyond_current_line1381_replacement": 0,
+            "line1378_full_delta_recovered": False,
+            "low_cnot_union_rewrite_emitted": False,
+            "low_cnot_union_replay_certificate_count": 0,
+            "global_lower_bound_claimed": False,
+            "accepted_full_circuit_replay_certificate_count": 0,
+            "accepted_full_circuit_qasm_patch_count": 0,
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "missing_occurrences_after_gate": 30,
+            "missing_proxy_t_after_gate": 600,
+            "resource_saving_claimed": False,
+            "b7_ledger_improvement_claimed": False,
+            "validation_error_count": 0,
+        }
+        for field, value in expected_union_fields.items():
+            if union_summary.get(field) != value:
+                errors.append(f"B1/B7 cone_01 union-region low-CNOT search expected {field}={value}")
+            if (
+                b1_b7_cone01_union_region_low_cnot_search_manifest
+                and field in b1_b7_cone01_union_region_low_cnot_search_manifest
+                and union_summary.get(field)
+                != b1_b7_cone01_union_region_low_cnot_search_manifest.get(field)
+            ):
+                errors.append(f"B1/B7 cone_01 union-region low-CNOT search {field} mismatch")
+        rows = union_payload.get("union_region_low_cnot_search_rows", [])
+        if len(rows) != 3:
+            errors.append("B1/B7 cone_01 union-region low-CNOT search must have 3 rows")
+        if any(row.get("exact_pass") is not False for row in rows):
+            errors.append("B1/B7 cone_01 union-region low-CNOT search rows must all fail exact pass")
+        for field in [
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+            "low_cnot_union_rewrite_emitted",
+            "global_lower_bound_claimed",
+        ]:
+            if union_summary.get(field) is not False:
+                errors.append(f"B1/B7 cone_01 union-region low-CNOT search must not claim {field}")
+            if union_claims.get(field) is not False:
+                errors.append(
+                    "B1/B7 cone_01 union-region low-CNOT search claim boundary "
+                    f"must not claim {field}"
+                )
+    else:
+        errors.append(
+            f"missing B1/B7 cone_01 union-region low-CNOT search report: "
+            f"{b1_b7_cone01_union_region_low_cnot_search_path}"
         )
 
     b1_b7_cone01_theta_sharing = {
@@ -19690,6 +19869,9 @@ def audit(root: Path) -> dict:
             "b7_cone01_overlap_additivity_bound_gate": (
                 b1_b7_cone01_overlap_additivity_bound
             ),
+            "b7_cone01_union_region_low_cnot_search_gate": (
+                b1_b7_cone01_union_region_low_cnot_search
+            ),
             "b7_cone01_theta_sharing_ledger_gate": b1_b7_cone01_theta_sharing,
             "b7_cone01_shared_theta_synthesis_object_gate": b1_b7_cone01_shared_theta_synthesis_object,
             "b7_cone01_shared_theta_replay_verifier_gate": b1_b7_cone01_shared_theta_replay_verifier,
@@ -19996,6 +20178,9 @@ def audit(root: Path) -> dict:
             ),
             "b1_b7_cone01_overlap_additivity_bound_gate": str(
                 b1_b7_cone01_overlap_additivity_bound_path
+            ),
+            "b1_b7_cone01_union_region_low_cnot_search_gate": str(
+                b1_b7_cone01_union_region_low_cnot_search_path
             ),
             "b1_b7_cone01_theta_sharing_ledger_gate": str(b1_b7_cone01_theta_sharing_path),
             "b1_b7_cone01_shared_theta_synthesis_object_gate": str(
@@ -21059,6 +21244,19 @@ def markdown_report(report: dict) -> str:
             f"- Accepted replay / QASM patch artifacts: {report['b1']['b7_cone01_overlap_additivity_bound_gate'].get('accepted_full_circuit_replay_certificate_count')} / {report['b1']['b7_cone01_overlap_additivity_bound_gate'].get('accepted_full_circuit_qasm_patch_count')}",
             f"- Accepted occurrence / proxy-T reduction / B7 claim: {report['b1']['b7_cone01_overlap_additivity_bound_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_overlap_additivity_bound_gate'].get('accepted_proxy_t_reduction')} / {report['b1']['b7_cone01_overlap_additivity_bound_gate'].get('b7_ledger_improvement_claimed')}",
             f"- Validation errors: {report['b1']['b7_cone01_overlap_additivity_bound_gate'].get('validation_error_count')}",
+            "",
+            "## B1/B7 cone_01 Union-Region Low-CNOT Search Gate",
+            "",
+            f"- Exists: {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('exists')}",
+            f"- Status: {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('status')}",
+            f"- Union window / support: {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('union_window')} / {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('support_qubits')}",
+            f"- Source CNOT / current replacement CNOT / current delta: {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('source_cnot_count')} / {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('current_min_exact_replacement_cnot_count')} / {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('current_candidate_cnot_delta')}",
+            f"- Searched CNOT counts / orientations / seeds: {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('searched_cnot_counts')} / {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('searched_orientation_count')} / {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('search_seed_count_per_orientation')}",
+            f"- 0-CNOT / 1-CNOT exact pass count: {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('zero_cnot_exact_pass_count')} / {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('one_cnot_exact_pass_count')}",
+            f"- Best low-CNOT residual / entry error / orientation: {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('best_low_cnot_residual_norm')} / {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('best_low_cnot_max_abs_entry_error')} / {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('best_low_cnot_orientation')}",
+            f"- Extra delta beyond current line-1381 replacement / global lower bound claimed: {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('extra_delta_found_beyond_current_line1381_replacement')} / {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('global_lower_bound_claimed')}",
+            f"- Accepted occurrence / proxy-T reduction / B7 claim: {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('accepted_proxy_t_reduction')} / {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('b7_ledger_improvement_claimed')}",
+            f"- Validation errors: {report['b1']['b7_cone01_union_region_low_cnot_search_gate'].get('validation_error_count')}",
             "",
             "## B1/B7 cone_01 Theta-Sharing Ledger Gate",
             "",

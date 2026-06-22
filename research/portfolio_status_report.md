@@ -834,6 +834,19 @@ Overall audit: PASS
 - Accepted occurrence / proxy-T reduction / B7 claim: 0 / 0 / False
 - Validation errors: 0
 
+## B1/B7 cone_01 Union-Region Low-CNOT Search Gate
+
+- Exists: True
+- Status: cone01_union_region_low_cnot_search_no_extra_delta
+- Union window / support: [1369, 1379] / [4, 8]
+- Source CNOT / current replacement CNOT / current delta: 5 / 2 / 3
+- Searched CNOT counts / orientations / seeds: [0, 1] / 3 / 16
+- 0-CNOT / 1-CNOT exact pass count: 0 / 0
+- Best low-CNOT residual / entry error / orientation: 0.2548908758679516 / 0.12724247975106365 / [1, 0]
+- Extra delta beyond current line-1381 replacement / global lower bound claimed: 0 / False
+- Accepted occurrence / proxy-T reduction / B7 claim: 0 / 0 / False
+- Validation errors: 0
+
 ## B1/B7 cone_01 Theta-Sharing Ledger Gate
 
 - Exists: True

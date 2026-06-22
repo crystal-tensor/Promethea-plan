@@ -1785,3 +1785,15 @@ merged-region rewrite, occurrence removal, proxy-T reduction, and B7
 improvement remain 0. The next sprint gate must synthesize a new union-region
 replacement with replay and honest local-U3 pricing, or switch to a different
 occurrence-removing route.
+
+Sprint update 18be: B1/B7 now has a scoped union-region low-CNOT search gate.
+T-B1-004be consumes the semantic packet, packet-synthesis search, and
+T-B1-004bd overlap-additivity bound, then searches the actual line-1378/1381
+union target [1369, 1379] with 0-CNOT and 1-CNOT local-U3 scaffolds. Both
+1-CNOT orientations are tested. Exact low-CNOT passes are 0/3; the best
+low-CNOT residual is 0.2548908758679516 and the best max entry error is
+0.12724247975106365. The existing 2-CNOT line-1381 replacement remains the
+current exact candidate in this branch. This closes the scoped 0/1-CNOT
+shortcut but is not a global lower-bound theorem: accepted union rewrite,
+full-circuit replay, occurrence removal, proxy-T reduction, and B7 improvement
+remain 0.

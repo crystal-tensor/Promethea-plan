@@ -534,6 +534,15 @@ line-1378 delta is therefore not additively recoverable; a future route must
 synthesize a new union-region replacement with replay and honest local-U3
 pricing, or find a different occurrence-removing certificate.
 
+T-B1-004be tests that honest union-region route with a scoped low-CNOT search.
+For the line-1378/1381 union target [1369, 1379], it searches 0-CNOT and
+1-CNOT local-U3 scaffolds, including both 1-CNOT orientations. No exact
+low-CNOT scaffold is found: the best 1-CNOT residual is
+0.2548908758679516 with max entry error 0.12724247975106365. The existing
+2-CNOT line-1381 replacement remains the current exact candidate in this
+branch, and no extra delta, occurrence removal, proxy-T reduction, or B7 ledger
+credit is accepted. This is not a global CNOT lower-bound theorem.
+
 ## Repository Layout
 
 ```text

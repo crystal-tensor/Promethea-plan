@@ -1945,6 +1945,58 @@
       "validation_error_count": 0,
       "workload": "qasmbench_medium_exact/gcm_h6.qasm"
     },
+    "b7_cone01_union_region_low_cnot_search_gate": {
+      "accepted_full_circuit_qasm_patch_count": 0,
+      "accepted_full_circuit_replay_certificate_count": 0,
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "b7_ledger_improvement_claimed": false,
+      "best_low_cnot_cnot_count": 1,
+      "best_low_cnot_exact_replacement_cnot_count": null,
+      "best_low_cnot_max_abs_entry_error": 0.12724247975106365,
+      "best_low_cnot_orientation": [
+        1,
+        0
+      ],
+      "best_low_cnot_residual_norm": 0.2548908758679516,
+      "current_candidate_cnot_delta": 3,
+      "current_min_exact_replacement_cnot_count": 2,
+      "exists": true,
+      "extra_delta_found_beyond_current_line1381_replacement": 0,
+      "global_lower_bound_claimed": false,
+      "line1378_full_delta_recovered": false,
+      "low_cnot_exact_pass_count": 0,
+      "low_cnot_union_replay_certificate_count": 0,
+      "low_cnot_union_rewrite_emitted": false,
+      "method": "b1_b7_cone01_union_region_low_cnot_search_gate_v0",
+      "missing_occurrences_after_gate": 30,
+      "missing_proxy_t_after_gate": 600,
+      "model_status": "union_region_zero_one_cnot_scaffolds_fail_both_orientations",
+      "one_cnot_exact_pass_count": 0,
+      "path": "results/B1_B7_cone01_union_region_low_cnot_search_gate_v0.json",
+      "resource_saving_claimed": false,
+      "search_max_nfev": 2200,
+      "search_seed_count_per_orientation": 16,
+      "searched_cnot_counts": [
+        0,
+        1
+      ],
+      "searched_orientation_count": 3,
+      "source_cnot_count": 5,
+      "status": "cone01_union_region_low_cnot_search_no_extra_delta",
+      "support_qubits": [
+        4,
+        8
+      ],
+      "target_line_number": 1381,
+      "union_window": [
+        1369,
+        1379
+      ],
+      "validation_error_count": 0,
+      "workload": "qasmbench_medium_exact/gcm_h6.qasm",
+      "zero_cnot_exact_pass_count": 0
+    },
     "b7_gcm_h6_cone_feasibility_gate": {
       "cone_classes_meeting_target_by_pair_local_single_windows": 1,
       "exists": true,
@@ -4977,6 +5029,7 @@
     "b1_b7_cone01_theta_sharing_cost_model_gate": "results/B1_B7_cone01_theta_sharing_cost_model_gate_v0.json",
     "b1_b7_cone01_theta_sharing_ledger_gate": "results/B1_B7_cone01_theta_sharing_ledger_gate_v0.json",
     "b1_b7_cone01_three_parameter_local_u3_repair_gate": "results/B1_B7_cone01_three_parameter_local_u3_repair_gate_v0.json",
+    "b1_b7_cone01_union_region_low_cnot_search_gate": "results/B1_B7_cone01_union_region_low_cnot_search_gate_v0.json",
     "b1_b7_gcm_h6_cone_feasibility_gate": "results/B1_B7_gcm_h6_cone_feasibility_gate_v0.json",
     "b1_b7_gcm_h6_target_selector": "results/B1_B7_gcm_h6_target_selector_v0.json",
     "b1_certificate_report": "research/B1_certificate_report.json",
