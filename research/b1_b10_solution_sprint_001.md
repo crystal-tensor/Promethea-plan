@@ -1838,3 +1838,14 @@ tolerance; the worst is 0.41204448255804876 for fixed pair [16, 17]. This
 blocks a cheap two-parameter free-removal claim, but it is still not a global
 five-parameter minimality theorem. Occurrence removal, proxy-T reduction,
 local-U3 acceptance, and B7 improvement remain 0.
+
+Sprint update 18bj: B1/B7 now has a line-1381 leave-three-out parameter gate.
+T-B1-004bj keeps the same five-parameter exact line-1381 repair, snaps every
+triple of the five off-pi/4 local-U3 parameters back to the pi/4 grid, and
+re-optimizes the remaining two parameters on the same two-CNOT scaffold. Exact
+passes are 0/10. The best leave-three-out residual is 0.29673862906454757 for
+fixed triple [4, 9, 16], about 2.97e7 times the 1e-8 exact tolerance; the
+worst is 0.7449029676343185 for fixed triple [4, 16, 17]. This blocks a cheap
+three-parameter free-removal claim, but it is still not a global
+five-parameter minimality theorem. Occurrence removal, proxy-T reduction,
+local-U3 acceptance, and B7 improvement remain 0.

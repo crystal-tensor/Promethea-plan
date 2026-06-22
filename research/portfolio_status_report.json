@@ -870,6 +870,65 @@
       "worst_leave_one_out_fixed_parameter_index": 4,
       "worst_leave_one_out_residual_norm": 0.288314847983953
     },
+    "b7_cone01_line1381_leave_three_out_parameter_gate": {
+      "accepted_full_circuit_qasm_patch_count": 0,
+      "accepted_full_circuit_replay_certificate_count": 0,
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "all_three_parameter_removals_fail": true,
+      "b7_ledger_improvement_claimed": false,
+      "base_five_parameter_residual_norm": 6.513210005207597e-13,
+      "best_leave_three_out_fixed_parameter_indices": [
+        4,
+        9,
+        16
+      ],
+      "best_leave_three_out_residual_norm": 0.29673862906454757,
+      "candidate_cnot_reduction": 3,
+      "current_off_grid_parameter_count": 5,
+      "current_off_grid_parameter_indices": [
+        3,
+        4,
+        9,
+        16,
+        17
+      ],
+      "exact_tolerance": 1e-08,
+      "exists": true,
+      "leave_three_out_exact_fail_count": 10,
+      "leave_three_out_exact_pass_count": 0,
+      "leave_three_out_row_count": 10,
+      "line1381_off_grid_parameters_absorbed": false,
+      "line1381_off_grid_parameters_eliminated": false,
+      "line1381_off_grid_parameters_symbolically_decomposed": false,
+      "max_residual_ratio_to_exact_tolerance": 74490296.76343185,
+      "method": "b1_b7_cone01_line1381_leave_three_out_parameter_gate_v0",
+      "min_residual_ratio_to_exact_tolerance": 29673862.906454757,
+      "missing_occurrences_after_gate": 30,
+      "missing_proxy_t_after_gate": 600,
+      "model_status": "line1381_off_grid_parameter_triples_are_leave_three_out_required",
+      "path": "results/B1_B7_cone01_line1381_leave_three_out_parameter_gate_v0.json",
+      "replacement_cnot_count": 2,
+      "resource_saving_claimed": false,
+      "source_cnot_count": 5,
+      "status": "cone01_line1381_no_three_parameter_free_removal",
+      "support_qubits": [
+        4,
+        8
+      ],
+      "target_candidate_line_number": 1381,
+      "three_parameter_free_removal_accepted": false,
+      "validation_error_count": 0,
+      "window_end_line": 1379,
+      "window_start_line": 1369,
+      "workload": "qasmbench_medium_exact/gcm_h6.qasm",
+      "worst_leave_three_out_fixed_parameter_indices": [
+        4,
+        16,
+        17
+      ],
+      "worst_leave_three_out_residual_norm": 0.7449029676343185
+    },
     "b7_cone01_line1381_leave_two_out_parameter_gate": {
       "accepted_full_circuit_qasm_patch_count": 0,
       "accepted_full_circuit_replay_certificate_count": 0,
@@ -5211,6 +5270,7 @@
     "b1_b7_cone01_line1381_exact_decomposition_pressure_gate": "results/B1_B7_cone01_line1381_exact_decomposition_pressure_gate_v0.json",
     "b1_b7_cone01_line1381_four_rotation_context_gate": "results/B1_B7_cone01_line1381_four_rotation_context_gate_v0.json",
     "b1_b7_cone01_line1381_leave_one_out_parameter_gate": "results/B1_B7_cone01_line1381_leave_one_out_parameter_gate_v0.json",
+    "b1_b7_cone01_line1381_leave_three_out_parameter_gate": "results/B1_B7_cone01_line1381_leave_three_out_parameter_gate_v0.json",
     "b1_b7_cone01_line1381_leave_two_out_parameter_gate": "results/B1_B7_cone01_line1381_leave_two_out_parameter_gate_v0.json",
     "b1_b7_cone01_line1381_local_u3_pricing_gate": "results/B1_B7_cone01_line1381_local_u3_pricing_gate_v0.json",
     "b1_b7_cone01_line1381_multi_rotation_context_gate": "results/B1_B7_cone01_line1381_multi_rotation_context_gate_v0.json",

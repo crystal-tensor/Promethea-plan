@@ -1,0 +1,410 @@
+{
+  "benchmark_id": "B1",
+  "claim_boundary": {
+    "b7_ledger_improvement_claimed": false,
+    "resource_saving_claimed": false,
+    "supported_claim": "Within the current line-1381 two-CNOT scaffold and local replay target, snapping any triple of the five off-grid parameters back to the pi/4 grid and re-optimizing the other two does not recover exactness.",
+    "three_parameter_free_removal_accepted": false,
+    "unsupported_claims": [
+      "This is not a global five-parameter minimality theorem.",
+      "This does not rule out a different scaffold, a symbolic identity, or context absorption.",
+      "This does not eliminate, absorb, or price the five line-1381 parameters.",
+      "This does not improve the B7 ledger."
+    ]
+  },
+  "line1381_leave_three_out_parameter_rows": [
+    {
+      "exact_pass": false,
+      "fixed_absolute_snap_errors": [
+        0.14252750651545565,
+        0.3621107965742294,
+        0.26711912728916154
+      ],
+      "fixed_original_values": [
+        1.428268820279441,
+        -1.1475089599716777,
+        -1.0525172906866098
+      ],
+      "fixed_parameter_indices": [
+        3,
+        4,
+        9
+      ],
+      "fixed_pi_over_four_values": [
+        1.5707963267948966,
+        -0.7853981633974483,
+        -0.7853981633974483
+      ],
+      "off_pi_over_four_parameter_count_after_reoptimization": 2,
+      "optimizer_nfev": 14,
+      "optimizer_success": true,
+      "reoptimized_free_indices": [
+        16,
+        17
+      ],
+      "reoptimized_free_parameter_count": 2,
+      "residual_norm": 0.45707756906586605
+    },
+    {
+      "exact_pass": false,
+      "fixed_absolute_snap_errors": [
+        0.14252750651545565,
+        0.3621107965742294,
+        0.22645250919909277
+      ],
+      "fixed_original_values": [
+        1.428268820279441,
+        -1.1475089599716777,
+        0.5589456541983555
+      ],
+      "fixed_parameter_indices": [
+        3,
+        4,
+        16
+      ],
+      "fixed_pi_over_four_values": [
+        1.5707963267948966,
+        -0.7853981633974483,
+        0.7853981633974483
+      ],
+      "off_pi_over_four_parameter_count_after_reoptimization": 2,
+      "optimizer_nfev": 12,
+      "optimizer_success": true,
+      "reoptimized_free_indices": [
+        9,
+        17
+      ],
+      "reoptimized_free_parameter_count": 2,
+      "residual_norm": 0.40615311451229397
+    },
+    {
+      "exact_pass": false,
+      "fixed_absolute_snap_errors": [
+        0.14252750651545565,
+        0.3621107965742294,
+        0.362110796573925
+      ],
+      "fixed_original_values": [
+        1.428268820279441,
+        -1.1475089599716777,
+        0.4232873668235233
+      ],
+      "fixed_parameter_indices": [
+        3,
+        4,
+        17
+      ],
+      "fixed_pi_over_four_values": [
+        1.5707963267948966,
+        -0.7853981633974483,
+        0.7853981633974483
+      ],
+      "off_pi_over_four_parameter_count_after_reoptimization": 2,
+      "optimizer_nfev": 9,
+      "optimizer_success": true,
+      "reoptimized_free_indices": [
+        9,
+        16
+      ],
+      "reoptimized_free_parameter_count": 2,
+      "residual_norm": 0.35793848562010133
+    },
+    {
+      "exact_pass": false,
+      "fixed_absolute_snap_errors": [
+        0.14252750651545565,
+        0.26711912728916154,
+        0.22645250919909277
+      ],
+      "fixed_original_values": [
+        1.428268820279441,
+        -1.0525172906866098,
+        0.5589456541983555
+      ],
+      "fixed_parameter_indices": [
+        3,
+        9,
+        16
+      ],
+      "fixed_pi_over_four_values": [
+        1.5707963267948966,
+        -0.7853981633974483,
+        0.7853981633974483
+      ],
+      "off_pi_over_four_parameter_count_after_reoptimization": 2,
+      "optimizer_nfev": 11,
+      "optimizer_success": true,
+      "reoptimized_free_indices": [
+        4,
+        17
+      ],
+      "reoptimized_free_parameter_count": 2,
+      "residual_norm": 0.3106228814074983
+    },
+    {
+      "exact_pass": false,
+      "fixed_absolute_snap_errors": [
+        0.14252750651545565,
+        0.26711912728916154,
+        0.362110796573925
+      ],
+      "fixed_original_values": [
+        1.428268820279441,
+        -1.0525172906866098,
+        0.4232873668235233
+      ],
+      "fixed_parameter_indices": [
+        3,
+        9,
+        17
+      ],
+      "fixed_pi_over_four_values": [
+        1.5707963267948966,
+        -0.7853981633974483,
+        0.7853981633974483
+      ],
+      "off_pi_over_four_parameter_count_after_reoptimization": 2,
+      "optimizer_nfev": 17,
+      "optimizer_success": true,
+      "reoptimized_free_indices": [
+        4,
+        16
+      ],
+      "reoptimized_free_parameter_count": 2,
+      "residual_norm": 0.4503230734514779
+    },
+    {
+      "exact_pass": false,
+      "fixed_absolute_snap_errors": [
+        0.14252750651545565,
+        0.22645250919909277,
+        0.362110796573925
+      ],
+      "fixed_original_values": [
+        1.428268820279441,
+        0.5589456541983555,
+        0.4232873668235233
+      ],
+      "fixed_parameter_indices": [
+        3,
+        16,
+        17
+      ],
+      "fixed_pi_over_four_values": [
+        1.5707963267948966,
+        0.7853981633974483,
+        0.7853981633974483
+      ],
+      "off_pi_over_four_parameter_count_after_reoptimization": 2,
+      "optimizer_nfev": 12,
+      "optimizer_success": true,
+      "reoptimized_free_indices": [
+        4,
+        9
+      ],
+      "reoptimized_free_parameter_count": 2,
+      "residual_norm": 0.4227361368613278
+    },
+    {
+      "exact_pass": false,
+      "fixed_absolute_snap_errors": [
+        0.3621107965742294,
+        0.26711912728916154,
+        0.22645250919909277
+      ],
+      "fixed_original_values": [
+        -1.1475089599716777,
+        -1.0525172906866098,
+        0.5589456541983555
+      ],
+      "fixed_parameter_indices": [
+        4,
+        9,
+        16
+      ],
+      "fixed_pi_over_four_values": [
+        -0.7853981633974483,
+        -0.7853981633974483,
+        0.7853981633974483
+      ],
+      "off_pi_over_four_parameter_count_after_reoptimization": 2,
+      "optimizer_nfev": 7,
+      "optimizer_success": true,
+      "reoptimized_free_indices": [
+        3,
+        17
+      ],
+      "reoptimized_free_parameter_count": 2,
+      "residual_norm": 0.29673862906454757
+    },
+    {
+      "exact_pass": false,
+      "fixed_absolute_snap_errors": [
+        0.3621107965742294,
+        0.26711912728916154,
+        0.362110796573925
+      ],
+      "fixed_original_values": [
+        -1.1475089599716777,
+        -1.0525172906866098,
+        0.4232873668235233
+      ],
+      "fixed_parameter_indices": [
+        4,
+        9,
+        17
+      ],
+      "fixed_pi_over_four_values": [
+        -0.7853981633974483,
+        -0.7853981633974483,
+        0.7853981633974483
+      ],
+      "off_pi_over_four_parameter_count_after_reoptimization": 2,
+      "optimizer_nfev": 8,
+      "optimizer_success": true,
+      "reoptimized_free_indices": [
+        3,
+        16
+      ],
+      "reoptimized_free_parameter_count": 2,
+      "residual_norm": 0.5469360960062335
+    },
+    {
+      "exact_pass": false,
+      "fixed_absolute_snap_errors": [
+        0.3621107965742294,
+        0.22645250919909277,
+        0.362110796573925
+      ],
+      "fixed_original_values": [
+        -1.1475089599716777,
+        0.5589456541983555,
+        0.4232873668235233
+      ],
+      "fixed_parameter_indices": [
+        4,
+        16,
+        17
+      ],
+      "fixed_pi_over_four_values": [
+        -0.7853981633974483,
+        0.7853981633974483,
+        0.7853981633974483
+      ],
+      "off_pi_over_four_parameter_count_after_reoptimization": 2,
+      "optimizer_nfev": 20,
+      "optimizer_success": true,
+      "reoptimized_free_indices": [
+        3,
+        9
+      ],
+      "reoptimized_free_parameter_count": 2,
+      "residual_norm": 0.7449029676343185
+    },
+    {
+      "exact_pass": false,
+      "fixed_absolute_snap_errors": [
+        0.26711912728916154,
+        0.22645250919909277,
+        0.362110796573925
+      ],
+      "fixed_original_values": [
+        -1.0525172906866098,
+        0.5589456541983555,
+        0.4232873668235233
+      ],
+      "fixed_parameter_indices": [
+        9,
+        16,
+        17
+      ],
+      "fixed_pi_over_four_values": [
+        -0.7853981633974483,
+        0.7853981633974483,
+        0.7853981633974483
+      ],
+      "off_pi_over_four_parameter_count_after_reoptimization": 2,
+      "optimizer_nfev": 11,
+      "optimizer_success": true,
+      "reoptimized_free_indices": [
+        3,
+        4
+      ],
+      "reoptimized_free_parameter_count": 2,
+      "residual_norm": 0.4150816983155085
+    }
+  ],
+  "linked_b7_problem_id": 21,
+  "method": "b1_b7_cone01_line1381_leave_three_out_parameter_gate_v0",
+  "model_status": "line1381_off_grid_parameter_triples_are_leave_three_out_required",
+  "source_five_parameter_line1381_exact_repair_result": "results/B1_B7_cone01_five_parameter_line1381_exact_repair_gate_v0.json",
+  "source_leave_two_out_parameter_result": "results/B1_B7_cone01_line1381_leave_two_out_parameter_gate_v0.json",
+  "source_packet_synthesis_result": "results/B1_B7_cone01_packet_synthesis_search_gate_v0.json",
+  "source_semantic_packet_result": "results/B1_B7_cone01_semantic_replay_packet_gate_v0.json",
+  "status": "cone01_line1381_no_three_parameter_free_removal",
+  "summary": {
+    "accepted_full_circuit_qasm_patch_count": 0,
+    "accepted_full_circuit_replay_certificate_count": 0,
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "all_three_parameter_removals_fail": true,
+    "b7_ledger_improvement_claimed": false,
+    "base_five_parameter_residual_norm": 6.513210005207597e-13,
+    "best_leave_three_out_fixed_parameter_indices": [
+      4,
+      9,
+      16
+    ],
+    "best_leave_three_out_residual_norm": 0.29673862906454757,
+    "candidate_cnot_reduction": 3,
+    "current_off_grid_parameter_count": 5,
+    "current_off_grid_parameter_indices": [
+      3,
+      4,
+      9,
+      16,
+      17
+    ],
+    "current_off_grid_parameter_values": [
+      1.428268820279441,
+      -1.1475089599716777,
+      -1.0525172906866098,
+      0.5589456541983555,
+      0.4232873668235233
+    ],
+    "exact_tolerance": 1e-08,
+    "leave_three_out_exact_fail_count": 10,
+    "leave_three_out_exact_pass_count": 0,
+    "leave_three_out_row_count": 10,
+    "line1381_off_grid_parameters_absorbed": false,
+    "line1381_off_grid_parameters_eliminated": false,
+    "line1381_off_grid_parameters_symbolically_decomposed": false,
+    "max_residual_ratio_to_exact_tolerance": 74490296.76343185,
+    "min_residual_ratio_to_exact_tolerance": 29673862.906454757,
+    "missing_occurrences_after_gate": 30,
+    "missing_proxy_t_after_gate": 600,
+    "replacement_cnot_count": 2,
+    "resource_saving_claimed": false,
+    "source_cnot_count": 5,
+    "source_five_parameter_line1381_exact_repair_method": "b1_b7_cone01_five_parameter_line1381_exact_repair_gate_v0",
+    "source_leave_two_out_parameter_method": "b1_b7_cone01_line1381_leave_two_out_parameter_gate_v0",
+    "source_packet_synthesis_method": "b1_b7_cone01_packet_synthesis_search_gate_v0",
+    "source_semantic_packet_method": "b1_b7_cone01_semantic_replay_packet_gate_v0",
+    "support_qubits": [
+      4,
+      8
+    ],
+    "target_candidate_line_number": 1381,
+    "three_parameter_free_removal_accepted": false,
+    "validation_error_count": 0,
+    "window_end_line": 1379,
+    "window_start_line": 1369,
+    "worst_leave_three_out_fixed_parameter_indices": [
+      4,
+      16,
+      17
+    ],
+    "worst_leave_three_out_residual_norm": 0.7449029676343185
+  },
+  "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+}
