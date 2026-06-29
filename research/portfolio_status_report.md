@@ -996,6 +996,23 @@ Overall audit: PASS
 - Accepted occurrence / proxy-T reduction / B7 claim: 0 / 0 / False
 - Validation errors: 0
 
+## B1/B7 cone_01 OpenQASM 3 Qiskit-Loader Evidence Seal Gate
+
+- Exists: True
+- Status: cone01_openqasm3_qiskit_loader_evidence_seal_passed_without_b7_credit
+- OpenQASM 3 path: results/B1_B7_cone01_openqasm3_candidate_export_gate/gcm_h6_line268_line1381_candidate_openqasm3.qasm
+- Source artifact count / seal hash: 7 / d06c1fdae3ad7cad1971cdcdcea1f890d3931924a7e70affc25fdf89737e09a8
+- Qiskit / qiskit-qasm3-import / openqasm3 versions: 2.4.1 / 0.6.0 / 1.0.1
+- Qubits / clbits / depth / operation counts: 19 / 1 / 1483 / {'cx': 789, 'measure': 1, 'rz': 601, 'u': 487}
+- Default / multi / phase / global replay cases: True / 8 / 8 / 21
+- Failed replay cases total: 0
+- Global-phase / finite-span / patch-lift support passed: True / True / True
+- Certified span / full space: 6 / 524288
+- Span spectral / max basis L2 / max probability / max cross-Gram delta: 2.7889440543898627e-13 / 2.534056605707275e-13 / 7.771561172376096e-16 / 4.403624367368429e-14
+- Selected lines / dropped overlap lines / stream mismatch: [268, 1381] / [1378] / 0
+- Accepted evidence seal / occurrence / proxy-T reduction / B7 claim: 1 / 0 / 0 / False
+- Validation errors: 0
+
 ## B1/B7 cone_01 Full-Statevector Replay Probe Gate
 
 - Exists: True

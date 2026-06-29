@@ -297,6 +297,9 @@ def audit(root: Path) -> dict:
     b1_b7_cone01_openqasm3_qiskit_loader_composable_patch_lift_path = (
         results / "B1_B7_cone01_openqasm3_qiskit_loader_composable_patch_lift_gate_v0.json"
     )
+    b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal_path = (
+        results / "B1_B7_cone01_openqasm3_qiskit_loader_evidence_seal_gate_v0.json"
+    )
     b1_b7_cone01_full_statevector_replay_probe_path = (
         results / "B1_B7_cone01_full_statevector_replay_probe_gate_v0.json"
     )
@@ -1029,6 +1032,9 @@ def audit(root: Path) -> dict:
         current_results.get(
             "b1_b7_cone01_openqasm3_qiskit_loader_composable_patch_lift_gate_v0"
         )
+    )
+    b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal_manifest = current_results.get(
+        "b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate_v0"
     )
     b1_b7_cone01_full_statevector_replay_probe_manifest = current_results.get(
         "b1_b7_cone01_full_statevector_replay_probe_gate_v0"
@@ -12738,6 +12744,226 @@ def audit(root: Path) -> dict:
         errors.append(
             f"missing B1/B7 cone_01 Qiskit-loader patch-lift support report: "
             f"{b1_b7_cone01_openqasm3_qiskit_loader_composable_patch_lift_path}"
+        )
+
+    b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal = {
+        "path": str(b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal_path),
+        "exists": b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal_path.exists(),
+    }
+    if not b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal_manifest:
+        errors.append(
+            "B1 manifest missing current result: "
+            "b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate_v0"
+        )
+    else:
+        if (
+            b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal_manifest.get("status")
+            != "cone01_openqasm3_qiskit_loader_evidence_seal_passed_without_b7_credit"
+        ):
+            errors.append("B1/B7 cone_01 Qiskit-loader evidence seal manifest status mismatch")
+        for field in ["report", "markdown_report"]:
+            value = b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal_manifest.get(field)
+            if value and not path_exists_from(benchmarks, value):
+                errors.append(
+                    f"B1/B7 cone_01 Qiskit-loader evidence seal manifest {field} missing: {value}"
+                )
+    if b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal_path.exists():
+        qasm3_loader_seal_payload = json.loads(
+            read(b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal_path)
+        )
+        qasm3_loader_seal_summary = qasm3_loader_seal_payload.get("summary", {})
+        qasm3_loader_seal_claims = qasm3_loader_seal_payload.get("claim_boundary", {})
+        b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal.update(
+            {
+                "status": qasm3_loader_seal_payload.get("status"),
+                "method": qasm3_loader_seal_payload.get("method"),
+                "openqasm3_candidate_path": qasm3_loader_seal_summary.get(
+                    "openqasm3_candidate_path"
+                ),
+                "qiskit_loader_source_artifact_count": qasm3_loader_seal_summary.get(
+                    "qiskit_loader_source_artifact_count"
+                ),
+                "qiskit_loader_evidence_seal_sha256": qasm3_loader_seal_summary.get(
+                    "qiskit_loader_evidence_seal_sha256"
+                ),
+                "qiskit_version": qasm3_loader_seal_summary.get("qiskit_version"),
+                "qiskit_qasm3_import_version": qasm3_loader_seal_summary.get(
+                    "qiskit_qasm3_import_version"
+                ),
+                "openqasm3_package_version": qasm3_loader_seal_summary.get(
+                    "openqasm3_package_version"
+                ),
+                "qiskit_num_qubits": qasm3_loader_seal_summary.get("qiskit_num_qubits"),
+                "qiskit_num_clbits": qasm3_loader_seal_summary.get("qiskit_num_clbits"),
+                "qiskit_depth": qasm3_loader_seal_summary.get("qiskit_depth"),
+                "qiskit_count_ops": qasm3_loader_seal_summary.get("qiskit_count_ops"),
+                "default_input_replay_passed": qasm3_loader_seal_summary.get(
+                    "default_input_replay_passed"
+                ),
+                "multi_input_case_count": qasm3_loader_seal_summary.get(
+                    "multi_input_case_count"
+                ),
+                "phase_consistent_input_case_count": qasm3_loader_seal_summary.get(
+                    "phase_consistent_input_case_count"
+                ),
+                "global_phase_input_case_count": qasm3_loader_seal_summary.get(
+                    "global_phase_input_case_count"
+                ),
+                "failed_input_case_count_total": qasm3_loader_seal_summary.get(
+                    "failed_input_case_count_total"
+                ),
+                "qiskit_loader_global_phase_subspace_replay_passed": (
+                    qasm3_loader_seal_summary.get(
+                        "qiskit_loader_global_phase_subspace_replay_passed"
+                    )
+                ),
+                "qiskit_loader_linear_span_certificate_passed": (
+                    qasm3_loader_seal_summary.get("qiskit_loader_linear_span_certificate_passed")
+                ),
+                "qiskit_loader_composable_patch_lift_support_passed": (
+                    qasm3_loader_seal_summary.get(
+                        "qiskit_loader_composable_patch_lift_support_passed"
+                    )
+                ),
+                "qiskit_loader_certified_input_subspace_dimension": (
+                    qasm3_loader_seal_summary.get("qiskit_loader_certified_input_subspace_dimension")
+                ),
+                "qiskit_loader_full_input_space_dimension": qasm3_loader_seal_summary.get(
+                    "qiskit_loader_full_input_space_dimension"
+                ),
+                "qiskit_loader_linear_span_error_spectral_norm": (
+                    qasm3_loader_seal_summary.get("qiskit_loader_linear_span_error_spectral_norm")
+                ),
+                "qiskit_loader_max_basis_l2_error": qasm3_loader_seal_summary.get(
+                    "qiskit_loader_max_basis_l2_error"
+                ),
+                "qiskit_loader_max_basis_probability_delta": (
+                    qasm3_loader_seal_summary.get("qiskit_loader_max_basis_probability_delta")
+                ),
+                "qiskit_loader_max_cross_gram_delta": qasm3_loader_seal_summary.get(
+                    "qiskit_loader_max_cross_gram_delta"
+                ),
+                "selected_line_numbers": qasm3_loader_seal_summary.get(
+                    "selected_line_numbers"
+                ),
+                "dropped_overlap_candidate_line_numbers": qasm3_loader_seal_summary.get(
+                    "dropped_overlap_candidate_line_numbers"
+                ),
+                "stream_mismatch_count": qasm3_loader_seal_summary.get("stream_mismatch_count"),
+                "normalized_instruction_count": qasm3_loader_seal_summary.get(
+                    "normalized_instruction_count"
+                ),
+                "accepted_qiskit_loader_evidence_seal_count": qasm3_loader_seal_summary.get(
+                    "accepted_qiskit_loader_evidence_seal_count"
+                ),
+                "accepted_occurrence_removal": qasm3_loader_seal_summary.get(
+                    "accepted_occurrence_removal"
+                ),
+                "accepted_proxy_t_reduction": qasm3_loader_seal_summary.get(
+                    "accepted_proxy_t_reduction"
+                ),
+                "b7_ledger_improvement_claimed": qasm3_loader_seal_summary.get(
+                    "b7_ledger_improvement_claimed"
+                ),
+                "validation_error_count": len(qasm3_loader_seal_payload.get("validation_errors", [])),
+            }
+        )
+        if (
+            qasm3_loader_seal_payload.get("method")
+            != "b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate_v0"
+        ):
+            errors.append("B1/B7 cone_01 Qiskit-loader evidence seal method mismatch")
+        if (
+            qasm3_loader_seal_payload.get("status")
+            != "cone01_openqasm3_qiskit_loader_evidence_seal_passed_without_b7_credit"
+        ):
+            errors.append("B1/B7 cone_01 Qiskit-loader evidence seal status mismatch")
+        expected_qasm3_loader_seal_fields = {
+            "qiskit_loader_source_artifact_count": 7,
+            "qiskit_version": "2.4.1",
+            "qiskit_qasm3_import_version": "0.6.0",
+            "openqasm3_package_version": "1.0.1",
+            "qiskit_num_qubits": 19,
+            "qiskit_num_clbits": 1,
+            "qiskit_depth": 1483,
+            "qiskit_count_ops": {"cx": 789, "measure": 1, "rz": 601, "u": 487},
+            "default_input_replay_passed": True,
+            "multi_input_case_count": 8,
+            "phase_consistent_input_case_count": 8,
+            "global_phase_input_case_count": 21,
+            "failed_input_case_count_total": 0,
+            "qiskit_loader_global_phase_subspace_replay_passed": True,
+            "qiskit_loader_linear_span_certificate_passed": True,
+            "qiskit_loader_composable_patch_lift_support_passed": True,
+            "qiskit_loader_certified_input_subspace_dimension": 6,
+            "qiskit_loader_full_input_space_dimension": 524288,
+            "qiskit_loader_linear_span_error_spectral_norm": 2.7889440543898627e-13,
+            "qiskit_loader_max_basis_l2_error": 2.534056605707275e-13,
+            "qiskit_loader_max_basis_probability_delta": 7.771561172376096e-16,
+            "qiskit_loader_max_cross_gram_delta": 4.403624367368429e-14,
+            "selected_line_numbers": [268, 1381],
+            "dropped_overlap_candidate_line_numbers": [1378],
+            "stream_mismatch_count": 0,
+            "normalized_instruction_count": 1878,
+            "accepted_qiskit_loader_evidence_seal_count": 1,
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "b7_ledger_improvement_claimed": False,
+        }
+        for field, expected in expected_qasm3_loader_seal_fields.items():
+            if qasm3_loader_seal_summary.get(field) != expected:
+                errors.append(f"B1/B7 cone_01 Qiskit-loader evidence seal {field} mismatch")
+            if (
+                b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal_manifest
+                and field in b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal_manifest
+                and expected
+                != b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal_manifest.get(field)
+            ):
+                errors.append(
+                    f"B1/B7 cone_01 Qiskit-loader evidence seal manifest {field} mismatch"
+                )
+        if not qasm3_loader_seal_summary.get("qiskit_loader_evidence_seal_sha256"):
+            errors.append("B1/B7 cone_01 Qiskit-loader evidence seal hash missing")
+        source_hashes = qasm3_loader_seal_summary.get("qiskit_loader_source_artifact_hashes", {})
+        if len(source_hashes) != 7:
+            errors.append("B1/B7 cone_01 Qiskit-loader evidence seal source hash count mismatch")
+        for source_path, expected_hash in source_hashes.items():
+            actual_path = root / source_path
+            if not actual_path.exists():
+                errors.append(f"B1/B7 cone_01 Qiskit-loader evidence seal source missing: {source_path}")
+                continue
+            actual_hash = hashlib.sha256(read(actual_path).encode("utf-8")).hexdigest()
+            if actual_hash != expected_hash:
+                errors.append(
+                    f"B1/B7 cone_01 Qiskit-loader evidence seal source hash mismatch: {source_path}"
+                )
+        for field, upper_bound in {
+            "qiskit_loader_linear_span_error_spectral_norm": 1e-10,
+            "qiskit_loader_max_basis_l2_error": 1e-10,
+            "qiskit_loader_max_basis_probability_delta": 1e-10,
+            "qiskit_loader_max_cross_gram_delta": 1e-10,
+        }.items():
+            if float(qasm3_loader_seal_summary.get(field, 1.0)) > upper_bound:
+                errors.append(f"B1/B7 cone_01 Qiskit-loader evidence seal {field} too high")
+        for field in [
+            "symbolic_unitary_equivalence_claimed",
+            "arbitrary_input_equivalence_claimed",
+            "full_hilbert_space_certificate_claimed",
+            "local_u3_pricing_accepted",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+        ]:
+            if qasm3_loader_seal_summary.get(field) is not False:
+                errors.append(f"B1/B7 cone_01 Qiskit-loader evidence seal must not claim {field}")
+            if qasm3_loader_seal_claims.get(field) is not False:
+                errors.append(
+                    "B1/B7 cone_01 Qiskit-loader evidence seal claim boundary "
+                    f"must not claim {field}"
+                )
+    else:
+        errors.append(
+            f"missing B1/B7 cone_01 Qiskit-loader evidence seal report: "
+            f"{b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal_path}"
         )
 
     b1_b7_cone01_full_statevector_replay_probe = {
@@ -27556,6 +27782,9 @@ def audit(root: Path) -> dict:
             "b7_cone01_openqasm3_qiskit_loader_composable_patch_lift_gate": (
                 b1_b7_cone01_openqasm3_qiskit_loader_composable_patch_lift
             ),
+            "b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate": (
+                b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal
+            ),
             "b7_cone01_full_statevector_replay_probe_gate": (
                 b1_b7_cone01_full_statevector_replay_probe
             ),
@@ -27964,6 +28193,9 @@ def audit(root: Path) -> dict:
             ),
             "b1_b7_cone01_openqasm3_qiskit_loader_composable_patch_lift_gate": str(
                 b1_b7_cone01_openqasm3_qiskit_loader_composable_patch_lift_path
+            ),
+            "b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate": str(
+                b1_b7_cone01_openqasm3_qiskit_loader_evidence_seal_path
             ),
             "b1_b7_cone01_full_statevector_replay_probe_gate": str(
                 b1_b7_cone01_full_statevector_replay_probe_path
@@ -29261,6 +29493,23 @@ def markdown_report(report: dict) -> str:
             f"- Accepted parse / global-phase / linear-span / patch-lift support artifacts: {report['b1']['b7_cone01_openqasm3_qiskit_loader_composable_patch_lift_gate'].get('accepted_qiskit_loader_parse_artifact_count')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_composable_patch_lift_gate'].get('accepted_qiskit_loader_global_phase_subspace_replay_artifact_count')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_composable_patch_lift_gate'].get('accepted_qiskit_loader_linear_span_certificate_count')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_composable_patch_lift_gate'].get('accepted_qiskit_loader_composable_patch_lift_support_count')}",
             f"- Accepted occurrence / proxy-T reduction / B7 claim: {report['b1']['b7_cone01_openqasm3_qiskit_loader_composable_patch_lift_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_composable_patch_lift_gate'].get('accepted_proxy_t_reduction')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_composable_patch_lift_gate'].get('b7_ledger_improvement_claimed')}",
             f"- Validation errors: {report['b1']['b7_cone01_openqasm3_qiskit_loader_composable_patch_lift_gate'].get('validation_error_count')}",
+            "",
+            "## B1/B7 cone_01 OpenQASM 3 Qiskit-Loader Evidence Seal Gate",
+            "",
+            f"- Exists: {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('exists')}",
+            f"- Status: {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('status')}",
+            f"- OpenQASM 3 path: {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('openqasm3_candidate_path')}",
+            f"- Source artifact count / seal hash: {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('qiskit_loader_source_artifact_count')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('qiskit_loader_evidence_seal_sha256')}",
+            f"- Qiskit / qiskit-qasm3-import / openqasm3 versions: {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('qiskit_version')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('qiskit_qasm3_import_version')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('openqasm3_package_version')}",
+            f"- Qubits / clbits / depth / operation counts: {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('qiskit_num_qubits')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('qiskit_num_clbits')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('qiskit_depth')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('qiskit_count_ops')}",
+            f"- Default / multi / phase / global replay cases: {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('default_input_replay_passed')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('multi_input_case_count')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('phase_consistent_input_case_count')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('global_phase_input_case_count')}",
+            f"- Failed replay cases total: {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('failed_input_case_count_total')}",
+            f"- Global-phase / finite-span / patch-lift support passed: {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('qiskit_loader_global_phase_subspace_replay_passed')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('qiskit_loader_linear_span_certificate_passed')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('qiskit_loader_composable_patch_lift_support_passed')}",
+            f"- Certified span / full space: {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('qiskit_loader_certified_input_subspace_dimension')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('qiskit_loader_full_input_space_dimension')}",
+            f"- Span spectral / max basis L2 / max probability / max cross-Gram delta: {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('qiskit_loader_linear_span_error_spectral_norm')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('qiskit_loader_max_basis_l2_error')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('qiskit_loader_max_basis_probability_delta')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('qiskit_loader_max_cross_gram_delta')}",
+            f"- Selected lines / dropped overlap lines / stream mismatch: {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('selected_line_numbers')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('dropped_overlap_candidate_line_numbers')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('stream_mismatch_count')}",
+            f"- Accepted evidence seal / occurrence / proxy-T reduction / B7 claim: {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('accepted_qiskit_loader_evidence_seal_count')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('accepted_proxy_t_reduction')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('b7_ledger_improvement_claimed')}",
+            f"- Validation errors: {report['b1']['b7_cone01_openqasm3_qiskit_loader_evidence_seal_gate'].get('validation_error_count')}",
             "",
             "## B1/B7 cone_01 Full-Statevector Replay Probe Gate",
             "",

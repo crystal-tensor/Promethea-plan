@@ -1008,3 +1008,16 @@ max cross-Gram delta `4.403624367368429e-14`. This accepts one
 Qiskit-loader-backed composable patch-lift support artifact, but it is still
 not full-space symbolic equivalence, arbitrary-input equivalence, local-U3
 pricing, occurrence removal, proxy-T reduction, or B7 ledger credit.
+
+T-B1-004cm seals the Qiskit-loader evidence chain for drift detection. It
+hashes the exported OpenQASM 3 candidate plus the Qiskit-loader replay,
+multi-input, phase-consistent, global-phase, finite-span, and composable
+patch-lift support artifacts into seal
+`d06c1fdae3ad7cad1971cdcdcea1f890d3931924a7e70affc25fdf89737e09a8`. The seal
+keeps Qiskit 2.4.1, `qiskit-qasm3-import` 0.6.0, `openqasm3` 1.0.1, 19 qubits,
+depth 1483, operation counts `cx=789`, `rz=601`, `u=487`, `measure=1`, 8
+multi-input cases, 8 phase-consistent cases, 21 global-phase cases, 0 failed
+cases, and the same selected lines [268, 1381] with dropped overlap line
+[1378]. This is a reproducibility gate, not a new equivalence theorem:
+full-space symbolic equivalence, local-U3 pricing, occurrence removal, proxy-T
+reduction, and B7 ledger credit remain 0.

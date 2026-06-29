@@ -2185,3 +2185,17 @@ probability delta `7.771561172376096e-16`, max cross-Gram delta
 Qiskit-loader composable patch-lift support artifact only; arbitrary-input or
 symbolic equivalence, local-U3 pricing, occurrence removal, proxy-T reduction,
 and B7 ledger improvement remain 0.
+
+Sprint update 18cm: B1/B7 now has a Qiskit-loader evidence-seal gate.
+T-B1-004cm consumes the exported OpenQASM 3 candidate plus the Qiskit-loader
+default replay, multi-input replay, phase-consistent replay, global-phase
+subspace replay, finite linear-span certificate, and composable patch-lift
+support artifacts. It records 7 source artifact hashes and emits evidence seal
+`d06c1fdae3ad7cad1971cdcdcea1f890d3931924a7e70affc25fdf89737e09a8`. The seal
+keeps Qiskit 2.4.1, qiskit-qasm3-import 0.6.0, openqasm3 1.0.1, depth 1483,
+operation counts cx=789/rz=601/u=487/measure=1, 8 multi-input cases, 8
+phase-consistent cases, 21 global-phase cases, 0 failed replay cases, selected
+lines [268, 1381], dropped overlap line [1378], and B7 credit 0. This is a
+drift-detection and reproducibility gate only; arbitrary-input or symbolic
+equivalence, local-U3 pricing, occurrence removal, proxy-T reduction, and B7
+ledger improvement remain 0.
