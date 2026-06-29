@@ -1013,6 +1013,20 @@ Overall audit: PASS
 - Accepted evidence seal / occurrence / proxy-T reduction / B7 claim: 1 / 0 / 0 / False
 - Validation errors: 0
 
+## B1/B7 cone_01 OpenQASM 3 Qiskit-Loader Evidence Seal Reproduction Gate
+
+- Exists: True
+- Status: cone01_openqasm3_qiskit_loader_evidence_seal_reproduced_without_b7_credit
+- Input evidence-seal report: results/B1_B7_cone01_openqasm3_qiskit_loader_evidence_seal_gate_v0.json
+- Source artifact count / matching hashes / mismatches: 7 / 7 / 0
+- Expected / independent / reproduced seal: d06c1fdae3ad7cad1971cdcdcea1f890d3931924a7e70affc25fdf89737e09a8 / d06c1fdae3ad7cad1971cdcdcea1f890d3931924a7e70affc25fdf89737e09a8 / d06c1fdae3ad7cad1971cdcdcea1f890d3931924a7e70affc25fdf89737e09a8
+- Reproduction / source hashes / JSON byte-stable / Markdown byte-stable: True / True / True / True
+- Qiskit / qiskit-qasm3-import / openqasm3 versions: 2.4.1 / 0.6.0 / 1.0.1
+- Depth / operation counts: 1483 / {'cx': 789, 'measure': 1, 'rz': 601, 'u': 487}
+- Multi / phase / global replay cases / failed total: 8 / 8 / 21 / 0
+- Accepted evidence seal / reproduction / occurrence / proxy-T reduction / B7 claim: 1 / 1 / 0 / 0 / False
+- Validation errors: 0
+
 ## B1/B7 cone_01 Full-Statevector Replay Probe Gate
 
 - Exists: True

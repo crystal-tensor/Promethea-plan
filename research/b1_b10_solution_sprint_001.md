@@ -2199,3 +2199,17 @@ lines [268, 1381], dropped overlap line [1378], and B7 credit 0. This is a
 drift-detection and reproducibility gate only; arbitrary-input or symbolic
 equivalence, local-U3 pricing, occurrence removal, proxy-T reduction, and B7
 ledger improvement remain 0.
+
+Sprint update 18cn: B1/B7 now has a Qiskit-loader evidence-seal reproduction
+gate. T-B1-004cn independently recomputes all 7 source artifact hashes, reruns
+the T-B1-004cm seal generator, and requires the expected, independent, and
+reproduced seals to match
+`d06c1fdae3ad7cad1971cdcdcea1f890d3931924a7e70affc25fdf89737e09a8`. The
+reproduction passes with 7/7 source-hash matches, 0 mismatch paths, byte-stable
+JSON hash `f7a5f57ced33e3d8c3f8be12fbcd0dba26a5b42206dac8bb0e1ed1723a735ad2`,
+byte-stable Markdown hash
+`7a648d78758b0f6499d7a743993714fef3d47932b9b02ec5de317228c7828dc7`, 0 failed
+replay cases, selected lines [268, 1381], dropped overlap line [1378], and B7
+credit 0. This accepts one evidence-seal reproduction artifact only; arbitrary
+input or symbolic equivalence, local-U3 pricing, occurrence removal, proxy-T
+reduction, and B7 ledger improvement remain 0.

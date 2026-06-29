@@ -1021,3 +1021,16 @@ cases, and the same selected lines [268, 1381] with dropped overlap line
 [1378]. This is a reproducibility gate, not a new equivalence theorem:
 full-space symbolic equivalence, local-U3 pricing, occurrence removal, proxy-T
 reduction, and B7 ledger credit remain 0.
+
+T-B1-004cn reproduces that Qiskit-loader evidence seal. It independently
+recomputes all 7 source artifact hashes, reruns the T-B1-004cm seal generator,
+and requires the expected, independent, and reproduced seals to match
+`d06c1fdae3ad7cad1971cdcdcea1f890d3931924a7e70affc25fdf89737e09a8`. The JSON
+report remains byte-stable with hash
+`f7a5f57ced33e3d8c3f8be12fbcd0dba26a5b42206dac8bb0e1ed1723a735ad2`, the
+Markdown report remains byte-stable with hash
+`7a648d78758b0f6499d7a743993714fef3d47932b9b02ec5de317228c7828dc7`, and the
+source-hash mismatch count is 0. This accepts one evidence-seal reproduction
+artifact, but it is still a reproducibility gate only: full-space symbolic
+equivalence, local-U3 pricing, occurrence removal, proxy-T reduction, and B7
+ledger credit remain 0.
