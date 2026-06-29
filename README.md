@@ -946,3 +946,14 @@ amplitude delta `1.3908205762322243e-13`, max probability delta
 Qiskit-loader replay artifact, but it still does not claim arbitrary-input or
 symbolic equivalence, local-U3 pricing, occurrence removal, proxy-T reduction,
 or B7 ledger credit.
+
+T-B1-004ch broadens that loader-backed evidence from the default input to the
+same deterministic 8-input suite used by the project-local multi-input replay
+gate. The Qiskit-loaded OpenQASM 3 candidate passes all 8 cases: 6
+computational-basis inputs and 2 seeded product states. Minimum state fidelity
+is `0.9999999999999547`, max infidelity is `4.529709940470639e-14`, max
+global-phase-aligned amplitude delta is `1.392888964263601e-13`, and max
+probability delta is `1.8214596497756474e-15`. This accepts one
+Qiskit-loader multi-input replay artifact, but it remains sampled numerical
+evidence, not arbitrary-input symbolic equivalence, local-U3 pricing,
+occurrence removal, proxy-T reduction, or B7 ledger credit.

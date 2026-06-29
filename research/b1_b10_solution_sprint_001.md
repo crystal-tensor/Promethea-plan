@@ -2117,3 +2117,15 @@ measured q[4] marginal delta `5.551115123125783e-16`. This accepts one
 Qiskit-loader parse artifact and one Qiskit-loader replay artifact only;
 arbitrary-input/symbolic equivalence, local-U3 pricing, occurrence removal,
 proxy-T reduction, and B7 ledger improvement remain 0.
+
+Sprint update 18ch: B1/B7 now has Qiskit-loader multi-input replay pressure.
+T-B1-004ch consumes the default-input Qiskit-loader gate and the project-local
+OpenQASM 3 multi-input replay gate, then replays the Qiskit-loaded OpenQASM 3
+candidate on the same deterministic 8-input suite. All 8 cases pass: 6
+computational-basis inputs and 2 seeded product states. Min state fidelity is
+`0.9999999999999547`, max infidelity is `4.529709940470639e-14`, max aligned
+amplitude delta is `1.392888964263601e-13`, max probability delta is
+`1.8214596497756474e-15`, and failed cases are 0. This accepts one
+Qiskit-loader multi-input replay artifact only; arbitrary-input/symbolic
+equivalence, local-U3 pricing, occurrence removal, proxy-T reduction, and B7
+ledger improvement remain 0.

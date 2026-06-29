@@ -2321,6 +2321,54 @@ current_results:
     validation_error_count: 0
     report: ../results/B1_B7_cone01_openqasm3_qiskit_loader_replay_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_openqasm3_qiskit_loader_replay_gate.md
+  b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate_v0:
+    circuits: 1
+    status: cone01_openqasm3_qiskit_loader_multi_input_replay_passed_sampled_inputs
+    model_status: qiskit_loader_openqasm3_matches_source_sampled_inputs_without_b7_credit
+    method: b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate_v0
+    source_openqasm3_qiskit_loader_replay_gate: b1_b7_cone01_openqasm3_qiskit_loader_replay_gate_v0
+    source_openqasm3_multi_input_replay_gate: b1_b7_cone01_openqasm3_multi_input_replay_gate_v0
+    workload: qasmbench_medium_exact/gcm_h6.qasm
+    openqasm3_candidate_path: ../results/B1_B7_cone01_openqasm3_candidate_export_gate/gcm_h6_line268_line1381_candidate_openqasm3.qasm
+    qiskit_version: 2.4.1
+    qiskit_qasm3_import_version: 0.6.0
+    openqasm3_package_version: 1.0.1
+    qiskit_loader_passed: true
+    qiskit_num_qubits: 19
+    qiskit_num_clbits: 1
+    qiskit_depth: 1483
+    qiskit_count_ops: {cx: 789, measure: 1, rz: 601, u: 487}
+    input_case_count: 8
+    computational_basis_input_count: 6
+    deterministic_product_state_input_count: 2
+    min_state_fidelity: 0.9999999999999547
+    max_infidelity: 4.529709940470639e-14
+    max_global_phase_aligned_amplitude_delta: 1.392888964263601e-13
+    max_probability_delta: 1.8214596497756474e-15
+    failed_input_case_count: 0
+    qiskit_loader_multi_input_replay_passed: true
+    accepted_qiskit_loader_parse_artifact_count: 1
+    accepted_qiskit_loader_replay_artifact_count: 1
+    accepted_qiskit_loader_multi_input_replay_artifact_count: 1
+    accepted_full_circuit_replay_certificate_count: 0
+    accepted_symbolic_unitary_equivalence_count: 0
+    accepted_local_u3_pricing_certificate_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    missing_occurrences_after_gate: 30
+    missing_proxy_t_after_gate: 600
+    qiskit_loader_parse_claimed: true
+    qiskit_loader_replay_claimed: true
+    qiskit_loader_multi_input_replay_claimed: true
+    symbolic_unitary_equivalence_claimed: false
+    arbitrary_input_equivalence_claimed: false
+    full_hilbert_space_certificate_claimed: false
+    local_u3_pricing_accepted: false
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    validation_error_count: 0
+    report: ../results/B1_B7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate

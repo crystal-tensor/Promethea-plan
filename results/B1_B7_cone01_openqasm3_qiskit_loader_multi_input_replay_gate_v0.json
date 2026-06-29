@@ -1,0 +1,171 @@
+{
+  "benchmark_id": "B1",
+  "claim_boundary": {
+    "arbitrary_input_equivalence_claimed": false,
+    "b7_ledger_improvement_claimed": false,
+    "full_hilbert_space_certificate_claimed": false,
+    "local_u3_pricing_accepted": false,
+    "qiskit_loader_multi_input_replay_claimed": true,
+    "qiskit_loader_parse_claimed": true,
+    "qiskit_loader_replay_claimed": true,
+    "resource_saving_claimed": false,
+    "supported_claim": "The Qiskit-loaded OpenQASM 3 candidate matches the optimized source on the same deterministic 8-input suite used by the project-local multi-input replay gate after final measurements are removed.",
+    "symbolic_unitary_equivalence_claimed": false,
+    "unsupported_claims": [
+      "This is sampled multi-input statevector evidence, not arbitrary-input equivalence.",
+      "This is not a symbolic exact full-circuit unitary proof.",
+      "This does not price or eliminate the remaining line-1381 off-grid local-U3 parameters.",
+      "This does not recover the dropped line-1378 overlap delta.",
+      "This does not improve the B7 resource ledger."
+    ]
+  },
+  "linked_b7_problem_id": 21,
+  "method": "b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate_v0",
+  "model_status": "qiskit_loader_openqasm3_matches_source_sampled_inputs_without_b7_credit",
+  "status": "cone01_openqasm3_qiskit_loader_multi_input_replay_passed_sampled_inputs",
+  "summary": {
+    "accepted_full_circuit_replay_certificate_count": 0,
+    "accepted_local_u3_pricing_certificate_count": 0,
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "accepted_qiskit_loader_multi_input_replay_artifact_count": 1,
+    "accepted_qiskit_loader_parse_artifact_count": 1,
+    "accepted_qiskit_loader_replay_artifact_count": 1,
+    "accepted_symbolic_unitary_equivalence_count": 0,
+    "arbitrary_input_equivalence_claimed": false,
+    "b7_ledger_improvement_claimed": false,
+    "computational_basis_input_count": 6,
+    "deterministic_product_state_input_count": 2,
+    "expected_qiskit_count_ops": {
+      "cx": 789,
+      "measure": 1,
+      "rz": 601,
+      "u": 487
+    },
+    "failed_input_case_count": 0,
+    "failed_input_cases": [],
+    "final_measurement_removed_for_statevector": true,
+    "full_hilbert_space_certificate_claimed": false,
+    "input_case_count": 8,
+    "input_cases": [
+      {
+        "infidelity": 4.4853010194856324e-14,
+        "input_kind": "computational_basis",
+        "l2_global_phase_aligned_amplitude_delta": 2.5303097952503064e-13,
+        "label": "zero",
+        "max_global_phase_aligned_amplitude_delta": 1.3908205762322243e-13,
+        "max_probability_delta": 5.551115123125783e-16,
+        "passed": true,
+        "state_fidelity": 0.9999999999999551
+      },
+      {
+        "infidelity": 4.4853010194856324e-14,
+        "input_kind": "computational_basis",
+        "l2_global_phase_aligned_amplitude_delta": 2.5303097952503064e-13,
+        "label": "x_q0",
+        "max_global_phase_aligned_amplitude_delta": 1.3908205762322243e-13,
+        "max_probability_delta": 5.551115123125783e-16,
+        "passed": true,
+        "state_fidelity": 0.9999999999999551
+      },
+      {
+        "infidelity": 4.529709940470639e-14,
+        "input_kind": "computational_basis",
+        "l2_global_phase_aligned_amplitude_delta": 2.4699041835716477e-13,
+        "label": "x_q4",
+        "max_global_phase_aligned_amplitude_delta": 1.389062912973026e-13,
+        "max_probability_delta": 4.996003610813204e-16,
+        "passed": true,
+        "state_fidelity": 0.9999999999999547
+      },
+      {
+        "infidelity": 4.107825191113079e-14,
+        "input_kind": "computational_basis",
+        "l2_global_phase_aligned_amplitude_delta": 2.5340447632180223e-13,
+        "label": "x_q14",
+        "max_global_phase_aligned_amplitude_delta": 1.392888964263601e-13,
+        "max_probability_delta": 4.996003610813204e-16,
+        "passed": true,
+        "state_fidelity": 0.9999999999999589
+      },
+      {
+        "infidelity": 4.1744385725905886e-14,
+        "input_kind": "computational_basis",
+        "l2_global_phase_aligned_amplitude_delta": 2.47412239626466e-13,
+        "label": "x_q4_q14",
+        "max_global_phase_aligned_amplitude_delta": 1.3920569169236498e-13,
+        "max_probability_delta": 7.771561172376096e-16,
+        "passed": true,
+        "state_fidelity": 0.9999999999999583
+      },
+      {
+        "infidelity": 4.1744385725905886e-14,
+        "input_kind": "computational_basis",
+        "l2_global_phase_aligned_amplitude_delta": 2.47412239626466e-13,
+        "label": "x_q0_q4_q14",
+        "max_global_phase_aligned_amplitude_delta": 1.3920569169236498e-13,
+        "max_probability_delta": 7.771561172376096e-16,
+        "passed": true,
+        "state_fidelity": 0.9999999999999583
+      },
+      {
+        "infidelity": 3.3306690738754696e-14,
+        "input_kind": "deterministic_product_state",
+        "l2_global_phase_aligned_amplitude_delta": 2.800889980273697e-13,
+        "label": "product_seed_17",
+        "max_global_phase_aligned_amplitude_delta": 3.096857909047322e-14,
+        "max_probability_delta": 8.370040771588094e-16,
+        "passed": true,
+        "state_fidelity": 0.9999999999999667
+      },
+      {
+        "infidelity": 4.063416270128073e-14,
+        "input_kind": "deterministic_product_state",
+        "l2_global_phase_aligned_amplitude_delta": 2.5546175295001374e-13,
+        "label": "product_seed_29",
+        "max_global_phase_aligned_amplitude_delta": 2.0785455530934426e-14,
+        "max_probability_delta": 1.8214596497756474e-15,
+        "passed": true,
+        "state_fidelity": 0.9999999999999594
+      }
+    ],
+    "local_u3_pricing_accepted": false,
+    "max_global_phase_aligned_amplitude_delta": 1.392888964263601e-13,
+    "max_infidelity": 4.529709940470639e-14,
+    "max_probability_delta": 1.8214596497756474e-15,
+    "min_state_fidelity": 0.9999999999999547,
+    "missing_occurrences_after_gate": 30,
+    "missing_proxy_t_after_gate": 600,
+    "openqasm3_candidate_path": "results/B1_B7_cone01_openqasm3_candidate_export_gate/gcm_h6_line268_line1381_candidate_openqasm3.qasm",
+    "openqasm3_package_version": "1.0.1",
+    "product_state_seeds": [
+      17,
+      29
+    ],
+    "qiskit_count_ops": {
+      "cx": 789,
+      "measure": 1,
+      "rz": 601,
+      "u": 487
+    },
+    "qiskit_depth": 1483,
+    "qiskit_loader_multi_input_replay_claimed": true,
+    "qiskit_loader_multi_input_replay_passed": true,
+    "qiskit_loader_parse_claimed": true,
+    "qiskit_loader_passed": true,
+    "qiskit_loader_replay_claimed": true,
+    "qiskit_num_clbits": 1,
+    "qiskit_num_qubits": 19,
+    "qiskit_qasm3_import_version": "0.6.0",
+    "qiskit_version": "2.4.1",
+    "resource_saving_claimed": false,
+    "source_project_local_multi_input_gate": "results/B1_B7_cone01_openqasm3_multi_input_replay_gate_v0.json",
+    "source_qasm_path": "results/b1_native_t_resource_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+    "source_qiskit_loader_default_input_gate": "results/B1_B7_cone01_openqasm3_qiskit_loader_replay_gate_v0.json",
+    "statevector_dimension": 524288,
+    "symbolic_unitary_equivalence_claimed": false,
+    "validation_error_count": 0
+  },
+  "validation_errors": [],
+  "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+}

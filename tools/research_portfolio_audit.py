@@ -282,6 +282,9 @@ def audit(root: Path) -> dict:
     b1_b7_cone01_openqasm3_qiskit_loader_replay_path = (
         results / "B1_B7_cone01_openqasm3_qiskit_loader_replay_gate_v0.json"
     )
+    b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_path = (
+        results / "B1_B7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate_v0.json"
+    )
     b1_b7_cone01_full_statevector_replay_probe_path = (
         results / "B1_B7_cone01_full_statevector_replay_probe_gate_v0.json"
     )
@@ -991,6 +994,9 @@ def audit(root: Path) -> dict:
     )
     b1_b7_cone01_openqasm3_qiskit_loader_replay_manifest = current_results.get(
         "b1_b7_cone01_openqasm3_qiskit_loader_replay_gate_v0"
+    )
+    b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_manifest = (
+        current_results.get("b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate_v0")
     )
     b1_b7_cone01_full_statevector_replay_probe_manifest = current_results.get(
         "b1_b7_cone01_full_statevector_replay_probe_gate_v0"
@@ -11321,6 +11327,251 @@ def audit(root: Path) -> dict:
         errors.append(
             f"missing B1/B7 cone_01 OpenQASM 3 Qiskit-loader replay report: "
             f"{b1_b7_cone01_openqasm3_qiskit_loader_replay_path}"
+        )
+
+    b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay = {
+        "path": str(b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_path),
+        "exists": b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_path.exists(),
+    }
+    if not b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_manifest:
+        errors.append(
+            "B1 manifest missing current result: "
+            "b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate_v0"
+        )
+    else:
+        if (
+            b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_manifest.get("status")
+            != "cone01_openqasm3_qiskit_loader_multi_input_replay_passed_sampled_inputs"
+        ):
+            errors.append("B1/B7 cone_01 OpenQASM 3 Qiskit-loader multi-input status mismatch")
+        for field in ["report", "markdown_report", "openqasm3_candidate_path"]:
+            value = b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_manifest.get(
+                field
+            )
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(
+                    "B1/B7 cone_01 OpenQASM 3 Qiskit-loader multi-input missing "
+                    f"existing {field} path: {value}"
+                )
+    if b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_path.exists():
+        qasm3_loader_multi_payload = json.loads(
+            read(b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_path)
+        )
+        qasm3_loader_multi_summary = qasm3_loader_multi_payload.get("summary", {})
+        qasm3_loader_multi_claims = qasm3_loader_multi_payload.get("claim_boundary", {})
+        b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay.update(
+            {
+                "status": qasm3_loader_multi_payload.get("status"),
+                "model_status": qasm3_loader_multi_payload.get("model_status"),
+                "method": qasm3_loader_multi_payload.get("method"),
+                "workload": qasm3_loader_multi_payload.get("workload"),
+                "openqasm3_candidate_path": qasm3_loader_multi_summary.get(
+                    "openqasm3_candidate_path"
+                ),
+                "qiskit_version": qasm3_loader_multi_summary.get("qiskit_version"),
+                "qiskit_qasm3_import_version": qasm3_loader_multi_summary.get(
+                    "qiskit_qasm3_import_version"
+                ),
+                "openqasm3_package_version": qasm3_loader_multi_summary.get(
+                    "openqasm3_package_version"
+                ),
+                "qiskit_loader_passed": qasm3_loader_multi_summary.get(
+                    "qiskit_loader_passed"
+                ),
+                "qiskit_num_qubits": qasm3_loader_multi_summary.get("qiskit_num_qubits"),
+                "qiskit_num_clbits": qasm3_loader_multi_summary.get("qiskit_num_clbits"),
+                "qiskit_count_ops": qasm3_loader_multi_summary.get("qiskit_count_ops"),
+                "qiskit_depth": qasm3_loader_multi_summary.get("qiskit_depth"),
+                "input_case_count": qasm3_loader_multi_summary.get("input_case_count"),
+                "computational_basis_input_count": qasm3_loader_multi_summary.get(
+                    "computational_basis_input_count"
+                ),
+                "deterministic_product_state_input_count": qasm3_loader_multi_summary.get(
+                    "deterministic_product_state_input_count"
+                ),
+                "min_state_fidelity": qasm3_loader_multi_summary.get("min_state_fidelity"),
+                "max_infidelity": qasm3_loader_multi_summary.get("max_infidelity"),
+                "max_global_phase_aligned_amplitude_delta": qasm3_loader_multi_summary.get(
+                    "max_global_phase_aligned_amplitude_delta"
+                ),
+                "max_probability_delta": qasm3_loader_multi_summary.get(
+                    "max_probability_delta"
+                ),
+                "failed_input_case_count": qasm3_loader_multi_summary.get(
+                    "failed_input_case_count"
+                ),
+                "failed_input_cases": qasm3_loader_multi_summary.get("failed_input_cases"),
+                "qiskit_loader_multi_input_replay_passed": qasm3_loader_multi_summary.get(
+                    "qiskit_loader_multi_input_replay_passed"
+                ),
+                "accepted_qiskit_loader_parse_artifact_count": qasm3_loader_multi_summary.get(
+                    "accepted_qiskit_loader_parse_artifact_count"
+                ),
+                "accepted_qiskit_loader_replay_artifact_count": qasm3_loader_multi_summary.get(
+                    "accepted_qiskit_loader_replay_artifact_count"
+                ),
+                "accepted_qiskit_loader_multi_input_replay_artifact_count": (
+                    qasm3_loader_multi_summary.get(
+                        "accepted_qiskit_loader_multi_input_replay_artifact_count"
+                    )
+                ),
+                "accepted_full_circuit_replay_certificate_count": (
+                    qasm3_loader_multi_summary.get(
+                        "accepted_full_circuit_replay_certificate_count"
+                    )
+                ),
+                "accepted_symbolic_unitary_equivalence_count": qasm3_loader_multi_summary.get(
+                    "accepted_symbolic_unitary_equivalence_count"
+                ),
+                "accepted_local_u3_pricing_certificate_count": qasm3_loader_multi_summary.get(
+                    "accepted_local_u3_pricing_certificate_count"
+                ),
+                "accepted_occurrence_removal": qasm3_loader_multi_summary.get(
+                    "accepted_occurrence_removal"
+                ),
+                "accepted_proxy_t_reduction": qasm3_loader_multi_summary.get(
+                    "accepted_proxy_t_reduction"
+                ),
+                "missing_occurrences_after_gate": qasm3_loader_multi_summary.get(
+                    "missing_occurrences_after_gate"
+                ),
+                "missing_proxy_t_after_gate": qasm3_loader_multi_summary.get(
+                    "missing_proxy_t_after_gate"
+                ),
+                "qiskit_loader_parse_claimed": qasm3_loader_multi_summary.get(
+                    "qiskit_loader_parse_claimed"
+                ),
+                "qiskit_loader_replay_claimed": qasm3_loader_multi_summary.get(
+                    "qiskit_loader_replay_claimed"
+                ),
+                "qiskit_loader_multi_input_replay_claimed": (
+                    qasm3_loader_multi_summary.get("qiskit_loader_multi_input_replay_claimed")
+                ),
+                "symbolic_unitary_equivalence_claimed": qasm3_loader_multi_summary.get(
+                    "symbolic_unitary_equivalence_claimed"
+                ),
+                "arbitrary_input_equivalence_claimed": qasm3_loader_multi_summary.get(
+                    "arbitrary_input_equivalence_claimed"
+                ),
+                "full_hilbert_space_certificate_claimed": qasm3_loader_multi_summary.get(
+                    "full_hilbert_space_certificate_claimed"
+                ),
+                "local_u3_pricing_accepted": qasm3_loader_multi_summary.get(
+                    "local_u3_pricing_accepted"
+                ),
+                "resource_saving_claimed": qasm3_loader_multi_summary.get(
+                    "resource_saving_claimed"
+                ),
+                "b7_ledger_improvement_claimed": qasm3_loader_multi_summary.get(
+                    "b7_ledger_improvement_claimed"
+                ),
+                "validation_error_count": qasm3_loader_multi_summary.get(
+                    "validation_error_count"
+                ),
+            }
+        )
+        if qasm3_loader_multi_payload.get("benchmark_id") != "B1":
+            errors.append(
+                "B1/B7 cone_01 OpenQASM 3 Qiskit-loader multi-input must have benchmark_id B1"
+            )
+        if (
+            qasm3_loader_multi_payload.get("method")
+            != "b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate_v0"
+        ):
+            errors.append("B1/B7 cone_01 OpenQASM 3 Qiskit-loader multi-input method mismatch")
+        if (
+            qasm3_loader_multi_payload.get("status")
+            != "cone01_openqasm3_qiskit_loader_multi_input_replay_passed_sampled_inputs"
+        ):
+            errors.append("B1/B7 cone_01 OpenQASM 3 Qiskit-loader multi-input status mismatch")
+        if (
+            qasm3_loader_multi_payload.get("model_status")
+            != "qiskit_loader_openqasm3_matches_source_sampled_inputs_without_b7_credit"
+        ):
+            errors.append(
+                "B1/B7 cone_01 OpenQASM 3 Qiskit-loader multi-input model_status mismatch"
+            )
+        expected_qasm3_loader_multi_fields = {
+            "qiskit_version": "2.4.1",
+            "qiskit_qasm3_import_version": "0.6.0",
+            "openqasm3_package_version": "1.0.1",
+            "qiskit_loader_passed": True,
+            "qiskit_num_qubits": 19,
+            "qiskit_num_clbits": 1,
+            "qiskit_count_ops": {"cx": 789, "measure": 1, "rz": 601, "u": 487},
+            "qiskit_depth": 1483,
+            "input_case_count": 8,
+            "computational_basis_input_count": 6,
+            "deterministic_product_state_input_count": 2,
+            "min_state_fidelity": 0.9999999999999547,
+            "max_infidelity": 4.529709940470639e-14,
+            "max_global_phase_aligned_amplitude_delta": 1.392888964263601e-13,
+            "max_probability_delta": 1.8214596497756474e-15,
+            "failed_input_case_count": 0,
+            "failed_input_cases": [],
+            "qiskit_loader_multi_input_replay_passed": True,
+            "accepted_qiskit_loader_parse_artifact_count": 1,
+            "accepted_qiskit_loader_replay_artifact_count": 1,
+            "accepted_qiskit_loader_multi_input_replay_artifact_count": 1,
+            "accepted_full_circuit_replay_certificate_count": 0,
+            "accepted_symbolic_unitary_equivalence_count": 0,
+            "accepted_local_u3_pricing_certificate_count": 0,
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "missing_occurrences_after_gate": 30,
+            "missing_proxy_t_after_gate": 600,
+            "qiskit_loader_parse_claimed": True,
+            "qiskit_loader_replay_claimed": True,
+            "qiskit_loader_multi_input_replay_claimed": True,
+            "symbolic_unitary_equivalence_claimed": False,
+            "arbitrary_input_equivalence_claimed": False,
+            "full_hilbert_space_certificate_claimed": False,
+            "local_u3_pricing_accepted": False,
+            "resource_saving_claimed": False,
+            "b7_ledger_improvement_claimed": False,
+            "validation_error_count": 0,
+        }
+        for field, value in expected_qasm3_loader_multi_fields.items():
+            if qasm3_loader_multi_summary.get(field) != value:
+                errors.append(
+                    "B1/B7 cone_01 OpenQASM 3 Qiskit-loader multi-input "
+                    f"expected {field}={value}"
+                )
+            if (
+                b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_manifest
+                and field in b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_manifest
+                and qasm3_loader_multi_summary.get(field)
+                != b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_manifest.get(field)
+            ):
+                errors.append(
+                    f"B1/B7 cone_01 OpenQASM 3 Qiskit-loader multi-input {field} mismatch"
+                )
+        input_cases = qasm3_loader_multi_summary.get("input_cases", [])
+        if not isinstance(input_cases, list) or len(input_cases) != 8:
+            errors.append("B1/B7 cone_01 Qiskit-loader multi-input cases missing or wrong length")
+        elif any(not case.get("passed") for case in input_cases):
+            errors.append("B1/B7 cone_01 Qiskit-loader multi-input has failed case")
+        for field in [
+            "symbolic_unitary_equivalence_claimed",
+            "arbitrary_input_equivalence_claimed",
+            "full_hilbert_space_certificate_claimed",
+            "local_u3_pricing_accepted",
+            "resource_saving_claimed",
+            "b7_ledger_improvement_claimed",
+        ]:
+            if qasm3_loader_multi_summary.get(field) is not False:
+                errors.append(
+                    f"B1/B7 cone_01 OpenQASM 3 Qiskit-loader multi-input must not claim {field}"
+                )
+            if qasm3_loader_multi_claims.get(field) is not False:
+                errors.append(
+                    "B1/B7 cone_01 OpenQASM 3 Qiskit-loader multi-input claim boundary "
+                    f"must not claim {field}"
+                )
+    else:
+        errors.append(
+            f"missing B1/B7 cone_01 OpenQASM 3 Qiskit-loader multi-input report: "
+            f"{b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_path}"
         )
 
     b1_b7_cone01_full_statevector_replay_probe = {
@@ -26124,6 +26375,9 @@ def audit(root: Path) -> dict:
             "b7_cone01_openqasm3_qiskit_loader_replay_gate": (
                 b1_b7_cone01_openqasm3_qiskit_loader_replay
             ),
+            "b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate": (
+                b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay
+            ),
             "b7_cone01_full_statevector_replay_probe_gate": (
                 b1_b7_cone01_full_statevector_replay_probe
             ),
@@ -26517,6 +26771,9 @@ def audit(root: Path) -> dict:
             ),
             "b1_b7_cone01_openqasm3_qiskit_loader_replay_gate": str(
                 b1_b7_cone01_openqasm3_qiskit_loader_replay_path
+            ),
+            "b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate": str(
+                b1_b7_cone01_openqasm3_qiskit_loader_multi_input_replay_path
             ),
             "b1_b7_cone01_full_statevector_replay_probe_gate": str(
                 b1_b7_cone01_full_statevector_replay_probe_path
@@ -27739,6 +27996,20 @@ def markdown_report(report: dict) -> str:
             f"- Accepted Qiskit-loader parse / replay / symbolic artifacts: {report['b1']['b7_cone01_openqasm3_qiskit_loader_replay_gate'].get('accepted_qiskit_loader_parse_artifact_count')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_replay_gate'].get('accepted_qiskit_loader_replay_artifact_count')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_replay_gate'].get('accepted_symbolic_unitary_equivalence_count')}",
             f"- Accepted occurrence / proxy-T reduction / B7 claim: {report['b1']['b7_cone01_openqasm3_qiskit_loader_replay_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_replay_gate'].get('accepted_proxy_t_reduction')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_replay_gate'].get('b7_ledger_improvement_claimed')}",
             f"- Validation errors: {report['b1']['b7_cone01_openqasm3_qiskit_loader_replay_gate'].get('validation_error_count')}",
+            "",
+            "## B1/B7 cone_01 OpenQASM 3 Qiskit-Loader Multi-Input Replay Gate",
+            "",
+            f"- Exists: {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('exists')}",
+            f"- Status: {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('status')}",
+            f"- OpenQASM 3 path: {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('openqasm3_candidate_path')}",
+            f"- Qiskit / qiskit-qasm3-import / openqasm3 versions: {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('qiskit_version')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('qiskit_qasm3_import_version')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('openqasm3_package_version')}",
+            f"- Qubits / clbits / depth / operation counts: {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('qiskit_num_qubits')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('qiskit_num_clbits')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('qiskit_depth')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('qiskit_count_ops')}",
+            f"- Input cases / failed cases: {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('input_case_count')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('failed_input_case_count')}",
+            f"- Min fidelity / max infidelity: {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('min_state_fidelity')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('max_infidelity')}",
+            f"- Max amplitude / probability delta: {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('max_global_phase_aligned_amplitude_delta')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('max_probability_delta')}",
+            f"- Accepted Qiskit-loader parse / replay / multi-input artifacts: {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('accepted_qiskit_loader_parse_artifact_count')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('accepted_qiskit_loader_replay_artifact_count')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('accepted_qiskit_loader_multi_input_replay_artifact_count')}",
+            f"- Accepted occurrence / proxy-T reduction / B7 claim: {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('accepted_occurrence_removal')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('accepted_proxy_t_reduction')} / {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('b7_ledger_improvement_claimed')}",
+            f"- Validation errors: {report['b1']['b7_cone01_openqasm3_qiskit_loader_multi_input_replay_gate'].get('validation_error_count')}",
             "",
             "## B1/B7 cone_01 Full-Statevector Replay Probe Gate",
             "",
