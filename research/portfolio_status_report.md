@@ -950,6 +950,22 @@ Overall audit: PASS
 - Accepted occurrence / proxy-T reduction / B7 claim: 0 / 0 / False
 - Validation errors: 0
 
+## B1/B7 cone_01 OpenQASM 3 Qiskit-Loader Global-Phase Subspace Replay Gate
+
+- Exists: True
+- Status: cone01_openqasm3_qiskit_loader_global_phase_subspace_replay_passed
+- OpenQASM 3 path: results/B1_B7_cone01_openqasm3_candidate_export_gate/gcm_h6_line268_line1381_candidate_openqasm3.qasm
+- Qiskit / qiskit-qasm3-import / openqasm3 versions: 2.4.1 / 0.6.0 / 1.0.1
+- Qubits / clbits / depth / operation counts: 19 / 1 / 1483 / {'cx': 789, 'measure': 1, 'rz': 601, 'u': 487}
+- Global phase anchor / input cases / failed cases: zero / 21 / 0
+- Basis anchors / coherent superpositions: 6 / 15
+- Max global-anchor phase delta / min overlap magnitude: 3.142993331217661e-14 / 0.9999999999999772
+- Min fidelity / max infidelity: 0.9999999999999547 / 4.529709940470639e-14
+- Max amplitude / probability delta: 1.3928889642636009e-13 / 1.074140776324839e-14
+- Accepted Qiskit-loader parse / replay / phase / global-anchor artifacts: 1 / 1 / 1 / 1
+- Accepted occurrence / proxy-T reduction / B7 claim: 0 / 0 / False
+- Validation errors: 0
+
 ## B1/B7 cone_01 Full-Statevector Replay Probe Gate
 
 - Exists: True

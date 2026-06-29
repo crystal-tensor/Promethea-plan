@@ -2142,3 +2142,17 @@ superposition inputs. All 8 cases pass with overlap phase spread
 failed cases 0. This accepts one Qiskit-loader phase-consistent replay artifact
 only; arbitrary-input/symbolic equivalence, local-U3 pricing, occurrence
 removal, proxy-T reduction, and B7 ledger improvement remain 0.
+
+Sprint update 18cj: B1/B7 now has Qiskit-loader global-phase anchored subspace
+replay pressure. T-B1-004cj consumes the Qiskit-loader phase-consistent replay
+gate and the project-local OpenQASM 3 global-phase subspace replay gate, then
+fixes the zero-input global phase anchor for the Qiskit-loaded candidate. All
+21 cases pass across 6 basis anchors and 15 coherent pair superpositions: max
+global-anchor phase delta is `3.142993331217661e-14` radians, min overlap
+magnitude is `0.9999999999999772`, min fidelity is `0.9999999999999547`, max
+infidelity is `4.529709940470639e-14`, max aligned amplitude delta is
+`1.3928889642636009e-13`, max probability delta is
+`1.074140776324839e-14`, and failed cases are 0. This accepts one
+Qiskit-loader global-phase subspace replay artifact only; arbitrary-input or
+symbolic equivalence, local-U3 pricing, occurrence removal, proxy-T reduction,
+and B7 ledger improvement remain 0.

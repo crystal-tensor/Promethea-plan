@@ -968,3 +968,15 @@ radians, min overlap magnitude `0.9999999999999772`, min fidelity
 phase-consistent replay artifact, but it remains sampled evidence, not
 symbolic or arbitrary-input equivalence, local-U3 pricing, occurrence removal,
 proxy-T reduction, or B7 ledger credit.
+
+T-B1-004cj adds Qiskit-loader global-phase anchored subspace replay pressure.
+The Qiskit-loaded OpenQASM 3 candidate fixes the zero-input global phase anchor
+and reuses it across 6 basis anchors plus 15 coherent pair superpositions. All
+21 cases pass with max global-anchor phase delta `3.142993331217661e-14`
+radians, min overlap magnitude `0.9999999999999772`, min fidelity
+`0.9999999999999547`, max aligned amplitude delta
+`1.3928889642636009e-13`, max probability delta
+`1.074140776324839e-14`, and 0 failed cases. This accepts one Qiskit-loader
+global-phase subspace replay artifact, but it remains sampled subspace
+evidence, not symbolic or arbitrary-input equivalence, local-U3 pricing,
+occurrence removal, proxy-T reduction, or B7 ledger credit.
