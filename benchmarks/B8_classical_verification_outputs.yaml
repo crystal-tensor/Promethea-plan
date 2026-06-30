@@ -316,6 +316,40 @@ current_results:
     validation_error_count: 0
     result: ../results/B4_B8_private_challenge_noise_spoofer_pressure_v0.json
     markdown_report: ../research/B4_B8_private_challenge_noise_spoofer_pressure.md
+  private_challenge_fitted_spoofer_attack_v0:
+    status: fitted_spoofer_holdout_attack_on_synthetic_transcripts_not_hardware
+    model_status: deterministic_train_holdout_fitted_spoofer_models_not_real_backend
+    method: b4_b8_private_challenge_fitted_spoofer_attack_v0
+    source_method: b4_b8_verifier_private_challenge_noise_bridge_v0
+    source_transcript_case_count: 720
+    train_row_count: 560
+    holdout_row_count: 160
+    fitted_model_family_count: 4
+    fitted_evaluation_row_count: 640
+    private_safe_max_no_leak_fitted_acceptance: 0.0625
+    private_safe_backend_like_refreshed_no_leak_fitted_acceptance: 0.0625
+    leakage_blind_max_no_leak_fitted_acceptance: 0.35
+    global_prior_max_no_leak_fitted_acceptance: 0.328031573074
+    leakage_aware_max_three_private_bit_leak_fitted_acceptance: 0.5
+    leakage_aware_max_full_private_material_leak_fitted_acceptance: 1.0
+    private_safe_no_leak_passes_0p10: true
+    private_safe_backend_refreshed_no_leak_passes_0p10: true
+    leakage_blind_mixture_fails_no_leak_0p10: true
+    full_private_material_leakage_breaks_protocol: true
+    actual_fitted_training_performed: true
+    hardware_execution_performed: false
+    real_backend_properties_used: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    sampling_hardness_proved: false
+    cryptographic_soundness_proved: false
+    protocol_soundness_proved: false
+    acceptance_gate_count: 8
+    passed_gate_count: 8
+    failed_gate_count: 0
+    validation_error_count: 0
+    result: ../results/B4_B8_private_challenge_fitted_spoofer_attack_v0.json
+    markdown_report: ../research/B4_B8_private_challenge_fitted_spoofer_attack.md
   toy_hidden_invariant_output_verifier_v0:
     status: toy_invariant_property_test
     model_status: toy_invariant_property_test_not_full_distribution_verification

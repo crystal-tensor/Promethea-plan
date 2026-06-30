@@ -1824,6 +1824,11 @@ Overall audit: PASS
 - Private-challenge spoofer pressure no-leak / backend-refreshed / full-leak max acceptance: 0.1196875 / 0.109140625 / 1.0
 - Private-challenge spoofer pressure actual ML / hardware / protocol soundness claim: False / False / False
 - Private-challenge spoofer pressure result/markdown exists: True / True
+- Private-challenge fitted spoofer status: fitted_spoofer_holdout_attack_on_synthetic_transcripts_not_hardware
+- Private-challenge fitted spoofer train/holdout/eval rows: 560 / 160 / 640
+- Private-challenge fitted spoofer private-safe / leakage-blind / full-leak acceptance: 0.0625 / 0.35 / 1.0
+- Private-challenge fitted spoofer training / hardware / protocol soundness claim: True / False / False
+- Private-challenge fitted spoofer result/markdown exists: True / True
 
 ## B5 Hubbard Embedding Status
 
@@ -2155,6 +2160,11 @@ Overall audit: PASS
 - Private-challenge spoofer pressure no-leak / backend-refreshed / full-leak max acceptance: 0.1196875 / 0.109140625 / 1.0
 - Private-challenge spoofer pressure actual ML / hardware / protocol soundness claim: False / False / False
 - Private-challenge spoofer pressure result/markdown exists: True / True
+- Private-challenge fitted spoofer status: fitted_spoofer_holdout_attack_on_synthetic_transcripts_not_hardware
+- Private-challenge fitted spoofer train/holdout/eval rows: 560 / 160 / 640
+- Private-challenge fitted spoofer private-safe / leakage-blind / full-leak acceptance: 0.0625 / 0.35 / 1.0
+- Private-challenge fitted spoofer training / hardware / protocol soundness claim: True / False / False
+- Private-challenge fitted spoofer result/markdown exists: True / True
 - Generative spoofer status: trained_generative_spoofer_refresh_boundary_not_soundness_proof
 - Generative spoofer configurations: 144
 - Generative spoofer maximum learned soundness: 1.0

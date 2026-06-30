@@ -2293,3 +2293,17 @@ private-material leakage reaches `1.0`. This is not actual ML training or a
 soundness proof; it is a pressure diagnostic that says the next B4/B8 step must
 move to real learned/generative attacks, real backend or hardware transcripts,
 and private-predicate redesign.
+
+Sprint update 59e: B4/B8 now has an actual fitted-spoofer train/holdout
+diagnostic on the synthetic transcript bridge. T-B4-002e/T-B8-003i adds
+`tools/B4_B8_private_challenge_fitted_spoofer_attack.py` and emits
+`results/B4_B8_private_challenge_fitted_spoofer_attack_v0.json` plus
+`research/B4_B8_private_challenge_fitted_spoofer_attack.md`. The gate trains on
+560 rows, holds out 160 protocol-index rows, and evaluates 4 fitted model
+families across 640 model-row checks. Private-safe no-leak fitted acceptance
+stays at `0.0625`, including backend-like refreshed no-leak rows, while
+leakage-blind mixture fitting reaches `0.35` on no-leak holdout rows and full
+private-material leakage remains `1.0`. This is actual deterministic fitted
+training over synthetic transcripts, but still not real backend evidence,
+hardware execution, protocol soundness, sampling hardness, quantum advantage,
+or BQP separation.

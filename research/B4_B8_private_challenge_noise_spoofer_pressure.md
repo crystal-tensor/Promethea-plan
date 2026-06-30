@@ -19,7 +19,7 @@
 
 ## Interpretation
 
-The parametric spoofer pressure keeps no-leak attacks under the 0.10 diagnostic gate, including backend-like refreshed modes. Three-bit leakage remains dangerous and full private-material leakage still breaks the protocol. This narrows the next engineering target to real-backend or hardware transcript generation plus stronger learned/generative attacks.
+The parametric spoofer pressure does not keep no-leak attacks under the 0.10 diagnostic gate: max no-leak pressure reaches 0.1196875 and backend-like refreshed no-leak pressure reaches 0.109140625. Three-bit leakage remains dangerous and full private-material leakage still breaks the protocol. This makes the next engineering target sharper: replace the parametric pressure model with fitted or learned attacks, then move to real-backend or hardware transcript generation.
 
 ## Claim Boundary
 

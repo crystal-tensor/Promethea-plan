@@ -1106,3 +1106,15 @@ diagnostic pressure threshold. Three-private-bit leakage reaches 0.6575 and
 full private-material leakage reaches 1.0. This is not actual ML training, real
 backend evidence, hardware execution, protocol soundness, sampling hardness,
 quantum advantage, or BQP separation.
+
+`T-B4-002e` / `T-B8-003i` replaces that parametric-only warning with an actual
+deterministic train/holdout fitted-spoofer diagnostic over the synthetic
+transcript bridge. It trains on 560 transcript rows, holds out 160 rows by
+protocol index, and evaluates 4 fitted model families across 640 model-row
+checks. The private-safe no-leak calibrator stays at 0.0625, including
+backend-like refreshed no-leak rows, while leakage-blind mixture fitting reaches
+0.35 on no-leak holdout rows and full private-material leakage remains 1.0.
+This means the immediate synthetic-transcript break is leakage contamination,
+not private-safe no-leak fitting. It is still not real backend evidence,
+hardware execution, protocol soundness, sampling hardness, quantum advantage,
+or BQP separation.
