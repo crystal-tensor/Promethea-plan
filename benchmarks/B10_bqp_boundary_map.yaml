@@ -298,6 +298,33 @@ current_results:
     caveat: generic_backend_v2_calibration_style_bridge_not_real_backend_or_hardware_execution
     result: ../results/B10_t2_backend_calibrated_verifier_bridge_v0.json
     markdown_report: ../research/B10_t2_backend_calibrated_verifier_bridge.md
+  b10_t2_b4_b8_real_backend_soundness_margin_gate_v0:
+    status: real_backend_soundness_margin_failed_missing_real_backend_rows
+    model_status: synthetic_holdout_acceptance_margins_quantified_not_soundness
+    method: b4_b8_real_backend_soundness_margin_gate_v0
+    source_packet_scout_result: ../results/B4_B8_real_backend_packet_scout_v0.json
+    source_target_id: B10-T2
+    dependency_benchmark: B4/B8
+    margin_requirement_count: 8
+    margin_requirements_passed: 5
+    margin_requirements_failed: 3
+    failed_margin_requirement_ids: [M4, M5, M6]
+    holdout_row_count: 160
+    real_backend_transcript_rows: 0
+    private_safe_no_leak_accepts: 10
+    private_safe_no_leak_allowed_accepts: 16
+    leakage_blind_no_leak_accepts: 56
+    leakage_blind_no_leak_allowed_accepts: 16
+    leakage_blind_excess_accepts_per_160: 40
+    full_private_material_leak_accepts: 160
+    full_private_material_leak_allowed_accepts: 40
+    full_leak_excess_accepts_per_160: 120
+    protocol_soundness_proved: false
+    quantum_advantage_claimed: false
+    explicit_not_bqp_separation: true
+    caveat: b4_b8_margin_gate_not_real_backend_or_bqp_boundary_claim
+    result: ../results/B4_B8_real_backend_soundness_margin_gate_v0.json
+    markdown_report: ../research/B4_B8_real_backend_soundness_margin_gate.md
   b10_t1_negative_boundary_proof_v0:
     status: negative_boundary_accounting_lemma_proved_under_explicit_io_model_not_bqp_separation
     method: b10_t1_linear_systems_io_accounting_negative_boundary_v0
@@ -1088,4 +1115,5 @@ prototype_artifacts:
   t2_qiskit_aer_verifier_bridge_builder: ../tools/b10_t2_qiskit_aer_verifier_bridge.py
   t2_noisy_aer_verifier_bridge_builder: ../tools/b10_t2_noisy_aer_verifier_bridge.py
   t2_backend_calibrated_verifier_bridge_builder: ../tools/b10_t2_backend_calibrated_verifier_bridge.py
+  t2_b4_b8_real_backend_soundness_margin_gate: ../tools/b4_b8_real_backend_soundness_margin_gate.py
   prototype_notes: ../research/B10_prototype_notes.md
