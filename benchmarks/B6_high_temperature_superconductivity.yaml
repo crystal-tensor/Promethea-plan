@@ -212,6 +212,41 @@ current_results:
     validation_error_count: 0
     result: ../results/B6_crystallographic_packet_scout_v0.json
     markdown: ../research/B6_crystallographic_packet_scout.md
+  b6_validation_rescue_scout_v0:
+    status: validation_rescue_candidate_found_not_material_discovery_claim
+    method: b6_validation_rescue_scout_v0
+    model_status: physics_risk_candidate_clears_source_validation_but_not_backend_or_observable_gates
+    source_descriptor_status: crystallographic_descriptor_screen_not_material_discovery_claim
+    source_packet_scout_status: crystallographic_packet_scout_failed_missing_computed_evidence
+    selected_variant: physics_risk_adjusted_v0
+    validation_rescue_requirement_count: 8
+    validation_rescue_requirements_passed: 5
+    validation_rescue_requirements_failed: 3
+    failed_validation_rescue_requirement_ids: [V6, V7, V8]
+    record_count: 56
+    family_count: 28
+    negative_control_count: 18
+    post_split_record_count: 27
+    source_validation_error_count: 2
+    source_validation_candidate_count: 4
+    selected_negative_controls_in_top_k: 2
+    selected_post_split_ap: 1.0
+    post_split_family_prior_ap: 0.4901360544217687
+    selected_beats_family_prior: true
+    selected_source_validation_candidate: true
+    pymatgen_available: false
+    dft_observable_rows: 0
+    b5_computed_observable_rows: 0
+    source_validation_blockers_resolved_in_source: false
+    material_discovery_claimed: false
+    mechanism_solved: false
+    reproducible_crystallographic_descriptor_claimed: false
+    dft_observable_claimed: false
+    b5_computed_observable_claimed: false
+    solution_claimed: false
+    validation_error_count: 0
+    result: ../results/B6_validation_rescue_scout_v0.json
+    markdown: ../research/B6_validation_rescue_scout.md
   b6_curated_materials_leakage_audit_v0:
     status: curated_retrospective_leakage_audit
     model_status: curated_materials_table_with_time_family_leakage_audit
@@ -270,4 +305,5 @@ prototype_artifacts:
   structural_electronic_proxy_screen: ../tools/b6_structural_electronic_proxy_screen.py
   crystallographic_evidence_contract_gate: ../tools/b6_crystallographic_evidence_contract_gate.py
   crystallographic_packet_scout: ../tools/b6_crystallographic_packet_scout.py
+  validation_rescue_scout: ../tools/b6_validation_rescue_scout.py
   prototype_notes: ../research/B6_prototype_notes.md

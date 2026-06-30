@@ -678,6 +678,15 @@ current runtime, DFT observable rows are 0, and B5-computed observable rows are
 0. This turns the handoff into a sharper intake map, but still makes no
 material-discovery, mechanism, reproducible-descriptor, DFT-observable,
 B5-observable, or solution claim.
+T-B6-005c now adds a validation-rescue scout. It evaluates 6 predeclared scoring
+variants on the same table and selects `physics_risk_adjusted_v0`: 2 negative
+controls remain in top-k and post-split AP reaches 1.0 versus family-prior AP
+0.490136. This is useful evidence that the source-validation symptoms have an
+engineering route, but the gate still fails V6-V8 because there is no pinned
+crystallographic backend, no DFT observable channel, and no B5-computed
+observable channel. The source screen is not rewritten, and this is still not a
+material-discovery, mechanism, reproducible-descriptor, DFT-observable,
+B5-observable, or solution claim.
 
 **Remaining path to a serious solution:** pin a reproducible crystallographic
 backend or equivalent descriptor implementation; remove the source validation

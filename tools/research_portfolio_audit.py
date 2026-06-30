@@ -28332,6 +28332,7 @@ def audit(root: Path) -> dict:
     b6_crystallographic_gate = b6_results.get("b6_crystallographic_reproducibility_gate_v0")
     b6_crystallographic_contract = b6_results.get("b6_crystallographic_evidence_contract_gate_v0")
     b6_crystallographic_packet_scout = b6_results.get("b6_crystallographic_packet_scout_v0")
+    b6_validation_rescue_scout = b6_results.get("b6_validation_rescue_scout_v0")
     b6_status = {}
     b6_curated_status = {}
     b6_formula_status = {}
@@ -28339,6 +28340,7 @@ def audit(root: Path) -> dict:
     b6_crystallographic_gate_status = {}
     b6_crystallographic_contract_status = {}
     b6_crystallographic_packet_scout_status = {}
+    b6_validation_rescue_scout_status = {}
     if not b6_descriptor:
         warnings.append("B6 manifest has no superconductivity descriptor ranking result")
     else:
@@ -29082,6 +29084,164 @@ def audit(root: Path) -> dict:
             errors.append("B6 crystallographic packet scout validation-error count mismatch")
         if payload.get("validation_error_count") != len(payload.get("validation_errors", [])):
             errors.append("B6 crystallographic packet scout payload validation-error count mismatch")
+
+    if not b6_validation_rescue_scout:
+        warnings.append("B6 manifest has no validation rescue scout")
+    else:
+        result_path = b6_validation_rescue_scout.get("result")
+        markdown_path = b6_validation_rescue_scout.get("markdown")
+        result_exists = bool(result_path and path_exists_from(benchmarks, result_path))
+        markdown_exists = bool(markdown_path and path_exists_from(benchmarks, markdown_path))
+        if not result_exists:
+            errors.append(f"B6 validation rescue scout result path missing: {result_path}")
+        if not markdown_exists:
+            errors.append(f"B6 validation rescue scout markdown path missing: {markdown_path}")
+        payload = json.loads(read((benchmarks / result_path).resolve())) if result_exists else {}
+        claims = payload.get("claims", {})
+        b6_validation_rescue_scout_status = {
+            "status": b6_validation_rescue_scout.get("status"),
+            "method": b6_validation_rescue_scout.get("method"),
+            "model_status": b6_validation_rescue_scout.get("model_status"),
+            "selected_variant": payload.get("selected_variant"),
+            "validation_rescue_requirement_count": payload.get(
+                "validation_rescue_requirement_count"
+            ),
+            "validation_rescue_requirements_passed": payload.get(
+                "validation_rescue_requirements_passed"
+            ),
+            "validation_rescue_requirements_failed": payload.get(
+                "validation_rescue_requirements_failed"
+            ),
+            "failed_validation_rescue_requirement_ids": payload.get(
+                "failed_validation_rescue_requirement_ids"
+            ),
+            "record_count": payload.get("record_count"),
+            "family_count": payload.get("family_count"),
+            "negative_control_count": payload.get("negative_control_count"),
+            "post_split_record_count": payload.get("post_split_record_count"),
+            "source_validation_error_count": payload.get("source_validation_error_count"),
+            "source_validation_candidate_count": payload.get(
+                "source_validation_candidate_count"
+            ),
+            "selected_negative_controls_in_top_k": payload.get(
+                "selected_negative_controls_in_top_k"
+            ),
+            "selected_post_split_ap": payload.get("selected_post_split_ap"),
+            "post_split_family_prior_ap": payload.get("post_split_family_prior_ap"),
+            "selected_beats_family_prior": payload.get("selected_beats_family_prior"),
+            "selected_source_validation_candidate": payload.get(
+                "selected_source_validation_candidate"
+            ),
+            "pymatgen_available": payload.get("pymatgen_available"),
+            "dft_observable_rows": payload.get("dft_observable_rows"),
+            "b5_computed_observable_rows": payload.get("b5_computed_observable_rows"),
+            "source_validation_blockers_resolved_in_source": claims.get(
+                "source_validation_blockers_resolved_in_source"
+            ),
+            "material_discovery_claimed": claims.get("material_discovery_claimed"),
+            "mechanism_solved": claims.get("mechanism_solved"),
+            "reproducible_crystallographic_descriptor_claimed": claims.get(
+                "reproducible_crystallographic_descriptor_claimed"
+            ),
+            "dft_observable_claimed": claims.get("dft_observable_claimed"),
+            "b5_computed_observable_claimed": claims.get("b5_computed_observable_claimed"),
+            "solution_claimed": claims.get("solution_claimed"),
+            "validation_error_count": len(payload.get("validation_errors", [])),
+            "result_exists": result_exists,
+            "markdown_exists": markdown_exists,
+            "result": result_path,
+            "markdown": markdown_path,
+        }
+        if payload.get("benchmark_id") != "B6":
+            errors.append("B6 validation rescue scout benchmark_id mismatch")
+        if payload.get("status") != b6_validation_rescue_scout.get("status"):
+            errors.append("B6 validation rescue scout status mismatch")
+        if payload.get("method") != b6_validation_rescue_scout.get("method"):
+            errors.append("B6 validation rescue scout method mismatch")
+        if payload.get("model_status") != b6_validation_rescue_scout.get("model_status"):
+            errors.append("B6 validation rescue scout model_status mismatch")
+        for field in [
+            "selected_variant",
+            "validation_rescue_requirement_count",
+            "validation_rescue_requirements_passed",
+            "validation_rescue_requirements_failed",
+            "failed_validation_rescue_requirement_ids",
+            "record_count",
+            "family_count",
+            "negative_control_count",
+            "post_split_record_count",
+            "source_validation_error_count",
+            "source_validation_candidate_count",
+            "selected_negative_controls_in_top_k",
+            "selected_post_split_ap",
+            "post_split_family_prior_ap",
+            "selected_beats_family_prior",
+            "selected_source_validation_candidate",
+            "pymatgen_available",
+            "dft_observable_rows",
+            "b5_computed_observable_rows",
+        ]:
+            if payload.get(field) != b6_validation_rescue_scout.get(field):
+                errors.append(f"B6 validation rescue scout {field} mismatch")
+        for field in [
+            "source_validation_blockers_resolved_in_source",
+            "material_discovery_claimed",
+            "mechanism_solved",
+            "reproducible_crystallographic_descriptor_claimed",
+            "dft_observable_claimed",
+            "b5_computed_observable_claimed",
+            "solution_claimed",
+        ]:
+            if claims.get(field) != b6_validation_rescue_scout.get(field):
+                errors.append(f"B6 validation rescue scout claim {field} mismatch")
+        if payload.get("selected_variant") != "physics_risk_adjusted_v0":
+            errors.append("B6 validation rescue scout selected variant drifted")
+        if payload.get("validation_rescue_requirement_count") != 8:
+            errors.append("B6 validation rescue scout should check eight requirements")
+        if payload.get("validation_rescue_requirements_passed") != 5:
+            errors.append("B6 validation rescue scout should pass five requirements")
+        if payload.get("validation_rescue_requirements_failed") != 3:
+            errors.append("B6 validation rescue scout should fail three requirements")
+        if payload.get("failed_validation_rescue_requirement_ids") != ["V6", "V7", "V8"]:
+            errors.append("B6 validation rescue scout failures should be V6-V8")
+        if payload.get("source_validation_candidate_count") != 4:
+            errors.append("B6 validation rescue scout candidate count mismatch")
+        if payload.get("selected_negative_controls_in_top_k") != 2:
+            errors.append("B6 validation rescue scout negative-control count mismatch")
+        if payload.get("selected_post_split_ap") != 1.0:
+            errors.append("B6 validation rescue scout selected AP mismatch")
+        if payload.get("post_split_family_prior_ap") != 0.4901360544217687:
+            errors.append("B6 validation rescue scout family-prior AP mismatch")
+        if payload.get("selected_beats_family_prior") is not True:
+            errors.append("B6 validation rescue scout must beat the family-prior denominator")
+        if payload.get("selected_source_validation_candidate") is not True:
+            errors.append("B6 validation rescue scout selected variant must be a candidate")
+        for field in ["pymatgen_available"]:
+            if payload.get(field) is not False:
+                errors.append(f"B6 validation rescue scout must keep {field}=False")
+        if payload.get("dft_observable_rows") != 0 or payload.get("b5_computed_observable_rows") != 0:
+            errors.append("B6 validation rescue scout must not fabricate DFT/B5 rows")
+        for field in [
+            "source_validation_blockers_resolved_in_source",
+            "reproducible_crystallographic_descriptor_claimed",
+            "dft_observable_claimed",
+            "b5_computed_observable_claimed",
+            "material_discovery_claimed",
+            "mechanism_solved",
+            "solution_claimed",
+        ]:
+            if claims.get(field) is not False:
+                errors.append(f"B6 validation rescue scout claim boundary must keep {field}=False")
+        if claims.get("validation_rescue_candidate_found") is not True:
+            errors.append("B6 validation rescue scout must report candidate-found diagnostic")
+        if len(payload.get("requirements", [])) != 8:
+            errors.append("B6 validation rescue scout requirement count mismatch")
+        if len(payload.get("variants", [])) != 6:
+            errors.append("B6 validation rescue scout variant count mismatch")
+        if len(payload.get("validation_errors", [])) != b6_validation_rescue_scout.get(
+            "validation_error_count"
+        ):
+            errors.append("B6 validation rescue scout validation-error count mismatch")
 
     b7_manifest = yaml.safe_load(read(b7_manifest_path))
     b7_results = b7_manifest.get("current_results", {})
@@ -33179,6 +33339,7 @@ def audit(root: Path) -> dict:
             "crystallographic_reproducibility_gate": b6_crystallographic_gate_status,
             "crystallographic_evidence_contract_gate": b6_crystallographic_contract_status,
             "crystallographic_packet_scout": b6_crystallographic_packet_scout_status,
+            "validation_rescue_scout": b6_validation_rescue_scout_status,
         },
         "b7": {
             "manifest": str(b7_manifest_path),
@@ -33734,6 +33895,7 @@ def audit(root: Path) -> dict:
             "b6_crystallographic_packet_scout": str(
                 research / "B6_crystallographic_packet_scout.md"
             ),
+            "b6_validation_rescue_scout": str(research / "B6_validation_rescue_scout.md"),
             "b10_formal_theorem_targets": str(research / "B10_formal_theorem_targets.md"),
             "b10_t2_minimum_refresh_spoofer_boundary": str(research / "B8_generative_spoofer_refresh.md"),
             "b10_t2_refresh_proof_obligation_gate": str(research / "B10_t2_refresh_proof_obligation_gate.md"),
@@ -35976,6 +36138,14 @@ def markdown_report(report: dict) -> str:
             f"- Crystallographic packet scout discovery/mechanism/solution claims: {report['b6']['crystallographic_packet_scout'].get('material_discovery_claimed')} / {report['b6']['crystallographic_packet_scout'].get('mechanism_solved')} / {report['b6']['crystallographic_packet_scout'].get('solution_claimed')}",
             f"- Crystallographic packet scout validation errors: {report['b6']['crystallographic_packet_scout'].get('validation_error_count')}",
             f"- Crystallographic packet scout result/markdown exists: {report['b6']['crystallographic_packet_scout'].get('result_exists')} / {report['b6']['crystallographic_packet_scout'].get('markdown_exists')}",
+            f"- Validation rescue scout status: {report['b6']['validation_rescue_scout'].get('status')}",
+            f"- Validation rescue scout selected variant / candidates: {report['b6']['validation_rescue_scout'].get('selected_variant')} / {report['b6']['validation_rescue_scout'].get('source_validation_candidate_count')}",
+            f"- Validation rescue scout passed / failed / failed IDs: {report['b6']['validation_rescue_scout'].get('validation_rescue_requirements_passed')} / {report['b6']['validation_rescue_scout'].get('validation_rescue_requirements_failed')} / {report['b6']['validation_rescue_scout'].get('failed_validation_rescue_requirement_ids')}",
+            f"- Validation rescue scout selected AP / family prior / negative controls: {report['b6']['validation_rescue_scout'].get('selected_post_split_ap')} / {report['b6']['validation_rescue_scout'].get('post_split_family_prior_ap')} / {report['b6']['validation_rescue_scout'].get('selected_negative_controls_in_top_k')}",
+            f"- Validation rescue scout backend / DFT rows / B5 rows: {report['b6']['validation_rescue_scout'].get('pymatgen_available')} / {report['b6']['validation_rescue_scout'].get('dft_observable_rows')} / {report['b6']['validation_rescue_scout'].get('b5_computed_observable_rows')}",
+            f"- Validation rescue scout discovery/mechanism/solution claims: {report['b6']['validation_rescue_scout'].get('material_discovery_claimed')} / {report['b6']['validation_rescue_scout'].get('mechanism_solved')} / {report['b6']['validation_rescue_scout'].get('solution_claimed')}",
+            f"- Validation rescue scout validation errors: {report['b6']['validation_rescue_scout'].get('validation_error_count')}",
+            f"- Validation rescue scout result/markdown exists: {report['b6']['validation_rescue_scout'].get('result_exists')} / {report['b6']['validation_rescue_scout'].get('markdown_exists')}",
             "",
             "## B7 Fault-Tolerance Co-Design Status",
             "",

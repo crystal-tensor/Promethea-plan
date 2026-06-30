@@ -2084,6 +2084,14 @@ Overall audit: PASS
 - Crystallographic packet scout discovery/mechanism/solution claims: False / False / False
 - Crystallographic packet scout validation errors: 0
 - Crystallographic packet scout result/markdown exists: True / True
+- Validation rescue scout status: validation_rescue_candidate_found_not_material_discovery_claim
+- Validation rescue scout selected variant / candidates: physics_risk_adjusted_v0 / 4
+- Validation rescue scout passed / failed / failed IDs: 5 / 3 / ['V6', 'V7', 'V8']
+- Validation rescue scout selected AP / family prior / negative controls: 1.0 / 0.4901360544217687 / 2
+- Validation rescue scout backend / DFT rows / B5 rows: False / 0 / 0
+- Validation rescue scout discovery/mechanism/solution claims: False / False / False
+- Validation rescue scout validation errors: 0
+- Validation rescue scout result/markdown exists: True / True
 
 ## B7 Fault-Tolerance Co-Design Status
 

@@ -266,6 +266,15 @@ and 0 B5-computed observable rows. The result is a sharper intake map for
 materials and B5 agents, not a material-discovery, mechanism, DFT-observable,
 B5-observable, reproducible-descriptor, or solution claim.
 
+`T-B6-005c` adds a validation-rescue scout over the same 56-record table. A
+predeclared `physics_risk_adjusted_v0` score keeps 2 negative controls in
+top-k and reaches post-split AP 1.0 versus family-prior AP 0.490136, so the
+source-validation symptoms have a plausible engineering route. The gate still
+fails `V6`-`V8` because there is no pinned crystallographic backend, no DFT
+observable channel, and no B5-computed observable channel. The source screen is
+not rewritten, and no material-discovery, mechanism, DFT/B5-observable, or
+solution claim is made.
+
 B2 has moved past the earlier reduced-round artifact into a leakage-flagged
 erasure analytic boundary: 480 configurations, 42 proxy target-volume improved
 rows, 33 distance-5/7 improved rows, no reduced rounds, and no new-code,

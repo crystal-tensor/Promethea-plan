@@ -625,7 +625,15 @@ B5-computed observable rows. It is an intake map for the next materials/B5 PRs,
 not a material-discovery, mechanism, DFT/B5 observable, reproducible-descriptor,
 or solution claim.
 
-**Next PR:** close the `T-B6-005b` S4-S8 failed packet-scout requirements.
+Sprint update: `T-B6-005c` now adds a validation-rescue scout. It evaluates 6
+predeclared variants on the same table and selects `physics_risk_adjusted_v0`:
+2 negative controls remain in top-k and post-split AP reaches 1.0 versus
+family-prior AP 0.490136. The gate still fails V6-V8 because no pinned backend,
+DFT observable rows, or B5-computed observable rows exist. It is a rescue
+candidate, not a source rewrite, discovery, mechanism, DFT/B5 observable, or
+solution claim.
+
+**Next PR:** turn the `T-B6-005c` rescue candidate into a pinned backend artifact.
 Expected artifacts:
 
 - `benchmarks/B6_high_temperature_superconductivity.yaml`
@@ -633,12 +641,15 @@ Expected artifacts:
 - `tools/b6_crystallographic_reproducibility_gate.py`
 - `tools/b6_crystallographic_evidence_contract_gate.py`
 - `tools/b6_crystallographic_packet_scout.py`
+- `tools/b6_validation_rescue_scout.py`
 - `results/B6_crystallographic_reproducibility_gate_v0.json`
 - `results/B6_crystallographic_evidence_contract_gate_v0.json`
 - `results/B6_crystallographic_packet_scout_v0.json`
+- `results/B6_validation_rescue_scout_v0.json`
 - `research/B6_crystallographic_reproducibility_gate.md`
 - `research/B6_crystallographic_evidence_contract_gate.md`
 - `research/B6_crystallographic_packet_scout.md`
+- `research/B6_validation_rescue_scout.md`
 
 **Acceptance gate:** computed descriptors are reported separately from
 family-prior and formula-proxy baselines under random, time-forward, and

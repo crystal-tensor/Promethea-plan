@@ -89,16 +89,16 @@
     {
       "30_day_gate": "Close at least one B6 contract packet with reproducible backend evidence, validation cleanup, family-prior denominator improvement, DFT observables, or B5-computed observables.",
       "b_id": "B6",
-      "current_maturity": "T-B6-005b crystallographic packet scout: 8 requirements checked, 3 passed, 5 failed (S4-S8), with 5 packets mapped from the evidence contract and reproducibility gate.",
+      "current_maturity": "T-B6-005c validation rescue scout: 8 requirements checked, 5 passed, 3 failed (V6-V8), with physics_risk_adjusted_v0 selected as a source-validation rescue candidate.",
       "dependencies": [
         "B5"
       ],
       "downstream_translation_route": "Deferred until computed descriptors and leakage controls support a mechanism-aware ranking claim on a larger retrospective table.",
       "kill_condition": "Demote B6 ranking if the pinned crystallographic/DFT/B5 observable pipeline cannot beat family priors on post-split holdouts or cannot be reproduced without hidden local dependencies.",
-      "next_artifact": "First B6 packet-scout PR: close S4/S5 with a pinned crystallographic backend plus validation cleanup, then close S6-S8 with post-split family-prior defeat and DFT/B5 observable rows.",
+      "next_artifact": "First B6 validation-rescue PR: rerun physics_risk_adjusted_v0 through a pinned crystallographic backend, then attach DFT and B5 observable rows.",
       "priority_lane": "coupled_application",
       "problem_id": 37,
-      "strongest_evidence": "T-B6-005b crystallographic packet scout consumes the evidence contract and reproducibility gate: 8 scout requirements checked, 3 passed, 5 failed (S4-S8), 5 packets mapped, 56 records / 28 families / 18 negative controls preserved, 27 post-split rows, AP 0.247619 vs family-prior AP 0.490136, 2 source-validation errors, no pinned backend, 0 DFT rows, and 0 B5-computed observable rows. No discovery, mechanism, complete-database, DFT, B5-observable, reproducible-descriptor, or solution claim is made.",
+      "strongest_evidence": "T-B6-005c validation rescue scout tests 6 predeclared variants over the same 56-record / 28-family / 18-negative-control table. The selected physics_risk_adjusted_v0 candidate keeps 2 negative controls in top-k and reaches post-split AP 1.0 vs family-prior AP 0.490136. The gate still fails V6-V8 because no pinned backend, DFT rows, or B5-computed observable rows exist. No source rewrite, discovery, mechanism, complete-database, DFT, B5-observable, reproducible-descriptor, or solution claim is made.",
       "title": "High-temperature superconductivity search"
     },
     {
