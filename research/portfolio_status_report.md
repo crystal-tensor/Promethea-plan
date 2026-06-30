@@ -1859,6 +1859,11 @@ Overall audit: PASS
 - Private-challenge fitted spoofer private-safe / leakage-blind / full-leak acceptance: 0.0625 / 0.35 / 1.0
 - Private-challenge fitted spoofer training / hardware / protocol soundness claim: True / False / False
 - Private-challenge fitted spoofer result/markdown exists: True / True
+- Real-backend transcript readiness status: real_backend_transcript_readiness_failed
+- Real-backend transcript readiness passed / failed / missing gates: 5 / 5 / ['R5', 'R6', 'R7', 'R8', 'R9']
+- Real-backend transcript readiness real backend / hardware / transcript rows: False / False / 0
+- Real-backend transcript readiness private-safe / leakage-blind / full-leak acceptance: 0.0625 / 0.35 / 1.0
+- Real-backend transcript readiness result/markdown exists: True / True
 
 ## B5 Hubbard Embedding Status
 
@@ -2195,6 +2200,11 @@ Overall audit: PASS
 - Private-challenge fitted spoofer private-safe / leakage-blind / full-leak acceptance: 0.0625 / 0.35 / 1.0
 - Private-challenge fitted spoofer training / hardware / protocol soundness claim: True / False / False
 - Private-challenge fitted spoofer result/markdown exists: True / True
+- Real-backend transcript readiness status: real_backend_transcript_readiness_failed
+- Real-backend transcript readiness passed / failed / missing gates: 5 / 5 / ['R5', 'R6', 'R7', 'R8', 'R9']
+- Real-backend transcript readiness real backend / hardware / transcript rows: False / False / 0
+- Real-backend transcript readiness private-safe / leakage-blind / full-leak acceptance: 0.0625 / 0.35 / 1.0
+- Real-backend transcript readiness result/markdown exists: True / True
 - Generative spoofer status: trained_generative_spoofer_refresh_boundary_not_soundness_proof
 - Generative spoofer configurations: 144
 - Generative spoofer maximum learned soundness: 1.0

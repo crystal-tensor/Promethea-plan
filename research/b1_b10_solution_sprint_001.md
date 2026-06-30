@@ -2345,3 +2345,17 @@ private-material leakage remains `1.0`. This is actual deterministic fitted
 training over synthetic transcripts, but still not real backend evidence,
 hardware execution, protocol soundness, sampling hardness, quantum advantage,
 or BQP separation.
+
+Sprint update 59f: B4/B8 now has a real-backend transcript readiness
+guardrail. T-B4-002f/T-B8-003j adds
+`tools/b4_b8_real_backend_transcript_readiness_gate.py` and emits
+`results/B4_B8_real_backend_transcript_readiness_gate_v0.json` plus
+`research/B4_B8_real_backend_transcript_readiness_gate.md`. The gate consumes
+the fitted-spoofer holdout result and the B10-T2 GenericBackendV2-style
+calibrated Aer bridge. It checks 10 readiness gates, passes 5, and fails 5:
+R5 real backend properties, R6 hardware execution, R7 leakage-separated
+real-transcript fitting, R8 leakage-blind no-leak acceptance below 0.10, and
+R9 full-private-material leakage bounded below 0.25. The stack still has 0
+real backend transcript rows, leakage-blind no-leak fitted acceptance `0.35`,
+and full-private-material leakage fitted acceptance `1.0`, so it is not
+real-backend transcript readiness or protocol soundness.

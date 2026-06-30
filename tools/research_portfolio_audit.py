@@ -24599,6 +24599,161 @@ def audit(root: Path) -> dict:
             errors.append(f"{label} private-challenge fitted spoofer payload validation-error count mismatch")
         return status
 
+    def audit_real_backend_transcript_readiness(entry, label):
+        status = {}
+        if not entry:
+            warnings.append(f"{label} manifest has no real-backend transcript readiness gate")
+            return status
+        result_path = entry.get("result")
+        markdown_path = entry.get("markdown_report")
+        result_exists = bool(result_path and path_exists_from(benchmarks, result_path))
+        markdown_exists = bool(markdown_path and path_exists_from(benchmarks, markdown_path))
+        if not result_exists:
+            errors.append(f"{label} real-backend transcript readiness result path missing: {result_path}")
+        if not markdown_exists:
+            errors.append(f"{label} real-backend transcript readiness markdown missing: {markdown_path}")
+        payload = json.loads(read((benchmarks / result_path).resolve())) if result_exists else {}
+        claims = payload.get("claim_boundary", {})
+        status = {
+            "status": entry.get("status"),
+            "model_status": entry.get("model_status"),
+            "method": entry.get("method"),
+            "source_fitted_spoofer_method": payload.get("source_fitted_spoofer_method"),
+            "source_backend_calibrated_bridge_method": payload.get(
+                "source_backend_calibrated_bridge_method"
+            ),
+            "source_transcript_case_count": payload.get("source_transcript_case_count"),
+            "train_row_count": payload.get("train_row_count"),
+            "holdout_row_count": payload.get("holdout_row_count"),
+            "fitted_evaluation_row_count": payload.get("fitted_evaluation_row_count"),
+            "backend_calibrated_aer_circuit_count": payload.get(
+                "backend_calibrated_aer_circuit_count"
+            ),
+            "qiskit_generic_backend_v2_used": payload.get("qiskit_generic_backend_v2_used"),
+            "backend_calibrated_noise_parameters_instantiated": payload.get(
+                "backend_calibrated_noise_parameters_instantiated"
+            ),
+            "private_safe_max_no_leak_fitted_acceptance": payload.get(
+                "private_safe_max_no_leak_fitted_acceptance"
+            ),
+            "leakage_blind_max_no_leak_fitted_acceptance": payload.get(
+                "leakage_blind_max_no_leak_fitted_acceptance"
+            ),
+            "leakage_aware_max_full_private_material_leak_fitted_acceptance": payload.get(
+                "leakage_aware_max_full_private_material_leak_fitted_acceptance"
+            ),
+            "real_backend_properties_used": payload.get("real_backend_properties_used"),
+            "hardware_execution_performed": payload.get("hardware_execution_performed"),
+            "real_backend_transcript_rows": payload.get("real_backend_transcript_rows"),
+            "leakage_separated_real_training_performed": payload.get(
+                "leakage_separated_real_training_performed"
+            ),
+            "readiness_gate_count": payload.get("readiness_gate_count"),
+            "passed_readiness_gate_count": payload.get("passed_readiness_gate_count"),
+            "failed_readiness_gate_count": payload.get("failed_readiness_gate_count"),
+            "missing_readiness_gate_ids": payload.get("missing_readiness_gate_ids"),
+            "real_backend_transcript_readiness": payload.get(
+                "real_backend_transcript_readiness"
+            ),
+            "protocol_soundness_proved": payload.get("protocol_soundness_proved"),
+            "cryptographic_soundness_proved": payload.get("cryptographic_soundness_proved"),
+            "sampling_hardness_proved": payload.get("sampling_hardness_proved"),
+            "quantum_advantage_claimed": payload.get("quantum_advantage_claimed"),
+            "bqp_separation_claimed": payload.get("bqp_separation_claimed"),
+            "real_backend_transcript_readiness_gate_built": claims.get(
+                "real_backend_transcript_readiness_gate_built"
+            ),
+            "validation_error_count": len(payload.get("validation_errors", [])),
+            "result_exists": result_exists,
+            "markdown_exists": markdown_exists,
+            "result": result_path,
+            "markdown_report": markdown_path,
+        }
+        if payload.get("benchmark_id") != "B4_B8":
+            errors.append(f"{label} real-backend transcript readiness benchmark_id must be B4_B8")
+        if payload.get("status") != entry.get("status"):
+            errors.append(f"{label} real-backend transcript readiness status mismatch")
+        if payload.get("model_status") != entry.get("model_status"):
+            errors.append(f"{label} real-backend transcript readiness model_status mismatch")
+        if payload.get("method") != entry.get("method"):
+            errors.append(f"{label} real-backend transcript readiness method mismatch")
+        for field in [
+            "source_fitted_spoofer_method",
+            "source_backend_calibrated_bridge_method",
+            "source_transcript_case_count",
+            "train_row_count",
+            "holdout_row_count",
+            "fitted_evaluation_row_count",
+            "backend_calibrated_aer_circuit_count",
+            "qiskit_generic_backend_v2_used",
+            "backend_calibrated_noise_parameters_instantiated",
+            "private_safe_max_no_leak_fitted_acceptance",
+            "leakage_blind_max_no_leak_fitted_acceptance",
+            "leakage_aware_max_full_private_material_leak_fitted_acceptance",
+            "real_backend_properties_used",
+            "hardware_execution_performed",
+            "real_backend_transcript_rows",
+            "leakage_separated_real_training_performed",
+            "readiness_gate_count",
+            "passed_readiness_gate_count",
+            "failed_readiness_gate_count",
+            "missing_readiness_gate_ids",
+            "real_backend_transcript_readiness",
+            "protocol_soundness_proved",
+            "cryptographic_soundness_proved",
+            "sampling_hardness_proved",
+            "quantum_advantage_claimed",
+            "bqp_separation_claimed",
+        ]:
+            if payload.get(field) != entry.get(field):
+                errors.append(f"{label} real-backend transcript readiness {field} mismatch")
+        if payload.get("source_transcript_case_count") != 720:
+            errors.append(f"{label} real-backend transcript readiness should consume 720 cases")
+        if payload.get("train_row_count") != 560 or payload.get("holdout_row_count") != 160:
+            errors.append(f"{label} real-backend transcript readiness should preserve 560/160 split")
+        if payload.get("fitted_evaluation_row_count") != 640:
+            errors.append(f"{label} real-backend transcript readiness should preserve 640 eval rows")
+        if payload.get("backend_calibrated_aer_circuit_count") != 5760:
+            errors.append(f"{label} real-backend transcript readiness should consume 5760 bridge circuits")
+        if payload.get("readiness_gate_count") != 10:
+            errors.append(f"{label} real-backend transcript readiness should check 10 gates")
+        if payload.get("passed_readiness_gate_count") != 5:
+            errors.append(f"{label} real-backend transcript readiness should pass 5 gates")
+        if payload.get("failed_readiness_gate_count") != 5:
+            errors.append(f"{label} real-backend transcript readiness should fail 5 gates")
+        if payload.get("missing_readiness_gate_ids") != ["R5", "R6", "R7", "R8", "R9"]:
+            errors.append(f"{label} real-backend transcript readiness missing gates should be R5-R9")
+        if payload.get("private_safe_max_no_leak_fitted_acceptance") != 0.0625:
+            errors.append(f"{label} real-backend transcript readiness private-safe acceptance mismatch")
+        if payload.get("leakage_blind_max_no_leak_fitted_acceptance") != 0.35:
+            errors.append(f"{label} real-backend transcript readiness leakage-blind acceptance mismatch")
+        if payload.get("leakage_aware_max_full_private_material_leak_fitted_acceptance") != 1.0:
+            errors.append(f"{label} real-backend transcript readiness full-leak acceptance mismatch")
+        for field in [
+            "real_backend_properties_used",
+            "hardware_execution_performed",
+            "leakage_separated_real_training_performed",
+            "real_backend_transcript_readiness",
+            "protocol_soundness_proved",
+            "cryptographic_soundness_proved",
+            "sampling_hardness_proved",
+            "quantum_advantage_claimed",
+            "bqp_separation_claimed",
+        ]:
+            if payload.get(field) is not False:
+                errors.append(f"{label} real-backend transcript readiness must keep {field}=False")
+        if payload.get("real_backend_transcript_rows") != 0:
+            errors.append(f"{label} real-backend transcript readiness should have 0 real transcript rows")
+        if claims.get("real_backend_transcript_readiness_gate_built") is not True:
+            errors.append(f"{label} real-backend transcript readiness must disclose gate construction")
+        if claims.get("real_backend_transcript_readiness") is not False:
+            errors.append(f"{label} real-backend transcript readiness claim boundary must remain false")
+        if len(payload.get("validation_errors", [])) != entry.get("validation_error_count"):
+            errors.append(f"{label} real-backend transcript readiness validation-error count mismatch")
+        if payload.get("validation_error_count") != len(payload.get("validation_errors", [])):
+            errors.append(f"{label} real-backend transcript readiness payload validation-error count mismatch")
+        return status
+
     b4_manifest = yaml.safe_load(read(b4_manifest_path))
     b4_results = b4_manifest.get("current_results", {})
     b4_trap = b4_results.get("toy_hidden_trap_protocol_sim_v0")
@@ -24616,6 +24771,9 @@ def audit(root: Path) -> dict:
     )
     b4_private_challenge_fitted_spoofer = b4_results.get(
         "private_challenge_fitted_spoofer_attack_v0"
+    )
+    b4_real_backend_transcript_readiness = b4_results.get(
+        "real_backend_transcript_readiness_gate_v0"
     )
     b4_status = {}
     if not b4_trap:
@@ -24880,6 +25038,9 @@ def audit(root: Path) -> dict:
     )
     b4_private_challenge_fitted_spoofer_status = audit_private_challenge_fitted_spoofer_attack(
         b4_private_challenge_fitted_spoofer, "B4"
+    )
+    b4_real_backend_transcript_readiness_status = audit_real_backend_transcript_readiness(
+        b4_real_backend_transcript_readiness, "B4"
     )
 
     b5_manifest = yaml.safe_load(read(b5_manifest_path))
@@ -27438,6 +27599,9 @@ def audit(root: Path) -> dict:
     b8_private_challenge_fitted_spoofer = b8_results.get(
         "private_challenge_fitted_spoofer_attack_v0"
     )
+    b8_real_backend_transcript_readiness = b8_results.get(
+        "real_backend_transcript_readiness_gate_v0"
+    )
     b8_generative_spoofer = b8_results.get("generative_spoofer_refresh_stress_v0")
     b8_status = {}
     if not b8_verifier:
@@ -27746,6 +27910,9 @@ def audit(root: Path) -> dict:
     )
     b8_private_challenge_fitted_spoofer_status = audit_private_challenge_fitted_spoofer_attack(
         b8_private_challenge_fitted_spoofer, "B8"
+    )
+    b8_real_backend_transcript_readiness_status = audit_real_backend_transcript_readiness(
+        b8_real_backend_transcript_readiness, "B8"
     )
 
     b8_generative_spoofer_status = {}
@@ -29945,6 +30112,7 @@ def audit(root: Path) -> dict:
             "verifier_private_challenge_noise_bridge": b4_private_challenge_noise_bridge_status,
             "private_challenge_noise_spoofer_pressure": b4_private_challenge_spoofer_pressure_status,
             "private_challenge_fitted_spoofer_attack": b4_private_challenge_fitted_spoofer_status,
+            "real_backend_transcript_readiness_gate": b4_real_backend_transcript_readiness_status,
         },
         "b5": {
             "manifest": str(b5_manifest_path),
@@ -30006,6 +30174,7 @@ def audit(root: Path) -> dict:
             "verifier_private_challenge_noise_bridge": b8_private_challenge_noise_bridge_status,
             "private_challenge_noise_spoofer_pressure": b8_private_challenge_spoofer_pressure_status,
             "private_challenge_fitted_spoofer_attack": b8_private_challenge_fitted_spoofer_status,
+            "real_backend_transcript_readiness_gate": b8_real_backend_transcript_readiness_status,
             "generative_spoofer_refresh": b8_generative_spoofer_status,
         },
         "b9": {
@@ -30542,6 +30711,9 @@ def audit(root: Path) -> dict:
             ),
             "b4_b8_private_challenge_fitted_spoofer_attack": str(
                 research / "B4_B8_private_challenge_fitted_spoofer_attack.md"
+            ),
+            "b4_b8_real_backend_transcript_readiness_gate": str(
+                research / "B4_B8_real_backend_transcript_readiness_gate.md"
             ),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),
@@ -32423,6 +32595,11 @@ def markdown_report(report: dict) -> str:
             f"- Private-challenge fitted spoofer private-safe / leakage-blind / full-leak acceptance: {report['b4']['private_challenge_fitted_spoofer_attack'].get('private_safe_max_no_leak_fitted_acceptance')} / {report['b4']['private_challenge_fitted_spoofer_attack'].get('leakage_blind_max_no_leak_fitted_acceptance')} / {report['b4']['private_challenge_fitted_spoofer_attack'].get('leakage_aware_max_full_private_material_leak_fitted_acceptance')}",
             f"- Private-challenge fitted spoofer training / hardware / protocol soundness claim: {report['b4']['private_challenge_fitted_spoofer_attack'].get('actual_fitted_training_performed')} / {report['b4']['private_challenge_fitted_spoofer_attack'].get('hardware_execution_performed')} / {report['b4']['private_challenge_fitted_spoofer_attack'].get('protocol_soundness_proved')}",
             f"- Private-challenge fitted spoofer result/markdown exists: {report['b4']['private_challenge_fitted_spoofer_attack'].get('result_exists')} / {report['b4']['private_challenge_fitted_spoofer_attack'].get('markdown_exists')}",
+            f"- Real-backend transcript readiness status: {report['b4']['real_backend_transcript_readiness_gate'].get('status')}",
+            f"- Real-backend transcript readiness passed / failed / missing gates: {report['b4']['real_backend_transcript_readiness_gate'].get('passed_readiness_gate_count')} / {report['b4']['real_backend_transcript_readiness_gate'].get('failed_readiness_gate_count')} / {report['b4']['real_backend_transcript_readiness_gate'].get('missing_readiness_gate_ids')}",
+            f"- Real-backend transcript readiness real backend / hardware / transcript rows: {report['b4']['real_backend_transcript_readiness_gate'].get('real_backend_properties_used')} / {report['b4']['real_backend_transcript_readiness_gate'].get('hardware_execution_performed')} / {report['b4']['real_backend_transcript_readiness_gate'].get('real_backend_transcript_rows')}",
+            f"- Real-backend transcript readiness private-safe / leakage-blind / full-leak acceptance: {report['b4']['real_backend_transcript_readiness_gate'].get('private_safe_max_no_leak_fitted_acceptance')} / {report['b4']['real_backend_transcript_readiness_gate'].get('leakage_blind_max_no_leak_fitted_acceptance')} / {report['b4']['real_backend_transcript_readiness_gate'].get('leakage_aware_max_full_private_material_leak_fitted_acceptance')}",
+            f"- Real-backend transcript readiness result/markdown exists: {report['b4']['real_backend_transcript_readiness_gate'].get('result_exists')} / {report['b4']['real_backend_transcript_readiness_gate'].get('markdown_exists')}",
             "",
             "## B5 Hubbard Embedding Status",
             "",
@@ -32759,6 +32936,11 @@ def markdown_report(report: dict) -> str:
             f"- Private-challenge fitted spoofer private-safe / leakage-blind / full-leak acceptance: {report['b8']['private_challenge_fitted_spoofer_attack'].get('private_safe_max_no_leak_fitted_acceptance')} / {report['b8']['private_challenge_fitted_spoofer_attack'].get('leakage_blind_max_no_leak_fitted_acceptance')} / {report['b8']['private_challenge_fitted_spoofer_attack'].get('leakage_aware_max_full_private_material_leak_fitted_acceptance')}",
             f"- Private-challenge fitted spoofer training / hardware / protocol soundness claim: {report['b8']['private_challenge_fitted_spoofer_attack'].get('actual_fitted_training_performed')} / {report['b8']['private_challenge_fitted_spoofer_attack'].get('hardware_execution_performed')} / {report['b8']['private_challenge_fitted_spoofer_attack'].get('protocol_soundness_proved')}",
             f"- Private-challenge fitted spoofer result/markdown exists: {report['b8']['private_challenge_fitted_spoofer_attack'].get('result_exists')} / {report['b8']['private_challenge_fitted_spoofer_attack'].get('markdown_exists')}",
+            f"- Real-backend transcript readiness status: {report['b8']['real_backend_transcript_readiness_gate'].get('status')}",
+            f"- Real-backend transcript readiness passed / failed / missing gates: {report['b8']['real_backend_transcript_readiness_gate'].get('passed_readiness_gate_count')} / {report['b8']['real_backend_transcript_readiness_gate'].get('failed_readiness_gate_count')} / {report['b8']['real_backend_transcript_readiness_gate'].get('missing_readiness_gate_ids')}",
+            f"- Real-backend transcript readiness real backend / hardware / transcript rows: {report['b8']['real_backend_transcript_readiness_gate'].get('real_backend_properties_used')} / {report['b8']['real_backend_transcript_readiness_gate'].get('hardware_execution_performed')} / {report['b8']['real_backend_transcript_readiness_gate'].get('real_backend_transcript_rows')}",
+            f"- Real-backend transcript readiness private-safe / leakage-blind / full-leak acceptance: {report['b8']['real_backend_transcript_readiness_gate'].get('private_safe_max_no_leak_fitted_acceptance')} / {report['b8']['real_backend_transcript_readiness_gate'].get('leakage_blind_max_no_leak_fitted_acceptance')} / {report['b8']['real_backend_transcript_readiness_gate'].get('leakage_aware_max_full_private_material_leak_fitted_acceptance')}",
+            f"- Real-backend transcript readiness result/markdown exists: {report['b8']['real_backend_transcript_readiness_gate'].get('result_exists')} / {report['b8']['real_backend_transcript_readiness_gate'].get('markdown_exists')}",
             f"- Generative spoofer status: {report['b8']['generative_spoofer_refresh'].get('status')}",
             f"- Generative spoofer configurations: {report['b8']['generative_spoofer_refresh'].get('configuration_count')}",
             f"- Generative spoofer maximum learned soundness: {report['b8']['generative_spoofer_refresh'].get('maximum_learned_soundness')}",

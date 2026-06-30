@@ -1147,3 +1147,16 @@ This means the immediate synthetic-transcript break is leakage contamination,
 not private-safe no-leak fitting. It is still not real backend evidence,
 hardware execution, protocol soundness, sampling hardness, quantum advantage,
 or BQP separation.
+
+`T-B4-002f` / `T-B8-003j` adds a real-backend transcript readiness guardrail.
+It consumes the fitted-spoofer holdout result plus the B10-T2
+GenericBackendV2-style calibrated Aer verifier bridge. The guardrail checks 10
+requirements: 5 pass and 5 fail. The missing gates are real backend properties
+(`R5`), hardware execution (`R6`), leakage-separated real-transcript fitting
+(`R7`), leakage-blind no-leak acceptance below 0.10 (`R8`), and full
+private-material leakage bounded below 0.25 (`R9`). The current evidence still
+has 0 real backend transcript rows, private-safe no-leak fitted acceptance
+0.0625, leakage-blind no-leak fitted acceptance 0.35, and full-private-material
+leak fitted acceptance 1.0. This is not real-backend transcript readiness,
+protocol soundness, cryptographic soundness, sampling hardness, quantum
+advantage, or BQP separation.

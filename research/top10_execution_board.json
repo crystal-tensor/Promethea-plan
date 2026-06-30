@@ -55,15 +55,15 @@
       "title": "Quantum algorithms for molecular reaction dynamics"
     },
     {
-      "30_day_gate": "Move fitted spoofer attacks from synthetic transcript rows to real-backend or hardware randomized-measurement transcripts with leakage-separated splits.",
+      "30_day_gate": "Ingest real backend properties or hardware randomized-measurement transcripts, preserve leakage-separated train/holdout splits, and rerun fitted/generative spoofers before promoting any soundness claim.",
       "b_id": "B4",
-      "current_maturity": "fitted_spoofer_synthetic_holdout_gate_passed_leakage_contamination_blocker",
+      "current_maturity": "real_backend_transcript_readiness_failed: T-B4-002f/T-B8-003j consumes the fitted-spoofer holdout result and B10-T2 GenericBackendV2-style calibrated Aer bridge; 10 readiness gates checked, 5 passed, 5 failed (R5 real backend properties, R6 hardware execution, R7 leakage-separated real-transcript fitting, R8 leakage-blind no-leak below 0.10, R9 full leakage bounded).",
       "dependencies": [
         "B8",
         "B10"
       ],
       "downstream_translation_route": "Deferred until paired B4/B8 work moves beyond CNOT/projection proxy into hardware-executable hidden challenges with soundness assumptions.",
-      "kill_condition": "Merge into B8 if circuit-level hardness remains absent beyond property-testing proxies.",
+      "kill_condition": "Keep the verifier route demoted if real-backend or hardware transcripts do not reduce leakage-blind no-leak acceptance below 0.10, if full private-material leakage remains inside the claim boundary, or if fitted/generative spoofers exceed the soundness margin.",
       "next_artifact": "Real-backend or hardware private-challenge transcript fitted-spoofer attack, including leakage-separated training and redesigned predicate candidates if the 0.10 margin fails.",
       "priority_lane": "verification_protocol",
       "problem_id": 16,
@@ -119,15 +119,15 @@
       "title": "Architecture-level fault-tolerance co-design"
     },
     {
-      "30_day_gate": "Move fitted spoofer attacks from synthetic transcript rows to real-backend or hardware randomized-measurement transcripts with leakage-separated splits.",
+      "30_day_gate": "Ingest real backend properties or hardware randomized-measurement transcripts, preserve leakage-separated train/holdout splits, and rerun fitted/generative spoofers before promoting any soundness claim.",
       "b_id": "B8",
-      "current_maturity": "fitted_spoofer_synthetic_holdout_gate_passed_leakage_contamination_blocker",
+      "current_maturity": "real_backend_transcript_readiness_failed: T-B4-002f/T-B8-003j consumes the fitted-spoofer holdout result and B10-T2 GenericBackendV2-style calibrated Aer bridge; 10 readiness gates checked, 5 passed, 5 failed (R5 real backend properties, R6 hardware execution, R7 leakage-separated real-transcript fitting, R8 leakage-blind no-leak below 0.10, R9 full leakage bounded).",
       "dependencies": [
         "B4",
         "B10"
       ],
       "downstream_translation_route": "Deferred until the B4/B8 circuit-refresh proxy survives stronger trained spoofers and real-backend or hardware-executable randomized measurements.",
-      "kill_condition": "Demote if hidden invariants remain too easy to infer once challenge refresh and adaptive generative spoofers are added.",
+      "kill_condition": "Keep the verifier route demoted if real-backend or hardware transcripts do not reduce leakage-blind no-leak acceptance below 0.10, if full private-material leakage remains inside the claim boundary, or if fitted/generative spoofers exceed the soundness margin.",
       "next_artifact": "Real-backend or hardware private-challenge transcript fitted-spoofer attack, including leakage-separated training and redesigned predicate candidates if the 0.10 margin fails.",
       "priority_lane": "verification_protocol",
       "problem_id": 30,
@@ -208,7 +208,7 @@
       "Replace weak directions only if a Tier 2 candidate has a clearer validation path."
     ]
   },
-  "portfolio_state": "B2 calibration-transfer guardrail added; B1/B7 physical-pricing boundary remains active; B1-B10 technical gates still precede translation.",
+  "portfolio_state": "B4/B8 real-backend transcript readiness guardrail added; B1/B7, B2, and B5/B10 remain bounded by explicit negative gates.",
   "purpose": "Execution board for turning the Top 10 quantum attack directions from v0 artifacts into a one-year technical-resolution portfolio.",
   "schema_version": "0.1"
 }

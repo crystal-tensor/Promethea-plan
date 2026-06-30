@@ -1,0 +1,172 @@
+{
+  "backend_calibrated_aer_circuit_count": 5760,
+  "backend_calibrated_noise_parameters_instantiated": true,
+  "benchmark": "B4/B8",
+  "benchmark_id": "B4_B8",
+  "bqp_separation_claimed": false,
+  "claim_boundary": {
+    "bqp_separation_claimed": false,
+    "cryptographic_soundness_proved": false,
+    "hardware_execution_performed": false,
+    "protocol_soundness_proved": false,
+    "quantum_advantage_claimed": false,
+    "real_backend_properties_used": false,
+    "real_backend_transcript_readiness": false,
+    "real_backend_transcript_readiness_gate_built": true,
+    "sampling_hardness_proved": false,
+    "what_is_not_supported": "No real backend properties, no hardware execution, no real transcript rows, leakage-blind fitting is unsafe, and full private-material leakage still breaks the protocol.",
+    "what_is_supported": "Synthetic transcript controls, fitted holdout spoofers, and a GenericBackendV2-style calibrated Aer bridge are present."
+  },
+  "cryptographic_soundness_proved": false,
+  "elapsed_seconds": 0.0009429454803466797,
+  "failed_readiness_gate_count": 5,
+  "fitted_evaluation_row_count": 640,
+  "hardware_execution_performed": false,
+  "holdout_row_count": 160,
+  "last_updated": "2026-06-30",
+  "leakage_aware_max_full_private_material_leak_fitted_acceptance": 1.0,
+  "leakage_blind_max_no_leak_fitted_acceptance": 0.35,
+  "leakage_separated_real_training_performed": false,
+  "maximum_safe_calibrated_adversary_acceptance": 0.25,
+  "method": "b4_b8_real_backend_transcript_readiness_gate_v0",
+  "minimum_safe_calibrated_honest_acceptance": 1.0,
+  "missing_readiness_gate_ids": [
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9"
+  ],
+  "model_status": "synthetic_fitted_spoofer_and_generic_backend_bridge_not_real_backend_transcripts",
+  "passed_readiness_gate_count": 5,
+  "private_safe_max_no_leak_fitted_acceptance": 0.0625,
+  "protocol_soundness_proved": false,
+  "qiskit_generic_backend_v2_used": true,
+  "quantum_advantage_claimed": false,
+  "readiness_gate_count": 10,
+  "readiness_gates": [
+    {
+      "evidence": {
+        "source_method": "b4_b8_verifier_private_challenge_noise_bridge_v0",
+        "source_transcript_case_count": 720
+      },
+      "gate_id": "R1",
+      "label": "Synthetic private-challenge transcript bridge is present",
+      "missing_to_promote": "Keep the synthetic bridge as a control denominator for real transcripts.",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "actual_fitted_training_performed": true,
+        "fitted_evaluation_row_count": 640,
+        "holdout_row_count": 160,
+        "train_row_count": 560
+      },
+      "gate_id": "R2",
+      "label": "Fitted train/holdout diagnostic is present",
+      "missing_to_promote": "Reuse the same split discipline on real-backend or hardware transcripts.",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "backend_calibrated_aer_circuit_count": 5760,
+        "backend_calibrated_noise_parameters_instantiated": true,
+        "maximum_safe_calibrated_adversary_acceptance": 0.25,
+        "minimum_safe_calibrated_honest_acceptance": 1.0,
+        "qiskit_generic_backend_v2_used": true
+      },
+      "gate_id": "R3",
+      "label": "GenericBackendV2 calibrated Aer bridge exists",
+      "missing_to_promote": "Replace GenericBackendV2-style simulated calibration with real backend properties.",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "private_safe_backend_like_refreshed_no_leak_fitted_acceptance": 0.0625,
+        "private_safe_max_no_leak_fitted_acceptance": 0.0625
+      },
+      "gate_id": "R4",
+      "label": "Private-safe no-leak fitted acceptance stays below 0.10",
+      "missing_to_promote": "Re-test this margin on real-backend leakage-separated holdout rows.",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "bridge_real_backend_properties_used": false,
+        "fitted_real_backend_properties_used": false
+      },
+      "gate_id": "R5",
+      "label": "Real backend properties are used",
+      "missing_to_promote": "Attach backend properties from an actual device snapshot or provider calibration export.",
+      "passed": false
+    },
+    {
+      "evidence": {
+        "bridge_hardware_execution_performed": false,
+        "fitted_hardware_execution_performed": false
+      },
+      "gate_id": "R6",
+      "label": "Hardware execution is performed",
+      "missing_to_promote": "Run randomized-measurement circuits on hardware or independently supplied hardware traces.",
+      "passed": false
+    },
+    {
+      "evidence": {
+        "actual_fitted_training_performed": true,
+        "real_backend_properties_used": false,
+        "real_backend_transcript_rows": 0
+      },
+      "gate_id": "R7",
+      "label": "Leakage-separated fitted training uses real transcripts",
+      "missing_to_promote": "Train and hold out leakage-separated spoofers on real-backend or hardware transcript rows.",
+      "passed": false
+    },
+    {
+      "evidence": {
+        "leakage_blind_max_no_leak_fitted_acceptance": 0.35,
+        "leakage_blind_mixture_fails_no_leak_0p10": true
+      },
+      "gate_id": "R8",
+      "label": "Leakage-blind no-leak fitted acceptance is below 0.10",
+      "missing_to_promote": "Separate leakage regimes or redesign private predicates so leakage-blind training cannot lift no-leak acceptance.",
+      "passed": false
+    },
+    {
+      "evidence": {
+        "full_private_material_leakage_breaks_protocol": true,
+        "leakage_aware_max_full_private_material_leak_fitted_acceptance": 1.0
+      },
+      "gate_id": "R9",
+      "label": "Full private-material leakage is bounded",
+      "missing_to_promote": "Redesign the challenge material so full leakage is outside the claim boundary or cryptographically protected.",
+      "passed": false
+    },
+    {
+      "evidence": {
+        "backend_explicit_not_bqp_separation": true,
+        "bqp_separation_claimed": false,
+        "cryptographic_soundness_proved": false,
+        "protocol_soundness_proved": false,
+        "quantum_advantage_claimed": false,
+        "sampling_hardness_proved": false
+      },
+      "gate_id": "R10",
+      "label": "No forbidden advantage or soundness claim is made",
+      "missing_to_promote": "Keep all claims bounded until real-backend transcript readiness passes.",
+      "passed": true
+    }
+  ],
+  "real_backend_properties_used": false,
+  "real_backend_transcript_readiness": false,
+  "real_backend_transcript_rows": 0,
+  "sampling_hardness_proved": false,
+  "source_backend_calibrated_bridge_method": "b10_t2_backend_calibrated_verifier_bridge_v0",
+  "source_fitted_spoofer_method": "b4_b8_private_challenge_fitted_spoofer_attack_v0",
+  "source_transcript_case_count": 720,
+  "status": "real_backend_transcript_readiness_failed",
+  "title": "B4/B8 real-backend transcript readiness gate",
+  "train_row_count": 560,
+  "validation_error_count": 0,
+  "validation_errors": [],
+  "version": "0.1"
+}
