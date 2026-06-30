@@ -257,6 +257,15 @@ denominator defeat, DFT observable channel, and B5-computed observable channel.
 This is still not a material-discovery, mechanism, complete-database, DFT,
 B5-observable, or solution claim.
 
+`T-B6-005b` adds a crystallographic packet scout over that contract. The scout
+checks 8 requirements: 3 pass and 5 fail (`S4`-`S8`). It maps 5 packets while
+preserving the 56-record / 28-family / 18-negative-control scope, 27
+post-split records, crystallographic AP 0.247619 versus family-prior AP
+0.490136, 2 source-validation errors, no pinned backend, 0 DFT observable rows,
+and 0 B5-computed observable rows. The result is a sharper intake map for
+materials and B5 agents, not a material-discovery, mechanism, DFT-observable,
+B5-observable, reproducible-descriptor, or solution claim.
+
 B2 has moved past the earlier reduced-round artifact into a leakage-flagged
 erasure analytic boundary: 480 configurations, 42 proxy target-volume improved
 rows, 33 distance-5/7 improved rows, no reduced rounds, and no new-code,

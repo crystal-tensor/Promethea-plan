@@ -616,16 +616,29 @@ channel, and B5-computed observable channel. It is a multi-agent handoff
 surface, not a material-discovery, mechanism, complete-database, DFT,
 B5-observable, or solution claim.
 
-**Next PR:** fix the `T-B6-004` failed requirements. Expected artifacts:
+Sprint update: `T-B6-005b` now adds a crystallographic packet scout over that
+handoff. The scout checks 8 requirements, passes 3, fails S4-S8, maps 5
+packets, preserves 56 records / 28 families / 18 negative controls, records 27
+post-split rows, crystallographic AP 0.247619 versus family-prior AP 0.490136,
+2 source validation errors, no pinned backend, 0 DFT observable rows, and 0
+B5-computed observable rows. It is an intake map for the next materials/B5 PRs,
+not a material-discovery, mechanism, DFT/B5 observable, reproducible-descriptor,
+or solution claim.
+
+**Next PR:** close the `T-B6-005b` S4-S8 failed packet-scout requirements.
+Expected artifacts:
 
 - `benchmarks/B6_high_temperature_superconductivity.yaml`
 - `tools/B6_crystallographic_descriptor_screen.py` or an equivalent pinned backend
 - `tools/b6_crystallographic_reproducibility_gate.py`
 - `tools/b6_crystallographic_evidence_contract_gate.py`
+- `tools/b6_crystallographic_packet_scout.py`
 - `results/B6_crystallographic_reproducibility_gate_v0.json`
 - `results/B6_crystallographic_evidence_contract_gate_v0.json`
+- `results/B6_crystallographic_packet_scout_v0.json`
 - `research/B6_crystallographic_reproducibility_gate.md`
 - `research/B6_crystallographic_evidence_contract_gate.md`
+- `research/B6_crystallographic_packet_scout.md`
 
 **Acceptance gate:** computed descriptors are reported separately from
 family-prior and formula-proxy baselines under random, time-forward, and

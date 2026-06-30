@@ -89,16 +89,16 @@
     {
       "30_day_gate": "Close at least one B6 contract packet with reproducible backend evidence, validation cleanup, family-prior denominator improvement, DFT observables, or B5-computed observables.",
       "b_id": "B6",
-      "current_maturity": "T-B6-005a crystallographic evidence contract: 8 requirements checked, 3 passed, 5 failed (K4-K8), with 5 PR packets mapped from R6-R10.",
+      "current_maturity": "T-B6-005b crystallographic packet scout: 8 requirements checked, 3 passed, 5 failed (S4-S8), with 5 packets mapped from the evidence contract and reproducibility gate.",
       "dependencies": [
         "B5"
       ],
       "downstream_translation_route": "Deferred until computed descriptors and leakage controls support a mechanism-aware ranking claim on a larger retrospective table.",
       "kill_condition": "Demote B6 ranking if the pinned crystallographic/DFT/B5 observable pipeline cannot beat family priors on post-split holdouts or cannot be reproduced without hidden local dependencies.",
-      "next_artifact": "First B6 contract-packet PR: pinned crystallographic backend plus validation cleanup, preserving the current row scope and post-split baseline comparison.",
+      "next_artifact": "First B6 packet-scout PR: close S4/S5 with a pinned crystallographic backend plus validation cleanup, then close S6-S8 with post-split family-prior defeat and DFT/B5 observable rows.",
       "priority_lane": "coupled_application",
       "problem_id": 37,
-      "strongest_evidence": "T-B6-005a crystallographic evidence contract consumes the failed T-B6-004 reproducibility gate: 8 contract requirements checked, 3 passed, 5 failed (K4-K8), preserving R6-R10 and emitting 5 PR packets for reproducible crystallographic backend, source-validation cleanup, family-prior denominator defeat, DFT observable channel, and B5-computed observable channel. No discovery, mechanism, complete-database, DFT, B5-observable, or solution claim is made.",
+      "strongest_evidence": "T-B6-005b crystallographic packet scout consumes the evidence contract and reproducibility gate: 8 scout requirements checked, 3 passed, 5 failed (S4-S8), 5 packets mapped, 56 records / 28 families / 18 negative controls preserved, 27 post-split rows, AP 0.247619 vs family-prior AP 0.490136, 2 source-validation errors, no pinned backend, 0 DFT rows, and 0 B5-computed observable rows. No discovery, mechanism, complete-database, DFT, B5-observable, reproducible-descriptor, or solution claim is made.",
       "title": "High-temperature superconductivity search"
     },
     {

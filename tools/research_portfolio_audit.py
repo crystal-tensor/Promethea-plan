@@ -28331,12 +28331,14 @@ def audit(root: Path) -> dict:
     b6_structural = b6_results.get("b6_structural_electronic_proxy_screen_v0")
     b6_crystallographic_gate = b6_results.get("b6_crystallographic_reproducibility_gate_v0")
     b6_crystallographic_contract = b6_results.get("b6_crystallographic_evidence_contract_gate_v0")
+    b6_crystallographic_packet_scout = b6_results.get("b6_crystallographic_packet_scout_v0")
     b6_status = {}
     b6_curated_status = {}
     b6_formula_status = {}
     b6_structural_status = {}
     b6_crystallographic_gate_status = {}
     b6_crystallographic_contract_status = {}
+    b6_crystallographic_packet_scout_status = {}
     if not b6_descriptor:
         warnings.append("B6 manifest has no superconductivity descriptor ranking result")
     else:
@@ -28922,6 +28924,164 @@ def audit(root: Path) -> dict:
             "result": result_path,
             "markdown": markdown_path,
         }
+
+    if not b6_crystallographic_packet_scout:
+        warnings.append("B6 manifest has no crystallographic packet scout")
+    else:
+        result_path = b6_crystallographic_packet_scout.get("result")
+        markdown_path = b6_crystallographic_packet_scout.get("markdown")
+        result_exists = bool(result_path and path_exists_from(benchmarks, result_path))
+        markdown_exists = bool(markdown_path and path_exists_from(benchmarks, markdown_path))
+        if not result_exists:
+            errors.append(f"B6 crystallographic packet scout result path missing: {result_path}")
+        if not markdown_exists:
+            errors.append(f"B6 crystallographic packet scout markdown path missing: {markdown_path}")
+        payload = json.loads(read((benchmarks / result_path).resolve())) if result_exists else {}
+        summary = payload.get("summary", {})
+        claims = payload.get("claim_boundary", {})
+        b6_crystallographic_packet_scout_status = {
+            "status": b6_crystallographic_packet_scout.get("status"),
+            "method": b6_crystallographic_packet_scout.get("method"),
+            "model_status": b6_crystallographic_packet_scout.get("model_status"),
+            "source_contract_status": summary.get("source_contract_status"),
+            "source_reproducibility_status": summary.get("source_reproducibility_status"),
+            "packet_scout_requirement_count": summary.get("packet_scout_requirement_count"),
+            "packet_scout_requirements_passed": summary.get("packet_scout_requirements_passed"),
+            "packet_scout_requirements_failed": summary.get("packet_scout_requirements_failed"),
+            "failed_packet_scout_requirement_ids": summary.get(
+                "failed_packet_scout_requirement_ids"
+            ),
+            "contract_packet_count": summary.get("contract_packet_count"),
+            "contract_packet_ids": summary.get("contract_packet_ids"),
+            "record_count": summary.get("record_count"),
+            "family_count": summary.get("family_count"),
+            "negative_control_count": summary.get("negative_control_count"),
+            "post_split_record_count": summary.get("post_split_record_count"),
+            "post_split_crystallo_ap": summary.get("post_split_crystallo_ap"),
+            "post_split_family_prior_ap": summary.get("post_split_family_prior_ap"),
+            "source_validation_error_count": summary.get("source_validation_error_count"),
+            "pymatgen_available": summary.get("pymatgen_available"),
+            "dft_observable_rows": summary.get("dft_observable_rows"),
+            "b5_computed_observable_rows": summary.get("b5_computed_observable_rows"),
+            "crystallographic_packet_scout_ready": summary.get(
+                "crystallographic_packet_scout_ready"
+            ),
+            "material_discovery_claimed": summary.get("material_discovery_claimed"),
+            "mechanism_solved": summary.get("mechanism_solved"),
+            "complete_materials_database": summary.get("complete_materials_database"),
+            "reproducible_crystallographic_descriptor_claim": summary.get(
+                "reproducible_crystallographic_descriptor_claim"
+            ),
+            "dft_observable_claimed": summary.get("dft_observable_claimed"),
+            "b5_computed_observable_claimed": summary.get("b5_computed_observable_claimed"),
+            "solution_claimed": summary.get("solution_claimed"),
+            "crystallographic_packet_scout_built": claims.get(
+                "crystallographic_packet_scout_built"
+            ),
+            "validation_error_count": len(payload.get("validation_errors", [])),
+            "result_exists": result_exists,
+            "markdown_exists": markdown_exists,
+            "result": result_path,
+            "markdown": markdown_path,
+        }
+        if payload.get("benchmark_id") != "B6":
+            errors.append("B6 crystallographic packet scout benchmark_id mismatch")
+        if payload.get("status") != b6_crystallographic_packet_scout.get("status"):
+            errors.append("B6 crystallographic packet scout status mismatch")
+        if payload.get("method") != b6_crystallographic_packet_scout.get("method"):
+            errors.append("B6 crystallographic packet scout method mismatch")
+        if payload.get("model_status") != b6_crystallographic_packet_scout.get("model_status"):
+            errors.append("B6 crystallographic packet scout model_status mismatch")
+        for field in [
+            "source_contract_status",
+            "source_reproducibility_status",
+            "packet_scout_requirement_count",
+            "packet_scout_requirements_passed",
+            "packet_scout_requirements_failed",
+            "failed_packet_scout_requirement_ids",
+            "contract_packet_count",
+            "record_count",
+            "family_count",
+            "negative_control_count",
+            "post_split_record_count",
+            "post_split_crystallo_ap",
+            "post_split_family_prior_ap",
+            "source_validation_error_count",
+            "pymatgen_available",
+            "dft_observable_rows",
+            "b5_computed_observable_rows",
+            "crystallographic_packet_scout_ready",
+            "material_discovery_claimed",
+            "mechanism_solved",
+            "complete_materials_database",
+            "reproducible_crystallographic_descriptor_claim",
+            "dft_observable_claimed",
+            "b5_computed_observable_claimed",
+            "solution_claimed",
+        ]:
+            if summary.get(field) != b6_crystallographic_packet_scout.get(field):
+                errors.append(f"B6 crystallographic packet scout {field} mismatch")
+        if summary.get("packet_scout_requirement_count") != 8:
+            errors.append("B6 crystallographic packet scout should check eight requirements")
+        if summary.get("packet_scout_requirements_passed") != 3:
+            errors.append("B6 crystallographic packet scout should pass three requirements")
+        if summary.get("packet_scout_requirements_failed") != 5:
+            errors.append("B6 crystallographic packet scout should fail five requirements")
+        if summary.get("failed_packet_scout_requirement_ids") != ["S4", "S5", "S6", "S7", "S8"]:
+            errors.append("B6 crystallographic packet scout failures should be S4-S8")
+        if summary.get("contract_packet_count") != 5 or len(payload.get("rows", [])) != 5:
+            errors.append("B6 crystallographic packet scout should expose five packet rows")
+        for field, expected in [
+            ("record_count", 56),
+            ("family_count", 28),
+            ("negative_control_count", 18),
+            ("post_split_record_count", 27),
+            ("source_validation_error_count", 2),
+            ("dft_observable_rows", 0),
+            ("b5_computed_observable_rows", 0),
+        ]:
+            if summary.get(field) != expected:
+                errors.append(f"B6 crystallographic packet scout {field} should be {expected}")
+        for field, expected in [
+            ("post_split_crystallo_ap", 0.2476190476190476),
+            ("post_split_family_prior_ap", 0.4901360544217687),
+        ]:
+            if summary.get(field) != expected:
+                errors.append(f"B6 crystallographic packet scout {field} mismatch")
+        for field in [
+            "pymatgen_available",
+            "crystallographic_packet_scout_ready",
+            "material_discovery_claimed",
+            "mechanism_solved",
+            "complete_materials_database",
+            "reproducible_crystallographic_descriptor_claim",
+            "dft_observable_claimed",
+            "b5_computed_observable_claimed",
+            "solution_claimed",
+        ]:
+            if summary.get(field) is not False:
+                errors.append(f"B6 crystallographic packet scout must keep {field}=False")
+        if claims.get("crystallographic_packet_scout_built") is not True:
+            errors.append("B6 crystallographic packet scout must disclose scout construction")
+        for field in [
+            "material_discovery_claimed",
+            "mechanism_solved",
+            "complete_materials_database",
+            "reproducible_crystallographic_descriptor_claim",
+            "dft_observable_claimed",
+            "b5_computed_observable_claimed",
+            "solution_claimed",
+        ]:
+            if claims.get(field) is not False:
+                errors.append(f"B6 crystallographic packet scout claim boundary must keep {field}=False")
+        if len(payload.get("requirements", [])) != 8:
+            errors.append("B6 crystallographic packet scout requirement count mismatch")
+        if len(payload.get("validation_errors", [])) != b6_crystallographic_packet_scout.get(
+            "validation_error_count"
+        ):
+            errors.append("B6 crystallographic packet scout validation-error count mismatch")
+        if payload.get("validation_error_count") != len(payload.get("validation_errors", [])):
+            errors.append("B6 crystallographic packet scout payload validation-error count mismatch")
 
     b7_manifest = yaml.safe_load(read(b7_manifest_path))
     b7_results = b7_manifest.get("current_results", {})
@@ -33018,6 +33178,7 @@ def audit(root: Path) -> dict:
             "structural_electronic_proxy_screen": b6_structural_status,
             "crystallographic_reproducibility_gate": b6_crystallographic_gate_status,
             "crystallographic_evidence_contract_gate": b6_crystallographic_contract_status,
+            "crystallographic_packet_scout": b6_crystallographic_packet_scout_status,
         },
         "b7": {
             "manifest": str(b7_manifest_path),
@@ -33569,6 +33730,9 @@ def audit(root: Path) -> dict:
             ),
             "b6_crystallographic_evidence_contract_gate": str(
                 research / "B6_crystallographic_evidence_contract_gate.md"
+            ),
+            "b6_crystallographic_packet_scout": str(
+                research / "B6_crystallographic_packet_scout.md"
             ),
             "b10_formal_theorem_targets": str(research / "B10_formal_theorem_targets.md"),
             "b10_t2_minimum_refresh_spoofer_boundary": str(research / "B8_generative_spoofer_refresh.md"),
@@ -35804,6 +35968,14 @@ def markdown_report(report: dict) -> str:
             f"- Crystallographic evidence contract passed / failed / packets: {report['b6']['crystallographic_evidence_contract_gate'].get('passed_contract_requirement_count')} / {report['b6']['crystallographic_evidence_contract_gate'].get('failed_contract_requirement_count')} / {report['b6']['crystallographic_evidence_contract_gate'].get('contract_packet_count')}",
             f"- Crystallographic evidence contract packet IDs: {report['b6']['crystallographic_evidence_contract_gate'].get('contract_packet_ids')}",
             f"- Crystallographic evidence contract result/markdown exists: {report['b6']['crystallographic_evidence_contract_gate'].get('result_exists')} / {report['b6']['crystallographic_evidence_contract_gate'].get('markdown_exists')}",
+            f"- Crystallographic packet scout status: {report['b6']['crystallographic_packet_scout'].get('status')}",
+            f"- Crystallographic packet scout passed / failed / failed IDs: {report['b6']['crystallographic_packet_scout'].get('packet_scout_requirements_passed')} / {report['b6']['crystallographic_packet_scout'].get('packet_scout_requirements_failed')} / {report['b6']['crystallographic_packet_scout'].get('failed_packet_scout_requirement_ids')}",
+            f"- Crystallographic packet scout packets / records / families / negatives: {report['b6']['crystallographic_packet_scout'].get('contract_packet_count')} / {report['b6']['crystallographic_packet_scout'].get('record_count')} / {report['b6']['crystallographic_packet_scout'].get('family_count')} / {report['b6']['crystallographic_packet_scout'].get('negative_control_count')}",
+            f"- Crystallographic packet scout AP / family prior / validation errors / backend: {report['b6']['crystallographic_packet_scout'].get('post_split_crystallo_ap')} / {report['b6']['crystallographic_packet_scout'].get('post_split_family_prior_ap')} / {report['b6']['crystallographic_packet_scout'].get('source_validation_error_count')} / {report['b6']['crystallographic_packet_scout'].get('pymatgen_available')}",
+            f"- Crystallographic packet scout DFT rows / B5 rows / ready: {report['b6']['crystallographic_packet_scout'].get('dft_observable_rows')} / {report['b6']['crystallographic_packet_scout'].get('b5_computed_observable_rows')} / {report['b6']['crystallographic_packet_scout'].get('crystallographic_packet_scout_ready')}",
+            f"- Crystallographic packet scout discovery/mechanism/solution claims: {report['b6']['crystallographic_packet_scout'].get('material_discovery_claimed')} / {report['b6']['crystallographic_packet_scout'].get('mechanism_solved')} / {report['b6']['crystallographic_packet_scout'].get('solution_claimed')}",
+            f"- Crystallographic packet scout validation errors: {report['b6']['crystallographic_packet_scout'].get('validation_error_count')}",
+            f"- Crystallographic packet scout result/markdown exists: {report['b6']['crystallographic_packet_scout'].get('result_exists')} / {report['b6']['crystallographic_packet_scout'].get('markdown_exists')}",
             "",
             "## B7 Fault-Tolerance Co-Design Status",
             "",

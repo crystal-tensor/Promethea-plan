@@ -48,10 +48,10 @@
     },
     {
       "b_id": "B6",
-      "current_evidence": "Toy descriptor ranker plus T-B6-001 curated leakage audit, T-B6-002 formula-derived descriptor screen, T-B6-003 structural/electronic proxy boundary, T-B6-004 crystallographic reproducibility gate, and T-B6-005a crystallographic evidence contract consumes the failed T-B6-004 reproducibility gate: 8 contract requirements checked, 3 passed, 5 failed (K4-K8), preserving R6-R10 and emitting 5 PR packets for reproducible crystallographic backend, source-validation cleanup, family-prior denominator defeat, DFT observable channel, and B5-computed observable channel. No discovery, mechanism, complete-database, DFT, B5-observable, or solution claim is made.",
+      "current_evidence": "Toy descriptor ranker plus T-B6-001 curated leakage audit, T-B6-002 formula-derived descriptor screen, T-B6-003 structural/electronic proxy boundary, T-B6-004 crystallographic reproducibility gate, T-B6-005a crystallographic evidence contract, and T-B6-005b crystallographic packet scout. The latest scout checks 8 requirements, passes 3, fails S4-S8, maps 5 packets, preserves 56 records / 28 families / 18 negative controls, records 27 post-split rows, AP 0.247619 vs family-prior AP 0.490136, 2 source-validation errors, no pinned backend, 0 DFT rows, and 0 B5-computed observable rows. No discovery, mechanism, complete-database, DFT, B5-observable, reproducible-descriptor, or solution claim is made.",
       "gate_status": "early_negative_boundary",
-      "main_blocker": "B6 has an explicit evidence contract, but five packets remain open: reproducible backend, source-validation cleanup, family-prior denominator defeat, DFT observable channel, and B5-computed observable channel.",
-      "next_experiment": "Close one or more T-B6-005 packets while preserving the 56-record / 28-family / 18-negative-control scope and rerun the audit before any candidate-ranking claim.",
+      "main_blocker": "B6 has an explicit packet scout, but S4-S8 remain open: reproducible backend, source-validation cleanup, family-prior denominator defeat, DFT observable channel, and B5-computed observable channel.",
+      "next_experiment": "Close one or more T-B6-005b failed scout packets while preserving the 56-record / 28-family / 18-negative-control scope and rerun the audit before any candidate-ranking claim.",
       "technical_solution_target": "Leakage-controlled high-Tc candidate ranking pipeline using physics descriptors, not family priors."
     },
     {

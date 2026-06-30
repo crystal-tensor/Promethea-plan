@@ -2076,6 +2076,14 @@ Overall audit: PASS
 - Crystallographic evidence contract passed / failed / packets: 3 / 5 / 5
 - Crystallographic evidence contract packet IDs: ['B6-R6-reproducible-crystallographic-backend', 'B6-R7-source-validation-cleanup', 'B6-R8-family-prior-denominator', 'B6-R9-dft-observable-channel', 'B6-R10-b5-observable-channel']
 - Crystallographic evidence contract result/markdown exists: True / True
+- Crystallographic packet scout status: crystallographic_packet_scout_failed_missing_computed_evidence
+- Crystallographic packet scout passed / failed / failed IDs: 3 / 5 / ['S4', 'S5', 'S6', 'S7', 'S8']
+- Crystallographic packet scout packets / records / families / negatives: 5 / 56 / 28 / 18
+- Crystallographic packet scout AP / family prior / validation errors / backend: 0.2476190476190476 / 0.4901360544217687 / 2 / False
+- Crystallographic packet scout DFT rows / B5 rows / ready: 0 / 0 / False
+- Crystallographic packet scout discovery/mechanism/solution claims: False / False / False
+- Crystallographic packet scout validation errors: 0
+- Crystallographic packet scout result/markdown exists: True / True
 
 ## B7 Fault-Tolerance Co-Design Status
 

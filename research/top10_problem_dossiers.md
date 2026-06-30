@@ -669,6 +669,15 @@ crystallographic backend, source-validation cleanup, family-prior denominator
 defeat, DFT observable channel, and B5-computed observable channel. This is a
 handoff contract for materials and B5 agents, not a discovery, mechanism, DFT,
 B5-observable, or solution claim.
+T-B6-005b now adds a crystallographic packet scout over that contract. The
+scout checks 8 requirements, passes 3, fails S4-S8, maps 5 packets, preserves
+56 records / 28 families / 18 negative controls and 27 post-split records, and
+records crystallographic AP 0.247619 versus family-prior AP 0.490136. The
+source validation errors remain 2, `pymatgen` is still unavailable in the
+current runtime, DFT observable rows are 0, and B5-computed observable rows are
+0. This turns the handoff into a sharper intake map, but still makes no
+material-discovery, mechanism, reproducible-descriptor, DFT-observable,
+B5-observable, or solution claim.
 
 **Remaining path to a serious solution:** pin a reproducible crystallographic
 backend or equivalent descriptor implementation; remove the source validation
