@@ -25293,6 +25293,9 @@ def audit(root: Path) -> dict:
     b5_b10_row_contract = b5_results.get("b5_b10_row_contract_harness_v0")
     b5_seeded_pressure_replacement = b5_results.get("seeded_pressure_replacement_audit_v0")
     b5_response_oracle_cost_ledger = b5_results.get("response_oracle_cost_ledger_v0")
+    b5_production_dmrg_mps_acceptance_gate = b5_results.get(
+        "production_dmrg_mps_acceptance_gate_v0"
+    )
     b5_two_site_dmrg = b5_results.get("two_site_finite_dmrg_response_reference_v0")
     b5_var_mps = b5_results.get("variational_mps_als_response_reference_v0")
     b5_mps = b5_results.get("mps_schmidt_truncation_response_reference_v0")
@@ -26304,6 +26307,194 @@ def audit(root: Path) -> dict:
 
     b5_response_oracle_cost_ledger_status = audit_b5_response_oracle_cost_ledger(
         b5_response_oracle_cost_ledger, "B5"
+    )
+
+    def audit_b5_production_dmrg_mps_acceptance_gate(entry, label):
+        status = {}
+        if not entry:
+            warnings.append(f"{label} manifest has no B5/B10 production DMRG/MPS acceptance gate")
+            return status
+        result_path = entry.get("result")
+        markdown_path = entry.get("markdown_report")
+        result_exists = bool(result_path and path_exists_from(benchmarks, result_path))
+        markdown_exists = bool(markdown_path and path_exists_from(benchmarks, markdown_path))
+        if not result_exists:
+            errors.append(f"{label} production DMRG/MPS acceptance result path missing: {result_path}")
+        if not markdown_exists:
+            errors.append(f"{label} production DMRG/MPS acceptance markdown missing: {markdown_path}")
+        payload = json.loads(read((benchmarks / result_path).resolve())) if result_exists else {}
+        summary = payload.get("summary", {})
+        claims = payload.get("claim_boundary", {})
+        status = {
+            "status": entry.get("status"),
+            "method": entry.get("method"),
+            "model_status": entry.get("model_status"),
+            "row_contract_count": summary.get("row_contract_count"),
+            "row_contract_hash": summary.get("row_contract_hash"),
+            "environment_ledger_rows": summary.get("environment_ledger_rows"),
+            "production_dmrg_requirement_count": summary.get("production_dmrg_requirement_count"),
+            "production_dmrg_requirements_passed": summary.get(
+                "production_dmrg_requirements_passed"
+            ),
+            "production_dmrg_requirements_failed": summary.get(
+                "production_dmrg_requirements_failed"
+            ),
+            "failed_production_dmrg_requirement_ids": summary.get(
+                "failed_production_dmrg_requirement_ids"
+            ),
+            "w1_production_dmrg_acceptance_gate_executed": summary.get(
+                "w1_production_dmrg_acceptance_gate_executed"
+            ),
+            "w1_production_dmrg_denominator_available": summary.get(
+                "w1_production_dmrg_denominator_available"
+            ),
+            "w1_remains_blocked_on_denominator_engine": summary.get(
+                "w1_remains_blocked_on_denominator_engine"
+            ),
+            "readiness_gate_count": summary.get("readiness_gate_count"),
+            "readiness_passed_gate_count": summary.get("readiness_passed_gate_count"),
+            "canonical_environment_smoke_passed_rows": summary.get(
+                "canonical_environment_smoke_passed_rows"
+            ),
+            "seeded_pressure_replaced": summary.get("seeded_pressure_replaced"),
+            "deployable_replacement_count": summary.get("deployable_replacement_count"),
+            "oracle_requirements_failed": summary.get("oracle_requirements_failed"),
+            "oracle_failed_requirement_ids": summary.get("oracle_failed_requirement_ids"),
+            "remaining_positive_route_packets": summary.get("remaining_positive_route_packets"),
+            "production_dmrg_available": summary.get("production_dmrg_available"),
+            "sampling_oracle_constructed": summary.get("sampling_oracle_constructed"),
+            "same_access_response_oracle_constructed": summary.get(
+                "same_access_response_oracle_constructed"
+            ),
+            "same_access_positive_route_ready": summary.get("same_access_positive_route_ready"),
+            "b10_t1_positive_route_ready": summary.get("b10_t1_positive_route_ready"),
+            "catalog_change_required": summary.get("catalog_change_required"),
+            "production_dmrg_claimed": summary.get("production_dmrg_claimed"),
+            "quantum_response_win_claimed": summary.get("quantum_response_win_claimed"),
+            "accuracy_per_resource_win_claimed": summary.get("accuracy_per_resource_win_claimed"),
+            "same_access_positive_route_claimed": summary.get("same_access_positive_route_claimed"),
+            "quantum_advantage_claimed": summary.get("quantum_advantage_claimed"),
+            "bqp_separation_claimed": summary.get("bqp_separation_claimed"),
+            "dequantization_theorem_claimed": summary.get("dequantization_theorem_claimed"),
+            "sampling_access_theorem_claimed": summary.get("sampling_access_theorem_claimed"),
+            "condition_count": summary.get("condition_count"),
+            "conditions_satisfied": summary.get("conditions_satisfied"),
+            "conditions_failed": summary.get("conditions_failed"),
+            "validation_error_count": len(payload.get("validation_errors", [])),
+            "result_exists": result_exists,
+            "markdown_exists": markdown_exists,
+            "result": result_path,
+            "markdown_report": markdown_path,
+        }
+        if payload.get("benchmark_id") != "B5":
+            errors.append(f"{label} production DMRG/MPS acceptance benchmark_id must be B5")
+        if payload.get("linked_benchmark_id") != "B10":
+            errors.append(f"{label} production DMRG/MPS acceptance linked_benchmark_id must be B10")
+        if payload.get("source_target_id") != "B10-T1":
+            errors.append(f"{label} production DMRG/MPS acceptance source_target_id must be B10-T1")
+        if payload.get("method") != entry.get("method"):
+            errors.append(f"{label} production DMRG/MPS acceptance method mismatch")
+        if payload.get("status") != entry.get("status"):
+            errors.append(f"{label} production DMRG/MPS acceptance status mismatch")
+        if payload.get("model_status") != entry.get("model_status"):
+            errors.append(f"{label} production DMRG/MPS acceptance model-status mismatch")
+        for field in [
+            "row_contract_count",
+            "row_contract_hash",
+            "environment_ledger_rows",
+            "production_dmrg_requirement_count",
+            "production_dmrg_requirements_passed",
+            "production_dmrg_requirements_failed",
+            "failed_production_dmrg_requirement_ids",
+            "w1_production_dmrg_acceptance_gate_executed",
+            "w1_production_dmrg_denominator_available",
+            "w1_remains_blocked_on_denominator_engine",
+            "readiness_gate_count",
+            "readiness_passed_gate_count",
+            "canonical_environment_smoke_passed_rows",
+            "seeded_pressure_replaced",
+            "deployable_replacement_count",
+            "oracle_requirements_failed",
+            "oracle_failed_requirement_ids",
+            "remaining_positive_route_packets",
+            "production_dmrg_available",
+            "sampling_oracle_constructed",
+            "same_access_response_oracle_constructed",
+            "same_access_positive_route_ready",
+            "b10_t1_positive_route_ready",
+            "catalog_change_required",
+            "production_dmrg_claimed",
+            "quantum_response_win_claimed",
+            "accuracy_per_resource_win_claimed",
+            "same_access_positive_route_claimed",
+            "quantum_advantage_claimed",
+            "bqp_separation_claimed",
+            "dequantization_theorem_claimed",
+            "sampling_access_theorem_claimed",
+            "condition_count",
+            "conditions_satisfied",
+            "conditions_failed",
+        ]:
+            if summary.get(field) != entry.get(field):
+                errors.append(f"{label} production DMRG/MPS acceptance {field} mismatch")
+        if summary.get("row_contract_count") != 9:
+            errors.append(f"{label} production DMRG/MPS acceptance must preserve nine rows")
+        if summary.get("environment_ledger_rows") != 9:
+            errors.append(f"{label} production DMRG/MPS acceptance should keep nine environment-ledger rows")
+        if summary.get("production_dmrg_requirement_count") != 10:
+            errors.append(f"{label} production DMRG/MPS acceptance should expose ten requirements")
+        if summary.get("production_dmrg_requirements_passed") != 3 or summary.get(
+            "production_dmrg_requirements_failed"
+        ) != 7:
+            errors.append(f"{label} production DMRG/MPS acceptance should be 3/7 passed/failed")
+        if summary.get("failed_production_dmrg_requirement_ids") != [
+            "D3",
+            "D4",
+            "D5",
+            "D6",
+            "D7",
+            "D8",
+            "D9",
+        ]:
+            errors.append(f"{label} production DMRG/MPS acceptance failed IDs changed")
+        if summary.get("readiness_passed_gate_count") != 0:
+            errors.append(f"{label} production DMRG/MPS acceptance readiness gates should remain 0")
+        if summary.get("canonical_environment_smoke_passed_rows") != 0:
+            errors.append(f"{label} production DMRG/MPS acceptance smoke-passed rows should remain 0")
+        if summary.get("remaining_positive_route_packets") != ["W1"]:
+            errors.append(f"{label} production DMRG/MPS acceptance should leave only W1")
+        if len(payload.get("requirements", [])) != 10:
+            errors.append(f"{label} production DMRG/MPS acceptance requirement row count mismatch")
+        if len(payload.get("validation_errors", [])) != entry.get("validation_error_count"):
+            errors.append(f"{label} production DMRG/MPS acceptance validation-error count mismatch")
+        for field in [
+            "w1_production_dmrg_denominator_available",
+            "production_dmrg_available",
+            "sampling_oracle_constructed",
+            "same_access_response_oracle_constructed",
+            "same_access_positive_route_ready",
+            "b10_t1_positive_route_ready",
+            "production_dmrg_claimed",
+            "quantum_response_win_claimed",
+            "accuracy_per_resource_win_claimed",
+            "same_access_positive_route_claimed",
+            "quantum_advantage_claimed",
+            "bqp_separation_claimed",
+            "dequantization_theorem_claimed",
+            "sampling_access_theorem_claimed",
+        ]:
+            if summary.get(field) is not False:
+                errors.append(f"{label} production DMRG/MPS acceptance must keep {field}=False")
+            if field in claims and claims.get(field) is not False:
+                errors.append(f"{label} production DMRG/MPS acceptance claim boundary must keep {field}=False")
+        if summary.get("w1_production_dmrg_acceptance_gate_executed") is not True:
+            errors.append(f"{label} production DMRG/MPS acceptance must execute W1 gate")
+        if summary.get("w1_remains_blocked_on_denominator_engine") is not True:
+            errors.append(f"{label} production DMRG/MPS acceptance should remain blocked on denominator engine")
+        return status
+
+    b5_production_dmrg_mps_acceptance_gate_status = audit_b5_production_dmrg_mps_acceptance_gate(
+        b5_production_dmrg_mps_acceptance_gate, "B5"
     )
 
     b5_boundary_field_status = {}
@@ -29391,6 +29582,9 @@ def audit(root: Path) -> dict:
     b10_t1_b5_response_oracle_cost_ledger = b10_results.get(
         "b10_t1_b5_response_oracle_cost_ledger_v0"
     )
+    b10_t1_b5_production_dmrg_mps_acceptance_gate = b10_results.get(
+        "b10_t1_b5_production_dmrg_mps_acceptance_gate_v0"
+    )
     b10_status = {}
     if not b10_graph:
         warnings.append("B10 manifest has no BQP-boundary graph result")
@@ -30771,6 +30965,11 @@ def audit(root: Path) -> dict:
     b10_t1_b5_response_oracle_cost_ledger_status = audit_b5_response_oracle_cost_ledger(
         b10_t1_b5_response_oracle_cost_ledger, "B10"
     )
+    b10_t1_b5_production_dmrg_mps_acceptance_gate_status = (
+        audit_b5_production_dmrg_mps_acceptance_gate(
+            b10_t1_b5_production_dmrg_mps_acceptance_gate, "B10"
+        )
+    )
 
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
@@ -31127,6 +31326,7 @@ def audit(root: Path) -> dict:
             "row_contract_harness": b5_b10_row_contract_status,
             "seeded_pressure_replacement_audit": b5_seeded_pressure_replacement_status,
             "response_oracle_cost_ledger": b5_response_oracle_cost_ledger_status,
+            "production_dmrg_mps_acceptance_gate": b5_production_dmrg_mps_acceptance_gate_status,
             "canonical_environment_smoke_gate": b5_canonical_smoke_status,
             "canonical_dmrg_readiness_gate": b5_dmrg_readiness_status,
             "two_site_finite_dmrg_response_reference": b5_two_site_dmrg_status,
@@ -31227,6 +31427,9 @@ def audit(root: Path) -> dict:
             "t1_b5_row_contract_harness": b10_t1_b5_row_contract_status,
             "t1_b5_seeded_pressure_replacement_audit": b10_t1_b5_seeded_pressure_replacement_status,
             "t1_b5_response_oracle_cost_ledger": b10_t1_b5_response_oracle_cost_ledger_status,
+            "t1_b5_production_dmrg_mps_acceptance_gate": (
+                b10_t1_b5_production_dmrg_mps_acceptance_gate_status
+            ),
         },
         "status_artifacts": {
             "roadmap": str(roadmap_path),
@@ -31641,6 +31844,9 @@ def audit(root: Path) -> dict:
             "b5_b10_response_oracle_cost_ledger": str(
                 research / "B5_B10_response_oracle_cost_ledger.md"
             ),
+            "b5_b10_production_dmrg_mps_acceptance_gate": str(
+                research / "B5_B10_production_dmrg_mps_acceptance_gate.md"
+            ),
             "b5_canonical_environment_smoke_gate": str(
                 research / "B5_canonical_environment_smoke_gate.md"
             ),
@@ -31699,6 +31905,9 @@ def audit(root: Path) -> dict:
             ),
             "b10_t1_b5_response_oracle_cost_ledger": str(
                 research / "B5_B10_response_oracle_cost_ledger.md"
+            ),
+            "b10_t1_b5_production_dmrg_mps_acceptance_gate": str(
+                research / "B5_B10_production_dmrg_mps_acceptance_gate.md"
             ),
             "b9_failed_gap_amplification_lemma": str(research / "B9_failed_gap_amplification_lemma.md"),
             "b9_symbolic_gap_skeleton": str(research / "B9_symbolic_gap_skeleton.md"),
@@ -33761,6 +33970,11 @@ def markdown_report(report: dict) -> str:
             f"- B5/B10 response-oracle cost ledger failed IDs: {report['b5']['response_oracle_cost_ledger'].get('failed_oracle_requirement_ids')}",
             f"- B5/B10 response-oracle cost ledger oracle constructed / remaining packets: {report['b5']['response_oracle_cost_ledger'].get('w3_response_oracle_constructed')} / {report['b5']['response_oracle_cost_ledger'].get('remaining_positive_route_packets')}",
             f"- B5/B10 response-oracle cost ledger result/markdown exists: {report['b5']['response_oracle_cost_ledger'].get('result_exists')} / {report['b5']['response_oracle_cost_ledger'].get('markdown_exists')}",
+            f"- B5/B10 W1 production DMRG/MPS acceptance status: {report['b5']['production_dmrg_mps_acceptance_gate'].get('status')}",
+            f"- B5/B10 W1 production DMRG/MPS acceptance requirements passed/failed: {report['b5']['production_dmrg_mps_acceptance_gate'].get('production_dmrg_requirements_passed')} / {report['b5']['production_dmrg_mps_acceptance_gate'].get('production_dmrg_requirements_failed')}",
+            f"- B5/B10 W1 production DMRG/MPS failed IDs: {report['b5']['production_dmrg_mps_acceptance_gate'].get('failed_production_dmrg_requirement_ids')}",
+            f"- B5/B10 W1 production DMRG/MPS denominator available / remaining packets: {report['b5']['production_dmrg_mps_acceptance_gate'].get('w1_production_dmrg_denominator_available')} / {report['b5']['production_dmrg_mps_acceptance_gate'].get('remaining_positive_route_packets')}",
+            f"- B5/B10 W1 production DMRG/MPS result/markdown exists: {report['b5']['production_dmrg_mps_acceptance_gate'].get('result_exists')} / {report['b5']['production_dmrg_mps_acceptance_gate'].get('markdown_exists')}",
             "",
             "## B6 Superconductivity Descriptor Status",
             "",
@@ -34317,6 +34531,11 @@ def markdown_report(report: dict) -> str:
             f"- B10-T1 B5 response-oracle cost ledger failed IDs: {report['b10']['t1_b5_response_oracle_cost_ledger'].get('failed_oracle_requirement_ids')}",
             f"- B10-T1 B5 response-oracle cost ledger oracle constructed / remaining packets: {report['b10']['t1_b5_response_oracle_cost_ledger'].get('w3_response_oracle_constructed')} / {report['b10']['t1_b5_response_oracle_cost_ledger'].get('remaining_positive_route_packets')}",
             f"- B10-T1 B5 response-oracle cost ledger result/markdown exists: {report['b10']['t1_b5_response_oracle_cost_ledger'].get('result_exists')} / {report['b10']['t1_b5_response_oracle_cost_ledger'].get('markdown_exists')}",
+            f"- B10-T1 B5 W1 production DMRG/MPS acceptance status: {report['b10']['t1_b5_production_dmrg_mps_acceptance_gate'].get('status')}",
+            f"- B10-T1 B5 W1 production DMRG/MPS requirements passed/failed: {report['b10']['t1_b5_production_dmrg_mps_acceptance_gate'].get('production_dmrg_requirements_passed')} / {report['b10']['t1_b5_production_dmrg_mps_acceptance_gate'].get('production_dmrg_requirements_failed')}",
+            f"- B10-T1 B5 W1 production DMRG/MPS failed IDs: {report['b10']['t1_b5_production_dmrg_mps_acceptance_gate'].get('failed_production_dmrg_requirement_ids')}",
+            f"- B10-T1 B5 W1 production DMRG/MPS denominator available / remaining packets: {report['b10']['t1_b5_production_dmrg_mps_acceptance_gate'].get('w1_production_dmrg_denominator_available')} / {report['b10']['t1_b5_production_dmrg_mps_acceptance_gate'].get('remaining_positive_route_packets')}",
+            f"- B10-T1 B5 W1 production DMRG/MPS result/markdown exists: {report['b10']['t1_b5_production_dmrg_mps_acceptance_gate'].get('result_exists')} / {report['b10']['t1_b5_production_dmrg_mps_acceptance_gate'].get('markdown_exists')}",
             "",
         ]
     )

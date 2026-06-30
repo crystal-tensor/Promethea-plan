@@ -771,6 +771,54 @@ current_results:
     caveat: response_oracle_cost_ledger_not_oracle_not_production_dmrg_not_advantage
     result: ../results/B5_B10_response_oracle_cost_ledger_v0.json
     markdown_report: ../research/B5_B10_response_oracle_cost_ledger.md
+  b10_t1_b5_production_dmrg_mps_acceptance_gate_v0:
+    status: production_dmrg_mps_acceptance_gate_failed_no_w1_denominator
+    model_status: w1_acceptance_gate_executed_production_denominator_not_constructed
+    method: b5_b10_production_dmrg_mps_acceptance_gate_v0
+    source: b5_b10_row_contract_harness_v0
+    source_target_id: B10-T1
+    dependency_benchmarks:
+      - B5
+      - B10
+    row_contract_count: 9
+    row_contract_hash: 7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc
+    environment_ledger_rows: 9
+    production_dmrg_requirement_count: 10
+    production_dmrg_requirements_passed: 3
+    production_dmrg_requirements_failed: 7
+    failed_production_dmrg_requirement_ids: [D3, D4, D5, D6, D7, D8, D9]
+    w1_production_dmrg_acceptance_gate_executed: true
+    w1_production_dmrg_denominator_available: false
+    w1_remains_blocked_on_denominator_engine: true
+    readiness_gate_count: 8
+    readiness_passed_gate_count: 0
+    canonical_environment_smoke_passed_rows: 0
+    seeded_pressure_replaced: false
+    deployable_replacement_count: 0
+    oracle_requirements_failed: 5
+    oracle_failed_requirement_ids: [O3, O4, O5, O6, O7]
+    remaining_positive_route_packets: [W1]
+    production_dmrg_available: false
+    sampling_oracle_constructed: false
+    same_access_response_oracle_constructed: false
+    same_access_positive_route_ready: false
+    b10_t1_positive_route_ready: false
+    catalog_change_required: false
+    production_dmrg_claimed: false
+    quantum_response_win_claimed: false
+    accuracy_per_resource_win_claimed: false
+    same_access_positive_route_claimed: false
+    bqp_separation_claimed: false
+    quantum_advantage_claimed: false
+    dequantization_theorem_claimed: false
+    sampling_access_theorem_claimed: false
+    condition_count: 10
+    conditions_satisfied: 3
+    conditions_failed: 7
+    validation_error_count: 0
+    caveat: w1_acceptance_gate_not_production_dmrg_not_response_oracle_not_advantage
+    result: ../results/B5_B10_production_dmrg_mps_acceptance_gate_v0.json
+    markdown_report: ../research/B5_B10_production_dmrg_mps_acceptance_gate.md
 prototype_artifacts:
   boundary_graph_builder: ../tools/b10_bqp_boundary_graph.py
   formal_theorem_target_builder: ../tools/b10_formal_theorem_targets.py
@@ -792,6 +840,7 @@ prototype_artifacts:
   t1_b5_row_contract_harness: ../tools/b5_b10_row_contract_harness.py
   t1_b5_seeded_pressure_replacement_audit: ../tools/b5_seeded_pressure_replacement_audit.py
   t1_b5_response_oracle_cost_ledger: ../tools/b5_b10_response_oracle_cost_ledger.py
+  t1_b5_production_dmrg_mps_acceptance_gate: ../tools/b5_b10_production_dmrg_mps_acceptance_gate.py
   t2_refresh_proof_obligation_gate_builder: ../tools/b10_t2_refresh_proof_obligation_gate.py
   t2_restricted_soundness_lemma_builder: ../tools/b10_t2_restricted_soundness_lemma.py
   t2_transcript_leakage_simulator_builder: ../tools/b10_t2_transcript_leakage_simulator.py

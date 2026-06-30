@@ -1,0 +1,219 @@
+{
+  "benchmark_id": "B5",
+  "claim_boundary": {
+    "accuracy_per_resource_win_claimed": false,
+    "bqp_separation_claimed": false,
+    "dequantization_theorem_claimed": false,
+    "next_gate": "Implement tools/b5_production_dmrg_mps_denominator.py with non-exact-state-seeded canonical sweeps, stored environments, convergence ledgers, and same-access cost accounting.",
+    "production_dmrg_available": false,
+    "production_dmrg_claimed": false,
+    "quantum_advantage_claimed": false,
+    "quantum_response_win_claimed": false,
+    "same_access_positive_route_claimed": false,
+    "sampling_access_theorem_claimed": false,
+    "w1_acceptance_gate_executed": true,
+    "w1_production_dmrg_denominator_available": false,
+    "what_is_not_supported": "This is not a production DMRG implementation, not a deployable tensor solver, not a same-access positive route, not quantum advantage, and not a BQP separation.",
+    "what_is_supported": "A W1-specific acceptance gate that preserves the B5/B10 row contract and enumerates the production DMRG/MPS requirements still blocking a positive B5/B10 route."
+  },
+  "dependency_benchmarks": [
+    "B5",
+    "B10"
+  ],
+  "last_updated": "2026-07-01",
+  "linked_benchmark_id": "B10",
+  "method": "b5_b10_production_dmrg_mps_acceptance_gate_v0",
+  "model_status": "w1_acceptance_gate_executed_production_denominator_not_constructed",
+  "requirements": [
+    {
+      "evidence": {
+        "row_contract_count": 9,
+        "row_contract_hash": "7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc",
+        "source_checks_failed": 0
+      },
+      "label": "W4 row contract is preserved for all W1 comparisons",
+      "passed": true,
+      "required_next_step": "Keep the same nine B5/B10 D5 observable rows and row_contract_hash in every W1 denominator run.",
+      "requirement_id": "D1"
+    },
+    {
+      "evidence": {
+        "environment_ledger_rows": 9,
+        "row_contract_count": 9
+      },
+      "label": "All nine rows expose environment-ledger diagnostics",
+      "passed": true,
+      "required_next_step": "Retain row-level environment telemetry while replacing post-hoc diagnostics with a real canonical sweep engine.",
+      "requirement_id": "D2"
+    },
+    {
+      "evidence": {
+        "contract_production_dmrg_available": false,
+        "readiness_production_dmrg": false,
+        "seeded_exact_state_seeded": true
+      },
+      "label": "Non-exact-state-seeded production denominator is available",
+      "passed": false,
+      "required_next_step": "Implement a production DMRG/MPS denominator that does not initialize from the exact target state.",
+      "requirement_id": "D3"
+    },
+    {
+      "evidence": {
+        "canonical_environment_production_dmrg": false,
+        "smoke_passed_row_count": 0
+      },
+      "label": "Stored canonical left/right environments and orthonormal residuals pass",
+      "passed": false,
+      "required_next_step": "Add canonical-center sweeps, stored left/right environments, and orthonormal residual checks for every row.",
+      "requirement_id": "D4"
+    },
+    {
+      "evidence": {
+        "discarded_weight_passed_rows": 3,
+        "energy_monotonicity_passed_rows": 3,
+        "energy_variance_passed_rows": 3,
+        "fixed_sector_norm_passed_rows": 3
+      },
+      "label": "Sweep convergence ledgers satisfy fixed-sector, variance, discarded-weight, and monotonicity gates",
+      "passed": false,
+      "required_next_step": "Produce convergence ledgers that pass all four production diagnostics on the full nine-row contract.",
+      "requirement_id": "D5"
+    },
+    {
+      "evidence": {
+        "best_replacement_candidate_id": "variational_mps_als",
+        "best_replacement_rows_beating_seeded_pressure": 0,
+        "deployable_replacement_count": 0,
+        "seeded_pressure_replaced": false
+      },
+      "label": "Production W1 denominator beats seeded-pressure ladder under same access",
+      "passed": false,
+      "required_next_step": "Beat the exact-state-seeded pressure reference globally with a deployable non-seeded production denominator.",
+      "requirement_id": "D6"
+    },
+    {
+      "evidence": {
+        "blocking_sampling_requirement_count": 5,
+        "oracle_remaining_failed_ids": [
+          "O3",
+          "O4",
+          "O5",
+          "O6",
+          "O7"
+        ],
+        "production_contract_ready": false
+      },
+      "label": "B10 same-access cost ledger is complete for DMRG/MPS comparison",
+      "passed": false,
+      "required_next_step": "Add wall-clock, matvec, sweep, memory, optimizer-loop, and denominator-ladder cost accounting.",
+      "requirement_id": "D7"
+    },
+    {
+      "evidence": {
+        "b10_t1_positive_route_ready": false,
+        "same_access_positive_route_ready": false
+      },
+      "label": "B10-T1 positive route is ready without a hidden access advantage",
+      "passed": false,
+      "required_next_step": "Promote W1 to B10 only after the same-access production contract passes without oracle leakage.",
+      "requirement_id": "D8"
+    },
+    {
+      "evidence": {
+        "prototype_fixed_sector_norms_pass": false,
+        "two_site_rows_beating_seeded_mps_pressure_reference": 0,
+        "two_site_rows_beating_variational_mps_als_reference": 4
+      },
+      "label": "W1 improves over the strongest current non-production tensor prototype",
+      "passed": false,
+      "required_next_step": "Use the current two-site/ALS evidence only as pressure input; do not accept it as production W1 evidence.",
+      "requirement_id": "D9"
+    },
+    {
+      "evidence": {
+        "bqp_separation_claimed": false,
+        "production_dmrg_claimed": false,
+        "quantum_advantage_claimed": false,
+        "quantum_response_win_claimed": false,
+        "same_access_positive_route_claimed": false
+      },
+      "label": "Forbidden claims remain false while W1 is unresolved",
+      "passed": true,
+      "required_next_step": "Continue blocking production-DMRG, same-access, quantum-advantage, and BQP claims until D1-D9 pass.",
+      "requirement_id": "D10"
+    }
+  ],
+  "runtime_seconds": 0.0006878376007080078,
+  "source_production_contract_result": "results/B5_B10_same_access_production_contract_gate_v0.json",
+  "source_readiness_gate_result": "results/B5_canonical_dmrg_readiness_gate_v0.json",
+  "source_response_oracle_result": "results/B5_B10_response_oracle_cost_ledger_v0.json",
+  "source_row_contract_result": "results/B5_B10_row_contract_harness_v0.json",
+  "source_seeded_replacement_result": "results/B5_seeded_pressure_replacement_audit_v0.json",
+  "source_smoke_gate_result": "results/B5_canonical_environment_smoke_gate_v0.json",
+  "source_target_id": "B10-T1",
+  "status": "production_dmrg_mps_acceptance_gate_failed_no_w1_denominator",
+  "summary": {
+    "accuracy_per_resource_win_claimed": false,
+    "b10_t1_positive_route_ready": false,
+    "best_replacement_candidate_id": "variational_mps_als",
+    "best_replacement_mean_relative_response_error": 0.01805548365563228,
+    "bqp_separation_claimed": false,
+    "canonical_environment_smoke_passed_rows": 0,
+    "catalog_change_required": false,
+    "condition_count": 10,
+    "conditions_failed": 7,
+    "conditions_satisfied": 3,
+    "deployable_replacement_count": 0,
+    "dequantization_theorem_claimed": false,
+    "discarded_weight_passed_rows": 3,
+    "energy_monotonicity_passed_rows": 3,
+    "energy_variance_passed_rows": 3,
+    "environment_ledger_rows": 9,
+    "failed_production_dmrg_requirement_ids": [
+      "D3",
+      "D4",
+      "D5",
+      "D6",
+      "D7",
+      "D8",
+      "D9"
+    ],
+    "fixed_sector_norm_passed_rows": 3,
+    "oracle_failed_requirement_ids": [
+      "O3",
+      "O4",
+      "O5",
+      "O6",
+      "O7"
+    ],
+    "oracle_requirements_failed": 5,
+    "production_dmrg_available": false,
+    "production_dmrg_claimed": false,
+    "production_dmrg_requirement_count": 10,
+    "production_dmrg_requirements_failed": 7,
+    "production_dmrg_requirements_passed": 3,
+    "quantum_advantage_claimed": false,
+    "quantum_response_win_claimed": false,
+    "readiness_gate_count": 8,
+    "readiness_passed_gate_count": 0,
+    "remaining_positive_route_packets": [
+      "W1"
+    ],
+    "row_contract_count": 9,
+    "row_contract_hash": "7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc",
+    "same_access_positive_route_claimed": false,
+    "same_access_positive_route_ready": false,
+    "same_access_response_oracle_constructed": false,
+    "sampling_access_theorem_claimed": false,
+    "sampling_oracle_constructed": false,
+    "seeded_mean_relative_response_error": 0.0004416259745141553,
+    "seeded_pressure_replaced": false,
+    "validation_error_count": 0,
+    "w1_production_dmrg_acceptance_gate_executed": true,
+    "w1_production_dmrg_denominator_available": false,
+    "w1_remains_blocked_on_denominator_engine": true
+  },
+  "title": "B5/B10 W1 Production DMRG/MPS Acceptance Gate",
+  "validation_errors": [],
+  "version": "0.1"
+}

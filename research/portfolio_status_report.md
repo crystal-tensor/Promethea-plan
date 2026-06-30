@@ -1970,6 +1970,11 @@ Overall audit: PASS
 - B5/B10 response-oracle cost ledger failed IDs: ['O3', 'O4', 'O5', 'O6', 'O7']
 - B5/B10 response-oracle cost ledger oracle constructed / remaining packets: False / ['W1']
 - B5/B10 response-oracle cost ledger result/markdown exists: True / True
+- B5/B10 W1 production DMRG/MPS acceptance status: production_dmrg_mps_acceptance_gate_failed_no_w1_denominator
+- B5/B10 W1 production DMRG/MPS acceptance requirements passed/failed: 3 / 7
+- B5/B10 W1 production DMRG/MPS failed IDs: ['D3', 'D4', 'D5', 'D6', 'D7', 'D8', 'D9']
+- B5/B10 W1 production DMRG/MPS denominator available / remaining packets: False / ['W1']
+- B5/B10 W1 production DMRG/MPS result/markdown exists: True / True
 
 ## B6 Superconductivity Descriptor Status
 
@@ -2526,6 +2531,11 @@ Overall audit: PASS
 - B10-T1 B5 response-oracle cost ledger failed IDs: ['O3', 'O4', 'O5', 'O6', 'O7']
 - B10-T1 B5 response-oracle cost ledger oracle constructed / remaining packets: False / ['W1']
 - B10-T1 B5 response-oracle cost ledger result/markdown exists: True / True
+- B10-T1 B5 W1 production DMRG/MPS acceptance status: production_dmrg_mps_acceptance_gate_failed_no_w1_denominator
+- B10-T1 B5 W1 production DMRG/MPS requirements passed/failed: 3 / 7
+- B10-T1 B5 W1 production DMRG/MPS failed IDs: ['D3', 'D4', 'D5', 'D6', 'D7', 'D8', 'D9']
+- B10-T1 B5 W1 production DMRG/MPS denominator available / remaining packets: False / ['W1']
+- B10-T1 B5 W1 production DMRG/MPS result/markdown exists: True / True
 
 ## Errors
 

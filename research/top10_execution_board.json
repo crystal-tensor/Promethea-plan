@@ -71,19 +71,19 @@
       "title": "Verifiable quantum advantage protocols"
     },
     {
-      "30_day_gate": "Execute W1 production DMRG/MPS denominator while preserving the T-B5-006d row-contract hash; W2 and W3 are closed as current positive routes unless a stronger denominator or real response oracle appears.",
+      "30_day_gate": "Implement the actual W1 production DMRG/MPS denominator while preserving the T-B5-006d row-contract hash and satisfying T-B5-006g; W2, W3, and W1 acceptance are negative unless stronger evidence appears.",
       "b_id": "B5",
-      "current_maturity": "T-B5-006e/T-B10-014c W2 seeded-pressure replacement audit completed after the row-contract harness. The branch now has 9 locked D5 Hubbard response rows, row-contract hash 7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc, 3 replayed replacement candidate families, 0 deployable replacements, seeded mean relative response error 0.0004416259745141553, best replacement-by-mean variational_mps_als at 0.01805548365563228 with 0 rows beating seeded pressure, and max row-level win count 2/9. Production DMRG, sampling oracle, same-access positive route, quantum advantage, BQP separation, and catalog change all remain false. T-B5-006f/T-B10-014d now executes W3 as a response-oracle cost ledger: 8 requirements, 3 passed, 5 failed, no response oracle, 0 seeded-target rows beating explicit D5 matvec pressure by shots, and remaining positive-route packet W1.",
+      "current_maturity": "T-B5-006e/T-B10-014c W2 seeded-pressure replacement audit completed after the row-contract harness. The branch now has 9 locked D5 Hubbard response rows, row-contract hash 7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc, 3 replayed replacement candidate families, 0 deployable replacements, seeded mean relative response error 0.0004416259745141553, best replacement-by-mean variational_mps_als at 0.01805548365563228 with 0 rows beating seeded pressure, and max row-level win count 2/9. Production DMRG, sampling oracle, same-access positive route, quantum advantage, BQP separation, and catalog change all remain false. T-B5-006f/T-B10-014d now executes W3 as a response-oracle cost ledger: 8 requirements, 3 passed, 5 failed, no response oracle, and 0 seeded-target rows beating explicit D5 matvec pressure by shots. T-B5-006g/T-B10-014e now executes W1 acceptance: 10 production-denominator requirements, 3 passed, 7 failed, failed IDs D3-D9, and no production denominator available.",
       "dependencies": [
         "B3",
         "B6"
       ],
       "downstream_translation_route": "Deferred until a real hybrid baseline beats a classical proxy on a meaningful model.",
       "kill_condition": "Demote any B5 positive route if production DMRG/MPS or equivalent tensor denominator remains stronger under the same access and response contract.",
-      "next_artifact": "T-B5-006 W1 production DMRG/MPS artifact satisfying T-B5-006b while preserving the T-B5-006d row-contract hash.",
+      "next_artifact": "T-B5-006 W1 production DMRG/MPS denominator engine satisfying T-B5-006g while preserving the T-B5-006d row-contract hash.",
       "priority_lane": "coupled_application",
       "problem_id": 38,
-      "strongest_evidence": "Same 9 B10 D5 Hubbard rows have oracle/non-oracle embedding denominators, seeded MPS pressure, one-site MPS/ALS, two-site finite-DMRG-style pressure, readiness and smoke gates, T-B5-006b same-access production contract, T-B5-006d row contract, and T-B5-006e W2 replacement audit. Readiness passes 0/8, smoke passes 0/9 rows, the production contract passes only 2/10 gates, and W2 finds 0 deployable replacements with no seeded-pressure replacement. W3 now also fails as a same-access response-oracle route because state preparation, mixing/query, readout/noise, optimizer-loop, and denominator-win requirements are missing.",
+      "strongest_evidence": "Same 9 B10 D5 Hubbard rows have oracle/non-oracle embedding denominators, seeded MPS pressure, one-site MPS/ALS, two-site finite-DMRG-style pressure, readiness and smoke gates, T-B5-006b same-access production contract, T-B5-006d row contract, and T-B5-006e W2 replacement audit. Readiness passes 0/8, smoke passes 0/9 rows, the production contract passes only 2/10 gates, and W2 finds 0 deployable replacements with no seeded-pressure replacement. W3 fails as a same-access response-oracle route because state preparation, mixing/query, readout/noise, optimizer-loop, and denominator-win requirements are missing. W1 acceptance also fails D3-D9 because the denominator engine, stored canonical environments/residuals, 9/9 convergence ledger, seeded-pressure replacement, same-access cost ledger, B10 positive route, and prototype-over-seeded win are missing.",
       "title": "Strongly correlated matter via hybrid quantum-tensor solvers"
     },
     {
@@ -150,9 +150,9 @@
       "title": "Quantum PCP and local Hamiltonian hardness"
     },
     {
-      "30_day_gate": "Run T-B10-014 through B5 W1 production DMRG/MPS, or push B10-T2 to real backend/hardware verifier evidence; reopen B3 only if M5-M9 are replaced by same-access evidence.",
+      "30_day_gate": "Run T-B10-014 through an actual B5 W1 production DMRG/MPS denominator, or push B10-T2 to real backend/hardware verifier evidence; reopen B3 only if M5-M9 are replaced by same-access evidence.",
       "b_id": "B10",
-      "current_maturity": "B10-T1 now has two explicit failed positive-route branches plus row-contract and W2 guardrails: B3 T-B3-013 same-access negative boundary note, B5 T-B5-006c production implementation triage, T-B5-006d row-contract harness, and T-B5-006e seeded-pressure replacement audit. The W2 audit preserves the 9 rows and finds 0 deployable replacements; there is still no production DMRG, sampling oracle, positive same-access route, quantum advantage, or BQP separation. T-B5-006f/T-B10-014d adds a W3 response-oracle ledger with 3/8 requirements passing and no constructed response oracle, so B10-T1 remains negative.",
+      "current_maturity": "B10-T1 now has two explicit failed positive-route branches plus row-contract and W2 guardrails: B3 T-B3-013 same-access negative boundary note, B5 T-B5-006c production implementation triage, T-B5-006d row-contract harness, and T-B5-006e seeded-pressure replacement audit. The W2 audit preserves the 9 rows and finds 0 deployable replacements; there is still no production DMRG, sampling oracle, positive same-access route, quantum advantage, or BQP separation. T-B5-006f/T-B10-014d adds a W3 response-oracle ledger with 3/8 requirements passing and no constructed response oracle. T-B5-006g/T-B10-014e adds a W1 acceptance gate with 3/10 production-denominator requirements passing and D3-D9 failing, so B10-T1 remains negative.",
       "dependencies": [
         "B5",
         "B3",
@@ -162,10 +162,10 @@
       "downstream_translation_route": "Deferred until one formal target yields a source-backed restricted theorem, reusable negative lemma, or strong proof-attempt record.",
       "kill_condition": "Keep B10-T1 negative unless B3 or B5 beats the full denominator ladder under the same access model without hidden access advantages.",
       "kill_or_merge_condition": "Keep B10-T1 negative unless a production DMRG/MPS reference or same-access response oracle beats the full denominator ladder without hidden access advantages.",
-      "next_artifact": "T-B10-014 B5 W1 production DMRG/MPS artifact preserving the T-B5-006d row-contract hash; future W3 evidence must instantiate a real response oracle before reopening the oracle route.",
+      "next_artifact": "T-B10-014 B5 W1 production DMRG/MPS denominator engine preserving the T-B5-006d row-contract hash and satisfying T-B5-006g; future W3 evidence must instantiate a real response oracle before reopening the oracle route.",
       "priority_lane": "theory_and_negative_results",
       "problem_id": 11,
-      "strongest_evidence": "B10-T1 now includes B3/B10 same-access measurement-rescue gate plus B5 same-access production contract, row-contract harness, and W2 seeded-pressure replacement audit. The B3 gate passes 5/10 and fails M5-M9; the B5 contract passes only 2/10; W2 finds 0 deployable replacements and no seeded-pressure replacement. There is still no production DMRG, no sampling oracle, no same-access positive route, no quantum advantage, and no BQP separation. W3 fails with no constructed same-access response oracle and 0 rows beating explicit D5 matvec pressure for the seeded target.",
+      "strongest_evidence": "B10-T1 now includes B3/B10 same-access measurement-rescue gate plus B5 same-access production contract, row-contract harness, and W2 seeded-pressure replacement audit. The B3 gate passes 5/10 and fails M5-M9; the B5 contract passes only 2/10; W2 finds 0 deployable replacements and no seeded-pressure replacement. There is still no production DMRG, no sampling oracle, no same-access positive route, no quantum advantage, and no BQP separation. W3 fails with no constructed same-access response oracle and 0 rows beating explicit D5 matvec pressure for the seeded target. W1 acceptance fails D3-D9, confirming there is still no production denominator or positive same-access route.",
       "title": "Mapping the boundary of BQP"
     }
   ],
@@ -189,7 +189,7 @@
       "B8"
     ]
   },
-  "last_updated": "2026-06-30",
+  "last_updated": "2026-07-01",
   "next_30_days": {
     "week_1": "Freeze B1 proof-log report outline; B2 T-B2-009d now closes as a negative hardware-like observation-model boundary, so the next B2 gate requires real calibrated leakage/flag observations or independent hardware traces; pair B4 and B8 into one verification lane.",
     "week_2": [

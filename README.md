@@ -122,6 +122,14 @@ checks 8 oracle requirements under the same row contract: 3 pass and 5 fail
 ledger exists, but no response oracle is constructed, 0 rows beat explicit D5
 matvec pressure for the seeded target, and the remaining positive-route packet
 is now `W1` production DMRG/MPS.
+The W1 production DMRG/MPS acceptance gate is now executed. It checks 10
+production-denominator requirements under the locked row contract: 3 pass and
+7 fail (`D3` non-exact-state-seeded production denominator, `D4` stored
+canonical environments and orthonormal residuals, `D5` full-row convergence
+ledgers, `D6` seeded-pressure replacement, `D7` same-access cost ledger, `D8`
+B10 positive-route readiness, and `D9` prototype-over-seeded pressure). The
+gate preserves all 9 rows and 9 environment-ledger rows, but confirms that W1
+is still blocked on the denominator engine itself.
 The latest B10-T1 stress test still finds no positive same-access route because
 0 rows beat explicit D5 matvec-equivalent costs by shots. This is progress, but
 it is not a production DMRG result, not a deployable tensor solver, not a

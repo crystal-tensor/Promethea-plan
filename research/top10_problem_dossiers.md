@@ -540,9 +540,15 @@ T-B5-006f/T-B10-014d executes W3 as a same-access response-oracle cost ledger.
 It checks 8 oracle requirements under the locked row contract: O1 row contract,
 O2 measurement confidence, and O8 forbidden-claim discipline pass; O3 state
 preparation, O4 mixing/query cost, O5 readout/noise cost, O6 optimizer-loop
-cost, and O7 denominator win fail. No response oracle is constructed, 0 rows
-beat explicit D5 matvec pressure for the seeded target, and W1 is the only
-remaining positive-route packet.
+cost, and O7 denominator win fail. No response oracle is constructed, and 0
+rows beat explicit D5 matvec pressure for the seeded target.
+T-B5-006g/T-B10-014e executes W1 as a production DMRG/MPS acceptance gate. It
+checks 10 production-denominator requirements, passes D1 row contract, D2
+environment-ledger coverage, and D10 forbidden-claim discipline, then fails
+D3-D9. The missing pieces are the actual non-exact-state-seeded production
+denominator, stored canonical environments/residuals, 9/9 convergence ledgers,
+seeded-pressure replacement, same-access cost ledger, B10 positive-route
+readiness, and prototype-over-seeded pressure.
 
 **Remaining path to a serious solution:** run T-B5-006 by implementing mature
 canonical-environment DMRG/MPS for the same response rows, with stored
@@ -551,8 +557,8 @@ exact-state seeding, and full cost accounting; or compare a fully costed
 quantum impurity/response kernel against exact D5, non-oracle embedding, seeded
 MPS pressure, one-site ALS, two-site finite-DMRG-style, readiness-gate, and
 smoke-gate denominators while satisfying the same-access production contract.
-Use T-B5-006c/T-B5-006d/T-B5-006e/T-B5-006f as the execution queue: W2 and W3
-are now negative audits, so W1 production DMRG/MPS is the remaining technical
+Use T-B5-006c/T-B5-006d/T-B5-006e/T-B5-006f/T-B5-006g as the execution queue: W2, W3, and W1 acceptance
+are now negative audits, so the actual W1 production DMRG/MPS denominator engine is the remaining technical
 reopen route and must preserve the row-contract hash, while W6 keeps claim
 discipline fixed.
 
@@ -1067,12 +1073,16 @@ pressure not replaced, and no positive same-access route.
 T-B5-006f/T-B10-014d now adds the W3 response-oracle cost ledger: 8 oracle
 requirements checked, 3 passed, 5 failed, no constructed response oracle, and
 0 rows beating explicit D5 matvec pressure for the seeded target.
+T-B5-006g/T-B10-014e now adds W1 acceptance: 10 production-denominator
+requirements checked, 3 passed, 7 failed, failed IDs D3-D9, and no production
+denominator available.
 
 **Remaining path to a serious solution:** treat B3 as demoted unless a
 multi-parameter UCCSD/ADAPT or stronger measurement rescue succeeds; run
-T-B10-014 through B5 W1 by replacing the readiness/cost negative boundary with
-canonical-environment production DMRG/MPS for the same B5 Hubbard response rows
-while preserving the row-contract hash, or by supplying a future real same-access response oracle with
+T-B10-014 through B5 W1 by replacing the readiness/cost negative boundary and
+T-B5-006g acceptance failure with canonical-environment production DMRG/MPS for
+the same B5 Hubbard response rows while preserving the row-contract hash, or by
+supplying a future real same-access response oracle with
 preparation, mixing, variance, confidence, optimizer-loop, and classical
 denominator costs strong enough to survive the full denominator ladder; turn the B10-T2
 bridge into real backend-property verifier execution or hardware randomized

@@ -2459,3 +2459,21 @@ W4 and makes future W1/W2/W3 outputs rejectable if they drift from the row or
 observable contract. It is still not production DMRG, not a response oracle,
 not a same-access positive route, not quantum advantage, and not BQP
 separation.
+
+Sprint update 64: B5/B10 now has the W1 production DMRG/MPS acceptance gate.
+T-B5-006g/T-B10-014e adds
+`tools/b5_b10_production_dmrg_mps_acceptance_gate.py` and emits
+`results/B5_B10_production_dmrg_mps_acceptance_gate_v0.json` plus
+`research/B5_B10_production_dmrg_mps_acceptance_gate.md`. The gate preserves
+the T-B5-006d row-contract hash
+`7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc`, checks
+10 production-denominator requirements, and gets a deliberately hard 3/7
+pass/fail split. D1 row contract, D2 environment-ledger coverage, and D10
+forbidden-claim discipline pass. D3-D9 fail: no non-exact-state-seeded
+production denominator exists, canonical environments/residuals are not a
+production pass, convergence ledgers do not pass on 9/9 rows, seeded pressure
+is not replaced, the same-access cost ledger is incomplete, B10-T1 is not a
+positive route, and the current prototypes do not beat seeded pressure. This
+is progress because W1 now has a machine-checkable acceptance contract, but it
+is still not production DMRG, not a deployable denominator, not a same-access
+positive route, not quantum advantage, and not BQP separation.
