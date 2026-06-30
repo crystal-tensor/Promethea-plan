@@ -2005,6 +2005,12 @@ Overall audit: PASS
 - B5/B10 W1 implementation contract failed IDs: ['K5', 'K6', 'K7', 'K8', 'K9']
 - B5/B10 W1 implementation contract packets: ['W1-E4-env-residuals', 'W1-E5-convergence', 'W1-E6-seeded-pressure', 'W1-E7-cost-ledger']
 - B5/B10 W1 implementation contract result/markdown exists: True / True
+- B5/B10 W1 prototype environment scout status: w1_prototype_environment_scout_failed_not_canonical_contract
+- B5/B10 W1 prototype environment scout requirements passed/failed: 5 / 3
+- B5/B10 W1 prototype environment scout failed IDs: ['P5', 'P6', 'P7']
+- B5/B10 W1 prototype/contract env rows: 9 / 0
+- B5/B10 W1 prototype trace/residual/accepted rows: 9 / 0 / 0
+- B5/B10 W1 prototype environment scout result/markdown exists: True / True
 
 ## B6 Superconductivity Descriptor Status
 
@@ -2598,6 +2604,11 @@ Overall audit: PASS
 - B10-T1 B5 W1 implementation contract failed IDs: ['K5', 'K6', 'K7', 'K8', 'K9']
 - B10-T1 B5 W1 implementation contract packets: ['W1-E4-env-residuals', 'W1-E5-convergence', 'W1-E6-seeded-pressure', 'W1-E7-cost-ledger']
 - B10-T1 B5 W1 implementation contract result/markdown exists: True / True
+- B10-T1 B5 W1 prototype environment scout status: w1_prototype_environment_scout_failed_not_canonical_contract
+- B10-T1 B5 W1 prototype environment scout requirements passed/failed: 5 / 3
+- B10-T1 B5 W1 prototype environment scout failed IDs: ['P5', 'P6', 'P7']
+- B10-T1 B5 W1 prototype/contract env rows: 9 / 0
+- B10-T1 B5 W1 prototype scout result/markdown exists: True / True
 
 ## Errors
 

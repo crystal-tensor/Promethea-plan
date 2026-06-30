@@ -2576,3 +2576,19 @@ It preserves the four implementation packets `W1-E4-env-residuals`,
 adds concrete expected files and acceptance predicates. This is stricter
 collaboration infrastructure, still not production DMRG, not a positive
 same-access route, not quantum advantage, and not BQP separation.
+
+Sprint update 68: B5/B10 now has a W1 prototype environment scout.
+T-B5-006k/T-B10-014i adds
+`tools/b5_b10_w1_prototype_environment_scout.py` and emits
+`results/B5_B10_w1_prototype_environment_scout_v0.json` plus
+`research/B5_B10_w1_prototype_environment_scout.md`. The scout consumes the W1
+implementation contract, the canonical-environment smoke gate, the row-contract
+harness, and the W1 denominator v0. It checks 8 requirements, passes 5, and
+fails P5-P7. The useful positive signal is narrow but real: the older two-site
+smoke gate already gives 9 prototype environment-ledger rows, 9 prototype trace
+hashes, and 9 discarded-weight metrics under the locked B5/B10 row contract.
+The hard blocker remains unchanged: accepted canonical left/right environment
+hash rows, orthonormal residual rows, production discarded-weight rows, and
+production contract rows are all still 0. This turns prototype traces into
+actionable solver inputs without promoting them to production DMRG, a positive
+same-access route, quantum advantage, or BQP separation.

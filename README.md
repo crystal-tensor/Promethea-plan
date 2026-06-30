@@ -159,6 +159,16 @@ rows, 0 orthonormal-residual rows, 0 discarded-weight rows, 0 convergence
 rows, 0 rows beating seeded pressure, and no complete same-access cost ledger.
 This is still not production DMRG, not a same-access positive route, not a
 BQP separation, and not a quantum advantage claim.
+The W1 prototype environment scout now maps reusable smoke-gate evidence
+without promoting it into a production claim. It checks 8 requirements: 5 pass
+and 3 fail (`P5`-`P7`). The older two-site smoke gate contributes 9 prototype
+environment-ledger rows, 9 prototype trace hashes, and 9 discarded-weight
+metrics under the locked B5/B10 row contract. However, accepted canonical
+left/right environment hashes, orthonormal residual rows, production
+discarded-weight rows, and production contract rows all remain 0. The next W1
+solver must turn those prototype traces into accepted 17-key production row
+artifacts before any K5/K6 progress, production DMRG claim, or positive
+B10-T1 route can be counted.
 The latest B10-T1 stress test still finds no positive same-access route because
 0 rows beat explicit D5 matvec-equivalent costs by shots. This is progress, but
 it is not a production DMRG result, not a deployable tensor solver, not a

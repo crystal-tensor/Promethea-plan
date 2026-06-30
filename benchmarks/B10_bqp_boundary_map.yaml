@@ -937,6 +937,46 @@ current_results:
     caveat: w1_implementation_contract_not_production_dmrg_not_positive_route
     result: ../results/B5_B10_w1_implementation_contract_gate_v0.json
     markdown_report: ../research/B5_B10_w1_implementation_contract_gate.md
+  b10_t1_b5_w1_prototype_environment_scout_v0:
+    status: w1_prototype_environment_scout_failed_not_canonical_contract
+    model_status: prototype_two_site_ledgers_mapped_but_not_promoted_to_production_dmrg
+    method: b5_b10_w1_prototype_environment_scout_v0
+    source: b5_b10_w1_prototype_environment_scout_v0
+    source_target_id: B10-T1
+    dependency_benchmarks:
+      - B5
+      - B10
+    row_contract_count: 9
+    row_contract_hash: 7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc
+    source_smoke_status: canonical_environment_smoke_gate_failed_not_production_dmrg
+    source_implementation_contract_status: w1_implementation_contract_open_not_production_dmrg
+    prototype_scout_requirement_count: 8
+    prototype_scout_requirements_passed: 5
+    prototype_scout_requirements_failed: 3
+    failed_prototype_scout_requirement_ids: [P5, P6, P7]
+    required_row_key_count: 17
+    min_available_contract_key_count: 9
+    source_smoke_environment_ledger_rows: 9
+    prototype_trace_hash_rows: 9
+    prototype_discarded_weight_metric_rows: 9
+    contract_canonical_environment_rows: 0
+    contract_orthonormal_residual_rows: 0
+    contract_discarded_weight_rows: 0
+    production_contract_rows_accepted: 0
+    w1_k5_k6_evidence_ready: false
+    production_dmrg_available: false
+    same_access_positive_route_ready: false
+    production_dmrg_claimed: false
+    same_access_positive_route_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    condition_count: 8
+    conditions_satisfied: 5
+    conditions_failed: 3
+    validation_error_count: 0
+    caveat: prototype_environment_scout_not_canonical_contract_not_positive_route
+    result: ../results/B5_B10_w1_prototype_environment_scout_v0.json
+    markdown_report: ../research/B5_B10_w1_prototype_environment_scout.md
 prototype_artifacts:
   boundary_graph_builder: ../tools/b10_bqp_boundary_graph.py
   formal_theorem_target_builder: ../tools/b10_formal_theorem_targets.py
@@ -953,6 +993,7 @@ prototype_artifacts:
   t1_missing_assumption_note_builder: ../tools/b10_t1_missing_assumption_note.py
   t1_asymptotic_access_contract_builder: ../tools/b10_t1_asymptotic_access_contract.py
   t1_b5_same_access_sampling_or_dmrg_bridge_builder: ../tools/b10_t1_b5_same_access_sampling_or_dmrg_bridge.py
+  t1_b5_w1_prototype_environment_scout: ../tools/b5_b10_w1_prototype_environment_scout.py
   t1_b5_response_sampler_cost_stress_builder: ../tools/b10_t1_b5_response_sampler_cost_stress.py
   t1_b5_production_implementation_triage_gate: ../tools/b5_b10_production_implementation_triage_gate.py
   t1_b5_row_contract_harness: ../tools/b5_b10_row_contract_harness.py

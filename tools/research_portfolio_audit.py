@@ -25671,6 +25671,7 @@ def audit(root: Path) -> dict:
     b5_production_dmrg_mps_denominator = b5_results.get("production_dmrg_mps_denominator_v0")
     b5_canonical_residual_blocker_gate = b5_results.get("canonical_residual_blocker_gate_v0")
     b5_w1_implementation_contract_gate = b5_results.get("w1_implementation_contract_gate_v0")
+    b5_w1_prototype_environment_scout = b5_results.get("w1_prototype_environment_scout_v0")
     b5_two_site_dmrg = b5_results.get("two_site_finite_dmrg_response_reference_v0")
     b5_var_mps = b5_results.get("variational_mps_als_response_reference_v0")
     b5_mps = b5_results.get("mps_schmidt_truncation_response_reference_v0")
@@ -27330,6 +27331,175 @@ def audit(root: Path) -> dict:
 
     b5_w1_implementation_contract_gate_status = audit_b5_w1_implementation_contract_gate(
         b5_w1_implementation_contract_gate, "B5"
+    )
+
+    def audit_b5_w1_prototype_environment_scout(entry, label):
+        status = {}
+        if not entry:
+            warnings.append(f"{label} manifest has no B5/B10 W1 prototype environment scout")
+            return status
+        result_path = entry.get("result")
+        markdown_path = entry.get("markdown_report")
+        result_exists = bool(result_path and path_exists_from(benchmarks, result_path))
+        markdown_exists = bool(markdown_path and path_exists_from(benchmarks, markdown_path))
+        if not result_exists:
+            errors.append(f"{label} W1 prototype environment scout result missing: {result_path}")
+        if not markdown_exists:
+            errors.append(f"{label} W1 prototype environment scout markdown missing: {markdown_path}")
+        payload = json.loads(read((benchmarks / result_path).resolve())) if result_exists else {}
+        summary = payload.get("summary", {})
+        claims = payload.get("claim_boundary", {})
+        status = {
+            "status": entry.get("status"),
+            "method": entry.get("method"),
+            "model_status": entry.get("model_status"),
+            "row_contract_count": summary.get("row_contract_count"),
+            "row_contract_hash": summary.get("row_contract_hash"),
+            "source_smoke_status": summary.get("source_smoke_status"),
+            "source_implementation_contract_status": summary.get(
+                "source_implementation_contract_status"
+            ),
+            "prototype_scout_requirement_count": summary.get(
+                "prototype_scout_requirement_count"
+            ),
+            "prototype_scout_requirements_passed": summary.get(
+                "prototype_scout_requirements_passed"
+            ),
+            "prototype_scout_requirements_failed": summary.get(
+                "prototype_scout_requirements_failed"
+            ),
+            "failed_prototype_scout_requirement_ids": summary.get(
+                "failed_prototype_scout_requirement_ids"
+            ),
+            "required_row_key_count": summary.get("required_row_key_count"),
+            "min_available_contract_key_count": summary.get("min_available_contract_key_count"),
+            "source_smoke_environment_ledger_rows": summary.get(
+                "source_smoke_environment_ledger_rows"
+            ),
+            "prototype_trace_hash_rows": summary.get("prototype_trace_hash_rows"),
+            "prototype_discarded_weight_metric_rows": summary.get(
+                "prototype_discarded_weight_metric_rows"
+            ),
+            "contract_canonical_environment_rows": summary.get(
+                "contract_canonical_environment_rows"
+            ),
+            "contract_orthonormal_residual_rows": summary.get(
+                "contract_orthonormal_residual_rows"
+            ),
+            "contract_discarded_weight_rows": summary.get("contract_discarded_weight_rows"),
+            "production_contract_rows_accepted": summary.get("production_contract_rows_accepted"),
+            "w1_k5_k6_evidence_ready": summary.get("w1_k5_k6_evidence_ready"),
+            "production_dmrg_available": summary.get("production_dmrg_available"),
+            "same_access_positive_route_ready": summary.get("same_access_positive_route_ready"),
+            "production_dmrg_claimed": summary.get("production_dmrg_claimed"),
+            "same_access_positive_route_claimed": summary.get(
+                "same_access_positive_route_claimed"
+            ),
+            "quantum_advantage_claimed": summary.get("quantum_advantage_claimed"),
+            "bqp_separation_claimed": summary.get("bqp_separation_claimed"),
+            "condition_count": summary.get("prototype_scout_requirement_count"),
+            "conditions_satisfied": summary.get("prototype_scout_requirements_passed"),
+            "conditions_failed": summary.get("prototype_scout_requirements_failed"),
+            "validation_error_count": len(payload.get("validation_errors", [])),
+            "result_exists": result_exists,
+            "markdown_exists": markdown_exists,
+            "result": result_path,
+            "markdown_report": markdown_path,
+        }
+        if payload.get("benchmark_id") != "B5":
+            errors.append(f"{label} W1 prototype environment scout benchmark_id must be B5")
+        if payload.get("linked_benchmark_id") != "B10":
+            errors.append(f"{label} W1 prototype environment scout linked_benchmark_id must be B10")
+        if payload.get("source_target_id") != "B10-T1":
+            errors.append(f"{label} W1 prototype environment scout source_target_id must be B10-T1")
+        if payload.get("method") != entry.get("method"):
+            errors.append(f"{label} W1 prototype environment scout method mismatch")
+        if payload.get("status") != entry.get("status"):
+            errors.append(f"{label} W1 prototype environment scout status mismatch")
+        if payload.get("model_status") != entry.get("model_status"):
+            errors.append(f"{label} W1 prototype environment scout model-status mismatch")
+        for field in [
+            "row_contract_count",
+            "row_contract_hash",
+            "source_smoke_status",
+            "source_implementation_contract_status",
+            "prototype_scout_requirement_count",
+            "prototype_scout_requirements_passed",
+            "prototype_scout_requirements_failed",
+            "failed_prototype_scout_requirement_ids",
+            "required_row_key_count",
+            "min_available_contract_key_count",
+            "source_smoke_environment_ledger_rows",
+            "prototype_trace_hash_rows",
+            "prototype_discarded_weight_metric_rows",
+            "contract_canonical_environment_rows",
+            "contract_orthonormal_residual_rows",
+            "contract_discarded_weight_rows",
+            "production_contract_rows_accepted",
+            "w1_k5_k6_evidence_ready",
+            "production_dmrg_available",
+            "same_access_positive_route_ready",
+            "production_dmrg_claimed",
+            "same_access_positive_route_claimed",
+            "quantum_advantage_claimed",
+            "bqp_separation_claimed",
+        ]:
+            if summary.get(field) != entry.get(field):
+                errors.append(f"{label} W1 prototype environment scout {field} mismatch")
+        if summary.get("row_contract_count") != 9:
+            errors.append(f"{label} W1 prototype environment scout must preserve nine rows")
+        if summary.get("prototype_scout_requirement_count") != 8:
+            errors.append(f"{label} W1 prototype environment scout should expose eight requirements")
+        if summary.get("prototype_scout_requirements_passed") != 5 or summary.get(
+            "prototype_scout_requirements_failed"
+        ) != 3:
+            errors.append(f"{label} W1 prototype environment scout should be 5/3 passed/failed")
+        if summary.get("failed_prototype_scout_requirement_ids") != ["P5", "P6", "P7"]:
+            errors.append(f"{label} W1 prototype environment scout failed IDs changed")
+        if summary.get("required_row_key_count") != 17:
+            errors.append(f"{label} W1 prototype environment scout row schema key count changed")
+        if summary.get("min_available_contract_key_count") != 9:
+            errors.append(f"{label} W1 prototype environment scout available key count changed")
+        for field in [
+            "source_smoke_environment_ledger_rows",
+            "prototype_trace_hash_rows",
+            "prototype_discarded_weight_metric_rows",
+        ]:
+            if summary.get(field) != 9:
+                errors.append(f"{label} W1 prototype environment scout {field} should be 9")
+        for field in [
+            "contract_canonical_environment_rows",
+            "contract_orthonormal_residual_rows",
+            "contract_discarded_weight_rows",
+            "production_contract_rows_accepted",
+        ]:
+            if summary.get(field) != 0:
+                errors.append(f"{label} W1 prototype environment scout {field} should be 0")
+        for field in [
+            "w1_k5_k6_evidence_ready",
+            "production_dmrg_available",
+            "same_access_positive_route_ready",
+            "production_dmrg_claimed",
+            "same_access_positive_route_claimed",
+            "quantum_advantage_claimed",
+            "bqp_separation_claimed",
+        ]:
+            if summary.get(field) is not False:
+                errors.append(f"{label} W1 prototype environment scout must keep {field}=False")
+            if field in claims and claims.get(field) is not False:
+                errors.append(
+                    f"{label} W1 prototype environment scout claim boundary must keep {field}=False"
+                )
+        if len(payload.get("rows", [])) != 9:
+            errors.append(f"{label} W1 prototype environment scout row count mismatch")
+        if len(payload.get("requirements", [])) != 8:
+            errors.append(f"{label} W1 prototype environment scout requirement count mismatch")
+        if len(payload.get("validation_errors", [])) != entry.get("validation_error_count"):
+            errors.append(f"{label} W1 prototype environment scout validation-error count mismatch")
+        return status
+
+    b5_w1_prototype_environment_scout_status = audit_b5_w1_prototype_environment_scout(
+        b5_w1_prototype_environment_scout, "B5"
     )
 
     b5_boundary_field_status = {}
@@ -30719,6 +30889,9 @@ def audit(root: Path) -> dict:
     b10_t1_b5_w1_implementation_contract_gate = b10_results.get(
         "b10_t1_b5_w1_implementation_contract_gate_v0"
     )
+    b10_t1_b5_w1_prototype_environment_scout = b10_results.get(
+        "b10_t1_b5_w1_prototype_environment_scout_v0"
+    )
     b10_status = {}
     if not b10_graph:
         warnings.append("B10 manifest has no BQP-boundary graph result")
@@ -32119,6 +32292,11 @@ def audit(root: Path) -> dict:
             b10_t1_b5_w1_implementation_contract_gate, "B10"
         )
     )
+    b10_t1_b5_w1_prototype_environment_scout_status = (
+        audit_b5_w1_prototype_environment_scout(
+            b10_t1_b5_w1_prototype_environment_scout, "B10"
+        )
+    )
 
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
@@ -32481,6 +32659,7 @@ def audit(root: Path) -> dict:
             "production_dmrg_mps_denominator": b5_production_dmrg_mps_denominator_status,
             "canonical_residual_blocker_gate": b5_canonical_residual_blocker_gate_status,
             "w1_implementation_contract_gate": b5_w1_implementation_contract_gate_status,
+            "w1_prototype_environment_scout": b5_w1_prototype_environment_scout_status,
             "canonical_environment_smoke_gate": b5_canonical_smoke_status,
             "canonical_dmrg_readiness_gate": b5_dmrg_readiness_status,
             "two_site_finite_dmrg_response_reference": b5_two_site_dmrg_status,
@@ -32595,6 +32774,9 @@ def audit(root: Path) -> dict:
             ),
             "t1_b5_w1_implementation_contract_gate": (
                 b10_t1_b5_w1_implementation_contract_gate_status
+            ),
+            "t1_b5_w1_prototype_environment_scout": (
+                b10_t1_b5_w1_prototype_environment_scout_status
             ),
         },
         "status_artifacts": {
@@ -33024,6 +33206,9 @@ def audit(root: Path) -> dict:
             ),
             "b5_b10_w1_implementation_contract_gate": str(
                 research / "B5_B10_w1_implementation_contract_gate.md"
+            ),
+            "b5_b10_w1_prototype_environment_scout": str(
+                research / "B5_B10_w1_prototype_environment_scout.md"
             ),
             "b5_canonical_environment_smoke_gate": str(
                 research / "B5_canonical_environment_smoke_gate.md"
@@ -35199,6 +35384,12 @@ def markdown_report(report: dict) -> str:
             f"- B5/B10 W1 implementation contract failed IDs: {report['b5']['w1_implementation_contract_gate'].get('failed_implementation_contract_requirement_ids')}",
             f"- B5/B10 W1 implementation contract packets: {report['b5']['w1_implementation_contract_gate'].get('implementation_packet_ids')}",
             f"- B5/B10 W1 implementation contract result/markdown exists: {report['b5']['w1_implementation_contract_gate'].get('result_exists')} / {report['b5']['w1_implementation_contract_gate'].get('markdown_exists')}",
+            f"- B5/B10 W1 prototype environment scout status: {report['b5']['w1_prototype_environment_scout'].get('status')}",
+            f"- B5/B10 W1 prototype environment scout requirements passed/failed: {report['b5']['w1_prototype_environment_scout'].get('prototype_scout_requirements_passed')} / {report['b5']['w1_prototype_environment_scout'].get('prototype_scout_requirements_failed')}",
+            f"- B5/B10 W1 prototype environment scout failed IDs: {report['b5']['w1_prototype_environment_scout'].get('failed_prototype_scout_requirement_ids')}",
+            f"- B5/B10 W1 prototype/contract env rows: {report['b5']['w1_prototype_environment_scout'].get('source_smoke_environment_ledger_rows')} / {report['b5']['w1_prototype_environment_scout'].get('contract_canonical_environment_rows')}",
+            f"- B5/B10 W1 prototype trace/residual/accepted rows: {report['b5']['w1_prototype_environment_scout'].get('prototype_trace_hash_rows')} / {report['b5']['w1_prototype_environment_scout'].get('contract_orthonormal_residual_rows')} / {report['b5']['w1_prototype_environment_scout'].get('production_contract_rows_accepted')}",
+            f"- B5/B10 W1 prototype environment scout result/markdown exists: {report['b5']['w1_prototype_environment_scout'].get('result_exists')} / {report['b5']['w1_prototype_environment_scout'].get('markdown_exists')}",
             "",
             "## B6 Superconductivity Descriptor Status",
             "",
@@ -35792,6 +35983,11 @@ def markdown_report(report: dict) -> str:
             f"- B10-T1 B5 W1 implementation contract failed IDs: {report['b10']['t1_b5_w1_implementation_contract_gate'].get('failed_implementation_contract_requirement_ids')}",
             f"- B10-T1 B5 W1 implementation contract packets: {report['b10']['t1_b5_w1_implementation_contract_gate'].get('implementation_packet_ids')}",
             f"- B10-T1 B5 W1 implementation contract result/markdown exists: {report['b10']['t1_b5_w1_implementation_contract_gate'].get('result_exists')} / {report['b10']['t1_b5_w1_implementation_contract_gate'].get('markdown_exists')}",
+            f"- B10-T1 B5 W1 prototype environment scout status: {report['b10']['t1_b5_w1_prototype_environment_scout'].get('status')}",
+            f"- B10-T1 B5 W1 prototype environment scout requirements passed/failed: {report['b10']['t1_b5_w1_prototype_environment_scout'].get('prototype_scout_requirements_passed')} / {report['b10']['t1_b5_w1_prototype_environment_scout'].get('prototype_scout_requirements_failed')}",
+            f"- B10-T1 B5 W1 prototype environment scout failed IDs: {report['b10']['t1_b5_w1_prototype_environment_scout'].get('failed_prototype_scout_requirement_ids')}",
+            f"- B10-T1 B5 W1 prototype/contract env rows: {report['b10']['t1_b5_w1_prototype_environment_scout'].get('source_smoke_environment_ledger_rows')} / {report['b10']['t1_b5_w1_prototype_environment_scout'].get('contract_canonical_environment_rows')}",
+            f"- B10-T1 B5 W1 prototype scout result/markdown exists: {report['b10']['t1_b5_w1_prototype_environment_scout'].get('result_exists')} / {report['b10']['t1_b5_w1_prototype_environment_scout'].get('markdown_exists')}",
             "",
         ]
     )

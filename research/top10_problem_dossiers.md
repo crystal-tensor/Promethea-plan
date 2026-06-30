@@ -576,6 +576,14 @@ missing production evidence: canonical environment rows, residual/discarded
 weight rows, all-row convergence, seeded-pressure wins, and same-access
 production cost ledger. This is a stricter handoff contract, not production
 DMRG or a positive route.
+T-B5-006k/T-B10-014i executes W1 prototype environment scout. It consumes the
+implementation contract and the older canonical-environment smoke gate, maps 9
+prototype environment-ledger rows, 9 trace hashes, and 9 discarded-weight
+metrics onto the locked W1 row contract, then fails P5-P7 because accepted
+canonical environment hash rows, orthonormal residual rows, production
+discarded-weight rows, and accepted production contract rows remain 0. This
+identifies reusable prototype traces but refuses to promote them into
+production DMRG evidence.
 
 **Remaining path to a serious solution:** run T-B5-006 by implementing mature
 canonical-environment DMRG/MPS for the same response rows, with stored
@@ -584,12 +592,13 @@ exact-state seeding, and full cost accounting; or compare a fully costed
 quantum impurity/response kernel against exact D5, non-oracle embedding, seeded
 MPS pressure, one-site ALS, two-site finite-DMRG-style, readiness-gate, and
 smoke-gate denominators while satisfying the same-access production contract.
-Use T-B5-006c/T-B5-006d/T-B5-006e/T-B5-006f/T-B5-006g/T-B5-006h/T-B5-006i/T-B5-006j as the execution queue:
-W2, W3, W1 acceptance, W1 denominator-engine v0, canonical residual blocker, and implementation contract are now negative audits, so
+Use T-B5-006c/T-B5-006d/T-B5-006e/T-B5-006f/T-B5-006g/T-B5-006h/T-B5-006i/T-B5-006j/T-B5-006k as the execution queue:
+W2, W3, W1 acceptance, W1 denominator-engine v0, canonical residual blocker, implementation contract, and prototype environment scout are now negative audits, so
 the actual W1 production DMRG/MPS denominator is the remaining technical reopen
-route and must preserve the row-contract hash while supplying the 17-key row
-schema, canonical environments/residuals, all-row convergence, seeded-pressure
-replacement, and same-access production cost accounting.
+route and must preserve the row-contract hash while turning the 9 prototype
+trace rows into 17-key production row artifacts with canonical
+environments/residuals, all-row convergence, seeded-pressure replacement, and
+same-access production cost accounting.
 
 **Current internal maturity:** 29/100.
 

@@ -255,6 +255,44 @@ current_results:
     validation_error_count: 0
     result: ../results/B5_B10_w1_implementation_contract_gate_v0.json
     markdown_report: ../research/B5_B10_w1_implementation_contract_gate.md
+  w1_prototype_environment_scout_v0:
+    status: w1_prototype_environment_scout_failed_not_canonical_contract
+    model_status: prototype_two_site_ledgers_mapped_but_not_promoted_to_production_dmrg
+    method: b5_b10_w1_prototype_environment_scout_v0
+    source_implementation_contract_result: ../results/B5_B10_w1_implementation_contract_gate_v0.json
+    source_smoke_gate_result: ../results/B5_canonical_environment_smoke_gate_v0.json
+    source_row_contract_harness_result: ../results/B5_B10_row_contract_harness_v0.json
+    source_denominator_engine_result: ../results/B5_production_dmrg_mps_denominator_v0.json
+    row_contract_count: 9
+    row_contract_hash: 7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc
+    source_smoke_status: canonical_environment_smoke_gate_failed_not_production_dmrg
+    source_implementation_contract_status: w1_implementation_contract_open_not_production_dmrg
+    prototype_scout_requirement_count: 8
+    prototype_scout_requirements_passed: 5
+    prototype_scout_requirements_failed: 3
+    failed_prototype_scout_requirement_ids: [P5, P6, P7]
+    required_row_key_count: 17
+    min_available_contract_key_count: 9
+    source_smoke_environment_ledger_rows: 9
+    prototype_trace_hash_rows: 9
+    prototype_discarded_weight_metric_rows: 9
+    contract_canonical_environment_rows: 0
+    contract_orthonormal_residual_rows: 0
+    contract_discarded_weight_rows: 0
+    production_contract_rows_accepted: 0
+    w1_k5_k6_evidence_ready: false
+    production_dmrg_available: false
+    same_access_positive_route_ready: false
+    production_dmrg_claimed: false
+    same_access_positive_route_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    condition_count: 8
+    conditions_satisfied: 5
+    conditions_failed: 3
+    validation_error_count: 0
+    result: ../results/B5_B10_w1_prototype_environment_scout_v0.json
+    markdown_report: ../research/B5_B10_w1_prototype_environment_scout.md
   seeded_pressure_replacement_audit_v0:
     status: seeded_pressure_replacement_failed_remains_blocker
     model_status: w2_replacement_audit_completed_no_deployable_denominator
@@ -620,6 +658,7 @@ current_results:
       cluster4: 0.05921856583390095
     result: ../results/B5_hubbard_embedding_baseline_v0.json
 prototype_artifacts:
+  w1_prototype_environment_scout: ../tools/b5_b10_w1_prototype_environment_scout.py
   w1_implementation_contract_gate: ../tools/b5_b10_w1_implementation_contract_gate.py
   canonical_residual_blocker_gate: ../tools/b5_w1_canonical_residual_blocker_gate.py
   production_dmrg_mps_denominator: ../tools/b5_production_dmrg_mps_denominator.py
