@@ -1,0 +1,189 @@
+{
+  "benchmark": "B4/B8",
+  "benchmark_id": "B4_B8",
+  "claim_boundary": {
+    "bqp_separation_claimed": false,
+    "cryptographic_soundness_proved": false,
+    "next_gate": "Collect real backend transcript rows and make leakage-blind no-leak acceptance <= 16/160 while full-private-material leakage is either excluded or <= 40/160.",
+    "protocol_soundness_proved": false,
+    "quantum_advantage_claimed": false,
+    "sampling_hardness_proved": false,
+    "what_is_not_supported": "No real backend transcript rows exist, leakage-blind no-leak acceptance still exceeds the 0.10 threshold, full leakage is not contained, and no protocol soundness, quantum advantage, or BQP separation is established.",
+    "what_is_supported": "The synthetic fitted-spoofer holdout margins are quantified as acceptance budgets for the next real-backend PR."
+  },
+  "dependency_benchmarks": [
+    "B4",
+    "B8",
+    "B10"
+  ],
+  "last_updated": "2026-07-01",
+  "method": "b4_b8_real_backend_soundness_margin_gate_v0",
+  "model_status": "synthetic_holdout_acceptance_margins_quantified_not_soundness",
+  "requirements": [
+    {
+      "evidence": {
+        "failed_packet_scout_requirement_ids": [
+          "S5",
+          "S6",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "source_status": "real_backend_packet_scout_failed_missing_real_backend_evidence"
+      },
+      "label": "Real-backend packet scout is present and still blocks promotion",
+      "passed": true,
+      "requirement_id": "M1"
+    },
+    {
+      "evidence": {
+        "fitted_evaluation_row_count": 640,
+        "holdout_row_count": 160
+      },
+      "label": "Holdout denominator and fitted-evaluation rows are explicit",
+      "passed": true,
+      "requirement_id": "M2"
+    },
+    {
+      "evidence": {
+        "absolute_margin": 0.037500000000000006,
+        "allowed_accepts": 16,
+        "denominator": 160,
+        "excess_accepts": 0,
+        "observed_accepts": 10,
+        "passes_threshold": true,
+        "rate": 0.0625,
+        "reduction_factor_needed": 0.625,
+        "threshold": 0.1
+      },
+      "label": "Private-safe no-leak fitted acceptance is within the no-leak threshold",
+      "passed": true,
+      "requirement_id": "M3"
+    },
+    {
+      "evidence": {
+        "absolute_margin": -0.24999999999999997,
+        "allowed_accepts": 16,
+        "denominator": 160,
+        "excess_accepts": 40,
+        "observed_accepts": 56,
+        "passes_threshold": false,
+        "rate": 0.35,
+        "reduction_factor_needed": 3.4999999999999996,
+        "threshold": 0.1
+      },
+      "label": "Leakage-blind no-leak fitted acceptance is within the no-leak threshold",
+      "passed": false,
+      "requirement_id": "M4"
+    },
+    {
+      "evidence": {
+        "absolute_margin": -0.75,
+        "allowed_accepts": 40,
+        "denominator": 160,
+        "excess_accepts": 120,
+        "observed_accepts": 160,
+        "passes_threshold": false,
+        "rate": 1.0,
+        "reduction_factor_needed": 4.0,
+        "threshold": 0.25
+      },
+      "label": "Full-private-material leakage is contained within the leakage threshold",
+      "passed": false,
+      "requirement_id": "M5"
+    },
+    {
+      "evidence": {
+        "real_backend_transcript_rows": 0
+      },
+      "label": "Real backend transcript rows exist before claiming soundness margins",
+      "passed": false,
+      "requirement_id": "M6"
+    },
+    {
+      "evidence": {
+        "full_leak_allowed_accepts_per_160": 40,
+        "no_leak_allowed_accepts_per_160": 16
+      },
+      "label": "Next PR acceptance budgets are computable from the current holdout denominator",
+      "passed": true,
+      "requirement_id": "M7"
+    },
+    {
+      "evidence": {
+        "bqp_separation_claimed": false,
+        "cryptographic_soundness_proved": false,
+        "protocol_soundness_proved": false,
+        "quantum_advantage_claimed": false,
+        "sampling_hardness_proved": false
+      },
+      "label": "Forbidden soundness, advantage, and BQP claims remain false",
+      "passed": true,
+      "requirement_id": "M8"
+    }
+  ],
+  "runtime_seconds": 9.894371032714844e-05,
+  "source_packet_scout_result": "results/B4_B8_real_backend_packet_scout_v0.json",
+  "status": "real_backend_soundness_margin_failed_missing_real_backend_rows",
+  "summary": {
+    "bqp_separation_claimed": false,
+    "cryptographic_soundness_proved": false,
+    "failed_margin_requirement_ids": [
+      "M4",
+      "M5",
+      "M6"
+    ],
+    "fitted_evaluation_row_count": 640,
+    "full_leak_excess_accepts_per_160": 120,
+    "full_leak_threshold": 0.25,
+    "full_private_material_leak_budget": {
+      "absolute_margin": -0.75,
+      "allowed_accepts": 40,
+      "denominator": 160,
+      "excess_accepts": 120,
+      "observed_accepts": 160,
+      "passes_threshold": false,
+      "rate": 1.0,
+      "reduction_factor_needed": 4.0,
+      "threshold": 0.25
+    },
+    "holdout_row_count": 160,
+    "leakage_blind_excess_accepts_per_160": 40,
+    "leakage_blind_no_leak_budget": {
+      "absolute_margin": -0.24999999999999997,
+      "allowed_accepts": 16,
+      "denominator": 160,
+      "excess_accepts": 40,
+      "observed_accepts": 56,
+      "passes_threshold": false,
+      "rate": 0.35,
+      "reduction_factor_needed": 3.4999999999999996,
+      "threshold": 0.1
+    },
+    "margin_requirement_count": 8,
+    "margin_requirements_failed": 3,
+    "margin_requirements_passed": 5,
+    "no_leak_threshold": 0.1,
+    "private_safe_no_leak_budget": {
+      "absolute_margin": 0.037500000000000006,
+      "allowed_accepts": 16,
+      "denominator": 160,
+      "excess_accepts": 0,
+      "observed_accepts": 10,
+      "passes_threshold": true,
+      "rate": 0.0625,
+      "reduction_factor_needed": 0.625,
+      "threshold": 0.1
+    },
+    "protocol_soundness_proved": false,
+    "quantum_advantage_claimed": false,
+    "real_backend_soundness_margin_ready": false,
+    "real_backend_transcript_rows": 0,
+    "sampling_hardness_proved": false,
+    "source_packet_scout_status": "real_backend_packet_scout_failed_missing_real_backend_evidence",
+    "validation_error_count": 0
+  },
+  "title": "B4/B8 Real-Backend Soundness Margin Gate v0",
+  "validation_errors": [],
+  "version": "0.1"
+}

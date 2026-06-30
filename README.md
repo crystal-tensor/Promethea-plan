@@ -1362,3 +1362,14 @@ circuits, 640 fitted evaluation rows, and 160 holdout rows, but still records
 execution, and no leakage-separated real training. This is a sharper evidence
 intake surface, not real-backend readiness, protocol soundness, sampling
 hardness, quantum advantage, or BQP separation.
+
+`T-B4-002i` / `T-B8-003m` now quantifies the real-backend soundness margin that
+the next transcript PR must beat. It consumes the packet scout and checks 8
+margin requirements: 5 pass and 3 fail (`M4`-`M6`). On the current 160-row
+synthetic holdout, the private-safe no-leak fitted channel is 10/160 and passes
+the <=16/160 no-leak budget. The leakage-blind no-leak channel is 56/160, so a
+future real-row claim must remove at least 40 accepted cases or redesign the
+split. Full private-material leakage is 160/160, so it must be explicitly
+excluded or reduced to <=40/160. Real backend transcript rows remain 0, so this
+is a margin ledger for the next PR, not protocol soundness, hardware evidence,
+quantum advantage, or BQP separation.

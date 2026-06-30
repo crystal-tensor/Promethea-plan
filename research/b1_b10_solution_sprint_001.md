@@ -2602,6 +2602,19 @@ rows, but keeps real backend transcript rows at 0 and keeps real-backend,
 hardware-execution, leakage-separated real-training, soundness, advantage, and
 BQP claims false.
 
+Sprint update 59i: B4/B8 now has a real-backend soundness-margin gate.
+T-B4-002i/T-B8-003m adds
+`tools/b4_b8_real_backend_soundness_margin_gate.py` and emits
+`results/B4_B8_real_backend_soundness_margin_gate_v0.json` plus
+`research/B4_B8_real_backend_soundness_margin_gate.md`. The gate consumes the
+packet scout and converts the fitted-spoofer holdout into concrete acceptance
+budgets. It checks 8 margin requirements, passes 5, and fails M4-M6. Private-
+safe no-leak acceptance is 10/160 and passes the <=16/160 budget; leakage-blind
+no-leak acceptance is 56/160 and must remove at least 40 accepted cases; full
+private-material leakage is 160/160 and must be excluded or reduced to <=40/160.
+Real backend transcript rows remain 0, so this is a quantitative next-PR gate,
+not protocol soundness, hardware evidence, quantum advantage, or BQP separation.
+
 Sprint update 63: B5/B10 now has the W4 row-contract harness that the
 production implementation triage requested. T-B5-006d/T-B10-014b adds
 `tools/b5_b10_row_contract_harness.py` and emits

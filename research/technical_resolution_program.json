@@ -31,11 +31,11 @@
     },
     {
       "b_id": "B4",
-      "blocker": "No real backend properties, no hardware execution transcript rows, no leakage-separated real training on real rows, no leakage-blind no-leak acceptance <=0.10 on real rows, and no full-private-material leakage containment or exclusion boundary.",
+      "blocker": "No real backend properties, no hardware execution transcript rows, and no leakage-separated real training on real rows. T-B4-002i/T-B8-003m quantifies the current margin: leakage-blind no-leak is 56/160 and must fall to <=16/160, while full-private-material leakage is 160/160 and must be excluded or reduced to <=40/160.",
       "current_evidence": "B4/B8 has formal private-challenge protocol, conservative transcript-noise bridge, parametric spoofer pressure, fitted synthetic holdout, T-B4-002f/T-B8-003j readiness guardrail, T-B4-002g/T-B8-003k contract, and T-B4-002h/T-B8-003l real-backend packet scout. The latest scout checks 9 requirements, passes 4, fails S5-S9, maps 5 PR packets, 5760 backend-calibrated Aer circuits, 640 fitted evaluation rows, and 160 holdout rows, but still has 0 real backend transcript rows and no real backend properties, hardware execution, or leakage-separated real training.",
-      "gate_status": "real_backend_packet_scout_open_missing_real_backend_evidence",
-      "main_blocker": "No real backend properties, no hardware execution transcript rows, no leakage-separated real training on real rows, no leakage-blind no-leak acceptance <=0.10 on real rows, and no full-private-material leakage containment or exclusion boundary.",
-      "next_experiment": "Close S5-S9/K5-K9 with real backend properties or hardware randomized-measurement transcripts, preserve leakage-separated train/holdout splits, rerun fitted/generative spoofers, and only then consider any soundness claim.",
+      "gate_status": "real_backend_soundness_margin_failed_missing_real_backend_rows",
+      "main_blocker": "The margin gate fails M4-M6: leakage-blind no-leak acceptance exceeds the <=16/160 budget, full leakage exceeds the <=40/160 containment budget, and real backend transcript rows remain 0.",
+      "next_experiment": "Close M4-M6/S5-S9/K5-K9 with real backend properties or hardware randomized-measurement transcripts, preserve leakage-separated train/holdout splits, force leakage-blind no-leak <=16/160 and full leakage excluded or <=40/160, then rerun fitted/generative spoofers.",
       "technical_solution_target": "Circuit-level verifiable advantage task with explicit completeness/soundness against adaptive spoofers."
     },
     {
@@ -65,11 +65,11 @@
     },
     {
       "b_id": "B8",
-      "blocker": "No real backend properties, no hardware execution transcript rows, no leakage-separated real training on real rows, no leakage-blind no-leak acceptance <=0.10 on real rows, and no full-private-material leakage containment or exclusion boundary.",
+      "blocker": "No real backend properties, no hardware execution transcript rows, and no leakage-separated real training on real rows. T-B4-002i/T-B8-003m quantifies the current margin: leakage-blind no-leak is 56/160 and must fall to <=16/160, while full-private-material leakage is 160/160 and must be excluded or reduced to <=40/160.",
       "current_evidence": "B4/B8 has formal private-challenge protocol, conservative transcript-noise bridge, parametric spoofer pressure, fitted synthetic holdout, T-B4-002f/T-B8-003j readiness guardrail, T-B4-002g/T-B8-003k contract, and T-B4-002h/T-B8-003l real-backend packet scout. The latest scout checks 9 requirements, passes 4, fails S5-S9, maps 5 PR packets, 5760 backend-calibrated Aer circuits, 640 fitted evaluation rows, and 160 holdout rows, but still has 0 real backend transcript rows and no real backend properties, hardware execution, or leakage-separated real training.",
-      "gate_status": "real_backend_packet_scout_open_missing_real_backend_evidence",
-      "main_blocker": "No real backend properties, no hardware execution transcript rows, no leakage-separated real training on real rows, no leakage-blind no-leak acceptance <=0.10 on real rows, and no full-private-material leakage containment or exclusion boundary.",
-      "next_experiment": "Close S5-S9/K5-K9 with real backend properties or hardware randomized-measurement transcripts, preserve leakage-separated train/holdout splits, rerun fitted/generative spoofers, and only then consider any soundness claim.",
+      "gate_status": "real_backend_soundness_margin_failed_missing_real_backend_rows",
+      "main_blocker": "The margin gate fails M4-M6: leakage-blind no-leak acceptance exceeds the <=16/160 budget, full leakage exceeds the <=40/160 containment budget, and real backend transcript rows remain 0.",
+      "next_experiment": "Close M4-M6/S5-S9/K5-K9 with real backend properties or hardware randomized-measurement transcripts, preserve leakage-separated train/holdout splits, force leakage-blind no-leak <=16/160 and full leakage excluded or <=40/160, then rerun fitted/generative spoofers.",
       "technical_solution_target": "Classical verifier whose soundness stays low under adaptive leakage through challenge refresh/projection rotation."
     },
     {

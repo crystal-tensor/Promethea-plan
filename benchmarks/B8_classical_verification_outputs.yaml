@@ -460,6 +460,37 @@ current_results:
     validation_error_count: 0
     result: ../results/B4_B8_real_backend_packet_scout_v0.json
     markdown_report: ../research/B4_B8_real_backend_packet_scout.md
+  real_backend_soundness_margin_gate_v0:
+    status: real_backend_soundness_margin_failed_missing_real_backend_rows
+    model_status: synthetic_holdout_acceptance_margins_quantified_not_soundness
+    method: b4_b8_real_backend_soundness_margin_gate_v0
+    source_packet_scout_result: ../results/B4_B8_real_backend_packet_scout_v0.json
+    margin_requirement_count: 8
+    margin_requirements_passed: 5
+    margin_requirements_failed: 3
+    failed_margin_requirement_ids: [M4, M5, M6]
+    holdout_row_count: 160
+    fitted_evaluation_row_count: 640
+    real_backend_transcript_rows: 0
+    no_leak_threshold: 0.10
+    full_leak_threshold: 0.25
+    private_safe_no_leak_accepts: 10
+    private_safe_no_leak_allowed_accepts: 16
+    leakage_blind_no_leak_accepts: 56
+    leakage_blind_no_leak_allowed_accepts: 16
+    leakage_blind_excess_accepts_per_160: 40
+    full_private_material_leak_accepts: 160
+    full_private_material_leak_allowed_accepts: 40
+    full_leak_excess_accepts_per_160: 120
+    real_backend_soundness_margin_ready: false
+    protocol_soundness_proved: false
+    cryptographic_soundness_proved: false
+    sampling_hardness_proved: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    validation_error_count: 0
+    result: ../results/B4_B8_real_backend_soundness_margin_gate_v0.json
+    markdown_report: ../research/B4_B8_real_backend_soundness_margin_gate.md
   toy_hidden_invariant_output_verifier_v0:
     status: toy_invariant_property_test
     model_status: toy_invariant_property_test_not_full_distribution_verification
@@ -601,3 +632,4 @@ prototype_artifacts:
   real_backend_packet_scout: ../tools/b4_b8_real_backend_packet_scout.py
   real_backend_transcript_readiness_gate: ../tools/b4_b8_real_backend_transcript_readiness_gate.py
   real_backend_transcript_contract_gate: ../tools/b4_b8_real_backend_transcript_contract_gate.py
+  real_backend_soundness_margin_gate: ../tools/b4_b8_real_backend_soundness_margin_gate.py
