@@ -31,6 +31,11 @@ MODEL_STATUS = "tooling_and_theorem_obligation_gate_not_quantum_pcp_proof"
 NAMED_FAMILY = "cluster_stabilizer_open_uniform_reweight"
 
 
+def has_lean4_signature(probe: dict[str, Any]) -> bool:
+    output = f"{probe.get('stdout', '')}\n{probe.get('stderr', '')}"
+    return bool(re.search(r"\bLean\b.*\b4\.", output, re.IGNORECASE))
+
+
 def load_json(path: Path) -> dict[str, Any]:
     with path.open("r", encoding="utf-8") as handle:
         return json.load(handle)
@@ -118,6 +123,7 @@ def build_gate() -> dict[str, Any]:
     lake_probe = command_probe("lake", ["--version"])
     lean_file = lean_file_probe(LEAN_PATH)
     project = lake_project_probe()
+    lean4_signature_detected = has_lean4_signature(lean_probe)
 
     validation_errors: list[str] = []
     if source.get("method") != "b9_cluster_stabilizer_parametric_certificate_v0":
@@ -147,9 +153,14 @@ def build_gate() -> dict[str, Any]:
         },
         {
             "id": "PE-03",
-            "name": "Lean executable available",
-            "passed": lean_probe["available"] and lean_probe["return_code"] == 0,
-            "evidence": lean_probe["detail"],
+            "name": "Lean 4 executable available",
+            "passed": lean_probe["available"]
+            and lean_probe["return_code"] == 0
+            and lean4_signature_detected,
+            "evidence": (
+                f"{lean_probe['detail']}; lean4_signature_detected="
+                f"{lean4_signature_detected}"
+            ),
         },
         {
             "id": "PE-04",
@@ -193,9 +204,9 @@ def build_gate() -> dict[str, Any]:
     passed_gate_count = sum(1 for gate in readiness_gates if gate["passed"])
     failed_gates = [gate for gate in readiness_gates if not gate["passed"]]
     blocking_obligations = [
-        "pin a Lean 4 toolchain with a lakefile and mathlib dependency",
+        "pin an actual Lean 4 executable and make it shadow unrelated lean CLIs",
+        "pin Lake tooling for the scaffolded Lean project",
         "make the cluster-stabilizer skeleton check inside that project",
-        "replace the placeholder True theorem with an indexed Hamiltonian family statement",
         "formalize support-size, uniform-scaling, spectral-width, and normalized-gap invariance for all n >= 4",
         "record proof-assistant checked theorem output before upgrading any B9 claim",
     ]
@@ -220,6 +231,7 @@ def build_gate() -> dict[str, Any]:
         "source_method": source.get("method"),
         "named_family": NAMED_FAMILY,
         "lean_probe": lean_probe,
+        "lean4_signature_detected": lean4_signature_detected,
         "lake_probe": lake_probe,
         "lake_project_probe": project,
         "lean_file_probe": lean_file,

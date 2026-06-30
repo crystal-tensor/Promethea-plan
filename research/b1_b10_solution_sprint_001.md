@@ -1525,15 +1525,29 @@ contract gate, still not as a checked theorem. The new tool
 `tools/b9_proof_environment_contract_gate.py` consumes
 `results/B9_proof_environment_readiness_gate_v0.json` and emits
 `results/B9_proof_environment_contract_gate_v0.json` plus
-`research/B9_proof_environment_contract_gate.md`. It converts the five failed
-readiness gates into PR-ready contract packets: Lean toolchain, Lake tooling,
-Lake/mathlib project files, indexed theorem replacement, and proof-assistant
-checked formal output. The contract passes 3/8 requirements and fails K4-K8.
+`research/B9_proof_environment_contract_gate.md`. After T-B9-004d it keeps three failed readiness gates as PR-ready contract
+packets: actual Lean 4 executable, Lake tooling, and proof-assistant checked
+formal output. The contract now passes 5/8 requirements and fails K4/K5/K8,
+with the Lake/mathlib project and indexed-theorem replacement packets closed.
 This is useful as a collaboration handoff because it states exactly what must
 be supplied before B9 can promote from a local exact-rational verifier to an
 independent formal theorem. It is still not a Quantum PCP proof, not an NLTS
 theorem, not a local-Hamiltonian hardness theorem, and not a global
 gap-amplification impossibility theorem.
+
+**Sprint update 62:** `T-B9-004d` is now merged as a Lean/Lake proof-project
+scaffold gate, still not as a checked theorem. It adds `lean-toolchain`,
+`lakefile.lean`, `B9/ClusterStabilizer/WidthLocality.lean`, and replaces the
+old `True` placeholder in
+`research/proof_skeletons/B9_cluster_stabilizer_width_locality_bound.lean`
+with an indexed theorem interface over `n : Nat`, `4 <= n`, locality
+preservation, raw-gap amplification, and normalized-gap invariance. The
+readiness gate now passes 6/9, the contract gate now passes 5/8 and fails only
+K4/K5/K8, and the scaffold gate passes 6/8 while failing S7/S8. The remaining
+open packets are actual Lean 4 executable, Lake tooling, and checked formal
+output. This closes the project-file and indexed-theorem blockers but remains
+not a Quantum PCP proof, not an NLTS theorem, and not a proof-assistant checked
+local-Hamiltonian theorem.
 
 ## B10: Boundary of BQP
 

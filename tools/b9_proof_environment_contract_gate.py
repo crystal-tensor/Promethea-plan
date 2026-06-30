@@ -14,7 +14,7 @@ MODEL_STATUS = "proof_environment_readiness_blockers_decomposed_for_prs"
 SOURCE_METHOD = "b9_proof_environment_readiness_gate_v0"
 SOURCE_STATUS = "proof_environment_readiness_blocked_not_formal_theorem"
 NAMED_FAMILY = "cluster_stabilizer_open_uniform_reweight"
-EXPECTED_SOURCE_FAILED = ["PE-03", "PE-04", "PE-05", "PE-08", "PE-09"]
+EXPECTED_SOURCE_FAILED = ["PE-03", "PE-04", "PE-09"]
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -59,6 +59,7 @@ def build_contract(source_path: Path) -> dict[str, Any]:
     lake_project_probe = source.get("lake_project_probe", {})
     lean_probe = source.get("lean_probe", {})
     lake_probe = source.get("lake_probe", {})
+    lean4_signature_detected = source.get("lean4_signature_detected") is True
 
     no_forbidden_claims = (
         claim_boundary.get("proof_environment_ready") is False
@@ -91,7 +92,7 @@ def build_contract(source_path: Path) -> dict[str, Any]:
             "local verifier evidence remains clean",
             source.get("validation_error_count") == 0
             and claim_boundary.get("local_verifier_checked") is True
-            and source.get("passed_gate_count") == 4,
+            and source.get("passed_gate_count") == 6,
             (
                 f"validation_error_count={source.get('validation_error_count')}; "
                 f"local_verifier_checked={claim_boundary.get('local_verifier_checked')}; "
@@ -108,10 +109,16 @@ def build_contract(source_path: Path) -> dict[str, Any]:
         ),
         requirement(
             "K4",
-            "Lean executable succeeds",
-            lean_probe.get("available") is True and lean_probe.get("return_code") == 0,
-            f"lean_available={lean_probe.get('available')}; lean_return_code={lean_probe.get('return_code')}",
-            "Pin a Lean 4 executable that returns success for the project.",
+            "Lean 4 executable succeeds",
+            lean_probe.get("available") is True
+            and lean_probe.get("return_code") == 0
+            and lean4_signature_detected,
+            (
+                f"lean_available={lean_probe.get('available')}; "
+                f"lean_return_code={lean_probe.get('return_code')}; "
+                f"lean4_signature_detected={lean4_signature_detected}"
+            ),
+            "Pin an actual Lean 4 executable that returns success for the project.",
         ),
         requirement(
             "K5",
@@ -149,13 +156,13 @@ def build_contract(source_path: Path) -> dict[str, Any]:
             "Record checked theorem output before upgrading the B9 claim.",
         ),
     ]
-    packets = [
+    all_packets = [
         packet(
             "B9-PE03-lean-toolchain",
             "PE-03",
-            "Pin a successful Lean executable",
+            "Pin a successful Lean 4 executable",
             [
-                "lean --version exits successfully",
+                "lean --version exits successfully and reports Lean 4",
                 "toolchain version is recorded",
                 "local verifier artifacts remain unchanged",
             ],
@@ -201,6 +208,8 @@ def build_contract(source_path: Path) -> dict[str, Any]:
             ],
         ),
     ]
+    packets = [row for row in all_packets if row["source_gate"] in source_failed]
+    closed_packets = [row for row in all_packets if row["source_gate"] not in source_failed]
     failed = [row for row in requirements if not row["passed"]]
     return {
         "benchmark_id": "B9",
@@ -219,6 +228,7 @@ def build_contract(source_path: Path) -> dict[str, Any]:
         "blocking_obligation_count": source.get("blocking_obligation_count"),
         "lean_available": lean_probe.get("available"),
         "lean_return_code": lean_probe.get("return_code"),
+        "lean4_signature_detected": lean4_signature_detected,
         "lake_available": lake_probe.get("available"),
         "lake_return_code": lake_probe.get("return_code"),
         "lake_project_present": lake_project_probe.get("lake_project_present"),
@@ -231,6 +241,8 @@ def build_contract(source_path: Path) -> dict[str, Any]:
         "failed_contract_requirement_ids": [row["id"] for row in failed],
         "contract_packet_count": len(packets),
         "contract_packet_ids": [row["id"] for row in packets],
+        "closed_contract_packet_count": len(closed_packets),
+        "closed_contract_packet_ids": [row["id"] for row in closed_packets],
         "requirements": requirements,
         "contract_packets": packets,
         "claim_boundary": {

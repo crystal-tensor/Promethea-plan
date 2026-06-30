@@ -2418,19 +2418,25 @@ Overall audit: PASS
 - Parametric certificate validation errors: 0
 - Parametric certificate result/markdown exists: True / True
 - Proof-environment readiness status: proof_environment_readiness_blocked_not_formal_theorem
-- Proof-environment readiness gates passed/total: 4 / 9
-- Proof-environment failed gate IDs: ['PE-03', 'PE-04', 'PE-05', 'PE-08', 'PE-09']
+- Proof-environment readiness gates passed/total: 6 / 9
+- Proof-environment failed gate IDs: ['PE-03', 'PE-04', 'PE-09']
 - Proof-environment blocking obligations: 5
 - Proof-environment ready/formal theorem: False / False
-- Proof-environment Lean/Lake/project/placeholder: 1 / False / False / True
+- Proof-environment Lean/Lake/project/placeholder: 0 / False / True / False
 - Proof-environment explicitly not Quantum PCP proof: True
 - Proof-environment validation errors: 0
 - Proof-environment result/markdown exists: True / True
 - Proof-environment contract status: proof_environment_contract_open_not_formal_theorem
-- Proof-environment contract source failures / contract failures: ['PE-03', 'PE-04', 'PE-05', 'PE-08', 'PE-09'] / ['K4', 'K5', 'K6', 'K7', 'K8']
-- Proof-environment contract passed / failed / packets: 3 / 5 / 5
-- Proof-environment contract packet IDs: ['B9-PE03-lean-toolchain', 'B9-PE04-lake-tooling', 'B9-PE05-mathlib-project', 'B9-PE08-indexed-theorem', 'B9-PE09-checked-formal-output']
+- Proof-environment contract source failures / contract failures: ['PE-03', 'PE-04', 'PE-09'] / ['K4', 'K5', 'K8']
+- Proof-environment contract passed / failed / packets: 5 / 3 / 3
+- Proof-environment contract packet IDs: ['B9-PE03-lean-toolchain', 'B9-PE04-lake-tooling', 'B9-PE09-checked-formal-output']
+- Proof-environment closed packet IDs: ['B9-PE05-mathlib-project', 'B9-PE08-indexed-theorem']
 - Proof-environment contract result/markdown exists: True / True
+- Proof-project scaffold status: proof_project_scaffold_open_not_checked
+- Proof-project scaffold passed / failed: 6 / 2
+- Proof-project scaffold failed IDs: ['S7', 'S8']
+- Proof-project scaffold Lean4/Lake/checked theorem: False / False / False
+- Proof-project scaffold result/markdown exists: True / True
 
 ## B10 BQP Boundary Graph Status
 

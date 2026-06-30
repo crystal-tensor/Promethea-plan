@@ -12,26 +12,29 @@
     "proof_environment_contract_built": true,
     "proof_environment_ready": false
   },
-  "contains_placeholder_true_theorem": true,
-  "contract_packet_count": 5,
+  "closed_contract_packet_count": 2,
+  "closed_contract_packet_ids": [
+    "B9-PE05-mathlib-project",
+    "B9-PE08-indexed-theorem"
+  ],
+  "contains_placeholder_true_theorem": false,
+  "contract_packet_count": 3,
   "contract_packet_ids": [
     "B9-PE03-lean-toolchain",
     "B9-PE04-lake-tooling",
-    "B9-PE05-mathlib-project",
-    "B9-PE08-indexed-theorem",
     "B9-PE09-checked-formal-output"
   ],
   "contract_packets": [
     {
       "acceptance_criteria": [
-        "lean --version exits successfully",
+        "lean --version exits successfully and reports Lean 4",
         "toolchain version is recorded",
         "local verifier artifacts remain unchanged"
       ],
       "claim_boundary": "Packet evidence may improve B9 formal-readiness only after audit; it must not claim Quantum PCP, NLTS, local-Hamiltonian hardness, a formal theorem, or a global gap-amplification impossibility result until the proof environment and the theorem itself are independently checked.",
       "id": "B9-PE03-lean-toolchain",
       "source_gate": "PE-03",
-      "title": "Pin a successful Lean executable"
+      "title": "Pin a successful Lean 4 executable"
     },
     {
       "acceptance_criteria": [
@@ -46,28 +49,6 @@
     },
     {
       "acceptance_criteria": [
-        "lean-toolchain is present",
-        "lakefile.lean or lakefile.toml is present",
-        "mathlib dependency is declared or vendored reproducibly"
-      ],
-      "claim_boundary": "Packet evidence may improve B9 formal-readiness only after audit; it must not claim Quantum PCP, NLTS, local-Hamiltonian hardness, a formal theorem, or a global gap-amplification impossibility result until the proof environment and the theorem itself are independently checked.",
-      "id": "B9-PE05-mathlib-project",
-      "source_gate": "PE-05",
-      "title": "Create a Lean/Lake/mathlib project"
-    },
-    {
-      "acceptance_criteria": [
-        "named-family theorem quantifies n >= 4",
-        "Hamiltonian family, support, locality, width, and normalized gap are explicit",
-        "no placeholder True theorem remains"
-      ],
-      "claim_boundary": "Packet evidence may improve B9 formal-readiness only after audit; it must not claim Quantum PCP, NLTS, local-Hamiltonian hardness, a formal theorem, or a global gap-amplification impossibility result until the proof environment and the theorem itself are independently checked.",
-      "id": "B9-PE08-indexed-theorem",
-      "source_gate": "PE-08",
-      "title": "Replace the placeholder True theorem"
-    },
-    {
-      "acceptance_criteria": [
         "proof_assistant_checked is true",
         "formal_theorem_proved is true for the restricted theorem",
         "claim boundary still says this is not Quantum PCP or NLTS"
@@ -79,34 +60,33 @@
     }
   ],
   "contract_requirement_count": 8,
-  "failed_contract_requirement_count": 5,
+  "failed_contract_requirement_count": 3,
   "failed_contract_requirement_ids": [
     "K4",
     "K5",
-    "K6",
-    "K7",
     "K8"
   ],
   "lake_available": false,
-  "lake_project_present": false,
+  "lake_project_present": true,
   "lake_return_code": null,
+  "lean4_signature_detected": false,
   "lean_available": true,
-  "lean_return_code": 1,
+  "lean_return_code": 0,
   "method": "b9_proof_environment_contract_gate_v0",
   "model_status": "proof_environment_readiness_blockers_decomposed_for_prs",
   "named_family": "cluster_stabilizer_open_uniform_reweight",
-  "passed_contract_requirement_count": 3,
+  "passed_contract_requirement_count": 5,
   "readiness_gate_count": 9,
   "requirements": [
     {
-      "evidence": "benchmark_id=B9; method=b9_proof_environment_readiness_gate_v0; status=proof_environment_readiness_blocked_not_formal_theorem; family=cluster_stabilizer_open_uniform_reweight; failed=['PE-03', 'PE-04', 'PE-05', 'PE-08', 'PE-09']",
+      "evidence": "benchmark_id=B9; method=b9_proof_environment_readiness_gate_v0; status=proof_environment_readiness_blocked_not_formal_theorem; family=cluster_stabilizer_open_uniform_reweight; failed=['PE-03', 'PE-04', 'PE-09']",
       "id": "K1",
       "label": "source proof-environment gate is present and bounded",
       "missing_to_promote": "Keep this contract tied to the failed B9 proof-environment readiness gate.",
       "passed": true
     },
     {
-      "evidence": "validation_error_count=0; local_verifier_checked=True; passed_gate_count=4",
+      "evidence": "validation_error_count=0; local_verifier_checked=True; passed_gate_count=6",
       "id": "K2",
       "label": "local verifier evidence remains clean",
       "missing_to_promote": "Preserve local exact-rational evidence as the non-formal denominator.",
@@ -120,10 +100,10 @@
       "passed": true
     },
     {
-      "evidence": "lean_available=True; lean_return_code=1",
+      "evidence": "lean_available=True; lean_return_code=0; lean4_signature_detected=False",
       "id": "K4",
-      "label": "Lean executable succeeds",
-      "missing_to_promote": "Pin a Lean 4 executable that returns success for the project.",
+      "label": "Lean 4 executable succeeds",
+      "missing_to_promote": "Pin an actual Lean 4 executable that returns success for the project.",
       "passed": false
     },
     {
@@ -134,18 +114,18 @@
       "passed": false
     },
     {
-      "evidence": "present_files=[]",
+      "evidence": "present_files=['lakefile.lean', 'lean-toolchain']",
       "id": "K6",
       "label": "Lake/mathlib project files are present",
       "missing_to_promote": "Add lean-toolchain plus lakefile.lean or lakefile.toml with mathlib dependency.",
-      "passed": false
+      "passed": true
     },
     {
-      "evidence": "contains_placeholder_true_theorem=True",
+      "evidence": "contains_placeholder_true_theorem=False",
       "id": "K7",
       "label": "named-family theorem is not a placeholder",
       "missing_to_promote": "Replace the True theorem with an indexed Hamiltonian-family statement.",
-      "passed": false
+      "passed": true
     },
     {
       "evidence": "proof_assistant_checked=False; formal_theorem_proved=False",
@@ -155,17 +135,15 @@
       "passed": false
     }
   ],
-  "source_failed_gate_count": 5,
+  "source_failed_gate_count": 3,
   "source_failed_gate_ids": [
     "PE-03",
     "PE-04",
-    "PE-05",
-    "PE-08",
     "PE-09"
   ],
   "source_gate": "results/B9_proof_environment_readiness_gate_v0.json",
   "source_method": "b9_proof_environment_readiness_gate_v0",
-  "source_passed_gate_count": 4,
+  "source_passed_gate_count": 6,
   "source_status": "proof_environment_readiness_blocked_not_formal_theorem",
   "status": "proof_environment_contract_open_not_formal_theorem",
   "title": "B9 proof-environment contract gate",

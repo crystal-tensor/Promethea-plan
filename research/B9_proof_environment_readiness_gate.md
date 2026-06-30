@@ -7,8 +7,8 @@ This artifact audits the current proof-checking path for the B9 cluster-stabiliz
 ## Summary
 
 - Named family: `cluster_stabilizer_open_uniform_reweight`
-- Readiness gates passed: `4` / `9`
-- Failed gate IDs: `['PE-03', 'PE-04', 'PE-05', 'PE-08', 'PE-09']`
+- Readiness gates passed: `6` / `9`
+- Failed gate IDs: `['PE-03', 'PE-04', 'PE-09']`
 - Blocking obligations: `5`
 - Proof environment ready: `False`
 - Proof assistant checked: `False`
@@ -21,19 +21,19 @@ This artifact audits the current proof-checking path for the B9 cluster-stabiliz
 |---|---:|---|
 | PE-01 local parametric certificate exists | True | results/B9_cluster_stabilizer_parametric_certificate_v0.json |
 | PE-02 local exact-rational verifier passed | True | source validation_error_count == 0 |
-| PE-03 Lean executable available | False | lean exited with 1 |
+| PE-03 Lean 4 executable available | False | ok; lean4_signature_detected=False |
 | PE-04 Lake executable available | False | lake executable not found on PATH |
-| PE-05 Lean/mathlib project files present | False | present files: [] |
+| PE-05 Lean/mathlib project files present | True | present files: ['lakefile.lean', 'lean-toolchain'] |
 | PE-06 Lean skeleton imports Mathlib | True | research/proof_skeletons/B9_cluster_stabilizer_width_locality_bound.lean |
 | PE-07 Lean skeleton has no sorry/admit token | True | research/proof_skeletons/B9_cluster_stabilizer_width_locality_bound.lean |
-| PE-08 Named-family theorem is not a placeholder | False | cluster_stabilizer_open_uniform_reweight_obligation must not prove only True |
+| PE-08 Named-family theorem is not a placeholder | True | cluster_stabilizer_open_uniform_reweight_obligation must not prove only True |
 | PE-09 Source theorem is proof-assistant checked | False | source proof_assistant_checked/formal_theorem_proved flags |
 
 ## Blocking Obligations
 
-- pin a Lean 4 toolchain with a lakefile and mathlib dependency
+- pin an actual Lean 4 executable and make it shadow unrelated lean CLIs
+- pin Lake tooling for the scaffolded Lean project
 - make the cluster-stabilizer skeleton check inside that project
-- replace the placeholder True theorem with an indexed Hamiltonian family statement
 - formalize support-size, uniform-scaling, spectral-width, and normalized-gap invariance for all n >= 4
 - record proof-assistant checked theorem output before upgrading any B9 claim
 

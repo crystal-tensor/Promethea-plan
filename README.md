@@ -328,17 +328,19 @@ decoder, threshold, hardware result, quantum-advantage result, or new-code
 claim.
 
 B9 now has a local parametric certificate checker plus a proof-environment
-contract gate for the `cluster_stabilizer_open_uniform_reweight` family. The
+contract gate and proof-project scaffold for the
+`cluster_stabilizer_open_uniform_reweight` family. The
 local checker verifies the n >= 4 formula-level term count, support set {2,3},
 max locality 3, exact uniform scale 27/20, finite rows n=4,5,6, and
-normalized-gap invariance with a repo-local exact-rational verifier. The new
-contract gate consumes the failed proof-environment readiness gate and turns
-the remaining blockers into five PR-ready packets: Lean toolchain, Lake
-tooling, Lake/mathlib project files, indexed theorem replacement, and checked
-formal output. The contract passes 3/8 requirements and fails K4-K8. This is
-useful because it makes the next formalization work assignable and auditable,
-but it is still not a Lean/mathlib theorem, not a Quantum PCP proof, not an
-NLTS theorem, and not a global gap-amplification no-go theorem.
+normalized-gap invariance with a repo-local exact-rational verifier. T-B9-004d
+adds `lean-toolchain`, `lakefile.lean`, a `B9.ClusterStabilizer.WidthLocality`
+module, and an indexed theorem interface that replaces the old `True`
+placeholder. Readiness is now 6/9 gates passed, the contract is 5/8
+requirements passed, two packets are closed, and three packets remain open:
+actual Lean 4 executable, Lake tooling, and proof-assistant checked formal
+output. This is useful because it makes the next formalization work assignable
+and auditable, but it is still not a Lean/mathlib theorem, not a Quantum PCP
+proof, not an NLTS theorem, and not a global gap-amplification no-go theorem.
 
 B1/B7 now has a template-priority gate for the current `gcm_h6` bottleneck.
 The gate evaluates the 12 retained nonlocal templates from the B7 scan and

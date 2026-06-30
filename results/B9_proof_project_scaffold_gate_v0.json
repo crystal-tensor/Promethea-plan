@@ -1,0 +1,119 @@
+{
+  "benchmark_id": "B9",
+  "claim_boundary": {
+    "actual_lean4_available": false,
+    "explicit_not_quantum_pcp_proof": true,
+    "formal_theorem_proved": false,
+    "global_gap_amplification_impossibility_claimed": false,
+    "indexed_theorem_interface_created": true,
+    "lake_available": false,
+    "nlts_theorem_claimed": false,
+    "proof_assistant_checked": false,
+    "proof_environment_ready": false,
+    "proof_project_scaffold_created": true
+  },
+  "contract_failed_requirement_ids": [
+    "K4",
+    "K5",
+    "K8"
+  ],
+  "failed_scaffold_requirement_count": 2,
+  "failed_scaffold_requirement_ids": [
+    "S7",
+    "S8"
+  ],
+  "lakefile": "lakefile.lean",
+  "lean_project_module": "B9/ClusterStabilizer/WidthLocality.lean",
+  "lean_skeleton": "research/proof_skeletons/B9_cluster_stabilizer_width_locality_bound.lean",
+  "lean_toolchain": "lean-toolchain",
+  "method": "b9_proof_project_scaffold_gate_v0",
+  "model_status": "lean_lake_scaffold_and_indexed_theorem_interface_without_checked_proof",
+  "named_family": "cluster_stabilizer_open_uniform_reweight",
+  "passed_scaffold_requirement_count": 6,
+  "project_probe": {
+    "contains_admit": false,
+    "contains_placeholder_true_theorem": false,
+    "contains_sorry": false,
+    "quantifies_n": true,
+    "rejects_normalized_gap_improvement": true,
+    "requires_n_ge_4": true,
+    "theorem_present": true,
+    "uses_locality_predicate": true,
+    "uses_normalized_gap_invariant": true,
+    "uses_raw_gap_predicate": true
+  },
+  "readiness_failed_gate_ids": [
+    "PE-03",
+    "PE-04",
+    "PE-09"
+  ],
+  "requirements": [
+    {
+      "evidence": "failed_gate_ids=['PE-03', 'PE-04', 'PE-09']",
+      "id": "S1",
+      "label": "source readiness gate is refreshed after scaffold creation",
+      "passed": true
+    },
+    {
+      "evidence": "failed_contract_requirement_ids=['K4', 'K5', 'K8']",
+      "id": "S2",
+      "label": "source contract gate is refreshed after scaffold creation",
+      "passed": true
+    },
+    {
+      "evidence": "lean-toolchain",
+      "id": "S3",
+      "label": "Lean toolchain file is pinned",
+      "passed": true
+    },
+    {
+      "evidence": "lakefile.lean",
+      "id": "S4",
+      "label": "Lake project file declares mathlib dependency",
+      "passed": true
+    },
+    {
+      "evidence": "research/proof_skeletons/B9_cluster_stabilizer_width_locality_bound.lean",
+      "id": "S5",
+      "label": "skeleton theorem interface is indexed and non-placeholder",
+      "passed": true
+    },
+    {
+      "evidence": "B9/ClusterStabilizer/WidthLocality.lean",
+      "id": "S6",
+      "label": "Lake module mirrors the theorem interface",
+      "passed": true
+    },
+    {
+      "evidence": "lean4_signature_detected=False",
+      "id": "S7",
+      "label": "actual Lean 4 executable is available",
+      "passed": false
+    },
+    {
+      "evidence": "proof_assistant_checked=False; formal_theorem_proved=False",
+      "id": "S8",
+      "label": "the theorem is proof-assistant checked",
+      "passed": false
+    }
+  ],
+  "scaffold_requirement_count": 8,
+  "skeleton_probe": {
+    "contains_admit": false,
+    "contains_placeholder_true_theorem": false,
+    "contains_sorry": false,
+    "quantifies_n": true,
+    "rejects_normalized_gap_improvement": true,
+    "requires_n_ge_4": true,
+    "theorem_present": true,
+    "uses_locality_predicate": true,
+    "uses_normalized_gap_invariant": true,
+    "uses_raw_gap_predicate": true
+  },
+  "source_contract_gate": "results/B9_proof_environment_contract_gate_v0.json",
+  "source_readiness_gate": "results/B9_proof_environment_readiness_gate_v0.json",
+  "status": "proof_project_scaffold_open_not_checked",
+  "title": "B9 Lean/Lake proof project scaffold gate",
+  "validation_error_count": 0,
+  "validation_errors": []
+}

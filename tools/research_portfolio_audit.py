@@ -31386,6 +31386,7 @@ def audit(root: Path) -> dict:
     b9_parametric_certificate = b9_results.get("cluster_stabilizer_parametric_certificate_v0")
     b9_proof_environment_gate = b9_results.get("proof_environment_readiness_gate_v0")
     b9_proof_environment_contract = b9_results.get("proof_environment_contract_gate_v0")
+    b9_proof_project_scaffold = b9_results.get("proof_project_scaffold_gate_v0")
     b9_status = {}
     if not b9_gap_lab:
         warnings.append("B9 manifest has no local-Hamiltonian gap-lab result")
@@ -31740,6 +31741,7 @@ def audit(root: Path) -> dict:
             ),
             "lean_available": payload.get("lean_probe", {}).get("available"),
             "lean_return_code": payload.get("lean_probe", {}).get("return_code"),
+            "lean4_signature_detected": payload.get("lean4_signature_detected"),
             "lake_available": payload.get("lake_probe", {}).get("available"),
             "lake_project_present": payload.get("lake_project_probe", {}).get("lake_project_present"),
             "contains_placeholder_true_theorem": payload.get("lean_file_probe", {}).get(
@@ -31770,11 +31772,11 @@ def audit(root: Path) -> dict:
                 errors.append(f"B9 proof-environment readiness {field} mismatch")
         if payload.get("readiness_gate_count") != 9:
             errors.append("B9 proof-environment readiness should evaluate nine gates")
-        if payload.get("passed_gate_count") != 4:
-            errors.append("B9 proof-environment readiness should currently pass four gates")
-        if payload.get("failed_gate_count") != 5:
-            errors.append("B9 proof-environment readiness should currently fail five gates")
-        if payload.get("failed_gate_ids") != ["PE-03", "PE-04", "PE-05", "PE-08", "PE-09"]:
+        if payload.get("passed_gate_count") != 6:
+            errors.append("B9 proof-environment readiness should currently pass six gates")
+        if payload.get("failed_gate_count") != 3:
+            errors.append("B9 proof-environment readiness should currently fail three gates")
+        if payload.get("failed_gate_ids") != ["PE-03", "PE-04", "PE-09"]:
             errors.append("B9 proof-environment readiness failed gate ids mismatch")
         if payload.get("blocking_obligation_count") != 5:
             errors.append("B9 proof-environment readiness should record five blocking obligations")
@@ -31794,10 +31796,10 @@ def audit(root: Path) -> dict:
             errors.append("B9 proof-environment claim boundary must keep proof environment blocked")
         if claim_boundary.get("local_verifier_checked") is not True:
             errors.append("B9 proof-environment claim boundary should retain local verifier evidence")
-        if payload.get("lean_file_probe", {}).get("contains_placeholder_true_theorem") is not True:
-            errors.append("B9 proof-environment should expose the placeholder True theorem")
-        if payload.get("lake_project_probe", {}).get("lake_project_present") is not False:
-            errors.append("B9 proof-environment should require a real Lake project")
+        if payload.get("lean_file_probe", {}).get("contains_placeholder_true_theorem") is not False:
+            errors.append("B9 proof-environment should no longer expose the placeholder True theorem")
+        if payload.get("lake_project_probe", {}).get("lake_project_present") is not True:
+            errors.append("B9 proof-environment should expose the scaffolded Lake project")
         if payload.get("validation_error_count") != 0 or len(payload.get("validation_errors", [])) != 0:
             errors.append("B9 proof-environment readiness validation errors must be zero")
 
@@ -31829,6 +31831,7 @@ def audit(root: Path) -> dict:
             "blocking_obligation_count": payload.get("blocking_obligation_count"),
             "lean_available": payload.get("lean_available"),
             "lean_return_code": payload.get("lean_return_code"),
+            "lean4_signature_detected": payload.get("lean4_signature_detected"),
             "lake_available": payload.get("lake_available"),
             "lake_return_code": payload.get("lake_return_code"),
             "lake_project_present": payload.get("lake_project_present"),
@@ -31845,6 +31848,8 @@ def audit(root: Path) -> dict:
             "failed_contract_requirement_ids": payload.get("failed_contract_requirement_ids"),
             "contract_packet_count": payload.get("contract_packet_count"),
             "contract_packet_ids": payload.get("contract_packet_ids"),
+            "closed_contract_packet_count": payload.get("closed_contract_packet_count"),
+            "closed_contract_packet_ids": payload.get("closed_contract_packet_ids"),
             "proof_environment_ready": payload.get("claim_boundary", {}).get(
                 "proof_environment_ready"
             ),
@@ -31866,14 +31871,16 @@ def audit(root: Path) -> dict:
             "result": result_path,
             "markdown_report": markdown_path,
         }
-        expected_source_failed = ["PE-03", "PE-04", "PE-05", "PE-08", "PE-09"]
-        expected_contract_failed = ["K4", "K5", "K6", "K7", "K8"]
+        expected_source_failed = ["PE-03", "PE-04", "PE-09"]
+        expected_contract_failed = ["K4", "K5", "K8"]
         expected_packets = [
             "B9-PE03-lean-toolchain",
             "B9-PE04-lake-tooling",
+            "B9-PE09-checked-formal-output",
+        ]
+        expected_closed_packets = [
             "B9-PE05-mathlib-project",
             "B9-PE08-indexed-theorem",
-            "B9-PE09-checked-formal-output",
         ]
         if payload.get("benchmark_id") != "B9":
             errors.append("B9 proof-environment contract benchmark_id mismatch")
@@ -31896,6 +31903,7 @@ def audit(root: Path) -> dict:
             "blocking_obligation_count",
             "lean_available",
             "lean_return_code",
+            "lean4_signature_detected",
             "lake_available",
             "lake_return_code",
             "lake_project_present",
@@ -31906,19 +31914,26 @@ def audit(root: Path) -> dict:
             "failed_contract_requirement_ids",
             "contract_packet_count",
             "contract_packet_ids",
+            "closed_contract_packet_count",
+            "closed_contract_packet_ids",
         ]:
             if payload.get(field) != b9_proof_environment_contract.get(field):
                 errors.append(f"B9 proof-environment contract {field} mismatch")
         if payload.get("contract_requirement_count") != 8:
             errors.append("B9 proof-environment contract should check eight requirements")
-        if payload.get("passed_contract_requirement_count") != 3:
-            errors.append("B9 proof-environment contract should pass three requirements")
-        if payload.get("failed_contract_requirement_count") != 5:
-            errors.append("B9 proof-environment contract should fail five requirements")
+        if payload.get("passed_contract_requirement_count") != 5:
+            errors.append("B9 proof-environment contract should pass five requirements")
+        if payload.get("failed_contract_requirement_count") != 3:
+            errors.append("B9 proof-environment contract should fail three requirements")
         if payload.get("failed_contract_requirement_ids") != expected_contract_failed:
-            errors.append("B9 proof-environment contract failures should be K4-K8")
-        if payload.get("contract_packet_count") != 5 or payload.get("contract_packet_ids") != expected_packets:
+            errors.append("B9 proof-environment contract failures should be K4/K5/K8")
+        if payload.get("contract_packet_count") != 3 or payload.get("contract_packet_ids") != expected_packets:
             errors.append("B9 proof-environment contract packets mismatch")
+        if (
+            payload.get("closed_contract_packet_count") != 2
+            or payload.get("closed_contract_packet_ids") != expected_closed_packets
+        ):
+            errors.append("B9 proof-environment contract closed packets mismatch")
         if claim_boundary.get("proof_environment_contract_built") is not True:
             errors.append("B9 proof-environment contract must disclose contract construction")
         if claim_boundary.get("local_verifier_checked") is not True:
@@ -31937,6 +31952,101 @@ def audit(root: Path) -> dict:
             errors.append("B9 proof-environment contract must explicitly avoid Quantum PCP proof claims")
         if payload.get("validation_error_count") != 0 or payload.get("validation_errors") != []:
             errors.append("B9 proof-environment contract validation errors must be zero")
+
+    b9_proof_project_scaffold_status = {}
+    if not b9_proof_project_scaffold:
+        warnings.append("B9 manifest has no proof-project scaffold gate")
+    else:
+        result_path = b9_proof_project_scaffold.get("result")
+        markdown_path = b9_proof_project_scaffold.get("markdown_report")
+        result_exists = bool(result_path and path_exists_from(benchmarks, result_path))
+        markdown_exists = bool(markdown_path and path_exists_from(benchmarks, markdown_path))
+        if not result_exists:
+            errors.append(f"B9 proof-project scaffold result path missing: {result_path}")
+        if not markdown_exists:
+            errors.append(f"B9 proof-project scaffold markdown missing: {markdown_path}")
+        payload = json.loads(read((benchmarks / result_path).resolve())) if result_exists else {}
+        claim_boundary = payload.get("claim_boundary", {})
+        b9_proof_project_scaffold_status = {
+            "status": b9_proof_project_scaffold.get("status"),
+            "method": b9_proof_project_scaffold.get("method"),
+            "model_status": b9_proof_project_scaffold.get("model_status"),
+            "named_family": payload.get("named_family"),
+            "readiness_failed_gate_ids": payload.get("readiness_failed_gate_ids"),
+            "contract_failed_requirement_ids": payload.get("contract_failed_requirement_ids"),
+            "scaffold_requirement_count": payload.get("scaffold_requirement_count"),
+            "passed_scaffold_requirement_count": payload.get("passed_scaffold_requirement_count"),
+            "failed_scaffold_requirement_count": payload.get("failed_scaffold_requirement_count"),
+            "failed_scaffold_requirement_ids": payload.get("failed_scaffold_requirement_ids"),
+            "proof_project_scaffold_created": claim_boundary.get("proof_project_scaffold_created"),
+            "indexed_theorem_interface_created": claim_boundary.get(
+                "indexed_theorem_interface_created"
+            ),
+            "actual_lean4_available": claim_boundary.get("actual_lean4_available"),
+            "lake_available": claim_boundary.get("lake_available"),
+            "proof_environment_ready": claim_boundary.get("proof_environment_ready"),
+            "proof_assistant_checked": claim_boundary.get("proof_assistant_checked"),
+            "formal_theorem_proved": claim_boundary.get("formal_theorem_proved"),
+            "explicit_not_quantum_pcp_proof": claim_boundary.get("explicit_not_quantum_pcp_proof"),
+            "global_gap_amplification_impossibility_claimed": claim_boundary.get(
+                "global_gap_amplification_impossibility_claimed"
+            ),
+            "validation_error_count": payload.get("validation_error_count"),
+            "result_exists": result_exists,
+            "markdown_exists": markdown_exists,
+            "result": result_path,
+            "markdown_report": markdown_path,
+        }
+        if payload.get("benchmark_id") != "B9":
+            errors.append("B9 proof-project scaffold benchmark_id mismatch")
+        if payload.get("status") != "proof_project_scaffold_open_not_checked":
+            errors.append("B9 proof-project scaffold status mismatch")
+        if payload.get("method") != b9_proof_project_scaffold.get("method"):
+            errors.append("B9 proof-project scaffold method mismatch")
+        if payload.get("model_status") != b9_proof_project_scaffold.get("model_status"):
+            errors.append("B9 proof-project scaffold model status mismatch")
+        if payload.get("named_family") != "cluster_stabilizer_open_uniform_reweight":
+            errors.append("B9 proof-project scaffold family mismatch")
+        for field in [
+            "readiness_failed_gate_ids",
+            "contract_failed_requirement_ids",
+            "scaffold_requirement_count",
+            "passed_scaffold_requirement_count",
+            "failed_scaffold_requirement_count",
+            "failed_scaffold_requirement_ids",
+            "validation_error_count",
+        ]:
+            if payload.get(field) != b9_proof_project_scaffold.get(field):
+                errors.append(f"B9 proof-project scaffold {field} mismatch")
+        if payload.get("readiness_failed_gate_ids") != ["PE-03", "PE-04", "PE-09"]:
+            errors.append("B9 proof-project scaffold readiness failures mismatch")
+        if payload.get("contract_failed_requirement_ids") != ["K4", "K5", "K8"]:
+            errors.append("B9 proof-project scaffold contract failures mismatch")
+        if payload.get("passed_scaffold_requirement_count") != 6:
+            errors.append("B9 proof-project scaffold should pass six requirements")
+        if payload.get("failed_scaffold_requirement_count") != 2:
+            errors.append("B9 proof-project scaffold should fail two requirements")
+        if payload.get("failed_scaffold_requirement_ids") != ["S7", "S8"]:
+            errors.append("B9 proof-project scaffold failures should be S7/S8")
+        if claim_boundary.get("proof_project_scaffold_created") is not True:
+            errors.append("B9 proof-project scaffold should disclose scaffold creation")
+        if claim_boundary.get("indexed_theorem_interface_created") is not True:
+            errors.append("B9 proof-project scaffold should disclose indexed theorem interface")
+        for claim_key in [
+            "actual_lean4_available",
+            "lake_available",
+            "proof_environment_ready",
+            "proof_assistant_checked",
+            "formal_theorem_proved",
+            "global_gap_amplification_impossibility_claimed",
+            "nlts_theorem_claimed",
+        ]:
+            if claim_boundary.get(claim_key) is not False:
+                errors.append(f"B9 proof-project scaffold payload claims {claim_key}")
+        if claim_boundary.get("explicit_not_quantum_pcp_proof") is not True:
+            errors.append("B9 proof-project scaffold must explicitly avoid Quantum PCP proof claims")
+        if payload.get("validation_error_count") != 0 or payload.get("validation_errors") != []:
+            errors.append("B9 proof-project scaffold validation errors must be zero")
 
     b10_manifest = yaml.safe_load(read(b10_manifest_path))
     b10_results = b10_manifest.get("current_results", {})
@@ -33851,6 +33961,7 @@ def audit(root: Path) -> dict:
             "cluster_stabilizer_parametric_certificate": b9_parametric_certificate_status,
             "proof_environment_readiness_gate": b9_proof_environment_gate_status,
             "proof_environment_contract_gate": b9_proof_environment_contract_status,
+            "proof_project_scaffold_gate": b9_proof_project_scaffold_status,
         },
         "b10": {
             "manifest": str(b10_manifest_path),
@@ -34433,6 +34544,7 @@ def audit(root: Path) -> dict:
             ),
             "b9_proof_environment_readiness_gate": str(research / "B9_proof_environment_readiness_gate.md"),
             "b9_proof_environment_contract_gate": str(research / "B9_proof_environment_contract_gate.md"),
+            "b9_proof_project_scaffold_gate": str(research / "B9_proof_project_scaffold_gate.md"),
             "b7_dependency_schedule_bridge": str(research / "B7_b1_b2_dependency_schedule_bridge.md"),
             "b7_workload_dag_factory_schedule": str(research / "B7_workload_dag_factory_schedule.md"),
             "b7_logical_t_factory_schedule": str(research / "B7_logical_t_factory_schedule.md"),
@@ -36947,7 +37059,13 @@ def markdown_report(report: dict) -> str:
             f"- Proof-environment contract source failures / contract failures: {report['b9']['proof_environment_contract_gate'].get('source_failed_gate_ids')} / {report['b9']['proof_environment_contract_gate'].get('failed_contract_requirement_ids')}",
             f"- Proof-environment contract passed / failed / packets: {report['b9']['proof_environment_contract_gate'].get('passed_contract_requirement_count')} / {report['b9']['proof_environment_contract_gate'].get('failed_contract_requirement_count')} / {report['b9']['proof_environment_contract_gate'].get('contract_packet_count')}",
             f"- Proof-environment contract packet IDs: {report['b9']['proof_environment_contract_gate'].get('contract_packet_ids')}",
+            f"- Proof-environment closed packet IDs: {report['b9']['proof_environment_contract_gate'].get('closed_contract_packet_ids')}",
             f"- Proof-environment contract result/markdown exists: {report['b9']['proof_environment_contract_gate'].get('result_exists')} / {report['b9']['proof_environment_contract_gate'].get('markdown_exists')}",
+            f"- Proof-project scaffold status: {report['b9']['proof_project_scaffold_gate'].get('status')}",
+            f"- Proof-project scaffold passed / failed: {report['b9']['proof_project_scaffold_gate'].get('passed_scaffold_requirement_count')} / {report['b9']['proof_project_scaffold_gate'].get('failed_scaffold_requirement_count')}",
+            f"- Proof-project scaffold failed IDs: {report['b9']['proof_project_scaffold_gate'].get('failed_scaffold_requirement_ids')}",
+            f"- Proof-project scaffold Lean4/Lake/checked theorem: {report['b9']['proof_project_scaffold_gate'].get('actual_lean4_available')} / {report['b9']['proof_project_scaffold_gate'].get('lake_available')} / {report['b9']['proof_project_scaffold_gate'].get('formal_theorem_proved')}",
+            f"- Proof-project scaffold result/markdown exists: {report['b9']['proof_project_scaffold_gate'].get('result_exists')} / {report['b9']['proof_project_scaffold_gate'].get('markdown_exists')}",
             "",
             "## B10 BQP Boundary Graph Status",
             "",

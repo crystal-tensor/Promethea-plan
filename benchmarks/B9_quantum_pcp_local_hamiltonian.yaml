@@ -138,10 +138,11 @@ current_results:
     source: cluster_stabilizer_parametric_certificate_v0
     named_family: cluster_stabilizer_open_uniform_reweight
     readiness_gate_count: 9
-    passed_gate_count: 4
-    failed_gate_count: 5
-    failed_gate_ids: [PE-03, PE-04, PE-05, PE-08, PE-09]
+    passed_gate_count: 6
+    failed_gate_count: 3
+    failed_gate_ids: [PE-03, PE-04, PE-09]
     blocking_obligation_count: 5
+    lean4_signature_detected: false
     proof_environment_ready: false
     independent_proof_check_ready: false
     proof_assistant_checked: false
@@ -157,29 +158,32 @@ current_results:
     model_status: proof_environment_readiness_blockers_decomposed_for_prs
     source_method: b9_proof_environment_readiness_gate_v0
     source_status: proof_environment_readiness_blocked_not_formal_theorem
-    source_failed_gate_ids: [PE-03, PE-04, PE-05, PE-08, PE-09]
+    source_failed_gate_ids: [PE-03, PE-04, PE-09]
     named_family: cluster_stabilizer_open_uniform_reweight
     readiness_gate_count: 9
-    source_passed_gate_count: 4
-    source_failed_gate_count: 5
+    source_passed_gate_count: 6
+    source_failed_gate_count: 3
     blocking_obligation_count: 5
     lean_available: true
-    lean_return_code: 1
+    lean_return_code: 0
+    lean4_signature_detected: false
     lake_available: false
     lake_return_code:
-    lake_project_present: false
-    contains_placeholder_true_theorem: true
+    lake_project_present: true
+    contains_placeholder_true_theorem: false
     contract_requirement_count: 8
-    passed_contract_requirement_count: 3
-    failed_contract_requirement_count: 5
-    failed_contract_requirement_ids: [K4, K5, K6, K7, K8]
-    contract_packet_count: 5
+    passed_contract_requirement_count: 5
+    failed_contract_requirement_count: 3
+    failed_contract_requirement_ids: [K4, K5, K8]
+    contract_packet_count: 3
     contract_packet_ids:
       - B9-PE03-lean-toolchain
       - B9-PE04-lake-tooling
+      - B9-PE09-checked-formal-output
+    closed_contract_packet_count: 2
+    closed_contract_packet_ids:
       - B9-PE05-mathlib-project
       - B9-PE08-indexed-theorem
-      - B9-PE09-checked-formal-output
     proof_environment_contract_built: true
     proof_environment_ready: false
     independent_proof_check_ready: false
@@ -191,6 +195,32 @@ current_results:
     validation_error_count: 0
     result: ../results/B9_proof_environment_contract_gate_v0.json
     markdown_report: ../research/B9_proof_environment_contract_gate.md
+  proof_project_scaffold_gate_v0:
+    status: proof_project_scaffold_open_not_checked
+    method: b9_proof_project_scaffold_gate_v0
+    model_status: lean_lake_scaffold_and_indexed_theorem_interface_without_checked_proof
+    source_readiness_gate: proof_environment_readiness_gate_v0
+    source_contract_gate: proof_environment_contract_gate_v0
+    named_family: cluster_stabilizer_open_uniform_reweight
+    readiness_failed_gate_ids: [PE-03, PE-04, PE-09]
+    contract_failed_requirement_ids: [K4, K5, K8]
+    scaffold_requirement_count: 8
+    passed_scaffold_requirement_count: 6
+    failed_scaffold_requirement_count: 2
+    failed_scaffold_requirement_ids: [S7, S8]
+    proof_project_scaffold_created: true
+    indexed_theorem_interface_created: true
+    actual_lean4_available: false
+    lake_available: false
+    proof_environment_ready: false
+    proof_assistant_checked: false
+    formal_theorem_proved: false
+    explicit_not_quantum_pcp_proof: true
+    global_gap_amplification_impossibility_claimed: false
+    nlts_theorem_claimed: false
+    validation_error_count: 0
+    result: ../results/B9_proof_project_scaffold_gate_v0.json
+    markdown_report: ../research/B9_proof_project_scaffold_gate.md
 prototype_artifacts:
   local_hamiltonian_gap_lab: ../tools/b9_local_hamiltonian_gap_lab.py
   failed_gap_amplification_lemma_builder: ../tools/b9_failed_gap_amplification_lemma.py
@@ -199,4 +229,5 @@ prototype_artifacts:
   cluster_stabilizer_parametric_certificate: ../tools/b9_cluster_stabilizer_parametric_certificate.py
   proof_environment_readiness_gate: ../tools/b9_proof_environment_readiness_gate.py
   proof_environment_contract_gate: ../tools/b9_proof_environment_contract_gate.py
+  proof_project_scaffold_gate: ../tools/b9_proof_project_scaffold_gate.py
   prototype_notes: ../research/B9_prototype_notes.md
