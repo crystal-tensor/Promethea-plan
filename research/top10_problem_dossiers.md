@@ -565,22 +565,27 @@ formula AP@12 0.10, family-prior AP@12 1.0, post-split formula AP 0.5947,
 post-split family-prior AP 0.9821, validation errors 0, and explicit non-claim
 of material discovery, solved mechanism, complete database coverage, or
 computed quantum observable.
-T-B6-003 now adds a structural/electronic proxy boundary with the same 38
-records / 22 families / 12 expanded negative controls. Structural AP@12 improves
-to 0.611 versus formula AP@12 0.10, but family-prior AP@12 remains 1.0;
-post-split structural AP is 0.690 versus family-prior 0.982; family-holdout
-structural mean AP is 0.896; and the top 12 still include 3 negative controls.
-This is a useful leakage boundary, not a material discovery, mechanism solution,
-complete database, real DFT calculation, crystallographic database pull, or
-computed quantum observable.
+T-B6-003 adds a structural/electronic proxy boundary with the same 38 records /
+22 families / 12 expanded negative controls. Structural AP@12 improves to 0.611
+versus formula AP@12 0.10, but family-prior AP@12 remains 1.0; post-split
+structural AP is 0.690 versus family-prior 0.982; family-holdout structural mean
+AP is 0.896; and the top 12 still include 3 negative controls. T-B6-004 then
+adds a crystallographic reproducibility gate over an existing crystallographic
+descriptor result with 56 records / 28 families / 18 negative controls. The gate
+passes 6/11 checks and fails R6-R10: `pymatgen` is unavailable in the current
+runtime, source validation errors remain 2, post-split crystallographic AP is
+0.2476 versus family-prior AP 0.4901, and no DFT or B5-computed observables are
+present. This is a useful readiness boundary, not a material discovery,
+mechanism solution, complete database, DFT-observable result, B5-observable
+result, reproducible descriptor claim, or computed quantum advantage claim.
 
-**Remaining path to a serious solution:** replace curated/imputed structural
-proxies with crystallographic descriptors; attach DFT or B5-computed electronic
-observables; expand post-2008 negative controls and parent compounds; beat
-family-prior and random baselines without promoting negative controls; produce a
-short candidate list only after the technical gate passes.
+**Remaining path to a serious solution:** pin a reproducible crystallographic
+backend or equivalent descriptor implementation; remove the source validation
+blockers; beat family-prior AP on post-split holdouts; attach DFT or B5-computed
+electronic observables; expand post-2008 negative controls and parent compounds;
+produce a short candidate list only after the technical gate passes.
 
-**Current internal maturity:** 21/100.
+**Current internal maturity:** 24/100.
 
 ## B7: Architecture-Level Fault-Tolerance Co-Design
 

@@ -115,6 +115,36 @@ current_results:
     uses_structural_electronic_proxies: true
     uses_b5_linked_proxy: true
     next_required_artifact: actual crystallographic/DFT/B5-computed observables plus expanded post-2008 negatives
+  b6_crystallographic_reproducibility_gate_v0:
+    status: crystallographic_reproducibility_gate_failed_not_material_discovery_claim
+    method: b6_crystallographic_reproducibility_gate_v0
+    source_method: b6_crystallographic_descriptor_screen_v0
+    result: ../results/B6_crystallographic_reproducibility_gate_v0.json
+    markdown: ../research/B6_crystallographic_reproducibility_gate.md
+    record_count: 56
+    family_count: 28
+    negative_control_count: 18
+    post_split_record_count: 27
+    post_split_crystallo_ap: 0.2476190476190476
+    post_split_family_prior_ap: 0.4901360544217687
+    source_validation_error_count: 2
+    pymatgen_available: false
+    gate_pass_count: 6
+    gate_fail_count: 5
+    failed_requirement_ids:
+      - R6
+      - R7
+      - R8
+      - R9
+      - R10
+    material_discovery_claimed: false
+    mechanism_solved: false
+    complete_materials_database: false
+    reproducible_crystallographic_descriptor_claim: false
+    dft_observable_claimed: false
+    b5_computed_observable_claimed: false
+    solution_claimed: false
+    next_required_artifact: pinned pymatgen or equivalent backend, zero source validation blockers, post-split AP above family prior, and DFT/B5 observables
   b6_curated_materials_leakage_audit_v0:
     status: curated_retrospective_leakage_audit
     model_status: curated_materials_table_with_time_family_leakage_audit

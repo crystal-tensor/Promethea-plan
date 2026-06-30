@@ -12,31 +12,31 @@
     },
     {
       "b_id": "B2",
+      "blocker": "No calibrated flag data, no real hardware traces, and no holdout improvement. The route remains demoted and cannot support production decoder, threshold, hardware, calibrated-device, or low-overhead QEC claims.",
       "current_evidence": "Stim/PyMatching baseline, leakage-erasure stress, posterior risk ledger, decoder-input contract, per-shot traces, posterior injection, DEM edge semantics, hardware-like leakage modeling, and T-B2-009e calibration-transfer guardrail. The guardrail checks 9 requirements, passes 6, fails C4/C5/C6, and keeps best conservative holdout failures at 16 baseline / 16 injected / delta 0.",
       "gate_status": "hardware_like_leakage_model_negative_boundary",
       "main_blocker": "The reduced-round lever remains closed as a small-distance/aggressive artifact. The heralded-erasure route now has per-shot traces, synthetic posterior-weight injection, DEM-informed edge semantics, and a detector-bitstring-driven hardware-like leakage observation model, but none improves failures. The model is still not calibrated, not hardware-derived, and not a production decoder. The route still lacks real calibrated leakage/flag observations, independent hardware traces, and distance-scaling runtime/threshold curves under calibrated posterior injection.",
       "next_experiment": "Run the next B2 gate by satisfying C4-C6 with calibrated leakage/flag observations or independent hardware traces, then require holdout improvement plus all-challenge non-regression before feeding B7.",
       "next_technical_experiment": "Run T-B2-009e: replace the hardware-like observation model with real calibrated leakage/flag observations or independently supplied hardware traces, then require holdout improvement plus all-challenge non-regression before feeding B7.",
-      "technical_solution_target": "Code/schedule/decoder comparison that beats surface-code target volume under the same confidence-bounded metric.",
-      "blocker": "No calibrated flag data, no real hardware traces, and no holdout improvement. The route remains demoted and cannot support production decoder, threshold, hardware, calibrated-device, or low-overhead QEC claims."
+      "technical_solution_target": "Code/schedule/decoder comparison that beats surface-code target volume under the same confidence-bounded metric."
     },
     {
       "b_id": "B3",
+      "blocker": "The measurement-rescue route lacks full compiled covariance, multi-parameter chemistry, denominator wins, acceptable optimizer-loop cost, and B10 access-contract acceptance.",
       "current_evidence": "PySCF small-molecule proxy plus B10-T1 reaction-coordinate denominators; B3 now runs through T-B3-012/T-B10-015. The same-access measurement-rescue gate checks 10 requirements, passes 5, and fails M5-M9: no full cross-molecule compiled-state covariance, no multi-parameter/converged chemistry ansatz, 0 selected-CI/FCI denominator wins, optimizer-loop shots above the positive-route ceiling, and B10 still rejects the sampling bridge. Max optimizer-loop shots lower bound remains 475,043,013,690,000.",
       "gate_status": "same_access_measurement_rescue_failed_5_of_10",
       "main_blocker": "The measurement-rescue route lacks full compiled covariance, multi-parameter chemistry, denominator wins, acceptable optimizer-loop cost, and B10 access-contract acceptance.",
       "next_experiment": "T-B3-013 should either produce full cross-molecule compiled-state covariance plus multi-parameter/converged chemistry, or formalize the current same-access failure as a negative boundary note.",
-      "technical_solution_target": "Reaction-coordinate quantum resource estimate tied to observable error and classical baselines.",
-      "blocker": "The measurement-rescue route lacks full compiled covariance, multi-parameter chemistry, denominator wins, acceptable optimizer-loop cost, and B10 access-contract acceptance."
+      "technical_solution_target": "Reaction-coordinate quantum resource estimate tied to observable error and classical baselines."
     },
     {
       "b_id": "B4",
+      "blocker": "No real backend properties, no hardware execution, no leakage-separated real-transcript fitting, leakage-blind fitting remains unsafe, and full private-material leakage still breaks the protocol.",
       "current_evidence": "B4/B8 has formal private-challenge protocol, conservative transcript-noise bridge, parametric spoofer pressure, fitted synthetic holdout, and T-B4-002f/T-B8-003j real-backend transcript readiness guardrail. The readiness guardrail passes 5/10 and fails R5-R9 with 0 real backend transcript rows, leakage-blind no-leak fitted acceptance 0.35, and full-private-material leakage fitted acceptance 1.0.",
       "gate_status": "early",
       "main_blocker": "The fitted-spoofer gate shows private-safe no-leak fitting is not the immediate synthetic-transcript break, but leakage-blind training contamination reaches 0.35 and full private-material leakage still breaks the protocol. The active blocker is now leakage-separated learned attacks on real backend or hardware transcripts plus predicate redesign under calibrated noise.",
       "next_experiment": "Run a real-backend or hardware transcript ingestion gate, preserve leakage-separated train/holdout splits, and rerun fitted/generative spoofers before promoting protocol soundness or B10-T2 claims.",
-      "technical_solution_target": "Circuit-level verifiable advantage task with explicit completeness/soundness against adaptive spoofers.",
-      "blocker": "No real backend properties, no hardware execution, no leakage-separated real-transcript fitting, leakage-blind fitting remains unsafe, and full private-material leakage still breaks the protocol."
+      "technical_solution_target": "Circuit-level verifiable advantage task with explicit completeness/soundness against adaptive spoofers."
     },
     {
       "b_id": "B5",
@@ -48,10 +48,10 @@
     },
     {
       "b_id": "B6",
-      "current_evidence": "Toy descriptor ranker plus T-B6-001 curated leakage audit, T-B6-002 formula-derived descriptor screen, and T-B6-003 structural/electronic proxy boundary. The latest B6 artifact keeps 38 records / 22 families / 12 expanded negative controls, replaces formula-only score with curated structural/electronic proxy channels, improves AP@12 from formula 0.10 to structural 0.611, but still loses to family-prior AP@12 1.0; post-split structural AP is 0.690 vs family-prior 0.982, family-holdout structural mean AP is 0.896, and top-12 still contains 3 negative controls. No discovery, mechanism, complete-database, DFT, crystallographic-database, or computed-observable claim.",
+      "current_evidence": "Toy descriptor ranker plus T-B6-001 curated leakage audit, T-B6-002 formula-derived descriptor screen, T-B6-003 structural/electronic proxy boundary, and T-B6-004 crystallographic reproducibility gate. The latest B6 gate audits a crystallographic descriptor result with 56 records / 28 families / 18 negative controls, but passes only 6/11 checks. It fails R6-R10: pymatgen is unavailable in the current runtime, source validation errors remain 2, post-split crystallographic AP is 0.2476 versus family-prior AP 0.4901, and DFT/B5-computed observables are absent. No discovery, mechanism, complete-database, DFT-observable, B5-observable, reproducible crystallographic descriptor, or solution claim is made.",
       "gate_status": "early_negative_boundary",
-      "main_blocker": "Structural/electronic proxy channels now beat formula-only descriptors, but family-prior leakage still dominates and negative controls remain high in the ranked list. The proxy is curated/imputed, not real crystallographic, DFT, B5-DMRG, or quantum-observable data.",
-      "next_experiment": "Run T-B6-004: replace curated proxy channels with actual crystallographic, DFT, or B5-computed structural/electronic observables, then expand post-2008 negatives until family priors and random baselines cannot saturate.",
+      "main_blocker": "B6 now has a crystallographic-readiness audit, but it blocks promotion: the current artifact is not reproducible in this runtime, its source screen has validation blockers, family-prior baseline still wins post-split, and no DFT or B5 computed observable channel exists.",
+      "next_experiment": "Run the next B6 gate by pinning pymatgen or an equivalent crystallographic backend, regenerating descriptors with zero validation blockers, beating family-prior AP on post-split records, and attaching DFT or B5-computed observables before any candidate-ranking claim.",
       "technical_solution_target": "Leakage-controlled high-Tc candidate ranking pipeline using physics descriptors, not family priors."
     },
     {
@@ -65,12 +65,12 @@
     },
     {
       "b_id": "B8",
+      "blocker": "No real backend properties, no hardware execution, no leakage-separated real-transcript fitting, leakage-blind fitting remains unsafe, and full private-material leakage still breaks the protocol.",
       "current_evidence": "B4/B8 has formal private-challenge protocol, conservative transcript-noise bridge, parametric spoofer pressure, fitted synthetic holdout, and T-B4-002f/T-B8-003j real-backend transcript readiness guardrail. The readiness guardrail passes 5/10 and fails R5-R9 with 0 real backend transcript rows, leakage-blind no-leak fitted acceptance 0.35, and full-private-material leakage fitted acceptance 1.0.",
       "gate_status": "in_progress",
       "main_blocker": "The fitted-spoofer gate shows private-safe no-leak fitting is not the immediate synthetic-transcript break, but leakage-blind training contamination reaches 0.35 and full private-material leakage still breaks the protocol. The active blocker is now leakage-separated learned attacks on real backend or hardware transcripts plus predicate redesign under calibrated noise.",
       "next_experiment": "Run a real-backend or hardware transcript ingestion gate, preserve leakage-separated train/holdout splits, and rerun fitted/generative spoofers before promoting protocol soundness or B10-T2 claims.",
-      "technical_solution_target": "Classical verifier whose soundness stays low under adaptive leakage through challenge refresh/projection rotation.",
-      "blocker": "No real backend properties, no hardware execution, no leakage-separated real-transcript fitting, leakage-blind fitting remains unsafe, and full private-material leakage still breaks the protocol."
+      "technical_solution_target": "Classical verifier whose soundness stays low under adaptive leakage through challenge refresh/projection rotation."
     },
     {
       "b_id": "B9",
@@ -82,13 +82,13 @@
     },
     {
       "b_id": "B10",
+      "blocker": "Both application routes remain blocked: B3 lacks M5-M9 rescue evidence, while B5 lacks production DMRG or a real same-access response oracle.",
       "current_evidence": "B10-T1 includes explicit-I/O accounting, denominator notes/tables, B3/B5 denominator comparison, missing-assumption and access-contract notes, B3/B10 same-access measurement-rescue gate, B5 same-access bridge, response-sampler cost stress, B5 readiness/smoke gates, and T-B5-006b production contract. The B3 rescue gate passes 5/10 and fails M5-M9; the B5 production contract passes 2/10. No same-access positive route, quantum advantage, or BQP separation is claimed.",
       "gate_status": "b3_and_b5_same_access_positive_routes_failed",
       "main_blocker": "Both application routes remain blocked: B3 lacks M5-M9 rescue evidence, while B5 lacks production DMRG or a real same-access response oracle.",
       "next_experiment": "Run T-B10-015 as a B3 same-access negative theorem/access note or replace the missing B3 evidence; run T-B10-014 for B5 production DMRG/MPS or a costed response oracle.",
       "next_technical_experiment": "Run T-B10-015 as a B3 same-access negative theorem/access note or replace the missing B3 evidence; run T-B10-014 for B5 production DMRG/MPS or a costed response oracle.",
-      "technical_solution_target": "Formal theorem targets separating robust BQP advantage from fragile input/oracle/verification assumptions.",
-      "blocker": "Both application routes remain blocked: B3 lacks M5-M9 rescue evidence, while B5 lacks production DMRG or a real same-access response oracle."
+      "technical_solution_target": "Formal theorem targets separating robust BQP advantage from fragile input/oracle/verification assumptions."
     }
   ],
   "downstream_translation_rule": "No direction moves into publication, patent, financing, or productization as an active deliverable until it passes its technical gate.",

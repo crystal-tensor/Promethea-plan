@@ -6335,6 +6335,32 @@
     }
   },
   "b6": {
+    "crystallographic_reproducibility_gate": {
+      "failed_requirement_ids": [
+        "R6",
+        "R7",
+        "R8",
+        "R9",
+        "R10"
+      ],
+      "family_count": 28,
+      "gate_fail_count": 5,
+      "gate_pass_count": 6,
+      "markdown": "../research/B6_crystallographic_reproducibility_gate.md",
+      "markdown_exists": true,
+      "method": "b6_crystallographic_reproducibility_gate_v0",
+      "negative_control_count": 18,
+      "post_split_crystallo_ap": 0.2476190476190476,
+      "post_split_family_prior_ap": 0.4901360544217687,
+      "post_split_record_count": 27,
+      "pymatgen_available": false,
+      "record_count": 56,
+      "result": "../results/B6_crystallographic_reproducibility_gate_v0.json",
+      "result_exists": true,
+      "source_method": "b6_crystallographic_descriptor_screen_v0",
+      "source_validation_error_count": 2,
+      "status": "crystallographic_reproducibility_gate_failed_not_material_discovery_claim"
+    },
     "curated_materials_leakage_audit": {
       "all_physics_average_precision_at_k": 0.89,
       "all_random_average_precision_at_k_mean": 0.5345944165426587,
@@ -7485,7 +7511,7 @@
       "B3": 32,
       "B4": 29,
       "B5": 27,
-      "B6": 21,
+      "B6": 24,
       "B7": 59,
       "B8": 41,
       "B9": 15
@@ -7681,6 +7707,7 @@
     "b5_non_oracle_response_embedding_baseline": "research/B5_non_oracle_response_embedding_baseline.md",
     "b5_two_site_dmrg_response_reference": "research/B5_two_site_dmrg_response_reference.md",
     "b5_variational_mps_als_response_reference": "research/B5_variational_mps_als_response_reference.md",
+    "b6_crystallographic_reproducibility_gate": "research/B6_crystallographic_reproducibility_gate.md",
     "b6_curated_materials_leakage_audit": "research/B6_curated_materials_leakage_audit.md",
     "b6_formula_descriptor_screen": "research/B6_formula_descriptor_screen.md",
     "b6_structural_electronic_proxy_screen": "research/B6_structural_electronic_proxy_screen.md",

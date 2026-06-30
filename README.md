@@ -163,13 +163,15 @@ acceptance to 1.0. This is useful protocol pressure, not hardware execution,
 not cryptographic or protocol soundness, not sampling hardness, not quantum
 advantage, and not a BQP separation claim.
 
-B6 has moved from a synthetic descriptor toy to curated leakage audits and a
-structural/electronic proxy boundary. The latest B6 screen keeps 38 records
-across 22 families with 12 expanded negative controls; structural/electronic
-AP@12 improves to 0.611 versus formula AP@12 of 0.10, but family-prior AP@12
-remains 1.0 and the top 12 still include 3 negative controls. This is not a
-material-discovery or solved-mechanism claim; the next gate is real
-crystallographic, DFT, or B5-computed observables.
+B6 has moved from a synthetic descriptor toy to curated leakage audits,
+structural/electronic proxy boundaries, and a crystallographic reproducibility
+gate. The latest gate audits an existing crystallographic descriptor result
+with 56 records, 28 families, and 18 negative controls. It passes 6/11 checks
+and fails R6-R10: the current runtime lacks `pymatgen`, source validation
+errors remain 2, post-split crystallographic AP is 0.2476 versus family-prior
+AP 0.4901, and there are still no DFT or B5-computed observables. This is not a
+material-discovery, solved-mechanism, DFT-observable, B5-observable, or
+solution claim.
 
 B2 has moved past the earlier reduced-round artifact into a leakage-flagged
 erasure analytic boundary: 480 configurations, 42 proxy target-volume improved

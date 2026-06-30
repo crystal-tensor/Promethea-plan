@@ -26042,10 +26042,12 @@ def audit(root: Path) -> dict:
     b6_curated = b6_results.get("b6_curated_materials_leakage_audit_v0")
     b6_formula = b6_results.get("b6_formula_descriptor_screen_v0")
     b6_structural = b6_results.get("b6_structural_electronic_proxy_screen_v0")
+    b6_crystallographic_gate = b6_results.get("b6_crystallographic_reproducibility_gate_v0")
     b6_status = {}
     b6_curated_status = {}
     b6_formula_status = {}
     b6_structural_status = {}
+    b6_crystallographic_gate_status = {}
     if not b6_descriptor:
         warnings.append("B6 manifest has no superconductivity descriptor ranking result")
     else:
@@ -26395,6 +26397,93 @@ def audit(root: Path) -> dict:
             "real_crystallographic_database_claimed": b6_structural.get("real_crystallographic_database_claimed"),
             "uses_structural_electronic_proxies": b6_structural.get("uses_structural_electronic_proxies"),
             "uses_b5_linked_proxy": b6_structural.get("uses_b5_linked_proxy"),
+            "result_exists": result_exists,
+            "markdown_exists": markdown_exists,
+            "result": result_path,
+            "markdown": markdown_path,
+        }
+
+    if not b6_crystallographic_gate:
+        warnings.append("B6 manifest has no crystallographic reproducibility gate result")
+    else:
+        result_path = b6_crystallographic_gate.get("result")
+        markdown_path = b6_crystallographic_gate.get("markdown")
+        result_exists = bool(result_path and path_exists_from(benchmarks, result_path))
+        markdown_exists = bool(markdown_path and path_exists_from(benchmarks, markdown_path))
+        if not result_exists:
+            errors.append(f"B6 crystallographic reproducibility gate result path missing: {result_path}")
+        if not markdown_exists:
+            errors.append(f"B6 crystallographic reproducibility gate markdown path missing: {markdown_path}")
+        if b6_crystallographic_gate.get("method") != "b6_crystallographic_reproducibility_gate_v0":
+            errors.append("B6 crystallographic reproducibility gate method mismatch")
+        if (
+            b6_crystallographic_gate.get("status")
+            != "crystallographic_reproducibility_gate_failed_not_material_discovery_claim"
+        ):
+            errors.append("B6 crystallographic reproducibility gate status must be a failed non-discovery gate")
+        if int(b6_crystallographic_gate.get("gate_pass_count", -1)) != 6:
+            errors.append("B6 crystallographic reproducibility gate pass count must remain 6")
+        if int(b6_crystallographic_gate.get("gate_fail_count", -1)) != 5:
+            errors.append("B6 crystallographic reproducibility gate fail count must remain 5")
+        expected_failed = ["R6", "R7", "R8", "R9", "R10"]
+        if b6_crystallographic_gate.get("failed_requirement_ids") != expected_failed:
+            errors.append("B6 crystallographic reproducibility gate failed requirement IDs changed")
+        if result_exists:
+            payload = json.loads(read((benchmarks / result_path).resolve()))
+            if payload.get("benchmark_id") != "B6":
+                errors.append(f"B6 crystallographic reproducibility gate benchmark_id={payload.get('benchmark_id')!r}, expected 'B6'")
+            if payload.get("method") != b6_crystallographic_gate.get("method"):
+                errors.append("B6 crystallographic reproducibility gate payload method differs from manifest")
+            if payload.get("status") != b6_crystallographic_gate.get("status"):
+                errors.append("B6 crystallographic reproducibility gate payload status differs from manifest")
+            if payload.get("gate_pass_count") != b6_crystallographic_gate.get("gate_pass_count"):
+                errors.append("B6 crystallographic reproducibility gate pass count differs from manifest")
+            if payload.get("gate_fail_count") != b6_crystallographic_gate.get("gate_fail_count"):
+                errors.append("B6 crystallographic reproducibility gate fail count differs from manifest")
+            if payload.get("failed_requirement_ids") != expected_failed:
+                errors.append("B6 crystallographic reproducibility gate payload failed requirement IDs changed")
+            metrics = payload.get("metrics", {})
+            for metric in [
+                "record_count",
+                "family_count",
+                "negative_control_count",
+                "post_split_record_count",
+                "post_split_crystallo_ap",
+                "post_split_family_prior_ap",
+                "source_validation_error_count",
+            ]:
+                if metrics.get(metric) != b6_crystallographic_gate.get(metric):
+                    errors.append(f"B6 crystallographic reproducibility gate {metric} differs from manifest")
+            runtime = payload.get("runtime", {})
+            if runtime.get("pymatgen_available") is not b6_crystallographic_gate.get("pymatgen_available"):
+                errors.append("B6 crystallographic reproducibility gate runtime pymatgen flag differs from manifest")
+            claim_boundary = payload.get("claim_boundary", {})
+            for claim_key in [
+                "material_discovery_claimed",
+                "mechanism_solved",
+                "complete_materials_database",
+                "reproducible_crystallographic_descriptor_claim",
+                "dft_observable_claimed",
+                "b5_computed_observable_claimed",
+                "solution_claimed",
+            ]:
+                if claim_boundary.get(claim_key) is not False:
+                    errors.append(f"B6 crystallographic reproducibility gate payload claims {claim_key}")
+        b6_crystallographic_gate_status = {
+            "status": b6_crystallographic_gate.get("status"),
+            "method": b6_crystallographic_gate.get("method"),
+            "source_method": b6_crystallographic_gate.get("source_method"),
+            "record_count": b6_crystallographic_gate.get("record_count"),
+            "family_count": b6_crystallographic_gate.get("family_count"),
+            "negative_control_count": b6_crystallographic_gate.get("negative_control_count"),
+            "post_split_record_count": b6_crystallographic_gate.get("post_split_record_count"),
+            "post_split_crystallo_ap": b6_crystallographic_gate.get("post_split_crystallo_ap"),
+            "post_split_family_prior_ap": b6_crystallographic_gate.get("post_split_family_prior_ap"),
+            "source_validation_error_count": b6_crystallographic_gate.get("source_validation_error_count"),
+            "pymatgen_available": b6_crystallographic_gate.get("pymatgen_available"),
+            "gate_pass_count": b6_crystallographic_gate.get("gate_pass_count"),
+            "gate_fail_count": b6_crystallographic_gate.get("gate_fail_count"),
+            "failed_requirement_ids": b6_crystallographic_gate.get("failed_requirement_ids"),
             "result_exists": result_exists,
             "markdown_exists": markdown_exists,
             "result": result_path,
@@ -30262,6 +30351,7 @@ def audit(root: Path) -> dict:
             "curated_materials_leakage_audit": b6_curated_status,
             "formula_descriptor_screen": b6_formula_status,
             "structural_electronic_proxy_screen": b6_structural_status,
+            "crystallographic_reproducibility_gate": b6_crystallographic_gate_status,
         },
         "b7": {
             "manifest": str(b7_manifest_path),
@@ -30748,6 +30838,9 @@ def audit(root: Path) -> dict:
             "b6_formula_descriptor_screen": str(research / "B6_formula_descriptor_screen.md"),
             "b6_structural_electronic_proxy_screen": str(
                 research / "B6_structural_electronic_proxy_screen.md"
+            ),
+            "b6_crystallographic_reproducibility_gate": str(
+                research / "B6_crystallographic_reproducibility_gate.md"
             ),
             "b10_formal_theorem_targets": str(research / "B10_formal_theorem_targets.md"),
             "b10_t2_minimum_refresh_spoofer_boundary": str(research / "B8_generative_spoofer_refresh.md"),
@@ -32851,6 +32944,13 @@ def markdown_report(report: dict) -> str:
             f"- Structural/electronic discovery/mechanism/database/DFT/crystal claims: {report['b6']['structural_electronic_proxy_screen'].get('material_discovery_claimed')} / {report['b6']['structural_electronic_proxy_screen'].get('mechanism_solved')} / {report['b6']['structural_electronic_proxy_screen'].get('complete_materials_database')} / {report['b6']['structural_electronic_proxy_screen'].get('real_dft_claimed')} / {report['b6']['structural_electronic_proxy_screen'].get('real_crystallographic_database_claimed')}",
             f"- Structural/electronic validation errors: {report['b6']['structural_electronic_proxy_screen'].get('validation_error_count')}",
             f"- Structural/electronic result/markdown exists: {report['b6']['structural_electronic_proxy_screen'].get('result_exists')} / {report['b6']['structural_electronic_proxy_screen'].get('markdown_exists')}",
+            f"- Crystallographic reproducibility gate status: {report['b6']['crystallographic_reproducibility_gate'].get('status')}",
+            f"- Crystallographic reproducibility gates passed/failed: {report['b6']['crystallographic_reproducibility_gate'].get('gate_pass_count')} / {report['b6']['crystallographic_reproducibility_gate'].get('gate_fail_count')}",
+            f"- Crystallographic reproducibility failed requirements: {report['b6']['crystallographic_reproducibility_gate'].get('failed_requirement_ids')}",
+            f"- Crystallographic records / families / negatives: {report['b6']['crystallographic_reproducibility_gate'].get('record_count')} / {report['b6']['crystallographic_reproducibility_gate'].get('family_count')} / {report['b6']['crystallographic_reproducibility_gate'].get('negative_control_count')}",
+            f"- Crystallographic post-split AP / family-prior AP: {report['b6']['crystallographic_reproducibility_gate'].get('post_split_crystallo_ap')} / {report['b6']['crystallographic_reproducibility_gate'].get('post_split_family_prior_ap')}",
+            f"- Crystallographic source validation errors / pymatgen available: {report['b6']['crystallographic_reproducibility_gate'].get('source_validation_error_count')} / {report['b6']['crystallographic_reproducibility_gate'].get('pymatgen_available')}",
+            f"- Crystallographic gate result/markdown exists: {report['b6']['crystallographic_reproducibility_gate'].get('result_exists')} / {report['b6']['crystallographic_reproducibility_gate'].get('markdown_exists')}",
             "",
             "## B7 Fault-Tolerance Co-Design Status",
             "",

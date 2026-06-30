@@ -1,0 +1,131 @@
+{
+  "benchmark_id": "B6",
+  "claim_boundary": {
+    "b5_computed_observable_claimed": false,
+    "complete_materials_database": false,
+    "dft_observable_claimed": false,
+    "material_discovery_claimed": false,
+    "mechanism_solved": false,
+    "next_required": "pin a reproducible crystallographic backend, remove source validation blockers, beat family-prior post-split AP, and attach DFT or B5-computed observables",
+    "reproducible_crystallographic_descriptor_claim": false,
+    "solution_claimed": false
+  },
+  "failed_requirement_ids": [
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10"
+  ],
+  "gate_fail_count": 5,
+  "gate_pass_count": 6,
+  "method": "b6_crystallographic_reproducibility_gate_v0",
+  "metrics": {
+    "all_crystallo_ap_k": 0.7125,
+    "family_count": 28,
+    "family_holdout_mean_physics_ap": 0.44871794871794873,
+    "negative_control_count": 18,
+    "negatives_in_top_k": 0,
+    "post_split_combined_ap": 0.5791177076891362,
+    "post_split_crystallo_ap": 0.2476190476190476,
+    "post_split_family_prior_ap": 0.4901360544217687,
+    "post_split_physics_ap": 0.9093537414965985,
+    "post_split_positive_count": 7,
+    "post_split_record_count": 27,
+    "record_count": 56,
+    "source_validation_error_count": 2,
+    "top_k": 12
+  },
+  "requirements": [
+    {
+      "evidence": "path=results/B6_crystallographic_descriptor_screen_v0.json; method='b6_crystallographic_descriptor_screen_v0'",
+      "id": "R1",
+      "label": "source T-B6-004 result exists",
+      "passed": true
+    },
+    {
+      "evidence": "record_count=56",
+      "id": "R2",
+      "label": "expanded table has at least 50 records",
+      "passed": true
+    },
+    {
+      "evidence": "post_split_record_count=27",
+      "id": "R3",
+      "label": "post-2008 split has at least 24 records",
+      "passed": true
+    },
+    {
+      "evidence": "negative_control_count=18",
+      "id": "R4",
+      "label": "expanded negative controls are present",
+      "passed": true
+    },
+    {
+      "evidence": "real_crystallographic_data=True",
+      "id": "R5",
+      "label": "source boundary claims crystallographic descriptor data",
+      "passed": true
+    },
+    {
+      "blocker": "install and pin pymatgen or provide an equivalent crystallographic descriptor backend",
+      "evidence": "pymatgen_available=False; python=3.12.6",
+      "id": "R6",
+      "label": "current runtime can reproduce pymatgen-dependent descriptors",
+      "passed": false
+    },
+    {
+      "blocker": "the source screen still reports validation blockers",
+      "evidence": "validation_errors=['no negative controls in top-k', 'family prior dominates: 0.4901 vs 0.2476']",
+      "id": "R7",
+      "label": "source validation errors are empty",
+      "passed": false
+    },
+    {
+      "blocker": "family-prior baseline remains stronger than the crystallographic channel",
+      "evidence": "post_split_crystallo_ap=0.2476190476190476; post_split_family_prior_ap=0.4901360544217687",
+      "id": "R8",
+      "label": "post-split crystallographic AP beats family prior",
+      "passed": false
+    },
+    {
+      "blocker": "add DFT-computed descriptors before a candidate-ranking claim",
+      "evidence": "dft_observables=False",
+      "id": "R9",
+      "label": "DFT observables are available",
+      "passed": false
+    },
+    {
+      "blocker": "connect the B6 ranking to B5 computed response observables",
+      "evidence": "b5_computed_observables=False",
+      "id": "R10",
+      "label": "B5-computed observables are available",
+      "passed": false
+    },
+    {
+      "evidence": "material_discovery=False; mechanism_solved=False; complete_database=False",
+      "id": "R11",
+      "label": "no discovery, mechanism, or complete-database claim",
+      "passed": true
+    }
+  ],
+  "runtime": {
+    "executable": "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3",
+    "numpy_available": true,
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "pymatgen_available": false,
+    "python": "3.12.6"
+  },
+  "source_method": "b6_crystallographic_descriptor_screen_v0",
+  "source_model_status": "crystallographic_descriptor_screen_with_expanded_negatives",
+  "source_result": "results/B6_crystallographic_descriptor_screen_v0.json",
+  "source_status": "crystallographic_descriptor_screen_not_material_discovery_claim",
+  "status": "crystallographic_reproducibility_gate_failed_not_material_discovery_claim",
+  "validation_errors": [
+    "install and pin pymatgen or provide an equivalent crystallographic descriptor backend",
+    "the source screen still reports validation blockers",
+    "family-prior baseline remains stronger than the crystallographic channel",
+    "add DFT-computed descriptors before a candidate-ranking claim",
+    "connect the B6 ranking to B5 computed response observables"
+  ]
+}

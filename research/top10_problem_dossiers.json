@@ -47,6 +47,7 @@
         "learned decoders"
       ],
       "problem_id": 22,
+      "remaining": "Real calibrated leakage/flag observations or independent hardware traces are still missing, and holdout improvement has not been shown. Calibration transfer, production decoder readiness, threshold support, hardware result, and new-code claims remain false.",
       "remaining_steps": [
         "Add calibrated leakage/flag data with a documented confusion matrix or independent hardware traces.",
         "Rerun posterior injection and DEM edge semantics on the calibrated/hardware traces.",
@@ -55,8 +56,7 @@
       ],
       "title": "Low-overhead quantum error correction",
       "unresolved_duration": "Roughly 30 years for practical low-overhead fault tolerance.",
-      "what_to_solve": "Reduce physical qubits, measurement rounds, and decoding resources needed to reach a target logical error rate on realistic hardware.",
-      "remaining": "Real calibrated leakage/flag observations or independent hardware traces are still missing, and holdout improvement has not been shown. Calibration transfer, production decoder readiness, threshold support, hardware result, and new-code claims remain false."
+      "what_to_solve": "Reduce physical qubits, measurement rounds, and decoding resources needed to reach a target logical error rate on realistic hardware."
     },
     {
       "b_id": "B3",
@@ -138,10 +138,10 @@
     },
     {
       "b_id": "B6",
-      "completed": "Toy descriptor ranker, curated materials leakage audit, formula-derived descriptor screen, and T-B6-003 structural/electronic proxy boundary. The latest boundary keeps 38 records / 22 families / 12 expanded negatives, improves AP@12 from formula 0.10 to structural 0.611, but still loses to family-prior AP@12 1.0; post-split structural AP is 0.690 vs family-prior 0.982; top-12 contains 3 negative controls. This is not a material discovery, solved mechanism, complete database, real DFT calculation, crystallographic database pull, or computed quantum observable.",
+      "completed": "Toy descriptor ranker, curated materials leakage audit, formula-derived descriptor screen, T-B6-003 structural/electronic proxy boundary, and T-B6-004 crystallographic reproducibility gate. The latest gate audits an existing crystallographic descriptor result with 56 records / 28 families / 18 negative controls; it passes 6/11 checks and fails R6-R10 because the current runtime lacks pymatgen, source validation errors remain 2, post-split crystallographic AP is 0.2476 versus family-prior AP 0.4901, and no DFT or B5-computed observables are available. This is not a material discovery, solved mechanism, complete database, DFT-observable, B5-observable, or solution claim.",
       "current_difficulty": "Huge materials space, biased data, sparse labels, descriptor leakage, and hard-to-compute strong-correlation mechanisms.",
       "lineage": "Bednorz and Muller high-Tc discovery in Ba-La-Cu-O and subsequent unconventional superconductivity research.",
-      "maturity_score": 21,
+      "maturity_score": 24,
       "our_solution": "Mechanism-aware descriptor ranking linked to B5-derived strong-correlation observables.",
       "prior_approaches": [
         "Hubbard/t-J/RVB theories",
@@ -154,10 +154,11 @@
       ],
       "problem_id": 37,
       "remaining_steps": [
-        "replace curated/imputed structural proxies with crystallographic descriptors",
+        "pin a reproducible crystallographic backend or equivalent descriptor implementation",
+        "remove the source validation blockers in the crystallographic screen",
+        "beat family-prior AP on post-split holdouts",
         "attach DFT or B5-computed electronic observables",
         "expand post-2008 negative controls and parent compounds",
-        "beat family-prior and random baselines without promoting negative controls",
         "only then consider candidate ranking or active-learning claims"
       ],
       "title": "High-temperature superconductivity search",

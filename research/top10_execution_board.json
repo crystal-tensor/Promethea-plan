@@ -87,18 +87,18 @@
       "title": "Strongly correlated matter via hybrid quantum-tensor solvers"
     },
     {
-      "30_day_gate": "Replace curated proxy channels with real crystallographic, DFT, or B5-computed observables and expand post-2008 negatives until family priors cannot saturate.",
+      "30_day_gate": "Pin a reproducible crystallographic backend or equivalent descriptor implementation, remove source validation blockers, beat family-prior post-split AP, and attach DFT or B5-computed observables.",
       "b_id": "B6",
-      "current_maturity": "T-B6-003 structural/electronic proxy boundary: 38 records / 22 families / 12 expanded negatives; structural AP@12 0.611 vs formula AP@12 0.10, but family-prior AP@12 remains 1.0; post-split structural AP 0.690 vs family-prior 0.982; top-12 negative controls 3; no discovery, mechanism, DFT, crystallographic database, or computed-observable claim.",
+      "current_maturity": "T-B6-004 crystallographic reproducibility gate: existing crystallographic descriptor result has 56 records / 28 families / 18 negative controls and post-split crystallographic AP 0.2476 vs family-prior AP 0.4901. The gate passes 6/11 checks and fails R6-R10: current runtime lacks pymatgen, source validation errors remain 2, post-split crystallographic AP does not beat family prior, and no DFT or B5-computed observables are present. No discovery, mechanism, DFT, B5-observable, or solution claim.",
       "dependencies": [
         "B5"
       ],
       "downstream_translation_route": "Deferred until computed descriptors and leakage controls support a mechanism-aware ranking claim on a larger retrospective table.",
-      "kill_condition": "Demote B6 ranking if real structural/electronic observables still fail to beat family priors or continue promoting parent/negative-control materials.",
-      "next_artifact": "B6 crystallographic/DFT/B5-observable descriptor table with family-prior and negative-control audit.",
+      "kill_condition": "Demote B6 ranking if the pinned crystallographic/DFT/B5 observable pipeline cannot beat family priors on post-split holdouts or cannot be reproduced without hidden local dependencies.",
+      "next_artifact": "B6 pinned crystallographic/DFT/B5 observable pipeline with post-split family-prior defeat and zero source validation blockers.",
       "priority_lane": "coupled_application",
       "problem_id": 37,
-      "strongest_evidence": "The structural/electronic proxy improves over formula-only descriptors and exposes explicit negative-control pressure, but it does not beat family-prior leakage.",
+      "strongest_evidence": "B6 has now moved beyond curated proxies into a crystallographic-readiness audit, but the audit blocks promotion because the current evidence is not reproducible in this runtime and still loses to family-prior baseline on the post-split test.",
       "title": "High-temperature superconductivity search"
     },
     {

@@ -40,7 +40,7 @@ Overall audit: PASS
 - B IDs are B1..B10: True
 - Problem IDs match attack pack: True
 - All required fields present: True
-- Maturity scores: {'B1': 63, 'B2': 48, 'B3': 32, 'B4': 29, 'B5': 27, 'B6': 21, 'B7': 59, 'B8': 41, 'B9': 15, 'B10': 52}
+- Maturity scores: {'B1': 63, 'B2': 48, 'B3': 32, 'B4': 29, 'B5': 27, 'B6': 24, 'B7': 59, 'B8': 41, 'B9': 15, 'B10': 52}
 
 ## Technical Resolution Program
 
@@ -1978,6 +1978,13 @@ Overall audit: PASS
 - Structural/electronic discovery/mechanism/database/DFT/crystal claims: False / False / False / False / False
 - Structural/electronic validation errors: 0
 - Structural/electronic result/markdown exists: True / True
+- Crystallographic reproducibility gate status: crystallographic_reproducibility_gate_failed_not_material_discovery_claim
+- Crystallographic reproducibility gates passed/failed: 6 / 5
+- Crystallographic reproducibility failed requirements: ['R6', 'R7', 'R8', 'R9', 'R10']
+- Crystallographic records / families / negatives: 56 / 28 / 18
+- Crystallographic post-split AP / family-prior AP: 0.2476190476190476 / 0.4901360544217687
+- Crystallographic source validation errors / pymatgen available: 2 / False
+- Crystallographic gate result/markdown exists: True / True
 
 ## B7 Fault-Tolerance Co-Design Status
 
