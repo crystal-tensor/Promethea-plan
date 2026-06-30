@@ -1959,6 +1959,12 @@ Overall audit: PASS
 - B5/B10 row-contract harness conditions satisfied/failed: 6 / 0
 - B5/B10 row-contract harness remaining positive-route packets: ['W1', 'W2', 'W3']
 - B5/B10 row-contract harness result/markdown exists: True / True
+- B5 seeded-pressure replacement audit status: seeded_pressure_replacement_failed_remains_blocker
+- B5 seeded-pressure replacement audit seeded/best mean error: 0.0004416259745141553 / 0.01805548365563228
+- B5 seeded-pressure replacement audit best candidate / rows beating seeded: variational_mps_als / 0
+- B5 seeded-pressure replacement audit deployable replacements / seeded replaced: 0 / False
+- B5 seeded-pressure replacement audit remaining positive-route packets: ['W1', 'W3']
+- B5 seeded-pressure replacement audit result/markdown exists: True / True
 
 ## B6 Superconductivity Descriptor Status
 
@@ -2505,6 +2511,11 @@ Overall audit: PASS
 - B10-T1 B5 row-contract harness source checks passed/failed: 10 / 0
 - B10-T1 B5 row-contract harness remaining positive-route packets: ['W1', 'W2', 'W3']
 - B10-T1 B5 row-contract harness result/markdown exists: True / True
+- B10-T1 B5 seeded-pressure replacement audit status: seeded_pressure_replacement_failed_remains_blocker
+- B10-T1 B5 seeded-pressure replacement audit seeded/best mean error: 0.0004416259745141553 / 0.01805548365563228
+- B10-T1 B5 seeded-pressure replacement audit deployable replacements / seeded replaced: 0 / False
+- B10-T1 B5 seeded-pressure replacement audit remaining positive-route packets: ['W1', 'W3']
+- B10-T1 B5 seeded-pressure replacement audit result/markdown exists: True / True
 
 ## Errors
 

@@ -107,6 +107,15 @@ artifacts, records row-contract hash
 passes 10/10 source checks and 6/6 conditions, and leaves `W1`/`W2`/`W3` as
 the only positive-route implementation packets. It is not a new denominator,
 not production DMRG, not a response oracle, and not a quantum advantage claim.
+The W2 seeded-pressure replacement audit is now also executed. It replays three
+candidate replacement families under the locked row contract and finds
+0 deployable replacements for the exact-state-seeded MPS pressure reference.
+The seeded mean relative response error is `0.0004416259745141553`; the best
+replacement-by-mean is `variational_mps_als` at `0.01805548365563228`, with
+0 rows beating seeded pressure. The largest row-level win count across all
+candidate families is only 2/9, so the seeded-pressure blocker remains explicit
+and the positive-route implementation packets are now `W1` production DMRG/MPS
+or `W3` same-access response oracle.
 The latest B10-T1 stress test still finds no positive same-access route because
 0 rows beat explicit D5 matvec-equivalent costs by shots. This is progress, but
 it is not a production DMRG result, not a deployable tensor solver, not a

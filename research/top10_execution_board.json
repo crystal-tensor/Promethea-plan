@@ -71,19 +71,19 @@
       "title": "Verifiable quantum advantage protocols"
     },
     {
-      "30_day_gate": "Execute W1/W2/W3 from T-B5-006c while preserving the T-B5-006d row-contract hash: production DMRG/MPS denominator, seeded-pressure replacement audit, or same-access response-oracle cost ledger; keep W6 enforcing claim/audit contracts.",
+      "30_day_gate": "Execute W1 production DMRG/MPS denominator or W3 same-access response-oracle cost ledger while preserving the T-B5-006d row-contract hash; W2 is complete and failed unless a stronger replacement candidate appears.",
       "b_id": "B5",
-      "current_maturity": "T-B5-006d/T-B10-014b row-contract harness completed after the T-B5-006c production implementation triage. The B5/B10 branch now has 9 D5 Hubbard response rows, row-contract hash 7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc, 10/10 source checks passed, and 6/6 row-contract conditions satisfied. W1 production DMRG/MPS denominator, W2 seeded-pressure replacement audit, W3 same-access response-oracle cost ledger, and W5 B10-T1 theorem-boundary integration remain blocked on implementation/evidence. Production DMRG, sampling oracle, same-access positive route, quantum advantage, BQP separation, and catalog change all remain false.",
+      "current_maturity": "T-B5-006e/T-B10-014c W2 seeded-pressure replacement audit completed after the row-contract harness. The branch now has 9 locked D5 Hubbard response rows, row-contract hash 7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc, 3 replayed replacement candidate families, 0 deployable replacements, seeded mean relative response error 0.0004416259745141553, best replacement-by-mean variational_mps_als at 0.01805548365563228 with 0 rows beating seeded pressure, and max row-level win count 2/9. Production DMRG, sampling oracle, same-access positive route, quantum advantage, BQP separation, and catalog change all remain false.",
       "dependencies": [
         "B3",
         "B6"
       ],
       "downstream_translation_route": "Deferred until a real hybrid baseline beats a classical proxy on a meaningful model.",
       "kill_condition": "Demote any B5 positive route if production DMRG/MPS or equivalent tensor denominator remains stronger under the same access and response contract.",
-      "next_artifact": "T-B5-006 production DMRG/MPS or same-access response-kernel artifact satisfying T-B5-006b while preserving T-B5-006d row-contract hash.",
+      "next_artifact": "T-B5-006 W1 production DMRG/MPS or W3 same-access response-kernel artifact satisfying T-B5-006b while preserving the T-B5-006d row-contract hash.",
       "priority_lane": "coupled_application",
       "problem_id": 38,
-      "strongest_evidence": "Same 9 B10 D5 Hubbard rows have oracle/non-oracle embedding denominators, seeded MPS pressure, one-site MPS/ALS, two-site finite-DMRG-style pressure, readiness and smoke gates, and T-B5-006b same-access production contract. Readiness passes 0/8, smoke passes 0/9 rows, and the production contract passes only 2/10 gates with no production DMRG, no oracle, and no positive route.",
+      "strongest_evidence": "Same 9 B10 D5 Hubbard rows have oracle/non-oracle embedding denominators, seeded MPS pressure, one-site MPS/ALS, two-site finite-DMRG-style pressure, readiness and smoke gates, T-B5-006b same-access production contract, T-B5-006d row contract, and T-B5-006e W2 replacement audit. Readiness passes 0/8, smoke passes 0/9 rows, the production contract passes only 2/10 gates, and W2 finds 0 deployable replacements with no seeded-pressure replacement.",
       "title": "Strongly correlated matter via hybrid quantum-tensor solvers"
     },
     {
@@ -150,9 +150,9 @@
       "title": "Quantum PCP and local Hamiltonian hardness"
     },
     {
-      "30_day_gate": "Run T-B10-014 through the T-B5-006c/T-B5-006d W1/W2/W3 queue, or push B10-T2 to real backend/hardware verifier evidence; reopen B3 only if M5-M9 are replaced by same-access evidence.",
+      "30_day_gate": "Run T-B10-014 through the remaining B5 W1/W3 queue, or push B10-T2 to real backend/hardware verifier evidence; reopen B3 only if M5-M9 are replaced by same-access evidence.",
       "b_id": "B10",
-      "current_maturity": "B10-T1 now has two explicit failed positive-route branches plus a row-contract guardrail: B3 T-B3-013 same-access negative boundary note, B5 T-B5-006c production implementation triage, and B5 T-B5-006d row-contract harness. The B5 harness preserves 9 rows across 10 sources with 6/6 conditions satisfied; there is still no production DMRG, sampling oracle, positive same-access route, quantum advantage, or BQP separation.",
+      "current_maturity": "B10-T1 now has two explicit failed positive-route branches plus row-contract and W2 guardrails: B3 T-B3-013 same-access negative boundary note, B5 T-B5-006c production implementation triage, T-B5-006d row-contract harness, and T-B5-006e seeded-pressure replacement audit. The W2 audit preserves the 9 rows and finds 0 deployable replacements; there is still no production DMRG, sampling oracle, positive same-access route, quantum advantage, or BQP separation.",
       "dependencies": [
         "B5",
         "B3",
@@ -162,10 +162,10 @@
       "downstream_translation_route": "Deferred until one formal target yields a source-backed restricted theorem, reusable negative lemma, or strong proof-attempt record.",
       "kill_condition": "Keep B10-T1 negative unless B3 or B5 beats the full denominator ladder under the same access model without hidden access advantages.",
       "kill_or_merge_condition": "Keep B10-T1 negative unless a production DMRG/MPS reference or same-access response oracle beats the full denominator ladder without hidden access advantages.",
-      "next_artifact": "T-B10-014 B5 production DMRG/MPS or same-access response-oracle artifact preserving the T-B5-006d row-contract hash; B3 may reopen only if M5-M9 are replaced.",
+      "next_artifact": "T-B10-014 B5 W1 production DMRG/MPS or W3 same-access response-oracle artifact preserving the T-B5-006d row-contract hash; B3 may reopen only if M5-M9 are replaced.",
       "priority_lane": "theory_and_negative_results",
       "problem_id": 11,
-      "strongest_evidence": "B10-T1 now includes B3/B10 same-access measurement-rescue gate plus B5 same-access production contract. The B3 gate passes 5/10 and fails M5-M9 with 0 denominator wins and max optimizer-loop shots lower bound 475,043,013,690,000; the B5 contract passes only 2/10. There is still no production DMRG, no sampling oracle, no same-access positive route, no quantum advantage, and no BQP separation.",
+      "strongest_evidence": "B10-T1 now includes B3/B10 same-access measurement-rescue gate plus B5 same-access production contract, row-contract harness, and W2 seeded-pressure replacement audit. The B3 gate passes 5/10 and fails M5-M9; the B5 contract passes only 2/10; W2 finds 0 deployable replacements and no seeded-pressure replacement. There is still no production DMRG, no sampling oracle, no same-access positive route, no quantum advantage, and no BQP separation.",
       "title": "Mapping the boundary of BQP"
     }
   ],

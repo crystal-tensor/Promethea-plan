@@ -1,0 +1,445 @@
+{
+  "benchmark_id": "B5",
+  "claim_boundary": {
+    "accuracy_per_resource_win_claimed": false,
+    "bqp_separation_claimed": false,
+    "dequantization_theorem_claimed": false,
+    "next_gate": "Run W1 production DMRG/MPS or W3 same-access response oracle. Any W2 retry must preserve the row-contract hash and beat seeded pressure globally without exact-state seeding.",
+    "production_dmrg_claimed": false,
+    "quantum_advantage_claimed": false,
+    "quantum_response_win_claimed": false,
+    "same_access_positive_route_claimed": false,
+    "sampling_access_theorem_claimed": false,
+    "what_is_not_supported": "This is not production DMRG, not a deployable replacement denominator, not a response oracle, not a same-access positive route, not quantum advantage, and not BQP separation.",
+    "what_is_supported": "The current non-exact-state-seeded or non-oracle replacements do not globally replace the exact-state-seeded MPS pressure reference under the locked 9-row B5/B10 contract."
+  },
+  "conditions": [
+    {
+      "condition_id": "S1",
+      "evidence": {
+        "row_contract_count": 9,
+        "row_contract_hash": "7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc",
+        "source_checks_failed": 0
+      },
+      "label": "Row contract from W4 is present and preserved",
+      "satisfied": true
+    },
+    {
+      "condition_id": "S2",
+      "evidence": {
+        "explicit_not_variational_dmrg": true,
+        "seeded_exact_state_seeded": true,
+        "seeded_mean_relative_response_error": 0.0004416259745141553
+      },
+      "label": "Seeded MPS pressure is identified as exact-state seeded and non-deployable",
+      "satisfied": true
+    },
+    {
+      "condition_id": "S3",
+      "evidence": {
+        "non_oracle_embedding": 9,
+        "two_site_finite_dmrg_style": 9,
+        "variational_mps_als": 9
+      },
+      "label": "Replacement candidates are replayed on all nine rows",
+      "satisfied": true
+    },
+    {
+      "condition_id": "S4",
+      "evidence": {
+        "best_candidate_by_mean": "variational_mps_als",
+        "best_candidate_mean_relative_response_error": 0.01805548365563228,
+        "deployable_replacement_count": 0,
+        "max_rows_beating_seeded_pressure": 2,
+        "seeded_mean_relative_response_error": 0.0004416259745141553
+      },
+      "label": "No replacement candidate globally beats seeded pressure",
+      "satisfied": true
+    },
+    {
+      "condition_id": "S5",
+      "evidence": {
+        "production_dmrg_available": false,
+        "same_access_positive_route_ready": false,
+        "sampling_oracle_constructed": false
+      },
+      "label": "B10 same-access bridge remains blocked",
+      "satisfied": true
+    },
+    {
+      "condition_id": "S6",
+      "evidence": {
+        "bqp_separation_claimed": false,
+        "production_dmrg_claimed": false,
+        "quantum_advantage_claimed": false,
+        "quantum_response_win_claimed": false,
+        "same_access_positive_route_claimed": false
+      },
+      "label": "Forbidden claims remain false",
+      "satisfied": true
+    }
+  ],
+  "last_updated": "2026-07-01",
+  "linked_benchmark_id": "B10",
+  "linked_problem_id": 10,
+  "method": "b5_seeded_pressure_replacement_audit_v0",
+  "model_status": "w2_replacement_audit_completed_no_deployable_denominator",
+  "problem_id": 5,
+  "replacement_candidates": [
+    {
+      "all_rows_beat_seeded_pressure": false,
+      "candidate_id": "non_oracle_embedding",
+      "deployable_selection": true,
+      "exact_state_seeded": false,
+      "globally_replaces_seeded_pressure": false,
+      "label": "Non-oracle response embedding denominator",
+      "mean_relative_response_error": 0.05098345231043474,
+      "method": "b5_non_oracle_response_embedding_baseline_v0",
+      "notes": [
+        "predeclared selection rule does not consume exact target states",
+        "classical embedding denominator, not production DMRG"
+      ],
+      "production_ready": false,
+      "row_count": 9,
+      "row_results": [
+        {
+          "beats_seeded_pressure": true,
+          "candidate_relative_response_error": 2.124673759816016e-14,
+          "error_ratio_to_seeded": 0.09202012940330696,
+          "row_index": 0,
+          "seeded_relative_response_error": 2.3089228124250614e-13,
+          "sites": 4,
+          "u_over_t": 2.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 2.0832179385671295e-11,
+          "error_ratio_to_seeded": 3.7011740684022456,
+          "row_index": 1,
+          "seeded_relative_response_error": 5.6285327306057525e-12,
+          "sites": 4,
+          "u_over_t": 4.0
+        },
+        {
+          "beats_seeded_pressure": true,
+          "candidate_relative_response_error": 8.593094464925813e-13,
+          "error_ratio_to_seeded": 0.04743887244087287,
+          "row_index": 2,
+          "seeded_relative_response_error": 1.811403606954639e-11,
+          "sites": 4,
+          "u_over_t": 8.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 0.11211021182232854,
+          "error_ratio_to_seeded": 112.39300637885175,
+          "row_index": 3,
+          "seeded_relative_response_error": 0.0009974838776394149,
+          "sites": 6,
+          "u_over_t": 2.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 0.017262083759734648,
+          "error_ratio_to_seeded": 119.43933318711778,
+          "row_index": 4,
+          "seeded_relative_response_error": 0.0001445259555551208,
+          "sites": 6,
+          "u_over_t": 4.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 0.08104144268038609,
+          "error_ratio_to_seeded": 184.1214737868268,
+          "row_index": 5,
+          "seeded_relative_response_error": 0.00044015204209268223,
+          "sites": 6,
+          "u_over_t": 8.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 0.12308129218169694,
+          "error_ratio_to_seeded": 72.59703859028781,
+          "row_index": 6,
+          "seeded_relative_response_error": 0.0016954037598740704,
+          "sites": 8,
+          "u_over_t": 2.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 0.013559466263685357,
+          "error_ratio_to_seeded": 19.870441828054574,
+          "row_index": 7,
+          "seeded_relative_response_error": 0.0006823937978339813,
+          "sites": 8,
+          "u_over_t": 4.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 0.11179657406436834,
+          "error_ratio_to_seeded": 7618.521497142481,
+          "row_index": 8,
+          "seeded_relative_response_error": 1.4674313658667297e-05,
+          "sites": 8,
+          "u_over_t": 8.0
+        }
+      ],
+      "rows_beating_seeded_pressure": 2,
+      "seeded_mean_relative_response_error": 0.0004416259745141553,
+      "status": "non_oracle_response_embedding_denominator_not_quantum_advantage_claim"
+    },
+    {
+      "all_rows_beat_seeded_pressure": false,
+      "candidate_id": "variational_mps_als",
+      "deployable_selection": true,
+      "exact_state_seeded": false,
+      "globally_replaces_seeded_pressure": false,
+      "label": "Non-exact-state-seeded variational MPS/ALS prototype",
+      "mean_relative_response_error": 0.01805548365563228,
+      "method": "b5_variational_mps_als_response_reference_v0",
+      "notes": [
+        "not exact-state seeded",
+        "uses exact energy for response shift in this pressure prototype",
+        "not production DMRG"
+      ],
+      "production_ready": false,
+      "row_count": 9,
+      "row_results": [
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 2.5364131264803592e-05,
+          "error_ratio_to_seeded": 109852659.98634076,
+          "row_index": 0,
+          "seeded_relative_response_error": 2.3089228124250614e-13,
+          "sites": 4,
+          "u_over_t": 2.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 2.2511062548060744e-05,
+          "error_ratio_to_seeded": 3999454.853598775,
+          "row_index": 1,
+          "seeded_relative_response_error": 5.6285327306057525e-12,
+          "sites": 4,
+          "u_over_t": 4.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 1.2191537640827434e-06,
+          "error_ratio_to_seeded": 67304.3688000823,
+          "row_index": 2,
+          "seeded_relative_response_error": 1.811403606954639e-11,
+          "sites": 4,
+          "u_over_t": 8.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 0.016795238146711286,
+          "error_ratio_to_seeded": 16.83760361767238,
+          "row_index": 3,
+          "seeded_relative_response_error": 0.0009974838776394149,
+          "sites": 6,
+          "u_over_t": 2.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 0.03907201105154143,
+          "error_ratio_to_seeded": 270.3459797339983,
+          "row_index": 4,
+          "seeded_relative_response_error": 0.0001445259555551208,
+          "sites": 6,
+          "u_over_t": 4.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 0.032124024833131516,
+          "error_ratio_to_seeded": 72.98392773642341,
+          "row_index": 5,
+          "seeded_relative_response_error": 0.00044015204209268223,
+          "sites": 6,
+          "u_over_t": 8.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 0.004758660629988784,
+          "error_ratio_to_seeded": 2.806800800266152,
+          "row_index": 6,
+          "seeded_relative_response_error": 0.0016954037598740704,
+          "sites": 8,
+          "u_over_t": 2.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 0.035923281106899,
+          "error_ratio_to_seeded": 52.64303576750668,
+          "row_index": 7,
+          "seeded_relative_response_error": 0.0006823937978339813,
+          "sites": 8,
+          "u_over_t": 4.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 0.033777042784841546,
+          "error_ratio_to_seeded": 2301.7800743881016,
+          "row_index": 8,
+          "seeded_relative_response_error": 1.4674313658667297e-05,
+          "sites": 8,
+          "u_over_t": 8.0
+        }
+      ],
+      "rows_beating_seeded_pressure": 0,
+      "seeded_mean_relative_response_error": 0.0004416259745141553,
+      "status": "variational_mps_als_pressure_reference_not_production_dmrg_or_advantage_claim"
+    },
+    {
+      "all_rows_beat_seeded_pressure": false,
+      "candidate_id": "two_site_finite_dmrg_style",
+      "deployable_selection": true,
+      "exact_state_seeded": false,
+      "globally_replaces_seeded_pressure": false,
+      "label": "Two-site finite-DMRG-style response pressure prototype",
+      "mean_relative_response_error": 0.08196129814275509,
+      "method": "b5_two_site_finite_dmrg_response_reference_v0",
+      "notes": [
+        "not exact-state seeded",
+        "finite-DMRG-style pressure prototype",
+        "not canonical-environment production DMRG"
+      ],
+      "production_ready": false,
+      "row_count": 9,
+      "row_results": [
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 5.732657132911599e-09,
+          "error_ratio_to_seeded": 24828.27534148095,
+          "row_index": 0,
+          "seeded_relative_response_error": 2.3089228124250614e-13,
+          "sites": 4,
+          "u_over_t": 2.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 1.2133393931614812e-07,
+          "error_ratio_to_seeded": 21556.939458907607,
+          "row_index": 1,
+          "seeded_relative_response_error": 5.6285327306057525e-12,
+          "sites": 4,
+          "u_over_t": 4.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 1.836311322801904e-08,
+          "error_ratio_to_seeded": 1013.7505058241218,
+          "row_index": 2,
+          "seeded_relative_response_error": 1.811403606954639e-11,
+          "sites": 4,
+          "u_over_t": 8.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 0.013754415395413779,
+          "error_ratio_to_seeded": 13.789110484636753,
+          "row_index": 3,
+          "seeded_relative_response_error": 0.0009974838776394149,
+          "sites": 6,
+          "u_over_t": 2.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 0.052816461751774825,
+          "error_ratio_to_seeded": 365.4462034096785,
+          "row_index": 4,
+          "seeded_relative_response_error": 0.0001445259555551208,
+          "sites": 6,
+          "u_over_t": 4.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 0.166257631524305,
+          "error_ratio_to_seeded": 377.7277295678123,
+          "row_index": 5,
+          "seeded_relative_response_error": 0.00044015204209268223,
+          "sites": 6,
+          "u_over_t": 8.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 0.054393170366179557,
+          "error_ratio_to_seeded": 32.082723687140884,
+          "row_index": 6,
+          "seeded_relative_response_error": 0.0016954037598740704,
+          "sites": 8,
+          "u_over_t": 2.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 0.17332637916352528,
+          "error_ratio_to_seeded": 253.99758865583013,
+          "row_index": 7,
+          "seeded_relative_response_error": 0.0006823937978339813,
+          "sites": 8,
+          "u_over_t": 4.0
+        },
+        {
+          "beats_seeded_pressure": false,
+          "candidate_relative_response_error": 0.2771034796538877,
+          "error_ratio_to_seeded": 18883.573439921543,
+          "row_index": 8,
+          "seeded_relative_response_error": 1.4674313658667297e-05,
+          "sites": 8,
+          "u_over_t": 8.0
+        }
+      ],
+      "rows_beating_seeded_pressure": 0,
+      "seeded_mean_relative_response_error": 0.0004416259745141553,
+      "status": "two_site_finite_dmrg_pressure_reference_not_production_dmrg_or_advantage_claim"
+    }
+  ],
+  "runtime_seconds": 0.00183,
+  "source_non_oracle_embedding_result": "results/B5_non_oracle_response_embedding_baseline_v0.json",
+  "source_row_contract_result": "results/B5_B10_row_contract_harness_v0.json",
+  "source_same_access_bridge_result": "results/B10_t1_b5_same_access_sampling_or_dmrg_bridge_v0.json",
+  "source_seeded_mps_pressure_result": "results/B5_mps_truncation_response_reference_v0.json",
+  "source_two_site_dmrg_result": "results/B5_two_site_dmrg_response_reference_v0.json",
+  "source_variational_mps_als_result": "results/B5_variational_mps_als_response_reference_v0.json",
+  "status": "seeded_pressure_replacement_failed_remains_blocker",
+  "summary": {
+    "accuracy_per_resource_win_claimed": false,
+    "b10_t1_positive_route_ready": false,
+    "best_replacement_candidate_id": "variational_mps_als",
+    "best_replacement_mean_relative_response_error": 0.01805548365563228,
+    "best_replacement_rows_beating_seeded_pressure": 0,
+    "bqp_separation_claimed": false,
+    "candidate_count": 3,
+    "catalog_change_required": false,
+    "condition_count": 6,
+    "conditions_failed": 0,
+    "conditions_satisfied": 6,
+    "deployable_replacement_count": 0,
+    "dequantization_theorem_claimed": false,
+    "max_rows_beating_seeded_pressure": 2,
+    "production_dmrg_available": false,
+    "production_dmrg_claimed": false,
+    "quantum_advantage_claimed": false,
+    "quantum_response_win_claimed": false,
+    "remaining_positive_route_packets": [
+      "W1",
+      "W3"
+    ],
+    "row_contract_count": 9,
+    "row_contract_hash": "7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc",
+    "same_access_positive_route_claimed": false,
+    "same_access_positive_route_ready": false,
+    "sampling_access_theorem_claimed": false,
+    "sampling_oracle_constructed": false,
+    "seeded_exact_state_seeded": true,
+    "seeded_mean_relative_response_error": 0.0004416259745141553,
+    "seeded_pressure_replaced": false,
+    "validation_error_count": 0,
+    "w2_remains_blocked_on_denominator": true,
+    "w2_seeded_pressure_replacement_audit_executed": true
+  },
+  "title": "B5 Seeded-Pressure Replacement Audit",
+  "validation_errors": [],
+  "version": "0.1"
+}

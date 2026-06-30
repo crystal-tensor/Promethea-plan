@@ -447,6 +447,24 @@ is useful protocol pressure, but it is not hardware execution, cryptographic
 soundness, protocol soundness, sampling hardness, quantum advantage, or BQP
 separation.
 
+Sprint update 64: B5/B10 now has the W2 seeded-pressure replacement audit,
+and the result is a useful negative gate. T-B5-006e/T-B10-014c adds
+`tools/b5_seeded_pressure_replacement_audit.py` and emits
+`results/B5_seeded_pressure_replacement_audit_v0.json` plus
+`research/B5_seeded_pressure_replacement_audit.md`. The audit preserves the
+T-B5-006d row-contract hash
+`7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc` and
+replays 3 candidate families: non-oracle embedding, variational MPS/ALS, and
+two-site finite-DMRG-style pressure. It finds 0 deployable replacements, leaves
+seeded pressure unreplaced, records seeded mean relative response error
+`0.0004416259745141553`, and identifies `variational_mps_als` as the best
+replacement-by-mean at `0.01805548365563228` with 0 rows beating seeded
+pressure. The maximum row-level win count across all candidates is only 2/9.
+This closes W2 as a current positive route; the remaining serious routes are
+W1 production DMRG/MPS and W3 same-access response oracle. It is not production
+DMRG, not a response oracle, not a same-access positive route, not quantum
+advantage, and not BQP separation.
+
 ## B5: Strongly Correlated Matter
 
 **Technical target:** show an accuracy-per-resource improvement on a meaningful

@@ -676,6 +676,49 @@ current_results:
     caveat: row_contract_guardrail_not_production_dmrg_not_response_oracle_not_advantage
     result: ../results/B5_B10_row_contract_harness_v0.json
     markdown_report: ../research/B5_B10_row_contract_harness.md
+  b10_t1_b5_seeded_pressure_replacement_audit_v0:
+    status: seeded_pressure_replacement_failed_remains_blocker
+    model_status: w2_replacement_audit_completed_no_deployable_denominator
+    method: b5_seeded_pressure_replacement_audit_v0
+    source: b5_b10_row_contract_harness_v0
+    source_target_id: B10-T1
+    dependency_benchmarks:
+      - B5
+      - B10
+    row_contract_count: 9
+    row_contract_hash: 7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc
+    candidate_count: 3
+    seeded_exact_state_seeded: true
+    seeded_mean_relative_response_error: 0.0004416259745141553
+    best_replacement_candidate_id: variational_mps_als
+    best_replacement_mean_relative_response_error: 0.01805548365563228
+    best_replacement_rows_beating_seeded_pressure: 0
+    max_rows_beating_seeded_pressure: 2
+    deployable_replacement_count: 0
+    seeded_pressure_replaced: false
+    w2_seeded_pressure_replacement_audit_executed: true
+    w2_remains_blocked_on_denominator: true
+    remaining_positive_route_packets: [W1, W3]
+    production_dmrg_available: false
+    sampling_oracle_constructed: false
+    same_access_positive_route_ready: false
+    b10_t1_positive_route_ready: false
+    catalog_change_required: false
+    production_dmrg_claimed: false
+    quantum_response_win_claimed: false
+    accuracy_per_resource_win_claimed: false
+    same_access_positive_route_claimed: false
+    bqp_separation_claimed: false
+    quantum_advantage_claimed: false
+    dequantization_theorem_claimed: false
+    sampling_access_theorem_claimed: false
+    condition_count: 6
+    conditions_satisfied: 6
+    conditions_failed: 0
+    validation_error_count: 0
+    caveat: seeded_pressure_replacement_audit_not_production_dmrg_not_response_oracle_not_advantage
+    result: ../results/B5_seeded_pressure_replacement_audit_v0.json
+    markdown_report: ../research/B5_seeded_pressure_replacement_audit.md
 prototype_artifacts:
   boundary_graph_builder: ../tools/b10_bqp_boundary_graph.py
   formal_theorem_target_builder: ../tools/b10_formal_theorem_targets.py
@@ -695,6 +738,7 @@ prototype_artifacts:
   t1_b5_response_sampler_cost_stress_builder: ../tools/b10_t1_b5_response_sampler_cost_stress.py
   t1_b5_production_implementation_triage_gate: ../tools/b5_b10_production_implementation_triage_gate.py
   t1_b5_row_contract_harness: ../tools/b5_b10_row_contract_harness.py
+  t1_b5_seeded_pressure_replacement_audit: ../tools/b5_seeded_pressure_replacement_audit.py
   t2_refresh_proof_obligation_gate_builder: ../tools/b10_t2_refresh_proof_obligation_gate.py
   t2_restricted_soundness_lemma_builder: ../tools/b10_t2_restricted_soundness_lemma.py
   t2_transcript_leakage_simulator_builder: ../tools/b10_t2_transcript_leakage_simulator.py

@@ -529,6 +529,13 @@ hash `7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc`,
 passes 10/10 source checks, satisfies 6/6 row-contract conditions, and leaves
 W1/W2/W3 as the only positive-route implementation packets. This is a guardrail
 for comparability, not a new denominator or response oracle.
+T-B5-006e/T-B10-014c executes W2 as a seeded-pressure replacement audit. It
+replays non-oracle embedding, variational MPS/ALS, and two-site
+finite-DMRG-style candidates under the locked 9-row contract. It finds 0
+deployable replacements, seeded mean relative response error
+0.0004416259745141553, best replacement-by-mean `variational_mps_als` at
+0.01805548365563228 with 0 rows beating seeded pressure, and max row-level win
+count 2/9. Seeded pressure remains the blocker.
 
 **Remaining path to a serious solution:** run T-B5-006 by implementing mature
 canonical-environment DMRG/MPS for the same response rows, with stored
@@ -537,9 +544,10 @@ exact-state seeding, and full cost accounting; or compare a fully costed
 quantum impurity/response kernel against exact D5, non-oracle embedding, seeded
 MPS pressure, one-site ALS, two-site finite-DMRG-style, readiness-gate, and
 smoke-gate denominators while satisfying the same-access production contract.
-Use T-B5-006c/T-B5-006d as the execution queue: W1/W2/W3 are the technical
-reopen routes and must preserve the row-contract hash, while W6 keeps claim
-discipline fixed.
+Use T-B5-006c/T-B5-006d/T-B5-006e as the execution queue: W2 is now a negative
+audit, so W1 production DMRG/MPS and W3 same-access response oracle are the
+remaining technical reopen routes and must preserve the row-contract hash,
+while W6 keeps claim discipline fixed.
 
 **Current internal maturity:** 29/100.
 
@@ -1046,10 +1054,13 @@ T-B5-006d/T-B10-014b now adds the row-contract guardrail to that B10-T1 queue:
 `7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc`, 10/10
 source checks, and 6/6 conditions. It prevents future B5 positive-route claims
 from changing the row set or observable contract.
+T-B5-006e/T-B10-014c now adds the W2 seeded-pressure replacement audit to that
+B10-T1 queue: 3 candidate families replayed, 0 deployable replacements, seeded
+pressure not replaced, and no positive same-access route.
 
 **Remaining path to a serious solution:** treat B3 as demoted unless a
 multi-parameter UCCSD/ADAPT or stronger measurement rescue succeeds; run
-T-B10-014 through T-B5-006c/T-B5-006d W1/W2/W3 by replacing the readiness/cost
+T-B10-014 through the remaining B5 W1/W3 queue by replacing the readiness/cost
 negative boundary with canonical-environment production DMRG/MPS for the same
 B5 Hubbard response rows while preserving the row-contract hash, or by supplying
 a real same-access response oracle with
