@@ -169,6 +169,17 @@ discarded-weight rows, and production contract rows all remain 0. The next W1
 solver must turn those prototype traces into accepted 17-key production row
 artifacts before any K5/K6 progress, production DMRG claim, or positive
 B10-T1 route can be counted.
+`T-B5-006l` / `T-B10-014j` now adds a W1 production-row intake template
+gate. It consumes the implementation contract and prototype scout, then emits
+9 locked row templates under the same row-contract hash. The gate checks 8
+requirements: 5 pass and 3 fail (`I5`-`I7`). It carries all 9 prototype trace
+hashes as provenance, keeps the 17-key row schema, pre-fills 9 stable keys per
+row, and exposes 8 production-required keys that still must be submitted:
+canonical center site, left/right environment hashes, orthonormal residual
+norm, discarded weight, wall-clock time, peak memory, and sweep/matvec count.
+Submitted production rows and accepted production rows remain 0, so this is a
+PR intake template, not production DMRG, not a deployable denominator, not a
+same-access positive route, not quantum advantage, and not BQP separation.
 The latest B10-T1 stress test still finds no positive same-access route because
 0 rows beat explicit D5 matvec-equivalent costs by shots. This is progress, but
 it is not a production DMRG result, not a deployable tensor solver, not a

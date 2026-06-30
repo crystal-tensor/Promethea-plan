@@ -2657,3 +2657,20 @@ hash rows, orthonormal residual rows, production discarded-weight rows, and
 production contract rows are all still 0. This turns prototype traces into
 actionable solver inputs without promoting them to production DMRG, a positive
 same-access route, quantum advantage, or BQP separation.
+
+Sprint update 69: B5/B10 now has a W1 production-row intake template gate.
+T-B5-006l/T-B10-014j adds
+`tools/b5_b10_w1_production_row_intake_template_gate.py` and emits
+`results/B5_B10_w1_production_row_intake_template_gate_v0.json` plus
+`research/B5_B10_w1_production_row_intake_template_gate.md`. The gate consumes
+the W1 implementation contract and prototype environment scout, then emits 9
+locked row templates under the same row-contract hash. It checks 8 requirements,
+passes 5, and fails I5-I7 because submitted production rows, populated
+production-required keys, and accepted production rows remain 0. The template
+preserves the 17-key W1 row schema, pre-fills 9 stable keys per row, carries 9
+prototype trace hashes as provenance, and exposes 8 production-required keys:
+canonical center site, left/right environment hashes, orthonormal residual norm,
+discarded weight, wall-clock seconds, peak memory, and sweep/matvec count. This
+is the next PR intake surface for W1, not production DMRG, not a deployable
+denominator, not a same-access positive route, not quantum advantage, and not
+BQP separation.

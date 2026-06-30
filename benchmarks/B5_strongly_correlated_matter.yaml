@@ -293,6 +293,44 @@ current_results:
     validation_error_count: 0
     result: ../results/B5_B10_w1_prototype_environment_scout_v0.json
     markdown_report: ../research/B5_B10_w1_prototype_environment_scout.md
+  w1_production_row_intake_template_gate_v0:
+    status: w1_production_row_intake_template_open_missing_submitted_rows
+    model_status: w1_submission_template_built_no_production_rows_accepted
+    method: b5_b10_w1_production_row_intake_template_gate_v0
+    source_implementation_contract_result: ../results/B5_B10_w1_implementation_contract_gate_v0.json
+    source_prototype_scout_result: ../results/B5_B10_w1_prototype_environment_scout_v0.json
+    row_contract_count: 9
+    row_contract_hash: 7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc
+    source_implementation_contract_status: w1_implementation_contract_open_not_production_dmrg
+    source_prototype_scout_status: w1_prototype_environment_scout_failed_not_canonical_contract
+    intake_requirement_count: 8
+    intake_requirements_passed: 5
+    intake_requirements_failed: 3
+    failed_intake_requirement_ids: [I5, I6, I7]
+    required_row_key_count: 17
+    prefilled_required_key_count_min: 9
+    production_required_key_count: 8
+    row_template_count: 9
+    template_hash_count: 9
+    template_table_hash: 9b65b1964bd1ad312608e767cc16e96a09e2a4d8ef77e9ecbe47a2d9807fb8ac
+    prototype_trace_hash_rows: 9
+    submitted_production_row_count: 0
+    accepted_production_row_count: 0
+    missing_required_key_total: 72
+    production_missing_key_total: 72
+    w1_production_row_intake_ready: false
+    production_dmrg_available: false
+    same_access_positive_route_ready: false
+    production_dmrg_claimed: false
+    same_access_positive_route_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    condition_count: 8
+    conditions_satisfied: 5
+    conditions_failed: 3
+    validation_error_count: 0
+    result: ../results/B5_B10_w1_production_row_intake_template_gate_v0.json
+    markdown_report: ../research/B5_B10_w1_production_row_intake_template_gate.md
   seeded_pressure_replacement_audit_v0:
     status: seeded_pressure_replacement_failed_remains_blocker
     model_status: w2_replacement_audit_completed_no_deployable_denominator

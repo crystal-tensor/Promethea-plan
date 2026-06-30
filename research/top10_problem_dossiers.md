@@ -593,6 +593,14 @@ canonical environment hash rows, orthonormal residual rows, production
 discarded-weight rows, and accepted production contract rows remain 0. This
 identifies reusable prototype traces but refuses to promote them into
 production DMRG evidence.
+T-B5-006l/T-B10-014j executes the W1 production-row intake template gate. It
+consumes the implementation contract and prototype scout, emits 9 locked row
+templates, preserves the 17-key W1 schema, pre-fills 9 stable keys per row,
+carries 9 prototype trace hashes as provenance, and exposes 8 production-required
+keys that a real solver must submit. The gate checks 8 requirements, passes 5,
+and fails I5-I7 because submitted production rows, populated production fields,
+and accepted production contract rows remain 0. This is a PR intake template,
+not production DMRG or a positive B5/B10 route.
 
 **Remaining path to a serious solution:** run T-B5-006 by implementing mature
 canonical-environment DMRG/MPS for the same response rows, with stored
@@ -601,8 +609,8 @@ exact-state seeding, and full cost accounting; or compare a fully costed
 quantum impurity/response kernel against exact D5, non-oracle embedding, seeded
 MPS pressure, one-site ALS, two-site finite-DMRG-style, readiness-gate, and
 smoke-gate denominators while satisfying the same-access production contract.
-Use T-B5-006c/T-B5-006d/T-B5-006e/T-B5-006f/T-B5-006g/T-B5-006h/T-B5-006i/T-B5-006j/T-B5-006k as the execution queue:
-W2, W3, W1 acceptance, W1 denominator-engine v0, canonical residual blocker, implementation contract, and prototype environment scout are now negative audits, so
+Use T-B5-006c/T-B5-006d/T-B5-006e/T-B5-006f/T-B5-006g/T-B5-006h/T-B5-006i/T-B5-006j/T-B5-006k/T-B5-006l as the execution queue:
+W2, W3, W1 acceptance, W1 denominator-engine v0, canonical residual blocker, implementation contract, prototype environment scout, and production-row intake template gate are now negative audits, so
 the actual W1 production DMRG/MPS denominator is the remaining technical reopen
 route and must preserve the row-contract hash while turning the 9 prototype
 trace rows into 17-key production row artifacts with canonical

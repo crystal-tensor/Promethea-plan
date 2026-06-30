@@ -2028,6 +2028,12 @@ Overall audit: PASS
 - B5/B10 W1 prototype/contract env rows: 9 / 0
 - B5/B10 W1 prototype trace/residual/accepted rows: 9 / 0 / 0
 - B5/B10 W1 prototype environment scout result/markdown exists: True / True
+- B5/B10 W1 production-row intake status: w1_production_row_intake_template_open_missing_submitted_rows
+- B5/B10 W1 production-row intake requirements passed/failed: 5 / 3
+- B5/B10 W1 production-row intake failed IDs: ['I5', 'I6', 'I7']
+- B5/B10 W1 production-row intake templates / production keys / missing keys: 9 / 8 / 72
+- B5/B10 W1 production-row intake submitted/accepted rows: 0 / 0
+- B5/B10 W1 production-row intake result/markdown exists: True / True
 
 ## B6 Superconductivity Descriptor Status
 
@@ -2667,6 +2673,11 @@ Overall audit: PASS
 - B10-T1 B5 W1 prototype environment scout failed IDs: ['P5', 'P6', 'P7']
 - B10-T1 B5 W1 prototype/contract env rows: 9 / 0
 - B10-T1 B5 W1 prototype scout result/markdown exists: True / True
+- B10-T1 B5 W1 production-row intake status: w1_production_row_intake_template_open_missing_submitted_rows
+- B10-T1 B5 W1 production-row intake requirements passed/failed: 5 / 3
+- B10-T1 B5 W1 production-row intake failed IDs: ['I5', 'I6', 'I7']
+- B10-T1 B5 W1 production-row intake templates / production keys / missing keys: 9 / 8 / 72
+- B10-T1 B5 W1 production-row intake result/markdown exists: True / True
 
 ## Errors
 
