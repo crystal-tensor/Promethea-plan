@@ -387,6 +387,40 @@ current_results:
     validation_error_count: 0
     result: ../results/B7_template_priority_gate_v0.json
     markdown_report: ../research/B7_template_priority_gate.md
+  w8_21_symbolic_obligation_intake_gate_v0:
+    status: w8_21_symbolic_obligation_intake_open_no_rewrite_certificate
+    model_status: w8_21_numeric_failures_mapped_to_symbolic_or_rewrite_pr_packets
+    method: b7_w8_21_symbolic_obligation_intake_gate_v0
+    source_template_priority_result: ../results/B7_template_priority_gate_v0.json
+    source_three_cnot_search_result: ../results/B7_w8_21_three_cnot_search_v0.json
+    intake_requirement_count: 8
+    intake_requirements_passed: 5
+    intake_requirements_failed: 3
+    failed_intake_requirement_ids: [S5, S6, S7]
+    packet_count: 3
+    packet_ids:
+      - B7-S1-w8-21-symbolic-kak-obstruction
+      - B7-S2-occurrence-removing-rewrite-certificate
+      - B7-S3-ledger-retest-after-certificate
+    best_template_id: w8_21
+    w8_21_nonoverlap_occurrences: 20
+    required_arbitrary_removed_per_occurrence: 2
+    target_removed_arbitrary_occurrences: 30
+    target_removed_t_ledger: 600
+    prior_optimizer_runs: 43480
+    three_cnot_attempted_optimizer_runs: 8880
+    three_cnot_passing_candidate_count: 0
+    submitted_artifact_count: 0
+    accepted_certificate_count: 0
+    ready_for_b7_ledger_retest_count: 0
+    new_rewrite_claimed: false
+    global_lower_bound_claimed: false
+    physical_resource_reduction_claimed: false
+    validation_error_count: 0
+    interpretation: w8_21_open_route_is_now_mapped_to_symbolic_kak_rewrite_certificate_and_ledger_retest_packets
+    caveat: template_only_no_symbolic_obstruction_exact_rewrite_resource_reduction_or_global_lower_bound
+    result: ../results/B7_w8_21_symbolic_obligation_intake_gate_v0.json
+    markdown_report: ../research/B7_w8_21_symbolic_obligation_intake_gate.md
   w8_21_small_block_synthesis_v0:
     status: w8_21_small_block_synthesis_negative_boundary_not_physical_layout
     method: b7_w8_21_small_block_synthesis_v0
@@ -547,6 +581,7 @@ prototype_artifacts:
   shared_synthesis_cache_boundary: ../tools/b7_shared_synthesis_cache_boundary.py
   nonlocal_template_block_scan: ../tools/b7_nonlocal_template_block_scan.py
   template_priority_gate: ../tools/b7_template_priority_gate.py
+  w8_21_symbolic_obligation_intake_gate: ../tools/b7_w8_21_symbolic_obligation_intake_gate.py
   w8_21_small_block_synthesis: ../tools/b7_w8_21_small_block_synthesis.py
   w8_21_broad_skeleton_search: ../tools/b7_w8_21_broad_skeleton_search.py
   w8_21_euler_local_search: ../tools/b7_w8_21_euler_local_search.py

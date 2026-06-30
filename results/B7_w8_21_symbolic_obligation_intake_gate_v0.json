@@ -1,0 +1,203 @@
+{
+  "benchmark_id": "B7",
+  "claim_boundary": {
+    "global_lower_bound_claimed": false,
+    "new_rewrite_claimed": false,
+    "next_gate": "Submit an accepted symbolic certificate or occurrence-removing rewrite, then rerun the B7 ledger before counting any gcm_h6 1.20x resource credit.",
+    "physical_resource_reduction_claimed": false,
+    "what_is_not_supported": "No symbolic obstruction, exact rewrite, resource reduction, global lower bound, or B7 ledger improvement is established.",
+    "what_is_supported": "The open w8_21 route is converted into symbolic KAK, occurrence-removing rewrite, and B7 ledger-retest obligation packets."
+  },
+  "last_updated": "2026-07-01",
+  "linked_benchmark_id": "B1",
+  "method": "b7_w8_21_symbolic_obligation_intake_gate_v0",
+  "model_status": "w8_21_numeric_failures_mapped_to_symbolic_or_rewrite_pr_packets",
+  "obligation_packets": [
+    {
+      "acceptance_rule": "Provide a symbolic KAK/local-invariant obstruction or exact constructive certificate for the w8_21 two-qubit target family.",
+      "accepted_certificate": false,
+      "current_evidence": {
+        "prior_exact_rewrite_found": false,
+        "prior_optimizer_runs": 43480,
+        "template_id": "w8_21"
+      },
+      "owner_role": "theory_agent",
+      "packet_hash": "25b811fc8f9ac2bab3b8d774e4f77cd285e3d8753e9025f8619d3efd1cbd35a6",
+      "packet_id": "B7-S1-w8-21-symbolic-kak-obstruction",
+      "ready_for_b7_ledger_retest": false,
+      "required_artifacts": [
+        "normalized two-qubit target matrix for w8_21",
+        "symbolic local-invariant or KAK coordinates",
+        "statement separating tested local/Euler scaffolds from untested global routes",
+        "machine-readable theorem or reproducible algebra notebook"
+      ],
+      "submitted_artifact_present": false
+    },
+    {
+      "acceptance_rule": "Submit at least 30 occurrence-removing certificates or 20 w8_21 occurrence certificates removing at least 2 arbitrary rotations per occurrence.",
+      "accepted_certificate": false,
+      "current_evidence": {
+        "accepted_occurrence_reduction": 0,
+        "required_arbitrary_removed_per_occurrence": 2,
+        "target_removed_arbitrary_occurrences": 30,
+        "w8_21_nonoverlap_occurrences": 20
+      },
+      "owner_role": "compiler_agent",
+      "packet_hash": "622f7c936f273ef79c25a5549dbc296eb70cd3b2467c9bea567ae2dc67fb9c7a",
+      "packet_id": "B7-S2-occurrence-removing-rewrite-certificate",
+      "ready_for_b7_ledger_retest": false,
+      "required_artifacts": [
+        "source occurrence ids and line spans",
+        "replacement OpenQASM 3 snippets",
+        "statevector or unitary replay certificates",
+        "resource delta showing removed arbitrary rotations under the current B7 ledger"
+      ],
+      "submitted_artifact_present": false
+    },
+    {
+      "acceptance_rule": "Rerun the B7 ledger after accepted certificates and prove the gcm_h6 one-sided 1.20x target without cache-only or unpriced-local-rotation credit.",
+      "accepted_certificate": false,
+      "current_evidence": {
+        "one_angle_clear_count": 0,
+        "physical_resource_reduction_claimed": false,
+        "target_removed_t_ledger": 600
+      },
+      "owner_role": "ft_ledger_agent",
+      "packet_hash": "9567616237c98eb042c97427f5a10543ded44e50b06c343f5fc8ff973d4ab64c",
+      "packet_id": "B7-S3-ledger-retest-after-certificate",
+      "ready_for_b7_ledger_retest": false,
+      "required_artifacts": [
+        "updated arbitrary-rotation ledger",
+        "proxy-T or physical synthesis pricing table",
+        "min-STV retest for gcm_h6",
+        "claim-boundary note forbidding cache-only credit"
+      ],
+      "submitted_artifact_present": false
+    }
+  ],
+  "problem_id": 21,
+  "requirements": [
+    {
+      "evidence": {
+        "best_template_id": "w8_21",
+        "physical_resource_reduction_claimed": false,
+        "source_method": "b7_template_priority_gate_v0"
+      },
+      "label": "Template priority gate selects w8_21 and keeps resource claims false",
+      "passed": true,
+      "requirement_id": "S1"
+    },
+    {
+      "evidence": {
+        "nonoverlap_occurrences": 20,
+        "one_arbitrary_removed_t_ledger": 400,
+        "required_arbitrary_removed_per_occurrence": 2
+      },
+      "label": "w8_21 still needs two arbitrary removals per occurrence",
+      "passed": true,
+      "requirement_id": "S2"
+    },
+    {
+      "evidence": {
+        "attempted_optimizer_runs": 8880,
+        "best_residual_norm": 1.0352761804100845,
+        "passing_candidate_count": 0,
+        "source_method": "b7_w8_21_three_cnot_search_v0"
+      },
+      "label": "Three-CNOT numerical search remains negative and non-promotional",
+      "passed": true,
+      "requirement_id": "S3"
+    },
+    {
+      "evidence": {
+        "packet_count": 3,
+        "packet_ids": [
+          "B7-S1-w8-21-symbolic-kak-obstruction",
+          "B7-S2-occurrence-removing-rewrite-certificate",
+          "B7-S3-ledger-retest-after-certificate"
+        ],
+        "packet_table_hash": "327abfe509ac483f40175e9f7e56061b95fe32dd1d7887c2b20ab71623cb7e17"
+      },
+      "label": "Symbolic/rewrite obligation packets are explicit",
+      "passed": true,
+      "requirement_id": "S4"
+    },
+    {
+      "evidence": {
+        "submitted_artifact_count": 0
+      },
+      "label": "Submitted symbolic or rewrite artifacts exist",
+      "passed": false,
+      "requirement_id": "S5"
+    },
+    {
+      "evidence": {
+        "accepted_certificate_count": 0
+      },
+      "label": "Accepted occurrence-removing or obstruction certificates exist",
+      "passed": false,
+      "requirement_id": "S6"
+    },
+    {
+      "evidence": {
+        "ready_packet_count": 0,
+        "required_packet_count": 3
+      },
+      "label": "B7 ledger retest is ready",
+      "passed": false,
+      "requirement_id": "S7"
+    },
+    {
+      "evidence": {
+        "global_lower_bound_claimed": false,
+        "global_two_qubit_lower_bound_claimed": false,
+        "new_rewrite_claimed": false,
+        "physical_resource_reduction_claimed": false
+      },
+      "label": "Forbidden rewrite, lower-bound, and resource claims remain false",
+      "passed": true,
+      "requirement_id": "S8"
+    }
+  ],
+  "runtime_seconds": 0.0002942085266113281,
+  "source_template_priority_result": "results/B7_template_priority_gate_v0.json",
+  "source_three_cnot_search_result": "results/B7_w8_21_three_cnot_search_v0.json",
+  "status": "w8_21_symbolic_obligation_intake_open_no_rewrite_certificate",
+  "summary": {
+    "accepted_certificate_count": 0,
+    "best_template_id": "w8_21",
+    "failed_intake_requirement_ids": [
+      "S5",
+      "S6",
+      "S7"
+    ],
+    "global_lower_bound_claimed": false,
+    "intake_requirement_count": 8,
+    "intake_requirements_failed": 3,
+    "intake_requirements_passed": 5,
+    "new_rewrite_claimed": false,
+    "packet_count": 3,
+    "packet_ids": [
+      "B7-S1-w8-21-symbolic-kak-obstruction",
+      "B7-S2-occurrence-removing-rewrite-certificate",
+      "B7-S3-ledger-retest-after-certificate"
+    ],
+    "packet_table_hash": "327abfe509ac483f40175e9f7e56061b95fe32dd1d7887c2b20ab71623cb7e17",
+    "physical_resource_reduction_claimed": false,
+    "prior_optimizer_runs": 43480,
+    "ready_for_b7_ledger_retest_count": 0,
+    "required_arbitrary_removed_per_occurrence": 2,
+    "source_template_priority_status": "template_priority_gate_no_single_one_angle_template_clears_gcm_h6",
+    "source_three_cnot_status": "w8_21_three_cnot_search_negative_boundary_not_global_lower_bound",
+    "submitted_artifact_count": 0,
+    "target_removed_arbitrary_occurrences": 30,
+    "target_removed_t_ledger": 600,
+    "three_cnot_attempted_optimizer_runs": 8880,
+    "three_cnot_passing_candidate_count": 0,
+    "validation_error_count": 0,
+    "w8_21_nonoverlap_occurrences": 20
+  },
+  "title": "B7 w8_21 Symbolic Obligation Intake Gate",
+  "validation_errors": [],
+  "version": "0.1"
+}
