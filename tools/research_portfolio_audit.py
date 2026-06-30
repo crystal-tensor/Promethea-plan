@@ -25290,6 +25290,7 @@ def audit(root: Path) -> dict:
     b5_dmrg_readiness = b5_results.get("canonical_dmrg_readiness_gate_v0")
     b5_b10_production_contract = b5_results.get("b5_b10_same_access_production_contract_gate_v0")
     b5_b10_production_triage = b5_results.get("b5_b10_production_implementation_triage_gate_v0")
+    b5_b10_row_contract = b5_results.get("b5_b10_row_contract_harness_v0")
     b5_two_site_dmrg = b5_results.get("two_site_finite_dmrg_response_reference_v0")
     b5_var_mps = b5_results.get("variational_mps_als_response_reference_v0")
     b5_mps = b5_results.get("mps_schmidt_truncation_response_reference_v0")
@@ -25813,6 +25814,142 @@ def audit(root: Path) -> dict:
     b5_b10_production_triage_status = audit_b5_b10_production_triage(
         b5_b10_production_triage, "B5"
     )
+
+    def audit_b5_b10_row_contract(entry, label):
+        status = {}
+        if not entry:
+            warnings.append(f"{label} manifest has no B5/B10 row-contract harness")
+            return status
+        result_path = entry.get("result")
+        markdown_path = entry.get("markdown_report")
+        result_exists = bool(result_path and path_exists_from(benchmarks, result_path))
+        markdown_exists = bool(markdown_path and path_exists_from(benchmarks, markdown_path))
+        if not result_exists:
+            errors.append(f"{label} row-contract harness result path missing: {result_path}")
+        if not markdown_exists:
+            errors.append(f"{label} row-contract harness markdown missing: {markdown_path}")
+        payload = json.loads(read((benchmarks / result_path).resolve())) if result_exists else {}
+        summary = payload.get("summary", {})
+        claims = payload.get("claim_boundary", {})
+        status = {
+            "status": entry.get("status"),
+            "method": entry.get("method"),
+            "model_status": entry.get("model_status"),
+            "row_contract_count": summary.get("row_contract_count"),
+            "row_contract_hash": summary.get("row_contract_hash"),
+            "source_check_count": summary.get("source_check_count"),
+            "source_checks_passed": summary.get("source_checks_passed"),
+            "source_checks_failed": summary.get("source_checks_failed"),
+            "condition_count": summary.get("condition_count"),
+            "conditions_satisfied": summary.get("conditions_satisfied"),
+            "conditions_failed": summary.get("conditions_failed"),
+            "w4_row_contract_harness_executed": summary.get("w4_row_contract_harness_executed"),
+            "w6_audit_wiring_required": summary.get("w6_audit_wiring_required"),
+            "remaining_positive_route_packets": summary.get("remaining_positive_route_packets"),
+            "remaining_theory_integration_packet": summary.get("remaining_theory_integration_packet"),
+            "production_dmrg_available": summary.get("production_dmrg_available"),
+            "sampling_oracle_constructed": summary.get("sampling_oracle_constructed"),
+            "same_access_positive_route_ready": summary.get("same_access_positive_route_ready"),
+            "b10_t1_positive_route_ready": summary.get("b10_t1_positive_route_ready"),
+            "catalog_change_required": summary.get("catalog_change_required"),
+            "production_dmrg_claimed": summary.get("production_dmrg_claimed"),
+            "quantum_response_win_claimed": summary.get("quantum_response_win_claimed"),
+            "accuracy_per_resource_win_claimed": summary.get("accuracy_per_resource_win_claimed"),
+            "same_access_positive_route_claimed": summary.get("same_access_positive_route_claimed"),
+            "quantum_advantage_claimed": summary.get("quantum_advantage_claimed"),
+            "bqp_separation_claimed": summary.get("bqp_separation_claimed"),
+            "dequantization_theorem_claimed": summary.get("dequantization_theorem_claimed"),
+            "sampling_access_theorem_claimed": summary.get("sampling_access_theorem_claimed"),
+            "validation_error_count": len(payload.get("validation_errors", [])),
+            "result_exists": result_exists,
+            "markdown_exists": markdown_exists,
+            "result": result_path,
+            "markdown_report": markdown_path,
+        }
+        if payload.get("benchmark_id") != "B5":
+            errors.append(f"{label} row-contract harness benchmark_id must be B5")
+        if payload.get("linked_benchmark_id") != "B10":
+            errors.append(f"{label} row-contract harness linked_benchmark_id must be B10")
+        if payload.get("method") != entry.get("method"):
+            errors.append(f"{label} row-contract harness method mismatch")
+        if payload.get("status") != entry.get("status"):
+            errors.append(f"{label} row-contract harness status mismatch")
+        if payload.get("model_status") != entry.get("model_status"):
+            errors.append(f"{label} row-contract harness model-status mismatch")
+        for field in [
+            "row_contract_count",
+            "row_contract_hash",
+            "source_check_count",
+            "source_checks_passed",
+            "source_checks_failed",
+            "condition_count",
+            "conditions_satisfied",
+            "conditions_failed",
+            "w4_row_contract_harness_executed",
+            "w6_audit_wiring_required",
+            "remaining_positive_route_packets",
+            "remaining_theory_integration_packet",
+            "production_dmrg_available",
+            "sampling_oracle_constructed",
+            "same_access_positive_route_ready",
+            "b10_t1_positive_route_ready",
+            "catalog_change_required",
+            "production_dmrg_claimed",
+            "quantum_response_win_claimed",
+            "accuracy_per_resource_win_claimed",
+            "same_access_positive_route_claimed",
+            "quantum_advantage_claimed",
+            "bqp_separation_claimed",
+            "dequantization_theorem_claimed",
+            "sampling_access_theorem_claimed",
+        ]:
+            if summary.get(field) != entry.get(field):
+                errors.append(f"{label} row-contract harness {field} mismatch")
+        if summary.get("row_contract_count") != 9:
+            errors.append(f"{label} row-contract harness must preserve nine rows")
+        if summary.get("source_check_count") != 10:
+            errors.append(f"{label} row-contract harness should check ten sources")
+        if summary.get("source_checks_passed") != 10 or summary.get("source_checks_failed") != 0:
+            errors.append(f"{label} row-contract harness source checks must be 10/0")
+        if summary.get("condition_count") != 6:
+            errors.append(f"{label} row-contract harness should expose six conditions")
+        if summary.get("conditions_satisfied") != 6 or summary.get("conditions_failed") != 0:
+            errors.append(f"{label} row-contract harness conditions must be 6/0")
+        if summary.get("w4_row_contract_harness_executed") is not True:
+            errors.append(f"{label} row-contract harness must execute W4")
+        if summary.get("remaining_positive_route_packets") != ["W1", "W2", "W3"]:
+            errors.append(f"{label} row-contract harness remaining positive packets changed")
+        if summary.get("remaining_theory_integration_packet") != "W5":
+            errors.append(f"{label} row-contract harness remaining theory packet changed")
+        if len(payload.get("contract_rows", [])) != 9:
+            errors.append(f"{label} row-contract harness contract row count mismatch")
+        if len(payload.get("source_checks", [])) != 10:
+            errors.append(f"{label} row-contract harness source check count mismatch")
+        if any(not check.get("row_contract_preserved") for check in payload.get("source_checks", [])):
+            errors.append(f"{label} row-contract harness has a failing source check")
+        if len(payload.get("conditions", [])) != 6:
+            errors.append(f"{label} row-contract harness condition row count mismatch")
+        if any(not condition.get("satisfied") for condition in payload.get("conditions", [])):
+            errors.append(f"{label} row-contract harness has an unsatisfied condition")
+        for field in [
+            "production_dmrg_claimed",
+            "quantum_response_win_claimed",
+            "accuracy_per_resource_win_claimed",
+            "same_access_positive_route_claimed",
+            "quantum_advantage_claimed",
+            "bqp_separation_claimed",
+            "dequantization_theorem_claimed",
+            "sampling_access_theorem_claimed",
+        ]:
+            if summary.get(field) is not False:
+                errors.append(f"{label} row-contract harness must keep {field}=False")
+            if claims.get(field) is not False:
+                errors.append(f"{label} row-contract harness claim boundary must keep {field}=False")
+        if len(payload.get("validation_errors", [])) != entry.get("validation_error_count"):
+            errors.append(f"{label} row-contract harness validation-error count mismatch")
+        return status
+
+    b5_b10_row_contract_status = audit_b5_b10_row_contract(b5_b10_row_contract, "B5")
 
     b5_boundary_field_status = {}
     if not b5_boundary_field:
@@ -28892,6 +29029,7 @@ def audit(root: Path) -> dict:
     b10_t1_b5_production_triage = b10_results.get(
         "b10_t1_b5_production_implementation_triage_gate_v0"
     )
+    b10_t1_b5_row_contract = b10_results.get("b10_t1_b5_row_contract_harness_v0")
     b10_status = {}
     if not b10_graph:
         warnings.append("B10 manifest has no BQP-boundary graph result")
@@ -30263,6 +30401,9 @@ def audit(root: Path) -> dict:
     b10_t1_b5_production_triage_status = audit_b5_b10_production_triage(
         b10_t1_b5_production_triage, "B10"
     )
+    b10_t1_b5_row_contract_status = audit_b5_b10_row_contract(
+        b10_t1_b5_row_contract, "B10"
+    )
 
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
@@ -30616,6 +30757,7 @@ def audit(root: Path) -> dict:
             "hubbard_embedding": b5_status,
             "same_access_production_contract_gate": b5_b10_production_contract_status,
             "production_implementation_triage_gate": b5_b10_production_triage_status,
+            "row_contract_harness": b5_b10_row_contract_status,
             "canonical_environment_smoke_gate": b5_canonical_smoke_status,
             "canonical_dmrg_readiness_gate": b5_dmrg_readiness_status,
             "two_site_finite_dmrg_response_reference": b5_two_site_dmrg_status,
@@ -30713,6 +30855,7 @@ def audit(root: Path) -> dict:
             "t1_b5_same_access_sampling_or_dmrg_bridge": b10_t1_b5_same_access_bridge_status,
             "t1_b5_response_sampler_cost_stress": b10_t1_b5_response_sampler_stress_status,
             "t1_b5_production_implementation_triage_gate": b10_t1_b5_production_triage_status,
+            "t1_b5_row_contract_harness": b10_t1_b5_row_contract_status,
         },
         "status_artifacts": {
             "roadmap": str(roadmap_path),
@@ -31118,6 +31261,9 @@ def audit(root: Path) -> dict:
             "b5_b10_production_implementation_triage_gate": str(
                 research / "B5_B10_production_implementation_triage_gate.md"
             ),
+            "b5_b10_row_contract_harness": str(
+                research / "B5_B10_row_contract_harness.md"
+            ),
             "b5_canonical_environment_smoke_gate": str(
                 research / "B5_canonical_environment_smoke_gate.md"
             ),
@@ -31167,6 +31313,9 @@ def audit(root: Path) -> dict:
             ),
             "b10_t1_b5_production_implementation_triage_gate": str(
                 research / "B5_B10_production_implementation_triage_gate.md"
+            ),
+            "b10_t1_b5_row_contract_harness": str(
+                research / "B5_B10_row_contract_harness.md"
             ),
             "b9_failed_gap_amplification_lemma": str(research / "B9_failed_gap_amplification_lemma.md"),
             "b9_symbolic_gap_skeleton": str(research / "B9_symbolic_gap_skeleton.md"),
@@ -33212,6 +33361,12 @@ def markdown_report(report: dict) -> str:
             f"- B5/B10 production implementation triage conditions satisfied/unsatisfied: {report['b5']['production_implementation_triage_gate'].get('satisfied_readiness_condition_count')} / {report['b5']['production_implementation_triage_gate'].get('unsatisfied_readiness_condition_count')}",
             f"- B5/B10 production implementation triage DMRG / oracle / positive route / catalog change: {report['b5']['production_implementation_triage_gate'].get('production_dmrg_available')} / {report['b5']['production_implementation_triage_gate'].get('sampling_oracle_constructed')} / {report['b5']['production_implementation_triage_gate'].get('same_access_positive_route_ready')} / {report['b5']['production_implementation_triage_gate'].get('catalog_change_required')}",
             f"- B5/B10 production implementation triage result/markdown exists: {report['b5']['production_implementation_triage_gate'].get('result_exists')} / {report['b5']['production_implementation_triage_gate'].get('markdown_exists')}",
+            f"- B5/B10 row-contract harness status: {report['b5']['row_contract_harness'].get('status')}",
+            f"- B5/B10 row-contract harness rows/hash: {report['b5']['row_contract_harness'].get('row_contract_count')} / {report['b5']['row_contract_harness'].get('row_contract_hash')}",
+            f"- B5/B10 row-contract harness source checks passed/failed: {report['b5']['row_contract_harness'].get('source_checks_passed')} / {report['b5']['row_contract_harness'].get('source_checks_failed')}",
+            f"- B5/B10 row-contract harness conditions satisfied/failed: {report['b5']['row_contract_harness'].get('conditions_satisfied')} / {report['b5']['row_contract_harness'].get('conditions_failed')}",
+            f"- B5/B10 row-contract harness remaining positive-route packets: {report['b5']['row_contract_harness'].get('remaining_positive_route_packets')}",
+            f"- B5/B10 row-contract harness result/markdown exists: {report['b5']['row_contract_harness'].get('result_exists')} / {report['b5']['row_contract_harness'].get('markdown_exists')}",
             "",
             "## B6 Superconductivity Descriptor Status",
             "",
@@ -33753,6 +33908,11 @@ def markdown_report(report: dict) -> str:
             f"- B10-T1 B5 production triage conditions satisfied/unsatisfied: {report['b10']['t1_b5_production_implementation_triage_gate'].get('satisfied_readiness_condition_count')} / {report['b10']['t1_b5_production_implementation_triage_gate'].get('unsatisfied_readiness_condition_count')}",
             f"- B10-T1 B5 production triage DMRG / oracle / positive route / catalog change: {report['b10']['t1_b5_production_implementation_triage_gate'].get('production_dmrg_available')} / {report['b10']['t1_b5_production_implementation_triage_gate'].get('sampling_oracle_constructed')} / {report['b10']['t1_b5_production_implementation_triage_gate'].get('same_access_positive_route_ready')} / {report['b10']['t1_b5_production_implementation_triage_gate'].get('catalog_change_required')}",
             f"- B10-T1 B5 production triage result/markdown exists: {report['b10']['t1_b5_production_implementation_triage_gate'].get('result_exists')} / {report['b10']['t1_b5_production_implementation_triage_gate'].get('markdown_exists')}",
+            f"- B10-T1 B5 row-contract harness status: {report['b10']['t1_b5_row_contract_harness'].get('status')}",
+            f"- B10-T1 B5 row-contract harness rows/hash: {report['b10']['t1_b5_row_contract_harness'].get('row_contract_count')} / {report['b10']['t1_b5_row_contract_harness'].get('row_contract_hash')}",
+            f"- B10-T1 B5 row-contract harness source checks passed/failed: {report['b10']['t1_b5_row_contract_harness'].get('source_checks_passed')} / {report['b10']['t1_b5_row_contract_harness'].get('source_checks_failed')}",
+            f"- B10-T1 B5 row-contract harness remaining positive-route packets: {report['b10']['t1_b5_row_contract_harness'].get('remaining_positive_route_packets')}",
+            f"- B10-T1 B5 row-contract harness result/markdown exists: {report['b10']['t1_b5_row_contract_harness'].get('result_exists')} / {report['b10']['t1_b5_row_contract_harness'].get('markdown_exists')}",
             "",
         ]
     )

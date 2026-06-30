@@ -40,7 +40,7 @@ Overall audit: PASS
 - B IDs are B1..B10: True
 - Problem IDs match attack pack: True
 - All required fields present: True
-- Maturity scores: {'B1': 63, 'B2': 48, 'B3': 28, 'B4': 29, 'B5': 28, 'B6': 24, 'B7': 59, 'B8': 41, 'B9': 15, 'B10': 52}
+- Maturity scores: {'B1': 63, 'B2': 48, 'B3': 28, 'B4': 29, 'B5': 29, 'B6': 24, 'B7': 59, 'B8': 41, 'B9': 15, 'B10': 53}
 
 ## Technical Resolution Program
 
@@ -1953,6 +1953,12 @@ Overall audit: PASS
 - B5/B10 production implementation triage conditions satisfied/unsatisfied: 6 / 0
 - B5/B10 production implementation triage DMRG / oracle / positive route / catalog change: False / False / False / False
 - B5/B10 production implementation triage result/markdown exists: True / True
+- B5/B10 row-contract harness status: row_contract_preserved_guardrail_ready
+- B5/B10 row-contract harness rows/hash: 9 / 7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc
+- B5/B10 row-contract harness source checks passed/failed: 10 / 0
+- B5/B10 row-contract harness conditions satisfied/failed: 6 / 0
+- B5/B10 row-contract harness remaining positive-route packets: ['W1', 'W2', 'W3']
+- B5/B10 row-contract harness result/markdown exists: True / True
 
 ## B6 Superconductivity Descriptor Status
 
@@ -2494,6 +2500,11 @@ Overall audit: PASS
 - B10-T1 B5 production triage conditions satisfied/unsatisfied: 6 / 0
 - B10-T1 B5 production triage DMRG / oracle / positive route / catalog change: False / False / False / False
 - B10-T1 B5 production triage result/markdown exists: True / True
+- B10-T1 B5 row-contract harness status: row_contract_preserved_guardrail_ready
+- B10-T1 B5 row-contract harness rows/hash: 9 / 7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc
+- B10-T1 B5 row-contract harness source checks passed/failed: 10 / 0
+- B10-T1 B5 row-contract harness remaining positive-route packets: ['W1', 'W2', 'W3']
+- B10-T1 B5 row-contract harness result/markdown exists: True / True
 
 ## Errors
 

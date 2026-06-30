@@ -100,6 +100,13 @@ ledger, and `W5` B10-T1 theorem-boundary integration). It satisfies 6/6
 triage readiness conditions while keeping production DMRG, sampling oracle,
 same-access positive route, catalog change, quantum advantage, and BQP
 separation all false.
+The W4 row-contract harness is now executed as a machine-checkable guardrail:
+it preserves the same 9 D5 Hubbard response rows across 10 B5/B10 source
+artifacts, records row-contract hash
+`7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc`,
+passes 10/10 source checks and 6/6 conditions, and leaves `W1`/`W2`/`W3` as
+the only positive-route implementation packets. It is not a new denominator,
+not production DMRG, not a response oracle, and not a quantum advantage claim.
 The latest B10-T1 stress test still finds no positive same-access route because
 0 rows beat explicit D5 matvec-equivalent costs by shots. This is progress, but
 it is not a production DMRG result, not a deployable tensor solver, not a

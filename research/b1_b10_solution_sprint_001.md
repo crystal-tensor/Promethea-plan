@@ -2411,3 +2411,17 @@ R9 full-private-material leakage bounded below 0.25. The stack still has 0
 real backend transcript rows, leakage-blind no-leak fitted acceptance `0.35`,
 and full-private-material leakage fitted acceptance `1.0`, so it is not
 real-backend transcript readiness or protocol soundness.
+
+Sprint update 63: B5/B10 now has the W4 row-contract harness that the
+production implementation triage requested. T-B5-006d/T-B10-014b adds
+`tools/b5_b10_row_contract_harness.py` and emits
+`results/B5_B10_row_contract_harness_v0.json` plus
+`research/B5_B10_row_contract_harness.md`. The harness preserves the same 9 D5
+Hubbard response rows across 10 current B5/B10 source artifacts, records
+row-contract hash
+`7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc`, passes
+10/10 source checks, and satisfies 6/6 row-contract conditions. This executes
+W4 and makes future W1/W2/W3 outputs rejectable if they drift from the row or
+observable contract. It is still not production DMRG, not a response oracle,
+not a same-access positive route, not quantum advantage, and not BQP
+separation.

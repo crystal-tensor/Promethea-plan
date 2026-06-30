@@ -1,0 +1,1155 @@
+{
+  "benchmark_id": "B5",
+  "claim_boundary": {
+    "accuracy_per_resource_win_claimed": false,
+    "bqp_separation_claimed": false,
+    "dequantization_theorem_claimed": false,
+    "next_gate": "Future W1/W2/W3 outputs must preserve the row_contract_hash and the nine row IDs before they can be compared against the current ladder.",
+    "production_dmrg_claimed": false,
+    "quantum_advantage_claimed": false,
+    "quantum_response_win_claimed": false,
+    "same_access_positive_route_claimed": false,
+    "sampling_access_theorem_claimed": false,
+    "what_is_not_supported": "This harness is not a new denominator, not production DMRG, not a response oracle, not a positive same-access route, not quantum advantage, and not BQP separation.",
+    "what_is_supported": "The B5/B10 D5 row contract is now machine-checkable across the current denominator ladder, readiness/smoke gates, production contract, and triage queue."
+  },
+  "conditions": [
+    {
+      "condition_id": "R1",
+      "evidence": {
+        "row_count": 9
+      },
+      "label": "Reference D5 row contract has exactly nine rows",
+      "satisfied": true
+    },
+    {
+      "condition_id": "R2",
+      "evidence": {
+        "row_keys": [
+          [
+            4,
+            2.0
+          ],
+          [
+            4,
+            4.0
+          ],
+          [
+            4,
+            8.0
+          ],
+          [
+            6,
+            2.0
+          ],
+          [
+            6,
+            4.0
+          ],
+          [
+            6,
+            8.0
+          ],
+          [
+            8,
+            2.0
+          ],
+          [
+            8,
+            4.0
+          ],
+          [
+            8,
+            8.0
+          ]
+        ]
+      },
+      "label": "Reference rows preserve the 3x3 sites/u grid",
+      "satisfied": true
+    },
+    {
+      "condition_id": "R3",
+      "evidence": {
+        "checked_sources": [
+          "B10 D5 denominator table",
+          "B5 non-oracle embedding baseline",
+          "B5 exact-state-seeded MPS pressure",
+          "B5 variational MPS/ALS prototype",
+          "B5 two-site finite-DMRG-style prototype",
+          "B5 canonical-environment smoke gate"
+        ],
+        "mismatch_counts": {
+          "B10 D5 denominator table": 0,
+          "B5 canonical-environment smoke gate": 0,
+          "B5 exact-state-seeded MPS pressure": 0,
+          "B5 non-oracle embedding baseline": 0,
+          "B5 two-site finite-DMRG-style prototype": 0,
+          "B5 variational MPS/ALS prototype": 0
+        }
+      },
+      "label": "All row-bearing B5 sources preserve row order and shared fields",
+      "satisfied": true
+    },
+    {
+      "condition_id": "R4",
+      "evidence": {
+        "checked_sources": [
+          "B5 canonical DMRG readiness gate",
+          "B10 same-access bridge",
+          "B5/B10 production contract"
+        ],
+        "counts": {
+          "B10 same-access bridge": 9,
+          "B5 canonical DMRG readiness gate": 9,
+          "B5/B10 production contract": 9
+        }
+      },
+      "label": "Count-only gates preserve nine-instance scope",
+      "satisfied": true
+    },
+    {
+      "condition_id": "R5",
+      "evidence": {
+        "packet_ids": [
+          "W1",
+          "W2",
+          "W3",
+          "W4",
+          "W5",
+          "W6"
+        ],
+        "w4_status": "ready_now"
+      },
+      "label": "Triage still exposes W4 as the row-contract packet",
+      "satisfied": true
+    },
+    {
+      "condition_id": "R6",
+      "evidence": {
+        "accuracy_per_resource_win_claimed": false,
+        "bqp_separation_claimed": false,
+        "dequantization_theorem_claimed": false,
+        "production_dmrg_claimed": false,
+        "quantum_advantage_claimed": false,
+        "quantum_response_win_claimed": false,
+        "same_access_positive_route_claimed": false,
+        "sampling_access_theorem_claimed": false
+      },
+      "label": "No positive route or forbidden claim is introduced",
+      "satisfied": true
+    }
+  ],
+  "contract_rows": [
+    {
+      "density_site": 2,
+      "eta": 0.25,
+      "explicit_io_floor_units": 273,
+      "family": "D5_b3_b5_observable_linear_response",
+      "hamiltonian_nnz": 180,
+      "hilbert_dimension": 36,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "n_down": 2,
+      "n_up": 2,
+      "observable": "density_response_susceptibility_proxy",
+      "relative_residual_target": 1e-08,
+      "row_id": "D5H_s4_u2_eta0.25_n2x2_obs_density_site_2",
+      "row_index": 0,
+      "sites": 4,
+      "solver": "cg_shifted_hubbard_response",
+      "susceptibility_proxy": 0.0836060986395423,
+      "t": 1.0,
+      "u_over_t": 2.0
+    },
+    {
+      "density_site": 2,
+      "eta": 0.25,
+      "explicit_io_floor_units": 273,
+      "family": "D5_b3_b5_observable_linear_response",
+      "hamiltonian_nnz": 180,
+      "hilbert_dimension": 36,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "n_down": 2,
+      "n_up": 2,
+      "observable": "density_response_susceptibility_proxy",
+      "relative_residual_target": 1e-08,
+      "row_id": "D5H_s4_u4_eta0.25_n2x2_obs_density_site_2",
+      "row_index": 1,
+      "sites": 4,
+      "solver": "cg_shifted_hubbard_response",
+      "susceptibility_proxy": 0.03622603032182597,
+      "t": 1.0,
+      "u_over_t": 4.0
+    },
+    {
+      "density_site": 2,
+      "eta": 0.25,
+      "explicit_io_floor_units": 273,
+      "family": "D5_b3_b5_observable_linear_response",
+      "hamiltonian_nnz": 180,
+      "hilbert_dimension": 36,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "n_down": 2,
+      "n_up": 2,
+      "observable": "density_response_susceptibility_proxy",
+      "relative_residual_target": 1e-08,
+      "row_id": "D5H_s4_u8_eta0.25_n2x2_obs_density_site_2",
+      "row_index": 2,
+      "sites": 4,
+      "solver": "cg_shifted_hubbard_response",
+      "susceptibility_proxy": 0.008377776428140199,
+      "t": 1.0,
+      "u_over_t": 8.0
+    },
+    {
+      "density_site": 3,
+      "eta": 0.25,
+      "explicit_io_floor_units": 3259,
+      "family": "D5_b3_b5_observable_linear_response",
+      "hamiltonian_nnz": 2800,
+      "hilbert_dimension": 400,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "n_down": 3,
+      "n_up": 3,
+      "observable": "density_response_susceptibility_proxy",
+      "relative_residual_target": 1e-08,
+      "row_id": "D5H_s6_u2_eta0.25_n3x3_obs_density_site_3",
+      "row_index": 3,
+      "sites": 6,
+      "solver": "cg_shifted_hubbard_response",
+      "susceptibility_proxy": 0.09578490151113497,
+      "t": 1.0,
+      "u_over_t": 2.0
+    },
+    {
+      "density_site": 3,
+      "eta": 0.25,
+      "explicit_io_floor_units": 3259,
+      "family": "D5_b3_b5_observable_linear_response",
+      "hamiltonian_nnz": 2800,
+      "hilbert_dimension": 400,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "n_down": 3,
+      "n_up": 3,
+      "observable": "density_response_susceptibility_proxy",
+      "relative_residual_target": 1e-08,
+      "row_id": "D5H_s6_u4_eta0.25_n3x3_obs_density_site_3",
+      "row_index": 4,
+      "sites": 6,
+      "solver": "cg_shifted_hubbard_response",
+      "susceptibility_proxy": 0.03936862450197687,
+      "t": 1.0,
+      "u_over_t": 4.0
+    },
+    {
+      "density_site": 3,
+      "eta": 0.25,
+      "explicit_io_floor_units": 3259,
+      "family": "D5_b3_b5_observable_linear_response",
+      "hamiltonian_nnz": 2800,
+      "hilbert_dimension": 400,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "n_down": 3,
+      "n_up": 3,
+      "observable": "density_response_susceptibility_proxy",
+      "relative_residual_target": 1e-08,
+      "row_id": "D5H_s6_u8_eta0.25_n3x3_obs_density_site_3",
+      "row_index": 5,
+      "sites": 6,
+      "solver": "cg_shifted_hubbard_response",
+      "susceptibility_proxy": 0.008466866704064192,
+      "t": 1.0,
+      "u_over_t": 8.0
+    },
+    {
+      "density_site": 4,
+      "eta": 0.25,
+      "explicit_io_floor_units": 49061,
+      "family": "D5_b3_b5_observable_linear_response",
+      "hamiltonian_nnz": 44100,
+      "hilbert_dimension": 4900,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "n_down": 4,
+      "n_up": 4,
+      "observable": "density_response_susceptibility_proxy",
+      "relative_residual_target": 1e-08,
+      "row_id": "D5H_s8_u2_eta0.25_n4x4_obs_density_site_4",
+      "row_index": 6,
+      "sites": 8,
+      "solver": "cg_shifted_hubbard_response",
+      "susceptibility_proxy": 0.09780451002539868,
+      "t": 1.0,
+      "u_over_t": 2.0
+    },
+    {
+      "density_site": 4,
+      "eta": 0.25,
+      "explicit_io_floor_units": 49061,
+      "family": "D5_b3_b5_observable_linear_response",
+      "hamiltonian_nnz": 44100,
+      "hilbert_dimension": 4900,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "n_down": 4,
+      "n_up": 4,
+      "observable": "density_response_susceptibility_proxy",
+      "relative_residual_target": 1e-08,
+      "row_id": "D5H_s8_u4_eta0.25_n4x4_obs_density_site_4",
+      "row_index": 7,
+      "sites": 8,
+      "solver": "cg_shifted_hubbard_response",
+      "susceptibility_proxy": 0.04046928678042132,
+      "t": 1.0,
+      "u_over_t": 4.0
+    },
+    {
+      "density_site": 4,
+      "eta": 0.25,
+      "explicit_io_floor_units": 49061,
+      "family": "D5_b3_b5_observable_linear_response",
+      "hamiltonian_nnz": 44100,
+      "hilbert_dimension": 4900,
+      "model": "one_dimensional_fermi_hubbard_half_filled_density_response",
+      "n_down": 4,
+      "n_up": 4,
+      "observable": "density_response_susceptibility_proxy",
+      "relative_residual_target": 1e-08,
+      "row_id": "D5H_s8_u8_eta0.25_n4x4_obs_density_site_4",
+      "row_index": 8,
+      "sites": 8,
+      "solver": "cg_shifted_hubbard_response",
+      "susceptibility_proxy": 0.00858130228459222,
+      "t": 1.0,
+      "u_over_t": 8.0
+    }
+  ],
+  "last_updated": "2026-07-01",
+  "linked_benchmark_id": "B10",
+  "linked_problem_id": 10,
+  "method": "b5_b10_row_contract_harness_v0",
+  "model_status": "w4_row_contract_harness_executed_no_positive_route",
+  "problem_id": 5,
+  "runtime_seconds": 0.001985,
+  "source_checks": [
+    {
+      "method": "b10_t1_d5_observable_denominator_table_v0",
+      "mismatch_count": 0,
+      "mismatches": [],
+      "required_fields": [
+        "sites",
+        "u_over_t",
+        "eta",
+        "t",
+        "model"
+      ],
+      "row_checks": [
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s4_u2_eta0.25_n2x2_obs_density_site_2",
+          "row_index": 0
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s4_u4_eta0.25_n2x2_obs_density_site_2",
+          "row_index": 1
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s4_u8_eta0.25_n2x2_obs_density_site_2",
+          "row_index": 2
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s6_u2_eta0.25_n3x3_obs_density_site_3",
+          "row_index": 3
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s6_u4_eta0.25_n3x3_obs_density_site_3",
+          "row_index": 4
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s6_u8_eta0.25_n3x3_obs_density_site_3",
+          "row_index": 5
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s8_u2_eta0.25_n4x4_obs_density_site_4",
+          "row_index": 6
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s8_u4_eta0.25_n4x4_obs_density_site_4",
+          "row_index": 7
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s8_u8_eta0.25_n4x4_obs_density_site_4",
+          "row_index": 8
+        }
+      ],
+      "row_contract_preserved": true,
+      "row_count": 9,
+      "source_name": "B10 D5 denominator table",
+      "status": "d5_observable_denominator_table_instantiated_not_quantum_speedup_claim"
+    },
+    {
+      "method": "b5_non_oracle_response_embedding_baseline_v0",
+      "mismatch_count": 0,
+      "mismatches": [],
+      "required_fields": [
+        "sites",
+        "u_over_t",
+        "eta",
+        "t",
+        "model"
+      ],
+      "row_checks": [
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s4_u2_eta0.25_n2x2_obs_density_site_2",
+          "row_index": 0
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s4_u4_eta0.25_n2x2_obs_density_site_2",
+          "row_index": 1
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s4_u8_eta0.25_n2x2_obs_density_site_2",
+          "row_index": 2
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s6_u2_eta0.25_n3x3_obs_density_site_3",
+          "row_index": 3
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s6_u4_eta0.25_n3x3_obs_density_site_3",
+          "row_index": 4
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s6_u8_eta0.25_n3x3_obs_density_site_3",
+          "row_index": 5
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s8_u2_eta0.25_n4x4_obs_density_site_4",
+          "row_index": 6
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s8_u4_eta0.25_n4x4_obs_density_site_4",
+          "row_index": 7
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s8_u8_eta0.25_n4x4_obs_density_site_4",
+          "row_index": 8
+        }
+      ],
+      "row_contract_preserved": true,
+      "row_count": 9,
+      "source_name": "B5 non-oracle embedding baseline",
+      "status": "non_oracle_response_embedding_denominator_not_quantum_advantage_claim"
+    },
+    {
+      "method": "b5_mps_schmidt_truncation_response_reference_v0",
+      "mismatch_count": 0,
+      "mismatches": [],
+      "required_fields": [
+        "sites",
+        "u_over_t",
+        "eta",
+        "t",
+        "model"
+      ],
+      "row_checks": [
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s4_u2_eta0.25_n2x2_obs_density_site_2",
+          "row_index": 0
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s4_u4_eta0.25_n2x2_obs_density_site_2",
+          "row_index": 1
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s4_u8_eta0.25_n2x2_obs_density_site_2",
+          "row_index": 2
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s6_u2_eta0.25_n3x3_obs_density_site_3",
+          "row_index": 3
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s6_u4_eta0.25_n3x3_obs_density_site_3",
+          "row_index": 4
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s6_u8_eta0.25_n3x3_obs_density_site_3",
+          "row_index": 5
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s8_u2_eta0.25_n4x4_obs_density_site_4",
+          "row_index": 6
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s8_u4_eta0.25_n4x4_obs_density_site_4",
+          "row_index": 7
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s8_u8_eta0.25_n4x4_obs_density_site_4",
+          "row_index": 8
+        }
+      ],
+      "row_contract_preserved": true,
+      "row_count": 9,
+      "source_name": "B5 exact-state-seeded MPS pressure",
+      "status": "mps_schmidt_truncation_response_reference_not_dmrg_or_advantage_claim"
+    },
+    {
+      "method": "b5_variational_mps_als_response_reference_v0",
+      "mismatch_count": 0,
+      "mismatches": [],
+      "required_fields": [
+        "sites",
+        "u_over_t",
+        "eta",
+        "t",
+        "model"
+      ],
+      "row_checks": [
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s4_u2_eta0.25_n2x2_obs_density_site_2",
+          "row_index": 0
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s4_u4_eta0.25_n2x2_obs_density_site_2",
+          "row_index": 1
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s4_u8_eta0.25_n2x2_obs_density_site_2",
+          "row_index": 2
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s6_u2_eta0.25_n3x3_obs_density_site_3",
+          "row_index": 3
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s6_u4_eta0.25_n3x3_obs_density_site_3",
+          "row_index": 4
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s6_u8_eta0.25_n3x3_obs_density_site_3",
+          "row_index": 5
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s8_u2_eta0.25_n4x4_obs_density_site_4",
+          "row_index": 6
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s8_u4_eta0.25_n4x4_obs_density_site_4",
+          "row_index": 7
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s8_u8_eta0.25_n4x4_obs_density_site_4",
+          "row_index": 8
+        }
+      ],
+      "row_contract_preserved": true,
+      "row_count": 9,
+      "source_name": "B5 variational MPS/ALS prototype",
+      "status": "variational_mps_als_pressure_reference_not_production_dmrg_or_advantage_claim"
+    },
+    {
+      "method": "b5_two_site_finite_dmrg_response_reference_v0",
+      "mismatch_count": 0,
+      "mismatches": [],
+      "required_fields": [
+        "sites",
+        "u_over_t",
+        "eta",
+        "t",
+        "model"
+      ],
+      "row_checks": [
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s4_u2_eta0.25_n2x2_obs_density_site_2",
+          "row_index": 0
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s4_u4_eta0.25_n2x2_obs_density_site_2",
+          "row_index": 1
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s4_u8_eta0.25_n2x2_obs_density_site_2",
+          "row_index": 2
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s6_u2_eta0.25_n3x3_obs_density_site_3",
+          "row_index": 3
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s6_u4_eta0.25_n3x3_obs_density_site_3",
+          "row_index": 4
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s6_u8_eta0.25_n3x3_obs_density_site_3",
+          "row_index": 5
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s8_u2_eta0.25_n4x4_obs_density_site_4",
+          "row_index": 6
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s8_u4_eta0.25_n4x4_obs_density_site_4",
+          "row_index": 7
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t",
+            "eta",
+            "t",
+            "model"
+          ],
+          "row_id": "D5H_s8_u8_eta0.25_n4x4_obs_density_site_4",
+          "row_index": 8
+        }
+      ],
+      "row_contract_preserved": true,
+      "row_count": 9,
+      "source_name": "B5 two-site finite-DMRG-style prototype",
+      "status": "two_site_finite_dmrg_pressure_reference_not_production_dmrg_or_advantage_claim"
+    },
+    {
+      "method": "b5_canonical_environment_smoke_gate_v0",
+      "mismatch_count": 0,
+      "mismatches": [],
+      "required_fields": [
+        "sites",
+        "u_over_t"
+      ],
+      "row_checks": [
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t"
+          ],
+          "row_id": "D5H_s4_u2_eta0.25_n2x2_obs_density_site_2",
+          "row_index": 0
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t"
+          ],
+          "row_id": "D5H_s4_u4_eta0.25_n2x2_obs_density_site_2",
+          "row_index": 1
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t"
+          ],
+          "row_id": "D5H_s4_u8_eta0.25_n2x2_obs_density_site_2",
+          "row_index": 2
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t"
+          ],
+          "row_id": "D5H_s6_u2_eta0.25_n3x3_obs_density_site_3",
+          "row_index": 3
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t"
+          ],
+          "row_id": "D5H_s6_u4_eta0.25_n3x3_obs_density_site_3",
+          "row_index": 4
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t"
+          ],
+          "row_id": "D5H_s6_u8_eta0.25_n3x3_obs_density_site_3",
+          "row_index": 5
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t"
+          ],
+          "row_id": "D5H_s8_u2_eta0.25_n4x4_obs_density_site_4",
+          "row_index": 6
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t"
+          ],
+          "row_id": "D5H_s8_u4_eta0.25_n4x4_obs_density_site_4",
+          "row_index": 7
+        },
+        {
+          "passed": true,
+          "required_fields": [
+            "sites",
+            "u_over_t"
+          ],
+          "row_id": "D5H_s8_u8_eta0.25_n4x4_obs_density_site_4",
+          "row_index": 8
+        }
+      ],
+      "row_contract_preserved": true,
+      "row_count": 9,
+      "source_name": "B5 canonical-environment smoke gate",
+      "status": "canonical_environment_smoke_gate_failed_not_production_dmrg"
+    },
+    {
+      "count": 9,
+      "count_field": "instance_count",
+      "method": "b5_canonical_dmrg_readiness_gate_v0",
+      "mismatch_count": 0,
+      "mismatches": [],
+      "row_contract_preserved": true,
+      "source_name": "B5 canonical DMRG readiness gate",
+      "status": "canonical_dmrg_readiness_gate_failed_not_production_dmrg"
+    },
+    {
+      "count": 9,
+      "count_field": "b5_instance_count",
+      "method": "b10_t1_b5_same_access_sampling_or_dmrg_bridge_v0",
+      "mismatch_count": 0,
+      "mismatches": [],
+      "row_contract_preserved": true,
+      "source_name": "B10 same-access bridge",
+      "status": "b5_same_access_sampling_oracle_not_constructed_dmrg_required"
+    },
+    {
+      "count": 9,
+      "count_field": "instance_count",
+      "method": "b5_b10_same_access_production_contract_gate_v0",
+      "mismatch_count": 0,
+      "mismatches": [],
+      "row_contract_preserved": true,
+      "source_name": "B5/B10 production contract",
+      "status": "same_access_production_contract_failed"
+    },
+    {
+      "count": 6,
+      "count_field": "work_packet_count",
+      "method": "b5_b10_production_implementation_triage_gate_v0",
+      "mismatch_count": 0,
+      "mismatches": [],
+      "packet_ids": [
+        "W1",
+        "W2",
+        "W3",
+        "W4",
+        "W5",
+        "W6"
+      ],
+      "row_contract_preserved": true,
+      "source_name": "B5/B10 production implementation triage",
+      "status": "production_implementation_triage_ready_no_positive_route",
+      "w4_status": "ready_now"
+    }
+  ],
+  "source_d5_table": "results/B10_t1_d5_observable_denominator_table_v0.json",
+  "source_non_oracle_embedding_result": "results/B5_non_oracle_response_embedding_baseline_v0.json",
+  "source_production_contract_result": "results/B5_B10_same_access_production_contract_gate_v0.json",
+  "source_production_triage_result": "results/B5_B10_production_implementation_triage_gate_v0.json",
+  "source_readiness_result": "results/B5_canonical_dmrg_readiness_gate_v0.json",
+  "source_same_access_bridge_result": "results/B10_t1_b5_same_access_sampling_or_dmrg_bridge_v0.json",
+  "source_seeded_mps_pressure_result": "results/B5_mps_truncation_response_reference_v0.json",
+  "source_smoke_result": "results/B5_canonical_environment_smoke_gate_v0.json",
+  "source_two_site_dmrg_result": "results/B5_two_site_dmrg_response_reference_v0.json",
+  "source_variational_mps_als_result": "results/B5_variational_mps_als_response_reference_v0.json",
+  "status": "row_contract_preserved_guardrail_ready",
+  "summary": {
+    "accuracy_per_resource_win_claimed": false,
+    "b10_t1_positive_route_ready": false,
+    "bqp_separation_claimed": false,
+    "catalog_change_required": false,
+    "condition_count": 6,
+    "conditions_failed": 0,
+    "conditions_satisfied": 6,
+    "dequantization_theorem_claimed": false,
+    "production_dmrg_available": false,
+    "production_dmrg_claimed": false,
+    "quantum_advantage_claimed": false,
+    "quantum_response_win_claimed": false,
+    "remaining_positive_route_packets": [
+      "W1",
+      "W2",
+      "W3"
+    ],
+    "remaining_theory_integration_packet": "W5",
+    "row_contract_count": 9,
+    "row_contract_hash": "7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc",
+    "row_contract_source": "results/B10_t1_d5_observable_denominator_table_v0.json",
+    "same_access_positive_route_claimed": false,
+    "same_access_positive_route_ready": false,
+    "sampling_access_theorem_claimed": false,
+    "sampling_oracle_constructed": false,
+    "source_check_count": 10,
+    "source_checks_failed": 0,
+    "source_checks_passed": 10,
+    "validation_error_count": 0,
+    "w4_row_contract_harness_executed": true,
+    "w6_audit_wiring_required": true
+  },
+  "title": "B5/B10 D5 Row-Contract Harness",
+  "validation_errors": [],
+  "version": "0.1"
+}

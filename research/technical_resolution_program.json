@@ -40,10 +40,10 @@
     },
     {
       "b_id": "B5",
-      "current_evidence": "B5 now includes oracle/non-oracle embedding, seeded MPS pressure, non-seeded MPS/ALS, two-site finite-DMRG-style pressure, readiness/smoke/production-contract failures, and T-B5-006c/T-B10-014a production implementation triage. The triage splits the failed production contract into 6 work packets, with W4/W6 ready and W1/W2/W3/W5 blocked, and satisfies 6/6 readiness conditions without making a positive route claim.",
-      "gate_status": "production_implementation_triage_ready_no_positive_route",
+      "current_evidence": "B5 now includes oracle/non-oracle embedding, seeded MPS pressure, non-seeded MPS/ALS, two-site finite-DMRG-style pressure, readiness/smoke/production-contract failures, T-B5-006c/T-B10-014a production implementation triage, and T-B5-006d/T-B10-014b row-contract harness. The harness executes W4 by preserving 9 D5 Hubbard response rows across 10 current B5/B10 source artifacts, with row-contract hash 7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc, 10/10 source checks passed, and 6/6 row-contract conditions satisfied without making a positive route claim.",
+      "gate_status": "row_contract_preserved_guardrail_ready",
       "main_blocker": "The project still lacks a mature non-exact-state-seeded production DMRG/MPS denominator or a fully costed same-access response oracle that beats seeded pressure and the full denominator ladder.",
-      "next_experiment": "Execute W1 production DMRG/MPS denominator, W2 seeded-pressure replacement audit, or W3 same-access response-oracle cost ledger from T-B5-006c.",
+      "next_experiment": "Execute W1 production DMRG/MPS denominator, W2 seeded-pressure replacement audit, or W3 same-access response-oracle cost ledger from T-B5-006c while preserving the T-B5-006d row-contract hash.",
       "technical_solution_target": "Hybrid quantum-tensor/embedding solver improving accuracy-per-resource on a meaningful correlated model."
     },
     {
@@ -83,11 +83,11 @@
     {
       "b_id": "B10",
       "blocker": "Both application routes remain blocked: B3 lacks M5-M9 rescue evidence, while B5 lacks production DMRG or a real same-access response oracle.",
-      "current_evidence": "B10-T1 has B3 T-B3-013 negative-boundary evidence and B5 T-B5-006c production implementation triage: 6 work packets, 2 ready guardrails, 4 blocked implementation/theory packets, and no positive same-access route. B10-T2 remains a verifier proxy stack without real backend/hardware transcripts.",
-      "gate_status": "b3_negative_boundary_and_b5_production_triage",
+      "current_evidence": "B10-T1 has B3 T-B3-013 negative-boundary evidence, B5 T-B5-006c production implementation triage, and the T-B5-006d/T-B10-014b row-contract harness: 9 D5 Hubbard response rows, 10/10 source checks, 6/6 row-contract conditions, and no positive same-access route. B10-T2 remains a verifier proxy stack without real backend/hardware transcripts.",
+      "gate_status": "b3_negative_boundary_and_b5_row_contract_guardrail",
       "main_blocker": "No B5 production DMRG/MPS denominator, no same-access response oracle, no B3 M5-M9 replacement, and no B10-T2 real backend/hardware transcript evidence.",
-      "next_experiment": "Run T-B10-014 through the T-B5-006c W1/W2/W3 queue or replace GenericBackendV2 verifier evidence with real backend/hardware transcripts.",
-      "next_technical_experiment": "Run T-B10-015 as a B3 same-access negative theorem/access note or replace the missing B3 evidence; run T-B10-014 for B5 production DMRG/MPS or a costed response oracle.",
+      "next_experiment": "Run T-B10-014 through the T-B5-006c/T-B5-006d W1/W2/W3 queue or replace GenericBackendV2 verifier evidence with real backend/hardware transcripts.",
+      "next_technical_experiment": "Run T-B10-015 as a B3 same-access negative theorem/access note or replace the missing B3 evidence; run T-B10-014 for B5 production DMRG/MPS or a costed response oracle that preserves the row-contract hash.",
       "technical_solution_target": "Formal theorem targets separating robust BQP advantage from fragile input/oracle/verification assumptions."
     }
   ],

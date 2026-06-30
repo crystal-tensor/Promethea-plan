@@ -40,6 +40,40 @@ next_actions:
   - add_observable_errors_beyond_energy
   - move_from_1d_chain_to_2d_plaquette_proxy
 current_results:
+  b5_b10_row_contract_harness_v0:
+    status: row_contract_preserved_guardrail_ready
+    model_status: w4_row_contract_harness_executed_no_positive_route
+    method: b5_b10_row_contract_harness_v0
+    source_d5_table: ../results/B10_t1_d5_observable_denominator_table_v0.json
+    source_production_triage_result: ../results/B5_B10_production_implementation_triage_gate_v0.json
+    row_contract_count: 9
+    row_contract_hash: 7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc
+    source_check_count: 10
+    source_checks_passed: 10
+    source_checks_failed: 0
+    condition_count: 6
+    conditions_satisfied: 6
+    conditions_failed: 0
+    w4_row_contract_harness_executed: true
+    w6_audit_wiring_required: true
+    remaining_positive_route_packets: [W1, W2, W3]
+    remaining_theory_integration_packet: W5
+    production_dmrg_available: false
+    sampling_oracle_constructed: false
+    same_access_positive_route_ready: false
+    b10_t1_positive_route_ready: false
+    catalog_change_required: false
+    production_dmrg_claimed: false
+    quantum_response_win_claimed: false
+    accuracy_per_resource_win_claimed: false
+    same_access_positive_route_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    dequantization_theorem_claimed: false
+    sampling_access_theorem_claimed: false
+    validation_error_count: 0
+    result: ../results/B5_B10_row_contract_harness_v0.json
+    markdown_report: ../research/B5_B10_row_contract_harness.md
   b5_b10_production_implementation_triage_gate_v0:
     status: production_implementation_triage_ready_no_positive_route
     model_status: failed_production_contract_split_into_parallel_pr_work
@@ -332,6 +366,7 @@ current_results:
       cluster4: 0.05921856583390095
     result: ../results/B5_hubbard_embedding_baseline_v0.json
 prototype_artifacts:
+  row_contract_harness: ../tools/b5_b10_row_contract_harness.py
   production_implementation_triage_gate: ../tools/b5_b10_production_implementation_triage_gate.py
   canonical_environment_smoke_gate: ../tools/b5_canonical_environment_smoke_gate.py
   canonical_dmrg_readiness_gate: ../tools/b5_canonical_dmrg_readiness_gate.py
