@@ -2493,6 +2493,19 @@ is 485, and the selected 6-CNOT delta supplies only 120 proxy-credit units. The
 cost-minus-credit gap is therefore 365, so physical synthesis pricing is not
 accepted and B7 ledger improvement remains 0.
 
+Sprint update 18ct: B1/B7 now has an OpenQASM 3 claim-boundary seal.
+T-B1-004ct adds `tools/b1_b7_cone01_openqasm3_claim_boundary_seal_gate.py` and
+emits `results/B1_B7_cone01_openqasm3_claim_boundary_seal_gate_v0.json` plus
+`research/B1_B7_cone01_openqasm3_claim_boundary_seal_gate.md`. The gate
+aggregates four citable source gates: Qiskit-loader evidence-seal reproduction,
+Qiskit-loader 6-dimensional linear-span replay, Qiskit-loader composable patch
+lift, and the seeded resource-boundary gate. All 8 seal requirements pass,
+selected lines remain `[268, 1381]`, dropped overlap line `[1378]` remains
+unrecovered, 16 seeded cases retain min fidelity `0.9999999999999389`, and all
+5 resource blockers remain failed. This accepts one claim-boundary seal only;
+occurrence removal, proxy-T reduction, resource saving, and B7 ledger
+improvement remain 0.
+
 Sprint update 59b: B4/B8 now has the formal verifier-private challenge protocol
 model that the earlier private-predicate pressure gate was missing.
 T-B4-002b/T-B8-003f repairs

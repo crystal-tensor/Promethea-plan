@@ -1264,6 +1264,18 @@ synthesis pricing is therefore not accepted, line 1378 is still unrecovered,
 and accepted occurrence removal, proxy-T reduction, resource saving, and B7
 ledger improvement remain 0.
 
+`T-B1-004ct` seals the current OpenQASM 3/Qiskit-loader claim boundary. It
+aggregates the byte-stable evidence-seal reproduction, the 6-dimensional
+linear-span replay certificate, the composable patch lift, and the seeded
+resource-boundary gate into one citable evidence packet. All 8 seal
+requirements pass: selected lines remain `[268, 1381]`, dropped overlap line
+`[1378]` remains unrecovered, the Qiskit-loader certified input-subspace
+fraction is `1.1444091796875e-05`, 16 seeded product-state cases pass with min
+fidelity `0.9999999999999389`, and all 5 resource blockers remain open. This is
+useful because it prevents replay evidence from drifting into a resource claim:
+accepted occurrence removal, proxy-T reduction, resource saving, and B7 ledger
+improvement remain 0.
+
 B4/B8 now has a formal verifier-private challenge protocol model:
 `T-B4-002b` / `T-B8-003f` turns the previous private-predicate pressure gate
 into a commit-challenge-response-verify protocol over 36 shared challenge rows.
