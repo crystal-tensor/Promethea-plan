@@ -2000,6 +2000,11 @@ Overall audit: PASS
 - B5 W1 canonical residual blocker env/residual/convergence rows: 0 / 0 / 0
 - B5 W1 canonical residual blocker PR packets: 4
 - B5 W1 canonical residual blocker result/markdown exists: True / True
+- B5/B10 W1 implementation contract status: w1_implementation_contract_open_not_production_dmrg
+- B5/B10 W1 implementation contract requirements passed/failed: 5 / 5
+- B5/B10 W1 implementation contract failed IDs: ['K5', 'K6', 'K7', 'K8', 'K9']
+- B5/B10 W1 implementation contract packets: ['W1-E4-env-residuals', 'W1-E5-convergence', 'W1-E6-seeded-pressure', 'W1-E7-cost-ledger']
+- B5/B10 W1 implementation contract result/markdown exists: True / True
 
 ## B6 Superconductivity Descriptor Status
 
@@ -2588,6 +2593,11 @@ Overall audit: PASS
 - B10-T1 B5 W1 canonical residual blocker failed IDs: ['C3', 'C4', 'C5', 'C7']
 - B10-T1 B5 W1 canonical residual blocker PR packets: 4
 - B10-T1 B5 W1 canonical residual blocker result/markdown exists: True / True
+- B10-T1 B5 W1 implementation contract status: w1_implementation_contract_open_not_production_dmrg
+- B10-T1 B5 W1 implementation contract requirements passed/failed: 5 / 5
+- B10-T1 B5 W1 implementation contract failed IDs: ['K5', 'K6', 'K7', 'K8', 'K9']
+- B10-T1 B5 W1 implementation contract packets: ['W1-E4-env-residuals', 'W1-E5-convergence', 'W1-E6-seeded-pressure', 'W1-E7-cost-ledger']
+- B10-T1 B5 W1 implementation contract result/markdown exists: True / True
 
 ## Errors
 

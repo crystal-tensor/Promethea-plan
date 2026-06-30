@@ -2559,3 +2559,20 @@ same-access production cost ledger. It records 0 environment rows, 0 residual
 rows, 0 convergence-passed rows, and 0 seeded-pressure wins. This is a useful
 handoff contract for future solver agents, but still not production DMRG, not
 a positive same-access route, not quantum advantage, and not BQP separation.
+
+Sprint update 67: B5/B10 now has a W1 implementation contract gate.
+T-B5-006j/T-B10-014h adds
+`tools/b5_b10_w1_implementation_contract_gate.py` and emits
+`results/B5_B10_w1_implementation_contract_gate_v0.json` plus
+`research/B5_B10_w1_implementation_contract_gate.md`. The gate consumes the
+canonical residual blocker, row-contract harness, and W1 denominator v0, then
+declares a 17-key row artifact schema for the next production DMRG/MPS solver
+PR. It checks 10 implementation requirements, passes 5, and fails K5-K9:
+canonical environment rows are still absent, orthonormal residual and
+discarded-weight rows are absent, convergence rows are 0/9, seeded-pressure
+wins are 0/9, and the same-access production cost ledger is still incomplete.
+It preserves the four implementation packets `W1-E4-env-residuals`,
+`W1-E5-convergence`, `W1-E6-seeded-pressure`, and `W1-E7-cost-ledger`, but now
+adds concrete expected files and acceptance predicates. This is stricter
+collaboration infrastructure, still not production DMRG, not a positive
+same-access route, not quantum advantage, and not BQP separation.

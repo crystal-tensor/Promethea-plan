@@ -568,6 +568,14 @@ C4 orthonormal residual ledgers, C5 all-row convergence evidence, and C7
 same-access production cost ledger. It emits 4 PR packets:
 W1-E4-env-residuals, W1-E5-convergence, W1-E6-seeded-pressure, and
 W1-E7-cost-ledger.
+T-B5-006j/T-B10-014h executes W1 implementation contract hardening. It consumes
+the canonical residual blocker, row-contract harness, and denominator v0,
+declares a 17-key row artifact schema for future solver PRs, checks 10
+requirements, passes 5, and fails K5-K9. The failed requirements are still the
+missing production evidence: canonical environment rows, residual/discarded
+weight rows, all-row convergence, seeded-pressure wins, and same-access
+production cost ledger. This is a stricter handoff contract, not production
+DMRG or a positive route.
 
 **Remaining path to a serious solution:** run T-B5-006 by implementing mature
 canonical-environment DMRG/MPS for the same response rows, with stored
@@ -576,12 +584,12 @@ exact-state seeding, and full cost accounting; or compare a fully costed
 quantum impurity/response kernel against exact D5, non-oracle embedding, seeded
 MPS pressure, one-site ALS, two-site finite-DMRG-style, readiness-gate, and
 smoke-gate denominators while satisfying the same-access production contract.
-Use T-B5-006c/T-B5-006d/T-B5-006e/T-B5-006f/T-B5-006g/T-B5-006h/T-B5-006i as the execution queue:
-W2, W3, W1 acceptance, W1 denominator-engine v0, and canonical residual blocker are now negative audits, so
+Use T-B5-006c/T-B5-006d/T-B5-006e/T-B5-006f/T-B5-006g/T-B5-006h/T-B5-006i/T-B5-006j as the execution queue:
+W2, W3, W1 acceptance, W1 denominator-engine v0, canonical residual blocker, and implementation contract are now negative audits, so
 the actual W1 production DMRG/MPS denominator is the remaining technical reopen
-route and must preserve the row-contract hash while supplying canonical
-environments/residuals, all-row convergence, seeded-pressure replacement, and
-same-access production cost accounting.
+route and must preserve the row-contract hash while supplying the 17-key row
+schema, canonical environments/residuals, all-row convergence, seeded-pressure
+replacement, and same-access production cost accounting.
 
 **Current internal maturity:** 29/100.
 

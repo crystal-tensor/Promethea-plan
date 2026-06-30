@@ -149,6 +149,16 @@ records 0 environment rows, 0 residual rows, 0 convergence-passed rows, and 4
 PR packets: `W1-E4-env-residuals`, `W1-E5-convergence`,
 `W1-E6-seeded-pressure`, and `W1-E7-cost-ledger`. This is a useful handoff
 contract for future agents, not production DMRG and not a positive route.
+The W1 implementation contract gate now makes that handoff stricter. It
+declares the row-level artifact schema for any future production DMRG/MPS PR:
+17 required row keys, the locked 9-row contract hash, and four implementation
+packets covering environments/residuals, convergence, seeded-pressure
+comparison, and same-access production costs. The contract checks 10
+requirements: 5 pass and 5 fail (`K5`-`K9`). There are still 0 environment
+rows, 0 orthonormal-residual rows, 0 discarded-weight rows, 0 convergence
+rows, 0 rows beating seeded pressure, and no complete same-access cost ledger.
+This is still not production DMRG, not a same-access positive route, not a
+BQP separation, and not a quantum advantage claim.
 The latest B10-T1 stress test still finds no positive same-access route because
 0 rows beat explicit D5 matvec-equivalent costs by shots. This is progress, but
 it is not a production DMRG result, not a deployable tensor solver, not a

@@ -25670,6 +25670,7 @@ def audit(root: Path) -> dict:
     )
     b5_production_dmrg_mps_denominator = b5_results.get("production_dmrg_mps_denominator_v0")
     b5_canonical_residual_blocker_gate = b5_results.get("canonical_residual_blocker_gate_v0")
+    b5_w1_implementation_contract_gate = b5_results.get("w1_implementation_contract_gate_v0")
     b5_two_site_dmrg = b5_results.get("two_site_finite_dmrg_response_reference_v0")
     b5_var_mps = b5_results.get("variational_mps_als_response_reference_v0")
     b5_mps = b5_results.get("mps_schmidt_truncation_response_reference_v0")
@@ -27160,6 +27161,175 @@ def audit(root: Path) -> dict:
 
     b5_canonical_residual_blocker_gate_status = audit_b5_canonical_residual_blocker_gate(
         b5_canonical_residual_blocker_gate, "B5"
+    )
+
+    def audit_b5_w1_implementation_contract_gate(entry, label):
+        status = {}
+        if not entry:
+            warnings.append(f"{label} manifest has no B5/B10 W1 implementation contract gate")
+            return status
+        result_path = entry.get("result")
+        markdown_path = entry.get("markdown_report")
+        result_exists = bool(result_path and path_exists_from(benchmarks, result_path))
+        markdown_exists = bool(markdown_path and path_exists_from(benchmarks, markdown_path))
+        if not result_exists:
+            errors.append(f"{label} W1 implementation contract result missing: {result_path}")
+        if not markdown_exists:
+            errors.append(f"{label} W1 implementation contract markdown missing: {markdown_path}")
+        payload = json.loads(read((benchmarks / result_path).resolve())) if result_exists else {}
+        summary = payload.get("summary", {})
+        claims = payload.get("claim_boundary", {})
+        expected_packets = [
+            "W1-E4-env-residuals",
+            "W1-E5-convergence",
+            "W1-E6-seeded-pressure",
+            "W1-E7-cost-ledger",
+        ]
+        status = {
+            "status": entry.get("status"),
+            "method": entry.get("method"),
+            "model_status": entry.get("model_status"),
+            "row_contract_count": summary.get("row_contract_count"),
+            "row_contract_hash": summary.get("row_contract_hash"),
+            "source_blocker_status": summary.get("source_blocker_status"),
+            "source_failed_canonical_residual_ids": summary.get(
+                "source_failed_canonical_residual_ids"
+            ),
+            "implementation_contract_requirement_count": summary.get(
+                "implementation_contract_requirement_count"
+            ),
+            "implementation_contract_requirements_passed": summary.get(
+                "implementation_contract_requirements_passed"
+            ),
+            "implementation_contract_requirements_failed": summary.get(
+                "implementation_contract_requirements_failed"
+            ),
+            "failed_implementation_contract_requirement_ids": summary.get(
+                "failed_implementation_contract_requirement_ids"
+            ),
+            "required_row_key_count": summary.get("required_row_key_count"),
+            "implementation_packet_count": summary.get("implementation_packet_count"),
+            "implementation_packet_ids": summary.get("implementation_packet_ids"),
+            "environment_rows": summary.get("environment_rows"),
+            "orthonormal_residual_rows": summary.get("orthonormal_residual_rows"),
+            "discarded_weight_rows": summary.get("discarded_weight_rows"),
+            "convergence_passed_rows": summary.get("convergence_passed_rows"),
+            "rows_beating_seeded_pressure": summary.get("rows_beating_seeded_pressure"),
+            "same_access_production_cost_ledger_complete": summary.get(
+                "same_access_production_cost_ledger_complete"
+            ),
+            "w1_implementation_contract_ready": summary.get(
+                "w1_implementation_contract_ready"
+            ),
+            "production_dmrg_available": summary.get("production_dmrg_available"),
+            "same_access_positive_route_ready": summary.get("same_access_positive_route_ready"),
+            "production_dmrg_claimed": summary.get("production_dmrg_claimed"),
+            "same_access_positive_route_claimed": summary.get(
+                "same_access_positive_route_claimed"
+            ),
+            "quantum_advantage_claimed": summary.get("quantum_advantage_claimed"),
+            "bqp_separation_claimed": summary.get("bqp_separation_claimed"),
+            "condition_count": summary.get("implementation_contract_requirement_count"),
+            "conditions_satisfied": summary.get("implementation_contract_requirements_passed"),
+            "conditions_failed": summary.get("implementation_contract_requirements_failed"),
+            "validation_error_count": len(payload.get("validation_errors", [])),
+            "result_exists": result_exists,
+            "markdown_exists": markdown_exists,
+            "result": result_path,
+            "markdown_report": markdown_path,
+        }
+        if payload.get("benchmark_id") != "B5":
+            errors.append(f"{label} W1 implementation contract benchmark_id must be B5")
+        if payload.get("linked_benchmark_id") != "B10":
+            errors.append(f"{label} W1 implementation contract linked_benchmark_id must be B10")
+        if payload.get("source_target_id") != "B10-T1":
+            errors.append(f"{label} W1 implementation contract source_target_id must be B10-T1")
+        if payload.get("method") != entry.get("method"):
+            errors.append(f"{label} W1 implementation contract method mismatch")
+        if payload.get("status") != entry.get("status"):
+            errors.append(f"{label} W1 implementation contract status mismatch")
+        if payload.get("model_status") != entry.get("model_status"):
+            errors.append(f"{label} W1 implementation contract model-status mismatch")
+        for field in [
+            "row_contract_count",
+            "row_contract_hash",
+            "source_blocker_status",
+            "source_failed_canonical_residual_ids",
+            "implementation_contract_requirement_count",
+            "implementation_contract_requirements_passed",
+            "implementation_contract_requirements_failed",
+            "failed_implementation_contract_requirement_ids",
+            "required_row_key_count",
+            "implementation_packet_count",
+            "implementation_packet_ids",
+            "environment_rows",
+            "orthonormal_residual_rows",
+            "discarded_weight_rows",
+            "convergence_passed_rows",
+            "rows_beating_seeded_pressure",
+            "same_access_production_cost_ledger_complete",
+            "w1_implementation_contract_ready",
+            "production_dmrg_available",
+            "same_access_positive_route_ready",
+            "production_dmrg_claimed",
+            "same_access_positive_route_claimed",
+            "quantum_advantage_claimed",
+            "bqp_separation_claimed",
+        ]:
+            if summary.get(field) != entry.get(field):
+                errors.append(f"{label} W1 implementation contract {field} mismatch")
+        if summary.get("row_contract_count") != 9:
+            errors.append(f"{label} W1 implementation contract must preserve nine rows")
+        if summary.get("implementation_contract_requirement_count") != 10:
+            errors.append(f"{label} W1 implementation contract should expose ten requirements")
+        if summary.get("implementation_contract_requirements_passed") != 5 or summary.get(
+            "implementation_contract_requirements_failed"
+        ) != 5:
+            errors.append(f"{label} W1 implementation contract should be 5/5 passed/failed")
+        if summary.get("failed_implementation_contract_requirement_ids") != [
+            "K5",
+            "K6",
+            "K7",
+            "K8",
+            "K9",
+        ]:
+            errors.append(f"{label} W1 implementation contract failed IDs changed")
+        if summary.get("source_failed_canonical_residual_ids") != ["C3", "C4", "C5", "C7"]:
+            errors.append(f"{label} W1 implementation contract source failed IDs changed")
+        if summary.get("required_row_key_count") != 17:
+            errors.append(f"{label} W1 implementation contract row schema key count changed")
+        if summary.get("implementation_packet_count") != 4:
+            errors.append(f"{label} W1 implementation contract should emit four packets")
+        if summary.get("implementation_packet_ids") != expected_packets:
+            errors.append(f"{label} W1 implementation contract packet IDs changed")
+        if len(payload.get("requirements", [])) != 10:
+            errors.append(f"{label} W1 implementation contract requirement count mismatch")
+        if len(payload.get("implementation_packets", [])) != 4:
+            errors.append(f"{label} W1 implementation contract packet count mismatch")
+        if len(payload.get("row_artifact_schema", {}).get("required_row_keys", [])) != 17:
+            errors.append(f"{label} W1 implementation contract schema row keys mismatch")
+        for field in [
+            "same_access_production_cost_ledger_complete",
+            "w1_implementation_contract_ready",
+            "production_dmrg_available",
+            "same_access_positive_route_ready",
+            "production_dmrg_claimed",
+            "same_access_positive_route_claimed",
+            "quantum_advantage_claimed",
+            "bqp_separation_claimed",
+        ]:
+            if summary.get(field) is not False:
+                errors.append(f"{label} W1 implementation contract must keep {field}=False")
+            if field in claims and claims.get(field) is not False:
+                errors.append(
+                    f"{label} W1 implementation contract claim boundary must keep {field}=False"
+                )
+        if len(payload.get("validation_errors", [])) != entry.get("validation_error_count"):
+            errors.append(f"{label} W1 implementation contract validation-error count mismatch")
+        return status
+
+    b5_w1_implementation_contract_gate_status = audit_b5_w1_implementation_contract_gate(
+        b5_w1_implementation_contract_gate, "B5"
     )
 
     b5_boundary_field_status = {}
@@ -30546,6 +30716,9 @@ def audit(root: Path) -> dict:
     b10_t1_b5_canonical_residual_blocker_gate = b10_results.get(
         "b10_t1_b5_canonical_residual_blocker_gate_v0"
     )
+    b10_t1_b5_w1_implementation_contract_gate = b10_results.get(
+        "b10_t1_b5_w1_implementation_contract_gate_v0"
+    )
     b10_status = {}
     if not b10_graph:
         warnings.append("B10 manifest has no BQP-boundary graph result")
@@ -31941,6 +32114,11 @@ def audit(root: Path) -> dict:
             b10_t1_b5_canonical_residual_blocker_gate, "B10"
         )
     )
+    b10_t1_b5_w1_implementation_contract_gate_status = (
+        audit_b5_w1_implementation_contract_gate(
+            b10_t1_b5_w1_implementation_contract_gate, "B10"
+        )
+    )
 
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
@@ -32302,6 +32480,7 @@ def audit(root: Path) -> dict:
             "production_dmrg_mps_acceptance_gate": b5_production_dmrg_mps_acceptance_gate_status,
             "production_dmrg_mps_denominator": b5_production_dmrg_mps_denominator_status,
             "canonical_residual_blocker_gate": b5_canonical_residual_blocker_gate_status,
+            "w1_implementation_contract_gate": b5_w1_implementation_contract_gate_status,
             "canonical_environment_smoke_gate": b5_canonical_smoke_status,
             "canonical_dmrg_readiness_gate": b5_dmrg_readiness_status,
             "two_site_finite_dmrg_response_reference": b5_two_site_dmrg_status,
@@ -32413,6 +32592,9 @@ def audit(root: Path) -> dict:
             ),
             "t1_b5_canonical_residual_blocker_gate": (
                 b10_t1_b5_canonical_residual_blocker_gate_status
+            ),
+            "t1_b5_w1_implementation_contract_gate": (
+                b10_t1_b5_w1_implementation_contract_gate_status
             ),
         },
         "status_artifacts": {
@@ -32840,6 +33022,9 @@ def audit(root: Path) -> dict:
             "b5_w1_canonical_residual_blocker_gate": str(
                 research / "B5_w1_canonical_residual_blocker_gate.md"
             ),
+            "b5_b10_w1_implementation_contract_gate": str(
+                research / "B5_B10_w1_implementation_contract_gate.md"
+            ),
             "b5_canonical_environment_smoke_gate": str(
                 research / "B5_canonical_environment_smoke_gate.md"
             ),
@@ -32910,6 +33095,9 @@ def audit(root: Path) -> dict:
             ),
             "b10_t1_b5_canonical_residual_blocker_gate": str(
                 research / "B5_w1_canonical_residual_blocker_gate.md"
+            ),
+            "b10_t1_b5_w1_implementation_contract_gate": str(
+                research / "B5_B10_w1_implementation_contract_gate.md"
             ),
             "b9_failed_gap_amplification_lemma": str(research / "B9_failed_gap_amplification_lemma.md"),
             "b9_symbolic_gap_skeleton": str(research / "B9_symbolic_gap_skeleton.md"),
@@ -35006,6 +35194,11 @@ def markdown_report(report: dict) -> str:
             f"- B5 W1 canonical residual blocker env/residual/convergence rows: {report['b5']['canonical_residual_blocker_gate'].get('environment_rows')} / {report['b5']['canonical_residual_blocker_gate'].get('orthonormal_residual_rows')} / {report['b5']['canonical_residual_blocker_gate'].get('convergence_passed_rows')}",
             f"- B5 W1 canonical residual blocker PR packets: {report['b5']['canonical_residual_blocker_gate'].get('pr_packet_count')}",
             f"- B5 W1 canonical residual blocker result/markdown exists: {report['b5']['canonical_residual_blocker_gate'].get('result_exists')} / {report['b5']['canonical_residual_blocker_gate'].get('markdown_exists')}",
+            f"- B5/B10 W1 implementation contract status: {report['b5']['w1_implementation_contract_gate'].get('status')}",
+            f"- B5/B10 W1 implementation contract requirements passed/failed: {report['b5']['w1_implementation_contract_gate'].get('implementation_contract_requirements_passed')} / {report['b5']['w1_implementation_contract_gate'].get('implementation_contract_requirements_failed')}",
+            f"- B5/B10 W1 implementation contract failed IDs: {report['b5']['w1_implementation_contract_gate'].get('failed_implementation_contract_requirement_ids')}",
+            f"- B5/B10 W1 implementation contract packets: {report['b5']['w1_implementation_contract_gate'].get('implementation_packet_ids')}",
+            f"- B5/B10 W1 implementation contract result/markdown exists: {report['b5']['w1_implementation_contract_gate'].get('result_exists')} / {report['b5']['w1_implementation_contract_gate'].get('markdown_exists')}",
             "",
             "## B6 Superconductivity Descriptor Status",
             "",
@@ -35594,6 +35787,11 @@ def markdown_report(report: dict) -> str:
             f"- B10-T1 B5 W1 canonical residual blocker failed IDs: {report['b10']['t1_b5_canonical_residual_blocker_gate'].get('failed_canonical_residual_requirement_ids')}",
             f"- B10-T1 B5 W1 canonical residual blocker PR packets: {report['b10']['t1_b5_canonical_residual_blocker_gate'].get('pr_packet_count')}",
             f"- B10-T1 B5 W1 canonical residual blocker result/markdown exists: {report['b10']['t1_b5_canonical_residual_blocker_gate'].get('result_exists')} / {report['b10']['t1_b5_canonical_residual_blocker_gate'].get('markdown_exists')}",
+            f"- B10-T1 B5 W1 implementation contract status: {report['b10']['t1_b5_w1_implementation_contract_gate'].get('status')}",
+            f"- B10-T1 B5 W1 implementation contract requirements passed/failed: {report['b10']['t1_b5_w1_implementation_contract_gate'].get('implementation_contract_requirements_passed')} / {report['b10']['t1_b5_w1_implementation_contract_gate'].get('implementation_contract_requirements_failed')}",
+            f"- B10-T1 B5 W1 implementation contract failed IDs: {report['b10']['t1_b5_w1_implementation_contract_gate'].get('failed_implementation_contract_requirement_ids')}",
+            f"- B10-T1 B5 W1 implementation contract packets: {report['b10']['t1_b5_w1_implementation_contract_gate'].get('implementation_packet_ids')}",
+            f"- B10-T1 B5 W1 implementation contract result/markdown exists: {report['b10']['t1_b5_w1_implementation_contract_gate'].get('result_exists')} / {report['b10']['t1_b5_w1_implementation_contract_gate'].get('markdown_exists')}",
             "",
         ]
     )

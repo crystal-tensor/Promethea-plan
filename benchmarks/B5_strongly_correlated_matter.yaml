@@ -218,6 +218,43 @@ current_results:
     validation_error_count: 0
     result: ../results/B5_w1_canonical_residual_blocker_gate_v0.json
     markdown_report: ../research/B5_w1_canonical_residual_blocker_gate.md
+  w1_implementation_contract_gate_v0:
+    status: w1_implementation_contract_open_not_production_dmrg
+    model_status: w1_blockers_converted_to_solver_implementation_contract
+    method: b5_b10_w1_implementation_contract_gate_v0
+    source_canonical_residual_blocker_result: ../results/B5_w1_canonical_residual_blocker_gate_v0.json
+    source_row_contract_harness_result: ../results/B5_B10_row_contract_harness_v0.json
+    source_denominator_engine_result: ../results/B5_production_dmrg_mps_denominator_v0.json
+    row_contract_count: 9
+    row_contract_hash: 7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc
+    source_blocker_status: w1_canonical_residual_blocker_gate_failed_missing_production_evidence
+    source_failed_canonical_residual_ids: [C3, C4, C5, C7]
+    implementation_contract_requirement_count: 10
+    implementation_contract_requirements_passed: 5
+    implementation_contract_requirements_failed: 5
+    failed_implementation_contract_requirement_ids: [K5, K6, K7, K8, K9]
+    required_row_key_count: 17
+    implementation_packet_count: 4
+    implementation_packet_ids: [W1-E4-env-residuals, W1-E5-convergence, W1-E6-seeded-pressure, W1-E7-cost-ledger]
+    environment_rows: 0
+    orthonormal_residual_rows: 0
+    discarded_weight_rows: 0
+    convergence_passed_rows: 0
+    rows_beating_seeded_pressure: 0
+    same_access_production_cost_ledger_complete: false
+    w1_implementation_contract_ready: false
+    production_dmrg_available: false
+    same_access_positive_route_ready: false
+    production_dmrg_claimed: false
+    same_access_positive_route_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    condition_count: 10
+    conditions_satisfied: 5
+    conditions_failed: 5
+    validation_error_count: 0
+    result: ../results/B5_B10_w1_implementation_contract_gate_v0.json
+    markdown_report: ../research/B5_B10_w1_implementation_contract_gate.md
   seeded_pressure_replacement_audit_v0:
     status: seeded_pressure_replacement_failed_remains_blocker
     model_status: w2_replacement_audit_completed_no_deployable_denominator
@@ -583,6 +620,7 @@ current_results:
       cluster4: 0.05921856583390095
     result: ../results/B5_hubbard_embedding_baseline_v0.json
 prototype_artifacts:
+  w1_implementation_contract_gate: ../tools/b5_b10_w1_implementation_contract_gate.py
   canonical_residual_blocker_gate: ../tools/b5_w1_canonical_residual_blocker_gate.py
   production_dmrg_mps_denominator: ../tools/b5_production_dmrg_mps_denominator.py
   production_dmrg_mps_acceptance_gate: ../tools/b5_b10_production_dmrg_mps_acceptance_gate.py

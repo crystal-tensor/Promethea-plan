@@ -1,0 +1,260 @@
+{
+  "benchmark_id": "B5",
+  "claim_boundary": {
+    "bqp_separation_claimed": false,
+    "next_gate": "A future W1 solver PR must submit all four implementation packets and pass K5-K9 before the B5/B10 route can be reconsidered.",
+    "production_dmrg_claimed": false,
+    "quantum_advantage_claimed": false,
+    "same_access_positive_route_claimed": false,
+    "what_is_not_supported": "This does not supply production DMRG, canonical environments, residual ledgers, converged rows, seeded-pressure wins, same-access cost evidence, a positive B5/B10 route, quantum advantage, or BQP separation.",
+    "what_is_supported": "The W1 production-DMRG blocker has been converted into an implementation contract with row-level schema, four packetized deliverables, and acceptance predicates tied to the locked B5/B10 row-contract hash."
+  },
+  "dependency_benchmarks": [
+    "B5",
+    "B10"
+  ],
+  "implementation_packets": [
+    {
+      "acceptance": [
+        "contains nine rows under the locked row-contract hash",
+        "stores left/right environment hashes for every row",
+        "stores orthonormal residual norms for every row"
+      ],
+      "owner_role": "DMRG Solver Agent",
+      "packet_id": "W1-E4-env-residuals",
+      "required_files": [
+        "results/B5_w1_environment_rows_v*.json",
+        "research/B5_w1_environment_rows.md"
+      ]
+    },
+    {
+      "acceptance": [
+        "fixed-sector, energy-variance, discarded-weight, and monotonicity checks pass for all nine rows",
+        "all convergence thresholds are declared before comparing against seeded pressure"
+      ],
+      "owner_role": "Baseline Adversary",
+      "packet_id": "W1-E5-convergence",
+      "required_files": [
+        "results/B5_w1_convergence_ledger_v*.json",
+        "research/B5_w1_convergence_ledger.md"
+      ]
+    },
+    {
+      "acceptance": [
+        "compares against the exact-state-seeded MPS pressure row by row",
+        "records rows_beating_seeded_pressure == 9 before any positive B5/B10 route claim"
+      ],
+      "owner_role": "Tensor Denominator Agent",
+      "packet_id": "W1-E6-seeded-pressure",
+      "required_files": [
+        "results/B5_w1_seeded_pressure_comparison_v*.json",
+        "research/B5_w1_seeded_pressure_comparison.md"
+      ]
+    },
+    {
+      "acceptance": [
+        "includes wall-clock, memory, sweep/matvec, and optimizer-loop costs",
+        "uses the same nine-row access contract without hidden exact-state access"
+      ],
+      "owner_role": "Cost Ledger Agent",
+      "packet_id": "W1-E7-cost-ledger",
+      "required_files": [
+        "results/B5_w1_same_access_cost_ledger_v*.json",
+        "research/B5_w1_same_access_cost_ledger.md"
+      ]
+    }
+  ],
+  "last_updated": "2026-07-01",
+  "linked_benchmark_id": "B10",
+  "method": "b5_b10_w1_implementation_contract_gate_v0",
+  "model_status": "w1_blockers_converted_to_solver_implementation_contract",
+  "requirements": [
+    {
+      "evidence": {
+        "source_status": "w1_canonical_residual_blocker_gate_failed_missing_production_evidence",
+        "source_validation_error_count": 0
+      },
+      "label": "Canonical residual blocker source is valid and negative",
+      "passed": true,
+      "requirement_id": "K1"
+    },
+    {
+      "evidence": {
+        "blocker_hash": "7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc",
+        "denominator_hash": "7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc",
+        "row_contract_hash": "7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc"
+      },
+      "label": "Locked B5/B10 row contract hash is preserved",
+      "passed": true,
+      "requirement_id": "K2"
+    },
+    {
+      "evidence": {
+        "source_packet_ids": [
+          "W1-E4-env-residuals",
+          "W1-E5-convergence",
+          "W1-E6-seeded-pressure",
+          "W1-E7-cost-ledger"
+        ]
+      },
+      "label": "Source blocker packets are complete",
+      "passed": true,
+      "requirement_id": "K3"
+    },
+    {
+      "evidence": {
+        "implementation_packet_count": 4,
+        "required_row_key_count": 17
+      },
+      "label": "Implementation contract schema is declared",
+      "passed": true,
+      "requirement_id": "K4"
+    },
+    {
+      "evidence": {
+        "environment_rows": 0,
+        "required_rows": 9
+      },
+      "label": "Canonical environment rows are supplied",
+      "passed": false,
+      "requirement_id": "K5"
+    },
+    {
+      "evidence": {
+        "discarded_weight_rows": 0,
+        "orthonormal_residual_rows": 0,
+        "required_rows": 9
+      },
+      "label": "Orthonormal residual and discarded-weight rows are supplied",
+      "passed": false,
+      "requirement_id": "K6"
+    },
+    {
+      "evidence": {
+        "convergence_passed_rows": 0,
+        "required_rows": 9
+      },
+      "label": "All nine rows pass convergence",
+      "passed": false,
+      "requirement_id": "K7"
+    },
+    {
+      "evidence": {
+        "required_rows": 9,
+        "rows_beating_seeded_pressure": 0
+      },
+      "label": "Candidate beats seeded pressure on all rows",
+      "passed": false,
+      "requirement_id": "K8"
+    },
+    {
+      "evidence": {
+        "same_access_production_cost_ledger_complete": false
+      },
+      "label": "Same-access production cost ledger is complete",
+      "passed": false,
+      "requirement_id": "K9"
+    },
+    {
+      "evidence": {
+        "bqp_separation_claimed": false,
+        "production_dmrg_claimed": false,
+        "quantum_advantage_claimed": false,
+        "same_access_positive_route_claimed": false
+      },
+      "label": "Forbidden claims remain false",
+      "passed": true,
+      "requirement_id": "K10"
+    }
+  ],
+  "row_artifact_schema": {
+    "required_pass_conditions": [
+      "environment_rows == 9",
+      "orthonormal_residual_rows == 9",
+      "discarded_weight_rows == 9",
+      "convergence_passed_rows == 9",
+      "rows_beating_seeded_pressure == 9",
+      "same_access_production_cost_ledger_complete == true"
+    ],
+    "required_row_count": 9,
+    "required_row_keys": [
+      "row_id",
+      "sites",
+      "u_over_t",
+      "row_contract_hash",
+      "canonical_center_site",
+      "left_environment_hash",
+      "right_environment_hash",
+      "orthonormal_residual_norm",
+      "discarded_weight",
+      "sweep_count",
+      "energy_variance",
+      "fixed_sector_norm",
+      "relative_response_error",
+      "seeded_pressure_relative_response_error",
+      "wall_clock_seconds",
+      "peak_memory_mb",
+      "matvec_or_sweep_count"
+    ],
+    "row_contract_hash": "7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc"
+  },
+  "runtime_seconds": 0.00032782554626464844,
+  "source_canonical_residual_blocker_result": "results/B5_w1_canonical_residual_blocker_gate_v0.json",
+  "source_denominator_engine_result": "results/B5_production_dmrg_mps_denominator_v0.json",
+  "source_row_contract_harness_result": "results/B5_B10_row_contract_harness_v0.json",
+  "source_target_id": "B10-T1",
+  "status": "w1_implementation_contract_open_not_production_dmrg",
+  "summary": {
+    "bqp_separation_claimed": false,
+    "convergence_passed_rows": 0,
+    "discarded_weight_rows": 0,
+    "environment_rows": 0,
+    "failed_implementation_contract_requirement_ids": [
+      "K5",
+      "K6",
+      "K7",
+      "K8",
+      "K9"
+    ],
+    "implementation_contract_requirement_count": 10,
+    "implementation_contract_requirements_failed": 5,
+    "implementation_contract_requirements_passed": 5,
+    "implementation_packet_count": 4,
+    "implementation_packet_ids": [
+      "W1-E4-env-residuals",
+      "W1-E5-convergence",
+      "W1-E6-seeded-pressure",
+      "W1-E7-cost-ledger"
+    ],
+    "orthonormal_residual_rows": 0,
+    "production_dmrg_available": false,
+    "production_dmrg_claimed": false,
+    "quantum_advantage_claimed": false,
+    "required_row_key_count": 17,
+    "row_contract_count": 9,
+    "row_contract_hash": "7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc",
+    "rows_beating_seeded_pressure": 0,
+    "same_access_positive_route_claimed": false,
+    "same_access_positive_route_ready": false,
+    "same_access_production_cost_ledger_complete": false,
+    "source_blocker_method": "b5_w1_canonical_residual_blocker_gate_v0",
+    "source_blocker_status": "w1_canonical_residual_blocker_gate_failed_missing_production_evidence",
+    "source_failed_canonical_residual_ids": [
+      "C3",
+      "C4",
+      "C5",
+      "C7"
+    ],
+    "source_packet_ids": [
+      "W1-E4-env-residuals",
+      "W1-E5-convergence",
+      "W1-E6-seeded-pressure",
+      "W1-E7-cost-ledger"
+    ],
+    "validation_error_count": 0,
+    "w1_implementation_contract_ready": false
+  },
+  "title": "B5/B10 W1 Implementation Contract Gate v0",
+  "validation_errors": [],
+  "version": "0.1"
+}
