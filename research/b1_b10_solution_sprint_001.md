@@ -1549,6 +1549,21 @@ output. This closes the project-file and indexed-theorem blockers but remains
 not a Quantum PCP proof, not an NLTS theorem, and not a proof-assistant checked
 local-Hamiltonian theorem.
 
+**Sprint update 63:** `T-B9-004e` is now merged as a Lean/Lake CI contract
+gate, still not as a checked theorem. It adds the workflow template
+`research/ci/b9-lean-proof-scaffold.yml` plus
+`tools/b9_toolchain_ci_contract_gate.py`, and emits
+`results/B9_toolchain_ci_contract_gate_v0.json` and
+`research/B9_toolchain_ci_contract_gate.md`. The contract checks 8 CI handoff
+requirements, passes 7, and fails only C8 because no remote GitHub Actions run
+artifact or checked theorem output is recorded in the repository. This gives
+external agents a concrete CI template for installing the pinned Lean toolchain,
+running Lake, checking `B9/ClusterStabilizer/WidthLocality.lean`, and
+refreshing the B9 gates once a token with workflow scope activates it under
+`.github/workflows/`. It is still not a proof-assistant checked theorem,
+not a Quantum PCP proof, not an NLTS theorem, and not a local-Hamiltonian
+hardness theorem.
+
 ## B10: Boundary of BQP
 
 **Technical target:** separate robust quantum advantage claims from hidden

@@ -1,0 +1,84 @@
+{
+  "active_workflow": ".github/workflows/b9-lean-proof-scaffold.yml",
+  "active_workflow_present": false,
+  "benchmark_id": "B9",
+  "ci_contract_requirement_count": 8,
+  "claim_boundary": {
+    "active_workflow_present": false,
+    "actual_lean4_available_locally": false,
+    "ci_template_created": true,
+    "explicit_not_quantum_pcp_proof": true,
+    "formal_theorem_proved": false,
+    "global_gap_amplification_impossibility_claimed": false,
+    "lake_available_locally": false,
+    "nlts_theorem_claimed": false,
+    "proof_assistant_checked": false,
+    "proof_environment_ready": false,
+    "remote_ci_run_artifact_present": false
+  },
+  "failed_ci_contract_requirement_count": 1,
+  "failed_ci_contract_requirement_ids": [
+    "C8"
+  ],
+  "lakefile": "lakefile.lean",
+  "lean_project_module": "B9/ClusterStabilizer/WidthLocality.lean",
+  "lean_toolchain": "lean-toolchain",
+  "method": "b9_toolchain_ci_contract_gate_v0",
+  "model_status": "github_actions_lean_lake_handoff_without_checked_run_artifact",
+  "passed_ci_contract_requirement_count": 7,
+  "requirements": [
+    {
+      "evidence": "research/ci/b9-lean-proof-scaffold.yml",
+      "id": "C1",
+      "label": "B9 Lean workflow template exists",
+      "passed": true
+    },
+    {
+      "evidence": "paths include B9, proof_skeletons, tools, results, and benchmark",
+      "id": "C2",
+      "label": "workflow is scoped to B9 proof files",
+      "passed": true
+    },
+    {
+      "evidence": "toolchain=leanprover/lean4:v4.12.0",
+      "id": "C3",
+      "label": "workflow installs pinned toolchain from lean-toolchain",
+      "passed": true
+    },
+    {
+      "evidence": "lean --version / lake --version",
+      "id": "C4",
+      "label": "workflow exposes both Lean and Lake version probes",
+      "passed": true
+    },
+    {
+      "evidence": "lake update with mathlib4 dependency",
+      "id": "C5",
+      "label": "workflow runs Lake dependency resolution",
+      "passed": true
+    },
+    {
+      "evidence": "B9/ClusterStabilizer/WidthLocality.lean",
+      "id": "C6",
+      "label": "workflow checks the B9 Lean module",
+      "passed": true
+    },
+    {
+      "evidence": "readiness, contract, and scaffold refresh commands",
+      "id": "C7",
+      "label": "workflow refreshes B9 proof-environment gates",
+      "passed": true
+    },
+    {
+      "evidence": "the OAuth token cannot activate .github/workflows here; no remote CI run artifact or checked theorem output is recorded in this repository",
+      "id": "C8",
+      "label": "active remote CI run artifact is present",
+      "passed": false
+    }
+  ],
+  "status": "toolchain_ci_contract_open_pending_remote_run",
+  "title": "B9 Lean/Lake CI contract gate",
+  "validation_error_count": 0,
+  "validation_errors": [],
+  "workflow_template": "research/ci/b9-lean-proof-scaffold.yml"
+}

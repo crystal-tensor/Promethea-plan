@@ -328,19 +328,24 @@ decoder, threshold, hardware result, quantum-advantage result, or new-code
 claim.
 
 B9 now has a local parametric certificate checker plus a proof-environment
-contract gate and proof-project scaffold for the
+contract gate, proof-project scaffold, and CI handoff for the
 `cluster_stabilizer_open_uniform_reweight` family. The
 local checker verifies the n >= 4 formula-level term count, support set {2,3},
 max locality 3, exact uniform scale 27/20, finite rows n=4,5,6, and
 normalized-gap invariance with a repo-local exact-rational verifier. T-B9-004d
 adds `lean-toolchain`, `lakefile.lean`, a `B9.ClusterStabilizer.WidthLocality`
 module, and an indexed theorem interface that replaces the old `True`
-placeholder. Readiness is now 6/9 gates passed, the contract is 5/8
-requirements passed, two packets are closed, and three packets remain open:
-actual Lean 4 executable, Lake tooling, and proof-assistant checked formal
-output. This is useful because it makes the next formalization work assignable
-and auditable, but it is still not a Lean/mathlib theorem, not a Quantum PCP
-proof, not an NLTS theorem, and not a global gap-amplification no-go theorem.
+placeholder. T-B9-004e adds `research/ci/b9-lean-proof-scaffold.yml` as a
+Lean/Lake workflow template plus a CI contract gate that checks 8 requirements,
+passes 7, and fails only C8 because no active remote CI run artifact or checked
+theorem output has been recorded. The active `.github/workflows/` handoff is
+left for a token with workflow scope.
+Readiness remains 6/9 gates passed, the contract remains 5/8 requirements
+passed, and the open packets remain actual Lean 4/Lake execution plus
+proof-assistant checked formal output. This is useful because it makes the next
+formalization work assignable and auditable, but it is still not a Lean/mathlib
+theorem, not a Quantum PCP proof, not an NLTS theorem, and not a global
+gap-amplification no-go theorem.
 
 B1/B7 now has a template-priority gate for the current `gcm_h6` bottleneck.
 The gate evaluates the 12 retained nonlocal templates from the B7 scan and

@@ -1,0 +1,54 @@
+name: B9 Lean Proof Scaffold
+
+on:
+  pull_request:
+    paths:
+      - "B9/**"
+      - "research/proof_skeletons/B9_*.lean"
+      - "lakefile.lean"
+      - "lean-toolchain"
+      - "tools/b9_*.py"
+      - "results/B9_*.json"
+      - "benchmarks/B9_quantum_pcp_local_hamiltonian.yaml"
+  push:
+    branches:
+      - main
+    paths:
+      - "B9/**"
+      - "research/proof_skeletons/B9_*.lean"
+      - "lakefile.lean"
+      - "lean-toolchain"
+      - "tools/b9_*.py"
+      - "results/B9_*.json"
+      - "benchmarks/B9_quantum_pcp_local_hamiltonian.yaml"
+
+jobs:
+  b9-lean-scaffold:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Lean toolchain
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o /tmp/elan-init.sh
+          sh /tmp/elan-init.sh -y --default-toolchain "$(cat lean-toolchain)"
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Show Lean and Lake versions
+        run: |
+          lean --version
+          lake --version
+      - name: Check B9 Lean project scaffold
+        run: |
+          lake update
+          lake env lean B9/ClusterStabilizer/WidthLocality.lean
+      - name: Refresh B9 proof-environment gates
+        run: |
+          python tools/b9_proof_environment_readiness_gate.py \
+            --json-output results/B9_proof_environment_readiness_gate_v0.json \
+            --markdown-output research/B9_proof_environment_readiness_gate.md
+          python tools/b9_proof_environment_contract_gate.py \
+            --source results/B9_proof_environment_readiness_gate_v0.json \
+            --json-output results/B9_proof_environment_contract_gate_v0.json \
+            --markdown-output research/B9_proof_environment_contract_gate.md
+          python tools/b9_proof_project_scaffold_gate.py \
+            --json-output results/B9_proof_project_scaffold_gate_v0.json \
+            --markdown-output research/B9_proof_project_scaffold_gate.md

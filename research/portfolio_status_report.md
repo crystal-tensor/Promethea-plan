@@ -2437,6 +2437,11 @@ Overall audit: PASS
 - Proof-project scaffold failed IDs: ['S7', 'S8']
 - Proof-project scaffold Lean4/Lake/checked theorem: False / False / False
 - Proof-project scaffold result/markdown exists: True / True
+- Toolchain CI contract status: toolchain_ci_contract_open_pending_remote_run
+- Toolchain CI contract passed / failed: 7 / 1
+- Toolchain CI contract failed IDs: ['C8']
+- Toolchain CI run artifact / formal theorem: False / False
+- Toolchain CI template/result/markdown exists: True / True / True
 
 ## B10 BQP Boundary Graph Status
 

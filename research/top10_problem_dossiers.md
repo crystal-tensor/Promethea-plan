@@ -986,14 +986,17 @@ open for actual Lean 4 executable, Lake tooling, and proof-assistant checked
 formal output, and marks the Lake/mathlib project plus indexed-theorem
 replacement packets closed. T-B9-004d adds `lean-toolchain`, `lakefile.lean`,
 `B9.ClusterStabilizer.WidthLocality`, and replaces the placeholder `True`
-obligation with an indexed theorem interface. This makes the next
-formalization work assignable and auditable, but it remains an open contract
-and scaffold, not a checked theorem or Quantum PCP result.
+obligation with an indexed theorem interface. T-B9-004e adds a scoped
+Lean/Lake workflow template and CI contract gate: 7/8 requirements pass,
+and only C8 fails because no active remote CI run artifact or checked theorem
+output is recorded. This makes the next formalization work assignable and
+auditable, but it remains an open contract and scaffold, not a checked theorem
+or Quantum PCP result.
 
-**Remaining path to a serious solution:** pin a real Lean 4/Lake/mathlib or
-equivalent proof-checkable project; close the three remaining T-B9-004 packets;
-make the scaffolded theorem check inside that project; formalize the
-open-boundary cluster-stabilizer family for all n >= 4; prove support-size,
+**Remaining path to a serious solution:** activate the new CI template under
+GitHub Actions or run an equivalent local Lean4/Lake environment; record the
+run artifact; make the scaffolded theorem check inside that project; formalize the open-boundary
+cluster-stabilizer family for all n >= 4; prove support-size,
 uniform-scaling, spectral-width, and normalized-gap invariance lemmas; then
 decide whether the checked statement informs the full conjecture.
 

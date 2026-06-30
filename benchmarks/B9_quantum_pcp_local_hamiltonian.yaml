@@ -221,6 +221,30 @@ current_results:
     validation_error_count: 0
     result: ../results/B9_proof_project_scaffold_gate_v0.json
     markdown_report: ../research/B9_proof_project_scaffold_gate.md
+  toolchain_ci_contract_gate_v0:
+    status: toolchain_ci_contract_open_pending_remote_run
+    method: b9_toolchain_ci_contract_gate_v0
+    model_status: github_actions_lean_lake_handoff_without_checked_run_artifact
+    workflow_template: ../research/ci/b9-lean-proof-scaffold.yml
+    active_workflow: ../.github/workflows/b9-lean-proof-scaffold.yml
+    active_workflow_present: false
+    ci_contract_requirement_count: 8
+    passed_ci_contract_requirement_count: 7
+    failed_ci_contract_requirement_count: 1
+    failed_ci_contract_requirement_ids: [C8]
+    ci_template_created: true
+    remote_ci_run_artifact_present: false
+    actual_lean4_available_locally: false
+    lake_available_locally: false
+    proof_environment_ready: false
+    proof_assistant_checked: false
+    formal_theorem_proved: false
+    explicit_not_quantum_pcp_proof: true
+    global_gap_amplification_impossibility_claimed: false
+    nlts_theorem_claimed: false
+    validation_error_count: 0
+    result: ../results/B9_toolchain_ci_contract_gate_v0.json
+    markdown_report: ../research/B9_toolchain_ci_contract_gate.md
 prototype_artifacts:
   local_hamiltonian_gap_lab: ../tools/b9_local_hamiltonian_gap_lab.py
   failed_gap_amplification_lemma_builder: ../tools/b9_failed_gap_amplification_lemma.py
@@ -230,4 +254,5 @@ prototype_artifacts:
   proof_environment_readiness_gate: ../tools/b9_proof_environment_readiness_gate.py
   proof_environment_contract_gate: ../tools/b9_proof_environment_contract_gate.py
   proof_project_scaffold_gate: ../tools/b9_proof_project_scaffold_gate.py
+  toolchain_ci_contract_gate: ../tools/b9_toolchain_ci_contract_gate.py
   prototype_notes: ../research/B9_prototype_notes.md

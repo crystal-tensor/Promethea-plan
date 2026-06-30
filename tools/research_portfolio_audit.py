@@ -31387,6 +31387,7 @@ def audit(root: Path) -> dict:
     b9_proof_environment_gate = b9_results.get("proof_environment_readiness_gate_v0")
     b9_proof_environment_contract = b9_results.get("proof_environment_contract_gate_v0")
     b9_proof_project_scaffold = b9_results.get("proof_project_scaffold_gate_v0")
+    b9_toolchain_ci_contract = b9_results.get("toolchain_ci_contract_gate_v0")
     b9_status = {}
     if not b9_gap_lab:
         warnings.append("B9 manifest has no local-Hamiltonian gap-lab result")
@@ -32047,6 +32048,114 @@ def audit(root: Path) -> dict:
             errors.append("B9 proof-project scaffold must explicitly avoid Quantum PCP proof claims")
         if payload.get("validation_error_count") != 0 or payload.get("validation_errors") != []:
             errors.append("B9 proof-project scaffold validation errors must be zero")
+
+    b9_toolchain_ci_contract_status = {}
+    if not b9_toolchain_ci_contract:
+        warnings.append("B9 manifest has no toolchain CI contract gate")
+    else:
+        result_path = b9_toolchain_ci_contract.get("result")
+        markdown_path = b9_toolchain_ci_contract.get("markdown_report")
+        workflow_path = b9_toolchain_ci_contract.get("workflow_template")
+        active_workflow_path = b9_toolchain_ci_contract.get("active_workflow")
+        result_exists = bool(result_path and path_exists_from(benchmarks, result_path))
+        markdown_exists = bool(markdown_path and path_exists_from(benchmarks, markdown_path))
+        workflow_exists = bool(workflow_path and path_exists_from(benchmarks, workflow_path))
+        active_workflow_exists = bool(
+            active_workflow_path and path_exists_from(benchmarks, active_workflow_path)
+        )
+        if not result_exists:
+            errors.append(f"B9 toolchain CI contract result path missing: {result_path}")
+        if not markdown_exists:
+            errors.append(f"B9 toolchain CI contract markdown missing: {markdown_path}")
+        if not workflow_exists:
+            errors.append(f"B9 toolchain CI workflow template missing: {workflow_path}")
+        payload = json.loads(read((benchmarks / result_path).resolve())) if result_exists else {}
+        claim_boundary = payload.get("claim_boundary", {})
+        b9_toolchain_ci_contract_status = {
+            "status": b9_toolchain_ci_contract.get("status"),
+            "method": b9_toolchain_ci_contract.get("method"),
+            "model_status": b9_toolchain_ci_contract.get("model_status"),
+            "workflow_template": payload.get("workflow_template"),
+            "active_workflow": payload.get("active_workflow"),
+            "active_workflow_present": payload.get("active_workflow_present"),
+            "ci_contract_requirement_count": payload.get("ci_contract_requirement_count"),
+            "passed_ci_contract_requirement_count": payload.get(
+                "passed_ci_contract_requirement_count"
+            ),
+            "failed_ci_contract_requirement_count": payload.get(
+                "failed_ci_contract_requirement_count"
+            ),
+            "failed_ci_contract_requirement_ids": payload.get(
+                "failed_ci_contract_requirement_ids"
+            ),
+            "ci_template_created": claim_boundary.get("ci_template_created"),
+            "remote_ci_run_artifact_present": claim_boundary.get(
+                "remote_ci_run_artifact_present"
+            ),
+            "actual_lean4_available_locally": claim_boundary.get(
+                "actual_lean4_available_locally"
+            ),
+            "lake_available_locally": claim_boundary.get("lake_available_locally"),
+            "proof_environment_ready": claim_boundary.get("proof_environment_ready"),
+            "proof_assistant_checked": claim_boundary.get("proof_assistant_checked"),
+            "formal_theorem_proved": claim_boundary.get("formal_theorem_proved"),
+            "explicit_not_quantum_pcp_proof": claim_boundary.get("explicit_not_quantum_pcp_proof"),
+            "global_gap_amplification_impossibility_claimed": claim_boundary.get(
+                "global_gap_amplification_impossibility_claimed"
+            ),
+            "validation_error_count": payload.get("validation_error_count"),
+            "result_exists": result_exists,
+            "markdown_exists": markdown_exists,
+            "workflow_exists": workflow_exists,
+            "active_workflow_exists": active_workflow_exists,
+            "result": result_path,
+            "markdown_report": markdown_path,
+        }
+        if payload.get("benchmark_id") != "B9":
+            errors.append("B9 toolchain CI contract benchmark_id mismatch")
+        if payload.get("status") != "toolchain_ci_contract_open_pending_remote_run":
+            errors.append("B9 toolchain CI contract status mismatch")
+        if payload.get("method") != b9_toolchain_ci_contract.get("method"):
+            errors.append("B9 toolchain CI contract method mismatch")
+        if payload.get("model_status") != b9_toolchain_ci_contract.get("model_status"):
+            errors.append("B9 toolchain CI contract model status mismatch")
+        for field in [
+            "active_workflow_present",
+            "ci_contract_requirement_count",
+            "passed_ci_contract_requirement_count",
+            "failed_ci_contract_requirement_count",
+            "failed_ci_contract_requirement_ids",
+            "validation_error_count",
+        ]:
+            if payload.get(field) != b9_toolchain_ci_contract.get(field):
+                errors.append(f"B9 toolchain CI contract {field} mismatch")
+        if payload.get("ci_contract_requirement_count") != 8:
+            errors.append("B9 toolchain CI contract should check eight requirements")
+        if payload.get("passed_ci_contract_requirement_count") != 7:
+            errors.append("B9 toolchain CI contract should pass seven requirements")
+        if payload.get("failed_ci_contract_requirement_count") != 1:
+            errors.append("B9 toolchain CI contract should fail one requirement")
+        if payload.get("failed_ci_contract_requirement_ids") != ["C8"]:
+            errors.append("B9 toolchain CI contract should fail only C8")
+        if claim_boundary.get("ci_template_created") is not True:
+            errors.append("B9 toolchain CI contract should disclose CI template creation")
+        for claim_key in [
+            "active_workflow_present",
+            "remote_ci_run_artifact_present",
+            "actual_lean4_available_locally",
+            "lake_available_locally",
+            "proof_environment_ready",
+            "proof_assistant_checked",
+            "formal_theorem_proved",
+            "global_gap_amplification_impossibility_claimed",
+            "nlts_theorem_claimed",
+        ]:
+            if claim_boundary.get(claim_key) is not False:
+                errors.append(f"B9 toolchain CI contract payload claims {claim_key}")
+        if claim_boundary.get("explicit_not_quantum_pcp_proof") is not True:
+            errors.append("B9 toolchain CI contract must explicitly avoid Quantum PCP proof claims")
+        if payload.get("validation_error_count") != 0 or payload.get("validation_errors") != []:
+            errors.append("B9 toolchain CI contract validation errors must be zero")
 
     b10_manifest = yaml.safe_load(read(b10_manifest_path))
     b10_results = b10_manifest.get("current_results", {})
@@ -33962,6 +34071,7 @@ def audit(root: Path) -> dict:
             "proof_environment_readiness_gate": b9_proof_environment_gate_status,
             "proof_environment_contract_gate": b9_proof_environment_contract_status,
             "proof_project_scaffold_gate": b9_proof_project_scaffold_status,
+            "toolchain_ci_contract_gate": b9_toolchain_ci_contract_status,
         },
         "b10": {
             "manifest": str(b10_manifest_path),
@@ -34545,6 +34655,7 @@ def audit(root: Path) -> dict:
             "b9_proof_environment_readiness_gate": str(research / "B9_proof_environment_readiness_gate.md"),
             "b9_proof_environment_contract_gate": str(research / "B9_proof_environment_contract_gate.md"),
             "b9_proof_project_scaffold_gate": str(research / "B9_proof_project_scaffold_gate.md"),
+            "b9_toolchain_ci_contract_gate": str(research / "B9_toolchain_ci_contract_gate.md"),
             "b7_dependency_schedule_bridge": str(research / "B7_b1_b2_dependency_schedule_bridge.md"),
             "b7_workload_dag_factory_schedule": str(research / "B7_workload_dag_factory_schedule.md"),
             "b7_logical_t_factory_schedule": str(research / "B7_logical_t_factory_schedule.md"),
@@ -37066,6 +37177,11 @@ def markdown_report(report: dict) -> str:
             f"- Proof-project scaffold failed IDs: {report['b9']['proof_project_scaffold_gate'].get('failed_scaffold_requirement_ids')}",
             f"- Proof-project scaffold Lean4/Lake/checked theorem: {report['b9']['proof_project_scaffold_gate'].get('actual_lean4_available')} / {report['b9']['proof_project_scaffold_gate'].get('lake_available')} / {report['b9']['proof_project_scaffold_gate'].get('formal_theorem_proved')}",
             f"- Proof-project scaffold result/markdown exists: {report['b9']['proof_project_scaffold_gate'].get('result_exists')} / {report['b9']['proof_project_scaffold_gate'].get('markdown_exists')}",
+            f"- Toolchain CI contract status: {report['b9']['toolchain_ci_contract_gate'].get('status')}",
+            f"- Toolchain CI contract passed / failed: {report['b9']['toolchain_ci_contract_gate'].get('passed_ci_contract_requirement_count')} / {report['b9']['toolchain_ci_contract_gate'].get('failed_ci_contract_requirement_count')}",
+            f"- Toolchain CI contract failed IDs: {report['b9']['toolchain_ci_contract_gate'].get('failed_ci_contract_requirement_ids')}",
+            f"- Toolchain CI run artifact / formal theorem: {report['b9']['toolchain_ci_contract_gate'].get('remote_ci_run_artifact_present')} / {report['b9']['toolchain_ci_contract_gate'].get('formal_theorem_proved')}",
+            f"- Toolchain CI template/result/markdown exists: {report['b9']['toolchain_ci_contract_gate'].get('workflow_exists')} / {report['b9']['toolchain_ci_contract_gate'].get('result_exists')} / {report['b9']['toolchain_ci_contract_gate'].get('markdown_exists')}",
             "",
             "## B10 BQP Boundary Graph Status",
             "",
