@@ -105,9 +105,21 @@ def find_lih_work_order(work_order: dict[str, Any]) -> dict[str, Any]:
     return {}
 
 
+def expected_prefix_ranges(prefix_shards: int, groups_per_shard: int) -> tuple[int, list[int], list[int]]:
+    group_count = min(prefix_shards * groups_per_shard, EXPECTED_LIH_COMPILED_COVER_GROUP_COUNT)
+    starts = [index * groups_per_shard for index in range(prefix_shards)]
+    ends = [
+        min((index + 1) * groups_per_shard, EXPECTED_LIH_COMPILED_COVER_GROUP_COUNT)
+        for index in range(prefix_shards)
+    ]
+    return group_count, starts, ends
+
+
 def build_payload(args: argparse.Namespace) -> dict[str, Any]:
     work_order = load_json(args.work_order_gate)
-    expected_prefix_group_count = args.expected_prefix_shards * args.groups_per_shard
+    expected_prefix_group_count, expected_starts, expected_ends = expected_prefix_ranges(
+        args.expected_prefix_shards, args.groups_per_shard
+    )
     paths = expected_prefix_paths(args.shard_dir, args.expected_prefix_shards)
     existing_paths = [path for path in paths if path.exists()]
     shards = [summarize_shard(path) for path in existing_paths]
@@ -137,6 +149,7 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
     total_variance_sum = sum(float(item["variance_sum"]) for item in shards)
     total_nonzero_pairs = sum(int(item["nonzero_covariance_pair_count"]) for item in shards)
     compiled_cover_counts = sorted({item["compiled_qwc_group_count"] for item in shards})
+    lih_batch_complete = produced_prefix_count == EXPECTED_LIH_TOTAL_SHARDS
 
     requirements = [
         requirement(
@@ -180,8 +193,8 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
         requirement(
             "P4",
             contiguous
-            and starts == list(range(0, expected_prefix_group_count, args.groups_per_shard))
-            and ends == list(range(args.groups_per_shard, expected_prefix_group_count + 1, args.groups_per_shard))
+            and starts == expected_starts
+            and ends == expected_ends
             and actual_prefix_group_count == expected_prefix_group_count
             and compiled_cover_counts == [EXPECTED_LIH_COMPILED_COVER_GROUP_COUNT],
             "LiH prefix shards form one contiguous compiled QWC prefix",
@@ -252,7 +265,8 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
     ]
     failed = [item["id"] for item in requirements if not item["passed"]]
     validation_errors: list[str] = []
-    if failed != ["P8", "P9", "P10"]:
+    expected_failed = ["P9", "P10"] if recorded_global_count == EXPECTED_TOTAL_SHARDS else ["P8", "P9", "P10"]
+    if failed != expected_failed:
         validation_errors.append(f"unexpected_failed_requirement_ids:{failed}")
 
     summary = {
@@ -270,8 +284,8 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
         "lih_prefix_shard_batch_hash": prefix_hash,
         "lih_prefix_nonzero_covariance_pair_count": total_nonzero_pairs,
         "lih_prefix_variance_sum": total_variance_sum,
-        "completed_molecule_shard_batch_count": 2,
-        "partial_molecule_shard_batch_count": 1,
+        "completed_molecule_shard_batch_count": 3 if lih_batch_complete else 2,
+        "partial_molecule_shard_batch_count": 0 if lih_batch_complete else 1,
         "requirements_passed": len(requirements) - len(failed),
         "requirements_failed": len(failed),
         "failed_requirement_ids": failed,
@@ -295,7 +309,9 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
         "title": "B3/B10 F1 LiH Prefix Shard Gate",
         "version": "0.1",
         "last_updated": args.last_updated,
-        "status": STATUS,
+        "status": "lih_full_covariance_shard_batch_recorded_zero_credit"
+        if lih_batch_complete
+        else STATUS,
         "method": args.method,
         "model_status": args.model_status,
         "source_work_order_gate": str(args.work_order_gate),
@@ -306,8 +322,16 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
         "summary": summary,
         "validation_errors": validation_errors,
         "claim_boundary": {
-            "what_is_supported": f"The first {args.expected_prefix_shards} LiH compiled-state full-covariance shard outputs exist and form a contiguous compiled QWC prefix.",
-            "what_is_not_supported": "This is not a complete LiH shard batch, not an assembled F1 row, not a four-row F1 artifact, not a denominator win, not B3/B10 credit, and not quantum advantage.",
+            "what_is_supported": (
+                "All 39 LiH compiled-state full-covariance shard outputs exist and form a complete compiled QWC batch."
+                if lih_batch_complete
+                else f"The first {args.expected_prefix_shards} LiH compiled-state full-covariance shard outputs exist and form a contiguous compiled QWC prefix."
+            ),
+            "what_is_not_supported": (
+                "This is not an assembled F1 row, not a four-row F1 artifact, not a denominator win, not B3/B10 credit, and not quantum advantage."
+                if lih_batch_complete
+                else "This is not a complete LiH shard batch, not an assembled F1 row, not a four-row F1 artifact, not a denominator win, not B3/B10 credit, and not quantum advantage."
+            ),
         },
     }
 
