@@ -3055,6 +3055,37 @@ current_results:
     caveat: acceptance_packet_only_no_resource_saving_or_b7_ledger_claim
     report: ../results/B1_B7_cone01_resource_escape_acceptance_packet_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_resource_escape_acceptance_packet_gate.md
+  b7_b1_cone01_resource_escape_boundary_v0:
+    circuits: 1
+    status: b7_b1_cone01_resource_escape_boundary_synced
+    model_status: b7_zero_credit_boundary_after_b1_cone01_resource_escape_acceptance_packet_gate
+    method: b7_b1_cone01_resource_escape_boundary_v0
+    source_acceptance_packet_gate: ../results/B1_B7_cone01_resource_escape_acceptance_packet_gate_v0.json
+    boundary_id: B7-B1-cone01-resource-escape-boundary
+    boundary_hash: f99832a2905345cc099fbc07eb6cabc5c6e32868f76a5a2efa0f66471e31c8e5
+    acceptance_packet_id: B1-B7-cone01-resource-escape-acceptance-packet
+    priority_packet_id: B1-B7-cone01-resource-escape
+    replay_validation_manifest_id: B1-B7-cone01-resource-escape-replay-validation-manifest
+    requirements_passed: 7
+    requirements_failed: 0
+    source_failed_acceptance_requirement_ids: [P6, P7, P8]
+    selected_line_numbers: [268, 1381]
+    dropped_overlap_candidate_line_numbers: [1378]
+    line1381_off_grid_parameter_count: 5
+    line1381_unpriced_proxy_t_pressure: 100
+    line1378_delta_recovered: false
+    accepted_exit_route_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_resource_credit_allowed: false
+    b7_ft_ledger_credit_allowed: false
+    b7_occurrence_removal_credit_allowed: false
+    b7_proxy_t_reduction_credit: 0
+    b7_space_time_volume_credit: 0
+    validation_error_count: 0
+    caveat: b7_zero_credit_boundary_only_no_resource_saving_or_ledger_credit
+    report: ../results/B7_B1_cone01_resource_escape_boundary_v0.json
+    markdown_report: ../research/B7_B1_cone01_resource_escape_boundary.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate
@@ -4707,4 +4738,5 @@ prototype_artifacts:
   b1_b7_cone01_resource_escape_provenance_manifest_gate: ../tools/b1_b7_cone01_resource_escape_provenance_manifest_gate.py
   b1_b7_cone01_resource_escape_replay_validation_manifest_gate: ../tools/b1_b7_cone01_resource_escape_replay_validation_manifest_gate.py
   b1_b7_cone01_resource_escape_acceptance_packet_gate: ../tools/b1_b7_cone01_resource_escape_acceptance_packet_gate.py
+  b7_b1_cone01_resource_escape_boundary: ../tools/b7_b1_cone01_resource_escape_boundary.py
   synthetic_noise_proxy: ../tools/b1_synthetic_noise_proxy.py

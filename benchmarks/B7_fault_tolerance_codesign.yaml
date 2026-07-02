@@ -140,6 +140,36 @@ current_results:
     b7_dependency_credit_allowed: false
     b7_credit_delta: 0
     caveat: acceptance_packet_only_no_resource_saving_no_b7_ledger_credit
+  b7_b1_cone01_resource_escape_boundary_v0:
+    status: b7_b1_cone01_resource_escape_boundary_synced
+    method: b7_b1_cone01_resource_escape_boundary_v0
+    source_b1_resource_escape_acceptance_packet: ../results/B1_B7_cone01_resource_escape_acceptance_packet_gate_v0.json
+    boundary_id: B7-B1-cone01-resource-escape-boundary
+    boundary_hash: f99832a2905345cc099fbc07eb6cabc5c6e32868f76a5a2efa0f66471e31c8e5
+    acceptance_packet_id: B1-B7-cone01-resource-escape-acceptance-packet
+    priority_packet_id: B1-B7-cone01-resource-escape
+    replay_validation_manifest_id: B1-B7-cone01-resource-escape-replay-validation-manifest
+    requirements_passed: 7
+    requirements_failed: 0
+    source_failed_acceptance_requirement_ids: [P6, P7, P8]
+    selected_line_numbers: [268, 1381]
+    dropped_overlap_candidate_line_numbers: [1378]
+    line1381_off_grid_parameter_count: 5
+    line1381_unpriced_proxy_t_pressure: 100
+    line1378_delta_recovered: false
+    accepted_exit_route_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    submitted_acceptance_packet_exists: false
+    b7_resource_credit_allowed: false
+    b7_ft_ledger_credit_allowed: false
+    b7_occurrence_removal_credit_allowed: false
+    b7_proxy_t_reduction_credit: 0
+    b7_space_time_volume_credit: 0
+    validation_error_count: 0
+    caveat: zero_credit_boundary_after_b1_resource_escape_acceptance_packet_no_b7_resource_credit
+    report: ../results/B7_B1_cone01_resource_escape_boundary_v0.json
+    markdown_report: ../research/B7_B1_cone01_resource_escape_boundary.md
   b2_calibrated_dependency_credit_gate_v0:
     status: b2_calibrated_dependency_credit_rejected_missing_hardware_evidence
     method: b7_b2_calibrated_dependency_credit_gate_v0
@@ -870,6 +900,7 @@ prototype_artifacts:
   dependency_schedule_bridge: ../tools/b7_dependency_schedule_bridge.py
   b2_calibrated_dependency_credit_gate: ../tools/b7_b2_calibrated_dependency_credit_gate.py
   b7_b2_calibrated_trace_acceptance_boundary: ../tools/b7_b2_calibrated_trace_acceptance_boundary.py
+  b7_b1_cone01_resource_escape_boundary: ../tools/b7_b1_cone01_resource_escape_boundary.py
   b1_b7_cone01_resource_escape_replay_validation_manifest_gate: ../tools/b1_b7_cone01_resource_escape_replay_validation_manifest_gate.py
   b1_b7_cone01_resource_escape_acceptance_packet_gate: ../tools/b1_b7_cone01_resource_escape_acceptance_packet_gate.py
   b2_calibration_source_manifest_gate: ../tools/b2_calibration_source_manifest_gate.py

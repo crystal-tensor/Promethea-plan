@@ -1,0 +1,196 @@
+{
+  "benchmark_id": "B7",
+  "boundary_packet": {
+    "acceptance_packet_hash": "e456ff08d70cb89cdb0b8093dd1527ce50ba3e5891e517688465939c2db75420",
+    "acceptance_packet_id": "B1-B7-cone01-resource-escape-acceptance-packet",
+    "accepted_exit_route_count": 0,
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "b7_ft_ledger_credit_allowed": false,
+    "b7_occurrence_removal_credit_allowed": false,
+    "b7_proxy_t_reduction_credit": 0,
+    "b7_resource_credit_allowed": false,
+    "b7_space_time_volume_credit": 0,
+    "boundary_hash": "f99832a2905345cc099fbc07eb6cabc5c6e32868f76a5a2efa0f66471e31c8e5",
+    "boundary_id": "B7-B1-cone01-resource-escape-boundary",
+    "dropped_overlap_candidate_line_numbers": [
+      1378
+    ],
+    "line1378_delta_recovered": false,
+    "line1381_off_grid_parameter_count": 5,
+    "line1381_unpriced_proxy_t_pressure": 100,
+    "priority_packet_hash": "1540027cb1e7786e528cb7b018836c9aa688ceeb3a745ee255ec87583463cac7",
+    "priority_packet_id": "B1-B7-cone01-resource-escape",
+    "replay_validation_manifest_hash": "024f9670e506a4791fe776c61a86a66d3c3e46604e28b7e93a5a732d730ab7ec",
+    "replay_validation_manifest_id": "B1-B7-cone01-resource-escape-replay-validation-manifest",
+    "required_downstream_before_b7_credit": [
+      "submitted B1-B7-cone01-resource-escape-acceptance-packet",
+      "one accepted source-backed exit route",
+      "full-circuit replay or symbolic equivalence certificate",
+      "no-double-counting ledger for selected lines [268, 1381] and dropped overlap line [1378]",
+      "line-1381 off-grid local-U3 elimination, absorption, or honest physical pricing",
+      "line-1378 recovery proof or explicit unrecovered-delta accounting",
+      "refreshed B7 ledger replay with nonzero accepted occurrence removal and proxy-T reduction",
+      "claim boundary forbidding B7 resource, FT ledger, quantum-advantage, and solution claims until the ledger accepts the route"
+    ],
+    "selected_line_numbers": [
+      268,
+      1381
+    ],
+    "source_acceptance_packet_gate": "results/B1_B7_cone01_resource_escape_acceptance_packet_gate_v0.json",
+    "source_b7_credit_delta": 0,
+    "source_method": "b1_b7_cone01_resource_escape_acceptance_packet_gate_v0"
+  },
+  "claim_boundary": {
+    "b7_ft_ledger_credit_allowed": false,
+    "b7_occurrence_removal_credit_allowed": false,
+    "b7_resource_credit_allowed": false,
+    "next_gate": "Submit and accept the B1-B7 cone_01 resource-escape acceptance packet with one source-backed exit route, full replay or symbolic equivalence, no-double-counting ledger, honest line-1381 pricing, line-1378 accounting, and refreshed B7 ledger before B7 can count resource credit.",
+    "what_is_not_supported": "No accepted exit route, occurrence removal, proxy-T reduction, space-time-volume reduction, FT ledger improvement, B7 resource credit, quantum advantage, or solution claim is supported.",
+    "what_is_supported": "B7 is now explicitly synchronized to the B1 cone_01 resource-escape acceptance packet as a zero-credit resource boundary."
+  },
+  "last_updated": "2026-07-03",
+  "linked_benchmark_id": "B1",
+  "method": "b7_b1_cone01_resource_escape_boundary_v0",
+  "model_status": "b7_zero_credit_boundary_after_b1_cone01_resource_escape_acceptance_packet_gate",
+  "requirements": [
+    {
+      "evidence": {
+        "acceptance_packet_id": "B1-B7-cone01-resource-escape-acceptance-packet",
+        "priority_packet_id": "B1-B7-cone01-resource-escape",
+        "source_method": "b1_b7_cone01_resource_escape_acceptance_packet_gate_v0",
+        "validation_error_count": 0
+      },
+      "label": "Source B1/B7 cone_01 resource-escape acceptance packet gate is present and current",
+      "passed": true,
+      "requirement_id": "S1"
+    },
+    {
+      "evidence": {
+        "failed_acceptance_requirement_ids": [
+          "P6",
+          "P7",
+          "P8"
+        ],
+        "submitted_acceptance_packet_exists": false
+      },
+      "label": "Source acceptance gate remains blocked on missing submitted packet evidence",
+      "passed": true,
+      "requirement_id": "S2"
+    },
+    {
+      "evidence": {
+        "dropped_overlap_candidate_line_numbers": [
+          1378
+        ],
+        "line1381_off_grid_parameter_count": 5,
+        "line1381_unpriced_proxy_t_pressure": 100,
+        "selected_line_numbers": [
+          268,
+          1381
+        ]
+      },
+      "label": "The B1/B7 resource-escape scope is preserved for the B7 view",
+      "passed": true,
+      "requirement_id": "S3"
+    },
+    {
+      "evidence": {
+        "accepted_exit_route_count": 0,
+        "accepted_occurrence_removal": 0,
+        "accepted_proxy_t_reduction": 0,
+        "line1378_delta_recovered": false
+      },
+      "label": "No resource-escape exit route has been accepted",
+      "passed": true,
+      "requirement_id": "S4"
+    },
+    {
+      "evidence": {
+        "b7_ft_ledger_credit_allowed": false,
+        "b7_occurrence_removal_credit_allowed": false,
+        "b7_proxy_t_reduction_credit": 0,
+        "b7_resource_credit_allowed": false,
+        "b7_space_time_volume_credit": 0,
+        "source_b7_credit_delta": 0
+      },
+      "label": "B7 resource, FT ledger, occurrence-removal, proxy-T, and STV credit remain disabled",
+      "passed": true,
+      "requirement_id": "S5"
+    },
+    {
+      "evidence": {
+        "b7_ledger_improvement_claimed": false,
+        "b7_resource_credit_allowed": false,
+        "resource_saving_claimed": false
+      },
+      "label": "Forbidden resource-saving and B7 ledger-improvement claims remain absent",
+      "passed": true,
+      "requirement_id": "S6"
+    },
+    {
+      "evidence": {
+        "required_downstream_before_b7_credit": [
+          "submitted B1-B7-cone01-resource-escape-acceptance-packet",
+          "one accepted source-backed exit route",
+          "full-circuit replay or symbolic equivalence certificate",
+          "no-double-counting ledger for selected lines [268, 1381] and dropped overlap line [1378]",
+          "line-1381 off-grid local-U3 elimination, absorption, or honest physical pricing",
+          "line-1378 recovery proof or explicit unrecovered-delta accounting",
+          "refreshed B7 ledger replay with nonzero accepted occurrence removal and proxy-T reduction",
+          "claim boundary forbidding B7 resource, FT ledger, quantum-advantage, and solution claims until the ledger accepts the route"
+        ]
+      },
+      "label": "Boundary records downstream evidence required before B7 can count credit",
+      "passed": true,
+      "requirement_id": "S7"
+    }
+  ],
+  "runtime_seconds": 0.00012,
+  "source_acceptance_packet_gate": "results/B1_B7_cone01_resource_escape_acceptance_packet_gate_v0.json",
+  "source_target_id": "T-B7-012i/T-B1-004da",
+  "status": "b7_b1_cone01_resource_escape_boundary_synced",
+  "summary": {
+    "acceptance_packet_id": "B1-B7-cone01-resource-escape-acceptance-packet",
+    "accepted_exit_route_count": 0,
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "b7_credit_delta": 0,
+    "b7_ft_ledger_credit_allowed": false,
+    "b7_ledger_improvement_claimed": false,
+    "b7_occurrence_removal_credit_allowed": false,
+    "b7_proxy_t_reduction_credit": 0,
+    "b7_resource_credit_allowed": false,
+    "b7_space_time_volume_credit": 0,
+    "boundary_hash": "f99832a2905345cc099fbc07eb6cabc5c6e32868f76a5a2efa0f66471e31c8e5",
+    "boundary_id": "B7-B1-cone01-resource-escape-boundary",
+    "dropped_overlap_candidate_line_numbers": [
+      1378
+    ],
+    "failed_requirement_ids": [],
+    "line1378_delta_recovered": false,
+    "line1381_off_grid_parameter_count": 5,
+    "line1381_unpriced_proxy_t_pressure": 100,
+    "priority_packet_id": "B1-B7-cone01-resource-escape",
+    "replay_validation_manifest_id": "B1-B7-cone01-resource-escape-replay-validation-manifest",
+    "requirement_count": 7,
+    "requirements_failed": 0,
+    "requirements_passed": 7,
+    "resource_saving_claimed": false,
+    "selected_line_numbers": [
+      268,
+      1381
+    ],
+    "source_acceptance_packet_hash": "e456ff08d70cb89cdb0b8093dd1527ce50ba3e5891e517688465939c2db75420",
+    "source_failed_acceptance_requirement_ids": [
+      "P6",
+      "P7",
+      "P8"
+    ],
+    "submitted_acceptance_packet_exists": false,
+    "validation_error_count": 0
+  },
+  "title": "B7/B1 Cone01 Resource-Escape Boundary",
+  "validation_errors": [],
+  "version": "0.1"
+}
