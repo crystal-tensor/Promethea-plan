@@ -740,6 +740,42 @@ current_results:
     caveat: p8c_readiness_only_blocked_until_p8a_accepted_row_and_p8b_denominator_win_no_credit
     result: ../results/B3_B10_P8C_derivative_optimizer_promotion_readiness_gate_v0.json
     markdown_report: ../research/B3_B10_P8C_derivative_optimizer_promotion_readiness_gate.md
+  b3_b10_p8e_claim_boundary_audit_gate_v0:
+    status: b3_b10_p8e_claim_boundary_audit_passed_zero_credit
+    method: b3_b10_p8e_claim_boundary_audit_gate_v0
+    model_status: p8e_claim_boundary_locked_no_premature_b3_b10_claims
+    source_p8_pressure_gate: ../results/B3_B10_F1_P8_acceptance_pressure_gate_v0.json
+    source_p8a_intake_gate: ../results/B3_B10_P8A_accepted_row_replay_intake_template_gate_v0.json
+    source_p8b_intake_gate: ../results/B3_B10_P8B_same_access_denominator_replay_intake_template_gate_v0.json
+    source_p8c_readiness_gate: ../results/B3_B10_P8C_derivative_optimizer_promotion_readiness_gate_v0.json
+    source_landing_page: ../research/axiom_horizon_landing.html
+    source_target_id: B10-T1
+    dependency_benchmarks: [B3, B10]
+    claim_boundary_audit_id: B3B10-P8E-claim-boundary-audit
+    source_pressure_packet_hash: 55384c1a143b50d9b334193c3e55151f33bc9511b90dd19a21f22198bf9fe0b0
+    source_p8a_template_table_hash: a82007811e0448e2436857aaf22ca5fcf30060a1d032370f8f8e8252848584a2
+    source_p8b_template_table_hash: 95ea8fecbfb592aae2491ec95d4dc6b19d0b12e98b4dfdbee0087499cfe523ba
+    source_p8c_blocker_table_hash: 290440c963db1924d8fefefaa3435e95830e171e4cd2ca29962a60f2992cb009
+    boundary_table_hash: 5cb6bb002a4f67e28f28dcd943ff40dbe682a166bba7c7fa14c70a28c408e769
+    landing_css_hash: 648722d5e4b5fddd6a51e545ff7a6a09a4156e391a808e5cd0daf0b2172f8732
+    boundary_row_count: 4
+    forbidden_result_hit_count: 0
+    forbidden_landing_hit_count: 0
+    accepted_full_covariance_row_count: 0
+    accepted_denominator_win_row_count: 0
+    denominator_win_count: 0
+    ready_for_derivative_optimizer_promotion: false
+    requirements_passed: 8
+    requirements_failed: 0
+    failed_requirement_ids: []
+    b3_reopen_ready: false
+    b10_t1_credit_allowed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    validation_error_count: 0
+    caveat: claim_boundary_audit_only_no_p8_solution_no_b3_or_b10_credit
+    result: ../results/B3_B10_P8E_claim_boundary_audit_gate_v0.json
+    markdown_report: ../research/B3_B10_P8E_claim_boundary_audit_gate.md
   b3_b10_full_covariance_reopen_boundary_v0:
     status: b3_b10_full_covariance_reopen_boundary_synced
     method: b3_b10_full_covariance_reopen_boundary_v0
@@ -1444,6 +1480,7 @@ prototype_artifacts:
   b3_b10_p8a_accepted_row_replay_intake_template_gate: ../tools/b3_b10_p8a_accepted_row_replay_intake_template_gate.py
   b3_b10_p8b_same_access_denominator_replay_intake_template_gate: ../tools/b3_b10_p8b_same_access_denominator_replay_intake_template_gate.py
   b3_b10_p8c_derivative_optimizer_promotion_readiness_gate: ../tools/b3_b10_p8c_derivative_optimizer_promotion_readiness_gate.py
+  b3_b10_p8e_claim_boundary_audit_gate: ../tools/b3_b10_p8e_claim_boundary_audit_gate.py
   b3_b10_full_covariance_reopen_boundary: ../tools/b3_b10_full_covariance_reopen_boundary.py
   b3_b10_full_covariance_post_boundary_submission_triage: ../tools/b3_b10_full_covariance_post_boundary_submission_triage.py
   b3_b10_f1_full_covariance_row_packet_gate: ../tools/b3_b10_f1_full_covariance_row_packet_gate.py

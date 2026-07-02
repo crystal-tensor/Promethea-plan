@@ -1,0 +1,364 @@
+{
+  "benchmark_id": "B3_B10",
+  "boundary_rows": [
+    {
+      "accepted_denominator_win_row_count": 0,
+      "accepted_full_covariance_row_count": 0,
+      "actual_hash_value": "55384c1a143b50d9b334193c3e55151f33bc9511b90dd19a21f22198bf9fe0b0",
+      "b10_t1_credit_allowed": false,
+      "b3_reopen_ready": false,
+      "bqp_separation_claimed": false,
+      "denominator_win_count": 0,
+      "expected_hash_value": "55384c1a143b50d9b334193c3e55151f33bc9511b90dd19a21f22198bf9fe0b0",
+      "hash_matches": true,
+      "label": "P8-pressure",
+      "method": "b3_b10_f1_p8_acceptance_pressure_gate_v0",
+      "quantum_advantage_claimed": false,
+      "status": "b3_b10_f1_p8_pressure_ready_zero_credit",
+      "validation_error_count": 0,
+      "zero_credit_boundary_holds": true
+    },
+    {
+      "accepted_denominator_win_row_count": 0,
+      "accepted_full_covariance_row_count": 0,
+      "actual_hash_value": "a82007811e0448e2436857aaf22ca5fcf30060a1d032370f8f8e8252848584a2",
+      "b10_t1_credit_allowed": false,
+      "b3_reopen_ready": false,
+      "bqp_separation_claimed": false,
+      "denominator_win_count": 0,
+      "expected_hash_key": "template_table_hash",
+      "expected_hash_value": "a82007811e0448e2436857aaf22ca5fcf30060a1d032370f8f8e8252848584a2",
+      "hash_matches": true,
+      "label": "P8-A",
+      "method": "b3_b10_p8a_accepted_row_replay_intake_template_gate_v0",
+      "quantum_advantage_claimed": false,
+      "status": "b3_b10_p8a_accepted_row_replay_intake_open_missing_rows",
+      "validation_error_count": 0,
+      "zero_credit_boundary_holds": true
+    },
+    {
+      "accepted_denominator_win_row_count": 0,
+      "accepted_full_covariance_row_count": 0,
+      "actual_hash_value": "95ea8fecbfb592aae2491ec95d4dc6b19d0b12e98b4dfdbee0087499cfe523ba",
+      "b10_t1_credit_allowed": false,
+      "b3_reopen_ready": false,
+      "bqp_separation_claimed": false,
+      "denominator_win_count": 0,
+      "expected_hash_key": "template_table_hash",
+      "expected_hash_value": "95ea8fecbfb592aae2491ec95d4dc6b19d0b12e98b4dfdbee0087499cfe523ba",
+      "hash_matches": true,
+      "label": "P8-B",
+      "method": "b3_b10_p8b_same_access_denominator_replay_intake_template_gate_v0",
+      "quantum_advantage_claimed": false,
+      "status": "b3_b10_p8b_same_access_denominator_replay_intake_open_missing_denominator_rows",
+      "validation_error_count": 0,
+      "zero_credit_boundary_holds": true
+    },
+    {
+      "accepted_denominator_win_row_count": 0,
+      "accepted_full_covariance_row_count": 0,
+      "actual_hash_value": "290440c963db1924d8fefefaa3435e95830e171e4cd2ca29962a60f2992cb009",
+      "b10_t1_credit_allowed": false,
+      "b3_reopen_ready": false,
+      "bqp_separation_claimed": false,
+      "denominator_win_count": 0,
+      "expected_hash_key": "blocker_table_hash",
+      "expected_hash_value": "290440c963db1924d8fefefaa3435e95830e171e4cd2ca29962a60f2992cb009",
+      "hash_matches": true,
+      "label": "P8-C",
+      "method": "b3_b10_p8c_derivative_optimizer_promotion_readiness_gate_v0",
+      "quantum_advantage_claimed": false,
+      "status": "b3_b10_p8c_derivative_optimizer_promotion_blocked_missing_p8a_p8b_evidence",
+      "validation_error_count": 0,
+      "zero_credit_boundary_holds": true
+    }
+  ],
+  "claim_boundary": {
+    "accepted_denominator_win_row_count": 0,
+    "accepted_full_covariance_row_count": 0,
+    "b10_t1_credit_allowed": false,
+    "b3_reopen_ready": false,
+    "bqp_separation_claimed": false,
+    "denominator_win_count": 0,
+    "next_gate": "Submit positive P8-A and P8-B artifacts, rerun P8-C readiness, and rerun this P8-E audit after any public-facing status update.",
+    "quantum_advantage_claimed": false,
+    "what_is_not_supported": "This does not solve P8, accept rows, create denominator wins, reopen B3, grant B10-T1 credit, claim quantum advantage, or claim BQP separation.",
+    "what_is_supported": "P8-E now audits the current P8 pressure, P8-A, P8-B, P8-C, and landing-page claim boundary state and confirms zero-credit language remains enforced."
+  },
+  "dependency_benchmarks": [
+    "B3",
+    "B10"
+  ],
+  "last_updated": "2026-07-03",
+  "method": "b3_b10_p8e_claim_boundary_audit_gate_v0",
+  "model_status": "p8e_claim_boundary_locked_no_premature_b3_b10_claims",
+  "problem_ids": [
+    49,
+    11
+  ],
+  "requirements": [
+    {
+      "evidence": {
+        "packet": {
+          "acceptance_predicate": "no B3 reopen, reaction-dynamics solution, advantage, or BQP claim before P8 passes",
+          "blocker": "the submitted packet must stay zero-credit while P8 is attacked",
+          "owner_role": "audit-agent",
+          "packet_id": "P8-E",
+          "required_evidence": [
+            "claim-boundary diff",
+            "forbidden-claim scan",
+            "benchmark YAML and landing-page status update",
+            "portfolio audit transcript"
+          ],
+          "status": "ready_for_external_pr_not_credit",
+          "title": "Claim-boundary audit"
+        },
+        "pressure_packet_hash": "55384c1a143b50d9b334193c3e55151f33bc9511b90dd19a21f22198bf9fe0b0"
+      },
+      "label": "P8-E claim-boundary packet is ready in the source pressure gate",
+      "passed": true,
+      "requirement_id": "E1"
+    },
+    {
+      "evidence": {
+        "boundary_rows": [
+          {
+            "accepted_denominator_win_row_count": 0,
+            "accepted_full_covariance_row_count": 0,
+            "actual_hash_value": "55384c1a143b50d9b334193c3e55151f33bc9511b90dd19a21f22198bf9fe0b0",
+            "b10_t1_credit_allowed": false,
+            "b3_reopen_ready": false,
+            "bqp_separation_claimed": false,
+            "denominator_win_count": 0,
+            "expected_hash_value": "55384c1a143b50d9b334193c3e55151f33bc9511b90dd19a21f22198bf9fe0b0",
+            "hash_matches": true,
+            "label": "P8-pressure",
+            "method": "b3_b10_f1_p8_acceptance_pressure_gate_v0",
+            "quantum_advantage_claimed": false,
+            "status": "b3_b10_f1_p8_pressure_ready_zero_credit",
+            "validation_error_count": 0,
+            "zero_credit_boundary_holds": true
+          },
+          {
+            "accepted_denominator_win_row_count": 0,
+            "accepted_full_covariance_row_count": 0,
+            "actual_hash_value": "a82007811e0448e2436857aaf22ca5fcf30060a1d032370f8f8e8252848584a2",
+            "b10_t1_credit_allowed": false,
+            "b3_reopen_ready": false,
+            "bqp_separation_claimed": false,
+            "denominator_win_count": 0,
+            "expected_hash_key": "template_table_hash",
+            "expected_hash_value": "a82007811e0448e2436857aaf22ca5fcf30060a1d032370f8f8e8252848584a2",
+            "hash_matches": true,
+            "label": "P8-A",
+            "method": "b3_b10_p8a_accepted_row_replay_intake_template_gate_v0",
+            "quantum_advantage_claimed": false,
+            "status": "b3_b10_p8a_accepted_row_replay_intake_open_missing_rows",
+            "validation_error_count": 0,
+            "zero_credit_boundary_holds": true
+          },
+          {
+            "accepted_denominator_win_row_count": 0,
+            "accepted_full_covariance_row_count": 0,
+            "actual_hash_value": "95ea8fecbfb592aae2491ec95d4dc6b19d0b12e98b4dfdbee0087499cfe523ba",
+            "b10_t1_credit_allowed": false,
+            "b3_reopen_ready": false,
+            "bqp_separation_claimed": false,
+            "denominator_win_count": 0,
+            "expected_hash_key": "template_table_hash",
+            "expected_hash_value": "95ea8fecbfb592aae2491ec95d4dc6b19d0b12e98b4dfdbee0087499cfe523ba",
+            "hash_matches": true,
+            "label": "P8-B",
+            "method": "b3_b10_p8b_same_access_denominator_replay_intake_template_gate_v0",
+            "quantum_advantage_claimed": false,
+            "status": "b3_b10_p8b_same_access_denominator_replay_intake_open_missing_denominator_rows",
+            "validation_error_count": 0,
+            "zero_credit_boundary_holds": true
+          },
+          {
+            "accepted_denominator_win_row_count": 0,
+            "accepted_full_covariance_row_count": 0,
+            "actual_hash_value": "290440c963db1924d8fefefaa3435e95830e171e4cd2ca29962a60f2992cb009",
+            "b10_t1_credit_allowed": false,
+            "b3_reopen_ready": false,
+            "bqp_separation_claimed": false,
+            "denominator_win_count": 0,
+            "expected_hash_key": "blocker_table_hash",
+            "expected_hash_value": "290440c963db1924d8fefefaa3435e95830e171e4cd2ca29962a60f2992cb009",
+            "hash_matches": true,
+            "label": "P8-C",
+            "method": "b3_b10_p8c_derivative_optimizer_promotion_readiness_gate_v0",
+            "quantum_advantage_claimed": false,
+            "status": "b3_b10_p8c_derivative_optimizer_promotion_blocked_missing_p8a_p8b_evidence",
+            "validation_error_count": 0,
+            "zero_credit_boundary_holds": true
+          }
+        ]
+      },
+      "label": "P8-A/P8-B/P8-C source hashes match the locked intake/readiness artifacts",
+      "passed": true,
+      "requirement_id": "E2"
+    },
+    {
+      "evidence": {
+        "boundary_rows": [
+          {
+            "accepted_denominator_win_row_count": 0,
+            "accepted_full_covariance_row_count": 0,
+            "actual_hash_value": "55384c1a143b50d9b334193c3e55151f33bc9511b90dd19a21f22198bf9fe0b0",
+            "b10_t1_credit_allowed": false,
+            "b3_reopen_ready": false,
+            "bqp_separation_claimed": false,
+            "denominator_win_count": 0,
+            "expected_hash_value": "55384c1a143b50d9b334193c3e55151f33bc9511b90dd19a21f22198bf9fe0b0",
+            "hash_matches": true,
+            "label": "P8-pressure",
+            "method": "b3_b10_f1_p8_acceptance_pressure_gate_v0",
+            "quantum_advantage_claimed": false,
+            "status": "b3_b10_f1_p8_pressure_ready_zero_credit",
+            "validation_error_count": 0,
+            "zero_credit_boundary_holds": true
+          },
+          {
+            "accepted_denominator_win_row_count": 0,
+            "accepted_full_covariance_row_count": 0,
+            "actual_hash_value": "a82007811e0448e2436857aaf22ca5fcf30060a1d032370f8f8e8252848584a2",
+            "b10_t1_credit_allowed": false,
+            "b3_reopen_ready": false,
+            "bqp_separation_claimed": false,
+            "denominator_win_count": 0,
+            "expected_hash_key": "template_table_hash",
+            "expected_hash_value": "a82007811e0448e2436857aaf22ca5fcf30060a1d032370f8f8e8252848584a2",
+            "hash_matches": true,
+            "label": "P8-A",
+            "method": "b3_b10_p8a_accepted_row_replay_intake_template_gate_v0",
+            "quantum_advantage_claimed": false,
+            "status": "b3_b10_p8a_accepted_row_replay_intake_open_missing_rows",
+            "validation_error_count": 0,
+            "zero_credit_boundary_holds": true
+          },
+          {
+            "accepted_denominator_win_row_count": 0,
+            "accepted_full_covariance_row_count": 0,
+            "actual_hash_value": "95ea8fecbfb592aae2491ec95d4dc6b19d0b12e98b4dfdbee0087499cfe523ba",
+            "b10_t1_credit_allowed": false,
+            "b3_reopen_ready": false,
+            "bqp_separation_claimed": false,
+            "denominator_win_count": 0,
+            "expected_hash_key": "template_table_hash",
+            "expected_hash_value": "95ea8fecbfb592aae2491ec95d4dc6b19d0b12e98b4dfdbee0087499cfe523ba",
+            "hash_matches": true,
+            "label": "P8-B",
+            "method": "b3_b10_p8b_same_access_denominator_replay_intake_template_gate_v0",
+            "quantum_advantage_claimed": false,
+            "status": "b3_b10_p8b_same_access_denominator_replay_intake_open_missing_denominator_rows",
+            "validation_error_count": 0,
+            "zero_credit_boundary_holds": true
+          },
+          {
+            "accepted_denominator_win_row_count": 0,
+            "accepted_full_covariance_row_count": 0,
+            "actual_hash_value": "290440c963db1924d8fefefaa3435e95830e171e4cd2ca29962a60f2992cb009",
+            "b10_t1_credit_allowed": false,
+            "b3_reopen_ready": false,
+            "bqp_separation_claimed": false,
+            "denominator_win_count": 0,
+            "expected_hash_key": "blocker_table_hash",
+            "expected_hash_value": "290440c963db1924d8fefefaa3435e95830e171e4cd2ca29962a60f2992cb009",
+            "hash_matches": true,
+            "label": "P8-C",
+            "method": "b3_b10_p8c_derivative_optimizer_promotion_readiness_gate_v0",
+            "quantum_advantage_claimed": false,
+            "status": "b3_b10_p8c_derivative_optimizer_promotion_blocked_missing_p8a_p8b_evidence",
+            "validation_error_count": 0,
+            "zero_credit_boundary_holds": true
+          }
+        ]
+      },
+      "label": "All audited P8 artifacts preserve zero-credit boundaries",
+      "passed": true,
+      "requirement_id": "E3"
+    },
+    {
+      "evidence": {
+        "forbidden_result_hits": []
+      },
+      "label": "No forbidden positive claim pattern appears in audited P8 result artifacts",
+      "passed": true,
+      "requirement_id": "E4"
+    },
+    {
+      "evidence": {
+        "contains_p8e_phrase": true,
+        "contains_t_b3_045": true,
+        "expected_css_hash": "648722d5e4b5fddd6a51e545ff7a6a09a4156e391a808e5cd0daf0b2172f8732",
+        "landing_css_hash": "648722d5e4b5fddd6a51e545ff7a6a09a4156e391a808e5cd0daf0b2172f8732"
+      },
+      "label": "Landing page has the expected current research status without changing style",
+      "passed": true,
+      "requirement_id": "E5"
+    },
+    {
+      "evidence": {
+        "forbidden_landing_hits": []
+      },
+      "label": "No forbidden positive claim pattern appears in the landing page",
+      "passed": true,
+      "requirement_id": "E6"
+    },
+    {
+      "evidence": {
+        "p8a_accepted_full_covariance_row_count": 0,
+        "p8b_accepted_denominator_win_row_count": 0,
+        "p8c_ready_for_derivative_optimizer_promotion": false
+      },
+      "label": "P8-E keeps B3/B10 promotion disabled until P8-A, P8-B, and P8-C gates pass",
+      "passed": true,
+      "requirement_id": "E7"
+    },
+    {
+      "evidence": {
+        "boundary_row_count": 4,
+        "boundary_table_hash": "5cb6bb002a4f67e28f28dcd943ff40dbe682a166bba7c7fa14c70a28c408e769"
+      },
+      "label": "P8-E audit table is deterministic and source-bound",
+      "passed": true,
+      "requirement_id": "E8"
+    }
+  ],
+  "runtime_seconds": 0.023187,
+  "source_landing_page": "research/axiom_horizon_landing.html",
+  "source_p8_pressure_gate": "results/B3_B10_F1_P8_acceptance_pressure_gate_v0.json",
+  "source_p8a_intake_gate": "results/B3_B10_P8A_accepted_row_replay_intake_template_gate_v0.json",
+  "source_p8b_intake_gate": "results/B3_B10_P8B_same_access_denominator_replay_intake_template_gate_v0.json",
+  "source_p8c_readiness_gate": "results/B3_B10_P8C_derivative_optimizer_promotion_readiness_gate_v0.json",
+  "source_target_id": "B10-T1",
+  "status": "b3_b10_p8e_claim_boundary_audit_passed_zero_credit",
+  "summary": {
+    "accepted_denominator_win_row_count": 0,
+    "accepted_full_covariance_row_count": 0,
+    "b10_t1_credit_allowed": false,
+    "b3_reopen_ready": false,
+    "boundary_row_count": 4,
+    "boundary_table_hash": "5cb6bb002a4f67e28f28dcd943ff40dbe682a166bba7c7fa14c70a28c408e769",
+    "bqp_separation_claimed": false,
+    "claim_boundary_audit_id": "B3B10-P8E-claim-boundary-audit",
+    "denominator_win_count": 0,
+    "failed_requirement_ids": [],
+    "forbidden_landing_hit_count": 0,
+    "forbidden_result_hit_count": 0,
+    "landing_css_hash": "648722d5e4b5fddd6a51e545ff7a6a09a4156e391a808e5cd0daf0b2172f8732",
+    "quantum_advantage_claimed": false,
+    "ready_for_derivative_optimizer_promotion": false,
+    "requirements_failed": 0,
+    "requirements_passed": 8,
+    "source_p8a_template_table_hash": "a82007811e0448e2436857aaf22ca5fcf30060a1d032370f8f8e8252848584a2",
+    "source_p8b_template_table_hash": "95ea8fecbfb592aae2491ec95d4dc6b19d0b12e98b4dfdbee0087499cfe523ba",
+    "source_p8c_blocker_table_hash": "290440c963db1924d8fefefaa3435e95830e171e4cd2ca29962a60f2992cb009",
+    "source_pressure_packet_hash": "55384c1a143b50d9b334193c3e55151f33bc9511b90dd19a21f22198bf9fe0b0",
+    "validation_error_count": 0
+  },
+  "title": "B3/B10 P8-E Claim Boundary Audit Gate",
+  "validation_errors": [],
+  "version": "0.1"
+}
