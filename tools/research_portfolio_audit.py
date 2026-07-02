@@ -34523,6 +34523,9 @@ def audit(root: Path) -> dict:
             "b3_same_access_negative_boundary_note": str(
                 research / "B3_B10_same_access_negative_boundary_note.md"
             ),
+            "b3_b10_reopen_priority_packet_gate": str(
+                research / "B3_B10_reopen_priority_packet_gate.md"
+            ),
             "b5_boundary_field_embedding_baseline": str(
                 research / "B5_boundary_field_embedding_baseline.md"
             ),
@@ -34633,6 +34636,9 @@ def audit(root: Path) -> dict:
             ),
             "b10_b3_same_access_negative_boundary_note": str(
                 research / "B3_B10_same_access_negative_boundary_note.md"
+            ),
+            "b10_b3_reopen_priority_packet_gate": str(
+                research / "B3_B10_reopen_priority_packet_gate.md"
             ),
             "b10_t1_missing_assumption_note": str(research / "B10_t1_missing_assumption_note.md"),
             "b10_t1_asymptotic_access_contract": str(research / "B10_t1_asymptotic_access_contract.md"),

@@ -1,0 +1,211 @@
+{
+  "benchmark_id": "B3_B10",
+  "claim_boundary": {
+    "b3_reopen_ready": false,
+    "bqp_separation_claimed": false,
+    "next_gate": "Submit results/B3_B10_reopen_priority_submissions/B3-R1-full-compiled-covariance.json with all required full-covariance rows, state-prep provenance, covariance ledgers, derivative shot floors, and validation hashes.",
+    "positive_same_access_route_claimed": false,
+    "quantum_advantage_claimed": false,
+    "reaction_dynamics_solution_claimed": false,
+    "what_is_not_supported": "No full-covariance artifact has been submitted or accepted; B3 remains demoted and no reaction-dynamics solution, quantum advantage, or BQP separation is supported.",
+    "what_is_supported": "The first B3/B10 reopen blocker now has a concrete source-backed submission packet for full compiled-state covariance evidence."
+  },
+  "dependency_benchmarks": [
+    "B3",
+    "B10"
+  ],
+  "last_updated": "2026-07-02",
+  "method": "b3_b10_reopen_priority_packet_gate_v0",
+  "model_status": "priority_full_covariance_reopen_packet_ready_no_artifact_submitted",
+  "priority_reopen_packet": {
+    "acceptance_rule": "M5 passes only if full_compiled_state_covariance_computed becomes true for all row-aligned molecules.",
+    "accepted_only_if": [
+      "all four row-aligned B3 reaction-coordinate rows have compiled-state covariance tables",
+      "state-preparation circuit provenance exists for every row",
+      "grouped observable covariance and derivative shot-floor ledgers are replayable",
+      "sampled covariance validation rows compare against exact or high-confidence references",
+      "source rescue and negative-boundary artifacts are hash-bound",
+      "claim_boundary forbids B3 reopen, reaction solution, quantum advantage, and BQP separation claims"
+    ],
+    "blocks_gate": "M5",
+    "downstream_gate": "rerun b3_b10_same_access_measurement_rescue_gate_v0",
+    "owner_role": "chemistry_measurement_agent",
+    "packet_hash": "373a08c345cd80c3b5e1e55e0367d08468ba92fb0bb95cb287a3833b282360ca",
+    "packet_id": "B3-R1-full-compiled-covariance",
+    "required_evidence_files": [
+      "compiled_state_covariance_tables",
+      "state_preparation_circuit_provenance",
+      "grouped_observable_variance_covariance_ledger",
+      "derivative_level_shot_floor_table",
+      "sampled_vs_reference_covariance_validation",
+      "source_rescue_gate_manifest",
+      "source_negative_boundary_manifest",
+      "claim_boundary_note"
+    ],
+    "required_row_keys": [
+      "packet_id",
+      "row_aligned_instance_count",
+      "compiled_covariance_table_hashes",
+      "state_preparation_provenance_hashes",
+      "grouped_observable_covariance_ledger_hash",
+      "derivative_shot_floor_table_hash",
+      "reference_validation_table_hash",
+      "source_rescue_gate_hash",
+      "source_negative_boundary_hash",
+      "claim_boundary"
+    ],
+    "submission_artifact_path": "results/B3_B10_reopen_priority_submissions/B3-R1-full-compiled-covariance.json"
+  },
+  "problem_ids": [
+    49,
+    11
+  ],
+  "requirements": [
+    {
+      "evidence": {
+        "failed_requirement_count": 0,
+        "failed_source_gate_ids": [
+          "M5",
+          "M6",
+          "M7",
+          "M8",
+          "M9"
+        ],
+        "source_status": "b3_b10_reopen_blocker_queue_open_no_positive_route"
+      },
+      "label": "Reopen queue remains valid and aligned to M5-M9 blockers",
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "evidence": {
+        "actual_packet_id": "B3-R1-full-compiled-covariance",
+        "blocks_gate": "M5",
+        "expected_packet_id": "B3-R1-full-compiled-covariance"
+      },
+      "label": "Priority packet is fixed to full compiled-state covariance",
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "evidence": {
+        "compiled_pilot_instance_count": 1,
+        "full_compiled_state_covariance_computed": false,
+        "row_aligned_instance_count": 4
+      },
+      "label": "Packet preserves the four-row B3 reaction-coordinate scope",
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "evidence": {
+        "required_evidence_files": [
+          "compiled_state_covariance_tables",
+          "state_preparation_circuit_provenance",
+          "grouped_observable_variance_covariance_ledger",
+          "derivative_level_shot_floor_table",
+          "sampled_vs_reference_covariance_validation",
+          "source_rescue_gate_manifest",
+          "source_negative_boundary_manifest",
+          "claim_boundary_note"
+        ]
+      },
+      "label": "Packet binds required evidence file classes",
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "evidence": {
+        "b10_sampling_access_bridge_refuted_for_current_evidence": true,
+        "b3_reopen_ready": false,
+        "positive_same_access_route_available": false
+      },
+      "label": "Current B3/B10 route stays demoted before submission",
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "evidence": {
+        "exists": false,
+        "submission_artifact_path": "results/B3_B10_reopen_priority_submissions/B3-R1-full-compiled-covariance.json"
+      },
+      "label": "Priority reopen artifact has been submitted",
+      "passed": false,
+      "requirement_id": "P6"
+    },
+    {
+      "evidence": {
+        "missing_keys": [
+          "packet_id",
+          "row_aligned_instance_count",
+          "compiled_covariance_table_hashes",
+          "state_preparation_provenance_hashes",
+          "grouped_observable_covariance_ledger_hash",
+          "derivative_shot_floor_table_hash",
+          "reference_validation_table_hash",
+          "source_rescue_gate_hash",
+          "source_negative_boundary_hash",
+          "claim_boundary"
+        ],
+        "submitted_key_count": 0
+      },
+      "label": "Submitted artifact satisfies the locked full-covariance schema",
+      "passed": false,
+      "requirement_id": "P7"
+    },
+    {
+      "evidence": {
+        "row_aligned_instance_count": null,
+        "source_evidence_files_present": false
+      },
+      "label": "Submitted artifact is source-backed and covers all four rows",
+      "passed": false,
+      "requirement_id": "P8"
+    },
+    {
+      "evidence": {
+        "b3_reopen_ready": false,
+        "bqp_separation_claimed": false,
+        "positive_same_access_route_claimed": false,
+        "quantum_advantage_claimed": false,
+        "reaction_dynamics_solution_claimed": false
+      },
+      "label": "Forbidden reopen, solution, advantage, and BQP claims remain false",
+      "passed": true,
+      "requirement_id": "P9"
+    }
+  ],
+  "runtime_seconds": 0.00012183189392089844,
+  "source_reopen_queue_result": "results/B3_B10_reopen_blocker_queue_gate_v0.json",
+  "source_target_id": "B10-T1",
+  "status": "b3_b10_reopen_priority_packet_open_missing_artifact",
+  "summary": {
+    "accepted_priority_reopen_rows": 0,
+    "b3_reopen_ready": false,
+    "bqp_separation_claimed": false,
+    "compiled_pilot_instance_count": 1,
+    "failed_priority_requirement_ids": [
+      "P6",
+      "P7",
+      "P8"
+    ],
+    "full_compiled_state_covariance_computed": false,
+    "missing_key_count": 10,
+    "packet_hash": "373a08c345cd80c3b5e1e55e0367d08468ba92fb0bb95cb287a3833b282360ca",
+    "positive_same_access_route_available": false,
+    "priority_packet_id": "B3-R1-full-compiled-covariance",
+    "priority_requirement_count": 9,
+    "priority_requirements_failed": 3,
+    "priority_requirements_passed": 6,
+    "quantum_advantage_claimed": false,
+    "reaction_dynamics_solution_claimed": false,
+    "required_evidence_file_count": 8,
+    "required_row_key_count": 10,
+    "row_aligned_instance_count": 4,
+    "submitted_artifact_exists": false,
+    "validation_error_count": 0
+  },
+  "title": "B3/B10 Reopen Priority Packet Gate",
+  "validation_errors": [],
+  "version": "0.1"
+}

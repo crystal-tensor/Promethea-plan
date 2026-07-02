@@ -587,6 +587,35 @@ current_results:
     caveat: negative_boundary_note_not_impossibility_proof_or_advantage_claim
     result: ../results/B3_B10_same_access_negative_boundary_note_v0.json
     markdown_report: ../research/B3_B10_same_access_negative_boundary_note.md
+  b10_t1_b3_reopen_priority_packet_gate_v0:
+    status: b3_b10_reopen_priority_packet_open_missing_artifact
+    method: b3_b10_reopen_priority_packet_gate_v0
+    model_status: priority_full_covariance_reopen_packet_ready_no_artifact_submitted
+    source_reopen_queue_result: ../results/B3_B10_reopen_blocker_queue_gate_v0.json
+    source_target_id: B10-T1
+    dependency_benchmark: B3/B10
+    priority_packet_id: B3-R1-full-compiled-covariance
+    packet_hash: 373a08c345cd80c3b5e1e55e0367d08468ba92fb0bb95cb287a3833b282360ca
+    priority_requirement_count: 9
+    priority_requirements_passed: 6
+    priority_requirements_failed: 3
+    failed_priority_requirement_ids: [P6, P7, P8]
+    required_row_key_count: 10
+    required_evidence_file_count: 8
+    row_aligned_instance_count: 4
+    compiled_pilot_instance_count: 1
+    full_compiled_state_covariance_computed: false
+    submitted_artifact_exists: false
+    accepted_priority_reopen_rows: 0
+    b3_reopen_ready: false
+    positive_same_access_route_available: false
+    reaction_dynamics_solution_claimed: false
+    quantum_advantage_claimed: false
+    explicit_not_bqp_separation: true
+    validation_error_count: 0
+    caveat: priority_packet_only_no_full_covariance_artifact_or_bqp_boundary_claim
+    result: ../results/B3_B10_reopen_priority_packet_gate_v0.json
+    markdown_report: ../research/B3_B10_reopen_priority_packet_gate.md
   b10_t1_missing_assumption_note_v0:
     status: missing_assumption_note_not_dequantization_theorem
     method: b10_t1_missing_assumption_note_v0
@@ -1185,6 +1214,7 @@ prototype_artifacts:
   t1_d5_b3_fci_reference_table_builder: ../tools/b10_t1_d5_b3_fci_reference_table.py
   t1_b3_b5_denominator_boundary_comparison_builder: ../tools/b10_t1_b3_b5_denominator_boundary_comparison.py
   b3_b10_same_access_measurement_rescue_gate: ../tools/b3_b10_same_access_measurement_rescue_gate.py
+  t1_b3_b10_reopen_priority_packet_gate: ../tools/b3_b10_reopen_priority_packet_gate.py
   t1_missing_assumption_note_builder: ../tools/b10_t1_missing_assumption_note.py
   t1_asymptotic_access_contract_builder: ../tools/b10_t1_asymptotic_access_contract.py
   t1_b5_same_access_sampling_or_dmrg_bridge_builder: ../tools/b10_t1_b5_same_access_sampling_or_dmrg_bridge.py

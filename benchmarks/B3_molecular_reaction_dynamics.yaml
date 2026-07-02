@@ -422,6 +422,37 @@ current_results:
     caveat: queue_artifact_only_no_new_chemistry_evidence_or_positive_route
     result: ../results/B3_B10_reopen_blocker_queue_gate_v0.json
     markdown_report: ../research/B3_B10_reopen_blocker_queue_gate.md
+  b3_b10_reopen_priority_packet_gate_v0:
+    status: b3_b10_reopen_priority_packet_open_missing_artifact
+    method: b3_b10_reopen_priority_packet_gate_v0
+    model_status: priority_full_covariance_reopen_packet_ready_no_artifact_submitted
+    source_reopen_queue: b3_b10_reopen_blocker_queue_gate_v0
+    source_target_id: B10-T1
+    dependency_benchmarks:
+      - B3
+      - B10
+    priority_packet_id: B3-R1-full-compiled-covariance
+    packet_hash: 373a08c345cd80c3b5e1e55e0367d08468ba92fb0bb95cb287a3833b282360ca
+    priority_requirement_count: 9
+    priority_requirements_passed: 6
+    priority_requirements_failed: 3
+    failed_priority_requirement_ids: [P6, P7, P8]
+    required_row_key_count: 10
+    required_evidence_file_count: 8
+    row_aligned_instance_count: 4
+    compiled_pilot_instance_count: 1
+    full_compiled_state_covariance_computed: false
+    submitted_artifact_exists: false
+    accepted_priority_reopen_rows: 0
+    b3_reopen_ready: false
+    positive_same_access_route_available: false
+    reaction_dynamics_solution_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    validation_error_count: 0
+    caveat: priority_packet_only_no_full_covariance_artifact_or_positive_route
+    result: ../results/B3_B10_reopen_priority_packet_gate_v0.json
+    markdown_report: ../research/B3_B10_reopen_priority_packet_gate.md
 prototype_artifacts:
   resource_estimator: ../tools/b3_pyscf_resource_estimator.py
   quantum_observable_fci_comparison: ../tools/b3_quantum_observable_fci_comparison.py
@@ -437,4 +468,5 @@ prototype_artifacts:
   same_access_measurement_rescue_gate: ../tools/b3_b10_same_access_measurement_rescue_gate.py
   same_access_negative_boundary_note: ../tools/b3_b10_same_access_negative_boundary_note.py
   b3_b10_reopen_blocker_queue_gate: ../tools/b3_b10_reopen_blocker_queue_gate.py
+  b3_b10_reopen_priority_packet_gate: ../tools/b3_b10_reopen_priority_packet_gate.py
   prototype_notes: ../research/B3_prototype_notes.md
