@@ -523,6 +523,37 @@ current_results:
     caveat: acceptance_packet_gate_only_no_dft_rows_no_b5_rows_no_material_discovery_or_mechanism_solution
     result: ../results/B6_B5_observable_row_acceptance_packet_gate_v0.json
     markdown: ../research/B6_B5_observable_row_acceptance_packet_gate.md
+  b5_b6_observable_mechanism_boundary_v0:
+    status: b5_b6_observable_mechanism_boundary_synced
+    method: b5_b6_observable_mechanism_boundary_v0
+    model_status: b5_mechanism_zero_credit_after_b6_b5_observable_row_acceptance_packet_gate
+    source_acceptance_packet_gate: ../results/B6_B5_observable_row_acceptance_packet_gate_v0.json
+    boundary_id: B5-B6-observable-mechanism-boundary
+    acceptance_packet_id: B6B5-O1-monolayer-FeSe-STO-row-acceptance-packet
+    material_id: monolayer_FeSe_STO_2012
+    requirement_count: 7
+    requirements_passed: 7
+    requirements_failed: 0
+    source_failed_acceptance_requirement_ids: [P6, P7, P8]
+    submitted_acceptance_packet_exists: false
+    record_count: 56
+    family_count: 28
+    negative_control_count: 18
+    selected_negative_controls_in_top_k: 2
+    accepted_dft_b5_row_count: 0
+    accepted_priority_dft_rows: 0
+    accepted_priority_b5_rows: 0
+    b5_mechanism_credit_allowed: false
+    b5_computed_observable_credit_allowed: false
+    high_tc_mechanism_credit_allowed: false
+    material_discovery_credit_allowed: false
+    mechanism_solved: false
+    solution_claimed: false
+    validation_error_count: 0
+    interpretation: b5_mechanism_credit_stays_zero_after_b6_b5_observable_acceptance_packet_gate
+    caveat: mechanism_boundary_only_no_dft_rows_no_b5_rows_no_material_discovery_or_solution
+    result: ../results/B5_B6_observable_mechanism_boundary_v0.json
+    markdown: ../research/B5_B6_observable_mechanism_boundary.md
   b6_curated_materials_leakage_audit_v0:
     status: curated_retrospective_leakage_audit
     model_status: curated_materials_table_with_time_family_leakage_audit
@@ -590,4 +621,5 @@ prototype_artifacts:
   observable_replay_validation_manifest_gate: ../tools/b6_b5_observable_replay_validation_manifest_gate.py
   observable_row_replay_validation_manifest_gate: ../tools/b6_b5_observable_row_replay_validation_manifest_gate.py
   observable_row_acceptance_packet_gate: ../tools/b6_b5_observable_row_acceptance_packet_gate.py
+  b5_b6_observable_mechanism_boundary: ../tools/b5_b6_observable_mechanism_boundary.py
   prototype_notes: ../research/B6_prototype_notes.md

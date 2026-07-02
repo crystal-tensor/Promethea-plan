@@ -34637,6 +34637,9 @@ def audit(root: Path) -> dict:
             "b5_b10_w1_priority_row_acceptance_packet_gate": str(
                 research / "B5_B10_w1_priority_row_acceptance_packet_gate.md"
             ),
+            "b5_b6_observable_mechanism_boundary": str(
+                research / "B5_B6_observable_mechanism_boundary.md"
+            ),
             "b5_canonical_environment_smoke_gate": str(
                 research / "B5_canonical_environment_smoke_gate.md"
             ),

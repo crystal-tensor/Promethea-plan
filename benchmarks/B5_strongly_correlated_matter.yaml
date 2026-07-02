@@ -854,11 +854,33 @@ current_results:
       cluster2: 0.1601702793352715
       cluster4: 0.05921856583390095
     result: ../results/B5_hubbard_embedding_baseline_v0.json
+  b5_b6_observable_mechanism_boundary_v0:
+    status: b5_b6_observable_mechanism_boundary_synced
+    method: b5_b6_observable_mechanism_boundary_v0
+    source_acceptance_packet_gate: ../results/B6_B5_observable_row_acceptance_packet_gate_v0.json
+    boundary_id: B5-B6-observable-mechanism-boundary
+    material_id: monolayer_FeSe_STO_2012
+    source_failed_acceptance_requirement_ids: [P6, P7, P8]
+    requirement_count: 7
+    requirements_passed: 7
+    requirements_failed: 0
+    accepted_dft_b5_row_count: 0
+    accepted_priority_dft_rows: 0
+    accepted_priority_b5_rows: 0
+    b5_mechanism_credit_allowed: false
+    b5_computed_observable_credit_allowed: false
+    high_tc_mechanism_credit_allowed: false
+    material_discovery_credit_allowed: false
+    validation_error_count: 0
+    caveat: b6_observable_acceptance_boundary_only_no_b5_mechanism_credit
+    result: ../results/B5_B6_observable_mechanism_boundary_v0.json
+    markdown_report: ../research/B5_B6_observable_mechanism_boundary.md
 prototype_artifacts:
   b6_b5_observable_provenance_manifest_gate: ../tools/b6_b5_observable_provenance_manifest_gate.py
   b6_b5_observable_replay_validation_manifest_gate: ../tools/b6_b5_observable_replay_validation_manifest_gate.py
   b6_b5_observable_row_replay_validation_manifest_gate: ../tools/b6_b5_observable_row_replay_validation_manifest_gate.py
   b6_b5_observable_row_acceptance_packet_gate: ../tools/b6_b5_observable_row_acceptance_packet_gate.py
+  b5_b6_observable_mechanism_boundary: ../tools/b5_b6_observable_mechanism_boundary.py
   w1_production_row_blocker_queue_gate: ../tools/b5_b10_w1_production_row_blocker_queue_gate.py
   w1_priority_row_submission_packet_gate: ../tools/b5_b10_w1_priority_row_submission_packet_gate.py
   w1_priority_row_provenance_manifest_gate: ../tools/b5_b10_w1_priority_row_provenance_manifest_gate.py

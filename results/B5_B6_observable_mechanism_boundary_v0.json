@@ -1,0 +1,176 @@
+{
+  "benchmark_id": "B5",
+  "boundary_packet": {
+    "acceptance_packet_hash": "07ced6bc2f13d167a3107b0bc55d4b58b2f7f928a26104e5d65ca870aa84a2ef",
+    "acceptance_packet_id": "B6B5-O1-monolayer-FeSe-STO-row-acceptance-packet",
+    "accepted_dft_b5_row_count": 0,
+    "accepted_priority_b5_rows": 0,
+    "accepted_priority_dft_rows": 0,
+    "b5_computed_observable_credit_allowed": false,
+    "b5_mechanism_credit_allowed": false,
+    "boundary_hash": "31c564b89fd0577301932f59eb908f4b3aec6ef5b40d6c0921531869c5a645fb",
+    "boundary_id": "B5-B6-observable-mechanism-boundary",
+    "family_count": 28,
+    "high_tc_mechanism_credit_allowed": false,
+    "material_discovery_credit_allowed": false,
+    "material_id": "monolayer_FeSe_STO_2012",
+    "negative_control_count": 18,
+    "record_count": 56,
+    "required_downstream_before_b5_mechanism_credit": [
+      "accepted B6B5-O1-monolayer-FeSe-STO-row-acceptance-packet",
+      "source-backed DFT input and output bundle",
+      "source-backed B5 correlation observable table",
+      "same-access cost ledger linking B6 descriptor evidence to B5 observable computation",
+      "negative-control replay preserving the 56-record / 28-family / 18-negative-control denominator",
+      "family-prior denominator result showing the observable route beats the family prior",
+      "claim boundary that still forbids discovery, mechanism-solved, solution, and quantum-advantage claims until rows are accepted"
+    ],
+    "row_replay_validation_manifest_hash": "16fecc141f05a7b641e1d10009b1c0c2bb8e62927aa0a4d01360cef563a2edfb",
+    "row_replay_validation_manifest_id": "B6B5-O1-monolayer-FeSe-STO-row-replay-validation-manifest",
+    "selected_negative_controls_in_top_k": 2,
+    "source_acceptance_packet_gate": "results/B6_B5_observable_row_acceptance_packet_gate_v0.json",
+    "source_method": "b6_b5_observable_row_acceptance_packet_gate_v0"
+  },
+  "claim_boundary": {
+    "b5_computed_observable_credit_allowed": false,
+    "b5_mechanism_credit_allowed": false,
+    "high_tc_mechanism_credit_allowed": false,
+    "material_discovery_credit_allowed": false,
+    "next_gate": "Submit and accept the B6/B5 observable row acceptance packet with source-backed DFT, B5 correlation observable, negative-control replay, family-prior denominator, same-access ledger, and claim boundary before B5 mechanism credit can count.",
+    "what_is_not_supported": "No accepted DFT row, B5 computed observable row, high-Tc mechanism, material discovery, mechanism solution, or B5 mechanism credit is supported.",
+    "what_is_supported": "B5 is now explicitly synchronized to the B6/B5 observable row acceptance packet as a zero-credit mechanism boundary."
+  },
+  "last_updated": "2026-07-03",
+  "linked_benchmark_id": "B6",
+  "method": "b5_b6_observable_mechanism_boundary_v0",
+  "model_status": "b5_mechanism_zero_credit_after_b6_b5_observable_row_acceptance_packet_gate",
+  "requirements": [
+    {
+      "evidence": {
+        "acceptance_packet_id": "B6B5-O1-monolayer-FeSe-STO-row-acceptance-packet",
+        "material_id": "monolayer_FeSe_STO_2012",
+        "source_method": "b6_b5_observable_row_acceptance_packet_gate_v0",
+        "validation_error_count": 0
+      },
+      "label": "Source B6/B5 observable row acceptance packet gate is present and current",
+      "passed": true,
+      "requirement_id": "S1"
+    },
+    {
+      "evidence": {
+        "failed_acceptance_requirement_ids": [
+          "P6",
+          "P7",
+          "P8"
+        ],
+        "submitted_acceptance_packet_exists": false
+      },
+      "label": "Source acceptance gate remains blocked on missing submitted packet evidence",
+      "passed": true,
+      "requirement_id": "S2"
+    },
+    {
+      "evidence": {
+        "family_count": 28,
+        "negative_control_count": 18,
+        "record_count": 56,
+        "selected_negative_controls_in_top_k": 2,
+        "template_row_count": 12
+      },
+      "label": "B6/B5 denominator scope remains preserved",
+      "passed": true,
+      "requirement_id": "S3"
+    },
+    {
+      "evidence": {
+        "accepted_dft_b5_row_count": 0,
+        "accepted_priority_b5_rows": 0,
+        "accepted_priority_dft_rows": 0
+      },
+      "label": "No DFT/B5 observable row has been accepted",
+      "passed": true,
+      "requirement_id": "S4"
+    },
+    {
+      "evidence": {
+        "b5_computed_observable_credit_allowed": false,
+        "b5_mechanism_credit_allowed": false,
+        "high_tc_mechanism_credit_allowed": false,
+        "material_discovery_credit_allowed": false
+      },
+      "label": "B5 mechanism, observable, material-discovery, and solution credit remain disabled",
+      "passed": true,
+      "requirement_id": "S5"
+    },
+    {
+      "evidence": {
+        "b5_computed_observable_claimed": false,
+        "dft_observable_claimed": false,
+        "material_discovery_claimed": false,
+        "mechanism_solved": false,
+        "solution_claimed": false
+      },
+      "label": "Forbidden observable, discovery, mechanism, and solution claims remain absent",
+      "passed": true,
+      "requirement_id": "S6"
+    },
+    {
+      "evidence": {
+        "required_downstream_before_b5_mechanism_credit": [
+          "accepted B6B5-O1-monolayer-FeSe-STO-row-acceptance-packet",
+          "source-backed DFT input and output bundle",
+          "source-backed B5 correlation observable table",
+          "same-access cost ledger linking B6 descriptor evidence to B5 observable computation",
+          "negative-control replay preserving the 56-record / 28-family / 18-negative-control denominator",
+          "family-prior denominator result showing the observable route beats the family prior",
+          "claim boundary that still forbids discovery, mechanism-solved, solution, and quantum-advantage claims until rows are accepted"
+        ]
+      },
+      "label": "Boundary records downstream evidence required before B5 mechanism credit",
+      "passed": true,
+      "requirement_id": "S7"
+    }
+  ],
+  "runtime_seconds": 0.000126,
+  "source_acceptance_packet_gate": "results/B6_B5_observable_row_acceptance_packet_gate_v0.json",
+  "source_target_id": "T-B5-006u/T-B6-005l",
+  "status": "b5_b6_observable_mechanism_boundary_synced",
+  "summary": {
+    "acceptance_packet_id": "B6B5-O1-monolayer-FeSe-STO-row-acceptance-packet",
+    "accepted_dft_b5_row_count": 0,
+    "accepted_priority_b5_rows": 0,
+    "accepted_priority_dft_rows": 0,
+    "b5_computed_observable_claimed": false,
+    "b5_computed_observable_credit_allowed": false,
+    "b5_mechanism_credit_allowed": false,
+    "boundary_hash": "31c564b89fd0577301932f59eb908f4b3aec6ef5b40d6c0921531869c5a645fb",
+    "boundary_id": "B5-B6-observable-mechanism-boundary",
+    "dft_observable_claimed": false,
+    "failed_requirement_ids": [],
+    "family_count": 28,
+    "high_tc_mechanism_credit_allowed": false,
+    "material_discovery_claimed": false,
+    "material_discovery_credit_allowed": false,
+    "material_id": "monolayer_FeSe_STO_2012",
+    "mechanism_solved": false,
+    "negative_control_count": 18,
+    "record_count": 56,
+    "requirement_count": 7,
+    "requirements_failed": 0,
+    "requirements_passed": 7,
+    "row_replay_validation_manifest_id": "B6B5-O1-monolayer-FeSe-STO-row-replay-validation-manifest",
+    "selected_negative_controls_in_top_k": 2,
+    "solution_claimed": false,
+    "source_acceptance_packet_hash": "07ced6bc2f13d167a3107b0bc55d4b58b2f7f928a26104e5d65ca870aa84a2ef",
+    "source_failed_acceptance_requirement_ids": [
+      "P6",
+      "P7",
+      "P8"
+    ],
+    "submitted_acceptance_packet_exists": false,
+    "validation_error_count": 0
+  },
+  "title": "B5/B6 Observable Mechanism Boundary",
+  "validation_errors": [],
+  "version": "0.1"
+}
