@@ -1,0 +1,327 @@
+{
+  "benchmark_id": "B1",
+  "claim_boundary": {
+    "b7_ledger_improvement_claimed": false,
+    "next_gate": "Submit B1-B7-cone01-resource-escape-acceptance-packet with replay manifest hash, one accepted exit route, full replay or symbolic equivalence, no-double-counting ledger, resource delta ledger, B7 refreshed ledger, B7 credit boundary, and claim boundary.",
+    "occurrence_removal_claimed": false,
+    "proxy_t_reduction_claimed": false,
+    "resource_saving_claimed": false,
+    "what_is_not_supported": "No resource-escape acceptance packet or exit route has been submitted or accepted; line 1381 still has five off-grid parameters, line 1378 remains unrecovered, and B7 credit remains zero.",
+    "what_is_supported": "The B1/B7 cone_01 resource-escape route now has an acceptance packet defining what evidence must exist before occurrence removal, proxy-T reduction, or B7 ledger credit can count."
+  },
+  "last_updated": "2026-07-03",
+  "linked_benchmark_id": "B7",
+  "method": "b1_b7_cone01_resource_escape_acceptance_packet_gate_v0",
+  "model_status": "resource_escape_acceptance_packet_required_before_b7_credit",
+  "problem_ids": [
+    25,
+    21
+  ],
+  "requirements": [
+    {
+      "evidence": {
+        "failed_manifest_requirement_ids": [
+          "P6",
+          "P7",
+          "P8"
+        ],
+        "source_status": "cone01_resource_escape_replay_validation_manifest_open_missing_artifact",
+        "validation_error_count": 0
+      },
+      "label": "Replay-validation manifest gate remains valid and blocked only on P6/P7/P8",
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "evidence": {
+        "failed_priority_requirement_ids": [
+          "P6",
+          "P7",
+          "P8"
+        ],
+        "packet_hash": "1540027cb1e7786e528cb7b018836c9aa688ceeb3a745ee255ec87583463cac7",
+        "priority_packet_id": "B1-B7-cone01-resource-escape"
+      },
+      "label": "Priority resource-escape packet remains fixed and source-shaped",
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "evidence": {
+        "production_required_key_count": 18,
+        "required_evidence_file_count": 16,
+        "required_key_count": 26
+      },
+      "label": "Acceptance packet carries locked B1/B7 resource-credit schema and evidence classes",
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "evidence": {
+        "dropped_overlap_candidate_line_numbers": [
+          1378
+        ],
+        "line1378_delta_recovered": false,
+        "line1381_off_grid_parameter_count": 5,
+        "selected_line_numbers": [
+          268,
+          1381
+        ]
+      },
+      "label": "Current line and resource blockers remain preserved",
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "evidence": {
+        "accepted_exit_route_count": 0,
+        "accepted_occurrence_removal": 0,
+        "accepted_proxy_t_reduction": 0,
+        "b7_ledger_improvement_claimed": false,
+        "resource_saving_claimed": false
+      },
+      "label": "Current state has zero accepted escape route and zero B7 credit",
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "evidence": {
+        "exists": false,
+        "submission_artifact_path": "results/B1_B7_cone01_resource_escape_acceptance_packet_submissions/B1-B7-cone01-resource-escape-acceptance-packet.json"
+      },
+      "label": "Resource-escape acceptance packet has been submitted",
+      "passed": false,
+      "requirement_id": "P6"
+    },
+    {
+      "evidence": {
+        "missing_keys": [
+          "acceptance_packet_id",
+          "priority_packet_id",
+          "provenance_manifest_id",
+          "replay_validation_manifest_id",
+          "priority_packet_hash",
+          "provenance_manifest_hash",
+          "replay_validation_manifest_hash",
+          "selected_line_numbers",
+          "dropped_overlap_candidate_line_numbers",
+          "line1381_resolution_artifact_hash",
+          "line1378_recovery_artifact_hash",
+          "occurrence_certificate_batch_hash",
+          "full_replay_or_symbolic_equivalence_hash",
+          "no_double_counting_ledger_hash",
+          "resource_delta_ledger_hash",
+          "b7_refreshed_ledger_hash",
+          "accepted_exit_route_count",
+          "accepted_occurrence_removal",
+          "accepted_proxy_t_reduction",
+          "b7_credit_delta",
+          "line1381_off_grid_parameter_count_after",
+          "source_qasm_hash",
+          "candidate_qasm_or_patch_hash",
+          "b7_credit_boundary",
+          "claim_boundary",
+          "source_evidence_files_present"
+        ],
+        "production_keys_present": [],
+        "production_required_keys": [
+          "replay_validation_manifest_hash",
+          "selected_line_numbers",
+          "line1381_resolution_artifact_hash",
+          "line1378_recovery_artifact_hash",
+          "occurrence_certificate_batch_hash",
+          "full_replay_or_symbolic_equivalence_hash",
+          "no_double_counting_ledger_hash",
+          "resource_delta_ledger_hash",
+          "b7_refreshed_ledger_hash",
+          "accepted_exit_route_count",
+          "accepted_occurrence_removal",
+          "accepted_proxy_t_reduction",
+          "b7_credit_delta",
+          "line1381_off_grid_parameter_count_after",
+          "source_qasm_hash",
+          "candidate_qasm_or_patch_hash",
+          "b7_credit_boundary",
+          "claim_boundary"
+        ],
+        "submitted_key_count": 0
+      },
+      "label": "Submitted acceptance packet satisfies the locked resource-credit schema",
+      "passed": false,
+      "requirement_id": "P7"
+    },
+    {
+      "evidence": {
+        "b7_boundary_bound": false,
+        "claim_boundary_bound": false,
+        "manifest_bound": false,
+        "route_valid": false,
+        "source_backed": false
+      },
+      "label": "Submitted acceptance packet is source-backed, manifest-bound, route-valid, B7-boundary-bound, and claim-boundary-bound",
+      "passed": false,
+      "requirement_id": "P8"
+    },
+    {
+      "evidence": {
+        "b7_ledger_improvement_claimed": false,
+        "resource_saving_claimed": false
+      },
+      "label": "Forbidden resource-saving and B7-ledger claims remain false",
+      "passed": true,
+      "requirement_id": "P9"
+    }
+  ],
+  "resource_escape_acceptance_packet": {
+    "acceptance_packet_id": "B1-B7-cone01-resource-escape-acceptance-packet",
+    "accepted_exit_route_count": 0,
+    "accepted_occurrence_removal": 0,
+    "accepted_only_if": [
+      "acceptance_packet_id equals B1-B7-cone01-resource-escape-acceptance-packet",
+      "priority packet, provenance manifest, replay-validation manifest, and all source hashes match the source gates",
+      "at least one source-backed exit route closes line1381, recovers line1378 without double counting, or supplies 30 occurrence-removing certificates",
+      "full replay or symbolic equivalence evidence is hash-bound before any occurrence removal can count",
+      "resource_delta_ledger and b7_refreshed_ledger_hash are present before any B7 credit delta is counted",
+      "line1381_off_grid_parameter_count_after is zero for a line1381 acceptance route",
+      "B7 credit boundary forbids pre-acceptance credit and excludes double counting",
+      "claim_boundary forbids resource-saving, B7-ledger improvement, occurrence-removal, and proxy-T reduction claims until accepted"
+    ],
+    "accepted_proxy_t_reduction": 0,
+    "dropped_overlap_candidate_line_numbers": [
+      1378
+    ],
+    "line1378_delta_recovered": false,
+    "line1381_off_grid_parameter_count": 5,
+    "line1381_unpriced_proxy_t_pressure": 100,
+    "packet_hash": "e456ff08d70cb89cdb0b8093dd1527ce50ba3e5891e517688465939c2db75420",
+    "priority_packet_hash": "1540027cb1e7786e528cb7b018836c9aa688ceeb3a745ee255ec87583463cac7",
+    "priority_packet_id": "B1-B7-cone01-resource-escape",
+    "production_required_keys": [
+      "replay_validation_manifest_hash",
+      "selected_line_numbers",
+      "line1381_resolution_artifact_hash",
+      "line1378_recovery_artifact_hash",
+      "occurrence_certificate_batch_hash",
+      "full_replay_or_symbolic_equivalence_hash",
+      "no_double_counting_ledger_hash",
+      "resource_delta_ledger_hash",
+      "b7_refreshed_ledger_hash",
+      "accepted_exit_route_count",
+      "accepted_occurrence_removal",
+      "accepted_proxy_t_reduction",
+      "b7_credit_delta",
+      "line1381_off_grid_parameter_count_after",
+      "source_qasm_hash",
+      "candidate_qasm_or_patch_hash",
+      "b7_credit_boundary",
+      "claim_boundary"
+    ],
+    "provenance_manifest_hash": "618f9a79749f1471da4c373164facba9e89d90b6e57904aa1ba92429e144dd81",
+    "provenance_manifest_id": "B1-B7-cone01-resource-escape-provenance-manifest",
+    "replay_validation_manifest_hash": "024f9670e506a4791fe776c61a86a66d3c3e46604e28b7e93a5a732d730ab7ec",
+    "replay_validation_manifest_id": "B1-B7-cone01-resource-escape-replay-validation-manifest",
+    "required_evidence_files": [
+      "accepted_replay_validation_manifest",
+      "priority_resource_escape_packet",
+      "provenance_manifest",
+      "line1381_resolution_artifact",
+      "line1378_recovery_artifact",
+      "occurrence_certificate_batch",
+      "full_replay_or_symbolic_equivalence_certificate",
+      "no_double_counting_ledger",
+      "resource_delta_ledger",
+      "b7_refreshed_ledger",
+      "source_qasm_hash_manifest",
+      "candidate_qasm_or_patch_hash_manifest",
+      "qiskit_loader_claim_boundary_seal",
+      "physical_synthesis_pricing_replay",
+      "b7_credit_boundary_note",
+      "claim_boundary_note"
+    ],
+    "required_keys": [
+      "acceptance_packet_id",
+      "priority_packet_id",
+      "provenance_manifest_id",
+      "replay_validation_manifest_id",
+      "priority_packet_hash",
+      "provenance_manifest_hash",
+      "replay_validation_manifest_hash",
+      "selected_line_numbers",
+      "dropped_overlap_candidate_line_numbers",
+      "line1381_resolution_artifact_hash",
+      "line1378_recovery_artifact_hash",
+      "occurrence_certificate_batch_hash",
+      "full_replay_or_symbolic_equivalence_hash",
+      "no_double_counting_ledger_hash",
+      "resource_delta_ledger_hash",
+      "b7_refreshed_ledger_hash",
+      "accepted_exit_route_count",
+      "accepted_occurrence_removal",
+      "accepted_proxy_t_reduction",
+      "b7_credit_delta",
+      "line1381_off_grid_parameter_count_after",
+      "source_qasm_hash",
+      "candidate_qasm_or_patch_hash",
+      "b7_credit_boundary",
+      "claim_boundary",
+      "source_evidence_files_present"
+    ],
+    "selected_line_numbers": [
+      268,
+      1381
+    ],
+    "source_priority_packet_gate": "results/B1_B7_cone01_resource_escape_priority_packet_gate_v0.json",
+    "source_replay_validation_manifest_gate": "results/B1_B7_cone01_resource_escape_replay_validation_manifest_gate_v0.json",
+    "submission_artifact_path": "results/B1_B7_cone01_resource_escape_acceptance_packet_submissions/B1-B7-cone01-resource-escape-acceptance-packet.json"
+  },
+  "runtime_seconds": 0.000213,
+  "source_priority_packet_gate": "results/B1_B7_cone01_resource_escape_priority_packet_gate_v0.json",
+  "source_replay_validation_manifest_gate": "results/B1_B7_cone01_resource_escape_replay_validation_manifest_gate_v0.json",
+  "status": "cone01_resource_escape_acceptance_packet_open_missing_artifact",
+  "summary": {
+    "acceptance_packet_hash": "e456ff08d70cb89cdb0b8093dd1527ce50ba3e5891e517688465939c2db75420",
+    "acceptance_packet_id": "B1-B7-cone01-resource-escape-acceptance-packet",
+    "acceptance_requirement_count": 9,
+    "acceptance_requirements_failed": 3,
+    "acceptance_requirements_passed": 6,
+    "accepted_exit_route_count": 0,
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "b7_credit_delta": 0,
+    "b7_ledger_improvement_claimed": false,
+    "dropped_overlap_candidate_line_numbers": [
+      1378
+    ],
+    "failed_acceptance_requirement_ids": [
+      "P6",
+      "P7",
+      "P8"
+    ],
+    "line1378_delta_recovered": false,
+    "line1381_off_grid_parameter_count": 5,
+    "line1381_unpriced_proxy_t_pressure": 100,
+    "missing_key_count": 26,
+    "priority_packet_hash": "1540027cb1e7786e528cb7b018836c9aa688ceeb3a745ee255ec87583463cac7",
+    "priority_packet_id": "B1-B7-cone01-resource-escape",
+    "production_keys_present_count": 0,
+    "production_required_key_count": 18,
+    "provenance_manifest_hash": "618f9a79749f1471da4c373164facba9e89d90b6e57904aa1ba92429e144dd81",
+    "provenance_manifest_id": "B1-B7-cone01-resource-escape-provenance-manifest",
+    "replay_validation_manifest_hash": "024f9670e506a4791fe776c61a86a66d3c3e46604e28b7e93a5a732d730ab7ec",
+    "replay_validation_manifest_id": "B1-B7-cone01-resource-escape-replay-validation-manifest",
+    "required_evidence_file_count": 16,
+    "required_key_count": 26,
+    "resource_saving_claimed": false,
+    "selected_line_numbers": [
+      268,
+      1381
+    ],
+    "submitted_acceptance_packet_exists": false,
+    "submitted_key_count": 0,
+    "validation_error_count": 0
+  },
+  "title": "B1/B7 Cone_01 Resource-Escape Acceptance Packet Gate",
+  "validation_errors": [],
+  "version": "0.1",
+  "workload": "qasmbench_medium_exact/gcm_h6.qasm"
+}

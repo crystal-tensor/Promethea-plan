@@ -116,6 +116,30 @@ current_results:
     b7_dependency_credit_allowed: false
     b7_credit_delta: 0
     caveat: provenance_manifest_only_no_resource_saving_no_b7_ledger_credit
+  b1_cone01_resource_escape_acceptance_dependency_v0:
+    status: b1_cone01_resource_escape_acceptance_dependency_credit_still_zero
+    method: b1_b7_cone01_resource_escape_acceptance_packet_gate_v0
+    source_b1_resource_escape_acceptance_packet: ../results/B1_B7_cone01_resource_escape_acceptance_packet_gate_v0.json
+    acceptance_packet_id: B1-B7-cone01-resource-escape-acceptance-packet
+    replay_validation_manifest_id: B1-B7-cone01-resource-escape-replay-validation-manifest
+    priority_packet_id: B1-B7-cone01-resource-escape
+    acceptance_requirements_passed: 6
+    acceptance_requirements_failed: 3
+    failed_acceptance_requirement_ids: [P6, P7, P8]
+    required_key_count: 26
+    production_required_key_count: 18
+    required_evidence_file_count: 16
+    selected_line_numbers: [268, 1381]
+    dropped_overlap_candidate_line_numbers: [1378]
+    line1381_off_grid_parameter_count: 5
+    line1378_delta_recovered: false
+    accepted_exit_route_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    submitted_acceptance_packet_exists: false
+    b7_dependency_credit_allowed: false
+    b7_credit_delta: 0
+    caveat: acceptance_packet_only_no_resource_saving_no_b7_ledger_credit
   b2_calibrated_dependency_credit_gate_v0:
     status: b2_calibrated_dependency_credit_rejected_missing_hardware_evidence
     method: b7_b2_calibrated_dependency_credit_gate_v0
@@ -780,6 +804,7 @@ prototype_artifacts:
   dependency_schedule_bridge: ../tools/b7_dependency_schedule_bridge.py
   b2_calibrated_dependency_credit_gate: ../tools/b7_b2_calibrated_dependency_credit_gate.py
   b1_b7_cone01_resource_escape_replay_validation_manifest_gate: ../tools/b1_b7_cone01_resource_escape_replay_validation_manifest_gate.py
+  b1_b7_cone01_resource_escape_acceptance_packet_gate: ../tools/b1_b7_cone01_resource_escape_acceptance_packet_gate.py
   b2_calibration_source_manifest_gate: ../tools/b2_calibration_source_manifest_gate.py
   b2_calibrated_trace_replay_validation_manifest_gate: ../tools/b2_calibrated_trace_replay_validation_manifest_gate.py
   workload_dag_factory_scheduler: ../tools/b7_workload_dag_factory_scheduler.py
