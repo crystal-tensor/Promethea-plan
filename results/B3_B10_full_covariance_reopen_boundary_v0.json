@@ -1,0 +1,182 @@
+{
+  "benchmark_id": "B3",
+  "boundary_packet": {
+    "acceptance_packet_hash": "24b94105d0b0de8d88fb1a6f456cdf1769dcd2efac8186594900c3bc3fff1f69",
+    "acceptance_packet_id": "B3-R1-full-covariance-row-acceptance-packet",
+    "accepted_full_covariance_row_count": 0,
+    "accepted_priority_reopen_rows": 0,
+    "b10_t1_credit_allowed": false,
+    "b3_full_covariance_credit_allowed": false,
+    "b3_reaction_dynamics_solution_credit_allowed": false,
+    "b3_reopen_ready": false,
+    "boundary_hash": "ddeecdff97f61bf096acf6601ed7a09cbaaa4b566cc1d333828992c6f5cf1b5d",
+    "boundary_id": "B3-B10-full-covariance-reopen-boundary",
+    "compiled_pilot_instance_count": 1,
+    "denominator_win_count": 0,
+    "downstream_packet_id": "B3-R1-full-compiled-covariance",
+    "max_optimizer_loop_total_shots_lower_bound": 475043013690000,
+    "positive_same_access_route_allowed": false,
+    "required_downstream_before_b3_reopen": [
+      "submitted B3-R1-full-covariance-row-acceptance-packet",
+      "accepted full compiled-state covariance row table for all 4 row-aligned instances",
+      "compiled-state replay and covariance replay for multi-parameter/converged chemistry states",
+      "derivative estimator replay and optimizer-loop cost ledger beating the current lower-bound pressure",
+      "same-access denominator win ledger with denominator_win_count > 0",
+      "B10 access-boundary replay accepting the positive route without oracle or data-loading leakage",
+      "B3 reopen boundary that preserves claim discipline until rows are accepted",
+      "claim boundary forbidding reaction-dynamics solution, quantum advantage, and BQP separation before acceptance"
+    ],
+    "row_aligned_instance_count": 4,
+    "row_replay_validation_manifest_hash": "1b1d0b18bd2c1027e36dcb70c281c4d5f5f52b9d47ac047f29841334651b955f",
+    "row_replay_validation_manifest_id": "B3-R1-full-covariance-row-replay-validation-manifest",
+    "selected_ci_larger_basis_denominator_beaten_count": 0,
+    "source_acceptance_packet_gate": "results/B3_B10_full_covariance_row_acceptance_packet_gate_v0.json",
+    "source_b10_t1_credit_allowed": false,
+    "source_b3_reopen_ready": false,
+    "source_method": "b3_b10_full_covariance_row_acceptance_packet_gate_v0",
+    "source_positive_same_access_route_available": false
+  },
+  "claim_boundary": {
+    "b10_t1_credit_allowed": false,
+    "b3_full_covariance_credit_allowed": false,
+    "b3_reopen_ready": false,
+    "next_gate": "Submit and accept the full-covariance row acceptance packet with four source-backed full-covariance rows, compiled-state and covariance replay, optimizer-loop cost replay, same-access denominator wins, B10 access-boundary acceptance, and claim boundary before B3 can reopen.",
+    "positive_same_access_route_allowed": false,
+    "what_is_not_supported": "No accepted full-covariance row, B3 reopen, reaction-dynamics solution, positive same-access route, quantum advantage, BQP separation, or B10-T1 credit is supported.",
+    "what_is_supported": "B3 is explicitly synchronized to the B3/B10 full-covariance row acceptance packet as a zero-credit reopen boundary."
+  },
+  "last_updated": "2026-07-03",
+  "linked_benchmark_id": "B10",
+  "method": "b3_b10_full_covariance_reopen_boundary_v0",
+  "model_status": "b3_zero_credit_reopen_boundary_after_full_covariance_row_acceptance_gate",
+  "requirements": [
+    {
+      "evidence": {
+        "acceptance_packet_id": "B3-R1-full-covariance-row-acceptance-packet",
+        "downstream_packet_id": "B3-R1-full-compiled-covariance",
+        "source_method": "b3_b10_full_covariance_row_acceptance_packet_gate_v0",
+        "validation_error_count": 0
+      },
+      "label": "Source B3/B10 full-covariance row acceptance packet gate is present and current",
+      "passed": true,
+      "requirement_id": "S1"
+    },
+    {
+      "evidence": {
+        "failed_acceptance_requirement_ids": [
+          "P6",
+          "P7",
+          "P8"
+        ],
+        "submitted_acceptance_packet_exists": false
+      },
+      "label": "Source acceptance gate remains blocked on missing submitted packet evidence",
+      "passed": true,
+      "requirement_id": "S2"
+    },
+    {
+      "evidence": {
+        "compiled_pilot_instance_count": 1,
+        "max_optimizer_loop_total_shots_lower_bound": 475043013690000,
+        "row_aligned_instance_count": 4
+      },
+      "label": "B3 full-covariance row scope and current denominator pressure are preserved",
+      "passed": true,
+      "requirement_id": "S3"
+    },
+    {
+      "evidence": {
+        "accepted_full_covariance_row_count": 0,
+        "accepted_priority_reopen_rows": 0,
+        "denominator_win_count": 0,
+        "selected_ci_larger_basis_denominator_beaten_count": 0
+      },
+      "label": "No full-covariance row, reopen row, or denominator win has been accepted",
+      "passed": true,
+      "requirement_id": "S4"
+    },
+    {
+      "evidence": {
+        "b10_t1_credit_allowed": false,
+        "b3_full_covariance_credit_allowed": false,
+        "b3_reaction_dynamics_solution_credit_allowed": false,
+        "b3_reopen_ready": false,
+        "positive_same_access_route_allowed": false
+      },
+      "label": "B3 reopen, B3 credit, B10-T1 credit, and positive same-access route remain disabled",
+      "passed": true,
+      "requirement_id": "S5"
+    },
+    {
+      "evidence": {
+        "b10_t1_credit_allowed": false,
+        "b3_reopen_ready": false,
+        "bqp_separation_claimed": false,
+        "positive_same_access_route_available": false,
+        "quantum_advantage_claimed": false,
+        "reaction_dynamics_solution_claimed": false
+      },
+      "label": "Forbidden solution, advantage, BQP, and positive-route claims remain absent",
+      "passed": true,
+      "requirement_id": "S6"
+    },
+    {
+      "evidence": {
+        "required_downstream_before_b3_reopen": [
+          "submitted B3-R1-full-covariance-row-acceptance-packet",
+          "accepted full compiled-state covariance row table for all 4 row-aligned instances",
+          "compiled-state replay and covariance replay for multi-parameter/converged chemistry states",
+          "derivative estimator replay and optimizer-loop cost ledger beating the current lower-bound pressure",
+          "same-access denominator win ledger with denominator_win_count > 0",
+          "B10 access-boundary replay accepting the positive route without oracle or data-loading leakage",
+          "B3 reopen boundary that preserves claim discipline until rows are accepted",
+          "claim boundary forbidding reaction-dynamics solution, quantum advantage, and BQP separation before acceptance"
+        ]
+      },
+      "label": "Boundary records downstream evidence required before B3 can reopen",
+      "passed": true,
+      "requirement_id": "S7"
+    }
+  ],
+  "runtime_seconds": 0.000137,
+  "source_acceptance_packet_gate": "results/B3_B10_full_covariance_row_acceptance_packet_gate_v0.json",
+  "source_target_id": "T-B3-020/T-B10-015g",
+  "status": "b3_b10_full_covariance_reopen_boundary_synced",
+  "summary": {
+    "acceptance_packet_id": "B3-R1-full-covariance-row-acceptance-packet",
+    "accepted_full_covariance_row_count": 0,
+    "accepted_priority_reopen_rows": 0,
+    "b10_t1_credit_allowed": false,
+    "b3_full_covariance_credit_allowed": false,
+    "b3_reaction_dynamics_solution_credit_allowed": false,
+    "b3_reopen_ready": false,
+    "boundary_hash": "ddeecdff97f61bf096acf6601ed7a09cbaaa4b566cc1d333828992c6f5cf1b5d",
+    "boundary_id": "B3-B10-full-covariance-reopen-boundary",
+    "bqp_separation_claimed": false,
+    "compiled_pilot_instance_count": 1,
+    "denominator_win_count": 0,
+    "downstream_packet_id": "B3-R1-full-compiled-covariance",
+    "failed_requirement_ids": [],
+    "max_optimizer_loop_total_shots_lower_bound": 475043013690000,
+    "positive_same_access_route_allowed": false,
+    "quantum_advantage_claimed": false,
+    "reaction_dynamics_solution_claimed": false,
+    "requirement_count": 7,
+    "requirements_failed": 0,
+    "requirements_passed": 7,
+    "row_aligned_instance_count": 4,
+    "row_replay_validation_manifest_id": "B3-R1-full-covariance-row-replay-validation-manifest",
+    "selected_ci_larger_basis_denominator_beaten_count": 0,
+    "source_acceptance_packet_hash": "24b94105d0b0de8d88fb1a6f456cdf1769dcd2efac8186594900c3bc3fff1f69",
+    "source_failed_acceptance_requirement_ids": [
+      "P6",
+      "P7",
+      "P8"
+    ],
+    "submitted_acceptance_packet_exists": false,
+    "validation_error_count": 0
+  },
+  "title": "B3/B10 Full-Covariance Reopen Boundary",
+  "validation_errors": [],
+  "version": "0.1"
+}

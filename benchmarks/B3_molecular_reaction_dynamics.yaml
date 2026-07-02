@@ -594,6 +594,35 @@ current_results:
     caveat: row_acceptance_packet_gate_only_no_full_covariance_artifact_or_positive_route
     result: ../results/B3_B10_full_covariance_row_acceptance_packet_gate_v0.json
     markdown_report: ../research/B3_B10_full_covariance_row_acceptance_packet_gate.md
+  b3_b10_full_covariance_reopen_boundary_v0:
+    status: b3_b10_full_covariance_reopen_boundary_synced
+    method: b3_b10_full_covariance_reopen_boundary_v0
+    model_status: b3_zero_credit_reopen_boundary_after_full_covariance_row_acceptance_gate
+    source_acceptance_packet_gate: ../results/B3_B10_full_covariance_row_acceptance_packet_gate_v0.json
+    boundary_id: B3-B10-full-covariance-reopen-boundary
+    boundary_hash: ddeecdff97f61bf096acf6601ed7a09cbaaa4b566cc1d333828992c6f5cf1b5d
+    acceptance_packet_id: B3-R1-full-covariance-row-acceptance-packet
+    downstream_packet_id: B3-R1-full-compiled-covariance
+    row_replay_validation_manifest_id: B3-R1-full-covariance-row-replay-validation-manifest
+    requirements_passed: 7
+    requirements_failed: 0
+    source_failed_acceptance_requirement_ids: [P6, P7, P8]
+    row_aligned_instance_count: 4
+    compiled_pilot_instance_count: 1
+    accepted_full_covariance_row_count: 0
+    accepted_priority_reopen_rows: 0
+    denominator_win_count: 0
+    selected_ci_larger_basis_denominator_beaten_count: 0
+    max_optimizer_loop_total_shots_lower_bound: 475043013690000
+    b3_reopen_ready: false
+    b3_full_covariance_credit_allowed: false
+    b3_reaction_dynamics_solution_credit_allowed: false
+    positive_same_access_route_allowed: false
+    b10_t1_credit_allowed: false
+    validation_error_count: 0
+    caveat: zero_credit_reopen_boundary_no_full_covariance_rows_or_b3_reopen_credit
+    result: ../results/B3_B10_full_covariance_reopen_boundary_v0.json
+    markdown_report: ../research/B3_B10_full_covariance_reopen_boundary.md
 prototype_artifacts:
   resource_estimator: ../tools/b3_pyscf_resource_estimator.py
   quantum_observable_fci_comparison: ../tools/b3_quantum_observable_fci_comparison.py
@@ -614,4 +643,5 @@ prototype_artifacts:
   b3_b10_full_covariance_denominator_replay_manifest_gate: ../tools/b3_b10_full_covariance_denominator_replay_manifest_gate.py
   b3_b10_full_covariance_row_replay_validation_manifest_gate: ../tools/b3_b10_full_covariance_row_replay_validation_manifest_gate.py
   b3_b10_full_covariance_row_acceptance_packet_gate: ../tools/b3_b10_full_covariance_row_acceptance_packet_gate.py
+  b3_b10_full_covariance_reopen_boundary: ../tools/b3_b10_full_covariance_reopen_boundary.py
   prototype_notes: ../research/B3_prototype_notes.md
