@@ -1,0 +1,322 @@
+{
+  "benchmark": "B4/B8",
+  "benchmark_id": "B4_B8",
+  "claim_boundary": {
+    "bqp_separation_claimed": false,
+    "cryptographic_soundness_proved": false,
+    "next_gate": "Submit B4B8-M6-real-backend-transcript-row-acceptance-packet with accepted replay manifest hash, source-backed raw counts and postprocess replay, leakage-blind and full-leak margin retest tables, spoofer replay, B10 zero-credit boundary, and claim boundary.",
+    "protocol_soundness_proved": false,
+    "quantum_advantage_claimed": false,
+    "sampling_hardness_proved": false,
+    "what_is_not_supported": "No real-backend transcript row acceptance packet or transcript row has been submitted or accepted; no protocol soundness, cryptographic soundness, sampling hardness, quantum advantage, or BQP separation claim is supported.",
+    "what_is_supported": "The B4/B8/B10 real-backend transcript route now has a row acceptance packet that binds replay-validation, priority-packet, backend, job, counts, postprocess, margin-retest, spoofer-replay, and B10 zero-credit evidence before transcript rows can count."
+  },
+  "dependency_benchmarks": [
+    "B4",
+    "B8",
+    "B10"
+  ],
+  "last_updated": "2026-07-03",
+  "linked_benchmark_id": "B10",
+  "method": "b4_b8_real_backend_transcript_row_acceptance_packet_gate_v0",
+  "model_status": "transcript_row_acceptance_packet_required_before_soundness_or_b10_credit",
+  "real_backend_transcript_row_acceptance_packet": {
+    "acceptance_packet_id": "B4B8-M6-real-backend-transcript-row-acceptance-packet",
+    "accepted_only_if": [
+      "acceptance_packet_id equals B4B8-M6-real-backend-transcript-row-acceptance-packet",
+      "provider, provenance, replay-validation, and transcript packet IDs match source gates",
+      "provider, provenance, replay-validation, and priority packet hashes match source gates",
+      "backend properties, runnable circuit manifest, job metadata, raw counts, postprocess, shot allocation, predicate commitment, redaction, margins, and spoofer tables are hash-bound",
+      "accepted_transcript_row_count is positive only after leakage-blind <=16/160 and full-leak <=40/160 margin retest passes",
+      "B10 credit boundary keeps soundness and BQP-separation credit false until an independently accepted transcript route exists",
+      "claim_boundary forbids protocol soundness, cryptographic soundness, sampling hardness, quantum advantage, and BQP separation claims"
+    ],
+    "full_leak_allowed_accepts_per_160": 40,
+    "holdout_row_count": 160,
+    "no_leak_allowed_accepts_per_160": 16,
+    "packet_hash": "d12e99b601c261d198a9ecdde701c7bf8298eb27b25c1620761db5593d4e4c67",
+    "priority_packet_hash": "e40246c4ddbfa3c31c69069a6551c20694211ceb1a1e71695ae41789d3010e21",
+    "production_required_keys": [
+      "replay_validation_manifest_hash",
+      "priority_packet_hash",
+      "backend_properties_hash",
+      "runnable_circuit_manifest_hash",
+      "job_metadata_hash",
+      "raw_counts_hash",
+      "postprocess_script_hash",
+      "shot_allocation_ledger_hash",
+      "private_predicate_commitment_hash",
+      "redaction_manifest_hash",
+      "leakage_blind_margin_table_hash",
+      "full_leak_margin_table_hash",
+      "spoofer_attack_table_hash",
+      "accepted_transcript_row_count",
+      "leakage_blind_accepts_per_160",
+      "full_leak_accepts_per_160",
+      "margin_retest_passed",
+      "b10_credit_boundary",
+      "claim_boundary"
+    ],
+    "provenance_manifest_hash": "14b967e992826390fca8a33aec1662e3b8f40eee03922b879917f9a677f8815a",
+    "provenance_manifest_id": "B4B8-M6-real-backend-transcript-provenance-manifest",
+    "provider_packet_hash": "2a8779ab19f55f9dcf88ef6af26c5c3d33e9043f603060b5da07a49d93b25072",
+    "provider_packet_id": "B4B8-M6-provider-session-manifest",
+    "replay_validation_manifest_hash": "b1b0852d41796aef61c4d27ce1e4c469e50941f84e0fcba924fb012d6b8a00bd",
+    "replay_validation_manifest_id": "B4B8-M6-real-backend-transcript-replay-validation-manifest",
+    "required_evidence_files": [
+      "accepted_replay_validation_manifest",
+      "priority_transcript_packet",
+      "backend_properties_manifest",
+      "runnable_circuit_manifest",
+      "job_metadata_manifest",
+      "raw_counts_artifact",
+      "postprocess_replay_script",
+      "shot_allocation_ledger",
+      "private_predicate_commitment_note",
+      "hashing_and_redaction_manifest",
+      "leakage_blind_margin_retest_table",
+      "full_leak_margin_retest_table",
+      "spoofer_attack_replay_table",
+      "transcript_row_acceptance_ledger",
+      "b10_zero_credit_boundary_note",
+      "claim_boundary_note"
+    ],
+    "required_keys": [
+      "acceptance_packet_id",
+      "provider_packet_id",
+      "provenance_manifest_id",
+      "replay_validation_manifest_id",
+      "transcript_packet_id",
+      "provider_packet_hash",
+      "provenance_manifest_hash",
+      "replay_validation_manifest_hash",
+      "priority_packet_hash",
+      "backend_properties_hash",
+      "runnable_circuit_manifest_hash",
+      "job_metadata_hash",
+      "raw_counts_hash",
+      "postprocess_script_hash",
+      "shot_allocation_ledger_hash",
+      "private_predicate_commitment_hash",
+      "redaction_manifest_hash",
+      "leakage_blind_margin_table_hash",
+      "full_leak_margin_table_hash",
+      "spoofer_attack_table_hash",
+      "accepted_transcript_row_count",
+      "leakage_blind_accepts_per_160",
+      "full_leak_accepts_per_160",
+      "margin_retest_passed",
+      "b10_credit_boundary",
+      "claim_boundary",
+      "source_evidence_files_present"
+    ],
+    "source_priority_packet_gate": "results/B4_B8_real_backend_transcript_priority_packet_gate_v0.json",
+    "source_replay_validation_manifest_gate": "results/B4_B8_real_backend_transcript_replay_validation_manifest_gate_v0.json",
+    "submission_artifact_path": "research/submissions/B4B8-M6-real-backend-transcript-row-acceptance-packet.json",
+    "transcript_packet_id": "B4B8-M6-real-backend-transcript-rows"
+  },
+  "requirements": [
+    {
+      "evidence": {
+        "failed_manifest_requirement_ids": [
+          "P6",
+          "P7",
+          "P8"
+        ],
+        "source_status": "real_backend_transcript_replay_validation_manifest_open_missing_artifact",
+        "validation_error_count": 0
+      },
+      "label": "Replay-validation manifest gate remains valid and blocked only on P6/P7/P8",
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "evidence": {
+        "failed_priority_requirement_ids": [
+          "P6",
+          "P7",
+          "P8"
+        ],
+        "packet_hash": "e40246c4ddbfa3c31c69069a6551c20694211ceb1a1e71695ae41789d3010e21",
+        "priority_packet_id": "B4B8-M6-real-backend-transcript-rows"
+      },
+      "label": "Priority transcript packet remains fixed and source-shaped",
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "evidence": {
+        "production_required_key_count": 19,
+        "required_evidence_file_count": 16,
+        "required_key_count": 27
+      },
+      "label": "Acceptance packet carries locked transcript acceptance schema and evidence classes",
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "evidence": {
+        "full_leak_allowed_accepts_per_160": 40,
+        "holdout_row_count": 160,
+        "no_leak_allowed_accepts_per_160": 16,
+        "real_backend_transcript_rows": 0
+      },
+      "label": "Locked margin budgets and denominator scope are preserved",
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "evidence": {
+        "accepted_priority_transcript_rows": 0,
+        "bqp_separation_claimed": false,
+        "cryptographic_soundness_proved": false,
+        "protocol_soundness_proved": false,
+        "quantum_advantage_claimed": false,
+        "sampling_hardness_proved": false
+      },
+      "label": "Current state has no accepted transcript row or B10 credit",
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "evidence": {
+        "exists": false,
+        "submission_artifact_path": "research/submissions/B4B8-M6-real-backend-transcript-row-acceptance-packet.json"
+      },
+      "label": "Real-backend transcript row acceptance packet has been submitted",
+      "passed": false,
+      "requirement_id": "P6"
+    },
+    {
+      "evidence": {
+        "missing_keys": [
+          "acceptance_packet_id",
+          "provider_packet_id",
+          "provenance_manifest_id",
+          "replay_validation_manifest_id",
+          "transcript_packet_id",
+          "provider_packet_hash",
+          "provenance_manifest_hash",
+          "replay_validation_manifest_hash",
+          "priority_packet_hash",
+          "backend_properties_hash",
+          "runnable_circuit_manifest_hash",
+          "job_metadata_hash",
+          "raw_counts_hash",
+          "postprocess_script_hash",
+          "shot_allocation_ledger_hash",
+          "private_predicate_commitment_hash",
+          "redaction_manifest_hash",
+          "leakage_blind_margin_table_hash",
+          "full_leak_margin_table_hash",
+          "spoofer_attack_table_hash",
+          "accepted_transcript_row_count",
+          "leakage_blind_accepts_per_160",
+          "full_leak_accepts_per_160",
+          "margin_retest_passed",
+          "b10_credit_boundary",
+          "claim_boundary",
+          "source_evidence_files_present"
+        ],
+        "production_keys_present": [],
+        "production_required_keys": [
+          "replay_validation_manifest_hash",
+          "priority_packet_hash",
+          "backend_properties_hash",
+          "runnable_circuit_manifest_hash",
+          "job_metadata_hash",
+          "raw_counts_hash",
+          "postprocess_script_hash",
+          "shot_allocation_ledger_hash",
+          "private_predicate_commitment_hash",
+          "redaction_manifest_hash",
+          "leakage_blind_margin_table_hash",
+          "full_leak_margin_table_hash",
+          "spoofer_attack_table_hash",
+          "accepted_transcript_row_count",
+          "leakage_blind_accepts_per_160",
+          "full_leak_accepts_per_160",
+          "margin_retest_passed",
+          "b10_credit_boundary",
+          "claim_boundary"
+        ],
+        "submitted_key_count": 0
+      },
+      "label": "Submitted acceptance packet satisfies the locked transcript schema",
+      "passed": false,
+      "requirement_id": "P7"
+    },
+    {
+      "evidence": {
+        "b10_boundary_bound": false,
+        "claim_boundary_bound": false,
+        "manifest_bound": false,
+        "row_acceptance_valid": false,
+        "source_backed": false
+      },
+      "label": "Submitted acceptance packet is source-backed, manifest-bound, margin-valid, B10-boundary-bound, and claim-boundary-bound",
+      "passed": false,
+      "requirement_id": "P8"
+    },
+    {
+      "evidence": {
+        "bqp_separation_claimed": false,
+        "cryptographic_soundness_proved": false,
+        "protocol_soundness_proved": false,
+        "quantum_advantage_claimed": false,
+        "sampling_hardness_proved": false
+      },
+      "label": "Forbidden soundness, advantage, and BQP claims remain false",
+      "passed": true,
+      "requirement_id": "P9"
+    }
+  ],
+  "runtime_seconds": 0.00021,
+  "source_priority_packet_gate": "results/B4_B8_real_backend_transcript_priority_packet_gate_v0.json",
+  "source_replay_validation_manifest_gate": "results/B4_B8_real_backend_transcript_replay_validation_manifest_gate_v0.json",
+  "source_target_id": "B10-T2",
+  "status": "real_backend_transcript_row_acceptance_packet_open_missing_artifact",
+  "summary": {
+    "acceptance_packet_hash": "d12e99b601c261d198a9ecdde701c7bf8298eb27b25c1620761db5593d4e4c67",
+    "acceptance_packet_id": "B4B8-M6-real-backend-transcript-row-acceptance-packet",
+    "acceptance_requirement_count": 9,
+    "acceptance_requirements_failed": 3,
+    "acceptance_requirements_passed": 6,
+    "accepted_priority_transcript_rows": 0,
+    "b10_bqp_separation_credit_allowed": false,
+    "b10_soundness_credit_allowed": false,
+    "bqp_separation_claimed": false,
+    "cryptographic_soundness_proved": false,
+    "failed_acceptance_requirement_ids": [
+      "P6",
+      "P7",
+      "P8"
+    ],
+    "full_leak_allowed_accepts_per_160": 40,
+    "holdout_row_count": 160,
+    "missing_key_count": 27,
+    "no_leak_allowed_accepts_per_160": 16,
+    "priority_packet_hash": "e40246c4ddbfa3c31c69069a6551c20694211ceb1a1e71695ae41789d3010e21",
+    "production_keys_present_count": 0,
+    "production_required_key_count": 19,
+    "protocol_soundness_proved": false,
+    "provenance_manifest_hash": "14b967e992826390fca8a33aec1662e3b8f40eee03922b879917f9a677f8815a",
+    "provenance_manifest_id": "B4B8-M6-real-backend-transcript-provenance-manifest",
+    "provider_packet_hash": "2a8779ab19f55f9dcf88ef6af26c5c3d33e9043f603060b5da07a49d93b25072",
+    "provider_packet_id": "B4B8-M6-provider-session-manifest",
+    "quantum_advantage_claimed": false,
+    "real_backend_transcript_rows": 0,
+    "replay_validation_manifest_hash": "b1b0852d41796aef61c4d27ce1e4c469e50941f84e0fcba924fb012d6b8a00bd",
+    "replay_validation_manifest_id": "B4B8-M6-real-backend-transcript-replay-validation-manifest",
+    "required_evidence_file_count": 16,
+    "required_key_count": 27,
+    "sampling_hardness_proved": false,
+    "submitted_acceptance_packet_exists": false,
+    "submitted_key_count": 0,
+    "transcript_packet_id": "B4B8-M6-real-backend-transcript-rows",
+    "validation_error_count": 0
+  },
+  "title": "B4/B8 Real-Backend Transcript Row Acceptance Packet Gate",
+  "validation_errors": [],
+  "version": "0.1"
+}
