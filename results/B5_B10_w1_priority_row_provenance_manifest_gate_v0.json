@@ -1,0 +1,234 @@
+{
+  "benchmark_id": "B5",
+  "claim_boundary": {
+    "bqp_separation_claimed": false,
+    "next_gate": "Submit results/B5_B10_w1_priority_row_provenance_manifest_submissions/B5B10-W1-priority-row-provenance-manifest.json before the priority-row JSON artifact, then rerun this gate and the priority-row submission gate.",
+    "production_dmrg_claimed": false,
+    "quantum_advantage_claimed": false,
+    "same_access_positive_route_claimed": false,
+    "what_is_not_supported": "No provenance manifest or priority production row has been submitted or accepted; no production DMRG denominator, same-access positive route, quantum advantage, or BQP separation is supported.",
+    "what_is_supported": "The first B5/B10 W1 production-row obligation now has a pre-row provenance manifest packet that must bind state, environment, residual, discarded-weight, cost-ledger, and replay evidence before any priority row can be accepted."
+  },
+  "dependency_benchmarks": [
+    "B5",
+    "B10"
+  ],
+  "last_updated": "2026-07-02",
+  "linked_benchmark_id": "B10",
+  "method": "b5_b10_w1_priority_row_provenance_manifest_gate_v0",
+  "model_status": "priority_row_provenance_manifest_required_before_production_row_acceptance",
+  "provenance_manifest_packet": {
+    "accepted_only_if": [
+      "manifest_id equals B5B10-W1-priority-row-provenance-manifest",
+      "row_id equals D5H_s8_u2_eta0.25_n4x4_obs_density_site_4",
+      "row_contract_hash, priority_packet_hash, template_hash, and prototype_trace_hash match the source priority packet",
+      "canonical-state, environment-source, residual, discarded-weight, cost-ledger, and replay protocol hashes are present",
+      "same_access_replay_hashes bind row_contract_hash, priority_packet_hash, and template_hash",
+      "source evidence files are present and hash-bound",
+      "claim_boundary forbids production-DMRG, positive-route, quantum-advantage, and BQP-separation claims"
+    ],
+    "manifest_hash": "2616aae62cc6af33da763faac1d7275e975ca9699dd752231b600975cff74b90",
+    "manifest_id": "B5B10-W1-priority-row-provenance-manifest",
+    "priority_packet_hash": "0d3620e8c5540bfd419718ab9d7ac5e4044e9f7736e0b23888f51114c13a3b8c",
+    "production_manifest_keys": [
+      "canonical_state_manifest_hash",
+      "environment_hash_source_manifest",
+      "residual_protocol_hash",
+      "discarded_weight_protocol_hash",
+      "cost_ledger_protocol_hash",
+      "same_access_replay_hashes"
+    ],
+    "prototype_trace_hash": "0c5c5b059eafffa41eac3d17754a26440fec114a2c58e40abf9bcc3958d9d547",
+    "prototype_values_are_provenance_only": true,
+    "required_evidence_files": [
+      "canonical_state_manifest_source",
+      "left_environment_hash_source",
+      "right_environment_hash_source",
+      "orthonormal_residual_protocol_note",
+      "discarded_weight_protocol_note",
+      "wall_clock_memory_measurement_note",
+      "sweep_or_matvec_count_note",
+      "same_access_replay_command_manifest",
+      "row_contract_hash_replay_note",
+      "claim_boundary_note"
+    ],
+    "required_manifest_keys": [
+      "manifest_id",
+      "row_id",
+      "row_contract_hash",
+      "priority_packet_hash",
+      "template_hash",
+      "prototype_trace_hash",
+      "canonical_state_manifest_hash",
+      "environment_hash_source_manifest",
+      "residual_protocol_hash",
+      "discarded_weight_protocol_hash",
+      "cost_ledger_protocol_hash",
+      "same_access_replay_hashes",
+      "claim_boundary"
+    ],
+    "row_contract_hash": "7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc",
+    "row_id": "D5H_s8_u2_eta0.25_n4x4_obs_density_site_4",
+    "source_priority_packet_gate": "results/B5_B10_w1_priority_row_submission_packet_gate_v0.json",
+    "submission_artifact_path": "results/B5_B10_w1_priority_row_provenance_manifest_submissions/B5B10-W1-priority-row-provenance-manifest.json",
+    "template_hash": "5ab7ee67accd826db90f4b3662b4377850f795529fe9d01327725d0dc4ae92e3"
+  },
+  "requirements": [
+    {
+      "evidence": {
+        "failed_packet_requirement_ids": [
+          "P6",
+          "P7",
+          "P8"
+        ],
+        "source_status": "w1_priority_row_submission_packet_open_missing_artifact",
+        "validation_error_count": 0
+      },
+      "label": "Priority-row submission packet remains valid and blocked only on P6/P7/P8",
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "evidence": {
+        "priority_row_id": "D5H_s8_u2_eta0.25_n4x4_obs_density_site_4",
+        "row_contract_hash": "7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc"
+      },
+      "label": "Priority row and locked W1 row contract are preserved",
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "evidence": {
+        "production_manifest_key_count": 6,
+        "required_evidence_file_count": 10,
+        "required_manifest_key_count": 13
+      },
+      "label": "Manifest packet carries locked provenance schema and evidence file classes",
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "evidence": {
+        "production_required_key_count": 8,
+        "required_evidence_file_count": 8,
+        "required_row_key_count": 17
+      },
+      "label": "Priority-row schema, production keys, and evidence classes remain preserved",
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "evidence": {
+        "accepted_priority_row_count": 0,
+        "bqp_separation_claimed": false,
+        "production_dmrg_claimed": false,
+        "quantum_advantage_claimed": false,
+        "same_access_positive_route_claimed": false,
+        "submitted_artifact_exists": false
+      },
+      "label": "Current state has no accepted priority row or production route credit",
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "evidence": {
+        "exists": false,
+        "submission_artifact_path": "results/B5_B10_w1_priority_row_provenance_manifest_submissions/B5B10-W1-priority-row-provenance-manifest.json"
+      },
+      "label": "Provenance manifest artifact has been submitted",
+      "passed": false,
+      "requirement_id": "P6"
+    },
+    {
+      "evidence": {
+        "missing_keys": [
+          "manifest_id",
+          "row_id",
+          "row_contract_hash",
+          "priority_packet_hash",
+          "template_hash",
+          "prototype_trace_hash",
+          "canonical_state_manifest_hash",
+          "environment_hash_source_manifest",
+          "residual_protocol_hash",
+          "discarded_weight_protocol_hash",
+          "cost_ledger_protocol_hash",
+          "same_access_replay_hashes",
+          "claim_boundary"
+        ],
+        "production_keys_present": [],
+        "production_manifest_keys": [
+          "canonical_state_manifest_hash",
+          "environment_hash_source_manifest",
+          "residual_protocol_hash",
+          "discarded_weight_protocol_hash",
+          "cost_ledger_protocol_hash",
+          "same_access_replay_hashes"
+        ],
+        "submitted_key_count": 0
+      },
+      "label": "Submitted manifest satisfies the locked provenance schema",
+      "passed": false,
+      "requirement_id": "P7"
+    },
+    {
+      "evidence": {
+        "replay_bound": false,
+        "row_bound": false,
+        "source_evidence_files_present": false
+      },
+      "label": "Submitted manifest is source-backed, row-bound, and replay-hash-bound",
+      "passed": false,
+      "requirement_id": "P8"
+    },
+    {
+      "evidence": {
+        "bqp_separation_claimed": false,
+        "production_dmrg_claimed": false,
+        "quantum_advantage_claimed": false,
+        "same_access_positive_route_claimed": false
+      },
+      "label": "Forbidden production, positive-route, advantage, and BQP claims remain false",
+      "passed": true,
+      "requirement_id": "P9"
+    }
+  ],
+  "runtime_seconds": 0.00017595291137695312,
+  "source_priority_packet_gate": "results/B5_B10_w1_priority_row_submission_packet_gate_v0.json",
+  "source_target_id": "B10-T1",
+  "status": "w1_priority_row_provenance_manifest_open_missing_artifact",
+  "summary": {
+    "accepted_priority_row_count": 0,
+    "b10_t1_positive_route_ready": false,
+    "bqp_separation_claimed": false,
+    "failed_manifest_requirement_ids": [
+      "P6",
+      "P7",
+      "P8"
+    ],
+    "manifest_hash": "2616aae62cc6af33da763faac1d7275e975ca9699dd752231b600975cff74b90",
+    "manifest_id": "B5B10-W1-priority-row-provenance-manifest",
+    "manifest_requirement_count": 9,
+    "manifest_requirements_failed": 3,
+    "manifest_requirements_passed": 6,
+    "missing_key_count": 13,
+    "priority_packet_hash": "0d3620e8c5540bfd419718ab9d7ac5e4044e9f7736e0b23888f51114c13a3b8c",
+    "priority_production_required_key_count": 8,
+    "priority_required_row_key_count": 17,
+    "priority_row_id": "D5H_s8_u2_eta0.25_n4x4_obs_density_site_4",
+    "production_dmrg_claimed": false,
+    "production_keys_present_count": 0,
+    "production_manifest_key_count": 6,
+    "quantum_advantage_claimed": false,
+    "required_evidence_file_count": 10,
+    "required_manifest_key_count": 13,
+    "row_contract_hash": "7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc",
+    "same_access_positive_route_claimed": false,
+    "submitted_key_count": 0,
+    "submitted_manifest_exists": false,
+    "validation_error_count": 0
+  },
+  "title": "B5/B10 W1 Priority Row Provenance Manifest Gate",
+  "validation_errors": [],
+  "version": "0.1"
+}
