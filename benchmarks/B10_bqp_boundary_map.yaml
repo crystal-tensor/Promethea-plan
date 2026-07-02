@@ -1016,6 +1016,38 @@ current_results:
     caveat: triage_only_no_b10_t1_credit_or_bqp_boundary_claim
     result: ../results/B3_B10_full_covariance_post_boundary_submission_triage_v0.json
     markdown_report: ../research/B3_B10_full_covariance_post_boundary_submission_triage.md
+  b10_t1_b3_f1_full_covariance_row_packet_gate_v0:
+    status: f1_full_covariance_row_packet_open_missing_artifact
+    method: b3_b10_f1_full_covariance_row_packet_gate_v0
+    source_f1_packet_gate: ../results/B3_B10_F1_full_covariance_row_packet_gate_v0.json
+    source_post_boundary_triage: ../results/B3_B10_full_covariance_post_boundary_submission_triage_v0.json
+    source_row_acceptance_gate: ../results/B3_B10_full_covariance_row_acceptance_packet_gate_v0.json
+    source_target_id: T-B3-022/T-B10-015i
+    dependency_benchmark: B3
+    f1_packet_id: B3B10-F1-full-compiled-state-covariance-rows
+    f1_packet_hash: dce2291e5ee21b7b2ccda8024d7da7afeb25565541e8dbe13035d1d9828612d7
+    source_triage_hash: 74c8adb47c2505b314376585e02931c55d1e4eeffb9a1cebc15527c88d987f4b
+    source_acceptance_packet_hash: 24b94105d0b0de8d88fb1a6f456cdf1769dcd2efac8186594900c3bc3fff1f69
+    downstream_packet_id: B3-R1-full-compiled-covariance
+    requirements_passed: 6
+    requirements_failed: 3
+    failed_requirement_ids: [P6, P7, P8]
+    required_key_count: 16
+    production_required_key_count: 9
+    required_evidence_file_count: 11
+    row_aligned_instance_count: 4
+    compiled_pilot_instance_count: 1
+    accepted_full_covariance_row_count: 0
+    denominator_win_count: 0
+    max_optimizer_loop_total_shots_lower_bound: 475043013690000
+    b10_t1_credit_allowed: false
+    b10_bqp_separation_credit_allowed: false
+    quantum_advantage_claimed: false
+    explicit_not_bqp_separation: true
+    validation_error_count: 0
+    caveat: f1_contract_only_no_b10_t1_credit_or_bqp_boundary_claim
+    result: ../results/B3_B10_F1_full_covariance_row_packet_gate_v0.json
+    markdown_report: ../research/B3_B10_F1_full_covariance_row_packet_gate.md
   b10_t1_missing_assumption_note_v0:
     status: missing_assumption_note_not_dequantization_theorem
     method: b10_t1_missing_assumption_note_v0
@@ -1762,6 +1794,7 @@ prototype_artifacts:
   t1_b3_b10_full_covariance_row_replay_validation_manifest_gate: ../tools/b3_b10_full_covariance_row_replay_validation_manifest_gate.py
   t1_b3_b10_full_covariance_row_acceptance_packet_gate: ../tools/b3_b10_full_covariance_row_acceptance_packet_gate.py
   t1_b3_b10_full_covariance_post_boundary_submission_triage: ../tools/b3_b10_full_covariance_post_boundary_submission_triage.py
+  t1_b3_b10_f1_full_covariance_row_packet_gate: ../tools/b3_b10_f1_full_covariance_row_packet_gate.py
   t1_b5_w1_replay_validation_manifest_gate: ../tools/b5_b10_w1_replay_validation_manifest_gate.py
   t1_positive_route_acceptance_boundary: ../tools/b10_t1_positive_route_acceptance_boundary.py
   t1_missing_assumption_note_builder: ../tools/b10_t1_missing_assumption_note.py
