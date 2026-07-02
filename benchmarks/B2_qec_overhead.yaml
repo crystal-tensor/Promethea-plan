@@ -777,6 +777,36 @@ current_results:
     caveat: template_only_no_calibrated_rows_hardware_rows_threshold_or_low_overhead_qec_claim
     result: ../results/B2_calibrated_trace_intake_template_gate_v0.json
     markdown_report: ../research/B2_calibrated_trace_intake_template_gate.md
+  calibrated_trace_priority_packet_gate_v0:
+    status: calibrated_trace_priority_packet_open_missing_artifact
+    method: b2_calibrated_trace_priority_packet_gate_v0
+    model_status: priority_calibrated_trace_contract_ready_no_row_submitted
+    source: calibrated_trace_intake_template_gate_v0
+    priority_packet_id: B2-T5-calibrated-flag-observation-rows
+    packet_hash: abec5e9114f6a6dcdc4d2b0bf7cc580c22fc6d8007fc68bdc2b1e9c7aae9378d
+    priority_requirement_count: 9
+    priority_requirements_passed: 6
+    priority_requirements_failed: 3
+    failed_priority_requirement_ids: [P6, P7, P8]
+    required_row_key_count: 21
+    production_required_key_count: 10
+    required_evidence_file_count: 8
+    challenge_count: 3
+    source_trace_count: 576
+    holdout_profile_shots: 864
+    submitted_artifact_exists: false
+    accepted_priority_trace_rows: 0
+    production_decoder_claimed: false
+    threshold_claimed: false
+    new_code_claimed: false
+    hardware_result_claimed: false
+    calibrated_device_claimed: false
+    quantum_advantage_claimed: false
+    validation_error_count: 0
+    interpretation: priority_packet_fixes_first_b2_calibrated_trace_row_contract_without_promoting_synthetic_traces
+    caveat: priority_packet_only_no_calibrated_rows_hardware_rows_threshold_or_qec_claim
+    result: ../results/B2_calibrated_trace_priority_packet_gate_v0.json
+    markdown_report: ../research/B2_calibrated_trace_priority_packet_gate.md
 prototype_artifacts:
   baseline_runner: ../tools/b2_repetition_code_baseline.py
   target_volume_estimator: ../tools/b2_target_volume.py
@@ -797,6 +827,7 @@ prototype_artifacts:
   per_shot_decoder_trace_packet: ../tools/b2_per_shot_decoder_trace_packet.py
   calibrated_trace_scout: ../tools/b2_calibrated_trace_scout.py
   calibrated_trace_intake_template_gate: ../tools/b2_calibrated_trace_intake_template_gate.py
+  calibrated_trace_priority_packet_gate: ../tools/b2_calibrated_trace_priority_packet_gate.py
   posterior_likelihood_decoder_injection_gate: ../tools/b2_posterior_likelihood_decoder_injection_gate.py
   dem_informed_detector_edge_semantics_gate: ../tools/b2_dem_informed_detector_edge_semantics_gate.py
   hardware_like_leakage_model_gate: ../tools/b2_hardware_like_leakage_model_gate.py

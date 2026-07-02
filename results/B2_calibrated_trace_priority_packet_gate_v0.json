@@ -1,0 +1,252 @@
+{
+  "benchmark_id": "B2",
+  "claim_boundary": {
+    "calibrated_device_claimed": false,
+    "hardware_result_claimed": false,
+    "new_code_claimed": false,
+    "next_gate": "Submit results/B2_calibrated_trace_priority_submissions/B2-T5-calibrated-flag-observation-rows.json with all 21 row keys, all 10 source-backed production keys, and replayable baseline/injected decoder predictions.",
+    "production_decoder_claimed": false,
+    "quantum_advantage_claimed": false,
+    "threshold_claimed": false,
+    "what_is_not_supported": "No calibrated trace row has been submitted or accepted; no production decoder, threshold, hardware result, calibrated-device result, new-code result, or quantum advantage is supported.",
+    "what_is_supported": "The first B2 calibrated-trace blocker now has a concrete source-backed row submission packet for calibrated flag observations."
+  },
+  "last_updated": "2026-07-02",
+  "method": "b2_calibrated_trace_priority_packet_gate_v0",
+  "model_status": "priority_calibrated_trace_contract_ready_no_row_submitted",
+  "priority_trace_packet": {
+    "accepted_only_if": [
+      "all 21 required trace-row keys are present",
+      "all 10 production-required keys are non-null and source-backed",
+      "challenge_trace_hash is preserved from the existing B2 trace scout",
+      "holdout_partition is declared before decoder comparison",
+      "baseline_prediction and injected_prediction are replayable from source artifacts",
+      "claim_boundary forbids production decoder, threshold, hardware, new-code, and advantage claims"
+    ],
+    "blocks_contract_gate": "K4",
+    "blocks_scout_gate": "S5",
+    "owner_role": "hardware_data_or_calibration_agent",
+    "packet_hash": "abec5e9114f6a6dcdc4d2b0bf7cc580c22fc6d8007fc68bdc2b1e9c7aae9378d",
+    "packet_id": "B2-T5-calibrated-flag-observation-rows",
+    "production_required_keys": [
+      "backend_or_calibration_source",
+      "backend_properties_hash",
+      "detector_bitstring_hash",
+      "calibrated_flag_events_hash",
+      "flag_confusion_matrix_hash",
+      "decoder_profile",
+      "baseline_prediction",
+      "injected_prediction",
+      "raw_trace_artifact_sha256",
+      "postprocess_script_sha256"
+    ],
+    "required_evidence_files": [
+      "backend_or_calibration_source_manifest",
+      "backend_properties_hash_source",
+      "detector_bitstring_artifact",
+      "calibrated_flag_events_artifact",
+      "flag_confusion_matrix_artifact",
+      "decoder_profile_manifest",
+      "raw_trace_artifact",
+      "postprocess_script"
+    ],
+    "required_row_keys": [
+      "trace_id",
+      "challenge_id",
+      "challenge_trace_hash",
+      "backend_or_calibration_source",
+      "backend_properties_hash",
+      "shot_index",
+      "detector_bitstring_hash",
+      "observable_bit",
+      "calibrated_flag_events_hash",
+      "flag_confusion_matrix_hash",
+      "leakage_rate_per_tick",
+      "false_positive_rate_per_tick",
+      "decoder_profile",
+      "baseline_prediction",
+      "injected_prediction",
+      "logical_label",
+      "holdout_partition",
+      "decoder_runtime_seconds",
+      "raw_trace_artifact_sha256",
+      "postprocess_script_sha256",
+      "claim_boundary"
+    ],
+    "submission_artifact_path": "results/B2_calibrated_trace_priority_submissions/B2-T5-calibrated-flag-observation-rows.json",
+    "template_hash": "83e8f6ffd31a5becd304b1b2c0090998b6ab7167d6746f0bc90d234102117625"
+  },
+  "problem_id": 22,
+  "requirements": [
+    {
+      "evidence": {
+        "failed_intake_requirement_ids": [
+          "T5",
+          "T6",
+          "T7"
+        ],
+        "source_status": "calibrated_trace_intake_template_open_missing_rows",
+        "validation_error_count": 0
+      },
+      "label": "Intake template remains valid and open on calibrated rows",
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "evidence": {
+        "actual_packet_id": "B2-T5-calibrated-flag-observation-rows",
+        "blocks_contract_gate": "K4",
+        "blocks_scout_gate": "S5",
+        "expected_packet_id": "B2-T5-calibrated-flag-observation-rows"
+      },
+      "label": "Priority packet is fixed to calibrated flag observation rows",
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "evidence": {
+        "production_required_key_count": 10,
+        "required_row_key_count": 21
+      },
+      "label": "Priority packet carries the 21-key trace schema and 10 production keys",
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "evidence": {
+        "required_evidence_files": [
+          "backend_or_calibration_source_manifest",
+          "backend_properties_hash_source",
+          "detector_bitstring_artifact",
+          "calibrated_flag_events_artifact",
+          "flag_confusion_matrix_artifact",
+          "decoder_profile_manifest",
+          "raw_trace_artifact",
+          "postprocess_script"
+        ]
+      },
+      "label": "Packet binds required source evidence classes",
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "evidence": {
+        "challenge_count": 3,
+        "holdout_profile_shots": 864,
+        "source_trace_count": 576
+      },
+      "label": "Existing 3-challenge / 576-trace shape remains preserved",
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "evidence": {
+        "exists": false,
+        "submission_artifact_path": "results/B2_calibrated_trace_priority_submissions/B2-T5-calibrated-flag-observation-rows.json"
+      },
+      "label": "Priority calibrated trace artifact has been submitted",
+      "passed": false,
+      "requirement_id": "P6"
+    },
+    {
+      "evidence": {
+        "missing_keys": [
+          "trace_id",
+          "challenge_id",
+          "challenge_trace_hash",
+          "backend_or_calibration_source",
+          "backend_properties_hash",
+          "shot_index",
+          "detector_bitstring_hash",
+          "observable_bit",
+          "calibrated_flag_events_hash",
+          "flag_confusion_matrix_hash",
+          "leakage_rate_per_tick",
+          "false_positive_rate_per_tick",
+          "decoder_profile",
+          "baseline_prediction",
+          "injected_prediction",
+          "logical_label",
+          "holdout_partition",
+          "decoder_runtime_seconds",
+          "raw_trace_artifact_sha256",
+          "postprocess_script_sha256",
+          "claim_boundary"
+        ],
+        "submitted_key_count": 0
+      },
+      "label": "Submitted artifact satisfies the locked 21-key schema",
+      "passed": false,
+      "requirement_id": "P7"
+    },
+    {
+      "evidence": {
+        "production_keys_present": [],
+        "production_required_keys": [
+          "backend_or_calibration_source",
+          "backend_properties_hash",
+          "detector_bitstring_hash",
+          "calibrated_flag_events_hash",
+          "flag_confusion_matrix_hash",
+          "decoder_profile",
+          "baseline_prediction",
+          "injected_prediction",
+          "raw_trace_artifact_sha256",
+          "postprocess_script_sha256"
+        ],
+        "source_evidence_files_present": false
+      },
+      "label": "Submitted production keys are source-backed and non-null",
+      "passed": false,
+      "requirement_id": "P8"
+    },
+    {
+      "evidence": {
+        "calibrated_device_claimed": false,
+        "hardware_result_claimed": false,
+        "production_decoder_claimed": false,
+        "quantum_advantage_claimed": false,
+        "threshold_claimed": false
+      },
+      "label": "Forbidden decoder, threshold, hardware, new-code, and advantage claims remain false",
+      "passed": true,
+      "requirement_id": "P9"
+    }
+  ],
+  "runtime_seconds": 0.0001289844512939453,
+  "source_intake_template_result": "results/B2_calibrated_trace_intake_template_gate_v0.json",
+  "status": "calibrated_trace_priority_packet_open_missing_artifact",
+  "summary": {
+    "accepted_priority_trace_rows": 0,
+    "calibrated_device_claimed": false,
+    "challenge_count": 3,
+    "failed_priority_requirement_ids": [
+      "P6",
+      "P7",
+      "P8"
+    ],
+    "hardware_result_claimed": false,
+    "holdout_profile_shots": 864,
+    "missing_key_count": 21,
+    "new_code_claimed": false,
+    "packet_hash": "abec5e9114f6a6dcdc4d2b0bf7cc580c22fc6d8007fc68bdc2b1e9c7aae9378d",
+    "priority_packet_id": "B2-T5-calibrated-flag-observation-rows",
+    "priority_requirement_count": 9,
+    "priority_requirements_failed": 3,
+    "priority_requirements_passed": 6,
+    "production_decoder_claimed": false,
+    "production_keys_present_count": 0,
+    "production_required_key_count": 10,
+    "quantum_advantage_claimed": false,
+    "required_evidence_file_count": 8,
+    "required_row_key_count": 21,
+    "source_trace_count": 576,
+    "submitted_artifact_exists": false,
+    "submitted_key_count": 0,
+    "threshold_claimed": false,
+    "validation_error_count": 0
+  },
+  "title": "B2 Calibrated Trace Priority Packet Gate",
+  "validation_errors": [],
+  "version": "0.1"
+}

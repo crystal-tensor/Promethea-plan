@@ -107,6 +107,19 @@ current_results:
     caveat: structural_b1_b2_bridge_remains_planning_input_but_b2_calibrated_credit_is_blocked
     result: ../results/B7_B2_calibrated_dependency_credit_gate_v0.json
     markdown_report: ../research/B7_B2_calibrated_dependency_credit_gate.md
+  b2_calibrated_trace_priority_packet_dependency_v0:
+    status: b2_priority_packet_dependency_credit_still_zero
+    method: b2_calibrated_trace_priority_packet_gate_v0
+    source_b2_priority_packet: ../results/B2_calibrated_trace_priority_packet_gate_v0.json
+    priority_packet_id: B2-T5-calibrated-flag-observation-rows
+    priority_requirements_passed: 6
+    priority_requirements_failed: 3
+    failed_priority_requirement_ids: [P6, P7, P8]
+    submitted_artifact_exists: false
+    accepted_priority_trace_rows: 0
+    b7_dependency_credit_allowed: false
+    b7_credit_delta: 0
+    caveat: priority_packet_only_no_calibrated_rows_no_b7_resource_credit
   workload_dag_factory_schedule_v0:
     status: workload_dag_factory_schedule_not_physical_layout
     method: b7_workload_dag_factory_scheduler_v0
