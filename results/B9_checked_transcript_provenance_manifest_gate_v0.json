@@ -1,0 +1,257 @@
+{
+  "benchmark_id": "B9",
+  "claim_boundary": {
+    "explicit_not_quantum_pcp_proof": true,
+    "formal_theorem_proved": false,
+    "global_gap_amplification_impossibility_claimed": false,
+    "next_gate": "Submit results/B9_checked_transcript_provenance_manifest_submissions/B9-checked-width-locality-transcript-provenance-manifest.json before the checked transcript priority artifact, then rerun this gate and the priority packet gate.",
+    "nlts_theorem_claimed": false,
+    "proof_assistant_checked": false,
+    "what_is_not_supported": "No provenance manifest or checked transcript has been submitted or accepted; no proof-assistant checked theorem, Quantum PCP proof, NLTS theorem, or global impossibility theorem is supported.",
+    "what_is_supported": "The first B9 checked-transcript route now has a provenance manifest packet that must bind Lean/Lake source hashes, version transcripts, checked-run transcript hash, returncode, replay hashes, and claim boundary."
+  },
+  "last_updated": "2026-07-02",
+  "linked_benchmark_id": "B10",
+  "method": "b9_checked_transcript_provenance_manifest_gate_v0",
+  "model_status": "checked_transcript_manifest_required_before_checked_run_acceptance",
+  "problem_id": 17,
+  "provenance_manifest_packet": {
+    "accepted_only_if": [
+      "manifest_id equals B9-checked-width-locality-transcript-provenance-manifest",
+      "packet_id equals B9-checked-width-locality-transcript",
+      "priority_packet_hash matches the source priority packet",
+      "lean-toolchain, lakefile, and Lean module hashes match the submitted checked run",
+      "Lean version, Lake version, and lake env lean transcripts are present and hash-bound",
+      "returncode is 0 and checked_transcript_sha256 matches the checked transcript file",
+      "source evidence files are present and replay hashes bind priority packet plus local source hashes",
+      "claim_boundary forbids Quantum PCP, NLTS, formal theorem, and global impossibility claims"
+    ],
+    "blocks_acquisition_requirements": [
+      "A3",
+      "A4",
+      "A6"
+    ],
+    "expected_local_paths": {
+      "checked_transcript": "results/B9_checked_run_width_locality_transcript_v0.txt",
+      "lakefile": "lakefile.lean",
+      "lean_module": "B9/ClusterStabilizer/WidthLocality.lean",
+      "lean_toolchain": "lean-toolchain"
+    },
+    "manifest_hash": "1b3716b5f1a8ca396557dad26298a99a469349733abcf6d345e9cd4bb467f1d1",
+    "manifest_id": "B9-checked-width-locality-transcript-provenance-manifest",
+    "packet_id": "B9-checked-width-locality-transcript",
+    "priority_packet_hash": "948afb38dab74a9612316173024f06228bda70fce37dd1a957b9d95536a07969",
+    "production_manifest_keys": [
+      "lean_toolchain_sha256",
+      "lakefile_sha256",
+      "lean_module_sha256",
+      "lean_version_stdout_sha256",
+      "lake_version_stdout_sha256",
+      "checked_transcript_sha256",
+      "lake_env_lean_command_hash",
+      "returncode"
+    ],
+    "required_evidence_files": [
+      "lean_toolchain_file",
+      "lakefile_source",
+      "lean_module_source",
+      "lean_version_stdout_transcript",
+      "lake_version_stdout_transcript",
+      "lake_env_lean_width_locality_transcript",
+      "checked_transcript_file",
+      "offline_bundle_hash_manifest",
+      "reproduction_environment_note",
+      "claim_boundary_note"
+    ],
+    "required_manifest_keys": [
+      "manifest_id",
+      "packet_id",
+      "priority_packet_hash",
+      "lean_toolchain_sha256",
+      "lakefile_sha256",
+      "lean_module_sha256",
+      "lean_version_stdout_sha256",
+      "lake_version_stdout_sha256",
+      "checked_transcript_sha256",
+      "lake_env_lean_command_hash",
+      "returncode",
+      "offline_bundle_hash_manifest",
+      "claim_boundary"
+    ],
+    "source_hashes_at_gate_time": {
+      "lakefile_sha256": "4d24f18967fce6e70b985da8aa6d9501297625642bfc945d629780d85b0993bd",
+      "lean_module_sha256": "d885cfe38990798c8cbd281959ed995a17427b38991968a9f40801c2a3bfa43c",
+      "lean_toolchain_sha256": "e6930c662006db4d6dc76c651d60a608e4f6a18bcfd53e6b0167d70a125285d5"
+    },
+    "source_priority_packet_gate": "results/B9_checked_transcript_priority_packet_gate_v0.json",
+    "submission_artifact_path": "results/B9_checked_transcript_provenance_manifest_submissions/B9-checked-width-locality-transcript-provenance-manifest.json"
+  },
+  "requirements": [
+    {
+      "evidence": {
+        "failed_priority_requirement_ids": [
+          "P6",
+          "P7",
+          "P8"
+        ],
+        "source_status": "checked_transcript_priority_packet_open_missing_artifact",
+        "validation_error_count": 0
+      },
+      "label": "Priority checked transcript packet remains valid and blocked only on P6/P7/P8",
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "evidence": {
+        "lakefile_sha256": "4d24f18967fce6e70b985da8aa6d9501297625642bfc945d629780d85b0993bd",
+        "lean_module_sha256": "d885cfe38990798c8cbd281959ed995a17427b38991968a9f40801c2a3bfa43c",
+        "lean_toolchain_sha256": "e6930c662006db4d6dc76c651d60a608e4f6a18bcfd53e6b0167d70a125285d5"
+      },
+      "label": "Pinned Lean project sources remain present",
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "evidence": {
+        "production_manifest_key_count": 8,
+        "required_evidence_file_count": 10,
+        "required_manifest_key_count": 13
+      },
+      "label": "Manifest packet carries locked provenance schema and evidence file classes",
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "evidence": {
+        "blocks_acquisition_requirements": [
+          "A3",
+          "A4",
+          "A6"
+        ],
+        "priority_packet_hash": "948afb38dab74a9612316173024f06228bda70fce37dd1a957b9d95536a07969"
+      },
+      "label": "Manifest remains bound to acquisition blockers A3/A4/A6 and the priority packet hash",
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "evidence": {
+        "checked_transcript_present": false,
+        "explicit_not_quantum_pcp_proof": true,
+        "formal_theorem_proved": false,
+        "proof_assistant_checked": false
+      },
+      "label": "Current state has no checked transcript or theorem claim",
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "evidence": {
+        "exists": false,
+        "submission_artifact_path": "results/B9_checked_transcript_provenance_manifest_submissions/B9-checked-width-locality-transcript-provenance-manifest.json"
+      },
+      "label": "Provenance manifest artifact has been submitted",
+      "passed": false,
+      "requirement_id": "P6"
+    },
+    {
+      "evidence": {
+        "missing_keys": [
+          "manifest_id",
+          "packet_id",
+          "priority_packet_hash",
+          "lean_toolchain_sha256",
+          "lakefile_sha256",
+          "lean_module_sha256",
+          "lean_version_stdout_sha256",
+          "lake_version_stdout_sha256",
+          "checked_transcript_sha256",
+          "lake_env_lean_command_hash",
+          "returncode",
+          "offline_bundle_hash_manifest",
+          "claim_boundary"
+        ],
+        "production_keys_present": [],
+        "production_manifest_keys": [
+          "lean_toolchain_sha256",
+          "lakefile_sha256",
+          "lean_module_sha256",
+          "lean_version_stdout_sha256",
+          "lake_version_stdout_sha256",
+          "checked_transcript_sha256",
+          "lake_env_lean_command_hash",
+          "returncode"
+        ],
+        "submitted_key_count": 0
+      },
+      "label": "Submitted manifest satisfies the locked checked-run provenance schema",
+      "passed": false,
+      "requirement_id": "P7"
+    },
+    {
+      "evidence": {
+        "manifest_bound": false,
+        "replay_bound": false,
+        "returncode": null,
+        "source_evidence_files_present": false
+      },
+      "label": "Submitted manifest is source-backed, packet-bound, replay-hash-bound, and returncode-zero",
+      "passed": false,
+      "requirement_id": "P8"
+    },
+    {
+      "evidence": {
+        "explicit_not_quantum_pcp_proof": true,
+        "formal_theorem_proved": false,
+        "global_gap_amplification_impossibility_claimed": false,
+        "nlts_theorem_claimed": false,
+        "proof_assistant_checked": false
+      },
+      "label": "Forbidden Quantum PCP, NLTS, formal theorem, and global impossibility claims remain false",
+      "passed": true,
+      "requirement_id": "P9"
+    }
+  ],
+  "runtime_seconds": 0.001206,
+  "source_priority_packet_gate": "results/B9_checked_transcript_priority_packet_gate_v0.json",
+  "status": "checked_transcript_provenance_manifest_open_missing_artifact",
+  "summary": {
+    "blocks_acquisition_requirements": [
+      "A3",
+      "A4",
+      "A6"
+    ],
+    "checked_transcript_present": false,
+    "explicit_not_quantum_pcp_proof": true,
+    "failed_manifest_requirement_ids": [
+      "P6",
+      "P7",
+      "P8"
+    ],
+    "formal_theorem_proved": false,
+    "global_gap_amplification_impossibility_claimed": false,
+    "lakefile_sha256": "4d24f18967fce6e70b985da8aa6d9501297625642bfc945d629780d85b0993bd",
+    "lean_module_sha256": "d885cfe38990798c8cbd281959ed995a17427b38991968a9f40801c2a3bfa43c",
+    "lean_toolchain_sha256": "e6930c662006db4d6dc76c651d60a608e4f6a18bcfd53e6b0167d70a125285d5",
+    "manifest_hash": "1b3716b5f1a8ca396557dad26298a99a469349733abcf6d345e9cd4bb467f1d1",
+    "manifest_id": "B9-checked-width-locality-transcript-provenance-manifest",
+    "manifest_requirement_count": 9,
+    "manifest_requirements_failed": 3,
+    "manifest_requirements_passed": 6,
+    "missing_key_count": 13,
+    "nlts_theorem_claimed": false,
+    "priority_packet_hash": "948afb38dab74a9612316173024f06228bda70fce37dd1a957b9d95536a07969",
+    "priority_packet_id": "B9-checked-width-locality-transcript",
+    "production_keys_present_count": 0,
+    "production_manifest_key_count": 8,
+    "proof_assistant_checked": false,
+    "required_evidence_file_count": 10,
+    "required_manifest_key_count": 13,
+    "submitted_key_count": 0,
+    "submitted_manifest_exists": false,
+    "validation_error_count": 0
+  },
+  "title": "B9 Checked Transcript Provenance Manifest Gate",
+  "validation_errors": [],
+  "version": "0.1"
+}

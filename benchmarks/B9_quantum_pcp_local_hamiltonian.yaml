@@ -318,6 +318,37 @@ current_results:
     caveat: priority_packet_only_no_checked_transcript_or_quantum_pcp_claim
     result: ../results/B9_checked_transcript_priority_packet_gate_v0.json
     markdown_report: ../research/B9_checked_transcript_priority_packet_gate.md
+  checked_transcript_provenance_manifest_gate_v0:
+    status: checked_transcript_provenance_manifest_open_missing_artifact
+    method: b9_checked_transcript_provenance_manifest_gate_v0
+    model_status: checked_transcript_manifest_required_before_checked_run_acceptance
+    source_priority_packet_gate: ../results/B9_checked_transcript_priority_packet_gate_v0.json
+    manifest_id: B9-checked-width-locality-transcript-provenance-manifest
+    priority_packet_id: B9-checked-width-locality-transcript
+    priority_packet_hash: 948afb38dab74a9612316173024f06228bda70fce37dd1a957b9d95536a07969
+    manifest_hash: 1b3716b5f1a8ca396557dad26298a99a469349733abcf6d345e9cd4bb467f1d1
+    manifest_requirement_count: 9
+    manifest_requirements_passed: 6
+    manifest_requirements_failed: 3
+    failed_manifest_requirement_ids: [P6, P7, P8]
+    required_manifest_key_count: 13
+    production_manifest_key_count: 8
+    required_evidence_file_count: 10
+    blocks_acquisition_requirements: [A3, A4, A6]
+    lean_toolchain_sha256: e6930c662006db4d6dc76c651d60a608e4f6a18bcfd53e6b0167d70a125285d5
+    lakefile_sha256: 4d24f18967fce6e70b985da8aa6d9501297625642bfc945d629780d85b0993bd
+    lean_module_sha256: d885cfe38990798c8cbd281959ed995a17427b38991968a9f40801c2a3bfa43c
+    submitted_manifest_exists: false
+    checked_transcript_present: false
+    proof_assistant_checked: false
+    formal_theorem_proved: false
+    explicit_not_quantum_pcp_proof: true
+    nlts_theorem_claimed: false
+    global_gap_amplification_impossibility_claimed: false
+    validation_error_count: 0
+    caveat: provenance_manifest_only_no_checked_transcript_or_quantum_pcp_claim
+    result: ../results/B9_checked_transcript_provenance_manifest_gate_v0.json
+    markdown_report: ../research/B9_checked_transcript_provenance_manifest_gate.md
 prototype_artifacts:
   local_hamiltonian_gap_lab: ../tools/b9_local_hamiltonian_gap_lab.py
   failed_gap_amplification_lemma_builder: ../tools/b9_failed_gap_amplification_lemma.py
@@ -331,4 +362,5 @@ prototype_artifacts:
   offline_proof_artifact_bundle_gate: ../tools/b9_offline_proof_artifact_bundle_gate.py
   checked_run_acquisition_gate: ../tools/b9_checked_run_acquisition_gate.py
   checked_transcript_priority_packet_gate: ../tools/b9_checked_transcript_priority_packet_gate.py
+  checked_transcript_provenance_manifest_gate: ../tools/b9_checked_transcript_provenance_manifest_gate.py
   prototype_notes: ../research/B9_prototype_notes.md
