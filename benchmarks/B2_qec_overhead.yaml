@@ -983,6 +983,36 @@ current_results:
     caveat: triage_only_no_calibrated_rows_no_decoder_no_threshold_no_hardware_no_b7_credit
     result: ../results/B2_B7_calibrated_trace_post_boundary_submission_triage_v0.json
     markdown_report: ../research/B2_B7_calibrated_trace_post_boundary_submission_triage.md
+  c1_calibration_source_replay_packet_gate_v0:
+    status: c1_calibration_source_replay_packet_open_missing_artifact
+    method: b2_b7_c1_calibration_source_replay_packet_gate_v0
+    model_status: c1_real_or_independent_calibration_source_replay_contract_ready_no_credit
+    source_post_boundary_triage: ../results/B2_B7_calibrated_trace_post_boundary_submission_triage_v0.json
+    source_calibration_source_manifest_gate: ../results/B2_calibration_source_manifest_gate_v0.json
+    source_target_id: T-B2-010j/T-B7-012k
+    c1_packet_id: B2B7-C1-calibration-source-replay
+    c1_packet_hash: 29e727e44df9f60d4ad25f760f54bbbfb5328877772675b4f229f631533d5047
+    source_triage_hash: df9285760dffbd92a3654e0e80d3a6dba15d6a7bcb7e333b596bd5c0f2e6c5ce
+    source_calibration_manifest_hash: 5e832922d1e2671a5ac0cc549e300d56e597210d66c97d5ef0f7e76242c6e46a
+    trace_packet_id: B2-T5-calibrated-flag-observation-rows
+    requirements_passed: 6
+    requirements_failed: 3
+    failed_requirement_ids: [P6, P7, P8]
+    required_key_count: 16
+    production_required_key_count: 10
+    required_evidence_file_count: 11
+    challenge_count: 3
+    source_trace_count: 576
+    holdout_profile_shots: 864
+    accepted_priority_trace_rows: 0
+    c1_calibration_source_replay_accepted: false
+    b7_dependency_credit_allowed: false
+    b7_ft_ledger_credit_allowed: false
+    b7_resource_credit_allowed: false
+    validation_error_count: 0
+    caveat: c1_contract_only_no_real_or_independent_calibration_replay_no_b7_credit
+    result: ../results/B2_B7_C1_calibration_source_replay_packet_gate_v0.json
+    markdown_report: ../research/B2_B7_C1_calibration_source_replay_packet_gate.md
 prototype_artifacts:
   baseline_runner: ../tools/b2_repetition_code_baseline.py
   target_volume_estimator: ../tools/b2_target_volume.py
@@ -1010,6 +1040,7 @@ prototype_artifacts:
   calibrated_trace_row_acceptance_packet_gate: ../tools/b2_calibrated_trace_row_acceptance_packet_gate.py
   b7_b2_calibrated_trace_acceptance_boundary: ../tools/b7_b2_calibrated_trace_acceptance_boundary.py
   b2_b7_calibrated_trace_post_boundary_submission_triage: ../tools/b2_b7_calibrated_trace_post_boundary_submission_triage.py
+  c1_calibration_source_replay_packet_gate: ../tools/b2_b7_c1_calibration_source_replay_packet_gate.py
   posterior_likelihood_decoder_injection_gate: ../tools/b2_posterior_likelihood_decoder_injection_gate.py
   dem_informed_detector_edge_semantics_gate: ../tools/b2_dem_informed_detector_edge_semantics_gate.py
   hardware_like_leakage_model_gate: ../tools/b2_hardware_like_leakage_model_gate.py

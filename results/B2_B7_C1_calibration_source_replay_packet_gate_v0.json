@@ -1,0 +1,270 @@
+{
+  "benchmark_id": "B2",
+  "c1_replay_packet": {
+    "accepted_only_if": [
+      "packet_id equals B2B7-C1-calibration-source-replay",
+      "source_calibration_manifest_id equals B2-T5-calibration-source-manifest",
+      "trace_packet_id equals B2-T5-calibrated-flag-observation-rows",
+      "calibration_source_type is real_backend or independent_calibration",
+      "backend or dataset access, acquisition window, backend/noise snapshot, detector trace hash manifest, flag schema, holdout partition, replay command, and independent replay bundle are present",
+      "replay_hashes bind source_calibration_manifest_hash and trace_packet_id",
+      "source evidence files are present and hash-bound",
+      "claim_boundary forbids production decoder, threshold, calibrated-device, hardware-result, new-code, quantum-advantage, and B7 resource-credit claims"
+    ],
+    "blocks_trace_packet": "B2-T5-calibrated-flag-observation-rows",
+    "locked_scope": {
+      "challenge_count": 3,
+      "holdout_profile_shots": 864,
+      "source_trace_count": 576
+    },
+    "packet_hash": "29e727e44df9f60d4ad25f760f54bbbfb5328877772675b4f229f631533d5047",
+    "packet_id": "B2B7-C1-calibration-source-replay",
+    "production_required_keys": [
+      "calibration_source_type",
+      "backend_or_dataset_name",
+      "acquisition_window_utc",
+      "provider_or_dataset_access_hash",
+      "backend_properties_or_noise_model_hash",
+      "detector_trace_hash_manifest",
+      "flag_event_schema_hash",
+      "holdout_partition_hash",
+      "replay_command_hash",
+      "claim_boundary"
+    ],
+    "required_evidence_files": [
+      "calibration_source_manifest",
+      "provider_or_dataset_access_note",
+      "acquisition_window_source",
+      "backend_properties_or_noise_model_snapshot",
+      "detector_trace_hash_manifest",
+      "flag_event_schema_note",
+      "confusion_matrix_or_labeling_plan",
+      "holdout_partition_manifest",
+      "independent_replay_bundle",
+      "replay_command_transcript",
+      "calibration_claim_boundary_note"
+    ],
+    "required_keys": [
+      "packet_id",
+      "source_triage_id",
+      "source_calibration_manifest_id",
+      "trace_packet_id",
+      "calibration_source_type",
+      "backend_or_dataset_name",
+      "acquisition_window_utc",
+      "provider_or_dataset_access_hash",
+      "backend_properties_or_noise_model_hash",
+      "detector_trace_hash_manifest",
+      "flag_event_schema_hash",
+      "confusion_matrix_plan_hash",
+      "holdout_partition_hash",
+      "replay_command_hash",
+      "independent_replay_bundle_hash",
+      "claim_boundary"
+    ],
+    "source_calibration_manifest_hash": "5e832922d1e2671a5ac0cc549e300d56e597210d66c97d5ef0f7e76242c6e46a",
+    "source_calibration_manifest_id": "B2-T5-calibration-source-manifest",
+    "source_calibration_source_manifest_gate": "results/B2_calibration_source_manifest_gate_v0.json",
+    "source_post_boundary_triage": "results/B2_B7_calibrated_trace_post_boundary_submission_triage_v0.json",
+    "source_triage_hash": "df9285760dffbd92a3654e0e80d3a6dba15d6a7bcb7e333b596bd5c0f2e6c5ce",
+    "submission_artifact_path": "results/B2_B7_C1_calibration_source_replay_submissions/B2B7-C1-calibration-source-replay.json",
+    "work_packet_id": "C1"
+  },
+  "claim_boundary": {
+    "b7_dependency_credit_allowed": false,
+    "calibrated_device_claimed": false,
+    "hardware_result_claimed": false,
+    "next_gate": "Submit the C1 replay artifact with source-backed calibration source, backend or dataset access, acquisition window, backend/noise snapshot, detector trace hashes, flag schema, holdout partition, independent replay bundle, replay command, and claim boundary.",
+    "production_decoder_claimed": false,
+    "quantum_advantage_claimed": false,
+    "threshold_claimed": false,
+    "what_is_not_supported": "No C1 replay artifact, accepted calibrated trace row, production decoder, threshold, hardware result, calibrated-device result, quantum advantage, or B7 credit is supported.",
+    "what_is_supported": "C1 now has a locked real-or-independent calibration source replay packet schema and acceptance boundary."
+  },
+  "last_updated": "2026-07-03",
+  "linked_benchmark_id": "B7",
+  "method": "b2_b7_c1_calibration_source_replay_packet_gate_v0",
+  "model_status": "c1_real_or_independent_calibration_source_replay_contract_ready_no_credit",
+  "requirements": [
+    {
+      "evidence": {
+        "ready_packet_ids": [
+          "C1",
+          "C2",
+          "C3"
+        ],
+        "source_method": "b2_b7_calibrated_trace_post_boundary_submission_triage_v0",
+        "validation_error_count": 0
+      },
+      "label": "Post-boundary triage is valid and exposes C1 as a ready PR packet",
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "evidence": {
+        "accepted_priority_trace_rows": 0,
+        "b7_dependency_credit_allowed": false,
+        "blocked_packet_ids": [
+          "C4"
+        ]
+      },
+      "label": "C4 B7 dependency replay remains blocked while accepted calibrated rows are zero",
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "evidence": {
+        "failed_manifest_requirement_ids": [
+          "P6",
+          "P7",
+          "P8"
+        ],
+        "manifest_hash": "5e832922d1e2671a5ac0cc549e300d56e597210d66c97d5ef0f7e76242c6e46a",
+        "manifest_id": "B2-T5-calibration-source-manifest",
+        "source_method": "b2_calibration_source_manifest_gate_v0"
+      },
+      "label": "Existing calibration source manifest gate remains the C1 source and is open on P6/P7/P8",
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "evidence": {
+        "challenge_count": 3,
+        "holdout_profile_shots": 864,
+        "source_trace_count": 576
+      },
+      "label": "Locked calibrated trace scope is preserved",
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "evidence": {
+        "production_required_key_count": 10,
+        "required_evidence_file_count": 11,
+        "required_key_count": 16
+      },
+      "label": "C1 packet schema and evidence classes are locked",
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "evidence": {
+        "exists": false,
+        "submission_artifact_path": "results/B2_B7_C1_calibration_source_replay_submissions/B2B7-C1-calibration-source-replay.json"
+      },
+      "label": "C1 calibration source replay artifact has been submitted",
+      "passed": false,
+      "requirement_id": "P6"
+    },
+    {
+      "evidence": {
+        "missing_keys": [
+          "packet_id",
+          "source_triage_id",
+          "source_calibration_manifest_id",
+          "trace_packet_id",
+          "calibration_source_type",
+          "backend_or_dataset_name",
+          "acquisition_window_utc",
+          "provider_or_dataset_access_hash",
+          "backend_properties_or_noise_model_hash",
+          "detector_trace_hash_manifest",
+          "flag_event_schema_hash",
+          "confusion_matrix_plan_hash",
+          "holdout_partition_hash",
+          "replay_command_hash",
+          "independent_replay_bundle_hash",
+          "claim_boundary"
+        ],
+        "production_keys_present": [],
+        "production_required_keys": [
+          "calibration_source_type",
+          "backend_or_dataset_name",
+          "acquisition_window_utc",
+          "provider_or_dataset_access_hash",
+          "backend_properties_or_noise_model_hash",
+          "detector_trace_hash_manifest",
+          "flag_event_schema_hash",
+          "holdout_partition_hash",
+          "replay_command_hash",
+          "claim_boundary"
+        ],
+        "submitted_key_count": 0
+      },
+      "label": "Submitted C1 replay artifact satisfies the locked schema",
+      "passed": false,
+      "requirement_id": "P7"
+    },
+    {
+      "evidence": {
+        "calibration_source_type": null,
+        "replay_bound": false,
+        "source_bound": false,
+        "source_evidence_files_present": false,
+        "source_type_allowed": false,
+        "trace_bound": false
+      },
+      "label": "Submitted C1 replay artifact is source-backed, trace-bound, replay-bound, and source-type valid",
+      "passed": false,
+      "requirement_id": "P8"
+    },
+    {
+      "evidence": {
+        "b7_dependency_credit_allowed": false,
+        "calibrated_device_claimed": false,
+        "hardware_result_claimed": false,
+        "production_decoder_claimed": false,
+        "quantum_advantage_claimed": false,
+        "threshold_claimed": false
+      },
+      "label": "Forbidden B2/B7 decoder, hardware, threshold, advantage, and credit claims remain false",
+      "passed": true,
+      "requirement_id": "P9"
+    }
+  ],
+  "runtime_seconds": 0.000243,
+  "source_calibration_source_manifest_gate": "results/B2_calibration_source_manifest_gate_v0.json",
+  "source_post_boundary_triage": "results/B2_B7_calibrated_trace_post_boundary_submission_triage_v0.json",
+  "source_target_id": "T-B2-010j/T-B7-012k",
+  "status": "c1_calibration_source_replay_packet_open_missing_artifact",
+  "summary": {
+    "accepted_priority_trace_rows": 0,
+    "b7_dependency_credit_allowed": false,
+    "b7_ft_ledger_credit_allowed": false,
+    "b7_resource_credit_allowed": false,
+    "c1_calibration_source_replay_accepted": false,
+    "c1_packet_hash": "29e727e44df9f60d4ad25f760f54bbbfb5328877772675b4f229f631533d5047",
+    "c1_packet_id": "B2B7-C1-calibration-source-replay",
+    "calibrated_device_claimed": false,
+    "challenge_count": 3,
+    "failed_requirement_ids": [
+      "P6",
+      "P7",
+      "P8"
+    ],
+    "hardware_result_claimed": false,
+    "holdout_profile_shots": 864,
+    "missing_key_count": 16,
+    "new_code_claimed": false,
+    "production_decoder_claimed": false,
+    "production_keys_present_count": 0,
+    "production_required_key_count": 10,
+    "quantum_advantage_claimed": false,
+    "required_evidence_file_count": 11,
+    "required_key_count": 16,
+    "requirement_count": 9,
+    "requirements_failed": 3,
+    "requirements_passed": 6,
+    "source_calibration_manifest_hash": "5e832922d1e2671a5ac0cc549e300d56e597210d66c97d5ef0f7e76242c6e46a",
+    "source_calibration_manifest_id": "B2-T5-calibration-source-manifest",
+    "source_trace_count": 576,
+    "source_triage_hash": "df9285760dffbd92a3654e0e80d3a6dba15d6a7bcb7e333b596bd5c0f2e6c5ce",
+    "submitted_c1_artifact_exists": false,
+    "threshold_claimed": false,
+    "trace_packet_id": "B2-T5-calibrated-flag-observation-rows",
+    "validation_error_count": 0
+  },
+  "title": "B2/B7 C1 Calibration Source Replay Packet Gate",
+  "validation_errors": [],
+  "version": "0.1"
+}
