@@ -1,0 +1,266 @@
+{
+  "benchmark_id": "B6",
+  "claim_boundary": {
+    "b5_computed_observable_claimed": false,
+    "dft_observable_claimed": false,
+    "material_discovery_claimed": false,
+    "mechanism_solved": false,
+    "next_gate": "Submit results/B6_B5_observable_priority_submissions/monolayer_FeSe_STO_2012.json with dft_row and b5_row blocks satisfying all 22 combined schema keys while preserving source/replay hashes.",
+    "solution_claimed": false,
+    "what_is_not_supported": "No DFT row or B5-computed observable row has been submitted or accepted; no material discovery, high-Tc mechanism solution, or B6 solution claim is supported.",
+    "what_is_supported": "The first B6/B5 observable blocker now has a concrete source-backed submission packet for a paired DFT and B5-computed observable row."
+  },
+  "last_updated": "2026-07-02",
+  "linked_benchmark_id": "B5",
+  "method": "b6_b5_observable_priority_packet_gate_v0",
+  "model_status": "priority_dft_b5_observable_packet_ready_no_rows_submitted",
+  "priority_observable_packet": {
+    "accepted_only_if": [
+      "dft_row contains all 11 DFT keys",
+      "b5_row contains all 11 B5-computed observable keys",
+      "material_id matches the rank-1 intake template",
+      "source_table_hash, replay_formula_hash, and replay_table_hash are preserved",
+      "DFT calculation_hash and B5 solver_trace_hash bind source artifacts",
+      "same_access_cost_units is present for the B5 row",
+      "claim_boundary forbids material discovery, mechanism-solved, and solution claims"
+    ],
+    "b5_required_keys": [
+      "material_id",
+      "effective_model",
+      "orbital_basis",
+      "interaction_u_ev",
+      "hopping_t_ev",
+      "filling",
+      "response_observable",
+      "response_value",
+      "denominator_method",
+      "solver_trace_hash",
+      "same_access_cost_units"
+    ],
+    "combined_required_keys": [
+      "dft.material_id",
+      "dft.structure_ref",
+      "dft.functional",
+      "dft.pseudopotential_or_basis",
+      "dft.kpoint_density",
+      "dft.energy_per_atom_ev",
+      "dft.fermi_level_ev",
+      "dft.density_of_states_at_fermi",
+      "dft.magnetic_moment_mu_b",
+      "dft.relaxation_status",
+      "dft.calculation_hash",
+      "b5.material_id",
+      "b5.effective_model",
+      "b5.orbital_basis",
+      "b5.interaction_u_ev",
+      "b5.hopping_t_ev",
+      "b5.filling",
+      "b5.response_observable",
+      "b5.response_value",
+      "b5.denominator_method",
+      "b5.solver_trace_hash",
+      "b5.same_access_cost_units"
+    ],
+    "dft_required_keys": [
+      "material_id",
+      "structure_ref",
+      "functional",
+      "pseudopotential_or_basis",
+      "kpoint_density",
+      "energy_per_atom_ev",
+      "fermi_level_ev",
+      "density_of_states_at_fermi",
+      "magnetic_moment_mu_b",
+      "relaxation_status",
+      "calculation_hash"
+    ],
+    "family": "iron_chalcogenide",
+    "material_id": "monolayer_FeSe_STO_2012",
+    "packet_hash": "042ad8fefae63f62f11cd575bee8d1472664d080152c1cd78f8b58b68070cd4d",
+    "rank": 1,
+    "required_evidence_files": [
+      "structure_reference_or_cif",
+      "dft_input_manifest",
+      "dft_output_or_parser_log",
+      "dft_calculation_hash_source",
+      "effective_model_derivation_note",
+      "b5_solver_trace_artifact",
+      "same_access_cost_ledger",
+      "observable_join_key_audit",
+      "source_replay_hash_manifest",
+      "claim_boundary_note"
+    ],
+    "submission_artifact_path": "results/B6_B5_observable_priority_submissions/monolayer_FeSe_STO_2012.json",
+    "template_hash": "6509e5e23825f69e18d60cf78f678a2d312c8b107c5983c28d6282e85ec8bf81"
+  },
+  "problem_id": 37,
+  "requirements": [
+    {
+      "evidence": {
+        "failed_intake_requirement_ids": [
+          "T6",
+          "T7"
+        ],
+        "source_status": "observable_row_intake_template_open_missing_dft_b5_rows",
+        "validation_error_count": 0
+      },
+      "label": "Observable intake template remains valid and open on DFT/B5 rows",
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "evidence": {
+        "actual_material_id": "monolayer_FeSe_STO_2012",
+        "expected_material_id": "monolayer_FeSe_STO_2012",
+        "rank": 1
+      },
+      "label": "Priority material is fixed to the rank-1 top-post replay template",
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "evidence": {
+        "combined_required_key_count": 22,
+        "required_b5_key_count": 11,
+        "required_dft_key_count": 11
+      },
+      "label": "Priority packet carries both 11-key observable schemas",
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "evidence": {
+        "required_evidence_files": [
+          "structure_reference_or_cif",
+          "dft_input_manifest",
+          "dft_output_or_parser_log",
+          "dft_calculation_hash_source",
+          "effective_model_derivation_note",
+          "b5_solver_trace_artifact",
+          "same_access_cost_ledger",
+          "observable_join_key_audit",
+          "source_replay_hash_manifest",
+          "claim_boundary_note"
+        ]
+      },
+      "label": "Packet binds required source evidence classes",
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "evidence": {
+        "b5_schema_hash": "79217e965af5e0d4ed95f143fcfd0aa3936edef001a292f559a70cf9e688c576",
+        "dft_schema_hash": "e9215a51f2736f1c29890577b201ad5980b835dd787bd9bde4f2484293f17388",
+        "replay_formula_hash": "e23239648dd11aa8e0db8ecdeb5824506a5a379c9ba2777965c3aafa5d5d8230",
+        "replay_table_hash": "c44099194d0bc04d74cd3c4c4e068bf51a9e114d11c6e0b5e3890786cda5b8de",
+        "source_table_hash": "ce134d0a5d295af982b77be0a8a43e90ea19e828af20cc80ac3f20b7664d2fdc"
+      },
+      "label": "Source, formula, replay, and schema hashes are preserved from intake",
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "evidence": {
+        "exists": false,
+        "submission_artifact_path": "results/B6_B5_observable_priority_submissions/monolayer_FeSe_STO_2012.json"
+      },
+      "label": "Priority observable artifact has been submitted",
+      "passed": false,
+      "requirement_id": "P6"
+    },
+    {
+      "evidence": {
+        "missing_b5_keys": [
+          "material_id",
+          "effective_model",
+          "orbital_basis",
+          "interaction_u_ev",
+          "hopping_t_ev",
+          "filling",
+          "response_observable",
+          "response_value",
+          "denominator_method",
+          "solver_trace_hash",
+          "same_access_cost_units"
+        ],
+        "missing_dft_keys": [
+          "material_id",
+          "structure_ref",
+          "functional",
+          "pseudopotential_or_basis",
+          "kpoint_density",
+          "energy_per_atom_ev",
+          "fermi_level_ev",
+          "density_of_states_at_fermi",
+          "magnetic_moment_mu_b",
+          "relaxation_status",
+          "calculation_hash"
+        ],
+        "submitted_top_level_keys": []
+      },
+      "label": "Submitted artifact satisfies both locked observable schemas",
+      "passed": false,
+      "requirement_id": "P7"
+    },
+    {
+      "evidence": {
+        "hashes_preserved": false,
+        "source_evidence_files_present": false
+      },
+      "label": "Submitted rows are source-backed and preserve replay hashes",
+      "passed": false,
+      "requirement_id": "P8"
+    },
+    {
+      "evidence": {
+        "b5_computed_observable_claimed": false,
+        "dft_observable_claimed": false,
+        "material_discovery_claimed": false,
+        "mechanism_solved": false,
+        "solution_claimed": false
+      },
+      "label": "Forbidden observable, discovery, mechanism, and solution claims remain false",
+      "passed": true,
+      "requirement_id": "P9"
+    }
+  ],
+  "runtime_seconds": 0.00028395652770996094,
+  "source_intake_template_result": "results/B6_B5_observable_row_intake_template_gate_v0.json",
+  "status": "observable_priority_packet_open_missing_artifact",
+  "summary": {
+    "accepted_priority_b5_rows": 0,
+    "accepted_priority_dft_rows": 0,
+    "b5_computed_observable_claimed": false,
+    "combined_required_key_count": 22,
+    "dft_observable_claimed": false,
+    "failed_priority_requirement_ids": [
+      "P6",
+      "P7",
+      "P8"
+    ],
+    "material_discovery_claimed": false,
+    "mechanism_solved": false,
+    "missing_b5_key_count": 11,
+    "missing_dft_key_count": 11,
+    "packet_hash": "042ad8fefae63f62f11cd575bee8d1472664d080152c1cd78f8b58b68070cd4d",
+    "priority_material_family": "iron_chalcogenide",
+    "priority_material_id": "monolayer_FeSe_STO_2012",
+    "priority_material_rank": 1,
+    "priority_requirement_count": 9,
+    "priority_requirements_failed": 3,
+    "priority_requirements_passed": 6,
+    "replay_formula_hash": "e23239648dd11aa8e0db8ecdeb5824506a5a379c9ba2777965c3aafa5d5d8230",
+    "replay_table_hash": "c44099194d0bc04d74cd3c4c4e068bf51a9e114d11c6e0b5e3890786cda5b8de",
+    "required_b5_key_count": 11,
+    "required_dft_key_count": 11,
+    "required_evidence_file_count": 10,
+    "solution_claimed": false,
+    "source_table_hash": "ce134d0a5d295af982b77be0a8a43e90ea19e828af20cc80ac3f20b7664d2fdc",
+    "submitted_artifact_exists": false,
+    "template_row_count": 12,
+    "validation_error_count": 0
+  },
+  "title": "B6/B5 Observable Priority Packet Gate",
+  "validation_errors": [],
+  "version": "0.1"
+}

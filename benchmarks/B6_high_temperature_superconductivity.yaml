@@ -347,6 +347,37 @@ current_results:
     caveat: template_only_no_dft_rows_no_b5_rows_no_material_discovery_or_mechanism_solution
     result: ../results/B6_B5_observable_row_intake_template_gate_v0.json
     markdown: ../research/B6_B5_observable_row_intake_template_gate.md
+  b6_b5_observable_priority_packet_gate_v0:
+    status: observable_priority_packet_open_missing_artifact
+    method: b6_b5_observable_priority_packet_gate_v0
+    model_status: priority_dft_b5_observable_packet_ready_no_rows_submitted
+    source: b6_observable_row_intake_template_gate_v0
+    priority_material_id: monolayer_FeSe_STO_2012
+    priority_material_rank: 1
+    priority_material_family: iron_chalcogenide
+    packet_hash: 042ad8fefae63f62f11cd575bee8d1472664d080152c1cd78f8b58b68070cd4d
+    priority_requirement_count: 9
+    priority_requirements_passed: 6
+    priority_requirements_failed: 3
+    failed_priority_requirement_ids: [P6, P7, P8]
+    required_dft_key_count: 11
+    required_b5_key_count: 11
+    combined_required_key_count: 22
+    required_evidence_file_count: 10
+    template_row_count: 12
+    submitted_artifact_exists: false
+    accepted_priority_dft_rows: 0
+    accepted_priority_b5_rows: 0
+    dft_observable_claimed: false
+    b5_computed_observable_claimed: false
+    material_discovery_claimed: false
+    mechanism_solved: false
+    solution_claimed: false
+    validation_error_count: 0
+    interpretation: rank1_b6_material_now_has_paired_dft_b5_observable_submission_contract_without_claiming_discovery
+    caveat: priority_packet_only_no_dft_rows_no_b5_rows_no_material_discovery_or_mechanism_solution
+    result: ../results/B6_B5_observable_priority_packet_gate_v0.json
+    markdown: ../research/B6_B5_observable_priority_packet_gate.md
   b6_curated_materials_leakage_audit_v0:
     status: curated_retrospective_leakage_audit
     model_status: curated_materials_table_with_time_family_leakage_audit
@@ -409,4 +440,5 @@ prototype_artifacts:
   backend_replay_scout: ../tools/b6_backend_replay_scout.py
   observable_contract_gate: ../tools/b6_observable_contract_gate.py
   observable_row_intake_template_gate: ../tools/b6_observable_row_intake_template_gate.py
+  observable_priority_packet_gate: ../tools/b6_b5_observable_priority_packet_gate.py
   prototype_notes: ../research/B6_prototype_notes.md

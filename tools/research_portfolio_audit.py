@@ -34600,6 +34600,12 @@ def audit(root: Path) -> dict:
             "b6_validation_rescue_scout": str(research / "B6_validation_rescue_scout.md"),
             "b6_backend_replay_scout": str(research / "B6_backend_replay_scout.md"),
             "b6_observable_contract_gate": str(research / "B6_observable_contract_gate.md"),
+            "b6_b5_observable_row_intake_template_gate": str(
+                research / "B6_B5_observable_row_intake_template_gate.md"
+            ),
+            "b6_b5_observable_priority_packet_gate": str(
+                research / "B6_B5_observable_priority_packet_gate.md"
+            ),
             "b10_formal_theorem_targets": str(research / "B10_formal_theorem_targets.md"),
             "b10_t2_minimum_refresh_spoofer_boundary": str(research / "B8_generative_spoofer_refresh.md"),
             "b10_t2_refresh_proof_obligation_gate": str(research / "B10_t2_refresh_proof_obligation_gate.md"),
