@@ -2914,6 +2914,37 @@ current_results:
     validation_error_count: 0
     report: ../results/B1_B7_cone01_openqasm3_claim_boundary_seal_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_openqasm3_claim_boundary_seal_gate.md
+  b1_b7_cone01_resource_escape_priority_packet_gate_v0:
+    circuits: 1
+    status: cone01_resource_escape_priority_packet_open_missing_artifact
+    model_status: line1381_line1378_or_30_occurrence_escape_packet_ready_no_artifact_submitted
+    method: b1_b7_cone01_resource_escape_priority_packet_gate_v0
+    source_claim_boundary_seal: b1_b7_cone01_openqasm3_claim_boundary_seal_gate_v0
+    source_physical_pricing_gate: b1_b7_cone01_physical_synthesis_pricing_gate_v0
+    workload: qasmbench_medium_exact/gcm_h6.qasm
+    priority_packet_id: B1-B7-cone01-resource-escape
+    packet_hash: 1540027cb1e7786e528cb7b018836c9aa688ceeb3a745ee255ec87583463cac7
+    priority_requirement_count: 9
+    priority_requirements_passed: 6
+    priority_requirements_failed: 3
+    failed_priority_requirement_ids: [P6, P7, P8]
+    required_key_count: 10
+    required_evidence_file_count: 9
+    selected_line_numbers: [268, 1381]
+    dropped_overlap_candidate_line_numbers: [1378]
+    line1381_off_grid_parameter_count: 5
+    line1381_unpriced_proxy_t_pressure: 100
+    line1378_delta_recovered: false
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    accepted_exit_route_count: 0
+    submitted_artifact_exists: false
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    validation_error_count: 0
+    caveat: priority_packet_only_no_resource_saving_or_b7_ledger_claim
+    report: ../results/B1_B7_cone01_resource_escape_priority_packet_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_resource_escape_priority_packet_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate
@@ -4562,4 +4593,5 @@ prototype_artifacts:
   b1_b7_cone01_bounded_replacement_patch_gate: ../tools/b1_b7_cone01_bounded_replacement_patch_gate.py
   b1_b7_cone01_nonoverlap_patch_subset_gate: ../tools/b1_b7_cone01_nonoverlap_patch_subset_gate.py
   b1_b7_cone01_openqasm3_claim_boundary_seal_gate: ../tools/b1_b7_cone01_openqasm3_claim_boundary_seal_gate.py
+  b1_b7_cone01_resource_escape_priority_packet_gate: ../tools/b1_b7_cone01_resource_escape_priority_packet_gate.py
   synthetic_noise_proxy: ../tools/b1_synthetic_noise_proxy.py

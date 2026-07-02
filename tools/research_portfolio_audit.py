@@ -34357,6 +34357,9 @@ def audit(root: Path) -> dict:
             "b1_b7_cone01_physical_synthesis_pricing_gate": str(
                 b1_b7_cone01_physical_synthesis_pricing_path
             ),
+            "b1_b7_cone01_resource_escape_priority_packet_gate": str(
+                research / "B1_B7_cone01_resource_escape_priority_packet_gate.md"
+            ),
             "b1_b7_cone01_overlap_additivity_bound_gate": str(
                 b1_b7_cone01_overlap_additivity_bound_path
             ),
