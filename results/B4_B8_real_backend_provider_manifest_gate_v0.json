@@ -1,0 +1,230 @@
+{
+  "benchmark": "B4/B8",
+  "benchmark_id": "B4_B8",
+  "claim_boundary": {
+    "bqp_separation_claimed": false,
+    "cryptographic_soundness_proved": false,
+    "next_gate": "Submit B4B8-M6-provider-session-manifest with provider/backend, access mode, calibration window, backend properties hash, runnable circuit manifest, shot budget, and claim boundary.",
+    "protocol_soundness_proved": false,
+    "quantum_advantage_claimed": false,
+    "sampling_hardness_proved": false,
+    "what_is_not_supported": "No provider/session manifest or real-backend transcript row has been submitted or accepted; no protocol soundness, quantum advantage, sampling hardness, cryptographic soundness, or BQP separation claim is supported.",
+    "what_is_supported": "The first B4/B8 hardware execution step now has a concrete provider/session manifest packet before any real-backend transcript can be accepted."
+  },
+  "dependency_benchmarks": [
+    "B4",
+    "B8",
+    "B10"
+  ],
+  "last_updated": "2026-07-02",
+  "linked_benchmark_id": "B10",
+  "method": "b4_b8_real_backend_provider_manifest_gate_v0",
+  "model_status": "provider_session_manifest_ready_before_real_backend_transcript",
+  "provider_manifest_packet": {
+    "accepted_only_if": [
+      "packet_id equals B4B8-M6-provider-session-manifest",
+      "downstream_transcript_packet_id equals B4B8-M6-real-backend-transcript-rows",
+      "provider, backend, access mode, calibration window, backend properties hash, runnable circuit manifest, and shot budget are present",
+      "shot_budget covers at least the locked 160-row denominator or declares a reviewed replacement denominator",
+      "source evidence files are present and hash-bound",
+      "claim_boundary forbids protocol soundness, quantum advantage, sampling hardness, cryptographic soundness, and BQP separation claims"
+    ],
+    "blocks_transcript_packet": "B4B8-M6-real-backend-transcript-rows",
+    "margin_retest_budgets": {
+      "full_private_material_leak_allowed_accepts_per_160": 40,
+      "holdout_row_count": 160,
+      "leakage_blind_no_leak_allowed_accepts_per_160": 16
+    },
+    "packet_hash": "2a8779ab19f55f9dcf88ef6af26c5c3d33e9043f603060b5da07a49d93b25072",
+    "packet_id": "B4B8-M6-provider-session-manifest",
+    "production_required_keys": [
+      "provider_name",
+      "backend_name",
+      "access_mode",
+      "calibration_window_utc",
+      "backend_properties_hash",
+      "runnable_circuit_manifest_hash",
+      "shot_budget"
+    ],
+    "required_evidence_files": [
+      "provider_access_manifest",
+      "backend_properties_snapshot",
+      "calibration_window_source",
+      "runnable_circuit_manifest",
+      "shot_budget_or_job_plan",
+      "private_predicate_handling_plan",
+      "hashing_and_redaction_manifest",
+      "claim_boundary_note"
+    ],
+    "required_keys": [
+      "packet_id",
+      "provider_name",
+      "backend_name",
+      "access_mode",
+      "session_or_queue_id_hash",
+      "calibration_window_utc",
+      "backend_properties_hash",
+      "runnable_circuit_manifest_hash",
+      "shot_budget",
+      "claim_boundary"
+    ],
+    "source_transcript_priority_gate": "results/B4_B8_real_backend_transcript_priority_packet_gate_v0.json",
+    "submission_artifact_path": "results/B4_B8_real_backend_provider_manifest_submissions/B4B8-M6-provider-session-manifest.json"
+  },
+  "requirements": [
+    {
+      "evidence": {
+        "failed_priority_requirement_ids": [
+          "P6",
+          "P7",
+          "P8"
+        ],
+        "source_status": "real_backend_transcript_priority_packet_open_missing_artifact",
+        "validation_error_count": 0
+      },
+      "label": "Transcript priority gate remains valid and blocked only on P6/P7/P8",
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "evidence": {
+        "downstream_transcript_packet_id": "B4B8-M6-real-backend-transcript-rows",
+        "real_backend_transcript_rows": 0
+      },
+      "label": "Provider manifest is bound to the M6 real-backend transcript packet",
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "evidence": {
+        "production_required_key_count": 7,
+        "required_evidence_file_count": 8,
+        "required_key_count": 10
+      },
+      "label": "Provider packet carries locked schema and evidence file classes",
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "evidence": {
+        "full_leak_allowed_accepts_per_160": 40,
+        "holdout_row_count": 160,
+        "no_leak_allowed_accepts_per_160": 16
+      },
+      "label": "Locked margin budgets are preserved before hardware execution",
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "evidence": {
+        "accepted_priority_transcript_rows": 0,
+        "bqp_separation_claimed": false,
+        "protocol_soundness_proved": false,
+        "quantum_advantage_claimed": false
+      },
+      "label": "Current state has no accepted hardware transcript or soundness claim",
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "evidence": {
+        "exists": false,
+        "submission_artifact_path": "results/B4_B8_real_backend_provider_manifest_submissions/B4B8-M6-provider-session-manifest.json"
+      },
+      "label": "Provider/session manifest artifact has been submitted",
+      "passed": false,
+      "requirement_id": "P6"
+    },
+    {
+      "evidence": {
+        "missing_keys": [
+          "packet_id",
+          "provider_name",
+          "backend_name",
+          "access_mode",
+          "session_or_queue_id_hash",
+          "calibration_window_utc",
+          "backend_properties_hash",
+          "runnable_circuit_manifest_hash",
+          "shot_budget",
+          "claim_boundary"
+        ],
+        "production_keys_present": [],
+        "production_required_keys": [
+          "provider_name",
+          "backend_name",
+          "access_mode",
+          "calibration_window_utc",
+          "backend_properties_hash",
+          "runnable_circuit_manifest_hash",
+          "shot_budget"
+        ],
+        "submitted_key_count": 0
+      },
+      "label": "Submitted manifest satisfies the locked provider schema",
+      "passed": false,
+      "requirement_id": "P7"
+    },
+    {
+      "evidence": {
+        "budget_sufficient": false,
+        "shot_budget": null,
+        "source_evidence_files_present": false,
+        "transcript_bound": false
+      },
+      "label": "Submitted manifest is source-backed, transcript-bound, and budget-sufficient",
+      "passed": false,
+      "requirement_id": "P8"
+    },
+    {
+      "evidence": {
+        "bqp_separation_claimed": false,
+        "cryptographic_soundness_proved": false,
+        "protocol_soundness_proved": false,
+        "quantum_advantage_claimed": false,
+        "sampling_hardness_proved": false
+      },
+      "label": "Forbidden soundness, advantage, and BQP claims remain false",
+      "passed": true,
+      "requirement_id": "P9"
+    }
+  ],
+  "runtime_seconds": 0.000141,
+  "source_target_id": "B10-T2",
+  "source_transcript_priority_gate": "results/B4_B8_real_backend_transcript_priority_packet_gate_v0.json",
+  "status": "real_backend_provider_manifest_open_missing_artifact",
+  "summary": {
+    "accepted_priority_transcript_rows": 0,
+    "bqp_separation_claimed": false,
+    "cryptographic_soundness_proved": false,
+    "downstream_transcript_packet_id": "B4B8-M6-real-backend-transcript-rows",
+    "failed_priority_requirement_ids": [
+      "P6",
+      "P7",
+      "P8"
+    ],
+    "full_leak_allowed_accepts_per_160": 40,
+    "holdout_row_count": 160,
+    "missing_key_count": 10,
+    "no_leak_allowed_accepts_per_160": 16,
+    "packet_hash": "2a8779ab19f55f9dcf88ef6af26c5c3d33e9043f603060b5da07a49d93b25072",
+    "priority_packet_id": "B4B8-M6-provider-session-manifest",
+    "priority_requirement_count": 9,
+    "priority_requirements_failed": 3,
+    "priority_requirements_passed": 6,
+    "production_keys_present_count": 0,
+    "production_required_key_count": 7,
+    "protocol_soundness_proved": false,
+    "provider_manifest_accepted": false,
+    "quantum_advantage_claimed": false,
+    "real_backend_transcript_rows": 0,
+    "required_evidence_file_count": 8,
+    "required_key_count": 10,
+    "sampling_hardness_proved": false,
+    "submitted_manifest_exists": false,
+    "validation_error_count": 0
+  },
+  "title": "B4/B8 Real-Backend Provider Manifest Gate",
+  "validation_errors": [],
+  "version": "0.1"
+}
