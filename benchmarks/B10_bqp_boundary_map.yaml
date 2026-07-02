@@ -508,6 +508,39 @@ current_results:
     caveat: b10_t2_zero_credit_boundary_sync_not_real_backend_or_bqp_boundary_claim
     result: ../results/B10_T2_real_backend_transcript_row_acceptance_boundary_v0.json
     markdown_report: ../research/B10_T2_real_backend_transcript_row_acceptance_boundary.md
+  b10_t2_b4_b8_real_backend_transcript_post_boundary_submission_triage_v0:
+    status: real_backend_transcript_post_boundary_triage_ready_no_credit
+    method: b4_b8_real_backend_transcript_post_boundary_submission_triage_v0
+    source_b4_b8_post_boundary_triage: ../results/B4_B8_real_backend_transcript_post_boundary_submission_triage_v0.json
+    source_boundary: ../results/B8_B4_real_backend_soundness_boundary_v0.json
+    source_b10_boundary: ../results/B10_T2_real_backend_transcript_row_acceptance_boundary_v0.json
+    source_target_id: T-B4-002p/T-B8-003t/T-B10-009h
+    dependency_benchmark: B4/B8
+    triage_id: B4-B8-real-backend-transcript-post-boundary-submission-triage
+    triage_hash: 5053a624e0295f20d074e14dc6b74951f7f09930dde250f45f2027f5207d475a
+    source_boundary_hash: 83164aa6bca39fbb553738e94d6f8afdf79aaadd7eebda533cab97df1502fc1d
+    source_b10_boundary_hash: eab53cdab2e07e4e8267eb0d28ab5905de2e5229b4e32f63c0e01ac832d40b45
+    transcript_packet_id: B4B8-M6-real-backend-transcript-rows
+    work_packet_count: 5
+    ready_external_pr_packet_count: 4
+    blocked_packet_count: 1
+    ready_packet_ids: [H1, H2, H3, H4]
+    blocked_packet_ids: [H5]
+    conditions_satisfied: 6
+    conditions_failed: 0
+    holdout_row_count: 160
+    no_leak_allowed_accepts_per_160: 16
+    full_leak_allowed_accepts_per_160: 40
+    real_backend_transcript_rows: 0
+    accepted_priority_transcript_rows: 0
+    b10_soundness_credit_allowed: false
+    b10_bqp_separation_credit_allowed: false
+    quantum_advantage_claimed: false
+    explicit_not_bqp_separation: true
+    validation_error_count: 0
+    caveat: triage_only_no_b10_t2_credit_or_bqp_boundary_claim
+    result: ../results/B4_B8_real_backend_transcript_post_boundary_submission_triage_v0.json
+    markdown_report: ../research/B4_B8_real_backend_transcript_post_boundary_submission_triage.md
   b10_t3_b9_checked_transcript_acceptance_packet_gate_v0:
     status: checked_transcript_acceptance_packet_open_missing_artifact
     method: b9_checked_transcript_acceptance_packet_gate_v0
@@ -1723,6 +1756,7 @@ prototype_artifacts:
   t2_backend_calibrated_verifier_bridge_builder: ../tools/b10_t2_backend_calibrated_verifier_bridge.py
   t2_b4_b8_real_backend_soundness_margin_gate: ../tools/b4_b8_real_backend_soundness_margin_gate.py
   t2_b4_b8_real_backend_transcript_intake_template_gate: ../tools/b4_b8_real_backend_transcript_intake_template_gate.py
+  t2_b4_b8_real_backend_transcript_post_boundary_submission_triage: ../tools/b4_b8_real_backend_transcript_post_boundary_submission_triage.py
   t2_b4_b8_real_backend_transcript_priority_packet_gate: ../tools/b4_b8_real_backend_transcript_priority_packet_gate.py
   t2_b4_b8_real_backend_transcript_provenance_manifest_gate: ../tools/b4_b8_real_backend_transcript_provenance_manifest_gate.py
   t2_b4_b8_real_backend_transcript_replay_validation_manifest_gate: ../tools/b4_b8_real_backend_transcript_replay_validation_manifest_gate.py

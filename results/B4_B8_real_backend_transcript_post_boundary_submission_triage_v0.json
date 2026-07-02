@@ -1,0 +1,260 @@
+{
+  "benchmark_id": "B4",
+  "claim_boundary": {
+    "b10_t2_credit_allowed": false,
+    "b4_verifiable_advantage_credit_allowed": false,
+    "b8_protocol_soundness_credit_allowed": false,
+    "bqp_separation_claimed": false,
+    "cryptographic_soundness_proved": false,
+    "problem_solved_claimed": false,
+    "protocol_soundness_proved": false,
+    "quantum_advantage_claimed": false,
+    "sampling_hardness_proved": false
+  },
+  "conditions": [
+    {
+      "condition_id": "C1",
+      "evidence": {
+        "requirements_failed": 0,
+        "source_method": "b8_b4_real_backend_soundness_boundary_v0",
+        "validation_error_count": 0
+      },
+      "label": "Source B8/B4 real-backend zero-credit boundary is current and valid",
+      "satisfied": true
+    },
+    {
+      "condition_id": "C2",
+      "evidence": {
+        "failed_acceptance_requirement_ids": [
+          "P6",
+          "P7",
+          "P8"
+        ],
+        "submitted_acceptance_packet_exists": false
+      },
+      "label": "The transcript row acceptance packet remains blocked on missing submitted evidence",
+      "satisfied": true
+    },
+    {
+      "condition_id": "C3",
+      "evidence": {
+        "full_leak_allowed_accepts_per_160": 40,
+        "holdout_row_count": 160,
+        "no_leak_allowed_accepts_per_160": 16
+      },
+      "label": "The holdout and leakage-margin scope is preserved",
+      "satisfied": true
+    },
+    {
+      "condition_id": "C4",
+      "evidence": {
+        "ready_packet_ids": [
+          "H1",
+          "H2",
+          "H3",
+          "H4"
+        ]
+      },
+      "label": "Four real-backend transcript PR packets are ready for external agents",
+      "satisfied": true
+    },
+    {
+      "condition_id": "C5",
+      "evidence": {
+        "accepted_priority_transcript_rows": 0,
+        "blocked_packet_ids": [
+          "H5"
+        ],
+        "real_backend_transcript_rows": 0
+      },
+      "label": "Soundness and advantage replay is correctly blocked until H1-H4 evidence exists",
+      "satisfied": true
+    },
+    {
+      "condition_id": "C6",
+      "evidence": {
+        "b10_t2_credit_allowed": false,
+        "b4_verifiable_advantage_credit_allowed": false,
+        "b8_protocol_soundness_credit_allowed": false,
+        "bqp_separation_claimed": false,
+        "cryptographic_soundness_proved": false,
+        "protocol_soundness_proved": false,
+        "quantum_advantage_claimed": false,
+        "sampling_hardness_proved": false
+      },
+      "label": "Forbidden B8/B4/B10 soundness, advantage, and BQP claims remain false",
+      "satisfied": true
+    }
+  ],
+  "last_updated": "2026-07-03",
+  "linked_benchmark_ids": [
+    "B8",
+    "B10"
+  ],
+  "method": "b4_b8_real_backend_transcript_post_boundary_submission_triage_v0",
+  "model_status": "b8_zero_credit_soundness_boundary_split_into_pr_sized_transcript_packets",
+  "runtime_seconds": 0.00022912025451660156,
+  "source_acceptance_packet_gate": "results/B4_B8_real_backend_transcript_row_acceptance_packet_gate_v0.json",
+  "source_b10_boundary": "results/B10_T2_real_backend_transcript_row_acceptance_boundary_v0.json",
+  "source_boundary": "results/B8_B4_real_backend_soundness_boundary_v0.json",
+  "source_target_id": "T-B4-002p/T-B8-003t/T-B10-009h",
+  "status": "real_backend_transcript_post_boundary_triage_ready_no_credit",
+  "summary": {
+    "accepted_priority_transcript_rows": 0,
+    "b10_bqp_separation_credit_allowed": false,
+    "b10_soundness_credit_allowed": false,
+    "b10_t2_credit_allowed": false,
+    "b4_verifiable_advantage_credit_allowed": false,
+    "b8_cryptographic_soundness_credit_allowed": false,
+    "b8_protocol_soundness_credit_allowed": false,
+    "b8_sampling_hardness_credit_allowed": false,
+    "blocked_packet_count": 1,
+    "blocked_packet_ids": [
+      "H5"
+    ],
+    "bqp_separation_claimed": false,
+    "condition_count": 6,
+    "conditions_failed": 0,
+    "conditions_satisfied": 6,
+    "cryptographic_soundness_proved": false,
+    "failed_condition_ids": [],
+    "full_leak_allowed_accepts_per_160": 40,
+    "holdout_row_count": 160,
+    "no_leak_allowed_accepts_per_160": 16,
+    "protocol_soundness_proved": false,
+    "quantum_advantage_claimed": false,
+    "ready_external_pr_packet_count": 4,
+    "ready_packet_ids": [
+      "H1",
+      "H2",
+      "H3",
+      "H4"
+    ],
+    "real_backend_transcript_rows": 0,
+    "sampling_hardness_proved": false,
+    "source_acceptance_packet_hash": "d12e99b601c261d198a9ecdde701c7bf8298eb27b25c1620761db5593d4e4c67",
+    "source_b10_boundary_hash": "eab53cdab2e07e4e8267eb0d28ab5905de2e5229b4e32f63c0e01ac832d40b45",
+    "source_boundary_hash": "83164aa6bca39fbb553738e94d6f8afdf79aaadd7eebda533cab97df1502fc1d",
+    "transcript_packet_id": "B4B8-M6-real-backend-transcript-rows",
+    "triage_hash": "5053a624e0295f20d074e14dc6b74951f7f09930dde250f45f2027f5207d475a",
+    "triage_id": "B4-B8-real-backend-transcript-post-boundary-submission-triage",
+    "validation_error_count": 0,
+    "work_packet_count": 5
+  },
+  "title": "B4/B8 Real-Backend Transcript Post-Boundary Submission Triage",
+  "triage_packet": {
+    "acceptance_packet_hash": "d12e99b601c261d198a9ecdde701c7bf8298eb27b25c1620761db5593d4e4c67",
+    "accepted_priority_transcript_rows": 0,
+    "b10_boundary_hash": "eab53cdab2e07e4e8267eb0d28ab5905de2e5229b4e32f63c0e01ac832d40b45",
+    "b10_t2_credit_allowed": false,
+    "b4_verifiable_advantage_credit_allowed": false,
+    "b8_protocol_soundness_credit_allowed": false,
+    "boundary_hash": "83164aa6bca39fbb553738e94d6f8afdf79aaadd7eebda533cab97df1502fc1d",
+    "full_leak_allowed_accepts_per_160": 40,
+    "holdout_row_count": 160,
+    "no_leak_allowed_accepts_per_160": 16,
+    "real_backend_transcript_rows": 0,
+    "source_acceptance_packet_gate": "results/B4_B8_real_backend_transcript_row_acceptance_packet_gate_v0.json",
+    "source_b10_boundary": "results/B10_T2_real_backend_transcript_row_acceptance_boundary_v0.json",
+    "source_boundary": "results/B8_B4_real_backend_soundness_boundary_v0.json",
+    "transcript_packet_id": "B4B8-M6-real-backend-transcript-rows",
+    "triage_hash": "5053a624e0295f20d074e14dc6b74951f7f09930dde250f45f2027f5207d475a",
+    "triage_id": "B4-B8-real-backend-transcript-post-boundary-submission-triage",
+    "work_packet_ids": [
+      "H1",
+      "H2",
+      "H3",
+      "H4",
+      "H5"
+    ]
+  },
+  "validation_errors": [],
+  "version": "0.1",
+  "work_packets": [
+    {
+      "acceptance_evidence": [
+        "provider/session identifiers and backend properties are source-backed",
+        "device snapshot hashes match the transcript provenance chain",
+        "claim boundary forbids hardware-result, soundness, advantage, and BQP claims"
+      ],
+      "blocker": "no source-backed provider/session/device-property evidence has been accepted",
+      "expected_artifacts": [
+        "submissions/B4B8-M6-real-backend-transcript-rows/provider_session_manifest.json",
+        "submissions/B4B8-M6-real-backend-transcript-rows/backend_properties_bundle/",
+        "submissions/B4B8-M6-real-backend-transcript-rows/hardware_claim_boundary.md"
+      ],
+      "owner_role": "hardware-intake-agent",
+      "packet_id": "H1",
+      "status": "ready_for_external_pr_not_credit",
+      "title": "Backend provider/session and device-property replay"
+    },
+    {
+      "acceptance_evidence": [
+        "real_backend_transcript_rows > 0",
+        "raw counts and job metadata are hash-bound",
+        "shot allocation matches the replay-validation manifest"
+      ],
+      "blocker": "real backend transcript rows remain zero",
+      "expected_artifacts": [
+        "submissions/B4B8-M6-real-backend-transcript-rows/job_metadata_manifest.json",
+        "submissions/B4B8-M6-real-backend-transcript-rows/raw_counts_bundle/",
+        "submissions/B4B8-M6-real-backend-transcript-rows/shot_allocation_ledger.json"
+      ],
+      "owner_role": "hardware-execution-agent",
+      "packet_id": "H2",
+      "status": "ready_for_external_pr_not_credit",
+      "title": "Hardware randomized-measurement job/count transcript rows"
+    },
+    {
+      "acceptance_evidence": [
+        "accepted transcript rows include replayed postprocess outputs",
+        "private predicate commitment remains non-public before reveal",
+        "redaction hashes reproduce the submitted transcript packet"
+      ],
+      "blocker": "no source-backed postprocess/private-predicate/redaction replay has been accepted",
+      "expected_artifacts": [
+        "submissions/B4B8-M6-real-backend-transcript-rows/postprocess_replay.json",
+        "submissions/B4B8-M6-real-backend-transcript-rows/private_predicate_commitment.json",
+        "submissions/B4B8-M6-real-backend-transcript-rows/redaction_hash_replay.json"
+      ],
+      "owner_role": "verification-agent",
+      "packet_id": "H3",
+      "status": "ready_for_external_pr_not_credit",
+      "title": "Postprocess, private-predicate commitment, and redaction replay"
+    },
+    {
+      "acceptance_evidence": [
+        "leakage-blind no-leak accepted rows stay <=16/160",
+        "full-leak accepted rows stay <=40/160 or are explicitly excluded",
+        "learned/generative spoofers are replayed against accepted rows"
+      ],
+      "blocker": "real-row leakage-separated margins have not met <=16/160 no-leak and <=40/160 full-leak budgets",
+      "expected_artifacts": [
+        "submissions/B4B8-M6-real-backend-transcript-rows/leakage_separated_fit.json",
+        "submissions/B4B8-M6-real-backend-transcript-rows/no_leak_margin_retest.json",
+        "submissions/B4B8-M6-real-backend-transcript-rows/full_leak_margin_retest.json"
+      ],
+      "owner_role": "baseline-adversary",
+      "packet_id": "H4",
+      "status": "ready_for_external_pr_not_credit",
+      "title": "Leakage-separated fit and no-leak/full-leak margin retest"
+    },
+    {
+      "acceptance_evidence": [
+        "H1-H4 evidence is accepted by the transcript row acceptance packet",
+        "B8 protocol/cryptographic/sampling soundness is replayed against real rows",
+        "B4 advantage and B10-T2 credit remain false until boundary acceptance"
+      ],
+      "blocker": "soundness and advantage credit cannot count before real transcript rows and leakage margins are accepted",
+      "expected_artifacts": [
+        "submissions/B4B8-M6-real-backend-transcript-rows/b8_soundness_replay.json",
+        "submissions/B4B8-M6-real-backend-transcript-rows/b4_advantage_boundary.json",
+        "submissions/B4B8-M6-real-backend-transcript-rows/b10_t2_credit_boundary.json"
+      ],
+      "owner_role": "bqp-boundary-agent",
+      "packet_id": "H5",
+      "status": "blocked_until_H1_H2_H3_H4_accept",
+      "title": "B8/B4/B10 soundness and advantage credit replay"
+    }
+  ]
+}
