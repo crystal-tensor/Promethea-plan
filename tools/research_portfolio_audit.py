@@ -34522,6 +34522,9 @@ def audit(root: Path) -> dict:
             "b7_b2_calibrated_trace_acceptance_boundary": str(
                 research / "B7_B2_calibrated_trace_acceptance_boundary.md"
             ),
+            "b2_b7_calibrated_trace_post_boundary_submission_triage": str(
+                research / "B2_B7_calibrated_trace_post_boundary_submission_triage.md"
+            ),
             "b3_quantum_observable_fci_comparison": str(research / "B3_quantum_observable_fci_comparison.md"),
             "b3_quantum_observable_fci_qasm_directory": str(
                 results / "b3_quantum_observable_fci_comparison" / "circuits"

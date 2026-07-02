@@ -953,6 +953,36 @@ current_results:
     caveat: acceptance_packet_only_no_calibrated_rows_no_decoder_no_threshold_no_hardware_no_b7_credit
     result: ../results/B2_calibrated_trace_row_acceptance_packet_gate_v0.json
     markdown_report: ../research/B2_calibrated_trace_row_acceptance_packet_gate.md
+  calibrated_trace_post_boundary_submission_triage_v0:
+    status: calibrated_trace_post_boundary_submission_triage_ready_no_credit
+    method: b2_b7_calibrated_trace_post_boundary_submission_triage_v0
+    model_status: b7_zero_credit_calibrated_trace_boundary_split_into_pr_sized_trace_packets
+    source_boundary: ../results/B7_B2_calibrated_trace_acceptance_boundary_v0.json
+    source_acceptance_packet_gate: ../results/B2_calibrated_trace_row_acceptance_packet_gate_v0.json
+    source_priority_packet_gate: ../results/B2_calibrated_trace_priority_packet_gate_v0.json
+    triage_id: B2-B7-calibrated-trace-post-boundary-submission-triage
+    triage_hash: df9285760dffbd92a3654e0e80d3a6dba15d6a7bcb7e333b596bd5c0f2e6c5ce
+    source_boundary_hash: b915a35d2e1e7b78440b277d23905b2fd34433350b27ee237ad61b4a2a932828
+    source_acceptance_packet_hash: 3cf42ae6e29cf23f20120a5d48db83efa510db007f24ec9b62fc9660ef8420c3
+    trace_packet_id: B2-T5-calibrated-flag-observation-rows
+    work_packet_count: 4
+    ready_external_pr_packet_count: 3
+    blocked_packet_count: 1
+    ready_packet_ids: [C1, C2, C3]
+    blocked_packet_ids: [C4]
+    conditions_satisfied: 6
+    conditions_failed: 0
+    challenge_count: 3
+    source_trace_count: 576
+    holdout_profile_shots: 864
+    accepted_priority_trace_rows: 0
+    b7_dependency_credit_allowed: false
+    b7_ft_ledger_credit_allowed: false
+    b7_resource_credit_allowed: false
+    validation_error_count: 0
+    caveat: triage_only_no_calibrated_rows_no_decoder_no_threshold_no_hardware_no_b7_credit
+    result: ../results/B2_B7_calibrated_trace_post_boundary_submission_triage_v0.json
+    markdown_report: ../research/B2_B7_calibrated_trace_post_boundary_submission_triage.md
 prototype_artifacts:
   baseline_runner: ../tools/b2_repetition_code_baseline.py
   target_volume_estimator: ../tools/b2_target_volume.py
@@ -979,6 +1009,7 @@ prototype_artifacts:
   calibrated_trace_replay_validation_manifest_gate: ../tools/b2_calibrated_trace_replay_validation_manifest_gate.py
   calibrated_trace_row_acceptance_packet_gate: ../tools/b2_calibrated_trace_row_acceptance_packet_gate.py
   b7_b2_calibrated_trace_acceptance_boundary: ../tools/b7_b2_calibrated_trace_acceptance_boundary.py
+  b2_b7_calibrated_trace_post_boundary_submission_triage: ../tools/b2_b7_calibrated_trace_post_boundary_submission_triage.py
   posterior_likelihood_decoder_injection_gate: ../tools/b2_posterior_likelihood_decoder_injection_gate.py
   dem_informed_detector_edge_semantics_gate: ../tools/b2_dem_informed_detector_edge_semantics_gate.py
   hardware_like_leakage_model_gate: ../tools/b2_hardware_like_leakage_model_gate.py

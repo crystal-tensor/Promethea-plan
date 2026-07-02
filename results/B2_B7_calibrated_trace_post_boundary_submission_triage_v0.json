@@ -1,0 +1,235 @@
+{
+  "benchmark_id": "B2",
+  "claim_boundary": {
+    "b7_dependency_credit_allowed": false,
+    "b7_ft_ledger_credit_allowed": false,
+    "b7_resource_credit_allowed": false,
+    "calibrated_device_claimed": false,
+    "hardware_result_claimed": false,
+    "new_code_claimed": false,
+    "problem_solved_claimed": false,
+    "production_decoder_claimed": false,
+    "quantum_advantage_claimed": false,
+    "threshold_claimed": false
+  },
+  "conditions": [
+    {
+      "condition_id": "C1",
+      "evidence": {
+        "requirements_failed": 0,
+        "source_method": "b7_b2_calibrated_trace_acceptance_boundary_v0",
+        "validation_error_count": 0
+      },
+      "label": "Source B7/B2 zero-credit boundary is current and valid",
+      "satisfied": true
+    },
+    {
+      "condition_id": "C2",
+      "evidence": {
+        "failed_acceptance_requirement_ids": [
+          "P6",
+          "P7",
+          "P8"
+        ],
+        "submitted_acceptance_packet_exists": false
+      },
+      "label": "The source trace acceptance packet remains blocked on missing submitted evidence",
+      "satisfied": true
+    },
+    {
+      "condition_id": "C3",
+      "evidence": {
+        "challenge_count": 3,
+        "holdout_profile_shots": 864,
+        "source_trace_count": 576
+      },
+      "label": "The calibrated trace scope is preserved",
+      "satisfied": true
+    },
+    {
+      "condition_id": "C4",
+      "evidence": {
+        "ready_packet_ids": [
+          "C1",
+          "C2",
+          "C3"
+        ]
+      },
+      "label": "Three calibrated trace PR packets are ready for external agents",
+      "satisfied": true
+    },
+    {
+      "condition_id": "C5",
+      "evidence": {
+        "accepted_priority_trace_rows": 0,
+        "blocked_packet_ids": [
+          "C4"
+        ]
+      },
+      "label": "B7 dependency ledger replay is correctly blocked until calibrated rows are accepted",
+      "satisfied": true
+    },
+    {
+      "condition_id": "C6",
+      "evidence": {
+        "b7_dependency_credit_allowed": false,
+        "b7_ft_ledger_credit_allowed": false,
+        "b7_resource_credit_allowed": false,
+        "calibrated_device_claimed": false,
+        "hardware_result_claimed": false,
+        "production_decoder_claimed": false,
+        "quantum_advantage_claimed": false,
+        "threshold_claimed": false
+      },
+      "label": "Forbidden decoder, hardware, threshold, advantage, and B7 credit claims remain false",
+      "satisfied": true
+    }
+  ],
+  "last_updated": "2026-07-03",
+  "linked_benchmark_id": "B7",
+  "method": "b2_b7_calibrated_trace_post_boundary_submission_triage_v0",
+  "model_status": "b7_zero_credit_calibrated_trace_boundary_split_into_pr_sized_trace_packets",
+  "runtime_seconds": 0.00027108192443847656,
+  "source_acceptance_packet_gate": "results/B2_calibrated_trace_row_acceptance_packet_gate_v0.json",
+  "source_boundary": "results/B7_B2_calibrated_trace_acceptance_boundary_v0.json",
+  "source_priority_packet_gate": "results/B2_calibrated_trace_priority_packet_gate_v0.json",
+  "source_target_id": "T-B2-010i/T-B7-012j",
+  "status": "calibrated_trace_post_boundary_submission_triage_ready_no_credit",
+  "summary": {
+    "accepted_priority_trace_rows": 0,
+    "b7_dependency_credit_allowed": false,
+    "b7_ft_ledger_credit_allowed": false,
+    "b7_logical_error_improvement_credit": 0,
+    "b7_resource_credit_allowed": false,
+    "b7_space_time_volume_reduction_credit": 0,
+    "blocked_packet_count": 1,
+    "blocked_packet_ids": [
+      "C4"
+    ],
+    "calibrated_device_claimed": false,
+    "challenge_count": 3,
+    "condition_count": 6,
+    "conditions_failed": 0,
+    "conditions_satisfied": 6,
+    "failed_condition_ids": [],
+    "hardware_result_claimed": false,
+    "holdout_profile_shots": 864,
+    "new_code_claimed": false,
+    "priority_packet_hash": "abec5e9114f6a6dcdc4d2b0bf7cc580c22fc6d8007fc68bdc2b1e9c7aae9378d",
+    "production_decoder_claimed": false,
+    "quantum_advantage_claimed": false,
+    "ready_external_pr_packet_count": 3,
+    "ready_packet_ids": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "source_acceptance_packet_hash": "3cf42ae6e29cf23f20120a5d48db83efa510db007f24ec9b62fc9660ef8420c3",
+    "source_boundary_hash": "b915a35d2e1e7b78440b277d23905b2fd34433350b27ee237ad61b4a2a932828",
+    "source_trace_count": 576,
+    "threshold_claimed": false,
+    "trace_packet_id": "B2-T5-calibrated-flag-observation-rows",
+    "triage_hash": "df9285760dffbd92a3654e0e80d3a6dba15d6a7bcb7e333b596bd5c0f2e6c5ce",
+    "triage_id": "B2-B7-calibrated-trace-post-boundary-submission-triage",
+    "validation_error_count": 0,
+    "work_packet_count": 4
+  },
+  "title": "B2/B7 Calibrated Trace Post-Boundary Submission Triage",
+  "triage_packet": {
+    "acceptance_packet_hash": "3cf42ae6e29cf23f20120a5d48db83efa510db007f24ec9b62fc9660ef8420c3",
+    "accepted_priority_trace_rows": 0,
+    "b7_dependency_credit_allowed": false,
+    "b7_ft_ledger_credit_allowed": false,
+    "b7_logical_error_improvement_credit": 0,
+    "b7_resource_credit_allowed": false,
+    "b7_space_time_volume_reduction_credit": 0,
+    "boundary_hash": "b915a35d2e1e7b78440b277d23905b2fd34433350b27ee237ad61b4a2a932828",
+    "challenge_count": 3,
+    "holdout_profile_shots": 864,
+    "priority_packet_hash": "abec5e9114f6a6dcdc4d2b0bf7cc580c22fc6d8007fc68bdc2b1e9c7aae9378d",
+    "source_acceptance_packet_gate": "results/B2_calibrated_trace_row_acceptance_packet_gate_v0.json",
+    "source_boundary": "results/B7_B2_calibrated_trace_acceptance_boundary_v0.json",
+    "source_priority_packet_gate": "results/B2_calibrated_trace_priority_packet_gate_v0.json",
+    "source_trace_count": 576,
+    "trace_packet_id": "B2-T5-calibrated-flag-observation-rows",
+    "triage_hash": "df9285760dffbd92a3654e0e80d3a6dba15d6a7bcb7e333b596bd5c0f2e6c5ce",
+    "triage_id": "B2-B7-calibrated-trace-post-boundary-submission-triage",
+    "work_packet_ids": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ]
+  },
+  "validation_errors": [],
+  "version": "0.1",
+  "work_packets": [
+    {
+      "acceptance_evidence": [
+        "calibration source is real or independently calibrated",
+        "backend/noise/source hashes are reproducible",
+        "claim boundary forbids hardware, threshold, and calibrated-device claims"
+      ],
+      "blocker": "no real or independently calibrated trace replay has been submitted",
+      "expected_artifacts": [
+        "submissions/B2-T5-calibrated-flag-observation-rows/calibration_source_manifest.json",
+        "submissions/B2-T5-calibrated-flag-observation-rows/independent_calibration_bundle/",
+        "submissions/B2-T5-calibrated-flag-observation-rows/calibration_claim_boundary.md"
+      ],
+      "owner_role": "hardware-data-agent",
+      "packet_id": "C1",
+      "status": "ready_for_external_pr_not_credit",
+      "title": "Real or independently calibrated trace source replay"
+    },
+    {
+      "acceptance_evidence": [
+        "accepted_trace_row_count > 0",
+        "3 challenges remain covered",
+        "576 source traces are hash-bound to row and decoder artifacts"
+      ],
+      "blocker": "accepted calibrated trace rows remain zero",
+      "expected_artifacts": [
+        "submissions/B2-T5-calibrated-flag-observation-rows/row_batch_manifest.json",
+        "submissions/B2-T5-calibrated-flag-observation-rows/detector_trace_manifest.json",
+        "submissions/B2-T5-calibrated-flag-observation-rows/decoder_profile_manifest.json"
+      ],
+      "owner_role": "qec-agent",
+      "packet_id": "C2",
+      "status": "ready_for_external_pr_not_credit",
+      "title": "Accepted calibrated trace row batch"
+    },
+    {
+      "acceptance_evidence": [
+        "864 holdout profile-shots remain covered",
+        "all_challenge_nonregression_passed is true",
+        "strict holdout improvement is measured against the same decoder path"
+      ],
+      "blocker": "strict holdout improvement and all-challenge non-regression have not been accepted",
+      "expected_artifacts": [
+        "submissions/B2-T5-calibrated-flag-observation-rows/holdout_partition_manifest.json",
+        "submissions/B2-T5-calibrated-flag-observation-rows/holdout_nonregression_table.json",
+        "submissions/B2-T5-calibrated-flag-observation-rows/all_challenge_coverage_table.json"
+      ],
+      "owner_role": "baseline-adversary",
+      "packet_id": "C3",
+      "status": "ready_for_external_pr_not_credit",
+      "title": "Strict holdout improvement with all-challenge non-regression"
+    },
+    {
+      "acceptance_evidence": [
+        "C1/C2/C3 are accepted by the trace row acceptance packet",
+        "b7_credit_delta is computed under the same challenge and holdout scope",
+        "B7 dependency/FT/resource credit remains false until the ledger accepts the route"
+      ],
+      "blocker": "B7 dependency ledger cannot count credit before calibrated rows and holdout evidence are accepted",
+      "expected_artifacts": [
+        "submissions/B2-T5-calibrated-flag-observation-rows/b7_dependency_ledger_replay.json",
+        "submissions/B2-T5-calibrated-flag-observation-rows/b7_credit_boundary.json"
+      ],
+      "owner_role": "fault-tolerance-agent",
+      "packet_id": "C4",
+      "status": "blocked_until_C1_C2_C3_accept",
+      "title": "B7 dependency ledger replay after accepted calibrated rows"
+    }
+  ]
+}
