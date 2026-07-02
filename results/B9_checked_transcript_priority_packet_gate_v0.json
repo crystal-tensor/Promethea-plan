@@ -1,0 +1,207 @@
+{
+  "benchmark_id": "B9",
+  "claim_boundary": {
+    "explicit_not_quantum_pcp_proof": true,
+    "formal_theorem_proved": false,
+    "global_gap_amplification_impossibility_claimed": false,
+    "next_gate": "Submit results/B9_checked_transcript_priority_submissions/B9-checked-width-locality-transcript.json plus the checked transcript for lean --version, lake --version, and lake env lean B9/ClusterStabilizer/WidthLocality.lean.",
+    "nlts_theorem_claimed": false,
+    "proof_assistant_checked": false,
+    "what_is_not_supported": "No checked transcript artifact has been submitted or accepted; no proof-assistant checked theorem, Quantum PCP proof, NLTS theorem, or global impossibility theorem is supported.",
+    "what_is_supported": "The first B9 proof-assistant blocker now has a concrete source-backed submission packet for a Lean/Lake checked transcript."
+  },
+  "last_updated": "2026-07-02",
+  "linked_benchmark_id": "B10",
+  "method": "b9_checked_transcript_priority_packet_gate_v0",
+  "model_status": "priority_checked_transcript_packet_ready_no_checked_run_submitted",
+  "priority_checked_transcript_packet": {
+    "accepted_only_if": [
+      "lean --version reports Lean 4.12.0 or the declared pinned toolchain equivalent",
+      "lake --version exits successfully under the same toolchain",
+      "lake env lean B9/ClusterStabilizer/WidthLocality.lean exits with returncode 0",
+      "checked transcript hash matches the submitted transcript file",
+      "lean module hash matches the current scaffold source",
+      "claim_boundary forbids Quantum PCP, NLTS, formal theorem, and global impossibility claims"
+    ],
+    "blocks_acquisition_requirements": [
+      "A3",
+      "A4",
+      "A6"
+    ],
+    "expected_local_paths": {
+      "checked_transcript": "results/B9_checked_run_width_locality_transcript_v0.txt",
+      "lean_module": "B9/ClusterStabilizer/WidthLocality.lean",
+      "lean_toolchain": "lean-toolchain"
+    },
+    "packet_hash": "948afb38dab74a9612316173024f06228bda70fce37dd1a957b9d95536a07969",
+    "packet_id": "B9-checked-width-locality-transcript",
+    "required_evidence_files": [
+      "lean_toolchain_file",
+      "lean_version_transcript",
+      "lake_version_transcript",
+      "lake_env_lean_width_locality_transcript",
+      "checked_transcript_file",
+      "lean_module_source_hash",
+      "offline_bundle_hash_manifest",
+      "claim_boundary_note"
+    ],
+    "required_keys": [
+      "packet_id",
+      "lean_toolchain_sha256",
+      "lean_version_stdout",
+      "lake_version_stdout",
+      "checked_transcript_sha256",
+      "checked_transcript_path",
+      "lean_module_sha256",
+      "lake_env_lean_command",
+      "returncode",
+      "claim_boundary"
+    ],
+    "submission_artifact_path": "results/B9_checked_transcript_priority_submissions/B9-checked-width-locality-transcript.json"
+  },
+  "problem_id": 17,
+  "requirements": [
+    {
+      "evidence": {
+        "failed_acquisition_requirement_ids": [
+          "A3",
+          "A4",
+          "A6"
+        ],
+        "source_status": "checked_run_acquisition_open_toolchain_not_cached",
+        "validation_error_count": 0
+      },
+      "label": "Checked-run acquisition gate remains valid and blocked only on A3/A4/A6",
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "evidence": {
+        "lean_module_exists": true,
+        "lean_module_sha256": "d885cfe38990798c8cbd281959ed995a17427b38991968a9f40801c2a3bfa43c",
+        "lean_toolchain_exists": true,
+        "lean_toolchain_sha256": "e6930c662006db4d6dc76c651d60a608e4f6a18bcfd53e6b0167d70a125285d5"
+      },
+      "label": "Pinned Lean toolchain and module source are present",
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "evidence": {
+        "blocks_acquisition_requirements": [
+          "A3",
+          "A4",
+          "A6"
+        ]
+      },
+      "label": "Priority packet binds the three acquisition blockers",
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "evidence": {
+        "required_evidence_file_count": 8,
+        "required_key_count": 10
+      },
+      "label": "Packet carries checked transcript schema and evidence file classes",
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "evidence": {
+        "explicit_not_quantum_pcp_proof": true,
+        "formal_theorem_proved": false,
+        "proof_assistant_checked": false
+      },
+      "label": "Current state has no proof-assistant checked theorem",
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "evidence": {
+        "exists": false,
+        "submission_artifact_path": "results/B9_checked_transcript_priority_submissions/B9-checked-width-locality-transcript.json"
+      },
+      "label": "Priority checked transcript artifact has been submitted",
+      "passed": false,
+      "requirement_id": "P6"
+    },
+    {
+      "evidence": {
+        "missing_keys": [
+          "packet_id",
+          "lean_toolchain_sha256",
+          "lean_version_stdout",
+          "lake_version_stdout",
+          "checked_transcript_sha256",
+          "checked_transcript_path",
+          "lean_module_sha256",
+          "lake_env_lean_command",
+          "returncode",
+          "claim_boundary"
+        ],
+        "submitted_key_count": 0
+      },
+      "label": "Submitted artifact satisfies the locked checked-run schema",
+      "passed": false,
+      "requirement_id": "P7"
+    },
+    {
+      "evidence": {
+        "checked_transcript_present": false,
+        "returncode": null,
+        "source_evidence_files_present": false
+      },
+      "label": "Submitted transcript is source-backed and returncode-zero",
+      "passed": false,
+      "requirement_id": "P8"
+    },
+    {
+      "evidence": {
+        "explicit_not_quantum_pcp_proof": true,
+        "formal_theorem_proved": false,
+        "nlts_theorem_claimed": false,
+        "proof_assistant_checked": false
+      },
+      "label": "Forbidden Quantum PCP, NLTS, formal theorem, and global impossibility claims remain false",
+      "passed": true,
+      "requirement_id": "P9"
+    }
+  ],
+  "runtime_seconds": 0.00022101402282714844,
+  "source_acquisition_gate_result": "results/B9_checked_run_acquisition_gate_v0.json",
+  "status": "checked_transcript_priority_packet_open_missing_artifact",
+  "summary": {
+    "blocks_acquisition_requirements": [
+      "A3",
+      "A4",
+      "A6"
+    ],
+    "checked_transcript_present": false,
+    "explicit_not_quantum_pcp_proof": true,
+    "failed_priority_requirement_ids": [
+      "P6",
+      "P7",
+      "P8"
+    ],
+    "formal_theorem_proved": false,
+    "global_gap_amplification_impossibility_claimed": false,
+    "lake_available": false,
+    "lean4_available": false,
+    "missing_key_count": 10,
+    "nlts_theorem_claimed": false,
+    "packet_hash": "948afb38dab74a9612316173024f06228bda70fce37dd1a957b9d95536a07969",
+    "priority_packet_id": "B9-checked-width-locality-transcript",
+    "priority_requirement_count": 9,
+    "priority_requirements_failed": 3,
+    "priority_requirements_passed": 6,
+    "proof_assistant_checked": false,
+    "required_evidence_file_count": 8,
+    "required_key_count": 10,
+    "submitted_artifact_exists": false,
+    "validation_error_count": 0
+  },
+  "title": "B9 Checked Transcript Priority Packet Gate",
+  "validation_errors": [],
+  "version": "0.1"
+}
