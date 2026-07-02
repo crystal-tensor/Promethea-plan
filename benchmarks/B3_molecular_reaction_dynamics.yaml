@@ -913,6 +913,38 @@ current_results:
     caveat: n2_ten_shard_prefix_only_no_complete_n2_batch_no_assembled_row_no_f1_artifact_no_credit
     result: ../results/B3_B10_F1_n2_prefix10_shard_gate_v0.json
     markdown_report: ../research/B3_B10_F1_n2_prefix10_shard_gate.md
+  b3_b10_f1_n2_shard_batch_gate_v0:
+    status: n2_full_covariance_shard_batch_recorded_zero_credit
+    method: b3_b10_f1_n2_shard_batch_gate_v0
+    model_status: two_of_three_remaining_molecule_shard_batches_complete_no_row_credit
+    source_work_order_gate: ../results/B3_B10_F1_full_covariance_work_order_gate_v0.json
+    source_shard_dir: ../results/B3_B10_F1_full_covariance_shards/n2_bond_stretch
+    source_target_id: T-B3-030/T-B10-015q
+    n2_shard_batch_hash: 114210ba9469fce622225f85bd8ef0315f5f7d406d83da803a8619d517f7710d
+    produced_n2_shard_count: 19
+    required_n2_shard_count: 19
+    produced_global_shard_count: 26
+    required_total_shard_count: 65
+    remaining_global_shard_count: 39
+    n2_compiled_cover_group_count: 9476
+    n2_planning_proxy_group_count: 9475
+    n2_total_nonzero_covariance_pair_count: 36162
+    n2_total_variance_sum: 51.76304837681597
+    completed_molecule_shard_batch_count: 2
+    assembled_row_count: 0
+    n2_row_assembled: false
+    requirements_passed: 7
+    requirements_failed: 3
+    failed_requirement_ids: [P8, P9, P10]
+    accepted_full_covariance_row_count: 0
+    denominator_win_count: 0
+    b3_reopen_ready: false
+    b3_full_covariance_credit_allowed: false
+    b10_t1_credit_allowed: false
+    validation_error_count: 0
+    caveat: n2_shards_complete_but_no_assembled_row_no_f1_artifact_no_credit
+    result: ../results/B3_B10_F1_n2_shard_batch_gate_v0.json
+    markdown_report: ../research/B3_B10_F1_n2_shard_batch_gate.md
 prototype_artifacts:
   resource_estimator: ../tools/b3_pyscf_resource_estimator.py
   quantum_observable_fci_comparison: ../tools/b3_quantum_observable_fci_comparison.py
@@ -944,4 +976,5 @@ prototype_artifacts:
   b3_b10_f1_h2o_shard_batch_gate: ../tools/b3_b10_f1_h2o_shard_batch_gate.py
   b3_b10_f1_n2_prefix_shard_gate: ../tools/b3_b10_f1_n2_prefix_shard_gate.py
   b3_b10_f1_n2_prefix10_shard_gate: ../tools/b3_b10_f1_n2_prefix10_shard_gate.py
+  b3_b10_f1_n2_shard_batch_gate: ../tools/b3_b10_f1_n2_shard_batch_gate.py
   prototype_notes: ../research/B3_prototype_notes.md
