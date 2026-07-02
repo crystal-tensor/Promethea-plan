@@ -1,0 +1,310 @@
+{
+  "benchmark_id": "B5",
+  "claim_boundary": {
+    "bqp_separation_claimed": false,
+    "next_gate": "Submit B5B10-W1-priority-row-acceptance-packet with the accepted replay-validation manifest hash, canonical center and environment hashes, residual and discarded-weight evidence, convergence and resource ledgers, seeded-pressure comparison, same-access cost ledger, B10 access boundary, and claim boundary.",
+    "production_dmrg_claimed": false,
+    "quantum_advantage_claimed": false,
+    "same_access_positive_route_claimed": false,
+    "what_is_not_supported": "No priority-row acceptance packet or production row has been submitted or accepted; no production DMRG denominator, same-access positive route, quantum advantage, or BQP separation is supported.",
+    "what_is_supported": "The B5/B10 W1 route now has a priority-row acceptance packet defining what the first source-backed production-row artifact must contain before it can count."
+  },
+  "dependency_benchmarks": [
+    "B5",
+    "B10"
+  ],
+  "last_updated": "2026-07-03",
+  "linked_benchmark_id": "B10",
+  "method": "b5_b10_w1_priority_row_acceptance_packet_gate_v0",
+  "model_status": "w1_priority_row_acceptance_packet_required_before_production_dmrg_or_b10_credit",
+  "priority_row_acceptance_packet": {
+    "acceptance_packet_id": "B5B10-W1-priority-row-acceptance-packet",
+    "accepted_only_if": [
+      "acceptance_packet_id equals B5B10-W1-priority-row-acceptance-packet",
+      "priority row, provenance manifest, replay-validation manifest, priority packet hash, and row-contract hash match the source gates",
+      "canonical state replay, center site, left/right environment hashes, residual norm, discarded weight, convergence, sweep/matvec, wall-clock/memory, seeded-pressure, and same-access cost ledgers are hash-bound",
+      "accepted_priority_row_count and production_contract_rows_accepted are positive only after source evidence exists",
+      "orthonormal_residual_norm is at or below 1e-8 for the accepted priority row",
+      "B10 access boundary remains zero-credit and explicitly denies same-access positive-route or BQP-separation credit",
+      "claim_boundary forbids production DMRG, same-access positive route, quantum advantage, and BQP separation claims until a larger audited denominator route closes"
+    ],
+    "packet_hash": "3b03c6a4463a4b4c0de589c5e170840f80d4c9e753de6f0af8df98def45e2037",
+    "priority_packet_hash": "0d3620e8c5540bfd419718ab9d7ac5e4044e9f7736e0b23888f51114c13a3b8c",
+    "priority_row_id": "D5H_s8_u2_eta0.25_n4x4_obs_density_site_4",
+    "production_contract_rows_accepted": 0,
+    "production_required_keys": [
+      "replay_validation_manifest_hash",
+      "row_contract_hash",
+      "canonical_state_replay_hash",
+      "canonical_center_site",
+      "left_environment_hash",
+      "right_environment_hash",
+      "orthonormal_residual_norm",
+      "production_discarded_weight",
+      "convergence_ledger_hash",
+      "sweep_matvec_ledger_hash",
+      "wall_clock_memory_ledger_hash",
+      "seeded_pressure_comparison_hash",
+      "same_access_cost_ledger_hash",
+      "b10_access_boundary",
+      "b10_access_boundary_hash",
+      "accepted_priority_row_count",
+      "production_contract_rows_accepted",
+      "claim_boundary"
+    ],
+    "prototype_discarded_weight_metric_rows": 9,
+    "prototype_trace_hash_rows": 9,
+    "provenance_manifest_hash": "2616aae62cc6af33da763faac1d7275e975ca9699dd752231b600975cff74b90",
+    "provenance_manifest_id": "B5B10-W1-priority-row-provenance-manifest",
+    "replay_validation_manifest_hash": "21de29a096bd3c6534b4420a7d69afca1bc4c95e80750657f3a3d357dd17dd97",
+    "replay_validation_manifest_id": "B5B10-W1-priority-row-replay-validation-manifest",
+    "required_evidence_files": [
+      "accepted_replay_validation_manifest",
+      "priority_row_packet_contract",
+      "accepted_provenance_manifest",
+      "canonical_state_replay_manifest",
+      "canonical_center_site_table",
+      "left_environment_tensor_hash_manifest",
+      "right_environment_tensor_hash_manifest",
+      "orthonormal_residual_table",
+      "discarded_weight_table",
+      "convergence_ledger",
+      "sweep_matvec_ledger",
+      "wall_clock_memory_ledger",
+      "seeded_pressure_comparison_manifest",
+      "same_access_cost_ledger",
+      "b10_access_boundary_note",
+      "claim_boundary_note"
+    ],
+    "required_keys": [
+      "acceptance_packet_id",
+      "priority_row_id",
+      "provenance_manifest_id",
+      "replay_validation_manifest_id",
+      "priority_packet_hash",
+      "provenance_manifest_hash",
+      "replay_validation_manifest_hash",
+      "row_contract_hash",
+      "canonical_state_replay_hash",
+      "canonical_center_site",
+      "left_environment_hash",
+      "right_environment_hash",
+      "orthonormal_residual_norm",
+      "production_discarded_weight",
+      "convergence_ledger_hash",
+      "sweep_matvec_ledger_hash",
+      "wall_clock_memory_ledger_hash",
+      "seeded_pressure_comparison_hash",
+      "same_access_cost_ledger_hash",
+      "b10_access_boundary",
+      "b10_access_boundary_hash",
+      "accepted_priority_row_count",
+      "production_contract_rows_accepted",
+      "claim_boundary",
+      "source_evidence_files_present"
+    ],
+    "row_contract_count": 9,
+    "row_contract_hash": "7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc",
+    "source_priority_packet_gate": "results/B5_B10_w1_priority_row_submission_packet_gate_v0.json",
+    "source_replay_validation_manifest_gate": "results/B5_B10_w1_replay_validation_manifest_gate_v0.json",
+    "submission_artifact_path": "results/B5_B10_w1_priority_row_acceptance_packet_submissions/B5B10-W1-priority-row-acceptance-packet.json"
+  },
+  "requirements": [
+    {
+      "evidence": {
+        "failed_manifest_requirement_ids": [
+          "P6",
+          "P7",
+          "P8"
+        ],
+        "source_status": "w1_replay_validation_manifest_open_missing_artifact",
+        "validation_error_count": 0
+      },
+      "label": "Replay-validation manifest gate remains valid and blocked only on P6/P7/P8",
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "evidence": {
+        "failed_packet_requirement_ids": [
+          "P6",
+          "P7",
+          "P8"
+        ],
+        "packet_hash": "0d3620e8c5540bfd419718ab9d7ac5e4044e9f7736e0b23888f51114c13a3b8c",
+        "priority_row_id": "D5H_s8_u2_eta0.25_n4x4_obs_density_site_4"
+      },
+      "label": "Priority row packet remains fixed and source-shaped",
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "evidence": {
+        "production_required_key_count": 18,
+        "required_evidence_file_count": 16,
+        "required_key_count": 25
+      },
+      "label": "Acceptance packet carries locked W1 production-row schema and evidence classes",
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "evidence": {
+        "production_contract_rows_accepted": 0,
+        "prototype_discarded_weight_metric_rows": 9,
+        "prototype_trace_hash_rows": 9,
+        "row_contract_count": 9
+      },
+      "label": "Replay scope and prototype blockers remain preserved",
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "evidence": {
+        "accepted_priority_row_count": 0,
+        "b10_t1_positive_route_ready": false,
+        "bqp_separation_claimed": false,
+        "production_dmrg_claimed": false,
+        "quantum_advantage_claimed": false,
+        "same_access_positive_route_claimed": false
+      },
+      "label": "Current state has no accepted priority row or forbidden claims",
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "evidence": {
+        "exists": false,
+        "submission_artifact_path": "results/B5_B10_w1_priority_row_acceptance_packet_submissions/B5B10-W1-priority-row-acceptance-packet.json"
+      },
+      "label": "Priority-row acceptance packet has been submitted",
+      "passed": false,
+      "requirement_id": "P6"
+    },
+    {
+      "evidence": {
+        "missing_keys": [
+          "acceptance_packet_id",
+          "priority_row_id",
+          "provenance_manifest_id",
+          "replay_validation_manifest_id",
+          "priority_packet_hash",
+          "provenance_manifest_hash",
+          "replay_validation_manifest_hash",
+          "row_contract_hash",
+          "canonical_state_replay_hash",
+          "canonical_center_site",
+          "left_environment_hash",
+          "right_environment_hash",
+          "orthonormal_residual_norm",
+          "production_discarded_weight",
+          "convergence_ledger_hash",
+          "sweep_matvec_ledger_hash",
+          "wall_clock_memory_ledger_hash",
+          "seeded_pressure_comparison_hash",
+          "same_access_cost_ledger_hash",
+          "b10_access_boundary",
+          "b10_access_boundary_hash",
+          "accepted_priority_row_count",
+          "production_contract_rows_accepted",
+          "claim_boundary",
+          "source_evidence_files_present"
+        ],
+        "production_keys_present": [],
+        "production_required_keys": [
+          "replay_validation_manifest_hash",
+          "row_contract_hash",
+          "canonical_state_replay_hash",
+          "canonical_center_site",
+          "left_environment_hash",
+          "right_environment_hash",
+          "orthonormal_residual_norm",
+          "production_discarded_weight",
+          "convergence_ledger_hash",
+          "sweep_matvec_ledger_hash",
+          "wall_clock_memory_ledger_hash",
+          "seeded_pressure_comparison_hash",
+          "same_access_cost_ledger_hash",
+          "b10_access_boundary",
+          "b10_access_boundary_hash",
+          "accepted_priority_row_count",
+          "production_contract_rows_accepted",
+          "claim_boundary"
+        ],
+        "submitted_key_count": 0
+      },
+      "label": "Submitted acceptance packet satisfies the locked W1 production-row schema",
+      "passed": false,
+      "requirement_id": "P7"
+    },
+    {
+      "evidence": {
+        "b10_boundary_bound": false,
+        "claim_boundary_bound": false,
+        "manifest_bound": false,
+        "row_acceptance_valid": false,
+        "source_backed": false
+      },
+      "label": "Submitted acceptance packet is source-backed, manifest-bound, row-valid, B10-boundary-bound, and claim-boundary-bound",
+      "passed": false,
+      "requirement_id": "P8"
+    },
+    {
+      "evidence": {
+        "b10_t1_positive_route_ready": false,
+        "bqp_separation_claimed": false,
+        "production_dmrg_claimed": false,
+        "quantum_advantage_claimed": false,
+        "same_access_positive_route_claimed": false
+      },
+      "label": "Forbidden production, positive-route, advantage, and BQP claims remain false",
+      "passed": true,
+      "requirement_id": "P9"
+    }
+  ],
+  "runtime_seconds": 0.000215,
+  "source_priority_packet_gate": "results/B5_B10_w1_priority_row_submission_packet_gate_v0.json",
+  "source_replay_validation_manifest_gate": "results/B5_B10_w1_replay_validation_manifest_gate_v0.json",
+  "source_target_id": "B10-T1",
+  "status": "w1_priority_row_acceptance_packet_open_missing_artifact",
+  "summary": {
+    "acceptance_packet_hash": "3b03c6a4463a4b4c0de589c5e170840f80d4c9e753de6f0af8df98def45e2037",
+    "acceptance_packet_id": "B5B10-W1-priority-row-acceptance-packet",
+    "acceptance_requirement_count": 9,
+    "acceptance_requirements_failed": 3,
+    "acceptance_requirements_passed": 6,
+    "accepted_priority_row_count": 0,
+    "b10_t1_positive_route_ready": false,
+    "bqp_separation_claimed": false,
+    "failed_acceptance_requirement_ids": [
+      "P6",
+      "P7",
+      "P8"
+    ],
+    "missing_key_count": 25,
+    "priority_packet_hash": "0d3620e8c5540bfd419718ab9d7ac5e4044e9f7736e0b23888f51114c13a3b8c",
+    "priority_row_id": "D5H_s8_u2_eta0.25_n4x4_obs_density_site_4",
+    "production_contract_rows_accepted": 0,
+    "production_dmrg_claimed": false,
+    "production_keys_present_count": 0,
+    "production_required_key_count": 18,
+    "prototype_discarded_weight_metric_rows": 9,
+    "prototype_trace_hash_rows": 9,
+    "provenance_manifest_hash": "2616aae62cc6af33da763faac1d7275e975ca9699dd752231b600975cff74b90",
+    "provenance_manifest_id": "B5B10-W1-priority-row-provenance-manifest",
+    "quantum_advantage_claimed": false,
+    "replay_validation_manifest_hash": "21de29a096bd3c6534b4420a7d69afca1bc4c95e80750657f3a3d357dd17dd97",
+    "replay_validation_manifest_id": "B5B10-W1-priority-row-replay-validation-manifest",
+    "required_evidence_file_count": 16,
+    "required_key_count": 25,
+    "row_contract_count": 9,
+    "row_contract_hash": "7ee407e20f51bd0c003d885c8d43282359f84bea9729f0da203b9b2c2970a9fc",
+    "same_access_positive_route_claimed": false,
+    "submitted_acceptance_packet_exists": false,
+    "submitted_key_count": 0,
+    "validation_error_count": 0
+  },
+  "title": "B5/B10 W1 Priority-Row Acceptance Packet Gate",
+  "validation_errors": [],
+  "version": "0.1"
+}
