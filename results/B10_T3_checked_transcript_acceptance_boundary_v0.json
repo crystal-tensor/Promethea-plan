@@ -1,0 +1,157 @@
+{
+  "benchmark_id": "B10",
+  "boundary_packet": {
+    "acceptance_packet_hash": "74f1da0b8f20633ca8c4449887ca2245eb4cd73e72a2213c211af2c0f8c240e5",
+    "acceptance_packet_id": "B9-checked-width-locality-transcript-acceptance-packet",
+    "b10_bqp_separation_credit_allowed": false,
+    "b10_formal_credit_allowed": false,
+    "b10_nlts_credit_allowed": false,
+    "b10_quantum_pcp_credit_allowed": false,
+    "blocks_acquisition_requirements": [
+      "A3",
+      "A4",
+      "A6"
+    ],
+    "boundary_hash": "1ccaf84c5b713ff3df5b0ee25db19aa9c8ed27f80081d1b70556f80eae781ff3",
+    "boundary_id": "B10-T3-checked-transcript-acceptance-boundary",
+    "checked_transcript_accepted": false,
+    "checked_transcript_present": false,
+    "explicit_not_quantum_pcp_proof": true,
+    "formal_theorem_proved": false,
+    "global_gap_amplification_impossibility_claimed": false,
+    "nlts_theorem_claimed": false,
+    "packet_id": "B9-checked-width-locality-transcript",
+    "proof_assistant_checked": false,
+    "replay_validation_manifest_id": "B9-checked-width-locality-transcript-replay-validation-manifest",
+    "required_downstream_before_credit": [
+      "accepted B9-checked-width-locality-transcript-provenance-manifest",
+      "accepted B9-checked-width-locality-transcript-replay-validation-manifest",
+      "accepted B9-checked-width-locality-transcript-acceptance-packet",
+      "Lean4/Lake command replay with returncode 0",
+      "checked transcript hash and stdout/stderr hashes",
+      "theorem scope statement",
+      "open obligation ledger",
+      "claim boundary that still forbids Quantum PCP, NLTS, global impossibility, and BQP separation claims"
+    ],
+    "source_acceptance_packet_gate": "results/B9_checked_transcript_acceptance_packet_gate_v0.json",
+    "source_method": "b9_checked_transcript_acceptance_packet_gate_v0"
+  },
+  "claim_boundary": {
+    "b10_bqp_separation_credit_allowed": false,
+    "b10_formal_credit_allowed": false,
+    "b10_nlts_credit_allowed": false,
+    "b10_quantum_pcp_credit_allowed": false,
+    "next_gate": "Submit the provenance manifest, replay-validation manifest, acceptance packet, Lean4/Lake checked transcript, theorem scope statement, open obligation ledger, and claim boundary before B10-T3 can leave zero-credit status.",
+    "what_is_not_supported": "No checked transcript, proof-assistant checked theorem, Quantum PCP proof, NLTS theorem, global impossibility theorem, or BQP separation is supported.",
+    "what_is_supported": "B10-T3 is now explicitly synchronized to the B9 checked transcript acceptance packet gate as the current formal zero-credit boundary."
+  },
+  "last_updated": "2026-07-03",
+  "linked_benchmark_id": "B9",
+  "method": "b10_t3_checked_transcript_acceptance_boundary_v0",
+  "model_status": "b10_t3_zero_credit_boundary_after_b9_checked_transcript_acceptance_packet_gate",
+  "requirements": [
+    {
+      "evidence": {
+        "acceptance_packet_id": "B9-checked-width-locality-transcript-acceptance-packet",
+        "source_method": "b9_checked_transcript_acceptance_packet_gate_v0",
+        "validation_error_count": 0
+      },
+      "label": "Source B9 checked transcript acceptance packet gate is present and current",
+      "passed": true,
+      "requirement_id": "S1"
+    },
+    {
+      "evidence": {
+        "failed_acceptance_requirement_ids": [
+          "P6",
+          "P7",
+          "P8"
+        ],
+        "submitted_acceptance_packet_exists": false
+      },
+      "label": "Source gate remains blocked on missing submitted acceptance packet only",
+      "passed": true,
+      "requirement_id": "S2"
+    },
+    {
+      "evidence": {
+        "checked_transcript_accepted": false,
+        "checked_transcript_present": false,
+        "proof_assistant_checked": false
+      },
+      "label": "Checked transcript and proof-assistant credit remain absent",
+      "passed": true,
+      "requirement_id": "S3"
+    },
+    {
+      "evidence": {
+        "explicit_not_quantum_pcp_proof": true,
+        "formal_theorem_proved": false,
+        "global_gap_amplification_impossibility_claimed": false,
+        "nlts_theorem_claimed": false
+      },
+      "label": "Formal theorem, Quantum PCP, NLTS, and global impossibility claims remain forbidden",
+      "passed": true,
+      "requirement_id": "S4"
+    },
+    {
+      "evidence": {
+        "b10_bqp_separation_credit_allowed": false,
+        "b10_formal_credit_allowed": false,
+        "b10_nlts_credit_allowed": false,
+        "b10_quantum_pcp_credit_allowed": false
+      },
+      "label": "B10 formal, Quantum PCP, NLTS, and BQP credit remain explicitly disabled",
+      "passed": true,
+      "requirement_id": "S5"
+    },
+    {
+      "evidence": {
+        "required_downstream_before_credit": [
+          "accepted B9-checked-width-locality-transcript-provenance-manifest",
+          "accepted B9-checked-width-locality-transcript-replay-validation-manifest",
+          "accepted B9-checked-width-locality-transcript-acceptance-packet",
+          "Lean4/Lake command replay with returncode 0",
+          "checked transcript hash and stdout/stderr hashes",
+          "theorem scope statement",
+          "open obligation ledger",
+          "claim boundary that still forbids Quantum PCP, NLTS, global impossibility, and BQP separation claims"
+        ]
+      },
+      "label": "B10 boundary packet records downstream evidence required before credit",
+      "passed": true,
+      "requirement_id": "S6"
+    }
+  ],
+  "runtime_seconds": 0.000115,
+  "source_acceptance_packet_gate": "results/B9_checked_transcript_acceptance_packet_gate_v0.json",
+  "source_target_id": "B10-T3",
+  "status": "b10_t3_checked_transcript_acceptance_boundary_synced",
+  "summary": {
+    "acceptance_packet_id": "B9-checked-width-locality-transcript-acceptance-packet",
+    "b10_bqp_separation_credit_allowed": false,
+    "b10_formal_credit_allowed": false,
+    "b10_nlts_credit_allowed": false,
+    "b10_quantum_pcp_credit_allowed": false,
+    "boundary_hash": "1ccaf84c5b713ff3df5b0ee25db19aa9c8ed27f80081d1b70556f80eae781ff3",
+    "boundary_id": "B10-T3-checked-transcript-acceptance-boundary",
+    "checked_transcript_accepted": false,
+    "checked_transcript_present": false,
+    "explicit_not_quantum_pcp_proof": true,
+    "failed_requirement_ids": [],
+    "formal_theorem_proved": false,
+    "global_gap_amplification_impossibility_claimed": false,
+    "nlts_theorem_claimed": false,
+    "packet_id": "B9-checked-width-locality-transcript",
+    "proof_assistant_checked": false,
+    "requirement_count": 6,
+    "requirements_failed": 0,
+    "requirements_passed": 6,
+    "source_acceptance_packet_hash": "74f1da0b8f20633ca8c4449887ca2245eb4cd73e72a2213c211af2c0f8c240e5",
+    "submitted_acceptance_packet_exists": false,
+    "validation_error_count": 0
+  },
+  "title": "B10-T3 Checked Transcript Acceptance Boundary",
+  "validation_errors": [],
+  "version": "0.1"
+}

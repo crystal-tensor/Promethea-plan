@@ -540,6 +540,38 @@ current_results:
     caveat: checked_transcript_acceptance_packet_only_no_formal_theorem_or_bqp_boundary_claim
     result: ../results/B9_checked_transcript_acceptance_packet_gate_v0.json
     markdown_report: ../research/B9_checked_transcript_acceptance_packet_gate.md
+  b10_t3_checked_transcript_acceptance_boundary_v0:
+    status: b10_t3_checked_transcript_acceptance_boundary_synced
+    method: b10_t3_checked_transcript_acceptance_boundary_v0
+    model_status: b10_t3_zero_credit_boundary_after_b9_checked_transcript_acceptance_packet_gate
+    source_acceptance_packet_gate: ../results/B9_checked_transcript_acceptance_packet_gate_v0.json
+    source_target_id: B10-T3
+    dependency_benchmark: B9/B10
+    boundary_id: B10-T3-checked-transcript-acceptance-boundary
+    boundary_hash: 1ccaf84c5b713ff3df5b0ee25db19aa9c8ed27f80081d1b70556f80eae781ff3
+    source_acceptance_packet_hash: 74f1da0b8f20633ca8c4449887ca2245eb4cd73e72a2213c211af2c0f8c240e5
+    acceptance_packet_id: B9-checked-width-locality-transcript-acceptance-packet
+    packet_id: B9-checked-width-locality-transcript
+    requirement_count: 6
+    requirements_passed: 6
+    requirements_failed: 0
+    submitted_acceptance_packet_exists: false
+    checked_transcript_present: false
+    checked_transcript_accepted: false
+    proof_assistant_checked: false
+    formal_theorem_proved: false
+    explicit_not_quantum_pcp_proof: true
+    nlts_theorem_claimed: false
+    global_gap_amplification_impossibility_claimed: false
+    b10_formal_credit_allowed: false
+    b10_quantum_pcp_credit_allowed: false
+    b10_nlts_credit_allowed: false
+    b10_bqp_separation_credit_allowed: false
+    explicit_not_bqp_separation: true
+    validation_error_count: 0
+    caveat: b10_t3_zero_credit_boundary_sync_not_formal_theorem_or_bqp_boundary_claim
+    result: ../results/B10_T3_checked_transcript_acceptance_boundary_v0.json
+    markdown_report: ../research/B10_T3_checked_transcript_acceptance_boundary.md
   b10_t1_negative_boundary_proof_v0:
     status: negative_boundary_accounting_lemma_proved_under_explicit_io_model_not_bqp_separation
     method: b10_t1_linear_systems_io_accounting_negative_boundary_v0
@@ -1633,4 +1665,5 @@ prototype_artifacts:
   t2_real_backend_transcript_row_acceptance_boundary: ../tools/b10_t2_real_backend_transcript_row_acceptance_boundary.py
   t3_b9_checked_transcript_replay_validation_manifest_gate: ../tools/b9_checked_transcript_replay_validation_manifest_gate.py
   t3_b9_checked_transcript_acceptance_packet_gate: ../tools/b9_checked_transcript_acceptance_packet_gate.py
+  t3_checked_transcript_acceptance_boundary: ../tools/b10_t3_checked_transcript_acceptance_boundary.py
   prototype_notes: ../research/B10_prototype_notes.md
