@@ -1167,6 +1167,43 @@ current_results:
     caveat: lih_thirty_shard_prefix_only_no_complete_lih_batch_no_assembled_row_no_f1_artifact_no_credit
     result: ../results/B3_B10_F1_lih_prefix30_shard_gate_v0.json
     markdown_report: ../research/B3_B10_F1_lih_prefix30_shard_gate.md
+  b3_b10_f1_lih_prefix35_shard_gate_v0:
+    status: lih_full_covariance_shard_prefix_recorded_zero_credit
+    method: b3_b10_f1_lih_prefix35_shard_gate_v0
+    model_status: lih_prefix_thirty_five_of_thirty_nine_shards_produced_no_row_credit
+    source_work_order_gate: ../results/B3_B10_F1_full_covariance_work_order_gate_v0.json
+    source_shard_dir: ../results/B3_B10_F1_full_covariance_shards/lih_bond_stretch
+    source_target_id: T-B3-037/T-B10-015x
+    lih_prefix_shard_batch_hash: 95da1582380d9e7dd2360df56b5df887f0219512384e5861c6316fef6e03e807
+    produced_lih_prefix_shard_count: 35
+    required_lih_prefix_shard_count: 35
+    produced_lih_total_shard_count: 35
+    required_lih_total_shard_count: 39
+    remaining_lih_shard_count: 4
+    produced_global_shard_count: 61
+    required_total_shard_count: 65
+    remaining_global_shard_count: 4
+    lih_prefix_group_count: 17920
+    lih_compiled_cover_group_count: 19645
+    lih_planning_proxy_group_count: 19644
+    lih_prefix_nonzero_covariance_pair_count: 77283
+    lih_prefix_variance_sum: 2.0779637372912374
+    completed_molecule_shard_batch_count: 2
+    partial_molecule_shard_batch_count: 1
+    assembled_row_count: 0
+    lih_row_assembled: false
+    requirements_passed: 7
+    requirements_failed: 3
+    failed_requirement_ids: [P8, P9, P10]
+    accepted_full_covariance_row_count: 0
+    denominator_win_count: 0
+    b3_reopen_ready: false
+    b3_full_covariance_credit_allowed: false
+    b10_t1_credit_allowed: false
+    validation_error_count: 0
+    caveat: lih_thirty_five_shard_prefix_only_no_complete_lih_batch_no_assembled_row_no_f1_artifact_no_credit
+    result: ../results/B3_B10_F1_lih_prefix35_shard_gate_v0.json
+    markdown_report: ../research/B3_B10_F1_lih_prefix35_shard_gate.md
 prototype_artifacts:
   resource_estimator: ../tools/b3_pyscf_resource_estimator.py
   quantum_observable_fci_comparison: ../tools/b3_quantum_observable_fci_comparison.py
@@ -1205,4 +1242,5 @@ prototype_artifacts:
   b3_b10_f1_lih_prefix20_shard_gate: ../tools/b3_b10_f1_lih_prefix_shard_gate.py
   b3_b10_f1_lih_prefix25_shard_gate: ../tools/b3_b10_f1_lih_prefix_shard_gate.py
   b3_b10_f1_lih_prefix30_shard_gate: ../tools/b3_b10_f1_lih_prefix_shard_gate.py
+  b3_b10_f1_lih_prefix35_shard_gate: ../tools/b3_b10_f1_lih_prefix_shard_gate.py
   prototype_notes: ../research/B3_prototype_notes.md
