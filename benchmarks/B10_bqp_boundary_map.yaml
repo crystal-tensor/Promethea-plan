@@ -1048,6 +1048,37 @@ current_results:
     caveat: f1_contract_only_no_b10_t1_credit_or_bqp_boundary_claim
     result: ../results/B3_B10_F1_full_covariance_row_packet_gate_v0.json
     markdown_report: ../research/B3_B10_F1_full_covariance_row_packet_gate.md
+  b10_t1_b3_f1_pilot_row_candidate_gate_v0:
+    status: f1_pilot_row_candidate_extracted_zero_credit
+    method: b3_b10_f1_pilot_row_candidate_gate_v0
+    source_f1_pilot_row_candidate_gate: ../results/B3_B10_F1_pilot_row_candidate_gate_v0.json
+    source_compiled_pilot: ../results/B3_compiled_ucc_adapt_covariance_pilot_v0.json
+    source_f1_packet_gate: ../results/B3_B10_F1_full_covariance_row_packet_gate_v0.json
+    source_target_id: T-B3-023/T-B10-015j
+    dependency_benchmark: B3
+    candidate_row_id: B3B10-F1-pilot-row-h2-ccpvdz-compiled-ucc-adapt-v0
+    candidate_row_hash: df0e080e64011ee171d8e3079e84b71a873a3af7fb460f663c510b4214cd81f0
+    source_f1_packet_hash: dce2291e5ee21b7b2ccda8024d7da7afeb25565541e8dbe13035d1d9828612d7
+    requirements_passed: 7
+    requirements_failed: 3
+    failed_requirement_ids: [P8, P9, P10]
+    candidate_row_count: 1
+    required_f1_row_count: 4
+    missing_f1_row_count: 3
+    compiled_state_center_grouped_covariance_shot_floor: 66955026
+    compiled_state_three_point_derivative_shot_floor: 669550260000
+    optimizer_loop_total_shots: 24773359620000
+    optimizer_loop_two_qubit_executions: 7531101324480000
+    accepted_full_covariance_row_count: 0
+    denominator_win_count: 0
+    b10_t1_credit_allowed: false
+    b10_bqp_separation_credit_allowed: false
+    quantum_advantage_claimed: false
+    explicit_not_bqp_separation: true
+    validation_error_count: 0
+    caveat: one_candidate_row_only_no_b10_t1_credit_or_bqp_boundary_claim
+    result: ../results/B3_B10_F1_pilot_row_candidate_gate_v0.json
+    markdown_report: ../research/B3_B10_F1_pilot_row_candidate_gate.md
   b10_t1_missing_assumption_note_v0:
     status: missing_assumption_note_not_dequantization_theorem
     method: b10_t1_missing_assumption_note_v0
@@ -1795,6 +1826,7 @@ prototype_artifacts:
   t1_b3_b10_full_covariance_row_acceptance_packet_gate: ../tools/b3_b10_full_covariance_row_acceptance_packet_gate.py
   t1_b3_b10_full_covariance_post_boundary_submission_triage: ../tools/b3_b10_full_covariance_post_boundary_submission_triage.py
   t1_b3_b10_f1_full_covariance_row_packet_gate: ../tools/b3_b10_f1_full_covariance_row_packet_gate.py
+  t1_b3_b10_f1_pilot_row_candidate_gate: ../tools/b3_b10_f1_pilot_row_candidate_gate.py
   t1_b5_w1_replay_validation_manifest_gate: ../tools/b5_b10_w1_replay_validation_manifest_gate.py
   t1_positive_route_acceptance_boundary: ../tools/b10_t1_positive_route_acceptance_boundary.py
   t1_missing_assumption_note_builder: ../tools/b10_t1_missing_assumption_note.py

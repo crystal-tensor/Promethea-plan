@@ -689,6 +689,39 @@ current_results:
     caveat: f1_contract_only_no_full_covariance_rows_no_denominator_win_no_b3_b10_credit
     result: ../results/B3_B10_F1_full_covariance_row_packet_gate_v0.json
     markdown_report: ../research/B3_B10_F1_full_covariance_row_packet_gate.md
+  b3_b10_f1_pilot_row_candidate_gate_v0:
+    status: f1_pilot_row_candidate_extracted_zero_credit
+    method: b3_b10_f1_pilot_row_candidate_gate_v0
+    model_status: one_of_four_f1_candidate_rows_extracted_from_existing_compiled_pilot
+    source_compiled_pilot: ../results/B3_compiled_ucc_adapt_covariance_pilot_v0.json
+    source_f1_packet_gate: ../results/B3_B10_F1_full_covariance_row_packet_gate_v0.json
+    source_target_id: T-B3-023/T-B10-015j
+    candidate_row_id: B3B10-F1-pilot-row-h2-ccpvdz-compiled-ucc-adapt-v0
+    candidate_row_hash: df0e080e64011ee171d8e3079e84b71a873a3af7fb460f663c510b4214cd81f0
+    source_compiled_pilot_hash: 118b3aba27eb2bfac14345d1d22366006227360b1ab28de8b52f9e50072c6e8d
+    source_f1_packet_hash: dce2291e5ee21b7b2ccda8024d7da7afeb25565541e8dbe13035d1d9828612d7
+    requirements_passed: 7
+    requirements_failed: 3
+    failed_requirement_ids: [P8, P9, P10]
+    candidate_row_count: 1
+    required_f1_row_count: 4
+    missing_f1_row_count: 3
+    pilot_group_count: 48
+    pilot_shots_per_group: 512
+    pilot_max_relative_variance_error: 0.08265558952228451
+    compiled_state_center_grouped_covariance_shot_floor: 66955026
+    compiled_state_three_point_derivative_shot_floor: 669550260000
+    optimizer_loop_total_shots: 24773359620000
+    optimizer_loop_two_qubit_executions: 7531101324480000
+    accepted_full_covariance_row_count: 0
+    denominator_win_count: 0
+    b3_reopen_ready: false
+    b3_full_covariance_credit_allowed: false
+    b10_t1_credit_allowed: false
+    validation_error_count: 0
+    caveat: one_candidate_row_only_no_submitted_f1_artifact_no_accepted_rows_no_credit
+    result: ../results/B3_B10_F1_pilot_row_candidate_gate_v0.json
+    markdown_report: ../research/B3_B10_F1_pilot_row_candidate_gate.md
 prototype_artifacts:
   resource_estimator: ../tools/b3_pyscf_resource_estimator.py
   quantum_observable_fci_comparison: ../tools/b3_quantum_observable_fci_comparison.py
@@ -712,4 +745,5 @@ prototype_artifacts:
   b3_b10_full_covariance_reopen_boundary: ../tools/b3_b10_full_covariance_reopen_boundary.py
   b3_b10_full_covariance_post_boundary_submission_triage: ../tools/b3_b10_full_covariance_post_boundary_submission_triage.py
   b3_b10_f1_full_covariance_row_packet_gate: ../tools/b3_b10_f1_full_covariance_row_packet_gate.py
+  b3_b10_f1_pilot_row_candidate_gate: ../tools/b3_b10_f1_pilot_row_candidate_gate.py
   prototype_notes: ../research/B3_prototype_notes.md

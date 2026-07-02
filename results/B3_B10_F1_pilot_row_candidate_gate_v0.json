@@ -1,0 +1,194 @@
+{
+  "benchmark_id": "B3_B10",
+  "candidate_row": {
+    "ansatz_model": "compiled_one_parameter_ucc_double_adapt_seed",
+    "ansatz_parameter_count": 1,
+    "ansatz_theta": 0.18,
+    "candidate_beats_selected_ci_larger_basis_denominator": false,
+    "candidate_row_hash": "df0e080e64011ee171d8e3079e84b71a873a3af7fb460f663c510b4214cd81f0",
+    "candidate_row_id": "B3B10-F1-pilot-row-h2-ccpvdz-compiled-ucc-adapt-v0",
+    "compiled_state_center_grouped_covariance_shot_floor": 66955026,
+    "compiled_state_three_point_derivative_shot_floor": 669550260000,
+    "compiled_two_qubit_gates_per_preparation": 304,
+    "converged_vqe_or_adapt_energy": false,
+    "coordinate": "H-H bond length",
+    "coordinate_center": 0.7414,
+    "electrons": 2,
+    "f1_candidate_limitations": [
+      "one row only, while F1 requires four row-aligned instances",
+      "one-parameter UCC/ADAPT seed, not a converged multi-parameter chemistry state",
+      "sampled covariance covers pilot groups, not every group as a submitted F1 artifact",
+      "no accepted same-access denominator win"
+    ],
+    "full_sampled_group_count": 48,
+    "molecule": "h2_bond_stretch",
+    "optimizer_evaluation_multiplier": 37,
+    "optimizer_iterations": 12,
+    "optimizer_loop_model": "one_parameter_parameter_shift",
+    "optimizer_loop_total_shots": 24773359620000,
+    "optimizer_loop_two_qubit_executions": 7531101324480000,
+    "pilot_group_count": 48,
+    "pilot_max_relative_variance_error": 0.08265558952228451,
+    "pilot_mean_relative_variance_error": 0.006841894985135478,
+    "pilot_shots_per_group": 512,
+    "pilot_total_group_measurement_shots": 24576,
+    "qwc_group_count_under_compiled_state": 887,
+    "random_pauli_terms_under_compiled_state": 2808,
+    "sampled_group_preview_hash": "a06975ef83a8a12ac3bb66f1ace6a354ead39ea2e43b6e19c7ac762e7b6d05de",
+    "sampled_groups_hash": "b500f0d27fab5e7d23ebff4fdefef9c13e1cb62d542f96664ce09215d3751330",
+    "selected_ci_basis": "cc-pvdz",
+    "source_method": "b3_compiled_ucc_adapt_covariance_pilot_v0",
+    "source_result": "results/B3_compiled_ucc_adapt_covariance_pilot_v0.json",
+    "source_row_hash": "b75eacd202d3d3a95363fe8a0c29d9ace2f122a0ed055717107e925bf8e730e7",
+    "total_qubits": 20
+  },
+  "claim_boundary": {
+    "next_gate": "Add three more source-backed row candidates and package all four into the locked F1 artifact with replay hashes, denominator contract, optimizer ledger, and claim boundary.",
+    "what_is_not_supported": "This is not a submitted F1 artifact, not four row-aligned F1 rows, not an accepted full-covariance row, not a denominator win, not a B3 reopen, not B10-T1 credit, and not quantum advantage or BQP separation.",
+    "what_is_supported": "One existing H2/cc-pVDZ compiled one-parameter UCC/ADAPT pilot row is extracted as a candidate row for the F1 full-covariance packet."
+  },
+  "last_updated": "2026-07-03",
+  "method": "b3_b10_f1_pilot_row_candidate_gate_v0",
+  "model_status": "one_of_four_f1_candidate_rows_extracted_from_existing_compiled_pilot",
+  "problem_ids": [
+    "B3",
+    "B10"
+  ],
+  "requirements": [
+    {
+      "description": "Compiled UCC/ADAPT pilot source is valid",
+      "evidence": {
+        "method": "b3_compiled_ucc_adapt_covariance_pilot_v0",
+        "source_file_hash": "118b3aba27eb2bfac14345d1d22366006227360b1ab28de8b52f9e50072c6e8d",
+        "validation_error_count": 0
+      },
+      "id": "P1",
+      "passed": true
+    },
+    {
+      "description": "Candidate row is bound to the locked F1 packet",
+      "evidence": {
+        "f1_packet_hash": "dce2291e5ee21b7b2ccda8024d7da7afeb25565541e8dbe13035d1d9828612d7",
+        "f1_packet_id": "B3B10-F1-full-compiled-state-covariance-rows"
+      },
+      "id": "P2",
+      "passed": true
+    },
+    {
+      "description": "One H2/cc-pVDZ candidate row is extracted",
+      "evidence": {
+        "candidate_row_count": 1,
+        "candidate_row_hash": "df0e080e64011ee171d8e3079e84b71a873a3af7fb460f663c510b4214cd81f0",
+        "candidate_row_id": "B3B10-F1-pilot-row-h2-ccpvdz-compiled-ucc-adapt-v0"
+      },
+      "id": "P3",
+      "passed": true
+    },
+    {
+      "description": "Pilot sampled covariance evidence is present and below the preview error cap",
+      "evidence": {
+        "pilot_group_count": 48,
+        "pilot_max_relative_variance_error": 0.08265558952228451,
+        "pilot_shots_per_group": 512,
+        "sampled_groups_hash": "b500f0d27fab5e7d23ebff4fdefef9c13e1cb62d542f96664ce09215d3751330"
+      },
+      "id": "P4",
+      "passed": true
+    },
+    {
+      "description": "Compiled-state covariance and derivative shot floors are carried forward",
+      "evidence": {
+        "center_shot_floor": 66955026,
+        "derivative_shot_floor": 669550260000
+      },
+      "id": "P5",
+      "passed": true
+    },
+    {
+      "description": "Optimizer-loop cost ledger remains charged",
+      "evidence": {
+        "optimizer_loop_total_shots": 24773359620000,
+        "optimizer_loop_two_qubit_executions": 7531101324480000
+      },
+      "id": "P6",
+      "passed": true
+    },
+    {
+      "description": "No reaction-dynamics, denominator-win, quantum-advantage, or B10 credit claim is made",
+      "evidence": {
+        "b10_t1_credit_allowed": false,
+        "quantum_advantage_claimed": false,
+        "reaction_dynamics_solution_claimed": false,
+        "selected_ci_larger_basis_denominator_beaten_count": 0
+      },
+      "id": "P7",
+      "passed": true
+    },
+    {
+      "description": "F1 four-row scope is complete",
+      "evidence": {
+        "candidate_row_count": 1,
+        "missing_row_count": 3,
+        "required_row_count": 4
+      },
+      "id": "P8",
+      "passed": false
+    },
+    {
+      "description": "Source-backed F1 artifact has been submitted",
+      "evidence": {
+        "expected_packet_id": "B3B10-F1-full-compiled-state-covariance-rows",
+        "submitted_f1_artifact_exists": false
+      },
+      "id": "P9",
+      "passed": false
+    },
+    {
+      "description": "Candidate row is accepted as part of the F1 artifact",
+      "evidence": {
+        "accepted_full_covariance_row_count": 0,
+        "f1_full_covariance_rows_accepted": false
+      },
+      "id": "P10",
+      "passed": false
+    }
+  ],
+  "source_compiled_pilot": "results/B3_compiled_ucc_adapt_covariance_pilot_v0.json",
+  "source_f1_packet_gate": "results/B3_B10_F1_full_covariance_row_packet_gate_v0.json",
+  "source_target_id": "T-B3-023/T-B10-015j",
+  "status": "f1_pilot_row_candidate_extracted_zero_credit",
+  "summary": {
+    "accepted_full_covariance_row_count": 0,
+    "b10_t1_credit_allowed": false,
+    "b3_reopen_ready": false,
+    "bqp_separation_claimed": false,
+    "candidate_row_count": 1,
+    "candidate_row_hash": "df0e080e64011ee171d8e3079e84b71a873a3af7fb460f663c510b4214cd81f0",
+    "candidate_row_id": "B3B10-F1-pilot-row-h2-ccpvdz-compiled-ucc-adapt-v0",
+    "compiled_state_center_grouped_covariance_shot_floor": 66955026,
+    "compiled_state_three_point_derivative_shot_floor": 669550260000,
+    "denominator_win_count": 0,
+    "failed_requirement_ids": [
+      "P8",
+      "P9",
+      "P10"
+    ],
+    "missing_f1_row_count": 3,
+    "optimizer_loop_total_shots": 24773359620000,
+    "optimizer_loop_two_qubit_executions": 7531101324480000,
+    "pilot_group_count": 48,
+    "pilot_max_relative_variance_error": 0.08265558952228451,
+    "pilot_shots_per_group": 512,
+    "quantum_advantage_claimed": false,
+    "reaction_dynamics_solution_claimed": false,
+    "required_f1_row_count": 4,
+    "requirements_failed": 3,
+    "requirements_passed": 7,
+    "source_compiled_pilot_hash": "118b3aba27eb2bfac14345d1d22366006227360b1ab28de8b52f9e50072c6e8d",
+    "source_f1_packet_hash": "dce2291e5ee21b7b2ccda8024d7da7afeb25565541e8dbe13035d1d9828612d7",
+    "validation_error_count": 0
+  },
+  "title": "B3/B10 F1 Pilot Row Candidate Gate",
+  "validation_errors": [],
+  "version": "0.1"
+}
