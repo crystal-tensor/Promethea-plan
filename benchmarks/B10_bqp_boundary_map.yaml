@@ -951,7 +951,7 @@ current_results:
     result: ../results/B3_B10_full_covariance_row_replay_validation_manifest_gate_v0.json
     markdown_report: ../research/B3_B10_full_covariance_row_replay_validation_manifest_gate.md
   b10_t1_b3_full_covariance_row_acceptance_packet_gate_v0:
-    status: b3_b10_full_covariance_row_acceptance_packet_open_missing_artifact
+    status: b3_b10_full_covariance_row_acceptance_packet_submitted_blocked_zero_credit
     method: b3_b10_full_covariance_row_acceptance_packet_gate_v0
     model_status: row_acceptance_packet_required_before_full_covariance_row_credit
     source_row_replay_validation_manifest_gate: ../results/B3_B10_full_covariance_row_replay_validation_manifest_gate_v0.json
@@ -961,9 +961,10 @@ current_results:
     acceptance_packet_id: B3-R1-full-covariance-row-acceptance-packet
     row_replay_validation_manifest_id: B3-R1-full-covariance-row-replay-validation-manifest
     downstream_packet_id: B3-R1-full-compiled-covariance
-    acceptance_requirements_passed: 6
-    acceptance_requirements_failed: 3
-    failed_acceptance_requirement_ids: [P6, P7, P8]
+    acceptance_submission_hash: 40a5a0903de970b798f94d371c4d3cd6ccbdab9e514044ba760e05ac5db756cc
+    acceptance_requirements_passed: 8
+    acceptance_requirements_failed: 1
+    failed_acceptance_requirement_ids: [P8]
     required_key_count: 27
     production_required_key_count: 18
     required_evidence_file_count: 17
@@ -971,7 +972,10 @@ current_results:
     compiled_pilot_instance_count: 1
     selected_ci_larger_basis_denominator_beaten_count: 0
     max_optimizer_loop_total_shots_lower_bound: 475043013690000
-    submitted_acceptance_packet_exists: false
+    submitted_acceptance_packet_exists: true
+    missing_key_count: 0
+    production_keys_present_count: 18
+    submitted_key_count: 33
     accepted_full_covariance_row_count: 0
     accepted_priority_reopen_rows: 0
     denominator_win_count: 0
@@ -982,7 +986,7 @@ current_results:
     explicit_not_bqp_separation: true
     b10_t1_credit_allowed: false
     validation_error_count: 0
-    caveat: row_acceptance_packet_gate_only_no_full_covariance_artifact_or_bqp_boundary_claim
+    caveat: submitted_acceptance_packet_blocked_on_p8_no_denominator_win_no_bqp_boundary_claim
     result: ../results/B3_B10_full_covariance_row_acceptance_packet_gate_v0.json
     markdown_report: ../research/B3_B10_full_covariance_row_acceptance_packet_gate.md
   b10_t1_b3_full_covariance_post_boundary_submission_triage_v0:
@@ -2303,9 +2307,9 @@ current_results:
     requirement_count: 8
     requirements_passed: 8
     requirements_failed: 0
-    b3_failed_acceptance_requirement_ids: [P6, P7, P8]
+    b3_failed_acceptance_requirement_ids: [P8]
     b5_failed_acceptance_requirement_ids: [P6, P7, P8]
-    b3_submitted_acceptance_packet_exists: false
+    b3_submitted_acceptance_packet_exists: true
     b5_submitted_acceptance_packet_exists: false
     b3_accepted_full_covariance_row_count: 0
     b3_denominator_win_count: 0
@@ -2340,6 +2344,7 @@ prototype_artifacts:
   t1_b3_b10_full_covariance_denominator_replay_manifest_gate: ../tools/b3_b10_full_covariance_denominator_replay_manifest_gate.py
   t1_b3_b10_full_covariance_row_replay_validation_manifest_gate: ../tools/b3_b10_full_covariance_row_replay_validation_manifest_gate.py
   t1_b3_b10_full_covariance_row_acceptance_packet_gate: ../tools/b3_b10_full_covariance_row_acceptance_packet_gate.py
+  t1_b3_b10_f1_acceptance_packet_submission: ../tools/b3_b10_f1_acceptance_packet_submission.py
   t1_b3_b10_full_covariance_post_boundary_submission_triage: ../tools/b3_b10_full_covariance_post_boundary_submission_triage.py
   t1_b3_b10_f1_full_covariance_row_packet_gate: ../tools/b3_b10_f1_full_covariance_row_packet_gate.py
   t1_b3_b10_f1_pilot_row_candidate_gate: ../tools/b3_b10_f1_pilot_row_candidate_gate.py

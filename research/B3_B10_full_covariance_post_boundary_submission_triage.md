@@ -41,7 +41,7 @@ This is a triage result, not a reaction-dynamics result. It does not claim B3 re
 
 - Validation errors: `0`
 - `C1` PASS: Source B3/B10 full-covariance zero-credit boundary is current and valid
-- `C2` PASS: The source acceptance packet remains blocked on missing submitted evidence
+- `C2` PASS: The source acceptance packet remains blocked before row credit
 - `C3` PASS: The B3 full-covariance scope is preserved
 - `C4` PASS: Four B3 evidence PR packets are ready for external agents
 - `C5` PASS: B10-T1 access-contract acceptance is correctly blocked until F1-F4 evidence exists

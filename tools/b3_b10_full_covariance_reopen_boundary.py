@@ -18,7 +18,8 @@ VERSION = "0.1"
 EXPECTED_METHOD = "b3_b10_full_covariance_row_acceptance_packet_gate_v0"
 EXPECTED_ACCEPTANCE_PACKET_ID = "B3-R1-full-covariance-row-acceptance-packet"
 EXPECTED_DOWNSTREAM_PACKET_ID = "B3-R1-full-compiled-covariance"
-EXPECTED_FAILED_IDS = ["P6", "P7", "P8"]
+EXPECTED_MISSING_PACKET_FAILED_IDS = ["P6", "P7", "P8"]
+EXPECTED_SUBMITTED_BLOCKED_FAILED_IDS = ["P8"]
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -124,15 +125,27 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
         ),
         requirement(
             "S2",
-            "Source acceptance gate remains blocked on missing submitted packet evidence",
-            summary.get("failed_acceptance_requirement_ids") == EXPECTED_FAILED_IDS
-            and summary.get("submitted_acceptance_packet_exists") is False,
+            "Source acceptance gate remains blocked before row credit",
+            (
+                summary.get("failed_acceptance_requirement_ids") == EXPECTED_MISSING_PACKET_FAILED_IDS
+                and summary.get("submitted_acceptance_packet_exists") is False
+            )
+            or (
+                summary.get("failed_acceptance_requirement_ids") == EXPECTED_SUBMITTED_BLOCKED_FAILED_IDS
+                and summary.get("submitted_acceptance_packet_exists") is True
+                and summary.get("denominator_win_count") == 0
+                and summary.get("accepted_full_covariance_row_count") == 0
+            ),
             {
                 "failed_acceptance_requirement_ids": summary.get(
                     "failed_acceptance_requirement_ids"
                 ),
                 "submitted_acceptance_packet_exists": summary.get(
                     "submitted_acceptance_packet_exists"
+                ),
+                "denominator_win_count": summary.get("denominator_win_count"),
+                "accepted_full_covariance_row_count": summary.get(
+                    "accepted_full_covariance_row_count"
                 ),
             },
         ),

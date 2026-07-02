@@ -63,14 +63,14 @@
     },
     {
       "evidence": {
+        "accepted_full_covariance_row_count": 0,
+        "denominator_win_count": 0,
         "failed_acceptance_requirement_ids": [
-          "P6",
-          "P7",
           "P8"
         ],
-        "submitted_acceptance_packet_exists": false
+        "submitted_acceptance_packet_exists": true
       },
-      "label": "Source acceptance gate remains blocked on missing submitted packet evidence",
+      "label": "Source acceptance gate remains blocked before row credit",
       "passed": true,
       "requirement_id": "S2"
     },
@@ -138,7 +138,7 @@
       "requirement_id": "S7"
     }
   ],
-  "runtime_seconds": 0.000137,
+  "runtime_seconds": 0.000122,
   "source_acceptance_packet_gate": "results/B3_B10_full_covariance_row_acceptance_packet_gate_v0.json",
   "source_target_id": "T-B3-020/T-B10-015g",
   "status": "b3_b10_full_covariance_reopen_boundary_synced",
@@ -169,11 +169,9 @@
     "selected_ci_larger_basis_denominator_beaten_count": 0,
     "source_acceptance_packet_hash": "24b94105d0b0de8d88fb1a6f456cdf1769dcd2efac8186594900c3bc3fff1f69",
     "source_failed_acceptance_requirement_ids": [
-      "P6",
-      "P7",
       "P8"
     ],
-    "submitted_acceptance_packet_exists": false,
+    "submitted_acceptance_packet_exists": true,
     "validation_error_count": 0
   },
   "title": "B3/B10 Full-Covariance Reopen Boundary",

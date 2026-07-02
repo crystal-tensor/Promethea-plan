@@ -13,7 +13,7 @@ Status: `b3_b10_full_covariance_reopen_boundary_synced`
 - Row replay-validation manifest: `B3-R1-full-covariance-row-replay-validation-manifest`
 - Requirements passed/failed: `7` / `0`
 - Failed requirement IDs: `[]`
-- Source failed acceptance IDs: `['P6', 'P7', 'P8']`
+- Source failed acceptance IDs: `['P8']`
 - Row-aligned / compiled-pilot instances: `4` / `1`
 - Accepted full-covariance rows / priority reopen rows: `0` / `0`
 - Denominator wins / selected-CI larger-basis wins: `0` / `0`
@@ -35,7 +35,7 @@ Status: `b3_b10_full_covariance_reopen_boundary_synced`
 ## Requirement Results
 
 - S1 [PASS]: Source B3/B10 full-covariance row acceptance packet gate is present and current
-- S2 [PASS]: Source acceptance gate remains blocked on missing submitted packet evidence
+- S2 [PASS]: Source acceptance gate remains blocked before row credit
 - S3 [PASS]: B3 full-covariance row scope and current denominator pressure are preserved
 - S4 [PASS]: No full-covariance row, reopen row, or denominator win has been accepted
 - S5 [PASS]: B3 reopen, B3 credit, B10-T1 credit, and positive same-access route remain disabled

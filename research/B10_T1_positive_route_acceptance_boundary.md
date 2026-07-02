@@ -13,7 +13,7 @@ Status: `b10_t1_positive_route_acceptance_boundary_synced`
 - B5 acceptance packet hash: `3b03c6a4463a4b4c0de589c5e170840f80d4c9e753de6f0af8df98def45e2037`
 - Requirements passed/failed: `8` / `0`
 - Failed requirement IDs: `[]`
-- B3 failed acceptance IDs: `['P6', 'P7', 'P8']`
+- B3 failed acceptance IDs: `['P8']`
 - B5 failed acceptance IDs: `['P6', 'P7', 'P8']`
 - B3 accepted rows / denominator wins: `0` / `0`
 - B3 optimizer-loop lower-bound shots: `475043013690000`
@@ -34,7 +34,7 @@ Status: `b10_t1_positive_route_acceptance_boundary_synced`
 
 - S1 [PASS]: B3 full-covariance row acceptance packet gate is present and current
 - S2 [PASS]: B5 W1 priority-row acceptance packet gate is present and current
-- S3 [PASS]: Both source gates remain blocked only on missing submitted acceptance-packet evidence
+- S3 [PASS]: Both source gates remain blocked before positive-route credit
 - S4 [PASS]: B3 full-covariance route remains demoted with no denominator win
 - S5 [PASS]: B5 W1 route remains zero-row with no production-DMRG positive route
 - S6 [PASS]: Forbidden B10-T1 quantum advantage and BQP claims remain absent across both routes

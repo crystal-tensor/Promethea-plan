@@ -207,16 +207,30 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
         ),
         condition(
             "C2",
-            "The source acceptance packet remains blocked on missing submitted evidence",
+            "The source acceptance packet remains blocked before row credit",
             acceptance.get("method") == "b3_b10_full_covariance_row_acceptance_packet_gate_v0"
-            and acceptance_summary.get("failed_acceptance_requirement_ids") == ["P6", "P7", "P8"]
-            and acceptance_summary.get("submitted_acceptance_packet_exists") is False,
+            and (
+                (
+                    acceptance_summary.get("failed_acceptance_requirement_ids") == ["P6", "P7", "P8"]
+                    and acceptance_summary.get("submitted_acceptance_packet_exists") is False
+                )
+                or (
+                    acceptance_summary.get("failed_acceptance_requirement_ids") == ["P8"]
+                    and acceptance_summary.get("submitted_acceptance_packet_exists") is True
+                    and acceptance_summary.get("denominator_win_count") == 0
+                    and acceptance_summary.get("accepted_full_covariance_row_count") == 0
+                )
+            ),
             {
                 "failed_acceptance_requirement_ids": acceptance_summary.get(
                     "failed_acceptance_requirement_ids"
                 ),
                 "submitted_acceptance_packet_exists": acceptance_summary.get(
                     "submitted_acceptance_packet_exists"
+                ),
+                "denominator_win_count": acceptance_summary.get("denominator_win_count"),
+                "accepted_full_covariance_row_count": acceptance_summary.get(
+                    "accepted_full_covariance_row_count"
                 ),
             },
         ),

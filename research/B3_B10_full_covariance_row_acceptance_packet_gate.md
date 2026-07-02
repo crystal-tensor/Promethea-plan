@@ -1,6 +1,6 @@
 # B3/B10 Full-Covariance Row Acceptance Packet Gate
 
-Status: `b3_b10_full_covariance_row_acceptance_packet_open_missing_artifact`
+Status: `b3_b10_full_covariance_row_acceptance_packet_submitted_blocked_zero_credit`
 
 ## Summary
 
@@ -10,13 +10,13 @@ Status: `b3_b10_full_covariance_row_acceptance_packet_open_missing_artifact`
 - Row replay-validation manifest: `B3-R1-full-covariance-row-replay-validation-manifest`
 - Row replay-validation hash: `1b1d0b18bd2c1027e36dcb70c281c4d5f5f52b9d47ac047f29841334651b955f`
 - Acceptance packet hash: `24b94105d0b0de8d88fb1a6f456cdf1769dcd2efac8186594900c3bc3fff1f69`
-- Requirements passed/failed: `6` / `3`
-- Failed requirement IDs: `['P6', 'P7', 'P8']`
+- Requirements passed/failed: `8` / `1`
+- Failed requirement IDs: `['P8']`
 - Required key / production key / evidence file count: `27` / `18` / `17`
 - Row-aligned / compiled-pilot instances: `4` / `1`
 - Denominator wins / accepted rows: `0` / `0`
 - Max optimizer-loop lower-bound shots: `475043013690000`
-- Submitted acceptance packet exists: `False`
+- Submitted acceptance packet exists: `True`
 - validation_error_count: `0`
 
 ## Acceptance Packet
@@ -61,15 +61,15 @@ Acceptance predicates:
 - P3 [PASS]: Acceptance packet carries locked full-covariance row schema and evidence classes
 - P4 [PASS]: Four-row scope and denominator negative boundary remain preserved
 - P5 [PASS]: Current state has no accepted full-covariance rows or B10 credit
-- P6 [FAIL]: Full-covariance row acceptance packet has been submitted
-- P7 [FAIL]: Submitted acceptance packet satisfies the locked full-covariance row schema
+- P6 [PASS]: Full-covariance row acceptance packet has been submitted
+- P7 [PASS]: Submitted acceptance packet satisfies the locked full-covariance row schema
 - P8 [FAIL]: Submitted acceptance packet is source-backed, manifest-bound, row-valid, B3-boundary-bound, B10-boundary-bound, and claim-boundary-bound
 - P9 [PASS]: Forbidden reopen, solution, advantage, and BQP claims remain false
 
 ## Claim Boundary
 
-- Supported: The B3/B10 full-covariance reopen route now has an acceptance packet gate after row replay-validation and before any full compiled-state covariance row, B3 reopen, or B10 credit can count.
-- Not supported: No acceptance packet or full-covariance row has been submitted or accepted; B3 remains demoted and no reaction-dynamics solution, positive same-access route, quantum advantage, or BQP separation is supported.
+- Supported: The B3/B10 full-covariance reopen route now has a submitted acceptance packet bound to row replay-validation and the four-row F1 candidate bundle.
+- Not supported: The submitted acceptance packet is still blocked on row-validity and same-access denominator conditions; no full-covariance row has been accepted, B3 remains demoted, and no reaction-dynamics solution, positive same-access route, quantum advantage, or BQP separation is supported.
 - Next gate: Submit B3-R1-full-covariance-row-acceptance-packet with row scope, full covariance row table, compiled-state replay, covariance replay, derivative estimator replay, denominator replay, optimizer-loop cost ledger, same-access decision, B10 access boundary, row acceptance ledger, B3 reopen boundary, and claim boundary.
 - accepted_full_covariance_row_count: 0
 - accepted_priority_reopen_rows: 0

@@ -337,10 +337,9 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
     passed = sum(row["passed"] for row in requirements)
     failed_ids = [row["requirement_id"] for row in requirements if not row["passed"]]
     validation_errors: list[str] = []
-    if failed_ids != EXPECTED_FAILED_IDS:
+    expected_failed_ids = ["P8"] if submitted_exists else EXPECTED_FAILED_IDS
+    if failed_ids != expected_failed_ids:
         validation_errors.append(f"unexpected full-covariance row acceptance packet failures: {failed_ids}")
-    if submitted_exists:
-        validation_errors.append("gate expected no submitted acceptance packet until a chemistry PR supplies one")
 
     summary = {
         "acceptance_packet_id": EXPECTED_ACCEPTANCE_PACKET_ID,
@@ -352,6 +351,7 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
         "provenance_manifest_hash": row_summary.get("provenance_manifest_hash"),
         "denominator_manifest_hash": row_summary.get("denominator_manifest_hash"),
         "row_replay_validation_manifest_hash": row_summary.get("manifest_hash"),
+        "acceptance_submission_hash": submitted.get("acceptance_submission_hash") if submitted else None,
         "acceptance_packet_hash": acceptance_packet["packet_hash"],
         "acceptance_requirement_count": len(requirements),
         "acceptance_requirements_passed": passed,
@@ -390,7 +390,9 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
         "version": VERSION,
         "last_updated": args.last_updated,
         "method": METHOD,
-        "status": STATUS,
+        "status": "b3_b10_full_covariance_row_acceptance_packet_submitted_blocked_zero_credit"
+        if submitted_exists
+        else STATUS,
         "model_status": MODEL_STATUS,
         "source_row_replay_validation_manifest_gate": str(args.row_replay_validation_manifest_gate),
         "source_priority_packet_gate": str(args.priority_packet_gate),
@@ -401,12 +403,20 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
         "requirements": requirements,
         "claim_boundary": {
             "what_is_supported": (
-                "The B3/B10 full-covariance reopen route now has an acceptance packet "
+                "The B3/B10 full-covariance reopen route now has a submitted acceptance packet "
+                "bound to row replay-validation and the four-row F1 candidate bundle."
+                if submitted_exists
+                else "The B3/B10 full-covariance reopen route now has an acceptance packet "
                 "gate after row replay-validation and before any full compiled-state "
                 "covariance row, B3 reopen, or B10 credit can count."
             ),
             "what_is_not_supported": (
-                "No acceptance packet or full-covariance row has been submitted or "
+                "The submitted acceptance packet is still blocked on row-validity and same-access "
+                "denominator conditions; no full-covariance row has been accepted, B3 remains "
+                "demoted, and no reaction-dynamics solution, positive same-access route, "
+                "quantum advantage, or BQP separation is supported."
+                if submitted_exists
+                else "No acceptance packet or full-covariance row has been submitted or "
                 "accepted; B3 remains demoted and no reaction-dynamics solution, "
                 "positive same-access route, quantum advantage, or BQP separation is supported."
             ),

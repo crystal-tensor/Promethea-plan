@@ -20,6 +20,7 @@ B3_ACCEPTANCE_PACKET_ID = "B3-R1-full-covariance-row-acceptance-packet"
 B5_METHOD = "b5_b10_w1_priority_row_acceptance_packet_gate_v0"
 B5_ACCEPTANCE_PACKET_ID = "B5B10-W1-priority-row-acceptance-packet"
 EXPECTED_FAILED_IDS = ["P6", "P7", "P8"]
+EXPECTED_B3_SUBMITTED_FAILED_IDS = ["P8"]
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -114,16 +115,20 @@ def build_payload(args: argparse.Namespace) -> dict[str, Any]:
         ),
         requirement(
             "S3",
-            "Both source gates remain blocked only on missing submitted acceptance-packet evidence",
-            b3s.get("failed_acceptance_requirement_ids") == EXPECTED_FAILED_IDS
+            "Both source gates remain blocked before positive-route credit",
+            b3s.get("failed_acceptance_requirement_ids") == EXPECTED_B3_SUBMITTED_FAILED_IDS
             and b5s.get("failed_acceptance_requirement_ids") == EXPECTED_FAILED_IDS
-            and b3s.get("submitted_acceptance_packet_exists") is False
+            and b3s.get("submitted_acceptance_packet_exists") is True
             and b5s.get("submitted_acceptance_packet_exists") is False,
             {
                 "b3_failed_acceptance_requirement_ids": b3s.get("failed_acceptance_requirement_ids"),
                 "b5_failed_acceptance_requirement_ids": b5s.get("failed_acceptance_requirement_ids"),
                 "b3_submitted_acceptance_packet_exists": b3s.get("submitted_acceptance_packet_exists"),
                 "b5_submitted_acceptance_packet_exists": b5s.get("submitted_acceptance_packet_exists"),
+                "b3_denominator_win_count": b3s.get("denominator_win_count"),
+                "b3_accepted_full_covariance_row_count": b3s.get(
+                    "accepted_full_covariance_row_count"
+                ),
             },
         ),
         requirement(

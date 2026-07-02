@@ -69,12 +69,12 @@
     },
     {
       "evidence": {
+        "b3_accepted_full_covariance_row_count": 0,
+        "b3_denominator_win_count": 0,
         "b3_failed_acceptance_requirement_ids": [
-          "P6",
-          "P7",
           "P8"
         ],
-        "b3_submitted_acceptance_packet_exists": false,
+        "b3_submitted_acceptance_packet_exists": true,
         "b5_failed_acceptance_requirement_ids": [
           "P6",
           "P7",
@@ -82,7 +82,7 @@
         ],
         "b5_submitted_acceptance_packet_exists": false
       },
-      "label": "Both source gates remain blocked only on missing submitted acceptance-packet evidence",
+      "label": "Both source gates remain blocked before positive-route credit",
       "passed": true,
       "requirement_id": "S3"
     },
@@ -151,7 +151,7 @@
       "requirement_id": "S8"
     }
   ],
-  "runtime_seconds": 0.000182,
+  "runtime_seconds": 0.000184,
   "source_b3_acceptance_packet_gate": "results/B3_B10_full_covariance_row_acceptance_packet_gate_v0.json",
   "source_b5_acceptance_packet_gate": "results/B5_B10_w1_priority_row_acceptance_packet_gate_v0.json",
   "source_target_id": "B10-T1",
@@ -166,12 +166,10 @@
     "b3_accepted_full_covariance_row_count": 0,
     "b3_denominator_win_count": 0,
     "b3_failed_acceptance_requirement_ids": [
-      "P6",
-      "P7",
       "P8"
     ],
     "b3_optimizer_loop_shot_lower_bound": 475043013690000,
-    "b3_submitted_acceptance_packet_exists": false,
+    "b3_submitted_acceptance_packet_exists": true,
     "b5_acceptance_packet_hash": "3b03c6a4463a4b4c0de589c5e170840f80d4c9e753de6f0af8df98def45e2037",
     "b5_acceptance_packet_id": "B5B10-W1-priority-row-acceptance-packet",
     "b5_accepted_priority_row_count": 0,

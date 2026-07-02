@@ -24,14 +24,14 @@
     {
       "condition_id": "C2",
       "evidence": {
+        "accepted_full_covariance_row_count": 0,
+        "denominator_win_count": 0,
         "failed_acceptance_requirement_ids": [
-          "P6",
-          "P7",
           "P8"
         ],
-        "submitted_acceptance_packet_exists": false
+        "submitted_acceptance_packet_exists": true
       },
-      "label": "The source acceptance packet remains blocked on missing submitted evidence",
+      "label": "The source acceptance packet remains blocked before row credit",
       "satisfied": true
     },
     {
@@ -87,7 +87,7 @@
   "linked_benchmark_id": "B10",
   "method": "b3_b10_full_covariance_post_boundary_submission_triage_v0",
   "model_status": "b3_zero_credit_reopen_boundary_split_into_pr_sized_covariance_packets",
-  "runtime_seconds": 0.0002779960632324219,
+  "runtime_seconds": 0.0002129077911376953,
   "source_acceptance_packet_gate": "results/B3_B10_full_covariance_row_acceptance_packet_gate_v0.json",
   "source_boundary": "results/B3_B10_full_covariance_reopen_boundary_v0.json",
   "source_priority_packet_gate": "results/B3_B10_reopen_priority_packet_gate_v0.json",

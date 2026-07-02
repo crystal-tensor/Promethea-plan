@@ -1,0 +1,103 @@
+{
+  "acceptance_packet_id": "B3-R1-full-covariance-row-acceptance-packet",
+  "acceptance_submission_hash": "40a5a0903de970b798f94d371c4d3cd6ccbdab9e514044ba760e05ac5db756cc",
+  "accepted_full_covariance_row_count": 0,
+  "b10_access_boundary": {
+    "b10_t1_credit_allowed": false,
+    "bqp_separation_claimed": false,
+    "denominator_win_count": 0,
+    "positive_same_access_route_claimed": false
+  },
+  "b10_access_boundary_hash": "3bcf171b68516320cb1be984f51b298d5e46a6690bd6fbffd71700af6224a969",
+  "b3_reopen_boundary": {
+    "accepted_full_covariance_row_count": 0,
+    "b3_reopen_ready": false,
+    "multi_parameter_converged_chemistry": false,
+    "reaction_dynamics_solution_claimed": false
+  },
+  "claim_boundary": {
+    "b3_reopen_ready": false,
+    "bqp_separation_claimed": false,
+    "positive_same_access_route_claimed": false,
+    "quantum_advantage_claimed": false,
+    "reaction_dynamics_solution_claimed": false,
+    "what_is_not_supported": "The packet does not establish a same-access denominator win, accepted full-covariance row credit, B3 reopen, B10-T1 credit, quantum advantage, or BQP separation.",
+    "what_is_supported": "A source-linked acceptance packet submission exists for the four-row F1 candidate bundle."
+  },
+  "compiled_state_replay_hash": "617444910f1e7b33d7fe68cc2080ed64c0ed6cd02ae2060cda601e1cb9196fc5",
+  "denominator_decision": {
+    "denominator_win_count": 0,
+    "reason": "F1 candidate rows are assembled, but no same-access denominator win is established.",
+    "same_access_denominator_win": false,
+    "selected_ci_larger_basis_denominator_beaten_count": 0
+  },
+  "denominator_manifest_hash": "d2e3e564caaa97f8f2a61805637651e94f2f6d7f5c86d6fa5f80ab87b9e53fde",
+  "denominator_replay_manifest_id": "B3-R1-full-covariance-denominator-replay-manifest",
+  "denominator_win_count": 0,
+  "derivative_estimator_replay_hash": "a7ee9fd355051751819376c59ddfb8e943c7814c6cd73d1bb493774939eb6ba8",
+  "downstream_packet_id": "B3-R1-full-compiled-covariance",
+  "full_covariance_row_table": {
+    "assembled_row_hashes": [
+      "0615923d8d60fe38aef892188a16df434fbb69634d3bc4c5acd3aea0bb1afce4",
+      "6b583fb558d7e7b92af40564ca9d58374ef350ce92fa959ae74cdd60cbbb7a38",
+      "df3c3011fe83cdb86a2a97b68f4b36c85a0ca14946a333192e3ea2565b38d46e"
+    ],
+    "assembled_row_ids": [
+      "B3B10-F1-row-h2o-symmetric-oh-stretch-full-covariance-v0",
+      "B3B10-F1-row-n2-bond-stretch-full-covariance-v0",
+      "B3B10-F1-row-lih-bond-stretch-full-covariance-v0"
+    ],
+    "candidate_row_hashes": [
+      "df0e080e64011ee171d8e3079e84b71a873a3af7fb460f663c510b4214cd81f0",
+      "0615923d8d60fe38aef892188a16df434fbb69634d3bc4c5acd3aea0bb1afce4",
+      "6b583fb558d7e7b92af40564ca9d58374ef350ce92fa959ae74cdd60cbbb7a38",
+      "df3c3011fe83cdb86a2a97b68f4b36c85a0ca14946a333192e3ea2565b38d46e"
+    ],
+    "candidate_row_ids": [
+      "B3B10-F1-pilot-row-h2-ccpvdz-compiled-ucc-adapt-v0",
+      "B3B10-F1-row-h2o-symmetric-oh-stretch-full-covariance-v0",
+      "B3B10-F1-row-n2-bond-stretch-full-covariance-v0",
+      "B3B10-F1-row-lih-bond-stretch-full-covariance-v0"
+    ],
+    "source_shard_count": 65,
+    "total_assembled_group_count": 32251,
+    "total_nonzero_covariance_pair_count": 128544,
+    "total_variance_sum": 84.00917219228485
+  },
+  "full_covariance_row_table_hash": "ed53063d0d3c2f5976e14f7c865ea54037e05c5ef8921447ae4a7d5886db2bed",
+  "negative_boundary_nonpromotion_hash": "38afb76ee1df3e7cb743f47d80439503c40e1e6c883a54f242cd3f083dc43f1b",
+  "optimizer_loop_cost_ledger": {
+    "accepted_priority_reopen_rows": 0,
+    "max_optimizer_loop_total_shots_lower_bound": 475043013690000,
+    "source_row_bundle_hash": "64907f6c4fcdedede9e6edb0386a88bda478fc16ab06e462e3c68b1cfb2b5b53"
+  },
+  "optimizer_loop_cost_ledger_hash": "dbaab133151214817bd270753d751dcfdb1b1bce525e8e9c8730cc4a1fe66aea",
+  "optimizer_loop_total_shots_lower_bound": 475043013690000,
+  "pauli_grouping_covariance_replay_hash": "b8c367124a3cbf11846988da3d0efd76657f8ffa3c3b2760df067c3af2136c78",
+  "priority_packet_hash": "373a08c345cd80c3b5e1e55e0367d08468ba92fb0bb95cb287a3833b282360ca",
+  "provenance_manifest_hash": "fdd5573fad11326b92f633c9d477cd83422106724d3e15ccd4999ca76c1e2811",
+  "provenance_manifest_id": "B3-R1-full-covariance-provenance-manifest",
+  "row_acceptance_ledger_hash": "50d1f7644cf08218dd6333148605e80d048655e102b7d7210b13cff2ed2ec674",
+  "row_replay_validation_manifest_hash": "1b1d0b18bd2c1027e36dcb70c281c4d5f5f52b9d47ac047f29841334651b955f",
+  "row_replay_validation_manifest_id": "B3-R1-full-covariance-row-replay-validation-manifest",
+  "row_scope": {
+    "assembled_row_hashes": [
+      "0615923d8d60fe38aef892188a16df434fbb69634d3bc4c5acd3aea0bb1afce4",
+      "6b583fb558d7e7b92af40564ca9d58374ef350ce92fa959ae74cdd60cbbb7a38",
+      "df3c3011fe83cdb86a2a97b68f4b36c85a0ca14946a333192e3ea2565b38d46e"
+    ],
+    "candidate_row_count": 4,
+    "h2_candidate_row_hash": "df0e080e64011ee171d8e3079e84b71a873a3af7fb460f663c510b4214cd81f0",
+    "required_f1_row_count": 4,
+    "row_bundle_hash": "64907f6c4fcdedede9e6edb0386a88bda478fc16ab06e462e3c68b1cfb2b5b53"
+  },
+  "row_scope_hash": "da7919245052f18fe5d3af34cb08a914dd1d1c5b2f1dedfca905b90ca776d190",
+  "same_access_decision_hash": "c45a8347770268bc5334221a03b6e6ca33f10fa8006eb7abb035d9f3903efab7",
+  "selected_ci_fci_denominator_replay_hash": "c45a8347770268bc5334221a03b6e6ca33f10fa8006eb7abb035d9f3903efab7",
+  "source_evidence_files": {
+    "assembled_rows_gate": "results/B3_B10_F1_assembled_rows_gate_v0.json",
+    "priority_packet_gate": "results/B3_B10_reopen_priority_packet_gate_v0.json",
+    "row_replay_validation_manifest_gate": "results/B3_B10_full_covariance_row_replay_validation_manifest_gate_v0.json"
+  },
+  "source_evidence_files_present": true
+}
