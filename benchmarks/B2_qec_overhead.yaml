@@ -840,6 +840,41 @@ current_results:
     caveat: manifest_only_no_calibrated_rows_no_decoder_no_threshold_no_hardware_no_b7_credit
     result: ../results/B2_calibration_source_manifest_gate_v0.json
     markdown_report: ../research/B2_calibration_source_manifest_gate.md
+  calibrated_trace_provenance_manifest_gate_v0:
+    status: calibrated_trace_provenance_manifest_open_missing_artifact
+    method: b2_calibrated_trace_provenance_manifest_gate_v0
+    model_status: trace_row_provenance_manifest_required_before_b2_b7_credit
+    source_calibration_manifest_gate: ../results/B2_calibration_source_manifest_gate_v0.json
+    source_b7_dependency_credit_gate: ../results/B7_B2_calibrated_dependency_credit_gate_v0.json
+    manifest_id: B2-T5-calibrated-trace-row-provenance-manifest
+    calibration_source_manifest_id: B2-T5-calibration-source-manifest
+    trace_packet_id: B2-T5-calibrated-flag-observation-rows
+    calibration_source_manifest_hash: 5e832922d1e2671a5ac0cc549e300d56e597210d66c97d5ef0f7e76242c6e46a
+    manifest_hash: 05ae214885638ff10adf13fdf017063929d728d00e40ca4ed858b90b0844c208
+    manifest_requirement_count: 9
+    manifest_requirements_passed: 6
+    manifest_requirements_failed: 3
+    failed_manifest_requirement_ids: [P6, P7, P8]
+    required_key_count: 16
+    production_required_key_count: 11
+    required_evidence_file_count: 13
+    challenge_count: 3
+    source_trace_count: 576
+    holdout_profile_shots: 864
+    submitted_manifest_exists: false
+    accepted_priority_trace_rows: 0
+    b7_dependency_credit_allowed: false
+    production_decoder_claimed: false
+    threshold_claimed: false
+    new_code_claimed: false
+    hardware_result_claimed: false
+    calibrated_device_claimed: false
+    quantum_advantage_claimed: false
+    validation_error_count: 0
+    interpretation: trace_row_provenance_manifest_blocks_b2_calibrated_rows_and_b7_credit_until_row_batch_decoder_holdout_and_replay_hashes_are_bound
+    caveat: provenance_manifest_only_no_calibrated_rows_no_decoder_no_threshold_no_hardware_no_b7_credit
+    result: ../results/B2_calibrated_trace_provenance_manifest_gate_v0.json
+    markdown_report: ../research/B2_calibrated_trace_provenance_manifest_gate.md
 prototype_artifacts:
   baseline_runner: ../tools/b2_repetition_code_baseline.py
   target_volume_estimator: ../tools/b2_target_volume.py
@@ -862,6 +897,7 @@ prototype_artifacts:
   calibrated_trace_intake_template_gate: ../tools/b2_calibrated_trace_intake_template_gate.py
   calibrated_trace_priority_packet_gate: ../tools/b2_calibrated_trace_priority_packet_gate.py
   calibration_source_manifest_gate: ../tools/b2_calibration_source_manifest_gate.py
+  calibrated_trace_provenance_manifest_gate: ../tools/b2_calibrated_trace_provenance_manifest_gate.py
   posterior_likelihood_decoder_injection_gate: ../tools/b2_posterior_likelihood_decoder_injection_gate.py
   dem_informed_detector_edge_semantics_gate: ../tools/b2_dem_informed_detector_edge_semantics_gate.py
   hardware_like_leakage_model_gate: ../tools/b2_hardware_like_leakage_model_gate.py
