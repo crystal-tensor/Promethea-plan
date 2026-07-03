@@ -575,6 +575,40 @@ current_results:
     caveat: h1_contract_only_no_b10_t2_credit_or_bqp_boundary_claim
     result: ../results/B4_B8_H1_provider_session_replay_packet_gate_v0.json
     markdown_report: ../research/B4_B8_H1_provider_session_replay_packet_gate.md
+  b10_t2_b4_b8_h1_provider_session_access_closure_gate_v0:
+    status: h1_provider_session_access_closure_open_zero_credit
+    method: b4_b8_b10_h1_provider_session_access_closure_gate_v0
+    model_status: h1_access_blocker_closed_as_auditable_zero_credit_gate
+    source_h1_packet_gate: ../results/B4_B8_H1_provider_session_replay_packet_gate_v0.json
+    source_b10_boundary: ../results/B10_t2_real_backend_transcript_row_acceptance_boundary_v0.json
+    source_target_id: T-B4-002r/T-B8-003v/T-B10-009j
+    dependency_benchmark: B4/B8
+    closure_id: B4B8B10-H1-provider-session-access-closure
+    closure_hash: b844eb7db692d76f00c8e22da8c5df57dc34cf57079a02e137b18ebe70f8e1b3
+    h1_packet_id: B4B8-H1-provider-session-device-property-replay
+    h1_packet_hash: 07fddb2ae188f8a927f62d0ba8c70c707c3f215980b9d4de2fb2b705e3a8ad26
+    b10_boundary_hash: eab53cdab2e07e4e8267eb0d28ab5905de2e5229b4e32f63c0e01ac832d40b45
+    downstream_transcript_packet_id: B4B8-M6-real-backend-transcript-rows
+    requirements_passed: 8
+    requirements_failed: 0
+    h1_source_failed_requirement_ids: [P6, P7, P8]
+    h1_submitted_artifact_exists: false
+    h1_missing_key_count: 15
+    h1_required_evidence_file_count: 11
+    holdout_row_count: 160
+    no_leak_allowed_accepts_per_160: 16
+    full_leak_allowed_accepts_per_160: 40
+    real_backend_transcript_rows: 0
+    accepted_priority_transcript_rows: 0
+    h2_hardware_rows_may_start: false
+    b10_soundness_credit_allowed: false
+    b10_bqp_separation_credit_allowed: false
+    quantum_advantage_claimed: false
+    explicit_not_bqp_separation: true
+    validation_error_count: 0
+    caveat: h1_access_closure_only_no_b10_t2_credit_or_bqp_boundary_claim
+    result: ../results/B4_B8_B10_H1_provider_session_access_closure_gate_v0.json
+    markdown_report: ../research/B4_B8_B10_H1_provider_session_access_closure_gate.md
   b10_t3_b9_checked_transcript_acceptance_packet_gate_v0:
     status: checked_transcript_acceptance_packet_open_missing_artifact
     method: b9_checked_transcript_acceptance_packet_gate_v0
@@ -2655,6 +2689,7 @@ prototype_artifacts:
   t2_b4_b8_real_backend_transcript_intake_template_gate: ../tools/b4_b8_real_backend_transcript_intake_template_gate.py
   t2_b4_b8_real_backend_transcript_post_boundary_submission_triage: ../tools/b4_b8_real_backend_transcript_post_boundary_submission_triage.py
   t2_b4_b8_h1_provider_session_replay_packet_gate: ../tools/b4_b8_h1_provider_session_replay_packet_gate.py
+  t2_b4_b8_h1_provider_session_access_closure_gate: ../tools/b4_b8_b10_h1_provider_session_access_closure_gate.py
   t2_b4_b8_real_backend_transcript_priority_packet_gate: ../tools/b4_b8_real_backend_transcript_priority_packet_gate.py
   t2_b4_b8_real_backend_transcript_provenance_manifest_gate: ../tools/b4_b8_real_backend_transcript_provenance_manifest_gate.py
   t2_b4_b8_real_backend_transcript_replay_validation_manifest_gate: ../tools/b4_b8_real_backend_transcript_replay_validation_manifest_gate.py

@@ -34950,6 +34950,9 @@ def audit(root: Path) -> dict:
             "b4_b8_h1_provider_session_replay_packet_gate": str(
                 research / "B4_B8_H1_provider_session_replay_packet_gate.md"
             ),
+            "b4_b8_b10_h1_provider_session_access_closure_gate": str(
+                research / "B4_B8_B10_H1_provider_session_access_closure_gate.md"
+            ),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),
             "b8_challenge_refresh_repair": str(research / "B8_challenge_refresh_repair.md"),
