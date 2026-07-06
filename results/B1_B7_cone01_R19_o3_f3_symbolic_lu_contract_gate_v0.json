@@ -1,0 +1,387 @@
+{
+  "benchmark_id": "B1",
+  "claim_boundary": {
+    "b7_ledger_improvement_claimed": false,
+    "next_gate": "Submit an O3-F3 artifact satisfying the fourteen required fields and eight acceptance gates, or move to O3-F4/O3-F5 under the R18 registry.",
+    "resource_saving_claimed": false,
+    "what_is_not_supported": "R19 does not submit or accept an O3-F3 artifact, does not close O3, and does not permit R5 reroute. No R1 solution, occurrence removal, proxy-T reduction, B7 credit, resource saving, or impossibility theorem is supported.",
+    "what_is_supported": "R19 creates a strict submission contract for O3-F3 symbolic local-unitary proof or counterexample artifacts."
+  },
+  "last_updated": "2026-07-06",
+  "linked_benchmark_id": "B7",
+  "method": "b1_b7_cone01_r19_o3_f3_symbolic_lu_contract_gate_v0",
+  "model_status": "o3_f3_symbolic_local_unitary_contract_ready_no_artifact_no_reroute",
+  "o3_f3_symbolic_lu_contract_packet": {
+    "acceptance_gate_table_hash": "1e2c310ab096c52b3a58f62481d2ea5788b62971ebaea770f7e9e06e6732ad96",
+    "acceptance_gates": [
+      {
+        "acceptance_rule": "family_id == O3-F3 and source_registry_hash matches R18 registry_hash",
+        "gate": "family_and_source_binding",
+        "gate_id": "A1"
+      },
+      {
+        "acceptance_rule": "source_unitary_preservation_certificate is present and machine-checkable",
+        "gate": "local_unitary_preservation",
+        "gate_id": "A2"
+      },
+      {
+        "acceptance_rule": "leaveout_domain_mapping covers the five R13 line1381 parameters or gives an explicit escape",
+        "gate": "domain_mapping",
+        "gate_id": "A3"
+      },
+      {
+        "acceptance_rule": "pi_over_four_lattice_relation is symbolic, replayable, and not only numerical",
+        "gate": "lattice_relation",
+        "gate_id": "A4"
+      },
+      {
+        "acceptance_rule": "Route A impact is explicitly positive, negative, or not claimed",
+        "gate": "route_a_effect",
+        "gate_id": "A5"
+      },
+      {
+        "acceptance_rule": "artifact refuses B7 credit unless Route A/B and resource ledgers are accepted",
+        "gate": "claim_boundary",
+        "gate_id": "A6"
+      },
+      {
+        "acceptance_rule": "machine_check_command reproduces expected_outputs",
+        "gate": "checker_replay",
+        "gate_id": "A7"
+      },
+      {
+        "acceptance_rule": "artifact does not set checked_negative_lemma_present or reroute_allowed without all acceptance gates",
+        "gate": "no_silent_upgrade",
+        "gate_id": "A8"
+      }
+    ],
+    "artifact_template": {
+      "artifact_id": "B1-B7-cone01-O3-F3-symbolic-lu-<submitter>-<short-name>",
+      "candidate_id": "NL-C02",
+      "claim_boundary": "<required>",
+      "counterexample_payload": null,
+      "expected_outputs": "<required>",
+      "family_id": "O3-F3",
+      "leaveout_domain_mapping": "<required>",
+      "machine_check_command": "<required>",
+      "pi_over_four_lattice_relation": "<required>",
+      "route_a_effect": "not_claimed|clears_route_a|does_not_clear_route_a",
+      "source_registry_hash": "3a4cd3b08574775d52ee0292e7e5861c968efd0dd281dd04481f6e3da1271eae",
+      "source_target_id": "T-B1-004du/T-B7-013d",
+      "source_unitary_preservation_certificate": "<required>",
+      "symbolic_transform_definition": "<required>"
+    },
+    "candidate_id": "NL-C02",
+    "contract_hash": "d7b0e3fdac82bde9c3c312e9294ed2f80feb46b90d0bc167083d2ad408954f9f",
+    "contract_id": "B1-B7-cone01-R19-O3-F3-symbolic-local-unitary-contract",
+    "decision": {
+      "checked_negative_lemma_present": false,
+      "nlc02_full_lemma_ready": false,
+      "o3_closed": false,
+      "o3_f3_accepted": false,
+      "o3_f3_artifact_submitted": false,
+      "o3_f3_contract_ready": true,
+      "reroute_allowed": false,
+      "why": "R19 prepares a strict O3-F3 submission contract. No symbolic local-unitary artifact has been submitted or accepted, so O3 and R5 remain closed to credit."
+    },
+    "family_id": "O3-F3",
+    "rejection_rule_hash": "0bdee678ace47847a1eda0a8fa090685324ccc466614bc36ee5aeca1f1a06efc",
+    "rejection_rules": [
+      "Reject if the transform is only a numerical fit without a symbolic local-unitary preservation certificate.",
+      "Reject if the artifact reaches the pi/4 lattice but does not preserve the source local unitary.",
+      "Reject if the artifact claims B7 credit before an accepted Route A/B artifact and refreshed B7 ledger replay.",
+      "Reject if the artifact silently changes the R13 five-parameter source domain.",
+      "Reject if the machine-check command is missing, nondeterministic, or not hash-bound."
+    ],
+    "required_field_table_hash": "ba37ed01483992f1732dea047f5533b499c40fcbc0973357e9cce025d925674a",
+    "required_fields": [
+      {
+        "field": "artifact_id",
+        "purpose": "stable artifact identifier for the symbolic local-unitary proof or counterexample"
+      },
+      {
+        "field": "source_target_id",
+        "purpose": "must cite T-B1-004du/T-B7-013d or descendant"
+      },
+      {
+        "field": "family_id",
+        "purpose": "must equal O3-F3"
+      },
+      {
+        "field": "candidate_id",
+        "purpose": "must equal NL-C02"
+      },
+      {
+        "field": "source_registry_hash",
+        "purpose": "must equal the R18 registry hash consumed by this contract"
+      },
+      {
+        "field": "symbolic_transform_definition",
+        "purpose": "defines the local-unitary coordinate transformation with domains and codomains"
+      },
+      {
+        "field": "source_unitary_preservation_certificate",
+        "purpose": "proves or checks that the transformed coordinates preserve the source local unitary"
+      },
+      {
+        "field": "leaveout_domain_mapping",
+        "purpose": "maps the transformed coordinates back to the R13/R17 leave-out domain or explains the escape"
+      },
+      {
+        "field": "pi_over_four_lattice_relation",
+        "purpose": "states whether the transform preserves, reaches, or escapes the pi/4 lattice"
+      },
+      {
+        "field": "route_a_effect",
+        "purpose": "states whether the artifact clears Route A against the R7/R8 contract"
+      },
+      {
+        "field": "counterexample_payload",
+        "purpose": "required when claiming a falsifier; contains exact symbolic values or a replayable construction"
+      },
+      {
+        "field": "claim_boundary",
+        "purpose": "states what is supported, not supported, and what would kill the result"
+      },
+      {
+        "field": "machine_check_command",
+        "purpose": "command that reproduces the proof check, symbolic replay, or counterexample verification"
+      },
+      {
+        "field": "expected_outputs",
+        "purpose": "hashes or exact outputs for the checker result"
+      }
+    ],
+    "source_artifact_hashes": {
+      "r18_falsifier_table_hash": "08a4dca654af284027cc87b9b2f181094ef96aba506ea20687e3a99d53385faa",
+      "r18_family_table_hash": "30c9aad9190657f55ed567bb162c4ec653f610ac866380b5c92eeb39671f178f",
+      "r18_registry_hash": "3a4cd3b08574775d52ee0292e7e5861c968efd0dd281dd04481f6e3da1271eae"
+    },
+    "source_falsifier_row": {
+      "falsifier_id": "O3-X1",
+      "success_condition": "valid symbolic local-unitary reparameterization reaches pi/4 lattice while preserving the source unitary",
+      "target_family": "O3-F3"
+    },
+    "source_family_row": {
+      "accepted_escape_count": null,
+      "closed_for_full_o3": false,
+      "evidence_hash": null,
+      "family": "symbolic_local_unitary_reparameterization",
+      "family_id": "O3-F3",
+      "next_pr": "define the allowed symbolic local-unitary coordinate transformations and prove they preserve the leave-out domain or produce a counterexample",
+      "status": "open_needs_symbolic_equivalence_argument"
+    },
+    "source_hashes": {
+      "r18_registry_file": "c28929407cdf96c21bd573aff7f965bf027264071a4f7a16b6c851d6a8e7e557"
+    },
+    "source_r18_registry": "results/B1_B7_cone01_R18_nlc02_o3_equivalence_family_registry_gate_v0.json",
+    "source_target_id": "T-B1-004du/T-B7-013d"
+  },
+  "requirements": [
+    {
+      "evidence": {
+        "o3_f3_status": "open_needs_symbolic_equivalence_argument",
+        "r18_method": "b1_b7_cone01_r18_nlc02_o3_equivalence_family_registry_gate_v0",
+        "r18_validation_error_count": 0
+      },
+      "label": "R18 registry is validation-clean and keeps O3-F3 open",
+      "passed": true,
+      "requirement_id": "J1"
+    },
+    {
+      "evidence": {
+        "falsifier_id": "O3-X1",
+        "success_condition": "valid symbolic local-unitary reparameterization reaches pi/4 lattice while preserving the source unitary",
+        "target_family": "O3-F3"
+      },
+      "label": "R18 exposes the O3-X1 falsifier target for O3-F3",
+      "passed": true,
+      "requirement_id": "J2"
+    },
+    {
+      "evidence": {
+        "fields": [
+          "artifact_id",
+          "source_target_id",
+          "family_id",
+          "candidate_id",
+          "source_registry_hash",
+          "symbolic_transform_definition",
+          "source_unitary_preservation_certificate",
+          "leaveout_domain_mapping",
+          "pi_over_four_lattice_relation",
+          "route_a_effect",
+          "counterexample_payload",
+          "claim_boundary",
+          "machine_check_command",
+          "expected_outputs"
+        ],
+        "required_field_count": 14
+      },
+      "label": "Contract defines fourteen required submission fields",
+      "passed": true,
+      "requirement_id": "J3"
+    },
+    {
+      "evidence": {
+        "acceptance_gate_count": 8,
+        "gate_ids": [
+          "A1",
+          "A2",
+          "A3",
+          "A4",
+          "A5",
+          "A6",
+          "A7",
+          "A8"
+        ]
+      },
+      "label": "Contract defines eight acceptance gates",
+      "passed": true,
+      "requirement_id": "J4"
+    },
+    {
+      "evidence": {
+        "rejection_rule_count": 5,
+        "rejection_rules": [
+          "Reject if the transform is only a numerical fit without a symbolic local-unitary preservation certificate.",
+          "Reject if the artifact reaches the pi/4 lattice but does not preserve the source local unitary.",
+          "Reject if the artifact claims B7 credit before an accepted Route A/B artifact and refreshed B7 ledger replay.",
+          "Reject if the artifact silently changes the R13 five-parameter source domain.",
+          "Reject if the machine-check command is missing, nondeterministic, or not hash-bound."
+        ]
+      },
+      "label": "Contract defines explicit rejection rules for overclaims",
+      "passed": true,
+      "requirement_id": "J5"
+    },
+    {
+      "evidence": {
+        "artifact_id": "B1-B7-cone01-O3-F3-symbolic-lu-<submitter>-<short-name>",
+        "candidate_id": "NL-C02",
+        "claim_boundary": "<required>",
+        "counterexample_payload": null,
+        "expected_outputs": "<required>",
+        "family_id": "O3-F3",
+        "leaveout_domain_mapping": "<required>",
+        "machine_check_command": "<required>",
+        "pi_over_four_lattice_relation": "<required>",
+        "route_a_effect": "not_claimed|clears_route_a|does_not_clear_route_a",
+        "source_registry_hash": "3a4cd3b08574775d52ee0292e7e5861c968efd0dd281dd04481f6e3da1271eae",
+        "source_target_id": "T-B1-004du/T-B7-013d",
+        "source_unitary_preservation_certificate": "<required>",
+        "symbolic_transform_definition": "<required>"
+      },
+      "label": "Artifact template is bound to O3-F3 and the R18 registry hash",
+      "passed": true,
+      "requirement_id": "J6"
+    },
+    {
+      "evidence": {
+        "acceptance_gate_table_hash": "1e2c310ab096c52b3a58f62481d2ea5788b62971ebaea770f7e9e06e6732ad96",
+        "contract_hash": "d7b0e3fdac82bde9c3c312e9294ed2f80feb46b90d0bc167083d2ad408954f9f",
+        "rejection_rule_hash": "0bdee678ace47847a1eda0a8fa090685324ccc466614bc36ee5aeca1f1a06efc",
+        "required_field_table_hash": "ba37ed01483992f1732dea047f5533b499c40fcbc0973357e9cce025d925674a",
+        "source_artifact_hashes": {
+          "r18_falsifier_table_hash": "08a4dca654af284027cc87b9b2f181094ef96aba506ea20687e3a99d53385faa",
+          "r18_family_table_hash": "30c9aad9190657f55ed567bb162c4ec653f610ac866380b5c92eeb39671f178f",
+          "r18_registry_hash": "3a4cd3b08574775d52ee0292e7e5861c968efd0dd281dd04481f6e3da1271eae"
+        },
+        "source_hashes": {
+          "r18_registry_file": "c28929407cdf96c21bd573aff7f965bf027264071a4f7a16b6c851d6a8e7e557"
+        }
+      },
+      "label": "Contract is hash-bound to the R18 registry and internal tables",
+      "passed": true,
+      "requirement_id": "J7"
+    },
+    {
+      "evidence": {
+        "checked_negative_lemma_present": false,
+        "nlc02_full_lemma_ready": false,
+        "o3_closed": false,
+        "o3_f3_accepted": false,
+        "o3_f3_artifact_submitted": false,
+        "o3_f3_contract_ready": true,
+        "reroute_allowed": false,
+        "why": "R19 prepares a strict O3-F3 submission contract. No symbolic local-unitary artifact has been submitted or accepted, so O3 and R5 remain closed to credit."
+      },
+      "label": "No O3-F3 artifact is silently accepted",
+      "passed": true,
+      "requirement_id": "J8"
+    },
+    {
+      "evidence": {
+        "checked_negative_lemma_present": false,
+        "nlc02_full_lemma_ready": false,
+        "o3_closed": false,
+        "o3_f3_accepted": false,
+        "o3_f3_artifact_submitted": false,
+        "o3_f3_contract_ready": true,
+        "reroute_allowed": false,
+        "why": "R19 prepares a strict O3-F3 submission contract. No symbolic local-unitary artifact has been submitted or accepted, so O3 and R5 remain closed to credit."
+      },
+      "label": "Contract does not close O3 or allow reroute",
+      "passed": true,
+      "requirement_id": "J9"
+    },
+    {
+      "evidence": {
+        "accepted_occurrence_removal": 0,
+        "accepted_proxy_t_reduction": 0,
+        "accepted_route_count": 0,
+        "b7_credit_delta": 0,
+        "b7_ledger_improvement_claimed": false,
+        "b7_space_time_volume_credit": 0,
+        "resource_saving_claimed": false
+      },
+      "label": "Contract preserves zero resource and B7 credit claims",
+      "passed": true,
+      "requirement_id": "J10"
+    }
+  ],
+  "runtime_seconds": 0.000305,
+  "source_target_id": "T-B1-004du/T-B7-013d",
+  "status": "cone01_r19_o3_f3_symbolic_lu_contract_ready_not_submitted",
+  "summary": {
+    "acceptance_gate_count": 8,
+    "acceptance_gate_table_hash": "1e2c310ab096c52b3a58f62481d2ea5788b62971ebaea770f7e9e06e6732ad96",
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "accepted_route_count": 0,
+    "b7_credit_delta": 0,
+    "b7_ledger_improvement_claimed": false,
+    "b7_space_time_volume_credit": 0,
+    "candidate_id": "NL-C02",
+    "checked_negative_lemma_present": false,
+    "contract_hash": "d7b0e3fdac82bde9c3c312e9294ed2f80feb46b90d0bc167083d2ad408954f9f",
+    "contract_id": "B1-B7-cone01-R19-O3-F3-symbolic-local-unitary-contract",
+    "failed_requirement_ids": [],
+    "family_id": "O3-F3",
+    "nlc02_full_lemma_ready": false,
+    "o3_closed": false,
+    "o3_f3_accepted": false,
+    "o3_f3_artifact_submitted": false,
+    "o3_f3_contract_ready": true,
+    "rejection_rule_count": 5,
+    "rejection_rule_hash": "0bdee678ace47847a1eda0a8fa090685324ccc466614bc36ee5aeca1f1a06efc",
+    "remaining_open_obligation_count": 3,
+    "remaining_open_obligations": [
+      "O3-F3_symbolic_lu_artifact",
+      "O3-F4_refit_harness",
+      "O3-F5_route_a_artifact"
+    ],
+    "required_field_count": 14,
+    "required_field_table_hash": "ba37ed01483992f1732dea047f5533b499c40fcbc0973357e9cce025d925674a",
+    "requirement_count": 10,
+    "requirements_failed": 0,
+    "requirements_passed": 10,
+    "reroute_allowed": false,
+    "resource_saving_claimed": false,
+    "source_r18_registry_hash": "3a4cd3b08574775d52ee0292e7e5861c968efd0dd281dd04481f6e3da1271eae",
+    "validation_error_count": 0
+  },
+  "title": "B1/B7 Cone01 R19 O3-F3 Symbolic Local-Unitary Contract Gate",
+  "validation_errors": [],
+  "version": "0.1"
+}
