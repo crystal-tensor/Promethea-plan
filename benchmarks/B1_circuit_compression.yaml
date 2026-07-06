@@ -3736,6 +3736,44 @@ current_results:
     caveat: r17_search_domain_boundary_only_no_optimizer_completeness_proof_no_checked_negative_lemma_no_reroute_or_b7_credit
     report: ../results/B1_B7_cone01_R17_nlc02_o1_search_domain_boundary_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R17_nlc02_o1_search_domain_boundary_gate.md
+  b1_b7_cone01_r18_nlc02_o3_equivalence_family_registry_gate_v0:
+    circuits: 1
+    status: cone01_r18_nlc02_o3_equivalence_family_registry_ready_not_full_lemma
+    model_status: nlc02_o3_attack_surface_partitioned_reroute_still_forbidden
+    method: b1_b7_cone01_r18_nlc02_o3_equivalence_family_registry_gate_v0
+    source_r13_binding: ../results/B1_B7_cone01_R13_nlc02_source_domain_binding_gate_v0.json
+    source_r16_lemma: ../results/B1_B7_cone01_R16_nlc02_clifford_frame_invariance_lemma_gate_v0.json
+    source_r17_boundary: ../results/B1_B7_cone01_R17_nlc02_o1_search_domain_boundary_gate_v0.json
+    source_target_id: T-B1-004dt/T-B7-013c
+    candidate_id: NL-C02
+    registry_id: B1-B7-cone01-R18-NL-C02-O3-equivalence-family-registry
+    registry_hash: 3a4cd3b08574775d52ee0292e7e5861c968efd0dd281dd04481f6e3da1271eae
+    family_table_hash: 30c9aad9190657f55ed567bb162c4ec653f610ac866380b5c92eeb39671f178f
+    falsifier_table_hash: 08a4dca654af284027cc87b9b2f181094ef96aba506ea20687e3a99d53385faa
+    requirements_passed: 10
+    requirements_failed: 0
+    family_count: 5
+    closed_sublemma_count: 2
+    open_family_count: 2
+    blocked_family_count: 1
+    falsifier_count: 3
+    o3_attack_surface_partitioned: true
+    o3_closed: false
+    remaining_open_obligations: [O3_general_local_unitary_invariance, Route_A_candidate_reparameterization]
+    checked_negative_lemma_present: false
+    nlc02_full_lemma_ready: false
+    reroute_allowed: false
+    accepted_route_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    validation_error_count: 0
+    caveat: r18_o3_registry_only_general_local_unitary_invariance_still_open_no_checked_negative_lemma_no_reroute_or_b7_credit
+    report: ../results/B1_B7_cone01_R18_nlc02_o3_equivalence_family_registry_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R18_nlc02_o3_equivalence_family_registry_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate
@@ -5407,4 +5445,5 @@ prototype_artifacts:
   b1_b7_cone01_r15_nlc02_clifford_frame_screen_gate: ../tools/b1_b7_cone01_r15_nlc02_clifford_frame_screen_gate.py
   b1_b7_cone01_r16_nlc02_clifford_frame_invariance_lemma_gate: ../tools/b1_b7_cone01_r16_nlc02_clifford_frame_invariance_lemma_gate.py
   b1_b7_cone01_r17_nlc02_o1_search_domain_boundary_gate: ../tools/b1_b7_cone01_r17_nlc02_o1_search_domain_boundary_gate.py
+  b1_b7_cone01_r18_nlc02_o3_equivalence_family_registry_gate: ../tools/b1_b7_cone01_r18_nlc02_o3_equivalence_family_registry_gate.py
   synthetic_noise_proxy: ../tools/b1_synthetic_noise_proxy.py
