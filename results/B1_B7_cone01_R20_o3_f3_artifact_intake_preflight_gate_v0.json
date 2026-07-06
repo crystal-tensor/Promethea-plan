@@ -1,0 +1,486 @@
+{
+  "benchmark_id": "B1",
+  "claim_boundary": {
+    "b7_ledger_improvement_claimed": false,
+    "next_gate": "A contributor or agent should fill the O3-F3 template with a symbolic local-unitary proof, counterexample, or rejection-strengthening artifact and rerun the preflight.",
+    "resource_saving_claimed": false,
+    "what_is_not_supported": "R20 does not submit or accept an O3-F3 artifact, does not close O3, and does not permit R5 reroute. No R1 solution, occurrence removal, proxy-T reduction, B7 credit, resource saving, or impossibility theorem is supported.",
+    "what_is_supported": "R20 emits a reusable O3-F3 artifact template and preflight checklist bound to the R19 contract."
+  },
+  "last_updated": "2026-07-06",
+  "linked_benchmark_id": "B7",
+  "method": "b1_b7_cone01_r20_o3_f3_artifact_intake_preflight_gate_v0",
+  "model_status": "o3_f3_intake_template_and_preflight_ready_no_artifact_no_reroute",
+  "o3_f3_artifact_intake_packet": {
+    "checklist_hash": "a65412b5201bc4ca7d33cf025d700492c0dad71f94fd1c4ccca505f1eaad4684",
+    "decision": {
+      "checked_negative_lemma_present": false,
+      "nlc02_full_lemma_ready": false,
+      "o3_closed": false,
+      "o3_f3_artifact_accepted": false,
+      "o3_f3_intake_ready": true,
+      "o3_f3_preflight_accepted": false,
+      "o3_f3_submission_exists": false,
+      "o3_f3_template_emitted": true,
+      "reroute_allowed": false,
+      "why": "R20 makes O3-F3 submissions mechanically checkable at intake time, but it does not accept any artifact or promote B7 credit."
+    },
+    "intake_hash": "910b0c5fba62514e1e691ae4498a2667c23dd41be906f6925eee397bded2e794",
+    "intake_id": "B1-B7-cone01-R20-O3-F3-artifact-intake-preflight",
+    "preflight_checklist": [
+      {
+        "gate": "family_and_source_binding",
+        "gate_id": "A1",
+        "preflight_probe": "family_id, candidate_id, source_contract_hash, and source_registry_hash exact-match the R19 contract",
+        "source_acceptance_rule": "family_id == O3-F3 and source_registry_hash matches R18 registry_hash",
+        "template_field_refs": [
+          "artifact_id",
+          "source_target_id",
+          "family_id",
+          "candidate_id",
+          "source_registry_hash",
+          "symbolic_transform_definition",
+          "source_unitary_preservation_certificate",
+          "leaveout_domain_mapping",
+          "pi_over_four_lattice_relation",
+          "route_a_effect",
+          "counterexample_payload",
+          "claim_boundary",
+          "machine_check_command",
+          "expected_outputs"
+        ]
+      },
+      {
+        "gate": "local_unitary_preservation",
+        "gate_id": "A2",
+        "preflight_probe": "source_unitary_preservation_certificate exists and names a machine-checkable proof route",
+        "source_acceptance_rule": "source_unitary_preservation_certificate is present and machine-checkable",
+        "template_field_refs": [
+          "artifact_id",
+          "source_target_id",
+          "family_id",
+          "candidate_id",
+          "source_registry_hash",
+          "symbolic_transform_definition",
+          "source_unitary_preservation_certificate",
+          "leaveout_domain_mapping",
+          "pi_over_four_lattice_relation",
+          "route_a_effect",
+          "counterexample_payload",
+          "claim_boundary",
+          "machine_check_command",
+          "expected_outputs"
+        ]
+      },
+      {
+        "gate": "domain_mapping",
+        "gate_id": "A3",
+        "preflight_probe": "leaveout_domain_mapping covers source parameters [3,4,9,16,17] or gives explicit replayable escape",
+        "source_acceptance_rule": "leaveout_domain_mapping covers the five R13 line1381 parameters or gives an explicit escape",
+        "template_field_refs": [
+          "artifact_id",
+          "source_target_id",
+          "family_id",
+          "candidate_id",
+          "source_registry_hash",
+          "symbolic_transform_definition",
+          "source_unitary_preservation_certificate",
+          "leaveout_domain_mapping",
+          "pi_over_four_lattice_relation",
+          "route_a_effect",
+          "counterexample_payload",
+          "claim_boundary",
+          "machine_check_command",
+          "expected_outputs"
+        ]
+      },
+      {
+        "gate": "lattice_relation",
+        "gate_id": "A4",
+        "preflight_probe": "pi_over_four_lattice_relation is symbolic and not a bare numerical fit",
+        "source_acceptance_rule": "pi_over_four_lattice_relation is symbolic, replayable, and not only numerical",
+        "template_field_refs": [
+          "artifact_id",
+          "source_target_id",
+          "family_id",
+          "candidate_id",
+          "source_registry_hash",
+          "symbolic_transform_definition",
+          "source_unitary_preservation_certificate",
+          "leaveout_domain_mapping",
+          "pi_over_four_lattice_relation",
+          "route_a_effect",
+          "counterexample_payload",
+          "claim_boundary",
+          "machine_check_command",
+          "expected_outputs"
+        ]
+      },
+      {
+        "gate": "route_a_effect",
+        "gate_id": "A5",
+        "preflight_probe": "route_a_effect is one of not_claimed, clears_route_a, does_not_clear_route_a",
+        "source_acceptance_rule": "Route A impact is explicitly positive, negative, or not claimed",
+        "template_field_refs": [
+          "artifact_id",
+          "source_target_id",
+          "family_id",
+          "candidate_id",
+          "source_registry_hash",
+          "symbolic_transform_definition",
+          "source_unitary_preservation_certificate",
+          "leaveout_domain_mapping",
+          "pi_over_four_lattice_relation",
+          "route_a_effect",
+          "counterexample_payload",
+          "claim_boundary",
+          "machine_check_command",
+          "expected_outputs"
+        ]
+      },
+      {
+        "gate": "claim_boundary",
+        "gate_id": "A6",
+        "preflight_probe": "claim_boundary refuses B7/STV/reroute/O3 closure overclaims before downstream ledgers",
+        "source_acceptance_rule": "artifact refuses B7 credit unless Route A/B and resource ledgers are accepted",
+        "template_field_refs": [
+          "artifact_id",
+          "source_target_id",
+          "family_id",
+          "candidate_id",
+          "source_registry_hash",
+          "symbolic_transform_definition",
+          "source_unitary_preservation_certificate",
+          "leaveout_domain_mapping",
+          "pi_over_four_lattice_relation",
+          "route_a_effect",
+          "counterexample_payload",
+          "claim_boundary",
+          "machine_check_command",
+          "expected_outputs"
+        ]
+      },
+      {
+        "gate": "checker_replay",
+        "gate_id": "A7",
+        "preflight_probe": "machine_check_command and expected_outputs are present and hash-bound",
+        "source_acceptance_rule": "machine_check_command reproduces expected_outputs",
+        "template_field_refs": [
+          "artifact_id",
+          "source_target_id",
+          "family_id",
+          "candidate_id",
+          "source_registry_hash",
+          "symbolic_transform_definition",
+          "source_unitary_preservation_certificate",
+          "leaveout_domain_mapping",
+          "pi_over_four_lattice_relation",
+          "route_a_effect",
+          "counterexample_payload",
+          "claim_boundary",
+          "machine_check_command",
+          "expected_outputs"
+        ]
+      },
+      {
+        "gate": "no_silent_upgrade",
+        "gate_id": "A8",
+        "preflight_probe": "artifact cannot set checked_negative_lemma_present, reroute_allowed, or o3_closed directly",
+        "source_acceptance_rule": "artifact does not set checked_negative_lemma_present or reroute_allowed without all acceptance gates",
+        "template_field_refs": [
+          "artifact_id",
+          "source_target_id",
+          "family_id",
+          "candidate_id",
+          "source_registry_hash",
+          "symbolic_transform_definition",
+          "source_unitary_preservation_certificate",
+          "leaveout_domain_mapping",
+          "pi_over_four_lattice_relation",
+          "route_a_effect",
+          "counterexample_payload",
+          "claim_boundary",
+          "machine_check_command",
+          "expected_outputs"
+        ]
+      }
+    ],
+    "preflight_hash": "7f8c6eaa8e55a5053429ff324b30daeeb1437ce1a24d5287e6aa77bbfb51cd8a",
+    "preflight_result": {
+      "accepted": false,
+      "blocked_gate_ids": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "failed_gate_ids": [],
+      "missing_required_fields": [
+        "artifact_id",
+        "source_target_id",
+        "family_id",
+        "candidate_id",
+        "source_registry_hash",
+        "symbolic_transform_definition",
+        "source_unitary_preservation_certificate",
+        "leaveout_domain_mapping",
+        "pi_over_four_lattice_relation",
+        "route_a_effect",
+        "counterexample_payload",
+        "claim_boundary",
+        "machine_check_command",
+        "expected_outputs"
+      ],
+      "passed_gate_ids": [],
+      "submission_exists": false,
+      "why": "No O3-F3 artifact has been submitted to the intake path."
+    },
+    "source_acceptance_gate_table_hash": "1e2c310ab096c52b3a58f62481d2ea5788b62971ebaea770f7e9e06e6732ad96",
+    "source_contract_hash": "d7b0e3fdac82bde9c3c312e9294ed2f80feb46b90d0bc167083d2ad408954f9f",
+    "source_hashes": {
+      "r19_contract_file": "97438d9c3b0f1ac55c4f467722c7f5f8de9bdffb2b9dfe5e6c803a233cd76847",
+      "submission_file": null
+    },
+    "source_r19_contract": "results/B1_B7_cone01_R19_o3_f3_symbolic_lu_contract_gate_v0.json",
+    "source_rejection_rule_hash": "0bdee678ace47847a1eda0a8fa090685324ccc466614bc36ee5aeca1f1a06efc",
+    "source_required_field_table_hash": "ba37ed01483992f1732dea047f5533b499c40fcbc0973357e9cce025d925674a",
+    "source_target_id": "T-B1-004dv/T-B7-013e",
+    "submission_path": "results/B1_B7_cone01_o3_f3_symbolic_lu_submissions/B1-B7-cone01-O3-F3-symbolic-lu.submission.json",
+    "template": {
+      "artifact_id": "B1-B7-cone01-O3-F3-symbolic-lu-<submitter>-<short-name>",
+      "candidate_id": "NL-C02",
+      "claim_boundary": {
+        "kill_conditions": [
+          "fails local-unitary preservation",
+          "changes source domain",
+          "missing replay"
+        ],
+        "not_supported": "No B7 credit, STV credit, R5 reroute, O3 closure, or R1 solution may be claimed unless all acceptance gates and downstream ledgers pass.",
+        "supported": "<required>"
+      },
+      "counterexample_payload": null,
+      "expected_outputs": {
+        "artifact_hash": "<required after submission>",
+        "checker_stdout_hash": "<required>"
+      },
+      "family_id": "O3-F3",
+      "leaveout_domain_mapping": {
+        "covered_source_parameters": [
+          3,
+          4,
+          9,
+          16,
+          17
+        ],
+        "mapping": "<symbolic mapping, or explicit escape with replay>",
+        "status": "required"
+      },
+      "machine_check_command": "<required>",
+      "pi_over_four_lattice_relation": {
+        "relation": "preserves_lattice|reaches_lattice|escapes_lattice|does_not_reach_lattice",
+        "status": "required",
+        "symbolic_argument": "<required>"
+      },
+      "route_a_effect": "not_claimed",
+      "source_contract_hash": "d7b0e3fdac82bde9c3c312e9294ed2f80feb46b90d0bc167083d2ad408954f9f",
+      "source_registry_hash": "3a4cd3b08574775d52ee0292e7e5861c968efd0dd281dd04481f6e3da1271eae",
+      "source_target_id": "T-B1-004dv/T-B7-013e",
+      "source_unitary_preservation_certificate": {
+        "certificate_type": "proof|machine_check|counterexample_replay",
+        "checker": "<command or formal proof reference>",
+        "status": "required"
+      },
+      "symbolic_transform_definition": {
+        "codomain": "proposed_symbolic_local_unitary_coordinates",
+        "definition": "<exact symbolic map or counterexample construction>",
+        "domain": "R13_line1381_five_parameter_source_domain",
+        "status": "required"
+      },
+      "upstream_contract_target_id": "T-B1-004du/T-B7-013d"
+    },
+    "template_hash": "48011326fdb514dd44f4981c1e30cbc899453150334cc6fc03f37799296bf1f4",
+    "template_output": "results/B1_B7_cone01_o3_f3_symbolic_lu_submissions/B1-B7-cone01-O3-F3-symbolic-lu.template.json"
+  },
+  "requirements": [
+    {
+      "evidence": {
+        "o3_f3_contract_ready": true,
+        "r19_method": "b1_b7_cone01_r19_o3_f3_symbolic_lu_contract_gate_v0",
+        "r19_validation_error_count": 0
+      },
+      "label": "R19 contract is validation-clean and ready",
+      "passed": true,
+      "requirement_id": "K1"
+    },
+    {
+      "evidence": {
+        "required_field_count": 14,
+        "template_field_count": 16
+      },
+      "label": "Template carries all fourteen R19 required fields",
+      "passed": true,
+      "requirement_id": "K2"
+    },
+    {
+      "evidence": {
+        "source_contract_hash": "d7b0e3fdac82bde9c3c312e9294ed2f80feb46b90d0bc167083d2ad408954f9f",
+        "source_registry_hash": "3a4cd3b08574775d52ee0292e7e5861c968efd0dd281dd04481f6e3da1271eae",
+        "template_hash": "48011326fdb514dd44f4981c1e30cbc899453150334cc6fc03f37799296bf1f4"
+      },
+      "label": "Template is hash-bound to the R19 contract and R18 registry",
+      "passed": true,
+      "requirement_id": "K3"
+    },
+    {
+      "evidence": {
+        "checklist_hash": "a65412b5201bc4ca7d33cf025d700492c0dad71f94fd1c4ccca505f1eaad4684",
+        "gate_ids": [
+          "A1",
+          "A2",
+          "A3",
+          "A4",
+          "A5",
+          "A6",
+          "A7",
+          "A8"
+        ]
+      },
+      "label": "Preflight checklist mirrors all eight R19 acceptance gates",
+      "passed": true,
+      "requirement_id": "K4"
+    },
+    {
+      "evidence": {
+        "accepted": false,
+        "blocked_gate_ids": [
+          "A1",
+          "A2",
+          "A3",
+          "A4",
+          "A5",
+          "A6",
+          "A7",
+          "A8"
+        ],
+        "failed_gate_ids": [],
+        "missing_required_fields": [
+          "artifact_id",
+          "source_target_id",
+          "family_id",
+          "candidate_id",
+          "source_registry_hash",
+          "symbolic_transform_definition",
+          "source_unitary_preservation_certificate",
+          "leaveout_domain_mapping",
+          "pi_over_four_lattice_relation",
+          "route_a_effect",
+          "counterexample_payload",
+          "claim_boundary",
+          "machine_check_command",
+          "expected_outputs"
+        ],
+        "passed_gate_ids": [],
+        "submission_exists": false,
+        "why": "No O3-F3 artifact has been submitted to the intake path."
+      },
+      "label": "Current absent submission is rejected without failing the intake readiness gate",
+      "passed": true,
+      "requirement_id": "K5"
+    },
+    {
+      "evidence": {
+        "checked_negative_lemma_present": false,
+        "nlc02_full_lemma_ready": false,
+        "o3_closed": false,
+        "o3_f3_artifact_accepted": false,
+        "o3_f3_intake_ready": true,
+        "o3_f3_preflight_accepted": false,
+        "o3_f3_submission_exists": false,
+        "o3_f3_template_emitted": true,
+        "reroute_allowed": false,
+        "why": "R20 makes O3-F3 submissions mechanically checkable at intake time, but it does not accept any artifact or promote B7 credit."
+      },
+      "label": "R20 does not silently close O3, accept O3-F3, or allow reroute",
+      "passed": true,
+      "requirement_id": "K6"
+    },
+    {
+      "evidence": {
+        "accepted_occurrence_removal": 0,
+        "accepted_proxy_t_reduction": 0,
+        "accepted_route_count": 0,
+        "b7_credit_delta": 0,
+        "b7_ledger_improvement_claimed": false,
+        "b7_space_time_volume_credit": 0,
+        "resource_saving_claimed": false
+      },
+      "label": "R20 preserves zero B7/resource credit claims",
+      "passed": true,
+      "requirement_id": "K7"
+    },
+    {
+      "evidence": {
+        "checklist_hash": "a65412b5201bc4ca7d33cf025d700492c0dad71f94fd1c4ccca505f1eaad4684",
+        "intake_hash": "910b0c5fba62514e1e691ae4498a2667c23dd41be906f6925eee397bded2e794",
+        "preflight_hash": "7f8c6eaa8e55a5053429ff324b30daeeb1437ce1a24d5287e6aa77bbfb51cd8a",
+        "template_hash": "48011326fdb514dd44f4981c1e30cbc899453150334cc6fc03f37799296bf1f4"
+      },
+      "label": "Intake packet is internally hash-bound",
+      "passed": true,
+      "requirement_id": "K8"
+    }
+  ],
+  "runtime_seconds": 0.001011,
+  "source_target_id": "T-B1-004dv/T-B7-013e",
+  "status": "cone01_r20_o3_f3_artifact_intake_ready_no_submission",
+  "summary": {
+    "acceptance_gate_count": 8,
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "accepted_route_count": 0,
+    "b7_credit_delta": 0,
+    "b7_ledger_improvement_claimed": false,
+    "b7_space_time_volume_credit": 0,
+    "candidate_id": "NL-C02",
+    "checked_negative_lemma_present": false,
+    "checklist_hash": "a65412b5201bc4ca7d33cf025d700492c0dad71f94fd1c4ccca505f1eaad4684",
+    "failed_requirement_ids": [],
+    "family_id": "O3-F3",
+    "intake_hash": "910b0c5fba62514e1e691ae4498a2667c23dd41be906f6925eee397bded2e794",
+    "intake_id": "B1-B7-cone01-R20-O3-F3-artifact-intake-preflight",
+    "nlc02_full_lemma_ready": false,
+    "o3_closed": false,
+    "o3_f3_artifact_accepted": false,
+    "o3_f3_intake_ready": true,
+    "o3_f3_preflight_accepted": false,
+    "o3_f3_submission_exists": false,
+    "o3_f3_template_emitted": true,
+    "preflight_check_count": 8,
+    "preflight_hash": "7f8c6eaa8e55a5053429ff324b30daeeb1437ce1a24d5287e6aa77bbfb51cd8a",
+    "rejection_rule_count": 5,
+    "remaining_open_obligation_count": 3,
+    "remaining_open_obligations": [
+      "O3-F3_symbolic_lu_artifact",
+      "O3-F4_refit_harness",
+      "O3-F5_route_a_artifact"
+    ],
+    "required_field_count": 14,
+    "requirement_count": 8,
+    "requirements_failed": 0,
+    "requirements_passed": 8,
+    "reroute_allowed": false,
+    "resource_saving_claimed": false,
+    "source_contract_hash": "d7b0e3fdac82bde9c3c312e9294ed2f80feb46b90d0bc167083d2ad408954f9f",
+    "source_r18_registry_hash": "3a4cd3b08574775d52ee0292e7e5861c968efd0dd281dd04481f6e3da1271eae",
+    "template_hash": "48011326fdb514dd44f4981c1e30cbc899453150334cc6fc03f37799296bf1f4",
+    "validation_error_count": 0
+  },
+  "title": "B1/B7 Cone01 R20 O3-F3 Artifact Intake Preflight Gate",
+  "upstream_target_id": "T-B1-004du/T-B7-013d",
+  "validation_errors": [],
+  "version": "0.1"
+}

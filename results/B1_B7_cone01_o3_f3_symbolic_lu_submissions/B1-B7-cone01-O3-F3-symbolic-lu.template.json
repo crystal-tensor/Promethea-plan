@@ -1,0 +1,52 @@
+{
+  "artifact_id": "B1-B7-cone01-O3-F3-symbolic-lu-<submitter>-<short-name>",
+  "candidate_id": "NL-C02",
+  "claim_boundary": {
+    "kill_conditions": [
+      "fails local-unitary preservation",
+      "changes source domain",
+      "missing replay"
+    ],
+    "not_supported": "No B7 credit, STV credit, R5 reroute, O3 closure, or R1 solution may be claimed unless all acceptance gates and downstream ledgers pass.",
+    "supported": "<required>"
+  },
+  "counterexample_payload": null,
+  "expected_outputs": {
+    "artifact_hash": "<required after submission>",
+    "checker_stdout_hash": "<required>"
+  },
+  "family_id": "O3-F3",
+  "leaveout_domain_mapping": {
+    "covered_source_parameters": [
+      3,
+      4,
+      9,
+      16,
+      17
+    ],
+    "mapping": "<symbolic mapping, or explicit escape with replay>",
+    "status": "required"
+  },
+  "machine_check_command": "<required>",
+  "pi_over_four_lattice_relation": {
+    "relation": "preserves_lattice|reaches_lattice|escapes_lattice|does_not_reach_lattice",
+    "status": "required",
+    "symbolic_argument": "<required>"
+  },
+  "route_a_effect": "not_claimed",
+  "source_contract_hash": "d7b0e3fdac82bde9c3c312e9294ed2f80feb46b90d0bc167083d2ad408954f9f",
+  "source_registry_hash": "3a4cd3b08574775d52ee0292e7e5861c968efd0dd281dd04481f6e3da1271eae",
+  "source_target_id": "T-B1-004dv/T-B7-013e",
+  "source_unitary_preservation_certificate": {
+    "certificate_type": "proof|machine_check|counterexample_replay",
+    "checker": "<command or formal proof reference>",
+    "status": "required"
+  },
+  "symbolic_transform_definition": {
+    "codomain": "proposed_symbolic_local_unitary_coordinates",
+    "definition": "<exact symbolic map or counterexample construction>",
+    "domain": "R13_line1381_five_parameter_source_domain",
+    "status": "required"
+  },
+  "upstream_contract_target_id": "T-B1-004du/T-B7-013d"
+}

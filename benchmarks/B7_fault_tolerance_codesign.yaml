@@ -820,6 +820,48 @@ current_results:
     caveat: r19_contract_only_no_o3_f3_artifact_no_checked_negative_lemma_no_reroute_or_b7_credit
     report: ../results/B1_B7_cone01_R19_o3_f3_symbolic_lu_contract_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R19_o3_f3_symbolic_lu_contract_gate.md
+  b1_b7_cone01_r20_o3_f3_artifact_intake_preflight_gate_v0:
+    status: cone01_r20_o3_f3_artifact_intake_ready_no_submission
+    method: b1_b7_cone01_r20_o3_f3_artifact_intake_preflight_gate_v0
+    source_b1_r20_o3_f3_artifact_intake: ../results/B1_B7_cone01_R20_o3_f3_artifact_intake_preflight_gate_v0.json
+    source_r19_contract: ../results/B1_B7_cone01_R19_o3_f3_symbolic_lu_contract_gate_v0.json
+    source_target_id: T-B1-004dv/T-B7-013e
+    upstream_target_id: T-B1-004du/T-B7-013d
+    candidate_id: NL-C02
+    family_id: O3-F3
+    intake_hash: 910b0c5fba62514e1e691ae4498a2667c23dd41be906f6925eee397bded2e794
+    template_hash: 48011326fdb514dd44f4981c1e30cbc899453150334cc6fc03f37799296bf1f4
+    checklist_hash: a65412b5201bc4ca7d33cf025d700492c0dad71f94fd1c4ccca505f1eaad4684
+    preflight_hash: 7f8c6eaa8e55a5053429ff324b30daeeb1437ce1a24d5287e6aa77bbfb51cd8a
+    requirements_passed: 8
+    requirements_failed: 0
+    required_field_count: 14
+    acceptance_gate_count: 8
+    rejection_rule_count: 5
+    preflight_check_count: 8
+    o3_f3_intake_ready: true
+    o3_f3_template_emitted: true
+    o3_f3_submission_exists: false
+    o3_f3_preflight_accepted: false
+    o3_f3_artifact_accepted: false
+    o3_closed: false
+    checked_negative_lemma_present: false
+    nlc02_full_lemma_ready: false
+    reroute_allowed: false
+    accepted_route_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_dependency_credit_allowed: false
+    b7_resource_credit_allowed: false
+    b7_ft_ledger_credit_allowed: false
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    validation_error_count: 0
+    template_output: ../results/B1_B7_cone01_o3_f3_symbolic_lu_submissions/B1-B7-cone01-O3-F3-symbolic-lu.template.json
+    target_submission: ../results/B1_B7_cone01_o3_f3_symbolic_lu_submissions/B1-B7-cone01-O3-F3-symbolic-lu.submission.json
+    caveat: r20_intake_template_only_no_o3_f3_submission_no_checked_negative_lemma_no_reroute_or_b7_credit
+    report: ../results/B1_B7_cone01_R20_o3_f3_artifact_intake_preflight_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R20_o3_f3_artifact_intake_preflight_gate.md
   b2_calibrated_dependency_credit_gate_v0:
     status: b2_calibrated_dependency_credit_rejected_missing_hardware_evidence
     method: b7_b2_calibrated_dependency_credit_gate_v0
@@ -1633,6 +1675,7 @@ prototype_artifacts:
   b1_b7_cone01_r17_nlc02_o1_search_domain_boundary_gate: ../tools/b1_b7_cone01_r17_nlc02_o1_search_domain_boundary_gate.py
   b1_b7_cone01_r18_nlc02_o3_equivalence_family_registry_gate: ../tools/b1_b7_cone01_r18_nlc02_o3_equivalence_family_registry_gate.py
   b1_b7_cone01_r19_o3_f3_symbolic_lu_contract_gate: ../tools/b1_b7_cone01_r19_o3_f3_symbolic_lu_contract_gate.py
+  b1_b7_cone01_r20_o3_f3_artifact_intake_preflight_gate: ../tools/b1_b7_cone01_r20_o3_f3_artifact_intake_preflight_gate.py
   b1_b7_cone01_resource_escape_replay_validation_manifest_gate: ../tools/b1_b7_cone01_resource_escape_replay_validation_manifest_gate.py
   b1_b7_cone01_resource_escape_acceptance_packet_gate: ../tools/b1_b7_cone01_resource_escape_acceptance_packet_gate.py
   b2_calibration_source_manifest_gate: ../tools/b2_calibration_source_manifest_gate.py
