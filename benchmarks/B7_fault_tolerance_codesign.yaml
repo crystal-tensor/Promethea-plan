@@ -900,6 +900,46 @@ current_results:
     caveat: r21_red_team_overclaim_fixture_rejected_no_valid_o3_f3_artifact_no_reroute_or_b7_credit
     report: ../results/B1_B7_cone01_R21_o3_f3_overclaim_sentinel_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R21_o3_f3_overclaim_sentinel_gate.md
+  b1_b7_cone01_r22_o3_f3_a6_claim_boundary_polarity_gate_v0:
+    status: cone01_r22_o3_f3_a6_claim_boundary_polarity_ready
+    method: b1_b7_cone01_r22_o3_f3_a6_claim_boundary_polarity_gate_v0
+    source_b1_r22_o3_f3_a6_claim_boundary_polarity: ../results/B1_B7_cone01_R22_o3_f3_a6_claim_boundary_polarity_gate_v0.json
+    source_r20_intake: ../results/B1_B7_cone01_R20_o3_f3_artifact_intake_preflight_gate_v0.json
+    source_r21_sentinel: ../results/B1_B7_cone01_R21_o3_f3_overclaim_sentinel_gate_v0.json
+    source_target_id: T-B1-004dx/T-B7-013g
+    upstream_target_id: T-B1-004dw/T-B7-013f
+    candidate_id: NL-C02
+    family_id: O3-F3
+    polarity_hash: 3f67889a80141fec568398975029369743b8852b74d928f636e135cb585a0668
+    polarity_rule_hash: c22b841f3111472b7b583bf5caa075f96935408fab8510f2a6362e112d70b608
+    boundary_eval_hash: 15946f6def34b3c593644050f259bab04b42bcc2f99dbf4bad822b24139a45e8
+    requirements_passed: 8
+    requirements_failed: 0
+    required_concept_count: 4
+    deny_pattern_count: 10
+    allow_pattern_count: 12
+    template_boundary_passes_polarity: true
+    overclaim_boundary_fails_polarity: true
+    old_a6_gap_identified: true
+    a6_polarity_rule_ready: true
+    a6_polarity_enforced_in_r20: false
+    o3_f3_artifact_accepted: false
+    o3_closed: false
+    checked_negative_lemma_present: false
+    nlc02_full_lemma_ready: false
+    reroute_allowed: false
+    accepted_route_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_dependency_credit_allowed: false
+    b7_resource_credit_allowed: false
+    b7_ft_ledger_credit_allowed: false
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    validation_error_count: 0
+    caveat: r22_a6_polarity_rule_ready_but_not_yet_enforced_no_valid_o3_f3_artifact_no_reroute_or_b7_credit
+    report: ../results/B1_B7_cone01_R22_o3_f3_a6_claim_boundary_polarity_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R22_o3_f3_a6_claim_boundary_polarity_gate.md
   b2_calibrated_dependency_credit_gate_v0:
     status: b2_calibrated_dependency_credit_rejected_missing_hardware_evidence
     method: b7_b2_calibrated_dependency_credit_gate_v0
@@ -1715,6 +1755,7 @@ prototype_artifacts:
   b1_b7_cone01_r19_o3_f3_symbolic_lu_contract_gate: ../tools/b1_b7_cone01_r19_o3_f3_symbolic_lu_contract_gate.py
   b1_b7_cone01_r20_o3_f3_artifact_intake_preflight_gate: ../tools/b1_b7_cone01_r20_o3_f3_artifact_intake_preflight_gate.py
   b1_b7_cone01_r21_o3_f3_overclaim_sentinel_gate: ../tools/b1_b7_cone01_r21_o3_f3_overclaim_sentinel_gate.py
+  b1_b7_cone01_r22_o3_f3_a6_claim_boundary_polarity_gate: ../tools/b1_b7_cone01_r22_o3_f3_a6_claim_boundary_polarity_gate.py
   b1_b7_cone01_resource_escape_replay_validation_manifest_gate: ../tools/b1_b7_cone01_resource_escape_replay_validation_manifest_gate.py
   b1_b7_cone01_resource_escape_acceptance_packet_gate: ../tools/b1_b7_cone01_resource_escape_acceptance_packet_gate.py
   b2_calibration_source_manifest_gate: ../tools/b2_calibration_source_manifest_gate.py

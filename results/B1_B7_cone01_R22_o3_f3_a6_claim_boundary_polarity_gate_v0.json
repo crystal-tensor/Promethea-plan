@@ -1,0 +1,301 @@
+{
+  "benchmark_id": "B1",
+  "claim_boundary": {
+    "b7_ledger_improvement_claimed": false,
+    "next_gate": "Patch the O3-F3 preflight to use the hardened A6 polarity rule, then rerun R21-style overclaim tests.",
+    "resource_saving_claimed": false,
+    "what_is_not_supported": "R22 does not enforce the rule in R20 yet, does not accept a valid O3-F3 artifact, does not close O3, and does not permit R5 reroute. No R1 solution, occurrence removal, proxy-T reduction, B7 credit, resource saving, or impossibility theorem is supported.",
+    "what_is_supported": "R22 defines a hardened A6 claim-boundary polarity rule that passes the R20 no-credit template and fails the R21 overclaim boundary."
+  },
+  "last_updated": "2026-07-06",
+  "linked_benchmark_id": "B7",
+  "method": "b1_b7_cone01_r22_o3_f3_a6_claim_boundary_polarity_gate_v0",
+  "model_status": "o3_f3_a6_polarity_rule_ready_not_enforced_no_artifact_no_reroute",
+  "o3_f3_a6_claim_boundary_polarity_packet": {
+    "boundary_eval_hash": "15946f6def34b3c593644050f259bab04b42bcc2f99dbf4bad822b24139a45e8",
+    "decision": {
+      "a6_polarity_rule_ready": true,
+      "checked_negative_lemma_present": false,
+      "nlc02_full_lemma_ready": false,
+      "o3_closed": false,
+      "o3_f3_artifact_accepted": false,
+      "old_a6_gap_identified": true,
+      "overclaim_boundary_fails_polarity": true,
+      "reroute_allowed": false,
+      "template_boundary_passes_polarity": true,
+      "why": "R22 hardens A6 semantics but does not yet accept or solve any O3-F3 artifact."
+    },
+    "overclaim_boundary_eval": {
+      "a6_polarity_passed": false,
+      "allow_pattern_hits": [
+        "\\bavailable\\b"
+      ],
+      "concept_hits": [
+        "B7 credit",
+        "STV credit",
+        "reroute"
+      ],
+      "deny_pattern_hits": [
+        "\\bwithout\\b"
+      ],
+      "text_hash": "39937f2a26f50fdc40e0d7438d2371ea93a6c68dfe7cdf2e8856c53a7d6aeda1",
+      "why": "A6 polarity passes only when the boundary names all credit/reroute/O3 concepts, uses denial language, and contains no allowance language."
+    },
+    "polarity_hash": "3f67889a80141fec568398975029369743b8852b74d928f636e135cb585a0668",
+    "polarity_id": "B1-B7-cone01-R22-O3-F3-A6-claim-boundary-polarity",
+    "polarity_rule": {
+      "allow_patterns": [
+        "\\bavailable\\b",
+        "\\ballowed\\b",
+        "\\ballows\\b",
+        "\\bgrants?\\b",
+        "\\bclears?\\b",
+        "\\baccepts?\\b",
+        "\\bapproved\\b",
+        "\\bcredit available\\b",
+        "\\breroute available\\b",
+        "\\breroute allowed\\b",
+        "\\bo3 closed\\b",
+        "\\bcan claim\\b"
+      ],
+      "deny_patterns": [
+        "\\bno\\b",
+        "\\bnot\\b",
+        "\\bfalse\\b",
+        "\\bforbid(?:den|s)?\\b",
+        "\\brefus(?:e|es|ed)\\b",
+        "\\bwithout\\b",
+        "\\bunless\\b",
+        "\\bmay not\\b",
+        "\\bcannot\\b",
+        "\\bnot supported\\b"
+      ],
+      "gate_id": "A6",
+      "known_gap_closed": "R21 showed a field-complete overclaim could pass the old lexical A6 because it mentioned B7 credit/STV/reroute. R22 adds polarity: mention is not enough; the claim boundary must deny promotion.",
+      "name": "claim_boundary_polarity",
+      "pass_condition": "all required concepts present AND at least one denial pattern present AND zero allowance patterns present",
+      "required_concepts": [
+        "B7 credit",
+        "STV credit",
+        "reroute",
+        "O3 closure"
+      ],
+      "rule_id": "B1-B7-cone01-R22-O3-F3-A6-claim-boundary-polarity"
+    },
+    "polarity_rule_hash": "c22b841f3111472b7b583bf5caa075f96935408fab8510f2a6362e112d70b608",
+    "source_hashes": {
+      "overclaim_fixture_file": "11c75cc0a36ded018d38dd98814e31128e27f43effc4be3b513f0c49ab46d3e1",
+      "r20_intake_file": "3b43af35c39a6ff6f76a659640b7e1521d88f0caabbdf11ca28e1b63de684219",
+      "r21_sentinel_file": "df9bfcd0fe71479c128daa2c00071580e619b878686229e86d55bd9044dd561e",
+      "template_file": "e3a3b7dd12eafcac3a534f1ef97f156847179930f1972e36ac7b1f1f962745a9"
+    },
+    "source_intake_hash": "910b0c5fba62514e1e691ae4498a2667c23dd41be906f6925eee397bded2e794",
+    "source_overclaim_fixture": "results/B1_B7_cone01_o3_f3_symbolic_lu_submissions/B1-B7-cone01-O3-F3-symbolic-lu.overclaim-sentinel.json",
+    "source_overclaim_fixture_hash": "0bb930b6c825d3814ec987ccb69d1034e652fffb2f2b0790297d150800a45906",
+    "source_r20_intake": "results/B1_B7_cone01_R20_o3_f3_artifact_intake_preflight_gate_v0.json",
+    "source_r21_sentinel": "results/B1_B7_cone01_R21_o3_f3_overclaim_sentinel_gate_v0.json",
+    "source_sentinel_hash": "6683b2869f18c0b4fd2b1aefaef3de77598345b827cc9aecd77e549b74d9ee3f",
+    "source_target_id": "T-B1-004dx/T-B7-013g",
+    "source_template": "results/B1_B7_cone01_o3_f3_symbolic_lu_submissions/B1-B7-cone01-O3-F3-symbolic-lu.template.json",
+    "template_boundary_eval": {
+      "a6_polarity_passed": true,
+      "allow_pattern_hits": [],
+      "concept_hits": [
+        "B7 credit",
+        "STV credit",
+        "reroute",
+        "O3 closure"
+      ],
+      "deny_pattern_hits": [
+        "\\bno\\b",
+        "\\bunless\\b"
+      ],
+      "text_hash": "48cde4280594d45e7ad05cae569ce1dd0bf5ad5ada060ebb269af6a5fc243d9f",
+      "why": "A6 polarity passes only when the boundary names all credit/reroute/O3 concepts, uses denial language, and contains no allowance language."
+    }
+  },
+  "requirements": [
+    {
+      "evidence": {
+        "r20_method": "b1_b7_cone01_r20_o3_f3_artifact_intake_preflight_gate_v0",
+        "r20_validation_error_count": 0,
+        "r21_method": "b1_b7_cone01_r21_o3_f3_overclaim_sentinel_gate_v0",
+        "r21_validation_error_count": 0
+      },
+      "label": "R20 intake and R21 sentinel are validation-clean sources",
+      "passed": true,
+      "requirement_id": "M1"
+    },
+    {
+      "evidence": {
+        "accepted": false,
+        "blocked_gate_ids": [],
+        "failed_gate_ids": [
+          "A2",
+          "A4",
+          "A7",
+          "A8"
+        ],
+        "missing_required_fields": [],
+        "passed_gate_ids": [
+          "A1",
+          "A3",
+          "A5",
+          "A6"
+        ],
+        "submission_exists": true,
+        "why": "Overclaim sentinel must be rejected despite field completeness."
+      },
+      "label": "R21 overclaim fixture passed old A6 while still rejected elsewhere",
+      "passed": true,
+      "requirement_id": "M2"
+    },
+    {
+      "evidence": {
+        "required_concepts": [
+          "B7 credit",
+          "STV credit",
+          "reroute",
+          "O3 closure"
+        ]
+      },
+      "label": "A6 polarity rule names all required credit/reroute/O3 concepts",
+      "passed": true,
+      "requirement_id": "M3"
+    },
+    {
+      "evidence": {
+        "a6_polarity_passed": true,
+        "allow_pattern_hits": [],
+        "concept_hits": [
+          "B7 credit",
+          "STV credit",
+          "reroute",
+          "O3 closure"
+        ],
+        "deny_pattern_hits": [
+          "\\bno\\b",
+          "\\bunless\\b"
+        ],
+        "text_hash": "48cde4280594d45e7ad05cae569ce1dd0bf5ad5ada060ebb269af6a5fc243d9f",
+        "why": "A6 polarity passes only when the boundary names all credit/reroute/O3 concepts, uses denial language, and contains no allowance language."
+      },
+      "label": "R20 template boundary passes hardened A6 polarity",
+      "passed": true,
+      "requirement_id": "M4"
+    },
+    {
+      "evidence": {
+        "a6_polarity_passed": false,
+        "allow_pattern_hits": [
+          "\\bavailable\\b"
+        ],
+        "concept_hits": [
+          "B7 credit",
+          "STV credit",
+          "reroute"
+        ],
+        "deny_pattern_hits": [
+          "\\bwithout\\b"
+        ],
+        "text_hash": "39937f2a26f50fdc40e0d7438d2371ea93a6c68dfe7cdf2e8856c53a7d6aeda1",
+        "why": "A6 polarity passes only when the boundary names all credit/reroute/O3 concepts, uses denial language, and contains no allowance language."
+      },
+      "label": "R21 overclaim boundary fails hardened A6 polarity",
+      "passed": true,
+      "requirement_id": "M5"
+    },
+    {
+      "evidence": {
+        "a6_polarity_rule_ready": true,
+        "checked_negative_lemma_present": false,
+        "nlc02_full_lemma_ready": false,
+        "o3_closed": false,
+        "o3_f3_artifact_accepted": false,
+        "old_a6_gap_identified": true,
+        "overclaim_boundary_fails_polarity": true,
+        "reroute_allowed": false,
+        "template_boundary_passes_polarity": true,
+        "why": "R22 hardens A6 semantics but does not yet accept or solve any O3-F3 artifact."
+      },
+      "label": "Polarity hardening is diagnostic and does not accept O3-F3",
+      "passed": true,
+      "requirement_id": "M6"
+    },
+    {
+      "evidence": {
+        "accepted_occurrence_removal": 0,
+        "accepted_proxy_t_reduction": 0,
+        "accepted_route_count": 0,
+        "b7_credit_delta": 0,
+        "b7_ledger_improvement_claimed": false,
+        "b7_space_time_volume_credit": 0,
+        "resource_saving_claimed": false
+      },
+      "label": "R22 preserves zero B7/resource credit claims",
+      "passed": true,
+      "requirement_id": "M7"
+    },
+    {
+      "evidence": {
+        "boundary_eval_hash": "15946f6def34b3c593644050f259bab04b42bcc2f99dbf4bad822b24139a45e8",
+        "polarity_hash": "3f67889a80141fec568398975029369743b8852b74d928f636e135cb585a0668",
+        "polarity_rule_hash": "c22b841f3111472b7b583bf5caa075f96935408fab8510f2a6362e112d70b608"
+      },
+      "label": "Polarity packet is internally hash-bound",
+      "passed": true,
+      "requirement_id": "M8"
+    }
+  ],
+  "runtime_seconds": 0.000751,
+  "source_target_id": "T-B1-004dx/T-B7-013g",
+  "status": "cone01_r22_o3_f3_a6_claim_boundary_polarity_ready",
+  "summary": {
+    "a6_polarity_enforced_in_r20": false,
+    "a6_polarity_rule_ready": true,
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "accepted_route_count": 0,
+    "allow_pattern_count": 12,
+    "b7_credit_delta": 0,
+    "b7_ledger_improvement_claimed": false,
+    "b7_space_time_volume_credit": 0,
+    "boundary_eval_hash": "15946f6def34b3c593644050f259bab04b42bcc2f99dbf4bad822b24139a45e8",
+    "candidate_id": "NL-C02",
+    "checked_negative_lemma_present": false,
+    "deny_pattern_count": 10,
+    "failed_requirement_ids": [],
+    "family_id": "O3-F3",
+    "nlc02_full_lemma_ready": false,
+    "o3_closed": false,
+    "o3_f3_artifact_accepted": false,
+    "old_a6_gap_identified": true,
+    "overclaim_allow_pattern_hits": [
+      "\\bavailable\\b"
+    ],
+    "overclaim_boundary_fails_polarity": true,
+    "polarity_hash": "3f67889a80141fec568398975029369743b8852b74d928f636e135cb585a0668",
+    "polarity_id": "B1-B7-cone01-R22-O3-F3-A6-claim-boundary-polarity",
+    "polarity_rule_hash": "c22b841f3111472b7b583bf5caa075f96935408fab8510f2a6362e112d70b608",
+    "remaining_open_obligation_count": 3,
+    "remaining_open_obligations": [
+      "O3-F3_symbolic_lu_artifact",
+      "O3-F4_refit_harness",
+      "O3-F5_route_a_artifact"
+    ],
+    "required_concept_count": 4,
+    "requirement_count": 8,
+    "requirements_failed": 0,
+    "requirements_passed": 8,
+    "reroute_allowed": false,
+    "resource_saving_claimed": false,
+    "source_intake_hash": "910b0c5fba62514e1e691ae4498a2667c23dd41be906f6925eee397bded2e794",
+    "source_sentinel_hash": "6683b2869f18c0b4fd2b1aefaef3de77598345b827cc9aecd77e549b74d9ee3f",
+    "template_boundary_passes_polarity": true,
+    "validation_error_count": 0
+  },
+  "title": "B1/B7 Cone01 R22 O3-F3 A6 Claim-Boundary Polarity Gate",
+  "upstream_target_id": "T-B1-004dw/T-B7-013f",
+  "validation_errors": [],
+  "version": "0.1"
+}

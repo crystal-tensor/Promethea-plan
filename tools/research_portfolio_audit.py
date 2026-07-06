@@ -34447,6 +34447,10 @@ def audit(root: Path) -> dict:
                 research
                 / "B1_B7_cone01_R21_o3_f3_overclaim_sentinel_gate.md"
             ),
+            "b1_b7_cone01_r22_o3_f3_a6_claim_boundary_polarity_gate": str(
+                research
+                / "B1_B7_cone01_R22_o3_f3_a6_claim_boundary_polarity_gate.md"
+            ),
             "b7_w8_21_symbolic_certificate_replay_validation_manifest_gate": str(
                 research / "B7_w8_21_symbolic_certificate_replay_validation_manifest_gate.md"
             ),
