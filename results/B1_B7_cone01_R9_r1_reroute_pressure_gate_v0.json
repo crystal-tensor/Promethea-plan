@@ -1,0 +1,426 @@
+{
+  "benchmark_id": "B1",
+  "claim_boundary": {
+    "b7_ledger_improvement_claimed": false,
+    "next_gate": "Submit a checked negative lemma artifact that binds these source hashes and states the covered R1 search domain, or submit a new R1 artifact that clears R8 Route A or Route B.",
+    "resource_saving_claimed": false,
+    "what_is_not_supported": "No checked negative lemma, R5 reroute, submitted R1 solution, occurrence removal, proxy-T reduction, B7 credit, resource saving, or impossibility theorem is supported.",
+    "what_is_supported": "R9 aggregates hash-bound R1 negative-pressure evidence and shows why a checked negative lemma would be valuable."
+  },
+  "last_updated": "2026-07-06",
+  "linked_benchmark_id": "B7",
+  "method": "b1_b7_cone01_r9_r1_reroute_pressure_gate_v0",
+  "model_status": "r1_line1381_evidence_pressures_reroute_but_no_checked_negative_lemma",
+  "r1_reroute_pressure_packet": {
+    "commutation_corridor_pressure": {
+      "method": "b1_b7_cone01_line1381_commutation_corridor_gate_v0",
+      "path": "results/B1_B7_cone01_line1381_commutation_corridor_gate_v0.json",
+      "sha256": "d34a121de16a6767ebb3f7c33cf28de3ba85aa5a98616cb82123245e49faae54",
+      "status": "cone01_line1381_commutation_corridor_not_accepted",
+      "summary": {
+        "accepted_commutation_corridor_replay_candidate_count": 0,
+        "best_context_candidate_count": 10,
+        "blocked_corridor_reference_count": 21,
+        "candidate_all_references_corridor_accepted_count": 0
+      },
+      "validation_error_count": 0
+    },
+    "context_absorption_pressure": {
+      "context_widths_tested": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "min_context_grid_error": 0.001581991109333103,
+      "rows": [
+        {
+          "exact_absorption_parameter_count": 0,
+          "method": "b1_b7_cone01_line1381_context_absorption_gate_v0",
+          "path": "results/B1_B7_cone01_line1381_context_absorption_gate_v0.json",
+          "sha256": "118b52e297f11332d292b7ace88267188e697bc4854c598e896cf26f84a8af6f",
+          "status": "cone01_line1381_context_absorption_not_accepted",
+          "summary": {
+            "accepted_context_absorption_certificate_count": 0,
+            "context_grid_cancellation_exact_parameter_count": 0,
+            "context_rotation_argument_count": 44,
+            "max_best_context_grid_cancellation_error": 0.09773822449711567,
+            "min_best_context_grid_cancellation_error": 0.0027465552120480297
+          },
+          "validation_error_count": 0,
+          "widths": [
+            1
+          ]
+        },
+        {
+          "exact_absorption_parameter_count": 0,
+          "method": "b1_b7_cone01_line1381_multi_rotation_context_gate_v0",
+          "path": "results/B1_B7_cone01_line1381_multi_rotation_context_gate_v0.json",
+          "sha256": "0fa1361499079121c72c8cf601686ff068d068aec4ad4da1543f2a1334c55b08",
+          "status": "cone01_line1381_multi_rotation_context_not_accepted",
+          "summary": {
+            "accepted_multi_rotation_context_absorption_count": 0,
+            "min_best_width3_context_grid_error": 0.0015819911093339911,
+            "width2_exact_absorption_parameter_count": 0,
+            "width2_signed_combination_count_per_parameter": 3784,
+            "width3_exact_absorption_parameter_count": 0,
+            "width3_signed_combination_count_per_parameter": 105952
+          },
+          "validation_error_count": 0,
+          "widths": [
+            2,
+            3
+          ]
+        },
+        {
+          "exact_absorption_parameter_count": 0,
+          "method": "b1_b7_cone01_line1381_four_rotation_context_gate_v0",
+          "path": "results/B1_B7_cone01_line1381_four_rotation_context_gate_v0.json",
+          "sha256": "1f0150dc599146e40c99fed02348327c09bef8049747b6ee6f021ae145ab6829",
+          "status": "cone01_line1381_four_rotation_context_not_accepted",
+          "summary": {
+            "accepted_four_rotation_context_absorption_count": 0,
+            "min_best_width4_context_grid_error": 0.0015819911093339911,
+            "width4_exact_absorption_parameter_count": 0,
+            "width4_signed_combination_count_per_parameter": 2172016
+          },
+          "validation_error_count": 0,
+          "widths": [
+            4
+          ]
+        },
+        {
+          "exact_absorption_parameter_count": 0,
+          "method": "b1_b7_cone01_line1381_five_rotation_context_gate_v0",
+          "path": "results/B1_B7_cone01_line1381_five_rotation_context_gate_v0.json",
+          "sha256": "81311eafd33ddb26c903e0dd232aa07c8d89083d7be369fac29c736650b63eaf",
+          "status": "cone01_line1381_five_rotation_context_not_accepted",
+          "summary": {
+            "accepted_five_rotation_context_absorption_count": 0,
+            "min_best_width5_context_grid_error": 0.001581991109333103,
+            "width5_exact_absorption_parameter_count": 0,
+            "width5_signed_combination_count_per_parameter": 34752256
+          },
+          "validation_error_count": 0,
+          "widths": [
+            5
+          ]
+        }
+      ],
+      "total_context_exact_absorption_parameter_count": 0,
+      "width5_virtual_test_count": 173761280
+    },
+    "exact_decomposition_pressure": {
+      "method": "b1_b7_cone01_line1381_exact_decomposition_pressure_gate_v0",
+      "path": "results/B1_B7_cone01_line1381_exact_decomposition_pressure_gate_v0.json",
+      "sha256": "461f82b7629b3f8f5830c19c79a146e84838b9b835c3ef44cd36bfb0705f3fd6",
+      "status": "cone01_line1381_exact_decomposition_pressure_not_accepted",
+      "summary": {
+        "accepted_exact_decomposition_parameter_count": 0,
+        "accepted_source_absorption_count": 0,
+        "accepted_symbolic_decomposition_count": 0,
+        "remaining_off_grid_parameter_count": 5,
+        "tested_remaining_parameter_count": 5
+      },
+      "validation_error_count": 0
+    },
+    "next_gate": "Submit a checked negative lemma artifact that binds these source hashes and states the covered R1 search domain, or submit a new R1 artifact that clears R8 Route A or Route B.",
+    "packet_id": "B1-B7-cone01-R9-R1-reroute-pressure",
+    "parameter_removal_pressure": {
+      "leave_attempt_exact_fail_count": 31,
+      "leave_attempt_exact_pass_count": 0,
+      "leave_attempt_family_count": 5,
+      "leave_attempt_row_count": 31,
+      "rows": [
+        {
+          "exact_fail_count": 5,
+          "exact_pass_count": 0,
+          "method": "b1_b7_cone01_line1381_leave_one_out_parameter_gate_v0",
+          "path": "results/B1_B7_cone01_line1381_leave_one_out_parameter_gate_v0.json",
+          "row_count": 5,
+          "sha256": "ea3381c10f09a98a528845eb4cd6d1cf20902dc01c96e6dfc59a4dfa2df95f3f",
+          "status": "cone01_line1381_no_single_parameter_free_removal",
+          "summary": {
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "current_off_grid_parameter_count": 5,
+            "current_off_grid_parameter_indices": [
+              3,
+              4,
+              9,
+              16,
+              17
+            ],
+            "exact_tolerance": 1e-08,
+            "line1381_off_grid_parameters_absorbed": false,
+            "line1381_off_grid_parameters_eliminated": false,
+            "line1381_off_grid_parameters_symbolically_decomposed": false
+          },
+          "validation_error_count": 0
+        },
+        {
+          "exact_fail_count": 10,
+          "exact_pass_count": 0,
+          "method": "b1_b7_cone01_line1381_leave_two_out_parameter_gate_v0",
+          "path": "results/B1_B7_cone01_line1381_leave_two_out_parameter_gate_v0.json",
+          "row_count": 10,
+          "sha256": "5887a4dfe28344229e190328e0ea2e3ab344c8c725f50ca4a08d9e16210cf63a",
+          "status": "cone01_line1381_no_two_parameter_free_removal",
+          "summary": {
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "current_off_grid_parameter_count": 5,
+            "current_off_grid_parameter_indices": [
+              3,
+              4,
+              9,
+              16,
+              17
+            ],
+            "exact_tolerance": 1e-08,
+            "line1381_off_grid_parameters_absorbed": false,
+            "line1381_off_grid_parameters_eliminated": false,
+            "line1381_off_grid_parameters_symbolically_decomposed": false
+          },
+          "validation_error_count": 0
+        },
+        {
+          "exact_fail_count": 10,
+          "exact_pass_count": 0,
+          "method": "b1_b7_cone01_line1381_leave_three_out_parameter_gate_v0",
+          "path": "results/B1_B7_cone01_line1381_leave_three_out_parameter_gate_v0.json",
+          "row_count": 10,
+          "sha256": "888e6ee98d12fcf43c1a949b507777e32346476a22f6f74ccf648abea3b72db3",
+          "status": "cone01_line1381_no_three_parameter_free_removal",
+          "summary": {
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "current_off_grid_parameter_count": 5,
+            "current_off_grid_parameter_indices": [
+              3,
+              4,
+              9,
+              16,
+              17
+            ],
+            "exact_tolerance": 1e-08,
+            "line1381_off_grid_parameters_absorbed": false,
+            "line1381_off_grid_parameters_eliminated": false,
+            "line1381_off_grid_parameters_symbolically_decomposed": false
+          },
+          "validation_error_count": 0
+        },
+        {
+          "exact_fail_count": 5,
+          "exact_pass_count": 0,
+          "method": "b1_b7_cone01_line1381_leave_four_out_parameter_gate_v0",
+          "path": "results/B1_B7_cone01_line1381_leave_four_out_parameter_gate_v0.json",
+          "row_count": 5,
+          "sha256": "84e8ff371017a148e6a7fa23b30cfaa2e20b3e9da6873ee99d324a0a0d64db88",
+          "status": "cone01_line1381_no_four_parameter_free_removal",
+          "summary": {
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "current_off_grid_parameter_count": 5,
+            "current_off_grid_parameter_indices": [
+              3,
+              4,
+              9,
+              16,
+              17
+            ],
+            "exact_tolerance": 1e-08,
+            "line1381_off_grid_parameters_absorbed": false,
+            "line1381_off_grid_parameters_eliminated": false,
+            "line1381_off_grid_parameters_symbolically_decomposed": false
+          },
+          "validation_error_count": 0
+        },
+        {
+          "exact_fail_count": 1,
+          "exact_pass_count": 0,
+          "method": "b1_b7_cone01_line1381_leave_five_out_parameter_gate_v0",
+          "path": "results/B1_B7_cone01_line1381_leave_five_out_parameter_gate_v0.json",
+          "row_count": 1,
+          "sha256": "52db3a5421075244170ff9c5faac19e70a5b072c7cab0dc26d0a1423c42ae5da",
+          "status": "cone01_line1381_no_all_grid_parameter_free_removal",
+          "summary": {
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "current_off_grid_parameter_count": 5,
+            "current_off_grid_parameter_indices": [
+              3,
+              4,
+              9,
+              16,
+              17
+            ],
+            "exact_tolerance": 1e-08,
+            "line1381_off_grid_parameters_absorbed": false,
+            "line1381_off_grid_parameters_eliminated": false,
+            "line1381_off_grid_parameters_symbolically_decomposed": false
+          },
+          "validation_error_count": 0
+        }
+      ]
+    },
+    "physical_pricing_pressure": {
+      "method": "b1_b7_cone01_physical_synthesis_pricing_gate_v0",
+      "path": "results/B1_B7_cone01_physical_synthesis_pricing_gate_v0.json",
+      "sha256": "bca6235672c89680c12894dd934deee34880dc2b06206c8ad35459a0385e08e6",
+      "status": "cone01_physical_synthesis_pricing_rejects_line1381_b7_credit",
+      "summary": {
+        "physical_synthesis_cost_minus_selected_cnot_credit": 365,
+        "physical_synthesis_pricing_accepted": false,
+        "placeholder_proxy_t_pressure": 100,
+        "selected_cnot_delta_proxy_credit": 120,
+        "total_physical_synthesis_t_count_bound": 485
+      },
+      "validation_error_count": 0
+    },
+    "pressure_hash": "6d91bce5a09c4407ef9d7bcac0a81a5983c186dc23b3c98edb1a91b4a4ef4505",
+    "r8_preflight_hash": "e6d5be7ca79021780009f91fd17df8ec206db924e6d402c12472aa854bbac977",
+    "reroute_decision": {
+      "checked_negative_lemma_present": false,
+      "current_evidence_supports_pressure_note": true,
+      "reroute_allowed": false,
+      "why_not_reroute_yet": "The current evidence rejects many concrete R1 subroutes, but it is not a checked negative lemma covering all R1 parameter-elimination, absorption, symbolic, and physical-pricing possibilities."
+    },
+    "route_a_passed": false,
+    "route_b_passed": false,
+    "source_r8_preflight": "results/B1_B7_cone01_R8_r1_contract_preflight_gate_v0.json",
+    "source_target_id": "T-B1-004dk/T-B7-012t"
+  },
+  "requirements": [
+    {
+      "evidence": {
+        "r8_method": "b1_b7_cone01_r8_r1_contract_preflight_gate_v0",
+        "route_a_passed": false,
+        "route_b_passed": false
+      },
+      "label": "R8 preflight rejects both R1 contract routes",
+      "passed": true,
+      "requirement_id": "N1"
+    },
+    {
+      "evidence": {
+        "leave_attempt_exact_fail_count": 31,
+        "leave_attempt_exact_pass_count": 0,
+        "leave_attempt_family_count": 5,
+        "leave_attempt_row_count": 31
+      },
+      "label": "Leave-out parameter removal pressure covers all nonempty removal sizes",
+      "passed": true,
+      "requirement_id": "N2"
+    },
+    {
+      "evidence": {
+        "accepted_exact_decomposition_parameter_count": 0,
+        "accepted_source_absorption_count": 0,
+        "remaining_off_grid_parameter_count": 5
+      },
+      "label": "Simple exact decomposition/source absorption accepts none of the five parameters",
+      "passed": true,
+      "requirement_id": "N3"
+    },
+    {
+      "evidence": {
+        "context_widths_tested": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "min_context_grid_error": 0.001581991109333103,
+        "total_context_exact_absorption_parameter_count": 0,
+        "width5_virtual_test_count": 173761280
+      },
+      "label": "Context absorption pressure covers widths one through five with zero exact absorptions",
+      "passed": true,
+      "requirement_id": "N4"
+    },
+    {
+      "evidence": {
+        "accepted_commutation_corridor_replay_candidate_count": 0,
+        "candidate_all_references_corridor_accepted_count": 0
+      },
+      "label": "Commutation-corridor pressure accepts no replay-safe candidate",
+      "passed": true,
+      "requirement_id": "N5"
+    },
+    {
+      "evidence": {
+        "physical_synthesis_cost_minus_selected_cnot_credit": 365,
+        "physical_synthesis_pricing_accepted": false
+      },
+      "label": "Physical pricing still misses Route B by 365",
+      "passed": true,
+      "requirement_id": "N6"
+    },
+    {
+      "evidence": {
+        "context_source_count": 4,
+        "hash_bound": true,
+        "leave_source_count": 5
+      },
+      "label": "All pressure sources are hash-bound and validation-clean",
+      "passed": true,
+      "requirement_id": "N7"
+    },
+    {
+      "evidence": {
+        "checked_negative_lemma_present": false,
+        "current_evidence_supports_pressure_note": true,
+        "reroute_allowed": false,
+        "why_not_reroute_yet": "The current evidence rejects many concrete R1 subroutes, but it is not a checked negative lemma covering all R1 parameter-elimination, absorption, symbolic, and physical-pricing possibilities."
+      },
+      "label": "Pressure is not upgraded into a checked negative lemma or reroute decision",
+      "passed": true,
+      "requirement_id": "N8"
+    }
+  ],
+  "runtime_seconds": 0.001324,
+  "source_target_id": "T-B1-004dk/T-B7-012t",
+  "status": "cone01_r9_r1_reroute_pressure_not_checked_negative_lemma",
+  "summary": {
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "accepted_route_count": 0,
+    "b7_credit_delta": 0,
+    "b7_ledger_improvement_claimed": false,
+    "b7_space_time_volume_credit": 0,
+    "checked_negative_lemma_present": false,
+    "commutation_corridor_accepted_count": 0,
+    "context_widths_tested": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "failed_requirement_ids": [],
+    "leave_attempt_exact_pass_count": 0,
+    "leave_attempt_family_count": 5,
+    "leave_attempt_row_count": 31,
+    "min_context_grid_error": 0.001581991109333103,
+    "physical_cost_minus_credit": 365,
+    "pressure_hash": "6d91bce5a09c4407ef9d7bcac0a81a5983c186dc23b3c98edb1a91b4a4ef4505",
+    "pressure_id": "B1-B7-cone01-R9-R1-reroute-pressure",
+    "r8_preflight_hash": "e6d5be7ca79021780009f91fd17df8ec206db924e6d402c12472aa854bbac977",
+    "requirement_count": 8,
+    "requirements_failed": 0,
+    "requirements_passed": 8,
+    "reroute_allowed": false,
+    "resource_saving_claimed": false,
+    "route_a_passed": false,
+    "route_b_passed": false,
+    "total_context_exact_absorption_parameter_count": 0,
+    "validation_error_count": 0,
+    "width5_virtual_test_count": 173761280
+  },
+  "title": "B1/B7 Cone01 R9 R1 Reroute-Pressure Gate",
+  "validation_errors": [],
+  "version": "0.1"
+}

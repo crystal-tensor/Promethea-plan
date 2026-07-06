@@ -3405,6 +3405,42 @@ current_results:
     caveat: r8_preflight_rejection_only_no_r1_submission_no_resource_saving_or_b7_credit
     report: ../results/B1_B7_cone01_R8_r1_contract_preflight_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R8_r1_contract_preflight_gate.md
+  b1_b7_cone01_r9_r1_reroute_pressure_gate_v0:
+    circuits: 1
+    status: cone01_r9_r1_reroute_pressure_not_checked_negative_lemma
+    model_status: r1_line1381_evidence_pressures_reroute_but_no_checked_negative_lemma
+    method: b1_b7_cone01_r9_r1_reroute_pressure_gate_v0
+    source_r8_preflight: ../results/B1_B7_cone01_R8_r1_contract_preflight_gate_v0.json
+    source_target_id: T-B1-004dk/T-B7-012t
+    pressure_id: B1-B7-cone01-R9-R1-reroute-pressure
+    pressure_hash: 6d91bce5a09c4407ef9d7bcac0a81a5983c186dc23b3c98edb1a91b4a4ef4505
+    r8_preflight_hash: e6d5be7ca79021780009f91fd17df8ec206db924e6d402c12472aa854bbac977
+    requirements_passed: 8
+    requirements_failed: 0
+    route_a_passed: false
+    route_b_passed: false
+    leave_attempt_family_count: 5
+    leave_attempt_row_count: 31
+    leave_attempt_exact_pass_count: 0
+    context_widths_tested: [1, 2, 3, 4, 5]
+    total_context_exact_absorption_parameter_count: 0
+    width5_virtual_test_count: 173761280
+    min_context_grid_error: 0.001581991109333103
+    commutation_corridor_accepted_count: 0
+    physical_cost_minus_credit: 365
+    reroute_allowed: false
+    checked_negative_lemma_present: false
+    accepted_route_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    validation_error_count: 0
+    caveat: r9_pressure_only_no_checked_negative_lemma_no_reroute_no_resource_saving_or_b7_credit
+    report: ../results/B1_B7_cone01_R9_r1_reroute_pressure_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R9_r1_reroute_pressure_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate
@@ -5067,4 +5103,5 @@ prototype_artifacts:
   b1_b7_cone01_r6_r1_source_evidence_inventory_gate: ../tools/b1_b7_cone01_r6_r1_source_evidence_inventory_gate.py
   b1_b7_cone01_r7_r1_submission_contract_gate: ../tools/b1_b7_cone01_r7_r1_submission_contract_gate.py
   b1_b7_cone01_r8_r1_contract_preflight_gate: ../tools/b1_b7_cone01_r8_r1_contract_preflight_gate.py
+  b1_b7_cone01_r9_r1_reroute_pressure_gate: ../tools/b1_b7_cone01_r9_r1_reroute_pressure_gate.py
   synthetic_noise_proxy: ../tools/b1_synthetic_noise_proxy.py

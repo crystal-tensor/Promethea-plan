@@ -462,6 +462,36 @@ current_results:
     caveat: r8_preflight_rejection_only_no_r1_submission_no_resource_saving_or_b7_credit
     report: ../results/B1_B7_cone01_R8_r1_contract_preflight_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R8_r1_contract_preflight_gate.md
+  b1_b7_cone01_r9_r1_reroute_pressure_gate_v0:
+    status: cone01_r9_r1_reroute_pressure_not_checked_negative_lemma
+    method: b1_b7_cone01_r9_r1_reroute_pressure_gate_v0
+    source_b1_r9_r1_reroute_pressure: ../results/B1_B7_cone01_R9_r1_reroute_pressure_gate_v0.json
+    source_r8_preflight: ../results/B1_B7_cone01_R8_r1_contract_preflight_gate_v0.json
+    source_target_id: T-B1-004dk/T-B7-012t
+    pressure_id: B1-B7-cone01-R9-R1-reroute-pressure
+    pressure_hash: 6d91bce5a09c4407ef9d7bcac0a81a5983c186dc23b3c98edb1a91b4a4ef4505
+    route_a_passed: false
+    route_b_passed: false
+    leave_attempt_row_count: 31
+    leave_attempt_exact_pass_count: 0
+    context_widths_tested: [1, 2, 3, 4, 5]
+    total_context_exact_absorption_parameter_count: 0
+    width5_virtual_test_count: 173761280
+    physical_cost_minus_credit: 365
+    reroute_allowed: false
+    checked_negative_lemma_present: false
+    accepted_route_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_dependency_credit_allowed: false
+    b7_resource_credit_allowed: false
+    b7_ft_ledger_credit_allowed: false
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    validation_error_count: 0
+    caveat: r9_pressure_only_no_checked_negative_lemma_no_reroute_no_resource_saving_or_b7_credit
+    report: ../results/B1_B7_cone01_R9_r1_reroute_pressure_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R9_r1_reroute_pressure_gate.md
   b2_calibrated_dependency_credit_gate_v0:
     status: b2_calibrated_dependency_credit_rejected_missing_hardware_evidence
     method: b7_b2_calibrated_dependency_credit_gate_v0
@@ -1264,6 +1294,7 @@ prototype_artifacts:
   b1_b7_cone01_r6_r1_source_evidence_inventory_gate: ../tools/b1_b7_cone01_r6_r1_source_evidence_inventory_gate.py
   b1_b7_cone01_r7_r1_submission_contract_gate: ../tools/b1_b7_cone01_r7_r1_submission_contract_gate.py
   b1_b7_cone01_r8_r1_contract_preflight_gate: ../tools/b1_b7_cone01_r8_r1_contract_preflight_gate.py
+  b1_b7_cone01_r9_r1_reroute_pressure_gate: ../tools/b1_b7_cone01_r9_r1_reroute_pressure_gate.py
   b1_b7_cone01_resource_escape_replay_validation_manifest_gate: ../tools/b1_b7_cone01_resource_escape_replay_validation_manifest_gate.py
   b1_b7_cone01_resource_escape_acceptance_packet_gate: ../tools/b1_b7_cone01_resource_escape_acceptance_packet_gate.py
   b2_calibration_source_manifest_gate: ../tools/b2_calibration_source_manifest_gate.py
