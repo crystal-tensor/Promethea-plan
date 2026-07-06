@@ -1,0 +1,272 @@
+{
+  "benchmark_id": "B1",
+  "claim_boundary": {
+    "b7_ledger_improvement_claimed": false,
+    "next_gate": "Either eliminate the remaining five line1381 off-grid parameters with submitted replay/symbolic-equivalence and ledgers, improve physical cost-minus-credit by at least 365, or submit a checked negative lemma to reroute R5.",
+    "resource_saving_claimed": false,
+    "what_is_not_supported": "No submitted R1 artifact, accepted R1 route, line1381 parameter elimination, physical-pricing win, occurrence removal, proxy-T reduction, B7 credit, resource saving, or negative impossibility lemma is supported.",
+    "what_is_supported": "R8 preflights existing line1381 evidence against the R7 contract and rejects both acceptance routes with quantified blockers."
+  },
+  "last_updated": "2026-07-06",
+  "linked_benchmark_id": "B7",
+  "method": "b1_b7_cone01_r8_r1_contract_preflight_gate_v0",
+  "model_status": "existing_line1381_evidence_fails_both_r7_acceptance_routes",
+  "r1_contract_preflight_packet": {
+    "candidate_package": "existing_r6_evidence_without_submitted_r1_artifact",
+    "next_atomic_work_order": [
+      "Produce a submitted R1 artifact that reduces line1381 off-grid parameter count from 5 to 0, then attach full replay or symbolic equivalence and ledgers.",
+      "Or produce a physical-pricing replay that improves cost-minus-credit by at least 365 while preserving no-double-counting and zero-credit claim boundaries before acceptance.",
+      "Or submit a checked negative lemma proving R1 should be abandoned and R5 rerun against R2/R3/R4."
+    ],
+    "preflight_hash": "e6d5be7ca79021780009f91fd17df8ec206db924e6d402c12472aa854bbac977",
+    "preflight_id": "B1-B7-cone01-R8-R1-contract-preflight",
+    "quantified_gap_to_acceptance": {
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "b7_credit_delta": 0,
+      "route_a_remaining_off_grid_parameters_to_eliminate": 5,
+      "route_a_required_full_replay_or_symbolic_hash_count": 1,
+      "route_a_required_ledger_hash_count": 2,
+      "route_b_cost_minus_credit_deficit_to_zero": 365,
+      "route_b_current_unpriced_proxy_t_pressure": 100
+    },
+    "r7_contract_artifact_hash": "ffee37b9f6d07567fb60488cec42140757903ff8cb2deec812f4195f91bd897b",
+    "r7_contract_hash": "ffee37b9f6d07567fb60488cec42140757903ff8cb2deec812f4195f91bd897b",
+    "route_a": {
+      "blocking_reason": "Existing evidence has a packet-exact five-parameter repair, but the accepted route requires line1381_off_grid_parameter_count_after == 0 and a submitted artifact with replay/symbolic-equivalence plus ledgers.",
+      "checks": [
+        {
+          "observed": "43aeb8f22af8d3043489d73b50c5d57f3779e4f4ea02798479096c3448a3149b",
+          "passed": true,
+          "predicate": "source_r6_inventory_hash matches contract",
+          "required": "43aeb8f22af8d3043489d73b50c5d57f3779e4f4ea02798479096c3448a3149b"
+        },
+        {
+          "observed": 5,
+          "passed": true,
+          "predicate": "line1381_off_grid_parameter_count_before == 5",
+          "required": 5
+        },
+        {
+          "observed": 5,
+          "passed": false,
+          "predicate": "line1381_off_grid_parameter_count_after == 0",
+          "required": 0
+        },
+        {
+          "observed": 1,
+          "passed": true,
+          "predicate": "five-parameter repair is packet-exact",
+          "required": 1
+        },
+        {
+          "observed": "no submitted R1 artifact replay/symbolic-equivalence hash",
+          "passed": false,
+          "predicate": "full replay or symbolic equivalence for the submitted R1 artifact is present",
+          "required": "full_replay_or_symbolic_equivalence_hash"
+        },
+        {
+          "observed": "no submitted R1 resource_delta_ledger_hash/no_double_counting_ledger_hash",
+          "passed": false,
+          "predicate": "resource and no-double-counting ledgers for the submitted R1 artifact are present",
+          "required": "both ledger hashes"
+        }
+      ],
+      "name": "parameter_elimination_with_replay_or_symbolic_equivalence",
+      "passed": false,
+      "route_id": "A"
+    },
+    "route_b": {
+      "blocking_reason": "Existing physical pricing has cost-minus-credit 365, so it does not beat the <= 0 boundary.",
+      "checks": [
+        {
+          "observed": "43aeb8f22af8d3043489d73b50c5d57f3779e4f4ea02798479096c3448a3149b",
+          "passed": true,
+          "predicate": "source_r6_inventory_hash matches contract",
+          "required": "43aeb8f22af8d3043489d73b50c5d57f3779e4f4ea02798479096c3448a3149b"
+        },
+        {
+          "observed": 365,
+          "passed": false,
+          "predicate": "physical_pricing_replay.cost_minus_credit <= 0",
+          "required": "<= 0"
+        },
+        {
+          "observed": false,
+          "passed": false,
+          "predicate": "physical pricing replay is accepted",
+          "required": true
+        },
+        {
+          "observed": "no submitted R1 physical_pricing_replay_hash/resource_delta_ledger_hash/no_double_counting_ledger_hash",
+          "passed": false,
+          "predicate": "submitted R1 pricing and ledger hashes are present",
+          "required": "pricing and ledger hashes"
+        },
+        {
+          "observed": {
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "b7_ledger_improvement_claimed": false,
+            "b7_space_time_volume_credit": 0,
+            "resource_saving_claimed": false
+          },
+          "passed": true,
+          "predicate": "claim boundary forbids B7 credit before resource-escape acceptance",
+          "required": "zero credit until accepted"
+        }
+      ],
+      "name": "physical_pricing_replay_beats_boundary",
+      "passed": false,
+      "route_id": "B"
+    },
+    "source_hashes": {
+      "five_parameter_repair_sha256": "1c5bb9ade0ed1367e30d3c41fbc0cf83055a490e31bd5968feabfd5f2b722eb5",
+      "local_u3_pricing_sha256": "3d86831c11f7d758e72f794971ba283b0fc1a884093929b3f810bfdfe97a8275",
+      "physical_pricing_sha256": "bca6235672c89680c12894dd934deee34880dc2b06206c8ad35459a0385e08e6",
+      "r7_contract_artifact_sha256": "41e92dfa664de8fe69544773e6e64803d8e5761d79e76c03a14a70fcaa41c27b",
+      "r7_contract_gate_sha256": "f782996cee14d1fe08cbb2ddc175266cac928039afa5d34254e65a2c9d9f72bb"
+    },
+    "source_target_id": "T-B1-004dj/T-B7-012s",
+    "target_packet_id": "B1-B7-cone01-R1-line1381-resolution"
+  },
+  "requirements": [
+    {
+      "evidence": {
+        "contract_artifact_hash": "ffee37b9f6d07567fb60488cec42140757903ff8cb2deec812f4195f91bd897b",
+        "r7_contract_hash": "ffee37b9f6d07567fb60488cec42140757903ff8cb2deec812f4195f91bd897b",
+        "r7_method": "b1_b7_cone01_r7_r1_submission_contract_gate_v0",
+        "r7_requirements_failed": 0
+      },
+      "label": "R7 contract gate is current and passed",
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "evidence": {
+        "five_parameter_repair_sha256": "1c5bb9ade0ed1367e30d3c41fbc0cf83055a490e31bd5968feabfd5f2b722eb5",
+        "local_u3_pricing_sha256": "3d86831c11f7d758e72f794971ba283b0fc1a884093929b3f810bfdfe97a8275",
+        "physical_pricing_sha256": "bca6235672c89680c12894dd934deee34880dc2b06206c8ad35459a0385e08e6",
+        "r7_contract_artifact_sha256": "41e92dfa664de8fe69544773e6e64803d8e5761d79e76c03a14a70fcaa41c27b",
+        "r7_contract_gate_sha256": "f782996cee14d1fe08cbb2ddc175266cac928039afa5d34254e65a2c9d9f72bb"
+      },
+      "label": "Existing evidence source files are hash-readable",
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "evidence": {
+        "five_parameter_exact_packet_count": 1,
+        "five_parameter_exact_repair_off_pi_over_four_parameter_count": 5,
+        "method": "b1_b7_cone01_five_parameter_line1381_exact_repair_gate_v0"
+      },
+      "label": "Route A preflight is evaluated against the five-parameter exact repair evidence",
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "evidence": {
+        "line1381_replacement_off_pi_over_four_parameter_count": 5,
+        "route_a_passed": false
+      },
+      "label": "Route A remains rejected because five off-grid line1381 parameters remain",
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "evidence": {
+        "method": "b1_b7_cone01_physical_synthesis_pricing_gate_v0",
+        "physical_synthesis_cost_minus_selected_cnot_credit": 365,
+        "physical_synthesis_pricing_accepted": false
+      },
+      "label": "Route B preflight is evaluated against honest physical-pricing evidence",
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "evidence": {
+        "cost_minus_credit": 365,
+        "route_b_passed": false
+      },
+      "label": "Route B remains rejected because cost-minus-credit is positive",
+      "passed": true,
+      "requirement_id": "P6"
+    },
+    {
+      "evidence": {
+        "accepted_occurrence_removal": 0,
+        "accepted_proxy_t_reduction": 0,
+        "route_a_passed": false,
+        "route_b_passed": false
+      },
+      "label": "No R1 accepted-route, resource, or B7 credit is created by preflight",
+      "passed": true,
+      "requirement_id": "P7"
+    },
+    {
+      "evidence": {
+        "accepted_occurrence_removal": 0,
+        "accepted_proxy_t_reduction": 0,
+        "b7_credit_delta": 0,
+        "route_a_remaining_off_grid_parameters_to_eliminate": 5,
+        "route_a_required_full_replay_or_symbolic_hash_count": 1,
+        "route_a_required_ledger_hash_count": 2,
+        "route_b_cost_minus_credit_deficit_to_zero": 365,
+        "route_b_current_unpriced_proxy_t_pressure": 100
+      },
+      "label": "Preflight quantifies the next technical gap",
+      "passed": true,
+      "requirement_id": "P8"
+    },
+    {
+      "evidence": {
+        "negative_lemma_claimed": false,
+        "route_a_passed": false,
+        "route_b_passed": false
+      },
+      "label": "Preflight remains a rejection, not a negative impossibility lemma",
+      "passed": true,
+      "requirement_id": "P9"
+    }
+  ],
+  "runtime_seconds": 0.000434,
+  "source_five_parameter_repair": "results/B1_B7_cone01_five_parameter_line1381_exact_repair_gate_v0.json",
+  "source_local_u3_pricing": "results/B1_B7_cone01_line1381_local_u3_pricing_gate_v0.json",
+  "source_physical_pricing": "results/B1_B7_cone01_physical_synthesis_pricing_gate_v0.json",
+  "source_r7_contract_artifact": "results/B1_B7_cone01_r1_line1381_resolution_submissions/B1-B7-cone01-R1-line1381-resolution.contract.json",
+  "source_r7_contract_gate": "results/B1_B7_cone01_R7_r1_submission_contract_gate_v0.json",
+  "source_target_id": "T-B1-004dj/T-B7-012s",
+  "status": "cone01_r8_r1_contract_preflight_rejects_existing_evidence",
+  "summary": {
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "accepted_route_count": 0,
+    "b7_credit_delta": 0,
+    "b7_ledger_improvement_claimed": false,
+    "b7_space_time_volume_credit": 0,
+    "cost_minus_credit_deficit_to_zero": 365,
+    "failed_requirement_ids": [],
+    "line1381_packet_exact_repair_exists": true,
+    "line1381_remaining_off_grid_parameter_count": 5,
+    "line1381_unpriced_proxy_t_pressure": 100,
+    "negative_lemma_claimed": false,
+    "physical_cost_minus_credit": 365,
+    "preflight_hash": "e6d5be7ca79021780009f91fd17df8ec206db924e6d402c12472aa854bbac977",
+    "preflight_id": "B1-B7-cone01-R8-R1-contract-preflight",
+    "r7_contract_artifact_hash": "ffee37b9f6d07567fb60488cec42140757903ff8cb2deec812f4195f91bd897b",
+    "r7_contract_hash": "ffee37b9f6d07567fb60488cec42140757903ff8cb2deec812f4195f91bd897b",
+    "requirement_count": 9,
+    "requirements_failed": 0,
+    "requirements_passed": 9,
+    "resource_saving_claimed": false,
+    "route_a_failed_predicate_count": 3,
+    "route_a_passed": false,
+    "route_b_failed_predicate_count": 3,
+    "route_b_passed": false,
+    "target_submission_exists": false,
+    "validation_error_count": 0
+  },
+  "title": "B1/B7 Cone01 R8 R1 Contract Preflight Gate",
+  "validation_errors": [],
+  "version": "0.1"
+}
