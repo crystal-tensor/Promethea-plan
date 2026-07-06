@@ -416,7 +416,7 @@ def main() -> None:
     parser.add_argument(
         "--landing-page",
         type=Path,
-        default=Path("research/promethea_plan_landing.html"),
+        default=Path("research/prometheus_plan_landing.html"),
     )
     parser.add_argument(
         "--json-output",
