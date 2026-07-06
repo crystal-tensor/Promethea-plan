@@ -3367,6 +3367,44 @@ current_results:
     caveat: r7_contract_only_no_r1_submission_no_resource_saving_or_b7_credit
     report: ../results/B1_B7_cone01_R7_r1_submission_contract_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R7_r1_submission_contract_gate.md
+  b1_b7_cone01_r8_r1_contract_preflight_gate_v0:
+    circuits: 1
+    status: cone01_r8_r1_contract_preflight_rejects_existing_evidence
+    model_status: existing_line1381_evidence_fails_both_r7_acceptance_routes
+    method: b1_b7_cone01_r8_r1_contract_preflight_gate_v0
+    source_r7_contract_gate: ../results/B1_B7_cone01_R7_r1_submission_contract_gate_v0.json
+    source_r7_contract_artifact: ../results/B1_B7_cone01_r1_line1381_resolution_submissions/B1-B7-cone01-R1-line1381-resolution.contract.json
+    source_five_parameter_repair: ../results/B1_B7_cone01_five_parameter_line1381_exact_repair_gate_v0.json
+    source_local_u3_pricing: ../results/B1_B7_cone01_line1381_local_u3_pricing_gate_v0.json
+    source_physical_pricing: ../results/B1_B7_cone01_physical_synthesis_pricing_gate_v0.json
+    source_target_id: T-B1-004dj/T-B7-012s
+    preflight_id: B1-B7-cone01-R8-R1-contract-preflight
+    preflight_hash: e6d5be7ca79021780009f91fd17df8ec206db924e6d402c12472aa854bbac977
+    r7_contract_hash: ffee37b9f6d07567fb60488cec42140757903ff8cb2deec812f4195f91bd897b
+    requirements_passed: 9
+    requirements_failed: 0
+    route_a_passed: false
+    route_b_passed: false
+    accepted_route_count: 0
+    route_a_failed_predicate_count: 3
+    route_b_failed_predicate_count: 3
+    line1381_packet_exact_repair_exists: true
+    line1381_remaining_off_grid_parameter_count: 5
+    line1381_unpriced_proxy_t_pressure: 100
+    physical_cost_minus_credit: 365
+    cost_minus_credit_deficit_to_zero: 365
+    target_submission_exists: false
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    negative_lemma_claimed: false
+    validation_error_count: 0
+    caveat: r8_preflight_rejection_only_no_r1_submission_no_resource_saving_or_b7_credit
+    report: ../results/B1_B7_cone01_R8_r1_contract_preflight_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R8_r1_contract_preflight_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate
@@ -5028,4 +5066,5 @@ prototype_artifacts:
   b1_b7_cone01_r5_exit_route_priority_selector: ../tools/b1_b7_cone01_r5_exit_route_priority_selector.py
   b1_b7_cone01_r6_r1_source_evidence_inventory_gate: ../tools/b1_b7_cone01_r6_r1_source_evidence_inventory_gate.py
   b1_b7_cone01_r7_r1_submission_contract_gate: ../tools/b1_b7_cone01_r7_r1_submission_contract_gate.py
+  b1_b7_cone01_r8_r1_contract_preflight_gate: ../tools/b1_b7_cone01_r8_r1_contract_preflight_gate.py
   synthetic_noise_proxy: ../tools/b1_synthetic_noise_proxy.py
