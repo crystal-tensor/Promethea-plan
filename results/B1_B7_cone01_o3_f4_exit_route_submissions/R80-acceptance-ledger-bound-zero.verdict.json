@@ -1,0 +1,40 @@
+{
+  "accepted": false,
+  "accepted_exit_route_count": 0,
+  "accepted_occurrence_removal": 0,
+  "accepted_proxy_t_reduction": 0,
+  "artifact": "R80 acceptance-ledger-bound packet preflight verdict",
+  "b7_credit_delta": 0,
+  "b7_nonzero_retest_allowed": false,
+  "contract_hash": "b19311a49942a304e8e2e8a471163d0f919d8224b207330a080b86f5ce3e058c",
+  "contract_id": "B1-B7-cone01-R78-positive-route-packet-contract",
+  "failed_gate_count": 3,
+  "failed_gates": [
+    "accepted_exit_route_positive",
+    "accepted_occurrence_positive",
+    "accepted_proxy_t_positive"
+  ],
+  "gates": {
+    "accepted_exit_route_positive": false,
+    "accepted_occurrence_positive": false,
+    "accepted_proxy_t_positive": false,
+    "all_hash_bound_artifacts_match": true,
+    "all_required_fields_complete": true,
+    "b7_not_requested_inside_packet": true,
+    "claim_boundary_blocks_b7": true,
+    "r76_no_double_counting_preserved": true,
+    "source_r77_payload_hash_matches": true
+  },
+  "hash_failures": [],
+  "hash_fields_seen": 7,
+  "method": "b1_b7_cone01_r80_acceptance_ledger_binding_gate_v0",
+  "missing_required_field_count": 0,
+  "missing_required_fields": [],
+  "packet_hash": "39d941e996a66e0c82ae50ba146a69b97e8460a888a480227f1e7001d72f3a8d",
+  "packet_id": "B1-B7-cone01-R80-acceptance-ledger-bound-zero-packet",
+  "passed_gate_count": 6,
+  "rejection_reason": "acceptance_ledgers_bound_but_positive_occurrence_and_proxy_t_are_zero",
+  "source_target_id": "T-B1-004gd/T-B7-015m",
+  "upstream_target_id": "T-B1-004gc/T-B7-015l",
+  "verdict_hash": "866923441c929f21fdd68d338308bf2aed6f0098338c5a4d597390ed59c1ed7e"
+}

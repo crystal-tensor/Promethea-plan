@@ -2071,3 +2071,13 @@ R76 no-double-counting verdict. Missing R78 production fields drop from 15 to
 path/hash remain missing. The partial packet is still rejected on 5 gates,
 including all three positive-promotion gates, so accepted exit routes,
 occurrence removal, accepted proxy-T reduction, and B7 credit remain 0.
+
+`T-B1-004gd` / `T-B7-015m` now removes the remaining field-completeness blocker
+without promoting the route. R80 materializes hash-bound occurrence and proxy-T
+acceptance ledgers, inserts them into a new R78 packet, and reruns the
+preflight. Missing production fields drop from 4 to 0 and all hash-bound
+artifacts match, but the packet remains rejected exactly on
+`accepted_exit_route_positive`, `accepted_occurrence_positive`, and
+`accepted_proxy_t_positive`. Accepted exit routes, occurrence removal, accepted
+proxy-T reduction, and B7 credit remain 0; the next work must produce a real
+positive occurrence/proxy-T ledger rather than another surface-completion patch.

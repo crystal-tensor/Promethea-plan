@@ -1,0 +1,35 @@
+{
+  "artifact": "R80 acceptance-ledger remaining blocker queue",
+  "b7_rule": "No nonzero B7 retest until R80-P1/P2/P3 all pass together.",
+  "blocker_queue_hash": "d82ad836b1e7634292909d333fc0c070601461ee8a2213f90ac9cb0b6a6fcdb5",
+  "current_preflight_accepted": false,
+  "failed_gates": [
+    "accepted_exit_route_positive",
+    "accepted_occurrence_positive",
+    "accepted_proxy_t_positive"
+  ],
+  "method": "b1_b7_cone01_r80_acceptance_ledger_binding_gate_v0",
+  "missing_required_fields": [],
+  "queue": [
+    {
+      "blocker_id": "R80-P1",
+      "needed_artifact": "source-backed occurrence-removal ledger with accepted_occurrence_removal>=1",
+      "priority": 1,
+      "target_gate": "accepted_occurrence_positive"
+    },
+    {
+      "blocker_id": "R80-P2",
+      "needed_artifact": "source-backed proxy-T derivation ledger with accepted_proxy_t_reduction>=1",
+      "priority": 2,
+      "target_gate": "accepted_proxy_t_positive"
+    },
+    {
+      "blocker_id": "R80-P3",
+      "needed_artifact": "packet rerun after P1/P2 pass with accepted_exit_route_count>=1",
+      "priority": 3,
+      "target_gate": "accepted_exit_route_positive"
+    }
+  ],
+  "source_target_id": "T-B1-004gd/T-B7-015m",
+  "upstream_target_id": "T-B1-004gc/T-B7-015l"
+}

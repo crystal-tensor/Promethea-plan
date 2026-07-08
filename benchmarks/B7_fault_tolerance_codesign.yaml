@@ -3290,6 +3290,43 @@ current_results:
     caveat: r79_route_replay_prefill_does_not_unlock_b7_until_occurrence_and_proxy_t_acceptance_ledgers_pass
     report: ../results/B1_B7_cone01_R79_r78a_route_replay_prefill_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R79_r78a_route_replay_prefill_gate.md
+  b1_b7_cone01_r80_acceptance_ledger_binding_gate_v0:
+    method: b1_b7_cone01_r80_acceptance_ledger_binding_gate_v0
+    source_b1_r80_acceptance_ledger_binding: ../results/B1_B7_cone01_R80_acceptance_ledger_binding_gate_v0.json
+    source_b1_r79_r78a_route_replay_prefill: ../results/B1_B7_cone01_R79_r78a_route_replay_prefill_gate_v0.json
+    r80_occurrence_ledger: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R80-occurrence-acceptance-zero-ledger.json
+    r80_proxy_t_ledger: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R80-proxy-t-acceptance-zero-ledger.json
+    r80_bound_packet: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R80-acceptance-ledger-bound-zero.packet.json
+    source_target_id: T-B1-004gd/T-B7-015m
+    upstream_target_id: T-B1-004gc/T-B7-015l
+    r79_missing_required_field_count_before: 4
+    r80_missing_required_field_count_after: 0
+    r80_all_hash_bound_artifacts_match: true
+    r80_preflight_accepted: false
+    r80_failed_gates: [accepted_exit_route_positive, accepted_occurrence_positive, accepted_proxy_t_positive]
+    accepted_exit_route_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_dependency_credit_allowed: false
+    b7_resource_credit_allowed: false
+    b7_ft_ledger_credit_allowed: false
+    b7_nonzero_retest_allowed: false
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    o3_closed: false
+    reroute_allowed: false
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    occurrence_ledger_hash: ad712746a0db9a8b1d8b40e5a0f39992b117a4ae29fe7aa4f38e999e94d279ff
+    proxy_t_ledger_hash: 8abe65e45e60ea5df19d92e2ba87f1da4c0e575986b1d6045bce9991720e27eb
+    packet_hash: 39d941e996a66e0c82ae50ba146a69b97e8460a888a480227f1e7001d72f3a8d
+    blocker_queue_hash: d82ad836b1e7634292909d333fc0c070601461ee8a2213f90ac9cb0b6a6fcdb5
+    requirements_passed: 8
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r80_field_complete_packet_still_does_not_unlock_b7_until_positive_gates_pass
+    report: ../results/B1_B7_cone01_R80_acceptance_ledger_binding_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R80_acceptance_ledger_binding_gate.md
   b2_calibrated_dependency_credit_gate_v0:
     status: b2_calibrated_dependency_credit_rejected_missing_hardware_evidence
     method: b7_b2_calibrated_dependency_credit_gate_v0

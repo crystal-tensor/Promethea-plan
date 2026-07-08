@@ -1,0 +1,43 @@
+{
+  "accepted": false,
+  "accepted_proxy_t_reduction": 0,
+  "artifact": "R80 proxy-T acceptance zero ledger",
+  "claim_boundary": "This ledger fills the R78 proxy_t_acceptance_ledger path/hash fields only. It cannot make accepted_proxy_t_positive true, close O3, permit reroute, claim resource saving, or grant B7 credit.",
+  "dropped_overlap_lines": [
+    1378
+  ],
+  "evidence_assessment": [
+    "R70 preserves proxy_t_reduction_delta=0.",
+    "R66 is a zero-credit ledger retest and cannot be reused as positive proxy-T evidence.",
+    "The route still has no source-backed proxy-T derivation beyond prefill-only pricing.",
+    "A structural CNOT delta alone is forbidden as proxy-T acceptance."
+  ],
+  "ledger_hash": "8abe65e45e60ea5df19d92e2ba87f1da4c0e575986b1d6045bce9991720e27eb",
+  "ledger_id": "B1-B7-cone01-R80-proxy-t-acceptance-zero-ledger",
+  "method": "b1_b7_cone01_r80_acceptance_ledger_binding_gate_v0",
+  "positive_gate_blocked": "accepted_proxy_t_positive",
+  "proxy_t_delta_derivation": "Proxy-T acceptance remains zero because no accepted derivation proves a counted proxy-T reduction under the R71/R78 positive-delta rules.",
+  "route_id": "R1-line1381-resolution",
+  "selected_lines": [
+    268,
+    1381
+  ],
+  "source_r66_retest_packet_hash": "29d1cb2e95aafd29418e8082e0d8ab92edb1fe4ffa3a61af749204ad3294de59",
+  "source_r70_prefill_hash": "f757d615a98df241f06a847196f821f3603a734a3b000a357d707d11309c60f8",
+  "source_r70_prefill_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R70-R1-line1381-prefill-machine-check-replay.json",
+  "source_r70_prefill_sha256": "8d3b693c47a3d1937394a2e4fef3a3af77ec560ea14241f40c05df4d309627c6",
+  "source_r71_contract_hash": "6bd9e10356385dde634ce98fd2ceb7d258a42a3dfdbcce413082af9adea8f325",
+  "source_r71_contract_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R71-R1-positive-delta-ledger.contract.json",
+  "source_r71_contract_sha256": "573cf8f419db556bef55d58ee9dc88413048af73ecb41571db2c5cda0d4728fa",
+  "source_r76_no_double_counting_verdict_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R76-line1378-no-double-counting-replay.verdict.json",
+  "source_r76_no_double_counting_verdict_sha256": "ed99b88034e2ca6bd3177c379121c1222a22fed9693fcd0682183768e8627a11",
+  "source_r79_missing_required_field_count": 4,
+  "source_r79_packet_hash": "6e57ec7365e93d1afa01aa8c896e7beba5d6f662a5363dd9d7699251abeaf590",
+  "source_r79_packet_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R79-r78a-route-replay-prefill.packet.json",
+  "source_r79_packet_sha256": "18d0f25fcff530df67e01df03c36ea95c756eb12d7ae75136c71c183d89c77bc",
+  "source_r79_preflight_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R79-r78a-route-replay-prefill.verdict.json",
+  "source_r79_preflight_sha256": "31fe5619b5a51d799246b9972a1275e3f3e0dc22fa8bd3b34d7145f317774df6",
+  "source_target_id": "T-B1-004gd/T-B7-015m",
+  "structural_cnot_delta": 0,
+  "upstream_target_id": "T-B1-004gc/T-B7-015l"
+}
