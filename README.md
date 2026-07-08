@@ -1746,6 +1746,21 @@ This is deliberately still not a denominator win: submitted denominator rows
 The next useful PR must fill the R60 row templates with source-backed
 same-access denominator evidence before C6, C7, or any B7 ledger retest.
 
+`T-B1-004fk` / `T-B7-014t` now adversarially reviews that R60 contract. R61
+constructs 8 metadata-only denominator-theater rows that satisfy every R60
+required field, so a naive field-presence checker would accept `8/8`. The
+hardened R61 checker rejects `8/8` because the rows have no existing
+implementation path, no existing verifier transcript, unbound transcript SHA,
+no replayed command, no structured leakage audit, self-asserted denominator
+distance, and an overclaiming boundary. R61 emits 10 hardening rules under
+schema `r61_c4_c5_same_access_denominator_row_hardened_v1`; bundle hash
+`c86e614516aa87397edbc783a5db6895fd7574e1fc980a327941e954ecd50165`.
+This is still not a denominator win: accepted denominator rows `0`, C4/C5
+comparison complete false, O3 open, `reroute_allowed=false`, and
+B7/STV/resource/ledger credit remain 0/false. The next useful PR should
+implement the R61 hardened acceptance verifier, then submit real denominator
+rows with existing implementation and transcript artifacts.
+
 B4/B8 now has a formal verifier-private challenge protocol model:
 `T-B4-002b` / `T-B8-003f` turns the previous private-predicate pressure gate
 into a commit-challenge-response-verify protocol over 36 shared challenge rows.

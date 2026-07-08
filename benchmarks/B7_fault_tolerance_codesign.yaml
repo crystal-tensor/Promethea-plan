@@ -2606,6 +2606,39 @@ current_results:
     caveat: r60_emits_denominator_contract_only_no_c4_c5_completion_no_o3_no_reroute_no_b7_credit
     report: ../results/B1_B7_cone01_R60_o3_f4_c4_c5_same_access_denominator_contract_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R60_o3_f4_c4_c5_same_access_denominator_contract_gate.md
+  b1_b7_cone01_r61_o3_f4_c4_c5_denominator_theater_schema_review_gate_v0:
+    status: cone01_r61_denominator_theater_schema_review_passed_zero_b7_credit
+    method: b1_b7_cone01_r61_o3_f4_c4_c5_denominator_theater_schema_review_gate_v0
+    source_b1_r61_denominator_theater_schema_review: ../results/B1_B7_cone01_R61_o3_f4_c4_c5_denominator_theater_schema_review_gate_v0.json
+    source_b1_r60_c4_c5_denominator_contract: ../results/B1_B7_cone01_R60_o3_f4_c4_c5_same_access_denominator_contract_gate_v0.json
+    r61_denominator_theater_schema_review_bundle: ../results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-all8.r61_denominator_theater_schema_review_bundle.json
+    source_target_id: T-B1-004fk/T-B7-014t
+    upstream_target_id: T-B1-004fj/T-B7-014s
+    attack_row_count: 8
+    naive_field_presence_accept_count: 8
+    hardened_reject_count: 8
+    hardened_accept_count: 0
+    hardening_rule_count: 10
+    hardened_schema_version: r61_c4_c5_same_access_denominator_row_hardened_v1
+    c4_c5_same_access_denominator_schema_hardened: true
+    c4_c5_same_access_denominator_comparison_complete: false
+    accepted_denominator_row_count: 0
+    r61_bundle_hash: c86e614516aa87397edbc783a5db6895fd7574e1fc980a327941e954ecd50165
+    o3_closed: false
+    reroute_allowed: false
+    b7_dependency_credit_allowed: false
+    b7_resource_credit_allowed: false
+    b7_ft_ledger_credit_allowed: false
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    requirements_passed: 8
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r61_hardens_schema_against_denominator_theater_only_no_denominator_acceptance_no_o3_no_b7_credit
+    report: ../results/B1_B7_cone01_R61_o3_f4_c4_c5_denominator_theater_schema_review_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R61_o3_f4_c4_c5_denominator_theater_schema_review_gate.md
   b2_calibrated_dependency_credit_gate_v0:
     status: b2_calibrated_dependency_credit_rejected_missing_hardware_evidence
     method: b7_b2_calibrated_dependency_credit_gate_v0
