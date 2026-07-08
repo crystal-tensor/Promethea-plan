@@ -1,0 +1,310 @@
+{
+  "artifact_id": "B1-B7-cone01-O3-F4-C2-single-row-materialized-smoke.fixture",
+  "b7_credit_delta": 0,
+  "contract_hash": "d4ff1b028d42ca0c995bfee52b0c4fdc5e3dc8cc877b358b1752bef17e4c92aa",
+  "fixture_hash": "6565d611d2b0ca01af2de0c73054b765278f450e60f6ad35107fef0ddacb0144",
+  "o3_closed": false,
+  "reroute_allowed": false,
+  "rows": [
+    {
+      "binding_payload": {
+        "candidate_circuit_hash": "42e00b8ad10f49650cd2969eb124de9ed101c1076a9a1a6532f2a3a5ccbf329c",
+        "challenge_id": "O3-F4-C01",
+        "max_unitary_replay_error": 1e-10,
+        "parameter_indices": [
+          1381,
+          1
+        ],
+        "replay_command": "python3 tools/b1_b7_cone01_c2_replay.py --challenge-id O3-F4-C01",
+        "replay_stdout_hash": "4a31003e6ab51e7aa7698e3e03a0628c25532155256a138bffb1de3b8982317d",
+        "source_circuit_hash": "a48d418da08c94b4c0445e9aab1db08db82e6b6919b04c333f89e78bbd9176df",
+        "strict_tolerance": 1e-08,
+        "submitted_parameter_values": [
+          "theta_O3-F4-C01_a",
+          "theta_O3-F4-C01_b"
+        ],
+        "unitary_distance_metric": "operator_norm",
+        "verifier_version": "b1_b7_cone01_r36_o3_f4_c2_single_row_materialized_smoke_gate_v0"
+      },
+      "challenge_id": "O3-F4-C01",
+      "claim_boundary": "no C2/O3/reroute/B7/STV credit before acceptance",
+      "declared_provenance_binding_hash": "c254e0ec19b555789100ff1b9075c3a8b9b0ca07db5ecc315a479ff81a6703e5",
+      "execution_artifacts": {
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_smoke/O3-F4-C01.candidate.qasm",
+        "candidate_circuit_hash": "42e00b8ad10f49650cd2969eb124de9ed101c1076a9a1a6532f2a3a5ccbf329c",
+        "provenance_binding_hash": "c254e0ec19b555789100ff1b9075c3a8b9b0ca07db5ecc315a479ff81a6703e5",
+        "replay_stdout_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_smoke/O3-F4-C01.stdout.txt",
+        "replay_stdout_hash": "4a31003e6ab51e7aa7698e3e03a0628c25532155256a138bffb1de3b8982317d",
+        "same_unitary_witness_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_smoke/O3-F4-C01.witness.json",
+        "same_unitary_witness_hash": "5b5af18d3e9234fb51a74350c10970f7cb41764828ba4d1422f6d3d1621637ec",
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_smoke/O3-F4-C01.source.qasm",
+        "source_circuit_hash": "a48d418da08c94b4c0445e9aab1db08db82e6b6919b04c333f89e78bbd9176df"
+      },
+      "max_unitary_replay_error": 1e-10,
+      "smoke_only_not_c2_acceptance": true
+    },
+    {
+      "binding_payload": {
+        "candidate_circuit_hash": "3102980bcddc8cb5de486434f7ff8f9528bc65363d8b9d4010cc8bb31bff43e7",
+        "challenge_id": "O3-F4-C02",
+        "max_unitary_replay_error": 1e-10,
+        "parameter_indices": [
+          1381,
+          2
+        ],
+        "replay_command": "python3 tools/b1_b7_cone01_c2_replay.py --challenge-id O3-F4-C02",
+        "replay_stdout_hash": "6ba0360c8981c2c4ac607d71f48a88a52e9c64acd5843cac43210d81af4ab2b7",
+        "source_circuit_hash": "b48915ed0ad39d32876174597f1193eaad8901b97501dbd828d398ccde1838c9",
+        "strict_tolerance": 1e-08,
+        "submitted_parameter_values": [
+          "theta_O3-F4-C02_a",
+          "theta_O3-F4-C02_b"
+        ],
+        "unitary_distance_metric": "operator_norm",
+        "verifier_version": "b1_b7_cone01_r36_o3_f4_c2_single_row_materialized_smoke_gate_v0"
+      },
+      "challenge_id": "O3-F4-C02",
+      "claim_boundary": "no C2/O3/reroute/B7/STV credit before acceptance",
+      "declared_provenance_binding_hash": "73d3cf4cb153a4b98c33ac8fb6a07a438b4fcd35284b9368caa513673dada7a2",
+      "execution_artifacts": {
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C02.candidate.qasm",
+        "candidate_circuit_hash": "3102980bcddc8cb5de486434f7ff8f9528bc65363d8b9d4010cc8bb31bff43e7",
+        "provenance_binding_hash": "73d3cf4cb153a4b98c33ac8fb6a07a438b4fcd35284b9368caa513673dada7a2",
+        "replay_stdout_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C02.stdout.txt",
+        "replay_stdout_hash": "6ba0360c8981c2c4ac607d71f48a88a52e9c64acd5843cac43210d81af4ab2b7",
+        "same_unitary_witness_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C02.witness.json",
+        "same_unitary_witness_hash": "a92c7f60b35ddb92134b4d6f75271adc84f59a94801cecc07e7daf656801b537",
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C02.source.qasm",
+        "source_circuit_hash": "b48915ed0ad39d32876174597f1193eaad8901b97501dbd828d398ccde1838c9"
+      },
+      "max_unitary_replay_error": 1e-10,
+      "smoke_only_not_c2_acceptance": false
+    },
+    {
+      "binding_payload": {
+        "candidate_circuit_hash": "5920c5d6d3f06036cc03a86ffba00f4e59869f324435c6e6d677c82b837965a0",
+        "challenge_id": "O3-F4-C03",
+        "max_unitary_replay_error": 1e-10,
+        "parameter_indices": [
+          1381,
+          3
+        ],
+        "replay_command": "python3 tools/b1_b7_cone01_c2_replay.py --challenge-id O3-F4-C03",
+        "replay_stdout_hash": "893402d2c3004d314c7ccdba5a37a15f2ea4c0bf13aa18fa8e0fbd562499a511",
+        "source_circuit_hash": "33c65846a0aa3d743722a844611621324beecf1e663e2250093fab24c61795b7",
+        "strict_tolerance": 1e-08,
+        "submitted_parameter_values": [
+          "theta_O3-F4-C03_a",
+          "theta_O3-F4-C03_b"
+        ],
+        "unitary_distance_metric": "operator_norm",
+        "verifier_version": "b1_b7_cone01_r36_o3_f4_c2_single_row_materialized_smoke_gate_v0"
+      },
+      "challenge_id": "O3-F4-C03",
+      "claim_boundary": "no C2/O3/reroute/B7/STV credit before acceptance",
+      "declared_provenance_binding_hash": "7a782543d06ea269ec88e1e5c3fd973407060bd895224500fc409826b7097538",
+      "execution_artifacts": {
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C03.candidate.qasm",
+        "candidate_circuit_hash": "5920c5d6d3f06036cc03a86ffba00f4e59869f324435c6e6d677c82b837965a0",
+        "provenance_binding_hash": "7a782543d06ea269ec88e1e5c3fd973407060bd895224500fc409826b7097538",
+        "replay_stdout_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C03.stdout.txt",
+        "replay_stdout_hash": "893402d2c3004d314c7ccdba5a37a15f2ea4c0bf13aa18fa8e0fbd562499a511",
+        "same_unitary_witness_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C03.witness.json",
+        "same_unitary_witness_hash": "7250da06e1da67dba5dfbd2f82049866ece4ec8fe909783aafb81ad05dbe582b",
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C03.source.qasm",
+        "source_circuit_hash": "33c65846a0aa3d743722a844611621324beecf1e663e2250093fab24c61795b7"
+      },
+      "max_unitary_replay_error": 1e-10,
+      "smoke_only_not_c2_acceptance": false
+    },
+    {
+      "binding_payload": {
+        "candidate_circuit_hash": "d19b61e9c9f7b1137259a3908e606d727ad2cde89a0ecbbf89439fb0cd1f1d82",
+        "challenge_id": "O3-F4-C04",
+        "max_unitary_replay_error": 1e-10,
+        "parameter_indices": [
+          1381,
+          4
+        ],
+        "replay_command": "python3 tools/b1_b7_cone01_c2_replay.py --challenge-id O3-F4-C04",
+        "replay_stdout_hash": "ff4ca50c109f4b07d07b5857b1a08e2a3aa44bc1981fcf406be63fe3d34e9fd4",
+        "source_circuit_hash": "415976ba2bf08e32a1065c430f612f6e1ba3072171504100f5ac63928a9d4e3d",
+        "strict_tolerance": 1e-08,
+        "submitted_parameter_values": [
+          "theta_O3-F4-C04_a",
+          "theta_O3-F4-C04_b"
+        ],
+        "unitary_distance_metric": "operator_norm",
+        "verifier_version": "b1_b7_cone01_r36_o3_f4_c2_single_row_materialized_smoke_gate_v0"
+      },
+      "challenge_id": "O3-F4-C04",
+      "claim_boundary": "no C2/O3/reroute/B7/STV credit before acceptance",
+      "declared_provenance_binding_hash": "5ba01c91030b5cd4b5269a56294f97de836fb36f38678a09bb51afb7c3a3b093",
+      "execution_artifacts": {
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C04.candidate.qasm",
+        "candidate_circuit_hash": "d19b61e9c9f7b1137259a3908e606d727ad2cde89a0ecbbf89439fb0cd1f1d82",
+        "provenance_binding_hash": "5ba01c91030b5cd4b5269a56294f97de836fb36f38678a09bb51afb7c3a3b093",
+        "replay_stdout_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C04.stdout.txt",
+        "replay_stdout_hash": "ff4ca50c109f4b07d07b5857b1a08e2a3aa44bc1981fcf406be63fe3d34e9fd4",
+        "same_unitary_witness_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C04.witness.json",
+        "same_unitary_witness_hash": "ba7a928e4cf428a594273f44e6a50f9af73c63a2d1412ad21fd2d29533432afe",
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C04.source.qasm",
+        "source_circuit_hash": "415976ba2bf08e32a1065c430f612f6e1ba3072171504100f5ac63928a9d4e3d"
+      },
+      "max_unitary_replay_error": 1e-10,
+      "smoke_only_not_c2_acceptance": false
+    },
+    {
+      "binding_payload": {
+        "candidate_circuit_hash": "8fd8dbdda2a0370797de46fb6c06ff8a085e63ed48a6f4fa6507f45351add659",
+        "challenge_id": "O3-F4-C05",
+        "max_unitary_replay_error": 1e-10,
+        "parameter_indices": [
+          1381,
+          5
+        ],
+        "replay_command": "python3 tools/b1_b7_cone01_c2_replay.py --challenge-id O3-F4-C05",
+        "replay_stdout_hash": "870dd94606f397289aac5dc285c5d9f9ef75e87c56135ee1c8cd6487b8290c45",
+        "source_circuit_hash": "c1e5d61a4c3bd4aab63dd662345eef679764e3f8eb6d8ff97207626346f28d96",
+        "strict_tolerance": 1e-08,
+        "submitted_parameter_values": [
+          "theta_O3-F4-C05_a",
+          "theta_O3-F4-C05_b"
+        ],
+        "unitary_distance_metric": "operator_norm",
+        "verifier_version": "b1_b7_cone01_r36_o3_f4_c2_single_row_materialized_smoke_gate_v0"
+      },
+      "challenge_id": "O3-F4-C05",
+      "claim_boundary": "no C2/O3/reroute/B7/STV credit before acceptance",
+      "declared_provenance_binding_hash": "dc60c80fcac31b53f0d48d5602cefb3f5856fdfeabd29ca4acd3c7d07968c164",
+      "execution_artifacts": {
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C05.candidate.qasm",
+        "candidate_circuit_hash": "8fd8dbdda2a0370797de46fb6c06ff8a085e63ed48a6f4fa6507f45351add659",
+        "provenance_binding_hash": "dc60c80fcac31b53f0d48d5602cefb3f5856fdfeabd29ca4acd3c7d07968c164",
+        "replay_stdout_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C05.stdout.txt",
+        "replay_stdout_hash": "870dd94606f397289aac5dc285c5d9f9ef75e87c56135ee1c8cd6487b8290c45",
+        "same_unitary_witness_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C05.witness.json",
+        "same_unitary_witness_hash": "c583b57a97b5f4b9dece76a09aa5f04e442a2ea2a3747f3c1ef0013f7b7ac98b",
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C05.source.qasm",
+        "source_circuit_hash": "c1e5d61a4c3bd4aab63dd662345eef679764e3f8eb6d8ff97207626346f28d96"
+      },
+      "max_unitary_replay_error": 1e-10,
+      "smoke_only_not_c2_acceptance": false
+    },
+    {
+      "binding_payload": {
+        "candidate_circuit_hash": "6efca63aa7fe8bb9a3b504304a96fc50d6d8b2fe9cc2df60da025db2ee3af59d",
+        "challenge_id": "O3-F4-C06",
+        "max_unitary_replay_error": 1e-10,
+        "parameter_indices": [
+          1381,
+          6
+        ],
+        "replay_command": "python3 tools/b1_b7_cone01_c2_replay.py --challenge-id O3-F4-C06",
+        "replay_stdout_hash": "faf4a5690a1586f498e9a62ae84229d88e934b183a88c6c4001969be1c30a2a3",
+        "source_circuit_hash": "e6f2a612504514df17f2056240355e798f663504ca64eccfe55607c98100a0c7",
+        "strict_tolerance": 1e-08,
+        "submitted_parameter_values": [
+          "theta_O3-F4-C06_a",
+          "theta_O3-F4-C06_b"
+        ],
+        "unitary_distance_metric": "operator_norm",
+        "verifier_version": "b1_b7_cone01_r36_o3_f4_c2_single_row_materialized_smoke_gate_v0"
+      },
+      "challenge_id": "O3-F4-C06",
+      "claim_boundary": "no C2/O3/reroute/B7/STV credit before acceptance",
+      "declared_provenance_binding_hash": "cb9dacadd371fe6cf75df68627dab64d578dec642b28ae51419e820164cb77ff",
+      "execution_artifacts": {
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C06.candidate.qasm",
+        "candidate_circuit_hash": "6efca63aa7fe8bb9a3b504304a96fc50d6d8b2fe9cc2df60da025db2ee3af59d",
+        "provenance_binding_hash": "cb9dacadd371fe6cf75df68627dab64d578dec642b28ae51419e820164cb77ff",
+        "replay_stdout_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C06.stdout.txt",
+        "replay_stdout_hash": "faf4a5690a1586f498e9a62ae84229d88e934b183a88c6c4001969be1c30a2a3",
+        "same_unitary_witness_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C06.witness.json",
+        "same_unitary_witness_hash": "49207c26af19a8fa1b082abeef4e10369a2f800aec2208ff6c41ac00889a4560",
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C06.source.qasm",
+        "source_circuit_hash": "e6f2a612504514df17f2056240355e798f663504ca64eccfe55607c98100a0c7"
+      },
+      "max_unitary_replay_error": 1e-10,
+      "smoke_only_not_c2_acceptance": false
+    },
+    {
+      "binding_payload": {
+        "candidate_circuit_hash": "efd468dca029e78d7198c947b0679c68d2bce16c2c05ef2f022c3dd693503268",
+        "challenge_id": "O3-F4-C07",
+        "max_unitary_replay_error": 1e-10,
+        "parameter_indices": [
+          1381,
+          7
+        ],
+        "replay_command": "python3 tools/b1_b7_cone01_c2_replay.py --challenge-id O3-F4-C07",
+        "replay_stdout_hash": "8c7be5f213a2572f66332ff9a52ab5c25a9ab2ecbe6f532ace069ea756450d8a",
+        "source_circuit_hash": "6da470cc31d16d4aa27b4b033b43d59ab9475d5a16c75e299ec7978c155d4146",
+        "strict_tolerance": 1e-08,
+        "submitted_parameter_values": [
+          "theta_O3-F4-C07_a",
+          "theta_O3-F4-C07_b"
+        ],
+        "unitary_distance_metric": "operator_norm",
+        "verifier_version": "b1_b7_cone01_r36_o3_f4_c2_single_row_materialized_smoke_gate_v0"
+      },
+      "challenge_id": "O3-F4-C07",
+      "claim_boundary": "no C2/O3/reroute/B7/STV credit before acceptance",
+      "declared_provenance_binding_hash": "182a810c1d0178f0dc369ce8ef65033126ddfca865775a1dd30e8a93418540ad",
+      "execution_artifacts": {
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C07.candidate.qasm",
+        "candidate_circuit_hash": "efd468dca029e78d7198c947b0679c68d2bce16c2c05ef2f022c3dd693503268",
+        "provenance_binding_hash": "182a810c1d0178f0dc369ce8ef65033126ddfca865775a1dd30e8a93418540ad",
+        "replay_stdout_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C07.stdout.txt",
+        "replay_stdout_hash": "8c7be5f213a2572f66332ff9a52ab5c25a9ab2ecbe6f532ace069ea756450d8a",
+        "same_unitary_witness_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C07.witness.json",
+        "same_unitary_witness_hash": "c3444af86582a1350902725e1e5d6bcc2d4f792a52b65029e8c9c79e5ee4a209",
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C07.source.qasm",
+        "source_circuit_hash": "6da470cc31d16d4aa27b4b033b43d59ab9475d5a16c75e299ec7978c155d4146"
+      },
+      "max_unitary_replay_error": 1e-10,
+      "smoke_only_not_c2_acceptance": false
+    },
+    {
+      "binding_payload": {
+        "candidate_circuit_hash": "cfe8d8e269476d993a376de8a8a7ddff5ee01cc7d2f7452c3554d785d9f9fc2c",
+        "challenge_id": "O3-F4-C08",
+        "max_unitary_replay_error": 1e-10,
+        "parameter_indices": [
+          1381,
+          8
+        ],
+        "replay_command": "python3 tools/b1_b7_cone01_c2_replay.py --challenge-id O3-F4-C08",
+        "replay_stdout_hash": "7e57e8307d36a21b0f778f8c1ae91e91d90240f1f5151b701b9414326213bdcc",
+        "source_circuit_hash": "bece199c6328deed9df4b181afaee75c809fbac908c4bc9c659e4a978541891a",
+        "strict_tolerance": 1e-08,
+        "submitted_parameter_values": [
+          "theta_O3-F4-C08_a",
+          "theta_O3-F4-C08_b"
+        ],
+        "unitary_distance_metric": "operator_norm",
+        "verifier_version": "b1_b7_cone01_r36_o3_f4_c2_single_row_materialized_smoke_gate_v0"
+      },
+      "challenge_id": "O3-F4-C08",
+      "claim_boundary": "no C2/O3/reroute/B7/STV credit before acceptance",
+      "declared_provenance_binding_hash": "145672e8a4797eac2fd7c8315a59757765191f4ca5d9092c13199296847ebc9c",
+      "execution_artifacts": {
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C08.candidate.qasm",
+        "candidate_circuit_hash": "cfe8d8e269476d993a376de8a8a7ddff5ee01cc7d2f7452c3554d785d9f9fc2c",
+        "provenance_binding_hash": "145672e8a4797eac2fd7c8315a59757765191f4ca5d9092c13199296847ebc9c",
+        "replay_stdout_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C08.stdout.txt",
+        "replay_stdout_hash": "7e57e8307d36a21b0f778f8c1ae91e91d90240f1f5151b701b9414326213bdcc",
+        "same_unitary_witness_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C08.witness.json",
+        "same_unitary_witness_hash": "9f7fae31cdbf486af9a5f4b312dda7129277fa04b6c76c7729bb366ae290c393",
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r36_missing/O3-F4-C08.source.qasm",
+        "source_circuit_hash": "bece199c6328deed9df4b181afaee75c809fbac908c4bc9c659e4a978541891a"
+      },
+      "max_unitary_replay_error": 1e-10,
+      "smoke_only_not_c2_acceptance": false
+    }
+  ],
+  "smoke_challenge_id": "O3-F4-C01",
+  "source_target_id": "T-B1-004el/T-B7-013u",
+  "strict_tolerance": 1e-08,
+  "upstream_target_id": "T-B1-004ek/T-B7-013t"
+}

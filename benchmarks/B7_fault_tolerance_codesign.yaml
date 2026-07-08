@@ -1497,6 +1497,57 @@ current_results:
     caveat: r35_metadata_clean_fixture_rejected_missing_materialized_execution_files_no_c2_o3_reroute_or_b7_credit
     report: ../results/B1_B7_cone01_R35_o3_f4_c2_artifact_materialization_sentinel_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R35_o3_f4_c2_artifact_materialization_sentinel_gate.md
+  b1_b7_cone01_r36_o3_f4_c2_single_row_materialized_smoke_gate_v0:
+    status: cone01_r36_o3_f4_c2_single_row_materialized_smoke_partial
+    method: b1_b7_cone01_r36_o3_f4_c2_single_row_materialized_smoke_gate_v0
+    source_b1_r36_o3_f4_c2_single_row_materialized_smoke: ../results/B1_B7_cone01_R36_o3_f4_c2_single_row_materialized_smoke_gate_v0.json
+    source_r35_sentinel: ../results/B1_B7_cone01_R35_o3_f4_c2_artifact_materialization_sentinel_gate_v0.json
+    source_target_id: T-B1-004el/T-B7-013u
+    upstream_target_id: T-B1-004ek/T-B7-013t
+    candidate_id: NL-C02
+    family_id: O3-F4
+    source_r35_preflight_hash: ab1ec9d5377dd719ccdf31a3c83983167c354db771043ca2aa2aa84de2154122
+    source_r33_contract_hash: d4ff1b028d42ca0c995bfee52b0c4fdc5e3dc8cc877b358b1752bef17e4c92aa
+    fixture_hash: 6565d611d2b0ca01af2de0c73054b765278f450e60f6ad35107fef0ddacb0144
+    preflight_hash: 7a5d901ba75e0bc9f1d7d06d8530a4a08ea3a93f70afb8711c8143a925437042
+    strict_tolerance: 1.0e-08
+    template_row_count: 8
+    surface_rows_passed: 8
+    surface_rows_failed: 0
+    materialized_rows_passed: 1
+    materialized_rows_failed: 7
+    missing_materialized_file_count: 28
+    smoke_materialized_row_count: 1
+    smoke_materialized_row_ids: [O3-F4-C01]
+    single_row_materialized_smoke_ready: true
+    artifact_materialization_gate_ready: true
+    binding_preflight_verifier_ready: true
+    c2_provenance_binding_contract_ready: true
+    c2_provenance_submission_accepted: false
+    c2_strict_replay_rows_accepted: false
+    o3_f4_artifact_accepted: false
+    same_unitary_replay_certificate_complete: false
+    same_access_denominator_comparison_complete: false
+    leakage_free_optimizer_trace_complete: false
+    machine_check_replay_complete: false
+    o3_closed: false
+    checked_negative_lemma_present: false
+    nlc02_full_lemma_ready: false
+    reroute_allowed: false
+    accepted_route_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_dependency_credit_allowed: false
+    b7_resource_credit_allowed: false
+    b7_ft_ledger_credit_allowed: false
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    requirements_passed: 8
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r36_single_smoke_row_materialized_not_source_backed_no_c2_o3_reroute_or_b7_credit
+    report: ../results/B1_B7_cone01_R36_o3_f4_c2_single_row_materialized_smoke_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R36_o3_f4_c2_single_row_materialized_smoke_gate.md
   b2_calibrated_dependency_credit_gate_v0:
     status: b2_calibrated_dependency_credit_rejected_missing_hardware_evidence
     method: b7_b2_calibrated_dependency_credit_gate_v0

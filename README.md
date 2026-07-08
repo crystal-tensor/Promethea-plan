@@ -1365,6 +1365,19 @@ preflight hash `ab1ec9d5377dd719ccdf31a3c83983167c354db771043ca2aa2aa84de2154122
 C2 remains unaccepted; O3, reroute, B7 credit, STV credit, and resource-saving
 claims remain 0/false.
 
+`T-B1-004el` / `T-B7-013u` turns the materialization blocker into a partial
+smoke row. It creates four hash-matched files for `O3-F4-C01`: replay stdout,
+source circuit, candidate circuit, and witness. The row is intentionally marked
+as materialization-only, not a same-unitary certificate and not source-backed C2
+evidence. The fixture keeps all 8 metadata surfaces clean, but only 1/8 rows is
+materialized, so the bundle is rejected. Surface rows pass/fail `8/0`;
+materialized rows pass/fail `1/7`; missing materialized files drop from `32` to
+`28`. Fixture hash
+`6565d611d2b0ca01af2de0c73054b765278f450e60f6ad35107fef0ddacb0144`;
+preflight hash `7a5d901ba75e0bc9f1d7d06d8530a4a08ea3a93f70afb8711c8143a925437042`.
+C2 remains unaccepted; O3, reroute, B7 credit, STV credit, and resource-saving
+claims remain 0/false.
+
 B4/B8 now has a formal verifier-private challenge protocol model:
 `T-B4-002b` / `T-B8-003f` turns the previous private-predicate pressure gate
 into a commit-challenge-response-verify protocol over 36 shared challenge rows.
