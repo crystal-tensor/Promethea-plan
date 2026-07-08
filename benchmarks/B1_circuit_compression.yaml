@@ -4759,6 +4759,62 @@ current_results:
     caveat: r38_source_backed_discriminator_rejects_all_smoke_rows_no_c2_o3_reroute_or_b7_credit
     report: ../results/B1_B7_cone01_R38_o3_f4_c2_source_backed_discriminator_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R38_o3_f4_c2_source_backed_discriminator_gate.md
+  b1_b7_cone01_r39_o3_f4_c2_single_row_source_provenance_gate_v0:
+    circuits: 1
+    status: cone01_r39_o3_f4_c2_single_row_source_provenance_partial_rejected
+    model_status: o3_f4_c2_single_row_source_provenance_ready_no_c2_acceptance
+    method: b1_b7_cone01_r39_o3_f4_c2_single_row_source_provenance_gate_v0
+    source_r38_discriminator: ../results/B1_B7_cone01_R38_o3_f4_c2_source_backed_discriminator_gate_v0.json
+    source_r37_fixture: ../results/B1_B7_cone01_o3_f4_numerical_refit_submissions/B1-B7-cone01-O3-F4-C2-all-rows-materialized-smoke.fixture.json
+    fixture_output: ../results/B1_B7_cone01_o3_f4_numerical_refit_submissions/B1-B7-cone01-O3-F4-C2-single-row-source-provenance.fixture.json
+    source_provenance_dir: ../results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_provenance/r39_c01
+    source_target_id: T-B1-004eo/T-B7-013x
+    upstream_target_id: T-B1-004en/T-B7-013w
+    candidate_id: NL-C02
+    family_id: O3-F4
+    challenge_id: O3-F4-C01
+    source_r38_discriminator_hash: e23f694cdb37f985e30b15ead907bbf4772db2260398c773c7e5e3777d00c852
+    source_r38_replacement_contract_hash: 906da61aa3c205ebefe1caf001e3e2b86aeb74abcf89d1bbc6441f8c1137186f
+    source_r37_fixture_hash: 17b1a4e3e197ac838d636bcb52ca81a9001651758e1c306b97039b578eff32a6
+    single_row_source_provenance_fixture_hash: 4b448b8e5e8879bb8e04bc7928a3091188a51b754a15fb624c042320ad81d357
+    single_row_source_provenance_fixture_file_sha256: 88c3f62b34143f6270e7a45406c4b4265f7dd38cca3dbae8d57438308bf11aa7
+    evaluation_hash: 6f7d781074ac6f195f8a7c69995f9f5996b6f5ec627e573522e5073aabf04c29
+    strict_tolerance: 1.0e-08
+    template_row_count: 8
+    materialized_rows_passed: 8
+    source_provenance_rows_passed: 1
+    source_provenance_failures: 7
+    source_backed_rows_passed: 0
+    source_backed_flag_failures: 8
+    witness_schema_failures: 8
+    smoke_only_row_count: 8
+    single_row_source_provenance_ready: true
+    source_backed_discriminator_ready: true
+    c2_source_backed_replacement_contract_ready: true
+    c2_provenance_submission_accepted: false
+    c2_strict_replay_rows_accepted: false
+    o3_f4_artifact_accepted: false
+    same_unitary_replay_certificate_complete: false
+    same_access_denominator_comparison_complete: false
+    leakage_free_optimizer_trace_complete: false
+    machine_check_replay_complete: false
+    o3_closed: false
+    checked_negative_lemma_present: false
+    nlc02_full_lemma_ready: false
+    reroute_allowed: false
+    accepted_route_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    requirements_passed: 8
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r39_single_row_source_provenance_not_source_backed_no_c2_o3_reroute_or_b7_credit
+    report: ../results/B1_B7_cone01_R39_o3_f4_c2_single_row_source_provenance_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R39_o3_f4_c2_single_row_source_provenance_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate

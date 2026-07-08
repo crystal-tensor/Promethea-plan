@@ -1407,6 +1407,20 @@ claims remain 0/false. The next useful PR is now narrower: submit at least one
 row that satisfies the source-backed replacement contract before scaling to all
 8 rows and then moving to C3-C7.
 
+`T-B1-004eo` / `T-B7-013x` now makes the first source-provenance move for a
+single row without treating it as source-backed proof. It adds hash-verifiable
+source dataset, source trace, and replay-environment files for `O3-F4-C01`.
+Materialized rows still pass `8`; source-provenance rows pass `1`; source-
+provenance failures drop from `8` to `7`; source-backed rows remain `0`;
+source-backed flag failures remain `8`; witness-schema failures remain `8`.
+Single-row source-provenance fixture hash
+`4b448b8e5e8879bb8e04bc7928a3091188a51b754a15fb624c042320ad81d357`;
+evaluation hash `6f7d781074ac6f195f8a7c69995f9f5996b6f5ec627e573522e5073aabf04c29`.
+C2 remains unaccepted; O3, reroute, B7 credit, STV credit, and resource-saving
+claims remain 0/false. The next useful PR should add real source-backed replay
+flags and a same-unitary witness schema/verifier for the enriched row, then
+repeat source-provenance packets for the remaining 7 rows.
+
 B4/B8 now has a formal verifier-private challenge protocol model:
 `T-B4-002b` / `T-B8-003f` turns the previous private-predicate pressure gate
 into a commit-challenge-response-verify protocol over 36 shared challenge rows.

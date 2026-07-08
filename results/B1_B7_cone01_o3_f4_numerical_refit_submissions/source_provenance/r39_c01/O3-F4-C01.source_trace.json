@@ -1,0 +1,14 @@
+{
+  "artifact": "R39 source-provenance trace scaffold",
+  "challenge_id": "O3-F4-C01",
+  "replay_command": "python3 tools/b1_b7_cone01_c2_replay.py --challenge-id O3-F4-C01",
+  "replay_stdout_hash": "1abea9d133195cbb0920667475073c6e9405e0de90d004e22f9e03dffba285bc",
+  "scope": "lineage_trace_not_same_unitary_certificate",
+  "trace_steps": [
+    "bind challenge row to source/candidate circuit hashes",
+    "bind replay stdout hash",
+    "preserve zero-credit claim boundary",
+    "defer same-unitary witness verification"
+  ],
+  "upstream_fixture_hash": "17b1a4e3e197ac838d636bcb52ca81a9001651758e1c306b97039b578eff32a6"
+}
