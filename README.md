@@ -1331,6 +1331,16 @@ preflight hash `933d2689f1fb65a27db900da5b078594d18d438a0441012fbd3a09d8a80ffa0c
 C2 remains unaccepted; O3, reroute, B7 credit, STV credit, and resource-saving
 claims remain 0/false.
 
+`T-B1-004ei` / `T-B7-013r` turns the R32 blocker into a submission contract.
+The new C2 provenance-binding contract defines 11 binding fields and 9 required
+execution artifact surfaces, emits an 8-row template, and rejects the current
+state because no source-backed submission or execution artifact exists yet.
+Contract hash `d4ff1b028d42ca0c995bfee52b0c4fdc5e3dc8cc877b358b1752bef17e4c92aa`;
+template hash `6ed9e03c13ad5287efe6c804a458f0b3f9156c2533b540972cb48eeb85c19330`;
+preflight hash `4505af5067f39902a13670f9b0162aaac542b78b7723ebf55e6d61149218c52d`.
+C2 remains unaccepted; O3, reroute, B7 credit, STV credit, and resource-saving
+claims remain 0/false.
+
 B4/B8 now has a formal verifier-private challenge protocol model:
 `T-B4-002b` / `T-B8-003f` turns the previous private-predicate pressure gate
 into a commit-challenge-response-verify protocol over 36 shared challenge rows.

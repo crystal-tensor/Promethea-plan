@@ -1,0 +1,243 @@
+{
+  "benchmark_id": "B1",
+  "claim_boundary": {
+    "b7_ledger_improvement_claimed": false,
+    "next_gate": "Submit source-backed C2 execution artifacts and 8 rows whose declared provenance binding hashes recompute from the row payload.",
+    "resource_saving_claimed": false,
+    "what_is_not_supported": "R33 does not accept a C2 submission, does not close O3, and does not permit reroute, B7 credit, STV credit, or resource-saving claims.",
+    "what_is_supported": "R33 emits a hash-bound C2 provenance binding contract and submission template for rows whose binding hashes must be recomputed from replay payloads and execution artifacts."
+  },
+  "last_updated": "2026-07-08",
+  "linked_benchmark_id": "B7",
+  "method": "b1_b7_cone01_r33_o3_f4_c2_provenance_binding_contract_gate_v0",
+  "model_status": "o3_f4_c2_binding_contract_ready_no_c2_acceptance",
+  "o3_f4_c2_provenance_binding_contract_packet": {
+    "contract": {
+      "acceptance_rules": [
+        "all_8_rows_present",
+        "max_unitary_replay_error_lte_1e-08_for_all_rows",
+        "every_hash_is_sha256",
+        "declared_provenance_binding_hash_recomputes_for_all_rows",
+        "all_required_execution_artifacts_exist_or_are_embedded",
+        "zero_credit_claim_boundary_until_C2_and_C3_C7_acceptance"
+      ],
+      "binding_fields": [
+        "challenge_id",
+        "parameter_indices",
+        "submitted_parameter_values",
+        "strict_tolerance",
+        "max_unitary_replay_error",
+        "unitary_distance_metric",
+        "source_circuit_hash",
+        "candidate_circuit_hash",
+        "replay_command",
+        "replay_stdout_hash",
+        "verifier_version"
+      ],
+      "binding_hash_algorithm": "sha256(json.dumps(binding_payload, sort_keys=True, separators=(',', ':')))",
+      "candidate_id": "NL-C02",
+      "contract_hash": "d4ff1b028d42ca0c995bfee52b0c4fdc5e3dc8cc877b358b1752bef17e4c92aa",
+      "contract_id": "B1-B7-cone01-R33-O3-F4-C2-provenance-binding-contract",
+      "family_id": "O3-F4",
+      "rejection_rules": [
+        "reject_hash_shape_without_binding",
+        "reject_binding_without_execution_artifact",
+        "reject_any_tolerance_relaxation",
+        "reject_o3_reroute_b7_credit_before_full_certificate_triad"
+      ],
+      "required_execution_artifacts": [
+        "replay_stdout_file",
+        "replay_stdout_hash",
+        "source_circuit_file",
+        "source_circuit_hash",
+        "candidate_circuit_file",
+        "candidate_circuit_hash",
+        "same_unitary_witness_file",
+        "same_unitary_witness_hash",
+        "provenance_binding_hash"
+      ],
+      "required_row_count": 8,
+      "source_r32_fixture_hash": "7bb2708cedae88328e309bb5a7431f5d916cbbb9f284d532f1a4f532d2e73bc2",
+      "source_r32_preflight_hash": "933d2689f1fb65a27db900da5b078594d18d438a0441012fbd3a09d8a80ffa0c",
+      "source_target_id": "T-B1-004ei/T-B7-013r",
+      "strict_tolerance": 1e-08,
+      "upstream_target_id": "T-B1-004eh/T-B7-013q"
+    },
+    "preflight_result": {
+      "accepted": false,
+      "contract_hash": "d4ff1b028d42ca0c995bfee52b0c4fdc5e3dc8cc877b358b1752bef17e4c92aa",
+      "failed_reasons": [
+        "no_source_backed_submission",
+        "no_execution_artifacts",
+        "no_recomputed_binding_hashes"
+      ],
+      "preflight_hash": "4505af5067f39902a13670f9b0162aaac542b78b7723ebf55e6d61149218c52d",
+      "required_execution_artifact_count": 9,
+      "required_row_count": 8,
+      "submission_exists": false,
+      "template_hash": "6ed9e03c13ad5287efe6c804a458f0b3f9156c2533b540972cb48eeb85c19330"
+    },
+    "source_r32_sentinel": "results/B1_B7_cone01_R32_o3_f4_c2_hash_shape_provenance_sentinel_gate_v0.json",
+    "template_output": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/B1-B7-cone01-O3-F4-C2-provenance-binding-submission.template.json"
+  },
+  "requirements": [
+    {
+      "evidence": {
+        "binding_mismatch_count": 8,
+        "binding_pass": false,
+        "r32_validation_error_count": 0
+      },
+      "label": "R32 source is validation-clean and exposes the binding mismatch blocker",
+      "passed": true,
+      "requirement_id": "S1"
+    },
+    {
+      "evidence": {
+        "binding_fields": [
+          "challenge_id",
+          "parameter_indices",
+          "submitted_parameter_values",
+          "strict_tolerance",
+          "max_unitary_replay_error",
+          "unitary_distance_metric",
+          "source_circuit_hash",
+          "candidate_circuit_hash",
+          "replay_command",
+          "replay_stdout_hash",
+          "verifier_version"
+        ]
+      },
+      "label": "Contract defines the exact C2 provenance binding fields",
+      "passed": true,
+      "requirement_id": "S2"
+    },
+    {
+      "evidence": {
+        "required_execution_artifacts": [
+          "replay_stdout_file",
+          "replay_stdout_hash",
+          "source_circuit_file",
+          "source_circuit_hash",
+          "candidate_circuit_file",
+          "candidate_circuit_hash",
+          "same_unitary_witness_file",
+          "same_unitary_witness_hash",
+          "provenance_binding_hash"
+        ]
+      },
+      "label": "Contract requires replay execution artifacts in addition to hashes",
+      "passed": true,
+      "requirement_id": "S3"
+    },
+    {
+      "evidence": {
+        "b7_credit_delta": 0,
+        "o3_closed": false,
+        "reroute_allowed": false,
+        "template_row_count": 8
+      },
+      "label": "Submission template contains 8 rows and zero-credit boundary fields",
+      "passed": true,
+      "requirement_id": "S4"
+    },
+    {
+      "evidence": {
+        "accepted": false,
+        "failed_reasons": [
+          "no_source_backed_submission",
+          "no_execution_artifacts",
+          "no_recomputed_binding_hashes"
+        ],
+        "submission_exists": false
+      },
+      "label": "No submission is accepted without execution artifacts and recomputed bindings",
+      "passed": true,
+      "requirement_id": "S5"
+    },
+    {
+      "evidence": {
+        "contract_hash": "d4ff1b028d42ca0c995bfee52b0c4fdc5e3dc8cc877b358b1752bef17e4c92aa",
+        "preflight_hash": "4505af5067f39902a13670f9b0162aaac542b78b7723ebf55e6d61149218c52d",
+        "template_hash": "6ed9e03c13ad5287efe6c804a458f0b3f9156c2533b540972cb48eeb85c19330"
+      },
+      "label": "Contract, template, and preflight are hash-bound",
+      "passed": true,
+      "requirement_id": "S6"
+    },
+    {
+      "evidence": {
+        "b7_credit_delta": 0,
+        "c2_accepted": false,
+        "o3_closed": false,
+        "reroute_allowed": false
+      },
+      "label": "R33 keeps C2, O3, reroute, and B7 credit unaccepted",
+      "passed": true,
+      "requirement_id": "S7"
+    },
+    {
+      "evidence": {
+        "c3_c7_progress_claimed": false,
+        "scope": "C2 provenance binding contract"
+      },
+      "label": "R33 remains scoped to C2 provenance and claims no C3-C7 progress",
+      "passed": true,
+      "requirement_id": "S8"
+    }
+  ],
+  "runtime_seconds": 0.000255,
+  "source_target_id": "T-B1-004ei/T-B7-013r",
+  "status": "cone01_r33_o3_f4_c2_provenance_binding_contract_ready_no_submission",
+  "summary": {
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "accepted_route_count": 0,
+    "b7_credit_delta": 0,
+    "b7_ledger_improvement_claimed": false,
+    "b7_space_time_volume_credit": 0,
+    "binding_field_count": 11,
+    "c2_provenance_binding_contract_ready": true,
+    "c2_provenance_submission_accepted": false,
+    "c2_strict_replay_rows_accepted": false,
+    "candidate_id": "NL-C02",
+    "checked_negative_lemma_present": false,
+    "contract_hash": "d4ff1b028d42ca0c995bfee52b0c4fdc5e3dc8cc877b358b1752bef17e4c92aa",
+    "failed_requirement_ids": [],
+    "family_id": "O3-F4",
+    "leakage_free_optimizer_trace_complete": false,
+    "machine_check_replay_complete": false,
+    "nlc02_full_lemma_ready": false,
+    "o3_closed": false,
+    "o3_f4_artifact_accepted": false,
+    "preflight_hash": "4505af5067f39902a13670f9b0162aaac542b78b7723ebf55e6d61149218c52d",
+    "remaining_open_obligation_count": 6,
+    "remaining_open_obligations": [
+      "C2_source_backed_execution_artifacts",
+      "C2_recomputed_provenance_binding_hashes",
+      "C3_same_unitary_replay_certificate",
+      "C4_C5_same_access_denominator_comparison",
+      "C6_leakage_free_optimizer_trace",
+      "C7_machine_check_replay_bundle"
+    ],
+    "required_execution_artifact_count": 9,
+    "requirement_count": 8,
+    "requirements_failed": 0,
+    "requirements_passed": 8,
+    "reroute_allowed": false,
+    "resource_saving_claimed": false,
+    "same_access_denominator_comparison_complete": false,
+    "same_unitary_replay_certificate_complete": false,
+    "source_r32_file_sha256": "3e7f08f82041c7bec185a1b9ebc17cee02ed8be68557e81cde012a1390e71ac4",
+    "source_r32_fixture_hash": "7bb2708cedae88328e309bb5a7431f5d916cbbb9f284d532f1a4f532d2e73bc2",
+    "source_r32_preflight_hash": "933d2689f1fb65a27db900da5b078594d18d438a0441012fbd3a09d8a80ffa0c",
+    "strict_tolerance": 1e-08,
+    "submission_exists": false,
+    "template_hash": "6ed9e03c13ad5287efe6c804a458f0b3f9156c2533b540972cb48eeb85c19330",
+    "template_row_count": 8,
+    "validation_error_count": 0
+  },
+  "title": "B1/B7 Cone01 R33 O3-F4 C2 Provenance Binding Contract Gate",
+  "upstream_target_id": "T-B1-004eh/T-B7-013q",
+  "validation_errors": [],
+  "version": "0.1"
+}
