@@ -1,0 +1,441 @@
+{
+  "accepted": true,
+  "binding_mismatch_count": 0,
+  "c2_strict_replay_rows_accepted": true,
+  "claim_boundary": "R58 accepts all 8 source-backed rows at the R47/R38 discriminator layer only; C3-C7, O3 closure, reroute permission, and B7/STV/resource credit remain blocked.",
+  "contract_hash": "906da61aa3c205ebefe1caf001e3e2b86aeb74abcf89d1bbc6441f8c1137186f",
+  "discriminator_hash": "9545943101fea7807122aa36c6c048dc742fce6af761c5229cd69b899b4cc99a",
+  "failed_reasons": [],
+  "fixture_hash": "d0d637b0c262f29dc0665ee0c33fe4a115cb774effe946cce6d65353376431b4",
+  "full_contract_all8_accepted": true,
+  "input_artifact": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-all8.r58_r47_all8_fixture.json",
+  "input_artifact_sha256": "8147fac412193f8f4497a6f9f4d4f584fe25b231b50e67e624eb17158ca86509",
+  "materialized_rows_passed": 8,
+  "r58_all8_r47_r38_acceptance": true,
+  "r58_evaluation_hash": "fe7faded3f89bebd0a55d83ad273cf2925fcfcb6b314d47dac06f9fc4403f77d",
+  "required_row_count": 8,
+  "row_count": 8,
+  "row_results": [
+    {
+      "accepted": true,
+      "binding_hash_matches": true,
+      "challenge_id": "O3-F4-C01",
+      "failed_reasons": [],
+      "file_results": [
+        {
+          "actual_hash": "5faffa5e5be10f5d8fcfcbd3901175a6d91bc05ab9983d3953488e71963efeb2",
+          "exists": true,
+          "expected_hash": "5faffa5e5be10f5d8fcfcbd3901175a6d91bc05ab9983d3953488e71963efeb2",
+          "field": "replay_stdout_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r58_source_backed_replay.stdout.txt"
+        },
+        {
+          "actual_hash": "e0922fdb81e0370a7c231094b448235212e4591202410421736926a0fe1fffe3",
+          "exists": true,
+          "expected_hash": "e0922fdb81e0370a7c231094b448235212e4591202410421736926a0fe1fffe3",
+          "field": "source_circuit_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C01.source.qasm"
+        },
+        {
+          "actual_hash": "b7896e91e03ae5a50d58c547aaccffee9cedd2c714fa1ae22b0fb0280e3e0f6c",
+          "exists": true,
+          "expected_hash": "b7896e91e03ae5a50d58c547aaccffee9cedd2c714fa1ae22b0fb0280e3e0f6c",
+          "field": "candidate_circuit_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C01.candidate.qasm"
+        },
+        {
+          "actual_hash": "4e7923be94d166f56f3a60636c2e8117b6911a881f775d095c4329b5cf54a030",
+          "exists": true,
+          "expected_hash": "4e7923be94d166f56f3a60636c2e8117b6911a881f775d095c4329b5cf54a030",
+          "field": "same_unitary_witness_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r58_same_unitary_witness.json"
+        }
+      ],
+      "invalid_source_hash_fields": [],
+      "materialized_files_passed": true,
+      "max_unitary_replay_error": 0.0,
+      "missing_source_fields": [],
+      "replay_error_within_tolerance": true,
+      "same_unitary_certificate": true,
+      "smoke_only_not_c2_acceptance": false,
+      "source_backed_flags_passed": true,
+      "source_backed_replay": true,
+      "source_provenance_passed": true,
+      "witness_schema_passed": true,
+      "zero_credit_boundary_present": true
+    },
+    {
+      "accepted": true,
+      "binding_hash_matches": true,
+      "challenge_id": "O3-F4-C02",
+      "failed_reasons": [],
+      "file_results": [
+        {
+          "actual_hash": "b70a6b09a36c67179dc0df3913b566282f9969fe3ac2bec891c44907786e4e97",
+          "exists": true,
+          "expected_hash": "b70a6b09a36c67179dc0df3913b566282f9969fe3ac2bec891c44907786e4e97",
+          "field": "replay_stdout_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r58_source_backed_replay.stdout.txt"
+        },
+        {
+          "actual_hash": "a6b226e1b22579ff47f031eb42b3ab54a2dc61439589c4b9f41009b4df2de42a",
+          "exists": true,
+          "expected_hash": "a6b226e1b22579ff47f031eb42b3ab54a2dc61439589c4b9f41009b4df2de42a",
+          "field": "source_circuit_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C02.source.qasm"
+        },
+        {
+          "actual_hash": "56d6b1fc54101afaf87ba0825885cf39af0595b25a7b22d2dca9ec148ae88c81",
+          "exists": true,
+          "expected_hash": "56d6b1fc54101afaf87ba0825885cf39af0595b25a7b22d2dca9ec148ae88c81",
+          "field": "candidate_circuit_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C02.candidate.qasm"
+        },
+        {
+          "actual_hash": "fbe51226ae5425232c417a77c3d4f8cdc9443ac0445d065bd6e25ef771ed02e1",
+          "exists": true,
+          "expected_hash": "fbe51226ae5425232c417a77c3d4f8cdc9443ac0445d065bd6e25ef771ed02e1",
+          "field": "same_unitary_witness_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r58_same_unitary_witness.json"
+        }
+      ],
+      "invalid_source_hash_fields": [],
+      "materialized_files_passed": true,
+      "max_unitary_replay_error": 0.0,
+      "missing_source_fields": [],
+      "replay_error_within_tolerance": true,
+      "same_unitary_certificate": true,
+      "smoke_only_not_c2_acceptance": false,
+      "source_backed_flags_passed": true,
+      "source_backed_replay": true,
+      "source_provenance_passed": true,
+      "witness_schema_passed": true,
+      "zero_credit_boundary_present": true
+    },
+    {
+      "accepted": true,
+      "binding_hash_matches": true,
+      "challenge_id": "O3-F4-C03",
+      "failed_reasons": [],
+      "file_results": [
+        {
+          "actual_hash": "9e3c6b76bfecc5cef6e3fb6c1e27ea02a15e4b445300fcc7b926a2e58d382e3e",
+          "exists": true,
+          "expected_hash": "9e3c6b76bfecc5cef6e3fb6c1e27ea02a15e4b445300fcc7b926a2e58d382e3e",
+          "field": "replay_stdout_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r58_source_backed_replay.stdout.txt"
+        },
+        {
+          "actual_hash": "a42c394ae32ea1febff6e44c6b5196c089add5dc09d3b9555ba381318ed10c9b",
+          "exists": true,
+          "expected_hash": "a42c394ae32ea1febff6e44c6b5196c089add5dc09d3b9555ba381318ed10c9b",
+          "field": "source_circuit_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C03.source.qasm"
+        },
+        {
+          "actual_hash": "ed432f15fcd1c0895589fd55af4295caf053fb8ab875160e374b1df7e71bea5c",
+          "exists": true,
+          "expected_hash": "ed432f15fcd1c0895589fd55af4295caf053fb8ab875160e374b1df7e71bea5c",
+          "field": "candidate_circuit_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C03.candidate.qasm"
+        },
+        {
+          "actual_hash": "546e64573cbeadf5d7a218bf00610d768626c534e600c7a3178e8d95d4a2e761",
+          "exists": true,
+          "expected_hash": "546e64573cbeadf5d7a218bf00610d768626c534e600c7a3178e8d95d4a2e761",
+          "field": "same_unitary_witness_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r58_same_unitary_witness.json"
+        }
+      ],
+      "invalid_source_hash_fields": [],
+      "materialized_files_passed": true,
+      "max_unitary_replay_error": 0.0,
+      "missing_source_fields": [],
+      "replay_error_within_tolerance": true,
+      "same_unitary_certificate": true,
+      "smoke_only_not_c2_acceptance": false,
+      "source_backed_flags_passed": true,
+      "source_backed_replay": true,
+      "source_provenance_passed": true,
+      "witness_schema_passed": true,
+      "zero_credit_boundary_present": true
+    },
+    {
+      "accepted": true,
+      "binding_hash_matches": true,
+      "challenge_id": "O3-F4-C04",
+      "failed_reasons": [],
+      "file_results": [
+        {
+          "actual_hash": "23af00aadf9ce6d698f47218002bf6d5307bdec2d4c009a957e47c33d9ea4197",
+          "exists": true,
+          "expected_hash": "23af00aadf9ce6d698f47218002bf6d5307bdec2d4c009a957e47c33d9ea4197",
+          "field": "replay_stdout_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r58_source_backed_replay.stdout.txt"
+        },
+        {
+          "actual_hash": "5c8d0dedaaa5a028abb13b60e36f3d7fa5b4c8f5a5bb23b3ca0296b40232cfb3",
+          "exists": true,
+          "expected_hash": "5c8d0dedaaa5a028abb13b60e36f3d7fa5b4c8f5a5bb23b3ca0296b40232cfb3",
+          "field": "source_circuit_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C04.source.qasm"
+        },
+        {
+          "actual_hash": "855ab8315878612a1b932115ab180fae80f56d2a08715eb9601e6d688d65bd49",
+          "exists": true,
+          "expected_hash": "855ab8315878612a1b932115ab180fae80f56d2a08715eb9601e6d688d65bd49",
+          "field": "candidate_circuit_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C04.candidate.qasm"
+        },
+        {
+          "actual_hash": "9f84ccb82bfabca12afa74679622489a79f30b8f28436dace2c85dd5e57036a0",
+          "exists": true,
+          "expected_hash": "9f84ccb82bfabca12afa74679622489a79f30b8f28436dace2c85dd5e57036a0",
+          "field": "same_unitary_witness_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r58_same_unitary_witness.json"
+        }
+      ],
+      "invalid_source_hash_fields": [],
+      "materialized_files_passed": true,
+      "max_unitary_replay_error": 0.0,
+      "missing_source_fields": [],
+      "replay_error_within_tolerance": true,
+      "same_unitary_certificate": true,
+      "smoke_only_not_c2_acceptance": false,
+      "source_backed_flags_passed": true,
+      "source_backed_replay": true,
+      "source_provenance_passed": true,
+      "witness_schema_passed": true,
+      "zero_credit_boundary_present": true
+    },
+    {
+      "accepted": true,
+      "binding_hash_matches": true,
+      "challenge_id": "O3-F4-C05",
+      "failed_reasons": [],
+      "file_results": [
+        {
+          "actual_hash": "13aaa6896cdca3bf817e03234c9377ee72749c205789bd50e4d3274d2d3b0342",
+          "exists": true,
+          "expected_hash": "13aaa6896cdca3bf817e03234c9377ee72749c205789bd50e4d3274d2d3b0342",
+          "field": "replay_stdout_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r58_source_backed_replay.stdout.txt"
+        },
+        {
+          "actual_hash": "5a709555e5743cecdce2aff7a24aa0a66e5538d3e62490a9a54f1d5ea954ebf7",
+          "exists": true,
+          "expected_hash": "5a709555e5743cecdce2aff7a24aa0a66e5538d3e62490a9a54f1d5ea954ebf7",
+          "field": "source_circuit_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C05.source.qasm"
+        },
+        {
+          "actual_hash": "266afdd8ea74a16bb9f78c7c2e0c6fd23faf26402a197868b834fbd576735ee5",
+          "exists": true,
+          "expected_hash": "266afdd8ea74a16bb9f78c7c2e0c6fd23faf26402a197868b834fbd576735ee5",
+          "field": "candidate_circuit_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C05.candidate.qasm"
+        },
+        {
+          "actual_hash": "1cc59e455f2da3a47729ab84f5f58183eddd8ce9f2b356572e20497b140d3e20",
+          "exists": true,
+          "expected_hash": "1cc59e455f2da3a47729ab84f5f58183eddd8ce9f2b356572e20497b140d3e20",
+          "field": "same_unitary_witness_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r58_same_unitary_witness.json"
+        }
+      ],
+      "invalid_source_hash_fields": [],
+      "materialized_files_passed": true,
+      "max_unitary_replay_error": 0.0,
+      "missing_source_fields": [],
+      "replay_error_within_tolerance": true,
+      "same_unitary_certificate": true,
+      "smoke_only_not_c2_acceptance": false,
+      "source_backed_flags_passed": true,
+      "source_backed_replay": true,
+      "source_provenance_passed": true,
+      "witness_schema_passed": true,
+      "zero_credit_boundary_present": true
+    },
+    {
+      "accepted": true,
+      "binding_hash_matches": true,
+      "challenge_id": "O3-F4-C06",
+      "failed_reasons": [],
+      "file_results": [
+        {
+          "actual_hash": "d851a3e9eadfcca8c4870de6a90f4844f5f691040c506588faf3a2e1595c85bb",
+          "exists": true,
+          "expected_hash": "d851a3e9eadfcca8c4870de6a90f4844f5f691040c506588faf3a2e1595c85bb",
+          "field": "replay_stdout_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r58_source_backed_replay.stdout.txt"
+        },
+        {
+          "actual_hash": "04cb9f2f81e75f1b3623a65c4ce0f4d2cfbdb2a87823b1ba09e5529bff79f84f",
+          "exists": true,
+          "expected_hash": "04cb9f2f81e75f1b3623a65c4ce0f4d2cfbdb2a87823b1ba09e5529bff79f84f",
+          "field": "source_circuit_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C06.source.qasm"
+        },
+        {
+          "actual_hash": "8e06e926c9638f9bd977a4e6ae28f7f654272f78388a4313687c7dfdb3bd56ee",
+          "exists": true,
+          "expected_hash": "8e06e926c9638f9bd977a4e6ae28f7f654272f78388a4313687c7dfdb3bd56ee",
+          "field": "candidate_circuit_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C06.candidate.qasm"
+        },
+        {
+          "actual_hash": "ee0582ea3c7695b53bd4b9e8c919f8e6b824be8baf8f4f1aaa5d966fffad5f09",
+          "exists": true,
+          "expected_hash": "ee0582ea3c7695b53bd4b9e8c919f8e6b824be8baf8f4f1aaa5d966fffad5f09",
+          "field": "same_unitary_witness_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r58_same_unitary_witness.json"
+        }
+      ],
+      "invalid_source_hash_fields": [],
+      "materialized_files_passed": true,
+      "max_unitary_replay_error": 0.0,
+      "missing_source_fields": [],
+      "replay_error_within_tolerance": true,
+      "same_unitary_certificate": true,
+      "smoke_only_not_c2_acceptance": false,
+      "source_backed_flags_passed": true,
+      "source_backed_replay": true,
+      "source_provenance_passed": true,
+      "witness_schema_passed": true,
+      "zero_credit_boundary_present": true
+    },
+    {
+      "accepted": true,
+      "binding_hash_matches": true,
+      "challenge_id": "O3-F4-C07",
+      "failed_reasons": [],
+      "file_results": [
+        {
+          "actual_hash": "76e7ea15dca5320e757d976ca4138a151f49439e6fb12d1d28df8537bef53555",
+          "exists": true,
+          "expected_hash": "76e7ea15dca5320e757d976ca4138a151f49439e6fb12d1d28df8537bef53555",
+          "field": "replay_stdout_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r58_source_backed_replay.stdout.txt"
+        },
+        {
+          "actual_hash": "c4db45035fe3c0d7a0128f6de41c57c7938ee474be24e4471743db22b5cba229",
+          "exists": true,
+          "expected_hash": "c4db45035fe3c0d7a0128f6de41c57c7938ee474be24e4471743db22b5cba229",
+          "field": "source_circuit_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C07.source.qasm"
+        },
+        {
+          "actual_hash": "7280a8c49ee98b018011f59c18db0e2a06344248c5857f1c2f86c511a460de31",
+          "exists": true,
+          "expected_hash": "7280a8c49ee98b018011f59c18db0e2a06344248c5857f1c2f86c511a460de31",
+          "field": "candidate_circuit_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C07.candidate.qasm"
+        },
+        {
+          "actual_hash": "968d5d267d59745c2c9ebde46c8b4eb0f2a70956970a8592dea2d5b254704504",
+          "exists": true,
+          "expected_hash": "968d5d267d59745c2c9ebde46c8b4eb0f2a70956970a8592dea2d5b254704504",
+          "field": "same_unitary_witness_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r58_same_unitary_witness.json"
+        }
+      ],
+      "invalid_source_hash_fields": [],
+      "materialized_files_passed": true,
+      "max_unitary_replay_error": 0.0,
+      "missing_source_fields": [],
+      "replay_error_within_tolerance": true,
+      "same_unitary_certificate": true,
+      "smoke_only_not_c2_acceptance": false,
+      "source_backed_flags_passed": true,
+      "source_backed_replay": true,
+      "source_provenance_passed": true,
+      "witness_schema_passed": true,
+      "zero_credit_boundary_present": true
+    },
+    {
+      "accepted": true,
+      "binding_hash_matches": true,
+      "challenge_id": "O3-F4-C08",
+      "failed_reasons": [],
+      "file_results": [
+        {
+          "actual_hash": "d73440c22886a08e10c3ea3782585d58aad8e6a10defba98a3124221a0463d64",
+          "exists": true,
+          "expected_hash": "d73440c22886a08e10c3ea3782585d58aad8e6a10defba98a3124221a0463d64",
+          "field": "replay_stdout_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r58_source_backed_replay.stdout.txt"
+        },
+        {
+          "actual_hash": "b7dcac442b0f46b145374866b1689d2bf7019eccd1f2cfbbb1a6900c6ef1bff9",
+          "exists": true,
+          "expected_hash": "b7dcac442b0f46b145374866b1689d2bf7019eccd1f2cfbbb1a6900c6ef1bff9",
+          "field": "source_circuit_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C08.source.qasm"
+        },
+        {
+          "actual_hash": "c7cb640d755334de87e692b1c75393efee17f2fc26c10a480d4b19220b05bb52",
+          "exists": true,
+          "expected_hash": "c7cb640d755334de87e692b1c75393efee17f2fc26c10a480d4b19220b05bb52",
+          "field": "candidate_circuit_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C08.candidate.qasm"
+        },
+        {
+          "actual_hash": "290628cb29481945315dc2752422dc204aa10c4dc57757bb2ef9c68262f575b5",
+          "exists": true,
+          "expected_hash": "290628cb29481945315dc2752422dc204aa10c4dc57757bb2ef9c68262f575b5",
+          "field": "same_unitary_witness_file",
+          "hash_matches": true,
+          "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r58_same_unitary_witness.json"
+        }
+      ],
+      "invalid_source_hash_fields": [],
+      "materialized_files_passed": true,
+      "max_unitary_replay_error": 0.0,
+      "missing_source_fields": [],
+      "replay_error_within_tolerance": true,
+      "same_unitary_certificate": true,
+      "smoke_only_not_c2_acceptance": false,
+      "source_backed_flags_passed": true,
+      "source_backed_replay": true,
+      "source_provenance_passed": true,
+      "witness_schema_passed": true,
+      "zero_credit_boundary_present": true
+    }
+  ],
+  "smoke_only_row_count": 0,
+  "source_backed_flag_failures": 0,
+  "source_backed_rows_passed": 8,
+  "source_provenance_failures": 0,
+  "witness_schema_failures": 0
+}

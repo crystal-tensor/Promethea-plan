@@ -5635,6 +5635,52 @@ current_results:
     caveat: r57_accepts_exact_one_row_only_full_c2_o3_reroute_b7_credit_still_open
     report: ../results/B1_B7_cone01_R57_o3_f4_c2_r47_exact_one_row_rerun_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R57_o3_f4_c2_r47_exact_one_row_rerun_gate.md
+  b1_b7_cone01_r58_o3_f4_c2_all8_source_backed_expansion_gate_v0:
+    circuits: 1
+    status: cone01_r58_o3_f4_c2_all8_source_backed_rows_accepted_zero_b7_credit
+    model_status: o3_f4_c2_all8_source_backed_rows_accepted_c3_c7_and_b7_still_open
+    method: b1_b7_cone01_r58_o3_f4_c2_all8_source_backed_expansion_gate_v0
+    source_r57_r47_exact_one_row: ../results/B1_B7_cone01_R57_o3_f4_c2_r47_exact_one_row_rerun_gate_v0.json
+    source_fixture: ../results/B1_B7_cone01_o3_f4_numerical_refit_submissions/B1-B7-cone01-O3-F4-C2-remaining-witness-preflight.fixture.json
+    r58_r47_all8_fixture: ../results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-all8.r58_r47_all8_fixture.json
+    r58_r47_all8_evaluation: ../results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-all8.r58_r47_all8_evaluation.json
+    r58_source_backed_replacement_contract: ../results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-all8.r58_source_backed_replacement.contract.json
+    source_target_id: T-B1-004fh/T-B7-014q
+    upstream_target_id: T-B1-004fg/T-B7-014p
+    challenge_ids: [O3-F4-C01, O3-F4-C02, O3-F4-C03, O3-F4-C04, O3-F4-C05, O3-F4-C06, O3-F4-C07, O3-F4-C08]
+    r58_fixture_hash: d0d637b0c262f29dc0665ee0c33fe4a115cb774effe946cce6d65353376431b4
+    r58_evaluation_hash: fe7faded3f89bebd0a55d83ad273cf2925fcfcb6b314d47dac06f9fc4403f77d
+    discriminator_hash: 9545943101fea7807122aa36c6c048dc742fce6af761c5229cd69b899b4cc99a
+    replacement_contract_hash: 906da61aa3c205ebefe1caf001e3e2b86aeb74abcf89d1bbc6441f8c1137186f
+    row_count: 8
+    required_row_count: 8
+    materialized_rows_passed: 8
+    source_backed_rows_passed: 8
+    accepted_source_backed_row_count: 8
+    source_backed_flag_failures: 0
+    source_provenance_failures: 0
+    witness_schema_failures: 0
+    binding_mismatch_count: 0
+    r47_rerun_performed: true
+    r47_all8_rows_accepted: true
+    c2_strict_replay_rows_accepted: true
+    full_contract_all8_accepted: true
+    c3_same_unitary_replay_certificate_complete: false
+    c4_c5_same_access_denominator_comparison_complete: false
+    c6_leakage_free_optimizer_trace_complete: false
+    c7_machine_check_replay_bundle_complete: false
+    o3_closed: false
+    reroute_allowed: false
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    requirements_passed: 8
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r58_accepts_all8_c2_discriminator_rows_only_c3_c7_o3_reroute_b7_credit_still_open
+    report: ../results/B1_B7_cone01_R58_o3_f4_c2_all8_source_backed_expansion_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R58_o3_f4_c2_all8_source_backed_expansion_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate

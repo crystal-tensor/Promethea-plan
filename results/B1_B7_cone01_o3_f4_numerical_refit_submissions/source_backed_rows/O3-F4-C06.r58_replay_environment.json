@@ -1,0 +1,14 @@
+{
+  "artifact": "R58 source-backed replay environment",
+  "challenge_id": "O3-F4-C06",
+  "claim_boundary": "deterministic local replay only; no hardware or B7 ledger claim",
+  "distance_formula": "2*abs(sin((source_theta-candidate_theta)/4))",
+  "environment_hash": "7e4758c091caa98530f193adc27564f3cdc0b636927e2524d3caedf739644e60",
+  "environment_id": "O3-F4-C06::r58_replay_environment",
+  "parser": "single_qubit_rz_openqasm3_regex",
+  "qasm_version_required": "OPENQASM 3.0",
+  "source_replay_environment_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_provenance/r44_remaining_rows/O3-F4-C06.replay_environment.json",
+  "source_replay_environment_sha256": "dc36b24d96134fcbb6cc4db4f8bb490ad0ae786a9d2faaa9c44df30f94d98ea7",
+  "strict_tolerance": 1e-08,
+  "verifier": "b1_b7_cone01_r58_o3_f4_c2_all8_source_backed_expansion_gate_v0"
+}

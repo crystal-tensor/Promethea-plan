@@ -1697,6 +1697,24 @@ R57 discriminator row hash
 This is not full C2 closure: all-8 acceptance remains false, O3 remains open,
 reroute remains false, and B7/STV/resource/ledger credit remain 0/false.
 
+`T-B1-004fh` / `T-B7-014q` scales that same R47/R38 path from one row to all
+8 O3-F4 C2 rows. R58 generates source-backed replay evidence packets,
+same-unitary witnesses, verifier transcripts, signature artifacts, and
+hash-bound discriminator rows for `O3-F4-C01` through `O3-F4-C08`, then reruns
+the unchanged source-backed discriminator. It passes 8/8 requirements: row
+count `8`, source-backed rows passed `8`, source-backed flag failures `0`,
+source provenance failures `0`, witness schema failures `0`, binding mismatch
+count `0`, and R47 all-8 acceptance true. R58 fixture hash
+`d0d637b0c262f29dc0665ee0c33fe4a115cb774effe946cce6d65353376431b4`;
+R58 evaluation hash
+`fe7faded3f89bebd0a55d83ad273cf2925fcfcb6b314d47dac06f9fc4403f77d`;
+discriminator hash
+`9545943101fea7807122aa36c6c048dc742fce6af761c5229cd69b899b4cc99a`.
+This is still not O3 closure and not B7 credit: C3 same-unitary replay
+certificate, C4/C5 denominator comparison, C6 leakage-free trace, C7
+machine-check replay, and B7 ledger retest remain open; reroute remains false
+and B7/STV/resource/ledger credit remain 0/false.
+
 B4/B8 now has a formal verifier-private challenge protocol model:
 `T-B4-002b` / `T-B8-003f` turns the previous private-predicate pressure gate
 into a commit-challenge-response-verify protocol over 36 shared challenge rows.

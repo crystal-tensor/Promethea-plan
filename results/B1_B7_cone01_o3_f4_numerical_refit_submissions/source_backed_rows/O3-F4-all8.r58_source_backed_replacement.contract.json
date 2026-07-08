@@ -1,0 +1,65 @@
+{
+  "acceptance_statement": "C2 can only become accepted after all 8 rows are materialized, source-backed, same-unitary-certified, hash-matched, provenance-bound, within strict tolerance, and still zero-credit before downstream gates.",
+  "candidate_id": "NL-C02",
+  "contract_hash": "906da61aa3c205ebefe1caf001e3e2b86aeb74abcf89d1bbc6441f8c1137186f",
+  "contract_id": "B1-B7-cone01-O3-F4-C2-source-backed-replacement-contract",
+  "family_id": "O3-F4",
+  "file_artifact_fields": [
+    "replay_stdout_file",
+    "source_circuit_file",
+    "candidate_circuit_file",
+    "same_unitary_witness_file"
+  ],
+  "hard_reject_if": [
+    "smoke_only_not_c2_acceptance is true",
+    "source_backed_replay is not true",
+    "same_unitary_certificate is not true",
+    "any source-backed provenance hash is missing or invalid",
+    "any materialized file is missing or hash-mismatched",
+    "same-unitary witness schema is not source_backed_unitary_equivalence_v1",
+    "zero-credit claim boundary is missing before C2 acceptance"
+  ],
+  "inherited_binding_fields": [
+    "challenge_id",
+    "parameter_indices",
+    "submitted_parameter_values",
+    "strict_tolerance",
+    "max_unitary_replay_error",
+    "unitary_distance_metric",
+    "source_circuit_hash",
+    "candidate_circuit_hash",
+    "replay_command",
+    "replay_stdout_hash",
+    "verifier_version"
+  ],
+  "required_execution_artifacts": [
+    "replay_stdout_file",
+    "replay_stdout_hash",
+    "source_circuit_file",
+    "source_circuit_hash",
+    "candidate_circuit_file",
+    "candidate_circuit_hash",
+    "same_unitary_witness_file",
+    "same_unitary_witness_hash",
+    "provenance_binding_hash"
+  ],
+  "required_row_count": 8,
+  "source_backed_required_fields": [
+    "source_backed_replay",
+    "same_unitary_certificate",
+    "smoke_only_not_c2_acceptance",
+    "source_dataset_id",
+    "source_dataset_sha256",
+    "source_trace_id",
+    "source_trace_sha256",
+    "replay_environment_sha256",
+    "same_unitary_witness_schema",
+    "same_unitary_witness_verifier"
+  ],
+  "source_r33_contract_hash": "d4ff1b028d42ca0c995bfee52b0c4fdc5e3dc8cc877b358b1752bef17e4c92aa",
+  "source_r37_fixture_hash": "17b1a4e3e197ac838d636bcb52ca81a9001651758e1c306b97039b578eff32a6",
+  "source_r37_preflight_hash": "4a469eadb38d952eb6168c55aee670c4122301478c44490badb831f1c86f5734",
+  "source_target_id": "T-B1-004en/T-B7-013w",
+  "strict_tolerance": 1e-08,
+  "upstream_target_id": "T-B1-004em/T-B7-013v"
+}
