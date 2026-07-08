@@ -1,0 +1,30 @@
+{
+  "artifact": "R45 remaining-row witness schema",
+  "bindings": {
+    "candidate_circuit_sha256": "266afdd8ea74a16bb9f78c7c2e0c6fd23faf26402a197868b834fbd576735ee5",
+    "replay_environment_sha256": "7b80007bc7f433a5643e995a09814c33b9966228a3ce33b86593d18fdb076834",
+    "source_circuit_sha256": "5a709555e5743cecdce2aff7a24aa0a66e5538d3e62490a9a54f1d5ea954ebf7",
+    "source_dataset_sha256": "9949658da5efd3937a901403de7c5279436d358e4a2148d17e1616622626f075",
+    "source_trace_sha256": "89e54ab3763d824a11bdfec4cfdec023f1065e42a12409b5aec97ff931a0a197",
+    "unitary_distance_transcript_sha256": "a9fdc85dcaedefcba0ee37866ed9b5d8bc32596e3dbe74791c7ccfd16c9ff759",
+    "unitary_distance_witness_sha256": "6c0f6638f8712d9dcb3624255f22963fb75ac4fc0af7a7618c16c25c32b63273"
+  },
+  "c2_accepted": false,
+  "challenge_id": "O3-F4-C05",
+  "claim_boundary": "schema binds evidence inputs but is not an executable preflight or source-backed certificate",
+  "required_inputs": [
+    "source_circuit_file",
+    "candidate_circuit_file",
+    "source_dataset_file",
+    "source_trace_file",
+    "replay_environment_file",
+    "unitary_distance_witness_file",
+    "unitary_distance_transcript_file"
+  ],
+  "same_unitary_certificate_claimed": false,
+  "schema": "source_backed_unitary_equivalence_v1",
+  "schema_hash": "a3ed6da876c8f35a8d81e5a95026366ead4027d333535697c43af5b56e6440ce",
+  "source_backed_replay_required_for_acceptance": true,
+  "strict_tolerance": 1e-08,
+  "unitary_distance_metric": "one_qubit_rz_operator_norm"
+}

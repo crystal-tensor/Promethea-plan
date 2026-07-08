@@ -1,0 +1,17 @@
+{
+  "artifact": "R45 remaining-row dry-run verifier",
+  "c2_accepted": false,
+  "challenge_id": "O3-F4-C07",
+  "checks": [
+    "all_bound_files_have_sha256_fields",
+    "unitary_distance_metric_matches_contract",
+    "strict_tolerance_is_1e-8",
+    "source_backed_replay_remains_false_until_real_replay_acceptance"
+  ],
+  "executable_preflight": false,
+  "same_unitary_certificate_claimed": false,
+  "schema_hash": "68d960c4f4e1cbc711dbe4cb1cb9f4c0e925880321884d4cd739939cf426aa51",
+  "source_backed_replay": false,
+  "verifier": "r45_schema_bound_dry_run_not_unitary_certificate",
+  "verifier_hash": "7561ea70ec4193217a798789e552f1e7e433f75a54d1b259ae9e2b799b791493"
+}

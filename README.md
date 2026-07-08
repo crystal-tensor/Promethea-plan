@@ -1503,6 +1503,24 @@ resource-saving claims remain 0/false. The next useful PR should add witness
 schemas and executable preflight packets for `O3-F4-C02` through `O3-F4-C08`,
 then rerun the source-backed discriminator before C3-C7.
 
+`T-B1-004eu` / `T-B7-014d` now binds witness-schema packets for the 7 C2
+rows that lacked schema coverage after R44. It adds hash-verifiable witness
+schema and dry-run verifier files for `O3-F4-C02` through `O3-F4-C08`, while
+leaving executable preflight and source-backed acceptance blocked.
+Materialized rows pass `8`; source-provenance rows pass `8`; witness-schema
+rows now pass `8`; witness-schema failures drop to `0`; unitary-distance rows
+remain `8`; witness-preflight rows still pass only `1`; witness-preflight
+failures remain `7`; source-backed rows remain `0`; source-backed flag failures
+remain `8`. Remaining witness-schema fixture hash
+`fec121320fee7ca6bb805eae33da552ff311401bd1cac69198f6b06250388582`;
+evaluation hash `4d84a1bf7b06fb3317c79016c8e9b7c6063a7e1bf70a7169e1304ea129c0ad18`.
+C2 remains unaccepted because R45 is schema binding, not executable preflight
+completion, not source-backed replay, and not a same-unitary certificate. O3,
+reroute, B7 credit, STV credit, and resource-saving claims remain 0/false. The
+next useful PR should add executable witness-preflight transcripts for
+`O3-F4-C02` through `O3-F4-C08`, then rerun the source-backed discriminator
+before C3-C7.
+
 B4/B8 now has a formal verifier-private challenge protocol model:
 `T-B4-002b` / `T-B8-003f` turns the previous private-predicate pressure gate
 into a commit-challenge-response-verify protocol over 36 shared challenge rows.

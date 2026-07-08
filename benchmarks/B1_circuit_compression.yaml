@@ -5124,6 +5124,69 @@ current_results:
     caveat: r44_all_rows_source_provenance_bound_but_no_witness_preflight_source_backed_c2_o3_reroute_or_b7_credit
     report: ../results/B1_B7_cone01_R44_o3_f4_c2_remaining_source_provenance_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R44_o3_f4_c2_remaining_source_provenance_gate.md
+  b1_b7_cone01_r45_o3_f4_c2_remaining_witness_schema_gate_v0:
+    circuits: 8
+    status: cone01_r45_o3_f4_c2_remaining_witness_schema_bound_rejected
+    model_status: o3_f4_c2_all_rows_witness_schema_bound_no_preflight_or_source_backed_acceptance
+    method: b1_b7_cone01_r45_o3_f4_c2_remaining_witness_schema_gate_v0
+    source_r44_remaining_source_provenance: ../results/B1_B7_cone01_R44_o3_f4_c2_remaining_source_provenance_gate_v0.json
+    source_r44_fixture: ../results/B1_B7_cone01_o3_f4_numerical_refit_submissions/B1-B7-cone01-O3-F4-C2-remaining-source-provenance.fixture.json
+    fixture_output: ../results/B1_B7_cone01_o3_f4_numerical_refit_submissions/B1-B7-cone01-O3-F4-C2-remaining-witness-schema.fixture.json
+    witness_schema_dir: ../results/B1_B7_cone01_o3_f4_numerical_refit_submissions/witness_scaffolds/r45_remaining_rows
+    source_target_id: T-B1-004eu/T-B7-014d
+    upstream_target_id: T-B1-004et/T-B7-014c
+    candidate_id: NL-C02
+    family_id: O3-F4
+    source_r44_evaluation_hash: 5bca1cbfcfe354876962402673c4c8eb125fd4de472a7cedd71dfa9a09c386f9
+    source_r44_fixture_hash: 23009a587461b2eb2ecae0e22e178aaa2935505efdc1010d6d76a2018a2bb98e
+    remaining_witness_schema_fixture_hash: fec121320fee7ca6bb805eae33da552ff311401bd1cac69198f6b06250388582
+    remaining_witness_schema_fixture_file_sha256: 6a16d30fba2eceabe8d6abc05b4f40475dfb240d1ba5a8cebb6c214e1691e99c
+    evaluation_hash: 4d84a1bf7b06fb3317c79016c8e9b7c6063a7e1bf70a7169e1304ea129c0ad18
+    strict_tolerance: 1.0e-08
+    newly_bound_challenge_count: 7
+    newly_bound_challenge_ids: [O3-F4-C02, O3-F4-C03, O3-F4-C04, O3-F4-C05, O3-F4-C06, O3-F4-C07, O3-F4-C08]
+    template_row_count: 8
+    materialized_rows_passed: 8
+    source_provenance_rows_passed: 8
+    source_provenance_failures: 0
+    witness_schema_rows_passed: 8
+    witness_schema_failures: 0
+    witness_preflight_rows_passed: 1
+    witness_preflight_failures: 7
+    unitary_distance_rows_passed: 8
+    unitary_distance_failures: 0
+    source_backed_rows_passed: 0
+    source_backed_flag_failures: 8
+    all_rows_source_provenance_ready: true
+    all_rows_witness_schema_ready: true
+    all_rows_unitary_distance_ready: true
+    single_row_witness_preflight_ready: true
+    source_backed_discriminator_ready: true
+    c2_source_backed_replacement_contract_ready: true
+    c2_provenance_submission_accepted: false
+    c2_strict_replay_rows_accepted: false
+    o3_f4_artifact_accepted: false
+    same_unitary_replay_certificate_complete: false
+    same_access_denominator_comparison_complete: false
+    leakage_free_optimizer_trace_complete: false
+    machine_check_replay_complete: false
+    o3_closed: false
+    checked_negative_lemma_present: false
+    nlc02_full_lemma_ready: false
+    reroute_allowed: false
+    accepted_route_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    requirements_passed: 8
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r45_all_rows_witness_schema_bound_but_no_executable_preflight_source_backed_c2_o3_reroute_or_b7_credit
+    report: ../results/B1_B7_cone01_R45_o3_f4_c2_remaining_witness_schema_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R45_o3_f4_c2_remaining_witness_schema_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate
