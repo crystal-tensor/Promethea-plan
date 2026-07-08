@@ -1,0 +1,461 @@
+{
+  "benchmark_id": "B1",
+  "claim_boundary": {
+    "b7_ledger_improvement_claimed": false,
+    "next_gate": "Submit a valid O3-F4 refit artifact that passes F4-A1..F4-A9, or design an even stronger adversarial fixture.",
+    "resource_saving_claimed": false,
+    "what_is_not_supported": "R26 does not submit or accept a valid O3-F4 refit artifact, does not close O3, and does not permit R5 reroute. No B7 credit or resource saving is supported.",
+    "what_is_supported": "R26 emits a stronger near-miss O3-F4 refit fixture that passes surface gates but is rejected by same-unitary, certificate, denominator, and leakage gates."
+  },
+  "last_updated": "2026-07-08",
+  "linked_benchmark_id": "B7",
+  "method": "b1_b7_cone01_r26_o3_f4_near_miss_refit_sentinel_gate_v0",
+  "model_status": "o3_f4_near_miss_refit_rejected_on_core_science_gates_no_o3_no_reroute",
+  "o3_f4_near_miss_refit_sentinel_packet": {
+    "decision": {
+      "checked_negative_lemma_present": false,
+      "near_miss_fixture_emitted": true,
+      "near_miss_fixture_has_all_required_fields": true,
+      "near_miss_fixture_rejected": true,
+      "nlc02_full_lemma_ready": false,
+      "o3_closed": false,
+      "o3_f4_artifact_accepted": false,
+      "o3_f4_near_miss_sentinel_ready": true,
+      "passes_more_gates_than_r25": true,
+      "reroute_allowed": false,
+      "why": "R26 proves R24 still rejects a stronger near-miss O3-F4 refit that passes surface gates."
+    },
+    "expected_failed_gate_ids": [
+      "F4-A2",
+      "F4-A5",
+      "F4-A6",
+      "F4-A7"
+    ],
+    "expected_passed_gate_ids": [
+      "F4-A1",
+      "F4-A3",
+      "F4-A4",
+      "F4-A8",
+      "F4-A9"
+    ],
+    "fixture_output": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/B1-B7-cone01-O3-F4-refit.near-miss-sentinel.json",
+    "near_miss_fixture": {
+      "artifact_id": "B1-B7-cone01-O3-F4-numerical-refit-redteam-near-miss-sentinel",
+      "b7_credit_delta": 0,
+      "candidate_id": "NL-C02",
+      "challenge_packet_hash": "020091be6ad6be922f5c60bbda55ff89333f01c804d931546b4b35ff195464a0",
+      "checked_negative_lemma_present": false,
+      "claim_boundary": {
+        "kill_conditions": [
+          "same-unitary replay exceeds tolerance",
+          "denominator comparison incomplete",
+          "optimizer leakage"
+        ],
+        "not_supported": "B7 credit, STV credit, reroute, O3 closure, and R1 solution are not supported.",
+        "supported": "near-miss diagnostic only; no O3 closure, reroute, B7 credit, or STV credit is supported"
+      },
+      "equivalence_certificate": {
+        "certificate_type": "replay_rows_plus_symbolic_note",
+        "denominator_comparison": {
+          "covered_r11_r12_rows": 8,
+          "required_r11_r12_rows": 31,
+          "same_access_model": false,
+          "status": "partial"
+        },
+        "pi_over_four_snap": false,
+        "same_unitary_replay_certificate": null
+      },
+      "expected_outputs": {
+        "artifact_hash": "<computed-by-r26>",
+        "challenge_packet_hash": "020091be6ad6be922f5c60bbda55ff89333f01c804d931546b4b35ff195464a0",
+        "checker_stdout_hash": "<computed-by-r26>"
+      },
+      "family_id": "O3-F4",
+      "machine_check_command": "python3 tools/b1_b7_cone01_r26_o3_f4_near_miss_refit_sentinel_gate.py --pretty",
+      "o3_closed": false,
+      "optimizer_trace": {
+        "challenge_packet_visible_to_optimizer": true,
+        "hidden_restart_count": 0,
+        "leakage_note": "near-miss fixture discloses trace but still tunes after seeing challenge rows",
+        "reported_step_count": 512,
+        "status": "trace_present_but_leaky"
+      },
+      "refit_objective": {
+        "loss_terms": [
+          "unitary_replay_error",
+          "pi_over_four_lattice_distance",
+          "route_a_effect"
+        ],
+        "objective": "same_unitary_refit_with_route_a_clearance_pressure",
+        "status": "claimed"
+      },
+      "reroute_allowed": false,
+      "route_a_effect": "does_not_clear_route_a",
+      "seed_schedule": {
+        "challenge_ids": [
+          "O3-F4-C01",
+          "O3-F4-C02",
+          "O3-F4-C03",
+          "O3-F4-C04",
+          "O3-F4-C05",
+          "O3-F4-C06",
+          "O3-F4-C07",
+          "O3-F4-C08"
+        ],
+        "external_randomness_allowed": false,
+        "hidden_restart_count": 0,
+        "status": "all_declared_seeds_used"
+      },
+      "source_domain_hash": "8222f1c0cee51f1ad1a7e8f696938d261c01d7a1841559e451b4fc22a8a676d3",
+      "source_enforced_replay_hash": "0a9c84e725e45b01e1e42d6cf2f00effede669c02740576953f898657c828379",
+      "source_registry_hash": "3a4cd3b08574775d52ee0292e7e5861c968efd0dd281dd04481f6e3da1271eae",
+      "source_target_id": "T-B1-004eb/T-B7-013k",
+      "unitary_replay_protocol": {
+        "max_unitary_replay_error": 1.8000000000000002e-08,
+        "replay_rows": [
+          {
+            "challenge_id": "O3-F4-C01",
+            "claimed_replay_passed": true,
+            "redteam_note": "near miss: every replay error is just above the exact tolerance",
+            "tolerance": 1e-08,
+            "unitary_replay_error": 1.1000000000000001e-08
+          },
+          {
+            "challenge_id": "O3-F4-C02",
+            "claimed_replay_passed": true,
+            "redteam_note": "near miss: every replay error is just above the exact tolerance",
+            "tolerance": 1e-08,
+            "unitary_replay_error": 1.2e-08
+          },
+          {
+            "challenge_id": "O3-F4-C03",
+            "claimed_replay_passed": true,
+            "redteam_note": "near miss: every replay error is just above the exact tolerance",
+            "tolerance": 1e-08,
+            "unitary_replay_error": 1.3e-08
+          },
+          {
+            "challenge_id": "O3-F4-C04",
+            "claimed_replay_passed": true,
+            "redteam_note": "near miss: every replay error is just above the exact tolerance",
+            "tolerance": 1e-08,
+            "unitary_replay_error": 1.4e-08
+          },
+          {
+            "challenge_id": "O3-F4-C05",
+            "claimed_replay_passed": true,
+            "redteam_note": "near miss: every replay error is just above the exact tolerance",
+            "tolerance": 1e-08,
+            "unitary_replay_error": 1.5000000000000002e-08
+          },
+          {
+            "challenge_id": "O3-F4-C06",
+            "claimed_replay_passed": true,
+            "redteam_note": "near miss: every replay error is just above the exact tolerance",
+            "tolerance": 1e-08,
+            "unitary_replay_error": 1.6e-08
+          },
+          {
+            "challenge_id": "O3-F4-C07",
+            "claimed_replay_passed": true,
+            "redteam_note": "near miss: every replay error is just above the exact tolerance",
+            "tolerance": 1e-08,
+            "unitary_replay_error": 1.7000000000000003e-08
+          },
+          {
+            "challenge_id": "O3-F4-C08",
+            "claimed_replay_passed": true,
+            "redteam_note": "near miss: every replay error is just above the exact tolerance",
+            "tolerance": 1e-08,
+            "unitary_replay_error": 1.8000000000000002e-08
+          }
+        ],
+        "required_replay_cases": [
+          "O3-F4-C01",
+          "O3-F4-C02",
+          "O3-F4-C03",
+          "O3-F4-C04",
+          "O3-F4-C05",
+          "O3-F4-C06",
+          "O3-F4-C07",
+          "O3-F4-C08"
+        ],
+        "status": "claimed_near_pass",
+        "tolerance": 1e-08
+      }
+    },
+    "near_miss_fixture_hash": "a239097cd2ca844d616829a141a6490e74285f8af16fee506c70088125d43873",
+    "preflight_hash": "c49cb7c1b54fa079266a6b6dc11d0c13b7d575f1a6f202057bd9b9fd30c9aaa5",
+    "preflight_result": {
+      "accepted": false,
+      "blocked_gate_ids": [],
+      "failed_gate_ids": [
+        "F4-A2",
+        "F4-A5",
+        "F4-A6",
+        "F4-A7"
+      ],
+      "max_unitary_replay_error": 1.8000000000000002e-08,
+      "missing_required_fields": [],
+      "passed_gate_ids": [
+        "F4-A1",
+        "F4-A3",
+        "F4-A4",
+        "F4-A8",
+        "F4-A9"
+      ],
+      "submission_exists": true,
+      "unitary_tolerance": 1e-08,
+      "why": "Near-miss sentinel should pass surface hygiene but fail core same-unitary, certificate, denominator, and leakage gates."
+    },
+    "sentinel_hash": "bb93711b3b2dc2a8b73ded6536e56ad14357eeb544029bd65a7c6b18a751add3",
+    "sentinel_id": "B1-B7-cone01-R26-O3-F4-near-miss-refit-sentinel",
+    "source_challenge_packet": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/B1-B7-cone01-O3-F4-challenge-packet.json",
+    "source_challenge_packet_hash": "020091be6ad6be922f5c60bbda55ff89333f01c804d931546b4b35ff195464a0",
+    "source_harness_hash": "7738931cd3284750f0ce9a8d2ec4acb8aac952b2dd3b335203d35f7213fd007d",
+    "source_hashes": {
+      "challenge_packet_file": "c001607d7d5f68211f83907bf33bbdded216ad8a0f966cc69708a16f44b63419",
+      "r24_harness_file": "c9548e116f736e7b44066cb7e42d06ebbeca6a3116855470583a7fbba3b843b4",
+      "r25_sentinel_file": "caff1f142ab99f52c8a80a2fba6e8b49ee44e95921789a9d86f2b9bc396d7be0",
+      "template_file": "7942ee5b2cd0616f7f24600bbc7b9ab168adfca5f297c3b96e8068039cbb94c7"
+    },
+    "source_r24_harness": "results/B1_B7_cone01_R24_o3_f4_numerical_refit_harness_gate_v0.json",
+    "source_r25_sentinel": "results/B1_B7_cone01_R25_o3_f4_adversarial_refit_sentinel_gate_v0.json",
+    "source_r25_sentinel_hash": "96ed0ecf3b9763894fd624c8406bf820e0ab6416affad9d1f2d22ebcc51b380b",
+    "source_target_id": "T-B1-004eb/T-B7-013k",
+    "source_template": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/B1-B7-cone01-O3-F4-refit.template.json",
+    "source_template_hash": "f23c92653d0679f33beb5c52d6e80f6928d618f67bbe0f5fba5105fd0c6e0edd"
+  },
+  "requirements": [
+    {
+      "evidence": {
+        "r24_validation_error_count": 0,
+        "r25_validation_error_count": 0
+      },
+      "label": "R24 harness and R25 sentinel are validation-clean sources",
+      "passed": true,
+      "requirement_id": "S1"
+    },
+    {
+      "evidence": {
+        "missing_required_fields": []
+      },
+      "label": "Near-miss fixture carries all required O3-F4 fields",
+      "passed": true,
+      "requirement_id": "S2"
+    },
+    {
+      "evidence": {
+        "r25_passed": [
+          "F4-A1",
+          "F4-A3"
+        ],
+        "r26_passed": [
+          "F4-A1",
+          "F4-A3",
+          "F4-A4",
+          "F4-A8",
+          "F4-A9"
+        ]
+      },
+      "label": "Near-miss fixture passes more gates than R25",
+      "passed": true,
+      "requirement_id": "S3"
+    },
+    {
+      "evidence": {
+        "actual_passed_gate_ids": [
+          "F4-A1",
+          "F4-A3",
+          "F4-A4",
+          "F4-A8",
+          "F4-A9"
+        ],
+        "expected_passed_gate_ids": [
+          "F4-A1",
+          "F4-A3",
+          "F4-A4",
+          "F4-A8",
+          "F4-A9"
+        ]
+      },
+      "label": "Near-miss fixture passes source, seed, Route A, claim-boundary, and machine-check surface gates",
+      "passed": true,
+      "requirement_id": "S4"
+    },
+    {
+      "evidence": {
+        "max_unitary_replay_error": 1.8000000000000002e-08,
+        "unitary_tolerance": 1e-08
+      },
+      "label": "Same-unitary replay remains rejected despite near tolerance",
+      "passed": true,
+      "requirement_id": "S5"
+    },
+    {
+      "evidence": {
+        "equivalence_certificate": {
+          "certificate_type": "replay_rows_plus_symbolic_note",
+          "denominator_comparison": {
+            "covered_r11_r12_rows": 8,
+            "required_r11_r12_rows": 31,
+            "same_access_model": false,
+            "status": "partial"
+          },
+          "pi_over_four_snap": false,
+          "same_unitary_replay_certificate": null
+        },
+        "failed_gate_ids": [
+          "F4-A2",
+          "F4-A5",
+          "F4-A6",
+          "F4-A7"
+        ],
+        "optimizer_trace": {
+          "challenge_packet_visible_to_optimizer": true,
+          "hidden_restart_count": 0,
+          "leakage_note": "near-miss fixture discloses trace but still tunes after seeing challenge rows",
+          "reported_step_count": 512,
+          "status": "trace_present_but_leaky"
+        }
+      },
+      "label": "Certificate, denominator, and leakage core gates reject the fixture",
+      "passed": true,
+      "requirement_id": "S6"
+    },
+    {
+      "evidence": {
+        "actual_failed_gate_ids": [
+          "F4-A2",
+          "F4-A5",
+          "F4-A6",
+          "F4-A7"
+        ],
+        "expected_failed_gate_ids": [
+          "F4-A2",
+          "F4-A5",
+          "F4-A6",
+          "F4-A7"
+        ]
+      },
+      "label": "Failed gate set is exactly the stronger near-miss profile",
+      "passed": true,
+      "requirement_id": "S7"
+    },
+    {
+      "evidence": {
+        "decision": {
+          "checked_negative_lemma_present": false,
+          "near_miss_fixture_emitted": true,
+          "near_miss_fixture_has_all_required_fields": true,
+          "near_miss_fixture_rejected": true,
+          "nlc02_full_lemma_ready": false,
+          "o3_closed": false,
+          "o3_f4_artifact_accepted": false,
+          "o3_f4_near_miss_sentinel_ready": true,
+          "passes_more_gates_than_r25": true,
+          "reroute_allowed": false,
+          "why": "R26 proves R24 still rejects a stronger near-miss O3-F4 refit that passes surface gates."
+        },
+        "preflight_accepted": false
+      },
+      "label": "R26 rejects the fixture without accepting O3-F4, closing O3, or permitting reroute",
+      "passed": true,
+      "requirement_id": "S8"
+    },
+    {
+      "evidence": {
+        "accepted_occurrence_removal": 0,
+        "accepted_proxy_t_reduction": 0,
+        "accepted_route_count": 0,
+        "b7_credit_delta": 0,
+        "b7_space_time_volume_credit": 0,
+        "resource_saving_claimed": false
+      },
+      "label": "R26 preserves zero B7/resource credit claims",
+      "passed": true,
+      "requirement_id": "S9"
+    },
+    {
+      "evidence": {
+        "near_miss_fixture_hash": "a239097cd2ca844d616829a141a6490e74285f8af16fee506c70088125d43873",
+        "preflight_hash": "c49cb7c1b54fa079266a6b6dc11d0c13b7d575f1a6f202057bd9b9fd30c9aaa5",
+        "sentinel_hash": "bb93711b3b2dc2a8b73ded6536e56ad14357eeb544029bd65a7c6b18a751add3"
+      },
+      "label": "Sentinel packet is internally hash-bound",
+      "passed": true,
+      "requirement_id": "S10"
+    }
+  ],
+  "runtime_seconds": 0.00044,
+  "source_target_id": "T-B1-004eb/T-B7-013k",
+  "status": "cone01_r26_o3_f4_near_miss_refit_sentinel_rejected",
+  "summary": {
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "accepted_route_count": 0,
+    "b7_credit_delta": 0,
+    "b7_ledger_improvement_claimed": false,
+    "b7_space_time_volume_credit": 0,
+    "candidate_id": "NL-C02",
+    "checked_negative_lemma_present": false,
+    "expected_failed_gate_ids": [
+      "F4-A2",
+      "F4-A5",
+      "F4-A6",
+      "F4-A7"
+    ],
+    "expected_passed_gate_ids": [
+      "F4-A1",
+      "F4-A3",
+      "F4-A4",
+      "F4-A8",
+      "F4-A9"
+    ],
+    "failed_requirement_ids": [],
+    "family_id": "O3-F4",
+    "max_unitary_replay_error": 1.8000000000000002e-08,
+    "near_miss_fixture_has_all_required_fields": true,
+    "near_miss_fixture_hash": "a239097cd2ca844d616829a141a6490e74285f8af16fee506c70088125d43873",
+    "near_miss_fixture_rejected": true,
+    "nlc02_full_lemma_ready": false,
+    "o3_closed": false,
+    "o3_f4_artifact_accepted": false,
+    "passes_more_gates_than_r25": true,
+    "preflight_failed_gate_ids": [
+      "F4-A2",
+      "F4-A5",
+      "F4-A6",
+      "F4-A7"
+    ],
+    "preflight_hash": "c49cb7c1b54fa079266a6b6dc11d0c13b7d575f1a6f202057bd9b9fd30c9aaa5",
+    "preflight_passed_gate_ids": [
+      "F4-A1",
+      "F4-A3",
+      "F4-A4",
+      "F4-A8",
+      "F4-A9"
+    ],
+    "remaining_open_obligation_count": 3,
+    "remaining_open_obligations": [
+      "O3-F3_symbolic_lu_artifact",
+      "O3-F4_valid_refit_artifact",
+      "O3-F5_route_a_artifact"
+    ],
+    "requirement_count": 10,
+    "requirements_failed": 0,
+    "requirements_passed": 10,
+    "reroute_allowed": false,
+    "resource_saving_claimed": false,
+    "sentinel_hash": "bb93711b3b2dc2a8b73ded6536e56ad14357eeb544029bd65a7c6b18a751add3",
+    "sentinel_id": "B1-B7-cone01-R26-O3-F4-near-miss-refit-sentinel",
+    "source_harness_hash": "7738931cd3284750f0ce9a8d2ec4acb8aac952b2dd3b335203d35f7213fd007d",
+    "source_r25_sentinel_hash": "96ed0ecf3b9763894fd624c8406bf820e0ab6416affad9d1f2d22ebcc51b380b",
+    "unitary_tolerance": 1e-08,
+    "validation_error_count": 0
+  },
+  "title": "B1/B7 Cone01 R26 O3-F4 Near-Miss Refit Sentinel Gate",
+  "upstream_target_id": "T-B1-004ea/T-B7-013j",
+  "validation_errors": [],
+  "version": "0.1"
+}

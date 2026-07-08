@@ -1,0 +1,145 @@
+{
+  "artifact_id": "B1-B7-cone01-O3-F4-numerical-refit-redteam-near-miss-sentinel",
+  "b7_credit_delta": 0,
+  "candidate_id": "NL-C02",
+  "challenge_packet_hash": "020091be6ad6be922f5c60bbda55ff89333f01c804d931546b4b35ff195464a0",
+  "checked_negative_lemma_present": false,
+  "claim_boundary": {
+    "kill_conditions": [
+      "same-unitary replay exceeds tolerance",
+      "denominator comparison incomplete",
+      "optimizer leakage"
+    ],
+    "not_supported": "B7 credit, STV credit, reroute, O3 closure, and R1 solution are not supported.",
+    "supported": "near-miss diagnostic only; no O3 closure, reroute, B7 credit, or STV credit is supported"
+  },
+  "equivalence_certificate": {
+    "certificate_type": "replay_rows_plus_symbolic_note",
+    "denominator_comparison": {
+      "covered_r11_r12_rows": 8,
+      "required_r11_r12_rows": 31,
+      "same_access_model": false,
+      "status": "partial"
+    },
+    "pi_over_four_snap": false,
+    "same_unitary_replay_certificate": null
+  },
+  "expected_outputs": {
+    "artifact_hash": "<computed-by-r26>",
+    "challenge_packet_hash": "020091be6ad6be922f5c60bbda55ff89333f01c804d931546b4b35ff195464a0",
+    "checker_stdout_hash": "<computed-by-r26>"
+  },
+  "family_id": "O3-F4",
+  "machine_check_command": "python3 tools/b1_b7_cone01_r26_o3_f4_near_miss_refit_sentinel_gate.py --pretty",
+  "o3_closed": false,
+  "optimizer_trace": {
+    "challenge_packet_visible_to_optimizer": true,
+    "hidden_restart_count": 0,
+    "leakage_note": "near-miss fixture discloses trace but still tunes after seeing challenge rows",
+    "reported_step_count": 512,
+    "status": "trace_present_but_leaky"
+  },
+  "refit_objective": {
+    "loss_terms": [
+      "unitary_replay_error",
+      "pi_over_four_lattice_distance",
+      "route_a_effect"
+    ],
+    "objective": "same_unitary_refit_with_route_a_clearance_pressure",
+    "status": "claimed"
+  },
+  "reroute_allowed": false,
+  "route_a_effect": "does_not_clear_route_a",
+  "seed_schedule": {
+    "challenge_ids": [
+      "O3-F4-C01",
+      "O3-F4-C02",
+      "O3-F4-C03",
+      "O3-F4-C04",
+      "O3-F4-C05",
+      "O3-F4-C06",
+      "O3-F4-C07",
+      "O3-F4-C08"
+    ],
+    "external_randomness_allowed": false,
+    "hidden_restart_count": 0,
+    "status": "all_declared_seeds_used"
+  },
+  "source_domain_hash": "8222f1c0cee51f1ad1a7e8f696938d261c01d7a1841559e451b4fc22a8a676d3",
+  "source_enforced_replay_hash": "0a9c84e725e45b01e1e42d6cf2f00effede669c02740576953f898657c828379",
+  "source_registry_hash": "3a4cd3b08574775d52ee0292e7e5861c968efd0dd281dd04481f6e3da1271eae",
+  "source_target_id": "T-B1-004eb/T-B7-013k",
+  "unitary_replay_protocol": {
+    "max_unitary_replay_error": 1.8000000000000002e-08,
+    "replay_rows": [
+      {
+        "challenge_id": "O3-F4-C01",
+        "claimed_replay_passed": true,
+        "redteam_note": "near miss: every replay error is just above the exact tolerance",
+        "tolerance": 1e-08,
+        "unitary_replay_error": 1.1000000000000001e-08
+      },
+      {
+        "challenge_id": "O3-F4-C02",
+        "claimed_replay_passed": true,
+        "redteam_note": "near miss: every replay error is just above the exact tolerance",
+        "tolerance": 1e-08,
+        "unitary_replay_error": 1.2e-08
+      },
+      {
+        "challenge_id": "O3-F4-C03",
+        "claimed_replay_passed": true,
+        "redteam_note": "near miss: every replay error is just above the exact tolerance",
+        "tolerance": 1e-08,
+        "unitary_replay_error": 1.3e-08
+      },
+      {
+        "challenge_id": "O3-F4-C04",
+        "claimed_replay_passed": true,
+        "redteam_note": "near miss: every replay error is just above the exact tolerance",
+        "tolerance": 1e-08,
+        "unitary_replay_error": 1.4e-08
+      },
+      {
+        "challenge_id": "O3-F4-C05",
+        "claimed_replay_passed": true,
+        "redteam_note": "near miss: every replay error is just above the exact tolerance",
+        "tolerance": 1e-08,
+        "unitary_replay_error": 1.5000000000000002e-08
+      },
+      {
+        "challenge_id": "O3-F4-C06",
+        "claimed_replay_passed": true,
+        "redteam_note": "near miss: every replay error is just above the exact tolerance",
+        "tolerance": 1e-08,
+        "unitary_replay_error": 1.6e-08
+      },
+      {
+        "challenge_id": "O3-F4-C07",
+        "claimed_replay_passed": true,
+        "redteam_note": "near miss: every replay error is just above the exact tolerance",
+        "tolerance": 1e-08,
+        "unitary_replay_error": 1.7000000000000003e-08
+      },
+      {
+        "challenge_id": "O3-F4-C08",
+        "claimed_replay_passed": true,
+        "redteam_note": "near miss: every replay error is just above the exact tolerance",
+        "tolerance": 1e-08,
+        "unitary_replay_error": 1.8000000000000002e-08
+      }
+    ],
+    "required_replay_cases": [
+      "O3-F4-C01",
+      "O3-F4-C02",
+      "O3-F4-C03",
+      "O3-F4-C04",
+      "O3-F4-C05",
+      "O3-F4-C06",
+      "O3-F4-C07",
+      "O3-F4-C08"
+    ],
+    "status": "claimed_near_pass",
+    "tolerance": 1e-08
+  }
+}

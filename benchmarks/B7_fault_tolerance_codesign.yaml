@@ -1059,6 +1059,46 @@ current_results:
     caveat: r25_o3_f4_adversarial_refit_fixture_rejected_no_valid_refit_no_o3_closure_no_reroute_or_b7_credit
     report: ../results/B1_B7_cone01_R25_o3_f4_adversarial_refit_sentinel_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R25_o3_f4_adversarial_refit_sentinel_gate.md
+  b1_b7_cone01_r26_o3_f4_near_miss_refit_sentinel_gate_v0:
+    status: cone01_r26_o3_f4_near_miss_refit_sentinel_rejected
+    method: b1_b7_cone01_r26_o3_f4_near_miss_refit_sentinel_gate_v0
+    source_b1_r26_o3_f4_near_miss_refit_sentinel: ../results/B1_B7_cone01_R26_o3_f4_near_miss_refit_sentinel_gate_v0.json
+    source_r25_sentinel: ../results/B1_B7_cone01_R25_o3_f4_adversarial_refit_sentinel_gate_v0.json
+    source_target_id: T-B1-004eb/T-B7-013k
+    upstream_target_id: T-B1-004ea/T-B7-013j
+    candidate_id: NL-C02
+    family_id: O3-F4
+    sentinel_hash: bb93711b3b2dc2a8b73ded6536e56ad14357eeb544029bd65a7c6b18a751add3
+    near_miss_fixture_hash: a239097cd2ca844d616829a141a6490e74285f8af16fee506c70088125d43873
+    preflight_hash: c49cb7c1b54fa079266a6b6dc11d0c13b7d575f1a6f202057bd9b9fd30c9aaa5
+    expected_passed_gate_ids: [F4-A1, F4-A3, F4-A4, F4-A8, F4-A9]
+    expected_failed_gate_ids: [F4-A2, F4-A5, F4-A6, F4-A7]
+    preflight_passed_gate_ids: [F4-A1, F4-A3, F4-A4, F4-A8, F4-A9]
+    preflight_failed_gate_ids: [F4-A2, F4-A5, F4-A6, F4-A7]
+    requirements_passed: 10
+    requirements_failed: 0
+    near_miss_fixture_has_all_required_fields: true
+    near_miss_fixture_rejected: true
+    passes_more_gates_than_r25: true
+    max_unitary_replay_error: 1.8e-08
+    unitary_tolerance: 1.0e-08
+    o3_f4_artifact_accepted: false
+    o3_closed: false
+    checked_negative_lemma_present: false
+    nlc02_full_lemma_ready: false
+    reroute_allowed: false
+    accepted_route_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_dependency_credit_allowed: false
+    b7_resource_credit_allowed: false
+    b7_ft_ledger_credit_allowed: false
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    validation_error_count: 0
+    caveat: r26_o3_f4_near_miss_fixture_rejected_no_valid_refit_no_o3_closure_no_reroute_or_b7_credit
+    report: ../results/B1_B7_cone01_R26_o3_f4_near_miss_refit_sentinel_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R26_o3_f4_near_miss_refit_sentinel_gate.md
   b2_calibrated_dependency_credit_gate_v0:
     status: b2_calibrated_dependency_credit_rejected_missing_hardware_evidence
     method: b7_b2_calibrated_dependency_credit_gate_v0
