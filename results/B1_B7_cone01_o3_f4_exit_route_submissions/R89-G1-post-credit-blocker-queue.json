@@ -1,0 +1,30 @@
+{
+  "accepted_b7_credit_delta": 1,
+  "artifact": "R89 G1 post-credit blocker queue",
+  "blocker_queue_hash": "0aed27e6658d039295e9b76587c60e501d2cda2bddd81e531f5cd4d48f2d71b1",
+  "method": "b1_b7_cone01_r89_g1_downstream_b7_replay_gate_v0",
+  "queue": [
+    {
+      "blocker_id": "R89-G1-1",
+      "needed_artifact": "independent replay of the filled R83 G1 submission and R89 B7 ledger before O3 closure",
+      "priority": 1,
+      "target_gate": "independent_downstream_replay_review"
+    },
+    {
+      "blocker_id": "R89-G1-2",
+      "needed_artifact": "additional accepted reduction or full reprice to reach the 1.25x target",
+      "priority": 2,
+      "remaining_margin": -224,
+      "target_gate": "target_1_25_gap"
+    },
+    {
+      "blocker_id": "R89-G1-3",
+      "needed_artifact": "physical-layout or hardware-like FT schedule evidence before resource-saving claims",
+      "priority": 3,
+      "target_gate": "physical_layout_boundary"
+    }
+  ],
+  "source_target_id": "T-B1-004gm/T-B7-015v",
+  "upstream_target_id": "T-B1-004gl/T-B7-015u",
+  "verdict_hash": "f9d7409a9f83f37e3f220b39fd22621f15a87e7f5ab319cdedc8fbfa782ba7f6"
+}

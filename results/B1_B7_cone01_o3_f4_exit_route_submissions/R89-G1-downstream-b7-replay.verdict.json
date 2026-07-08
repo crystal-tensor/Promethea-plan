@@ -1,0 +1,32 @@
+{
+  "accepted": true,
+  "accepted_b7_credit_delta": 1,
+  "accepted_b7_space_time_volume_credit": 1,
+  "accepted_credit_scope": "proxy_ft_stv_1_20_only",
+  "artifact": "R89 G1 downstream B7 replay verdict",
+  "claim_boundary": "R89 accepts only a narrow proxy FT/STV 1.20x downstream replay credit for the filled R83 G1 submission. It does not prove a physical layout, does not reach the 1.25x target, and does not close O3, reroute, or resource-saving claims.",
+  "failed_gate_count": 0,
+  "failed_gates": [],
+  "gates": {
+    "downstream_b7_replay_present": true,
+    "filled_r83_submission_present": true,
+    "no_o3_reroute_or_resource_claim": true,
+    "nonzero_credit_is_proxy_scoped": true,
+    "target_1_20_proxy_stv_reached": true,
+    "target_1_25_not_claimed": true
+  },
+  "method": "b1_b7_cone01_r89_g1_downstream_b7_replay_gate_v0",
+  "o3_closed": false,
+  "passed_gate_count": 6,
+  "replay_ledger_hash": "4fa9daa77d27717e74965889eea20a0df05be43c9fdf68a5050348593f15b1f2",
+  "replay_ledger_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R89-G1-downstream-b7-replay-ledger.json",
+  "reroute_allowed": false,
+  "resource_saving_claimed": false,
+  "source_target_id": "T-B1-004gm/T-B7-015v",
+  "target_1_20_margin": 8,
+  "target_1_20_reached": true,
+  "target_1_25_margin": -224,
+  "target_1_25_reached": false,
+  "upstream_target_id": "T-B1-004gl/T-B7-015u",
+  "verdict_hash": "f9d7409a9f83f37e3f220b39fd22621f15a87e7f5ab319cdedc8fbfa782ba7f6"
+}

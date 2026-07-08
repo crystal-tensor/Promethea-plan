@@ -6681,6 +6681,43 @@ current_results:
     caveat: r88_filled_r83_submission_only_missing_downstream_b7_replay_no_credit
     report: ../results/B1_B7_cone01_R88_g1_filled_r83_submission_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R88_g1_filled_r83_submission_gate.md
+  b1_b7_cone01_r89_g1_downstream_b7_replay_gate_v0:
+    circuits: 1
+    status: cone01_r89_g1_downstream_b7_replay_1_20_proxy_credit
+    model_status: r88_downstream_b7_replay_accepts_1_20_proxy_credit_not_1_25_or_o3
+    method: b1_b7_cone01_r89_g1_downstream_b7_replay_gate_v0
+    source_target_id: T-B1-004gm/T-B7-015v
+    upstream_target_id: T-B1-004gl/T-B7-015u
+    route_id: R83-G1-30-arbitrary-rotation-batch
+    source_b1_r88_g1_filled_r83_submission: ../results/B1_B7_cone01_R88_g1_filled_r83_submission_gate_v0.json
+    r89_replay_ledger: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R89-G1-downstream-b7-replay-ledger.json
+    r89_verdict: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R89-G1-downstream-b7-replay.verdict.json
+    r89_stdout: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R89-G1-downstream-b7-replay.stdout.txt
+    filled_r83_submission_present: true
+    downstream_b7_replay_present: true
+    baseline_after_t_ledger: 6224
+    candidate_t_ledger_reduction: 600
+    candidate_after_t_ledger: 5624
+    target_1_20_reached: true
+    target_1_20_margin: 8
+    target_1_25_reached: false
+    target_1_25_margin: -224
+    accepted_credit_scope: proxy_ft_stv_1_20_only
+    accepted_b7_credit_delta: 1
+    accepted_b7_space_time_volume_credit: 1
+    o3_closed: false
+    reroute_allowed: false
+    resource_saving_claimed: false
+    physical_layout_claimed: false
+    replay_ledger_hash: 4fa9daa77d27717e74965889eea20a0df05be43c9fdf68a5050348593f15b1f2
+    verdict_hash: f9d7409a9f83f37e3f220b39fd22621f15a87e7f5ab319cdedc8fbfa782ba7f6
+    blocker_queue_hash: 0aed27e6658d039295e9b76587c60e501d2cda2bddd81e531f5cd4d48f2d71b1
+    requirements_passed: 7
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r89_accepts_only_proxy_ft_stv_1_20_credit_not_b7_solution_or_o3_closure
+    report: ../results/B1_B7_cone01_R89_g1_downstream_b7_replay_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R89_g1_downstream_b7_replay_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate

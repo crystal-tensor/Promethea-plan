@@ -1,0 +1,133 @@
+{
+  "artifact": "B1/B7 cone01 R89 G1 downstream B7 replay gate",
+  "blocker_queue_hash": "0aed27e6658d039295e9b76587c60e501d2cda2bddd81e531f5cd4d48f2d71b1",
+  "blocker_queue_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R89-G1-post-credit-blocker-queue.json",
+  "failed_requirement_ids": [],
+  "generated_at_unix": 1783544504,
+  "method": "b1_b7_cone01_r89_g1_downstream_b7_replay_gate_v0",
+  "model_status": "r88_downstream_b7_replay_accepts_1_20_proxy_credit_not_1_25_or_o3",
+  "payload_hash": "fe1aee2043d97768b7763e259a0836b543f479bc2d026722b5c0f2cf9411752f",
+  "replay_ledger_hash": "4fa9daa77d27717e74965889eea20a0df05be43c9fdf68a5050348593f15b1f2",
+  "replay_ledger_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R89-G1-downstream-b7-replay-ledger.json",
+  "requirement_count": 7,
+  "requirements": [
+    {
+      "evidence": {
+        "r88_filled_submission_hash": "6ac1427a6c04a6ced8d9d1cb22461c7721fd755c5b1d4d01dc139bc4647d04e7",
+        "r88_payload_hash": "ec1d694017514c6b3dabf6ad90c8922b391cc3222d282d5833a363dc811513be"
+      },
+      "label": "R89 consumes the filled R88 G1 R83 submission",
+      "passed": true,
+      "requirement_id": "A1"
+    },
+    {
+      "evidence": {
+        "replay_ledger_hash": "4fa9daa77d27717e74965889eea20a0df05be43c9fdf68a5050348593f15b1f2",
+        "source_b7_boundary_sha256": "e1a37664da13d8f8f05120101d0d6c477027fe94c161c7a5cf9da12131197db5"
+      },
+      "label": "R89 runs downstream B7 replay against the B7 boundary",
+      "passed": true,
+      "requirement_id": "A2"
+    },
+    {
+      "evidence": {
+        "candidate_after_t_ledger": 5624,
+        "target_1_20_margin": 8
+      },
+      "label": "R89 reaches the 1.20x proxy STV target",
+      "passed": true,
+      "requirement_id": "A3"
+    },
+    {
+      "evidence": {
+        "target_1_25_credit_claimed": false,
+        "target_1_25_margin": -224
+      },
+      "label": "R89 does not claim the 1.25x target",
+      "passed": true,
+      "requirement_id": "A4"
+    },
+    {
+      "evidence": {
+        "accepted_b7_credit_delta": 1,
+        "accepted_credit_scope": "proxy_ft_stv_1_20_only",
+        "verdict_hash": "f9d7409a9f83f37e3f220b39fd22621f15a87e7f5ab319cdedc8fbfa782ba7f6"
+      },
+      "label": "R89 accepts only narrow proxy FT/STV credit",
+      "passed": true,
+      "requirement_id": "A5"
+    },
+    {
+      "evidence": {
+        "o3_closed": false,
+        "reroute_allowed": false,
+        "resource_saving_claimed": false
+      },
+      "label": "R89 keeps O3, reroute, physical-layout, and resource-saving claims closed",
+      "passed": true,
+      "requirement_id": "A6"
+    },
+    {
+      "evidence": {
+        "blocker_ids": [
+          "R89-G1-1",
+          "R89-G1-2",
+          "R89-G1-3"
+        ],
+        "blocker_queue_hash": "0aed27e6658d039295e9b76587c60e501d2cda2bddd81e531f5cd4d48f2d71b1"
+      },
+      "label": "R89 emits post-credit blockers for review, 1.25x, and physical layout",
+      "passed": true,
+      "requirement_id": "A7"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 7,
+  "source_target_id": "T-B1-004gm/T-B7-015v",
+  "status": "cone01_r89_g1_downstream_b7_replay_1_20_proxy_credit",
+  "stdout_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R89-G1-downstream-b7-replay.stdout.txt",
+  "stdout_sha256": "88048cbea74f45abe69f73201926d64128076f040e515d145343630c83bd6dbf",
+  "summary": {
+    "accepted_b7_credit_delta": 1,
+    "accepted_b7_space_time_volume_credit": 1,
+    "accepted_credit_scope": "proxy_ft_stv_1_20_only",
+    "baseline_after_t_ledger": 6224,
+    "blocker_queue_hash": "0aed27e6658d039295e9b76587c60e501d2cda2bddd81e531f5cd4d48f2d71b1",
+    "candidate_after_t_ledger": 5624,
+    "candidate_t_ledger_reduction": 600,
+    "downstream_b7_replay_present": true,
+    "failed_gates": [],
+    "failed_requirement_ids": [],
+    "filled_r83_submission_present": true,
+    "method": "b1_b7_cone01_r89_g1_downstream_b7_replay_gate_v0",
+    "model_status": "r88_downstream_b7_replay_accepts_1_20_proxy_credit_not_1_25_or_o3",
+    "o3_closed": false,
+    "payload_hash": "fe1aee2043d97768b7763e259a0836b543f479bc2d026722b5c0f2cf9411752f",
+    "physical_layout_claimed": false,
+    "replay_ledger_hash": "4fa9daa77d27717e74965889eea20a0df05be43c9fdf68a5050348593f15b1f2",
+    "requirements_failed": 0,
+    "requirements_passed": 7,
+    "reroute_allowed": false,
+    "resource_saving_claimed": false,
+    "route_id": "R83-G1-30-arbitrary-rotation-batch",
+    "source_target_id": "T-B1-004gm/T-B7-015v",
+    "status": "cone01_r89_g1_downstream_b7_replay_1_20_proxy_credit",
+    "stdout_sha256": "88048cbea74f45abe69f73201926d64128076f040e515d145343630c83bd6dbf",
+    "target_1_20_margin": 8,
+    "target_1_20_reached": true,
+    "target_1_25_credit_claimed": false,
+    "target_1_25_margin": -224,
+    "target_1_25_reached": false,
+    "upstream_target_id": "T-B1-004gl/T-B7-015u",
+    "validation_error_count": 0,
+    "verdict_accepted": true,
+    "verdict_failed_gate_count": 0,
+    "verdict_hash": "f9d7409a9f83f37e3f220b39fd22621f15a87e7f5ab319cdedc8fbfa782ba7f6"
+  },
+  "upstream_target_id": "T-B1-004gl/T-B7-015u",
+  "validation_error_count": 0,
+  "validation_errors": [],
+  "verdict_hash": "f9d7409a9f83f37e3f220b39fd22621f15a87e7f5ab319cdedc8fbfa782ba7f6",
+  "verdict_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R89-G1-downstream-b7-replay.verdict.json",
+  "version": "0.1"
+}

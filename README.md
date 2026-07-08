@@ -2198,3 +2198,16 @@ preflight hash `ca6d79111ba0d8dc950c2385c18f2902fa756d2a48970e627fbbdbe7160401fd
 blocker queue hash `09e25308180ee3e41e2ce6f14ed737139b77f3c3a749a718f6617bdf731e44bc`.
 B7 credit remains `0`; this is a filled R83 submission, not downstream replay,
 resource-saving permission, reroute permission, or O3 closure.
+
+`T-B1-004gm` / `T-B7-015v` now closes the downstream replay gate for the filled
+R83 G1 submission. R89 replays the candidate against the current B7 proxy
+FT/STV boundary and accepts exactly one narrow proxy credit: the `1.20x` target
+is reached because the candidate path prices `6224 -> 5624`, leaving `8` units
+of margin below the `5632` ceiling. The `1.25x` target remains false with
+margin `-224`, and no physical-layout, O3, reroute, or resource-saving claim is
+made. Replay-ledger hash
+`4fa9daa77d27717e74965889eea20a0df05be43c9fdf68a5050348593f15b1f2`;
+verdict hash `f9d7409a9f83f37e3f220b39fd22621f15a87e7f5ab319cdedc8fbfa782ba7f6`;
+blocker queue hash `0aed27e6658d039295e9b76587c60e501d2cda2bddd81e531f5cd4d48f2d71b1`.
+Accepted B7 credit is now `1` only in scope
+`proxy_ft_stv_1_20_only`; this is not a claim that B7 is solved.
