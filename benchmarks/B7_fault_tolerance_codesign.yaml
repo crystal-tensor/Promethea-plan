@@ -1801,6 +1801,64 @@ current_results:
     caveat: r41_witness_preflight_executable_but_no_unitary_distance_no_c2_o3_reroute_or_b7_credit
     report: ../results/B1_B7_cone01_R41_o3_f4_c2_single_row_witness_preflight_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R41_o3_f4_c2_single_row_witness_preflight_gate.md
+  b1_b7_cone01_r42_o3_f4_c2_single_row_unitary_distance_gate_v0:
+    status: cone01_r42_o3_f4_c2_single_row_unitary_distance_computed_rejected
+    method: b1_b7_cone01_r42_o3_f4_c2_single_row_unitary_distance_gate_v0
+    source_b1_r42_o3_f4_c2_single_row_unitary_distance: ../results/B1_B7_cone01_R42_o3_f4_c2_single_row_unitary_distance_gate_v0.json
+    source_r41_witness_preflight: ../results/B1_B7_cone01_R41_o3_f4_c2_single_row_witness_preflight_gate_v0.json
+    fixture_output: ../results/B1_B7_cone01_o3_f4_numerical_refit_submissions/B1-B7-cone01-O3-F4-C2-single-row-unitary-distance.fixture.json
+    source_target_id: T-B1-004er/T-B7-014a
+    upstream_target_id: T-B1-004eq/T-B7-013z
+    candidate_id: NL-C02
+    family_id: O3-F4
+    challenge_id: O3-F4-C01
+    source_r41_evaluation_hash: 507326bb8120b51b1d4c1ea8a7d8d598178b76f2faddab1c9ce52b1904e008d8
+    source_r41_fixture_hash: 93cdfd2c153f052d28c1949e35a44e86a835d4c2ddab9d3859e42e079ff7437a
+    single_row_unitary_distance_fixture_hash: 6588f37a519d94058f8b0cffc9698a8aeeb574cb0dea325e79ce8823e5ae58de
+    evaluation_hash: 0fefc6f3c95580ac37aea5e54ff2982058fc5f5676b25f9e8c57098da9468c98
+    unitary_distance_metric: one_qubit_rz_operator_norm
+    c01_computed_unitary_distance: 0.0
+    materialized_rows_passed: 8
+    source_provenance_rows_passed: 1
+    source_provenance_failures: 7
+    witness_schema_rows_passed: 1
+    witness_schema_failures: 7
+    witness_preflight_rows_passed: 1
+    witness_preflight_failures: 7
+    unitary_distance_rows_passed: 1
+    unitary_distance_failures: 7
+    source_backed_rows_passed: 0
+    source_backed_flag_failures: 8
+    single_row_unitary_distance_ready: true
+    single_row_witness_preflight_ready: true
+    single_row_witness_scaffold_ready: true
+    single_row_source_provenance_ready: true
+    source_backed_discriminator_ready: true
+    c2_source_backed_replacement_contract_ready: true
+    c2_strict_replay_rows_accepted: false
+    o3_f4_artifact_accepted: false
+    same_unitary_replay_certificate_complete: false
+    same_access_denominator_comparison_complete: false
+    leakage_free_optimizer_trace_complete: false
+    machine_check_replay_complete: false
+    o3_closed: false
+    checked_negative_lemma_present: false
+    nlc02_full_lemma_ready: false
+    reroute_allowed: false
+    accepted_route_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_dependency_credit_allowed: false
+    b7_resource_credit_allowed: false
+    b7_ft_ledger_credit_allowed: false
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    requirements_passed: 8
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r42_unitary_distance_computed_for_one_smoke_row_but_no_source_backed_c2_o3_reroute_or_b7_credit
+    report: ../results/B1_B7_cone01_R42_o3_f4_c2_single_row_unitary_distance_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R42_o3_f4_c2_single_row_unitary_distance_gate.md
   b2_calibrated_dependency_credit_gate_v0:
     status: b2_calibrated_dependency_credit_rejected_missing_hardware_evidence
     method: b7_b2_calibrated_dependency_credit_gate_v0

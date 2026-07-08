@@ -1,0 +1,29 @@
+{
+  "acceptance_blockers": [
+    "source_backed_replay_false",
+    "same_unitary_certificate_false",
+    "smoke_only_not_c2_acceptance_true",
+    "only_one_smoke_row_has_unitary_distance_witness",
+    "remaining_7_rows_lack_source_provenance_witness_preflight_and_unitary_distance"
+  ],
+  "artifact": "R42 single-row unitary-distance witness",
+  "c2_accepted": false,
+  "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C01.candidate.qasm",
+  "candidate_circuit_sha256": "b7896e91e03ae5a50d58c547aaccffee9cedd2c714fa1ae22b0fb0280e3e0f6c",
+  "candidate_theta": 0.125,
+  "challenge_id": "O3-F4-C01",
+  "computed_unitary_distance": 0.0,
+  "same_unitary_certificate_claimed": false,
+  "schema": "source_backed_unitary_equivalence_v1",
+  "scope": "single_qubit_rz_smoke_artifact_not_source_backed_c2_acceptance",
+  "smoke_only_not_c2_acceptance": true,
+  "source_backed_replay": false,
+  "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C01.source.qasm",
+  "source_circuit_sha256": "e0922fdb81e0370a7c231094b448235212e4591202410421736926a0fe1fffe3",
+  "source_theta": 0.125,
+  "strict_tolerance": 1e-08,
+  "unitary_distance_metric": "one_qubit_rz_operator_norm",
+  "unitary_distance_passed": true,
+  "unitary_distance_witness_hash": "8316b814208babac806404f0f81a1255b409f3faca8e498c5394b1e7a88ea549",
+  "verifier": "r42_single_qubit_rz_unitary_distance_not_c2_certificate"
+}

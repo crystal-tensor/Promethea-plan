@@ -1448,6 +1448,24 @@ turn the preflight into a same-unitary certificate, and does not mark the row
 source-backed. O3, reroute, B7 credit, STV credit, and resource-saving claims
 remain 0/false.
 
+`T-B1-004er` / `T-B7-014a` now replaces the R41 preflight-only step with one
+actual unitary-distance computation for `O3-F4-C01`. The R42 gate parses the
+OpenQASM 3.0 single-qubit `rz(0.125)` source/candidate pair, computes the
+one-qubit RZ operator-norm distance, and records `0.0` under a hash-bound
+witness and transcript. Source-provenance rows pass `1`; witness-schema rows
+pass `1`; witness-preflight rows pass `1`; unitary-distance rows pass `1`;
+unitary-distance failures remain `7`; source-backed rows remain `0`;
+source-backed flag failures remain `8`. Single-row unitary-distance fixture
+hash `6588f37a519d94058f8b0cffc9698a8aeeb574cb0dea325e79ce8823e5ae58de`;
+evaluation hash `0fefc6f3c95580ac37aea5e54ff2982058fc5f5676b25f9e8c57098da9468c98`.
+C2 remains unaccepted because R42 is still one smoke row, does not mark the row
+source-backed, and does not turn the numeric distance into a same-unitary
+certificate. O3, reroute, B7 credit, STV credit, and resource-saving claims
+remain 0/false. The next useful PR should replace smoke flags with real
+source-backed replay flags only after independent source lineage and replay
+evidence exist, then replicate provenance, witness, preflight, and unitary
+distance packets for the remaining 7 rows.
+
 B4/B8 now has a formal verifier-private challenge protocol model:
 `T-B4-002b` / `T-B8-003f` turns the previous private-predicate pressure gate
 into a commit-challenge-response-verify protocol over 36 shared challenge rows.
