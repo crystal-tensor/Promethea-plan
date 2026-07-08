@@ -3105,6 +3105,45 @@ current_results:
     caveat: r74_d1_prefill_does_not_allow_b7_nonzero_retest_until_d2_d3_and_hardened_preflight_pass
     report: ../results/B1_B7_cone01_R74_r1_occurrence_packet_prefill_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R74_r1_occurrence_packet_prefill_gate.md
+  b1_b7_cone01_r75_proxy_t_packet_prefill_gate_v0:
+    status: cone01_r75_proxy_t_packet_prefill_partial_zero_credit
+    method: b1_b7_cone01_r75_proxy_t_packet_prefill_gate_v0
+    source_b1_r75_proxy_t_packet_prefill: ../results/B1_B7_cone01_R75_proxy_t_packet_prefill_gate_v0.json
+    source_b1_r74_r1_occurrence_packet_prefill: ../results/B1_B7_cone01_R74_r1_occurrence_packet_prefill_gate_v0.json
+    r75_proxy_t_pricing_model: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R75-proxy-t-pricing-model.json
+    r75_proxy_t_derivation_artifact: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R75-proxy-t-pricing-derivation-artifact.json
+    r75_intake_verdict: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R75-r1-d1-d2-source-closure-intake.verdict.json
+    r75_blocker_queue: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R75-source-closure-blocker-queue.json
+    source_target_id: T-B1-004fy/T-B7-015h
+    upstream_target_id: T-B1-004fx/T-B7-015g
+    r73_d1_prefilled: true
+    r73_d2_prefilled: true
+    r73_d3_prefilled: false
+    r73_intake_accepted: false
+    r73_intake_failed_gate_count: 3
+    proxy_t_before: 100
+    proxy_t_after: 99
+    proxy_t_delta: 1
+    accepted_exit_route_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_dependency_credit_allowed: false
+    b7_resource_credit_allowed: false
+    b7_ft_ledger_credit_allowed: false
+    b7_nonzero_retest_allowed: false
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    o3_closed: false
+    reroute_allowed: false
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    blocker_queue_hash: f35da10520f59425a0ab90bd680aeda0f91f0f872b70a5a6db494ee959940c0b
+    requirements_passed: 8
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r75_d2_prefill_does_not_allow_b7_nonzero_retest_until_d3_and_hardened_preflight_pass
+    report: ../results/B1_B7_cone01_R75_proxy_t_packet_prefill_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R75_proxy_t_packet_prefill_gate.md
   b2_calibrated_dependency_credit_gate_v0:
     status: b2_calibrated_dependency_credit_rejected_missing_hardware_evidence
     method: b7_b2_calibrated_dependency_credit_gate_v0

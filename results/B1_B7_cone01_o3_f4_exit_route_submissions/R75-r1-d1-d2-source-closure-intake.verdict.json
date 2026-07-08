@@ -1,0 +1,47 @@
+{
+  "accepted": false,
+  "accepted_exit_route_count": 0,
+  "accepted_occurrence_removal": 0,
+  "accepted_proxy_t_reduction": 0,
+  "artifact": "R75 replay of R73 source-closure intake verifier",
+  "b7_credit_delta": 0,
+  "failed_gate_count": 3,
+  "failed_gates": [
+    "all_required_fields_complete",
+    "all_hash_bound_artifacts_exist",
+    "r2_no_double_counting_source_backed"
+  ],
+  "gates": {
+    "all_hash_bound_artifacts_exist": false,
+    "all_required_fields_complete": false,
+    "b7_not_requested_before_closure": true,
+    "claim_boundary_blocks_b7": true,
+    "proxy_t_delta_source_backed": true,
+    "r1_occurrence_delta_source_backed": true,
+    "r2_no_double_counting_source_backed": false,
+    "source_contract_hash_matches": true
+  },
+  "hash_failures": [],
+  "method": "b1_b7_cone01_r75_proxy_t_packet_prefill_gate_v0",
+  "missing_by_packet": {
+    "R73-D1-line1381-source-backed-occurrence": [],
+    "R73-D2-line1381-source-backed-proxy-t": [],
+    "R73-D3-line1378-source-backed-no-double-counting": [
+      "r2_source_artifact_path",
+      "r2_source_artifact_sha256",
+      "r2_replay_command",
+      "r2_replay_stdout_path",
+      "r2_replay_stdout_sha256",
+      "line1378_recovery_or_exclusion_decision",
+      "line1378_overlap_window",
+      "line1381_window",
+      "no_double_counting_ledger_path",
+      "no_double_counting_ledger_sha256",
+      "r2_claim_boundary"
+    ]
+  },
+  "passed_gate_count": 5,
+  "source_target_id": "T-B1-004fy/T-B7-015h",
+  "submission_id": "B1-B7-cone01-R75-r1-d1-d2-source-closure-prefill",
+  "verdict_hash": "703d7fe0ebd09ec35a9530fe63b1795928e3ab187b2822fe01681cdc6f17277b"
+}

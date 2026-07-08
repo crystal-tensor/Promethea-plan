@@ -2017,3 +2017,13 @@ all materialized. The R73 intake now recognizes D1 as source-backed, but still
 rejects the submission on 4 gates because D2 proxy-T pricing and D3 line1378
 no-double-counting remain open. Requirements pass 8/8; accepted exit routes,
 occurrence removal, proxy-T reduction, and B7 credit remain 0.
+
+`T-B1-004fy` / `T-B7-015h` now fills the second R73 source packet without
+promoting it into credit. R75 binds the locked R1
+`line1381_unpriced_proxy_t_pressure_before = 100` value, emits a hash-bound
+proxy-T pricing model, derivation artifact, replay stdout, and verdict, and
+prefills D2 with a conservative replayable `100 -> 99` proxy-T pricing delta.
+The R73 intake now recognizes D1 and D2 as source-backed, but still rejects the
+submission on 3 gates because D3 line1378 no-double-counting remains open.
+Requirements pass 8/8; accepted exit routes, occurrence removal, accepted
+proxy-T reduction, and B7 credit remain 0.

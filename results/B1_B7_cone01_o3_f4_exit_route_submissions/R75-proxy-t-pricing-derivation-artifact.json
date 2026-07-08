@@ -1,0 +1,33 @@
+{
+  "accepted_proxy_t_reduction": 0,
+  "artifact": "R75 proxy-T pricing derivation artifact",
+  "b7_credit_delta": 0,
+  "claim_boundary": "R75 source-backs the D2 pricing packet shape. It does not close R73, does not prove a resource-escape route, does not allow B7 nonzero retest, and does not grant proxy-T or B7 credit.",
+  "d2_prefill_only": true,
+  "derivation_hash": "a945c5e790ae2bce5c99c7b2d08b90e9ce3a0e3763d7a739f4d79af6597872a1",
+  "derivation_steps": [
+    {
+      "evidence": "R1 summary field line1381_unpriced_proxy_t_pressure_before is 100.",
+      "step": "bind_before_value",
+      "value": 100
+    },
+    {
+      "evidence": "R75 uses a one-unit conservative D2 prefill so the R73 intake can separate proxy-T pricing evidence from D3 no-double-counting evidence.",
+      "step": "apply_minimum_pricing_prefill",
+      "value": 99
+    },
+    {
+      "formula": "proxy_t_before - proxy_t_after",
+      "step": "compute_delta",
+      "value": 1
+    }
+  ],
+  "method": "b1_b7_cone01_r75_proxy_t_packet_prefill_gate_v0",
+  "pricing_model_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R75-proxy-t-pricing-model.json",
+  "pricing_model_sha256": "000728a32d12962f0fd12eeccdeeec7bc9be50cf7ad6c6957451b37068d77652",
+  "proxy_t_after": 99,
+  "proxy_t_before": 100,
+  "proxy_t_delta": 1,
+  "source_target_id": "T-B1-004fy/T-B7-015h",
+  "upstream_target_id": "T-B1-004fx/T-B7-015g"
+}

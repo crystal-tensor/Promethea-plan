@@ -1,0 +1,15 @@
+{
+  "artifact": "R75 proxy-T pricing model",
+  "claim_boundary": "This model is a D2 packet prefill, not an accepted resource-saving or B7 ledger claim.",
+  "line1381_off_grid_parameter_count_before": 5,
+  "line1381_unpriced_proxy_t_pressure_before": 100,
+  "method": "b1_b7_cone01_r75_proxy_t_packet_prefill_gate_v0",
+  "model_hash": "0326a4c303d26dae90c689cc6899f241b128ce116267cd32e3f03f3609b3e6e8",
+  "pricing_rule": "Use the locked R1 line1381 unpriced proxy-T pressure as the source-backed before value. R75 prices a minimum one-unit source-backed prefill candidate for R73-D2 only; this does not become accepted proxy-T credit until D3 line1378 no-double-counting and the hardened R72/R73 path pass.",
+  "pricing_unit": "proxy_t_pressure_units",
+  "source_r1_result_path": "results/B1_B7_cone01_R1_line1381_resolution_packet_gate_v0.json",
+  "source_r1_result_sha256": "f7faadb03df3bf5ef24738e7f3be5d158499cebe57b3b553b70c2cd511cc2091",
+  "source_r1_summary_hash": "b4be0954589925bbbfe8098bf50c98f36a8a7dc81f67fd431574df27c3403dd9",
+  "source_target_id": "T-B1-004fy/T-B7-015h",
+  "upstream_target_id": "T-B1-004fx/T-B7-015g"
+}

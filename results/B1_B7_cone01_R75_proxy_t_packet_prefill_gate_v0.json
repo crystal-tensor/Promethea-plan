@@ -1,0 +1,143 @@
+{
+  "artifacts": {
+    "blocker_queue": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R75-source-closure-blocker-queue.json",
+    "proxy_t_derivation_artifact": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R75-proxy-t-pricing-derivation-artifact.json",
+    "proxy_t_pricing_model": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R75-proxy-t-pricing-model.json",
+    "proxy_t_replay_stdout": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R75-proxy-t-pricing-replay.stdout.txt",
+    "proxy_t_replay_verdict": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R75-proxy-t-pricing-replay.verdict.json",
+    "r73_intake_verdict": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R75-r1-d1-d2-source-closure-intake.verdict.json",
+    "r73_submission": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R75-r1-d1-d2-source-closure-submission.json"
+  },
+  "claim_boundary": {
+    "next_gate": "Fill R73-D3 line1378 recovery or exclusion with a source-backed no-double-counting ledger, then rerun R73 and the hardened R72 path.",
+    "what_is_not_supported": "R75 does not close R73, does not solve line1378 no-double-counting, does not accept occurrence/proxy-T deltas, does not close O3, and does not grant B7 credit.",
+    "what_is_supported": "R75 fills R73-D2 with a hash-bound proxy-T pricing model, derivation artifact, replay stdout, and replay verdict while preserving the R74 D1 occurrence packet."
+  },
+  "generated_at": "2026-07-08T18:26:51Z",
+  "requirements": [
+    {
+      "evidence": {
+        "proxy_t_before": 100,
+        "source_r1_result_sha256": "f7faadb03df3bf5ef24738e7f3be5d158499cebe57b3b553b70c2cd511cc2091"
+      },
+      "label": "R75 binds the locked R1 proxy-T pressure source",
+      "passed": true,
+      "requirement_id": "K1"
+    },
+    {
+      "evidence": {
+        "proxy_t_after": 99,
+        "proxy_t_before": 100,
+        "proxy_t_delta": 1
+      },
+      "label": "proxy-T arithmetic is replayable and positive for D2 prefill",
+      "passed": true,
+      "requirement_id": "K2"
+    },
+    {
+      "evidence": {
+        "derivation_artifact_sha256": "8833c591993acc62aa3446d05d843bc7dc99bd454e4191773a4d69b1c699b0fc",
+        "pricing_model_sha256": "000728a32d12962f0fd12eeccdeeec7bc9be50cf7ad6c6957451b37068d77652",
+        "replay_stdout_sha256": "2ced021b37e9207d1d3b1dc45300c22b4ac9a5165d68fbab3a7860050ecec247",
+        "replay_verdict_sha256": "edbe393f95ed316b1980ee8962afc0d634da1bc5cdc7d76928f73b442c4a5ff4"
+      },
+      "label": "R75 materializes hash-bound model, derivation, stdout, and verdict artifacts",
+      "passed": true,
+      "requirement_id": "K3"
+    },
+    {
+      "evidence": {
+        "r73_d1_prefilled": true,
+        "r73_d2_prefilled": true
+      },
+      "label": "R73-D1 remains source-backed while R73-D2 becomes source-backed",
+      "passed": true,
+      "requirement_id": "K4"
+    },
+    {
+      "evidence": {
+        "failed_gates": [
+          "all_required_fields_complete",
+          "all_hash_bound_artifacts_exist",
+          "r2_no_double_counting_source_backed"
+        ]
+      },
+      "label": "R73 intake still rejects the submission because D3 remains open",
+      "passed": true,
+      "requirement_id": "K5"
+    },
+    {
+      "evidence": {
+        "accepted_exit_route_count": 0,
+        "accepted_occurrence_removal": 0,
+        "accepted_proxy_t_reduction": 0,
+        "b7_credit_delta": 0
+      },
+      "label": "R75 keeps all accepted deltas and B7 credit at zero",
+      "passed": true,
+      "requirement_id": "K6"
+    },
+    {
+      "evidence": {
+        "blocker_queue_hash": "f35da10520f59425a0ab90bd680aeda0f91f0f872b70a5a6db494ee959940c0b"
+      },
+      "label": "R75 reduces the blocker queue to line1378 no-double-counting only",
+      "passed": true,
+      "requirement_id": "K7"
+    },
+    {
+      "evidence": {
+        "b7_ledger_improvement_claimed": false,
+        "o3_closed": false,
+        "reroute_allowed": false,
+        "resource_saving_claimed": false
+      },
+      "label": "R75 does not claim O3 closure, reroute, resource savings, or B7 ledger gain",
+      "passed": true,
+      "requirement_id": "K8"
+    }
+  ],
+  "summary": {
+    "accepted_exit_route_count": 0,
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "b7_credit_delta": 0,
+    "b7_ledger_improvement_claimed": false,
+    "b7_nonzero_retest_allowed": false,
+    "blocker_queue_hash": "f35da10520f59425a0ab90bd680aeda0f91f0f872b70a5a6db494ee959940c0b",
+    "derivation_hash": "a945c5e790ae2bce5c99c7b2d08b90e9ce3a0e3763d7a739f4d79af6597872a1",
+    "failed_requirement_ids": [],
+    "intake_verdict_hash": "703d7fe0ebd09ec35a9530fe63b1795928e3ab187b2822fe01681cdc6f17277b",
+    "method": "b1_b7_cone01_r75_proxy_t_packet_prefill_gate_v0",
+    "model_status": "r73_d1_d2_prefilled_d3_still_blocks_acceptance",
+    "o3_closed": false,
+    "payload_hash": "fe88ba024db8a5084bd1907aa8b51214628e69fad05bb89ed1be906c19014653",
+    "pricing_model_hash": "0326a4c303d26dae90c689cc6899f241b128ce116267cd32e3f03f3609b3e6e8",
+    "proxy_t_after": 99,
+    "proxy_t_before": 100,
+    "proxy_t_delta": 1,
+    "r73_d1_prefilled": true,
+    "r73_d2_prefilled": true,
+    "r73_d3_prefilled": false,
+    "r73_intake_accepted": false,
+    "r73_intake_failed_gate_count": 3,
+    "r73_intake_failed_gates": [
+      "all_required_fields_complete",
+      "all_hash_bound_artifacts_exist",
+      "r2_no_double_counting_source_backed"
+    ],
+    "requirement_count": 8,
+    "requirements_failed": 0,
+    "requirements_passed": 8,
+    "reroute_allowed": false,
+    "resource_saving_claimed": false,
+    "source_proxy_t_pressure_before": 100,
+    "source_target_id": "T-B1-004fy/T-B7-015h",
+    "status": "cone01_r75_proxy_t_packet_prefill_partial_zero_credit",
+    "submission_hash": "1bdfa49b1e855949091de8f3a122ccb4c055b5ed349bf92d4722e1345765d97c",
+    "upstream_target_id": "T-B1-004fx/T-B7-015g",
+    "validation_error_count": 0
+  },
+  "title": "B1/B7 Cone01 R75 Proxy-T Packet Prefill Gate",
+  "version": "0.1"
+}

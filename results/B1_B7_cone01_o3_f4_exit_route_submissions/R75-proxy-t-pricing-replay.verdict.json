@@ -1,0 +1,24 @@
+{
+  "accepted_exit_route_count": 0,
+  "accepted_for_r73_d2_prefill": true,
+  "accepted_occurrence_removal": 0,
+  "accepted_proxy_t_reduction": 0,
+  "artifact": "R75 proxy-T pricing replay verdict",
+  "b7_credit_delta": 0,
+  "checks": {
+    "accepted_credit_stays_zero": true,
+    "claim_boundary_blocks_b7": true,
+    "proxy_t_before_matches_r1_summary": true,
+    "proxy_t_delta_arithmetic_valid": true,
+    "proxy_t_delta_positive_for_d2_prefill": true,
+    "source_r1_result_hash_bound": true
+  },
+  "derivation_artifact_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R75-proxy-t-pricing-derivation-artifact.json",
+  "derivation_artifact_sha256": "8833c591993acc62aa3446d05d843bc7dc99bd454e4191773a4d69b1c699b0fc",
+  "failed_checks": [],
+  "method": "b1_b7_cone01_r75_proxy_t_packet_prefill_gate_v0",
+  "pricing_model_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R75-proxy-t-pricing-model.json",
+  "pricing_model_sha256": "000728a32d12962f0fd12eeccdeeec7bc9be50cf7ad6c6957451b37068d77652",
+  "source_target_id": "T-B1-004fy/T-B7-015h",
+  "verdict_hash": "40ee5dda31afff9a2054147bba52778ba762dfa3cb81cadc7e4d1dfb770b27d1"
+}

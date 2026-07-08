@@ -1,0 +1,21 @@
+{
+  "artifact": "R75 remaining source-closure blocker queue",
+  "blocker_queue_hash": "f35da10520f59425a0ab90bd680aeda0f91f0f872b70a5a6db494ee959940c0b",
+  "queue": [
+    {
+      "blocker_id": "R75-C3",
+      "needed_artifact": "source-backed line1378 recovery or exclusion ledger with no-double-counting decision, replay stdout, and hash-bound R2 artifact",
+      "priority": 1
+    }
+  ],
+  "r73_d1_prefilled": true,
+  "r73_d2_prefilled": true,
+  "r73_d3_prefilled": false,
+  "remaining_failed_gates": [
+    "all_required_fields_complete",
+    "all_hash_bound_artifacts_exist",
+    "r2_no_double_counting_source_backed"
+  ],
+  "source_target_id": "T-B1-004fy/T-B7-015h",
+  "upstream_target_id": "T-B1-004fx/T-B7-015g"
+}

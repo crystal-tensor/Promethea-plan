@@ -1,0 +1,59 @@
+{
+  "accepted_exit_route_count": 0,
+  "b7_nonzero_retest_requested": false,
+  "claim_boundary": "R75 keeps R73 rejected while filling D1 and D2 only. D3 line1378 no-double-counting remains empty, so this is not accepted, not O3 closure, not reroute permission, not accepted proxy-T reduction, and not B7 credit.",
+  "occurrence_removal_delta": 0,
+  "packets": {
+    "R73-D1-line1381-source-backed-occurrence": {
+      "r1_claim_boundary": "R74 fills the R73-D1 occurrence packet shape with source-backed line evidence. It does not close R73, does not accept the positive-delta row, does not close O3, does not allow reroute, and does not grant B7 credit.",
+      "r1_occurrence_delta_derivation": "R74 line-scoped source-backed prefill: source OpenQASM3 line 1381 is `cx q[3],q[15];`, the same candidate line is not a CNOT, and the source/candidate OpenQASM3 files plus replay verdict are hash-bound. This fills R73-D1 only; it is not a full accepted occurrence proof until proxy-T and line1378 no-double-counting closure pass.",
+      "r1_occurrence_removed_lines": [
+        1381
+      ],
+      "r1_replay_command": "python3 tools/b1_b7_cone01_r74_r1_occurrence_packet_prefill_gate.py --repo-root . --pretty",
+      "r1_replay_stdout_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R74-r1-line1381-occurrence-replay.stdout.txt",
+      "r1_replay_stdout_sha256": "447b859f226f12b30a249983433fca5494419abe806898a85d3052bd7e2e1471",
+      "r1_replay_verdict_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R74-r1-line1381-occurrence-replay.verdict.json",
+      "r1_replay_verdict_sha256": "df15d374e1bba4c68510174946e20f748b2e92b6ed0ff39fe7b86c42315a3a1f",
+      "r1_selected_lines": [
+        268,
+        1381
+      ],
+      "r1_source_artifact_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R74-r1-line1381-occurrence-replay-artifact.json",
+      "r1_source_artifact_sha256": "4a3eb2ea8c1cd6e31402b73074db4eb4f90230a75ac94f422fbcdb24fd4f1482"
+    },
+    "R73-D2-line1381-source-backed-proxy-t": {
+      "proxy_t_after": 99,
+      "proxy_t_before": 100,
+      "proxy_t_claim_boundary": "R75 source-backs the D2 pricing packet shape. It does not close R73, does not prove a resource-escape route, does not allow B7 nonzero retest, and does not grant proxy-T or B7 credit.",
+      "proxy_t_delta": 1,
+      "proxy_t_derivation_artifact_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R75-proxy-t-pricing-derivation-artifact.json",
+      "proxy_t_derivation_artifact_sha256": "8833c591993acc62aa3446d05d843bc7dc99bd454e4191773a4d69b1c699b0fc",
+      "proxy_t_pricing_model_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R75-proxy-t-pricing-model.json",
+      "proxy_t_pricing_model_sha256": "000728a32d12962f0fd12eeccdeeec7bc9be50cf7ad6c6957451b37068d77652",
+      "proxy_t_replay_command": "python3 tools/b1_b7_cone01_r75_proxy_t_packet_prefill_gate.py --repo-root . --pretty",
+      "proxy_t_replay_stdout_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R75-proxy-t-pricing-replay.stdout.txt",
+      "proxy_t_replay_stdout_sha256": "2ced021b37e9207d1d3b1dc45300c22b4ac9a5165d68fbab3a7860050ecec247"
+    },
+    "R73-D3-line1378-source-backed-no-double-counting": {
+      "line1378_overlap_window": null,
+      "line1378_recovery_or_exclusion_decision": null,
+      "line1381_window": null,
+      "no_double_counting_ledger_path": null,
+      "no_double_counting_ledger_sha256": null,
+      "r2_claim_boundary": null,
+      "r2_replay_command": null,
+      "r2_replay_stdout_path": null,
+      "r2_replay_stdout_sha256": null,
+      "r2_source_artifact_path": null,
+      "r2_source_artifact_sha256": null
+    }
+  },
+  "proxy_t_reduction_delta": 0,
+  "source_contract_hash": "80d127c990ad70fa35705d64e84db8777285fd4445cfb1d3b06610d20b664791",
+  "source_target_id": "T-B1-004fy/T-B7-015h",
+  "submission_hash": "1bdfa49b1e855949091de8f3a122ccb4c055b5ed349bf92d4722e1345765d97c",
+  "submission_id": "B1-B7-cone01-R75-r1-d1-d2-source-closure-prefill",
+  "template_hash": "1f4a5fde31764f6035652c35377c7e4c3e26f192bb7e54e856eb007884d6cf19",
+  "upstream_target_id": "T-B1-004fx/T-B7-015g"
+}
