@@ -1,0 +1,47 @@
+{
+  "accepted": false,
+  "accepted_exit_route_count": 0,
+  "accepted_occurrence_removal": 0,
+  "accepted_proxy_t_reduction": 0,
+  "artifact": "R79 R78-A route/replay partial packet preflight verdict",
+  "b7_credit_delta": 0,
+  "b7_nonzero_retest_allowed": false,
+  "contract_hash": "b19311a49942a304e8e2e8a471163d0f919d8224b207330a080b86f5ce3e058c",
+  "contract_id": "B1-B7-cone01-R78-positive-route-packet-contract",
+  "failed_gate_count": 5,
+  "failed_gates": [
+    "all_required_fields_complete",
+    "all_hash_bound_artifacts_match",
+    "accepted_exit_route_positive",
+    "accepted_occurrence_positive",
+    "accepted_proxy_t_positive"
+  ],
+  "gates": {
+    "accepted_exit_route_positive": false,
+    "accepted_occurrence_positive": false,
+    "accepted_proxy_t_positive": false,
+    "all_hash_bound_artifacts_match": false,
+    "all_required_fields_complete": false,
+    "b7_not_requested_inside_packet": true,
+    "claim_boundary_blocks_b7": true,
+    "r76_no_double_counting_preserved": true,
+    "source_r77_payload_hash_matches": true
+  },
+  "hash_failures": [],
+  "hash_fields_seen": 5,
+  "method": "b1_b7_cone01_r79_r78a_route_replay_prefill_gate_v0",
+  "missing_required_field_count": 4,
+  "missing_required_fields": [
+    "occurrence_acceptance_ledger_path",
+    "occurrence_acceptance_ledger_sha256",
+    "proxy_t_acceptance_ledger_path",
+    "proxy_t_acceptance_ledger_sha256"
+  ],
+  "packet_hash": "6e57ec7365e93d1afa01aa8c896e7beba5d6f662a5363dd9d7699251abeaf590",
+  "packet_id": "B1-B7-cone01-R79-r78a-route-replay-prefill",
+  "passed_gate_count": 4,
+  "rejection_reason": "route_replay_surface_prefilled_but_positive_acceptance_ledgers_missing",
+  "source_target_id": "T-B1-004gc/T-B7-015l",
+  "upstream_target_id": "T-B1-004gb/T-B7-015k",
+  "verdict_hash": "81d4d3c4cf9046978d400c873921aa7c30a96d0fdbd3117ed530f35ff6415389"
+}

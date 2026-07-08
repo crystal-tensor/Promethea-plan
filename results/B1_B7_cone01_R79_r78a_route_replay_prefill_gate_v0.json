@@ -1,0 +1,150 @@
+{
+  "artifact": "B1/B7 cone01 R79 R78-A route/replay prefill gate",
+  "blocker_queue_hash": "c46e464038b3cacaa41e218905a947ca96f62932a25900c1cd59ba96805b61ca",
+  "blocker_queue_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R79-r78a-route-replay-blocker-queue.json",
+  "failed_requirement_ids": [],
+  "generated_at_unix": 1783538059,
+  "method": "b1_b7_cone01_r79_r78a_route_replay_prefill_gate_v0",
+  "model_status": "route_replay_certificate_surface_filled_occurrence_proxy_t_acceptance_still_missing",
+  "packet_hash": "6e57ec7365e93d1afa01aa8c896e7beba5d6f662a5363dd9d7699251abeaf590",
+  "packet_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R79-r78a-route-replay-prefill.packet.json",
+  "payload_hash": "6174595be3ae584aa92c5edf9811c98f9f8c98c921bf7739e40247baf8195182",
+  "preflight_hash": "81d4d3c4cf9046978d400c873921aa7c30a96d0fdbd3117ed530f35ff6415389",
+  "preflight_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R79-r78a-route-replay-prefill.verdict.json",
+  "requirement_count": 8,
+  "requirements": [
+    {
+      "evidence": {
+        "r78_contract_hash": "b19311a49942a304e8e2e8a471163d0f919d8224b207330a080b86f5ce3e058c",
+        "r78_result_path": "results/B1_B7_cone01_R78_positive_route_packet_contract_gate_v0.json",
+        "r78_result_sha256": "8b365b49e13378a6912a165707a97601bc447f5c13e490843561e8dec7246d85"
+      },
+      "label": "R78 contract is the upstream packet contract",
+      "passed": true,
+      "requirement_id": "A1"
+    },
+    {
+      "evidence": {
+        "machine_check_replay_passed": true,
+        "r70_prefill_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R70-R1-line1381-prefill-machine-check-replay.json",
+        "r70_prefill_sha256": "8d3b693c47a3d1937394a2e4fef3a3af77ec560ea14241f40c05df4d309627c6"
+      },
+      "label": "R70 supplies the route artifact, replay stdout, and certificate paths",
+      "passed": true,
+      "requirement_id": "A2"
+    },
+    {
+      "evidence": {
+        "packet_hash": "6e57ec7365e93d1afa01aa8c896e7beba5d6f662a5363dd9d7699251abeaf590",
+        "packet_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R79-r78a-route-replay-prefill.packet.json",
+        "packet_sha256": "18d0f25fcff530df67e01df03c36ea95c756eb12d7ae75136c71c183d89c77bc"
+      },
+      "label": "R79 fills the R78-A route/replay/certificate surface",
+      "passed": true,
+      "requirement_id": "A3"
+    },
+    {
+      "evidence": {
+        "no_double_counting_preservation_verdict_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R76-line1378-no-double-counting-replay.verdict.json",
+        "source_r76_no_double_counting_ledger_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R76-line1378-no-double-counting-ledger.json"
+      },
+      "label": "R79 preserves the R76 no-double-counting boundary",
+      "passed": true,
+      "requirement_id": "A4"
+    },
+    {
+      "evidence": {
+        "missing_after": 4,
+        "missing_before": 15,
+        "missing_required_fields_after": [
+          "occurrence_acceptance_ledger_path",
+          "occurrence_acceptance_ledger_sha256",
+          "proxy_t_acceptance_ledger_path",
+          "proxy_t_acceptance_ledger_sha256"
+        ]
+      },
+      "label": "R79 reduces missing production fields versus the R78 empty template",
+      "passed": true,
+      "requirement_id": "A5"
+    },
+    {
+      "evidence": {
+        "failed_gates": [
+          "all_required_fields_complete",
+          "all_hash_bound_artifacts_match",
+          "accepted_exit_route_positive",
+          "accepted_occurrence_positive",
+          "accepted_proxy_t_positive"
+        ]
+      },
+      "label": "R79 remains rejected until positive occurrence and proxy-T acceptance exist",
+      "passed": true,
+      "requirement_id": "A6"
+    },
+    {
+      "evidence": {
+        "accepted_exit_route_count": 0,
+        "accepted_occurrence_removal": 0,
+        "accepted_proxy_t_reduction": 0,
+        "b7_credit_delta": 0
+      },
+      "label": "Accepted counters and B7 credit remain zero",
+      "passed": true,
+      "requirement_id": "A7"
+    },
+    {
+      "evidence": {
+        "blocker_queue_hash": "c46e464038b3cacaa41e218905a947ca96f62932a25900c1cd59ba96805b61ca",
+        "blocker_queue_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R79-r78a-route-replay-blocker-queue.json",
+        "blocker_queue_sha256": "59eab28ce19f956c17c6c8c3b6617111fd9357c181bcf8fe0ba6ab10426c9b22"
+      },
+      "label": "R79 emits the next blocker queue",
+      "passed": true,
+      "requirement_id": "A8"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 8,
+  "source_target_id": "T-B1-004gc/T-B7-015l",
+  "status": "cone01_r79_r78a_route_replay_prefilled_zero_credit",
+  "stdout_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R79-r78a-route-replay-prefill.stdout.txt",
+  "stdout_sha256": "c22b83bcc2efd2c465cf8cafe39af2a83b63a73e79e74acbf5bd1212bffefd70",
+  "summary": {
+    "accepted_exit_route_count": 0,
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "b7_credit_delta": 0,
+    "b7_ledger_improvement_claimed": false,
+    "b7_nonzero_retest_allowed": false,
+    "blocker_queue_hash": "c46e464038b3cacaa41e218905a947ca96f62932a25900c1cd59ba96805b61ca",
+    "failed_requirement_ids": [],
+    "method": "b1_b7_cone01_r79_r78a_route_replay_prefill_gate_v0",
+    "model_status": "route_replay_certificate_surface_filled_occurrence_proxy_t_acceptance_still_missing",
+    "o3_closed": false,
+    "packet_hash": "6e57ec7365e93d1afa01aa8c896e7beba5d6f662a5363dd9d7699251abeaf590",
+    "payload_hash": "6174595be3ae584aa92c5edf9811c98f9f8c98c921bf7739e40247baf8195182",
+    "r78_missing_required_field_count_before": 15,
+    "r79_failed_gates": [
+      "all_required_fields_complete",
+      "all_hash_bound_artifacts_match",
+      "accepted_exit_route_positive",
+      "accepted_occurrence_positive",
+      "accepted_proxy_t_positive"
+    ],
+    "r79_filled_route_replay_surface": true,
+    "r79_missing_required_field_count_after": 4,
+    "r79_preflight_accepted": false,
+    "requirements_failed": 0,
+    "requirements_passed": 8,
+    "reroute_allowed": false,
+    "resource_saving_claimed": false,
+    "source_target_id": "T-B1-004gc/T-B7-015l",
+    "status": "cone01_r79_r78a_route_replay_prefilled_zero_credit",
+    "upstream_target_id": "T-B1-004gb/T-B7-015k",
+    "validation_error_count": 0
+  },
+  "upstream_target_id": "T-B1-004gb/T-B7-015k",
+  "validation_error_count": 0,
+  "validation_errors": [],
+  "version": "0.1"
+}

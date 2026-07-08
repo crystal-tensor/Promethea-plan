@@ -1,0 +1,42 @@
+{
+  "artifact": "R79 R78-A route/replay remaining blocker queue",
+  "b7_rule": "Do not run nonzero B7 retest until R79-B/C and accepted_exit_route_positive pass together.",
+  "blocker_queue_hash": "c46e464038b3cacaa41e218905a947ca96f62932a25900c1cd59ba96805b61ca",
+  "current_preflight_accepted": false,
+  "failed_gates": [
+    "all_required_fields_complete",
+    "all_hash_bound_artifacts_match",
+    "accepted_exit_route_positive",
+    "accepted_occurrence_positive",
+    "accepted_proxy_t_positive"
+  ],
+  "method": "b1_b7_cone01_r79_r78a_route_replay_prefill_gate_v0",
+  "missing_required_fields": [
+    "occurrence_acceptance_ledger_path",
+    "occurrence_acceptance_ledger_sha256",
+    "proxy_t_acceptance_ledger_path",
+    "proxy_t_acceptance_ledger_sha256"
+  ],
+  "queue": [
+    {
+      "blocker_id": "R79-B",
+      "needed_artifact": "occurrence acceptance ledger with at least one counted removal",
+      "priority": 1,
+      "target_gate": "accepted_occurrence_positive"
+    },
+    {
+      "blocker_id": "R79-C",
+      "needed_artifact": "proxy-T acceptance ledger proving counted reduction beyond prefill pricing",
+      "priority": 2,
+      "target_gate": "accepted_proxy_t_positive"
+    },
+    {
+      "blocker_id": "R79-A2",
+      "needed_artifact": "acceptance verdict that turns the prefilled route/replay surface into one accepted exit route after B/C ledgers pass",
+      "priority": 3,
+      "target_gate": "accepted_exit_route_positive"
+    }
+  ],
+  "source_target_id": "T-B1-004gc/T-B7-015l",
+  "upstream_target_id": "T-B1-004gb/T-B7-015k"
+}

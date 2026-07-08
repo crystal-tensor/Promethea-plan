@@ -2061,3 +2061,13 @@ occurrence removal, accepted proxy-T reduction, B7 nonzero retest permission,
 and B7 credit remain 0/false. Requirements pass 8/8; the next useful PR must
 fill R78-A/B/C/D with replay, certificate, occurrence, proxy-T, and
 no-double-counting preservation evidence.
+
+`T-B1-004gc` / `T-B7-015l` now fills the R78-A route/replay/certificate surface
+without overclaiming acceptance. R79 consumes the R70 machine-check replay
+prefill and maps its candidate OpenQASM3 artifact, replay stdout, and
+same-unitary/symbolic certificate into a partial R78 packet while preserving the
+R76 no-double-counting verdict. Missing R78 production fields drop from 15 to
+4: only occurrence acceptance ledger path/hash and proxy-T acceptance ledger
+path/hash remain missing. The partial packet is still rejected on 5 gates,
+including all three positive-promotion gates, so accepted exit routes,
+occurrence removal, accepted proxy-T reduction, and B7 credit remain 0.

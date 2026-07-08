@@ -6351,6 +6351,36 @@ current_results:
     caveat: r78_contract_only_current_template_rejected_no_positive_route_or_b7_credit
     report: ../results/B1_B7_cone01_R78_positive_route_packet_contract_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R78_positive_route_packet_contract_gate.md
+  b1_b7_cone01_r79_r78a_route_replay_prefill_gate_v0:
+    circuits: 1
+    status: cone01_r79_r78a_route_replay_prefilled_zero_credit
+    model_status: route_replay_certificate_surface_filled_occurrence_proxy_t_acceptance_still_missing
+    method: b1_b7_cone01_r79_r78a_route_replay_prefill_gate_v0
+    source_target_id: T-B1-004gc/T-B7-015l
+    upstream_target_id: T-B1-004gb/T-B7-015k
+    source_r78_positive_route_contract: ../results/B1_B7_cone01_R78_positive_route_packet_contract_gate_v0.json
+    source_r70_machine_check_replay_prefill: ../results/B1_B7_cone01_R70_machine_check_replay_prefill_gate_v0.json
+    r79_partial_packet: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R79-r78a-route-replay-prefill.packet.json
+    r79_preflight_verdict: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R79-r78a-route-replay-prefill.verdict.json
+    r79_blocker_queue: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R79-r78a-route-replay-blocker-queue.json
+    r78_missing_required_field_count_before: 15
+    r79_missing_required_field_count_after: 4
+    r79_filled_route_replay_surface: true
+    r79_preflight_accepted: false
+    r79_failed_gates: [all_required_fields_complete, all_hash_bound_artifacts_match, accepted_exit_route_positive, accepted_occurrence_positive, accepted_proxy_t_positive]
+    accepted_exit_route_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_nonzero_retest_allowed: false
+    b7_credit_delta: 0
+    packet_hash: 6e57ec7365e93d1afa01aa8c896e7beba5d6f662a5363dd9d7699251abeaf590
+    blocker_queue_hash: c46e464038b3cacaa41e218905a947ca96f62932a25900c1cd59ba96805b61ca
+    requirements_passed: 8
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r79_fills_r78a_surface_but_acceptance_ledgers_and_positive_counters_remain_missing
+    report: ../results/B1_B7_cone01_R79_r78a_route_replay_prefill_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R79_r78a_route_replay_prefill_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate
