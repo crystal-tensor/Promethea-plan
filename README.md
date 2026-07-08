@@ -2259,3 +2259,17 @@ fixture-preflight hash
 `f1ccecdaba721a64ecda50eeb6a30499f4e1b17bd37009e3e3ebb5cac4ae3114`;
 blocker queue hash `3fa0c8e96a5d086b0ec5c203ba7081f561e3f638860096bd8d2a3c5b35100e10`.
 The next real gate is a non-fixture external submission.
+
+`T-B1-004gq` / `T-B7-015z` now adds the R93 non-fixture external intake gate.
+R93 converts the R92 validator into a stricter external packet path: it bans
+the local fixture agent id `r92-local-validator-fixture`, emits a `33`-field
+intake contract with `19` production-required fields, and rejects the current
+empty packet on `7` preflight gates with `16` missing production fields.
+Accepted external reproductions remain `0`, accepted external falsifications
+remain `0`, and `new_credit_delta` remains `0`. Intake-contract hash
+`0e1108d271259b7d602939e72b463695e7b0e7dd6a3685a3f7ee418dbb82e882`;
+packet-template hash
+`1bd5e493063e3af62daa04867be334cab8dcd751cab9c707258735664003f405`;
+preflight hash `6ec529295cde9e66d34ba062b0203bb1fe01dc56e0f4c6d777c6d59dcbc2bfc3`;
+blocker queue hash `ef1ee51bf9e5a542b5f34bdacabd236471c7700c4376c2ead7a61c6d9ee818e5`.
+The next real gate is a filled non-fixture packet plus maintainer verdict.

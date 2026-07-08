@@ -6831,6 +6831,41 @@ current_results:
     caveat: r92_local_fixture_validates_submission_mechanics_but_is_not_external_reproduction
     report: ../results/B1_B7_cone01_R92_external_submission_validator_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R92_external_submission_validator_gate.md
+  b1_b7_cone01_r93_nonfixture_external_intake_gate_v0:
+    circuits: 1
+    status: cone01_r93_nonfixture_external_intake_open_no_submission_yet
+    model_status: r92_validator_ready_but_nonfixture_external_submission_missing
+    method: b1_b7_cone01_r93_nonfixture_external_intake_gate_v0
+    source_target_id: T-B1-004gq/T-B7-015z
+    upstream_target_id: T-B1-004gp/T-B7-015y
+    route_id: R83-G1-30-arbitrary-rotation-batch
+    source_b1_r92_external_submission_validator: ../results/B1_B7_cone01_R92_external_submission_validator_gate_v0.json
+    r93_intake_contract: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R93-G1-nonfixture-external-intake-contract.json
+    r93_packet_template: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R93-G1-nonfixture-external-submission-packet.template.json
+    r93_preflight: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R93-G1-nonfixture-external-intake-preflight.verdict.json
+    required_field_count: 33
+    production_required_field_count: 19
+    banned_fixture_agent_ids: [r92-local-validator-fixture]
+    empty_packet_rejected: true
+    preflight_failed_gate_count: 7
+    missing_production_field_count: 16
+    external_submission_accepted: false
+    accepted_external_reproduction_count: 0
+    accepted_external_falsification_count: 0
+    new_credit_delta: 0
+    o3_closed: false
+    resource_saving_claimed: false
+    physical_layout_claimed: false
+    intake_contract_hash: 0e1108d271259b7d602939e72b463695e7b0e7dd6a3685a3f7ee418dbb82e882
+    packet_template_hash: 1bd5e493063e3af62daa04867be334cab8dcd751cab9c707258735664003f405
+    preflight_hash: 6ec529295cde9e66d34ba062b0203bb1fe01dc56e0f4c6d777c6d59dcbc2bfc3
+    blocker_queue_hash: ef1ee51bf9e5a542b5f34bdacabd236471c7700c4376c2ead7a61c6d9ee818e5
+    requirements_passed: 7
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r93_intake_only_no_nonfixture_external_submission_or_new_credit
+    report: ../results/B1_B7_cone01_R93_nonfixture_external_intake_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R93_nonfixture_external_intake_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate

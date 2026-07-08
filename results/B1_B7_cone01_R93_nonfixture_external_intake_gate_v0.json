@@ -1,0 +1,155 @@
+{
+  "artifact": "B1/B7 cone01 R93 non-fixture external intake gate",
+  "blocker_queue_hash": "ef1ee51bf9e5a542b5f34bdacabd236471c7700c4376c2ead7a61c6d9ee818e5",
+  "blocker_queue_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R93-G1-post-nonfixture-intake-blocker-queue.json",
+  "empty_packet_hash": "ad1c23cf07f9ee9fd72ca1dd9517c76fe9059defd584bae39ed6c760ad37ca07",
+  "empty_packet_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R93-G1-nonfixture-external-empty-packet.json",
+  "failed_requirement_ids": [],
+  "generated_at_unix": 1783546729,
+  "intake_contract_hash": "0e1108d271259b7d602939e72b463695e7b0e7dd6a3685a3f7ee418dbb82e882",
+  "intake_contract_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R93-G1-nonfixture-external-intake-contract.json",
+  "method": "b1_b7_cone01_r93_nonfixture_external_intake_gate_v0",
+  "model_status": "r92_validator_ready_but_nonfixture_external_submission_missing",
+  "packet_template_hash": "1bd5e493063e3af62daa04867be334cab8dcd751cab9c707258735664003f405",
+  "packet_template_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R93-G1-nonfixture-external-submission-packet.template.json",
+  "payload_hash": "88d237ff435f9da1cdf9558a14d2bb7333dba0721003f5e305813be40b1cc5bf",
+  "preflight_hash": "6ec529295cde9e66d34ba062b0203bb1fe01dc56e0f4c6d777c6d59dcbc2bfc3",
+  "preflight_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R93-G1-nonfixture-external-intake-preflight.verdict.json",
+  "requirement_count": 7,
+  "requirements": [
+    {
+      "evidence": {
+        "fixture_preflight_hash": "f1ccecdaba721a64ecda50eeb6a30499f4e1b17bd37009e3e3ebb5cac4ae3114",
+        "r92_payload_hash": "7b03365ffec5e7468521ff04843dd2bd1dd22c761d6a8f29fcb6e1b40fd7b313",
+        "validator_rules_hash": "49c4f245da0f16476a047c3c17935537adf62b256406ccd543f0bb4f0b4c65ec"
+      },
+      "label": "R93 binds the R92 result, validator rules, fixture submission, preflight, and blocker queue",
+      "passed": true,
+      "requirement_id": "A1"
+    },
+    {
+      "evidence": {
+        "banned_fixture_agent_ids": [
+          "r92-local-validator-fixture"
+        ],
+        "intake_contract_hash": "0e1108d271259b7d602939e72b463695e7b0e7dd6a3685a3f7ee418dbb82e882",
+        "required_field_count": 33
+      },
+      "label": "R93 emits a non-fixture intake contract that bans the R92 fixture agent",
+      "passed": true,
+      "requirement_id": "A2"
+    },
+    {
+      "evidence": {
+        "extra_nonfixture_fields": [
+          "external_submitter_attested",
+          "submitter_independence_statement",
+          "fixture_agent_id_used",
+          "maintainer_review_required",
+          "review_counter_target"
+        ],
+        "packet_template_hash": "1bd5e493063e3af62daa04867be334cab8dcd751cab9c707258735664003f405"
+      },
+      "label": "R93 emits a fillable packet template with non-fixture fields",
+      "passed": true,
+      "requirement_id": "A3"
+    },
+    {
+      "evidence": {
+        "failed_gates": [
+          "production_required_fields_present",
+          "agent_is_not_fixture",
+          "external_submitter_attested",
+          "independence_statement_present",
+          "validator_hash_bound",
+          "review_counter_target_present",
+          "external_submission_accepted"
+        ],
+        "missing_production_field_count": 16,
+        "preflight_hash": "6ec529295cde9e66d34ba062b0203bb1fe01dc56e0f4c6d777c6d59dcbc2bfc3"
+      },
+      "label": "R93 rejects the empty non-fixture packet before external evidence exists",
+      "passed": true,
+      "requirement_id": "A4"
+    },
+    {
+      "evidence": {
+        "accepted_external_falsification_count": 0,
+        "accepted_external_reproduction_count": 0,
+        "new_credit_delta": 0
+      },
+      "label": "R93 keeps external counters and new credit at zero",
+      "passed": true,
+      "requirement_id": "A5"
+    },
+    {
+      "evidence": {
+        "o3_closed": false,
+        "physical_layout_claimed": false,
+        "resource_saving_claimed": false
+      },
+      "label": "R93 keeps O3, resource-saving, and physical-layout claims closed",
+      "passed": true,
+      "requirement_id": "A6"
+    },
+    {
+      "evidence": {
+        "blocker_ids": [
+          "R93-G1-1",
+          "R93-G1-2",
+          "R93-G1-3"
+        ],
+        "blocker_queue_hash": "ef1ee51bf9e5a542b5f34bdacabd236471c7700c4376c2ead7a61c6d9ee818e5"
+      },
+      "label": "R93 emits blockers for non-fixture packet, maintainer verdict, and counter update",
+      "passed": true,
+      "requirement_id": "A7"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 7,
+  "source_target_id": "T-B1-004gq/T-B7-015z",
+  "status": "cone01_r93_nonfixture_external_intake_open_no_submission_yet",
+  "stdout_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R93-G1-nonfixture-external-intake.stdout.txt",
+  "stdout_sha256": "f844109c36c348ef82b48a423148f2c77703841fc28b276e0a759c0ce43ed8d0",
+  "summary": {
+    "accepted_external_falsification_count": 0,
+    "accepted_external_reproduction_count": 0,
+    "banned_fixture_agent_ids": [
+      "r92-local-validator-fixture"
+    ],
+    "blocker_queue_hash": "ef1ee51bf9e5a542b5f34bdacabd236471c7700c4376c2ead7a61c6d9ee818e5",
+    "contract_id": "R93-G1-nonfixture-external-intake",
+    "empty_packet_hash": "ad1c23cf07f9ee9fd72ca1dd9517c76fe9059defd584bae39ed6c760ad37ca07",
+    "empty_packet_rejected": true,
+    "external_submission_accepted": false,
+    "failed_requirement_ids": [],
+    "intake_contract_hash": "0e1108d271259b7d602939e72b463695e7b0e7dd6a3685a3f7ee418dbb82e882",
+    "method": "b1_b7_cone01_r93_nonfixture_external_intake_gate_v0",
+    "missing_production_field_count": 16,
+    "model_status": "r92_validator_ready_but_nonfixture_external_submission_missing",
+    "new_credit_delta": 0,
+    "nonfixture_gate_count": 6,
+    "o3_closed": false,
+    "packet_template_hash": "1bd5e493063e3af62daa04867be334cab8dcd751cab9c707258735664003f405",
+    "payload_hash": "88d237ff435f9da1cdf9558a14d2bb7333dba0721003f5e305813be40b1cc5bf",
+    "physical_layout_claimed": false,
+    "preflight_failed_gate_count": 7,
+    "preflight_hash": "6ec529295cde9e66d34ba062b0203bb1fe01dc56e0f4c6d777c6d59dcbc2bfc3",
+    "production_required_field_count": 19,
+    "required_field_count": 33,
+    "requirements_failed": 0,
+    "requirements_passed": 7,
+    "resource_saving_claimed": false,
+    "route_id": "R83-G1-30-arbitrary-rotation-batch",
+    "source_target_id": "T-B1-004gq/T-B7-015z",
+    "status": "cone01_r93_nonfixture_external_intake_open_no_submission_yet",
+    "stdout_sha256": "f844109c36c348ef82b48a423148f2c77703841fc28b276e0a759c0ce43ed8d0",
+    "upstream_target_id": "T-B1-004gp/T-B7-015y",
+    "validation_error_count": 0
+  },
+  "upstream_target_id": "T-B1-004gp/T-B7-015y",
+  "validation_error_count": 0,
+  "validation_errors": [],
+  "version": "0.1"
+}

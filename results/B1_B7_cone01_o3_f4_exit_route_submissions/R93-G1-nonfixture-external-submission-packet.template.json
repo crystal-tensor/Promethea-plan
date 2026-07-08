@@ -1,0 +1,55 @@
+{
+  "allowed_review_counter_targets": [
+    "accepted_external_reproduction_count",
+    "accepted_external_falsification_count",
+    "new_credit_candidate_pending_review"
+  ],
+  "artifact": "R93 G1 non-fixture external submission packet template",
+  "banned_fixture_agent_ids": [
+    "r92-local-validator-fixture"
+  ],
+  "contract_id": "R93-G1-nonfixture-external-intake",
+  "fields": {
+    "accepted_b7_credit_delta_after_review": null,
+    "agent_id": null,
+    "claim_boundary": null,
+    "command_transcript_path": null,
+    "command_transcript_sha256": null,
+    "credit_decision": null,
+    "double_count_test_path": null,
+    "double_count_test_sha256": null,
+    "double_count_violation_found": null,
+    "external_submitter_attested": null,
+    "falsification_claimed": null,
+    "fixture_agent_id_used": null,
+    "independent_environment_manifest_path": null,
+    "independent_environment_manifest_sha256": null,
+    "maintainer_review_required": null,
+    "new_credit_delta": null,
+    "o3_closed": null,
+    "physical_layout_claimed": null,
+    "recomputed_baseline_after_t_ledger": null,
+    "recomputed_candidate_after_t_ledger": null,
+    "recomputed_candidate_t_ledger_reduction": null,
+    "recomputed_target_1_20_margin": null,
+    "recomputed_target_1_25_margin": null,
+    "reproduction_claimed": null,
+    "resource_saving_claimed": null,
+    "review_counter_target": null,
+    "review_mode": null,
+    "source_r90_blocker_queue_hash": null,
+    "source_r90_result_sha256": null,
+    "source_r90_review_ledger_hash": null,
+    "source_r90_verdict_hash": null,
+    "submission_id": null,
+    "submitter_independence_statement": null
+  },
+  "instructions": [
+    "Use a non-fixture agent id.",
+    "Attach independently generated environment and command transcript artifacts.",
+    "Run the R92 validator rules before asking for maintainer review.",
+    "Do not claim O3, physical layout, or resource savings without separate evidence."
+  ],
+  "intake_contract_hash": "0e1108d271259b7d602939e72b463695e7b0e7dd6a3685a3f7ee418dbb82e882",
+  "packet_template_hash": "1bd5e493063e3af62daa04867be334cab8dcd751cab9c707258735664003f405"
+}
