@@ -1817,6 +1817,20 @@ This is still not O3 closure and not B7 credit: `reroute_allowed=false`, and
 B7/STV/resource/ledger credit remain 0/false. The next useful PR should run a
 zero-credit B7 ledger retest boundary before any promotion claim.
 
+`T-B1-004fp` / `T-B7-014y` now runs that B7 zero-credit retest boundary. R66
+binds the R65 machine-checked row set against the B7 resource boundary, the R4
+ledger-replay block gate, and the current B7 FT synthesis ledger. The retest
+packet covers 8 rows: all 8 are machine checked, 0 rows are ledger-credit
+admissible, accepted exit routes remain `0`, occurrence removal remains `0`,
+proxy-T reduction remains `0`, logical-T count/depth deltas remain `0`, and STV
+delta remains `0`. R66 retest packet hash
+`29d1cb2e95aafd29418e8082e0d8ab92edb1fe4ffa3a61af749204ad3294de59`.
+This is a completed boundary, not a promotion: O3 closure, reroute permission,
+B7 dependency/resource/FT/STV credit, resource saving, and ledger improvement
+remain 0/false. The next useful PR must supply an accepted exit route or
+full-circuit rewrite artifact with a nonzero occurrence/proxy-T delta before any
+nonzero B7 ledger retest.
+
 B4/B8 now has a formal verifier-private challenge protocol model:
 `T-B4-002b` / `T-B8-003f` turns the previous private-predicate pressure gate
 into a commit-challenge-response-verify protocol over 36 shared challenge rows.

@@ -5910,6 +5910,41 @@ current_results:
     caveat: r65_completes_c7_replay_only_o3_b7_credit_still_blocked
     report: ../results/B1_B7_cone01_R65_o3_f4_c7_machine_check_replay_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R65_o3_f4_c7_machine_check_replay_gate.md
+  b1_b7_cone01_r66_o3_f4_b7_zero_credit_ledger_retest_gate_v0:
+    circuits: 1
+    status: cone01_r66_b7_zero_credit_ledger_retest_boundary_passed
+    model_status: r65_replay_rows_retested_against_b7_ledger_with_zero_credit
+    method: b1_b7_cone01_r66_o3_f4_b7_zero_credit_ledger_retest_gate_v0
+    source_r65_c7_machine_check_replay: ../results/B1_B7_cone01_R65_o3_f4_c7_machine_check_replay_gate_v0.json
+    r66_b7_zero_credit_ledger_retest_packet: ../results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-all8.r66_b7_zero_credit_ledger_retest_packet.json
+    source_target_id: T-B1-004fp/T-B7-014y
+    upstream_target_id: T-B1-004fo/T-B7-014x
+    retest_row_count: 8
+    machine_checked_row_count: 8
+    ledger_credit_admissible_row_count: 0
+    accepted_exit_route_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    logical_t_count_delta: 0
+    logical_t_depth_delta: 0
+    space_time_volume_delta: 0
+    b7_dependency_credit_allowed: false
+    b7_resource_credit_allowed: false
+    b7_ft_ledger_credit_allowed: false
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    o3_closed: false
+    reroute_allowed: false
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    ledger_retest_boundary_complete: true
+    r66_retest_packet_hash: 29d1cb2e95aafd29418e8082e0d8ab92edb1fe4ffa3a61af749204ad3294de59
+    requirements_passed: 8
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r66_is_zero_credit_boundary_only_no_o3_reroute_or_b7_promotion
+    report: ../results/B1_B7_cone01_R66_o3_f4_b7_zero_credit_ledger_retest_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R66_o3_f4_b7_zero_credit_ledger_retest_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate
