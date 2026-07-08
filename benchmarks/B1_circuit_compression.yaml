@@ -7242,6 +7242,39 @@ current_results:
     caveat: r104_contract_ready_but_no_external_origin_attestation_accepted
     report: ../results/B1_B7_cone01_R104_external_origin_attestation_contract_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R104_external_origin_attestation_contract_gate.md
+  b1_b7_cone01_r105_external_origin_attestation_verifier_gate_v0:
+    circuits: 1
+    status: cone01_r105_origin_attestation_verifier_ready_no_counter_move
+    model_status: r104_contract_ready_but_no_verified_external_origin_packet
+    method: b1_b7_cone01_r105_external_origin_attestation_verifier_gate_v0
+    source_target_id: T-B1-004hc/T-B7-016l
+    upstream_target_id: T-B1-004hb/T-B7-016k
+    source_b1_r104_external_origin_attestation_contract: ../results/B1_B7_cone01_R104_external_origin_attestation_contract_gate_v0.json
+    r105_verifier_rules: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R105-G1-external-origin-attestation-verifier-rules.json
+    r105_template_validation: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R105-G1-empty-template-validation.verdict.json
+    r105_placeholder_validation: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R105-G1-local-placeholder-validation.verdict.json
+    r105_blocker_queue: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R105-G1-post-origin-verifier-blocker-queue.json
+    required_field_count: 20
+    verifier_gate_count: 16
+    empty_template_origin_accepted: false
+    empty_template_failed_gate_count: 14
+    local_placeholder_origin_accepted: false
+    local_placeholder_failed_gate_count: 8
+    counter_transition_accepted: false
+    counter_delta: 0
+    accepted_external_reproduction_count: 0
+    accepted_external_falsification_count: 0
+    new_credit_delta: 0
+    verifier_rules_hash: 5a94f79d40e3afcc8d5459843c07cc8dffa7241b3ae34b9ebf687cca41c9e89e
+    template_validation_hash: 37fd78884fa792dc9c4dae511b66e999fd12efd35a73744852744fec5d3559a7
+    placeholder_validation_hash: dc6ff64dba76c7e11a3bd26e7260539c04d7ec7ca16b272e5b11518faee95b01
+    blocker_queue_hash: 9aa6e3af7f3c7ae95ee56c100bb6052cfd98a10218517035e04ab2f34f8cd7d3
+    requirements_passed: 5
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r105_verifier_ready_but_no_verified_external_origin_packet
+    report: ../results/B1_B7_cone01_R105_external_origin_attestation_verifier_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R105_external_origin_attestation_verifier_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate

@@ -2478,3 +2478,21 @@ blocker queue hash `53a9922bdb7218bfb52cabb7005b7328cc8cad0a81707835baf299b377c2
 The next real gate must fill the R104 template with signed external-origin
 attestation, a nonlocal clean-checkout bundle, and a single-counter transition
 audit.
+
+`T-B1-004hc` / `T-B7-016l` now adds the R105 external-origin attestation
+verifier gate. R105 converts the R104 20-field attestation contract into 16
+executable verifier gates, rejects the empty R104 template, and rejects the
+local placeholder packet on nonlocal-origin checks. Requirements pass `5/5`;
+empty-template origin accepted is `false` with `14` failed gates; local
+placeholder origin accepted is `false` with `8` failed gates; counter transition
+accepted is `false`; counter delta remains `0`; accepted external reproductions
+remain `0`; accepted external falsifications remain `0`; and
+`new_credit_delta` remains `0`. Verifier-rules hash
+`5a94f79d40e3afcc8d5459843c07cc8dffa7241b3ae34b9ebf687cca41c9e89e`;
+template-validation hash
+`37fd78884fa792dc9c4dae511b66e999fd12efd35a73744852744fec5d3559a7`;
+placeholder-validation hash
+`dc6ff64dba76c7e11a3bd26e7260539c04d7ec7ca16b272e5b11518faee95b01`;
+blocker queue hash `9aa6e3af7f3c7ae95ee56c100bb6052cfd98a10218517035e04ab2f34f8cd7d3`.
+The next real gate is a production R104 packet that passes the R105 verifier
+before a separate single-counter audit is allowed to move any counter.

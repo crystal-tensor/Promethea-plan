@@ -1,0 +1,35 @@
+{
+  "artifact": "R105 post external-origin verifier blocker queue",
+  "blocker_queue_hash": "9aa6e3af7f3c7ae95ee56c100bb6052cfd98a10218517035e04ab2f34f8cd7d3",
+  "method": "b1_b7_cone01_r105_external_origin_attestation_verifier_gate_v0",
+  "placeholder_validation_hash": "dc6ff64dba76c7e11a3bd26e7260539c04d7ec7ca16b272e5b11518faee95b01",
+  "queue": [
+    {
+      "blocker_id": "R105-G1-1",
+      "needed_artifact": "all 20 R104 attestation fields filled with production values",
+      "priority": 1,
+      "target_gate": "filled_r104_template"
+    },
+    {
+      "blocker_id": "R105-G1-2",
+      "needed_artifact": "https source URL, 40-hex commit SHA, and nonlocal clone command/transcript",
+      "priority": 2,
+      "target_gate": "remote_commit_and_network_clone"
+    },
+    {
+      "blocker_id": "R105-G1-3",
+      "needed_artifact": "environment manifest and replay bundle whose hashes and content do not reuse R101/R103 local files",
+      "priority": 3,
+      "target_gate": "nonlocal_environment_and_replay_bundle"
+    },
+    {
+      "blocker_id": "R105-G1-4",
+      "needed_artifact": "separate audit accepting exactly one reproduction or falsification counter transition",
+      "priority": 4,
+      "target_gate": "single_counter_transition_audit"
+    }
+  ],
+  "source_target_id": "T-B1-004hc/T-B7-016l",
+  "template_validation_hash": "37fd78884fa792dc9c4dae511b66e999fd12efd35a73744852744fec5d3559a7",
+  "upstream_target_id": "T-B1-004hb/T-B7-016k"
+}

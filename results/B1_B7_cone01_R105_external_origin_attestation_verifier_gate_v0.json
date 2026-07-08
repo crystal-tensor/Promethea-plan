@@ -1,0 +1,118 @@
+{
+  "artifact": "B1/B7 cone01 R105 external-origin attestation verifier gate",
+  "blocker_queue_hash": "9aa6e3af7f3c7ae95ee56c100bb6052cfd98a10218517035e04ab2f34f8cd7d3",
+  "blocker_queue_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R105-G1-post-origin-verifier-blocker-queue.json",
+  "failed_requirement_ids": [],
+  "generated_at_unix": 1783554856,
+  "method": "b1_b7_cone01_r105_external_origin_attestation_verifier_gate_v0",
+  "model_status": "r104_contract_ready_but_no_verified_external_origin_packet",
+  "payload_hash": "6454a6eed74d0044a8c43c53495b1538c4125acb8d3278e4bdf2fff057b24ce1",
+  "placeholder_validation_hash": "dc6ff64dba76c7e11a3bd26e7260539c04d7ec7ca16b272e5b11518faee95b01",
+  "placeholder_validation_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R105-G1-local-placeholder-validation.verdict.json",
+  "requirement_count": 5,
+  "requirements": [
+    {
+      "evidence": {
+        "origin_contract_hash": "9150bfda0b040365f0fb3bce12ee91f4e968f01f742a483d6b7ddb6a80b9b485",
+        "r104_payload_hash": "fc0dea674e88047105251c79867ff43a3c97475baf5ccf5ecc904b96dd6eed7d",
+        "r104_preflight_hash": "76183801f092c26e9c2e9d88ea4821f2429007959d6604ba13e1367e165ddd2c"
+      },
+      "label": "R105 binds the R104 contract, preflight, and blocker queue",
+      "passed": true,
+      "requirement_id": "A1"
+    },
+    {
+      "evidence": {
+        "gate_count": 16,
+        "required_field_count": 20,
+        "verifier_rules_hash": "5a94f79d40e3afcc8d5459843c07cc8dffa7241b3ae34b9ebf687cca41c9e89e"
+      },
+      "label": "R105 emits executable verifier rules for all R104 fields",
+      "passed": true,
+      "requirement_id": "A2"
+    },
+    {
+      "evidence": {
+        "empty_field_count": 20,
+        "template_validation_hash": "37fd78884fa792dc9c4dae511b66e999fd12efd35a73744852744fec5d3559a7"
+      },
+      "label": "R105 rejects the empty R104 template",
+      "passed": true,
+      "requirement_id": "A3"
+    },
+    {
+      "evidence": {
+        "failed_gates": [
+          "signed_external_origin_statement",
+          "source_url_https_remote",
+          "commit_sha_pinned",
+          "clone_command_network_remote",
+          "transcript_content_nonlocal",
+          "environment_manifest_nonlocal",
+          "replay_bundle_nonlocal",
+          "origin_attestation_accepted"
+        ],
+        "placeholder_validation_hash": "dc6ff64dba76c7e11a3bd26e7260539c04d7ec7ca16b272e5b11518faee95b01"
+      },
+      "label": "R105 rejects the local placeholder on nonlocal-origin gates",
+      "passed": true,
+      "requirement_id": "A4"
+    },
+    {
+      "evidence": {
+        "blocker_ids": [
+          "R105-G1-1",
+          "R105-G1-2",
+          "R105-G1-3",
+          "R105-G1-4"
+        ],
+        "blocker_queue_hash": "9aa6e3af7f3c7ae95ee56c100bb6052cfd98a10218517035e04ab2f34f8cd7d3"
+      },
+      "label": "R105 keeps counters at zero and emits the next verifier blocker queue",
+      "passed": true,
+      "requirement_id": "A5"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 5,
+  "source_target_id": "T-B1-004hc/T-B7-016l",
+  "status": "cone01_r105_origin_attestation_verifier_ready_no_counter_move",
+  "stdout_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R105-G1-external-origin-attestation-verifier.stdout.txt",
+  "stdout_sha256": "1e583bb1ab68bd1364c65cbefd63fc3b40b5f85e353ca4dbcd0bcdd007fca1eb",
+  "summary": {
+    "accepted_external_falsification_count": 0,
+    "accepted_external_reproduction_count": 0,
+    "blocker_queue_hash": "9aa6e3af7f3c7ae95ee56c100bb6052cfd98a10218517035e04ab2f34f8cd7d3",
+    "counter_delta": 0,
+    "counter_transition_accepted": false,
+    "empty_template_failed_gate_count": 14,
+    "empty_template_origin_accepted": false,
+    "failed_requirement_ids": [],
+    "local_placeholder_failed_gate_count": 8,
+    "local_placeholder_origin_accepted": false,
+    "method": "b1_b7_cone01_r105_external_origin_attestation_verifier_gate_v0",
+    "model_status": "r104_contract_ready_but_no_verified_external_origin_packet",
+    "new_credit_delta": 0,
+    "payload_hash": "6454a6eed74d0044a8c43c53495b1538c4125acb8d3278e4bdf2fff057b24ce1",
+    "placeholder_validation_hash": "dc6ff64dba76c7e11a3bd26e7260539c04d7ec7ca16b272e5b11518faee95b01",
+    "required_field_count": 20,
+    "requirements_failed": 0,
+    "requirements_passed": 5,
+    "source_target_id": "T-B1-004hc/T-B7-016l",
+    "status": "cone01_r105_origin_attestation_verifier_ready_no_counter_move",
+    "stdout_sha256": "1e583bb1ab68bd1364c65cbefd63fc3b40b5f85e353ca4dbcd0bcdd007fca1eb",
+    "template_validation_hash": "37fd78884fa792dc9c4dae511b66e999fd12efd35a73744852744fec5d3559a7",
+    "upstream_target_id": "T-B1-004hb/T-B7-016k",
+    "validation_error_count": 0,
+    "verifier_gate_count": 16,
+    "verifier_rules_hash": "5a94f79d40e3afcc8d5459843c07cc8dffa7241b3ae34b9ebf687cca41c9e89e"
+  },
+  "template_validation_hash": "37fd78884fa792dc9c4dae511b66e999fd12efd35a73744852744fec5d3559a7",
+  "template_validation_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R105-G1-empty-template-validation.verdict.json",
+  "upstream_target_id": "T-B1-004hb/T-B7-016k",
+  "validation_error_count": 0,
+  "validation_errors": [],
+  "verifier_rules_hash": "5a94f79d40e3afcc8d5459843c07cc8dffa7241b3ae34b9ebf687cca41c9e89e",
+  "verifier_rules_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R105-G1-external-origin-attestation-verifier-rules.json",
+  "version": "0.1"
+}
