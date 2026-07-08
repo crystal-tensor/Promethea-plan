@@ -4173,6 +4173,54 @@ current_results:
     caveat: r27_tolerance_relaxation_cannot_accept_o3_f4_without_certificate_denominator_and_leakage_fixes_no_reroute_or_b7_credit
     report: ../results/B1_B7_cone01_R27_o3_f4_tolerance_ablation_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R27_o3_f4_tolerance_ablation_gate.md
+  b1_b7_cone01_r28_o3_f4_certificate_triad_contract_gate_v0:
+    circuits: 1
+    status: cone01_r28_o3_f4_certificate_triad_contract_ready_no_submission
+    model_status: o3_f4_certificate_denominator_leakage_contract_ready_no_o3_no_reroute
+    method: b1_b7_cone01_r28_o3_f4_certificate_triad_contract_gate_v0
+    source_r24_harness: ../results/B1_B7_cone01_R24_o3_f4_numerical_refit_harness_gate_v0.json
+    source_r27_ablation: ../results/B1_B7_cone01_R27_o3_f4_tolerance_ablation_gate_v0.json
+    source_target_id: T-B1-004ed/T-B7-013m
+    upstream_target_id: T-B1-004ec/T-B7-013l
+    candidate_id: NL-C02
+    family_id: O3-F4
+    contract_id: B1-B7-cone01-R28-O3-F4-certificate-triad-contract
+    contract_hash: d3dda6090b1889d917c3fb80216ffaed6e5d114f7c0ab72d7f23049d3f5674df
+    template_hash: 2d99a28a1b1523e3958a280474d565d771052935b9826b2b7dc239d55a32d078
+    preflight_hash: 295dbfcf8526f9c83e4e02f4aace09bb65e130873d597dd116971a85e8307478
+    source_harness_hash: 7738931cd3284750f0ce9a8d2ec4acb8aac952b2dd3b335203d35f7213fd007d
+    source_r27_ablation_hash: fd9d2333a13057ab367029cd4e1cac7423ffb4a6ed816e5b498fd8e9dba9f7be
+    required_field_count: 24
+    production_field_count: 12
+    evidence_bundle_count: 3
+    evidence_bundles: [same_unitary_replay_certificate, same_access_denominator_comparison, leakage_free_optimizer_trace]
+    acceptance_gate_count: 9
+    rejection_rule_count: 6
+    strict_tolerance: 1.0e-08
+    tolerance_waiver_allowed: false
+    template_emitted: true
+    submission_exists: false
+    preflight_accepted: false
+    requirements_passed: 8
+    requirements_failed: 0
+    o3_f4_artifact_accepted: false
+    o3_closed: false
+    remaining_open_obligations: [O3-F3_symbolic_lu_artifact, O3-F4_valid_certificate_triad_artifact, O3-F5_route_a_artifact]
+    checked_negative_lemma_present: false
+    nlc02_full_lemma_ready: false
+    reroute_allowed: false
+    accepted_route_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    validation_error_count: 0
+    template_output: ../results/B1_B7_cone01_o3_f4_numerical_refit_submissions/B1-B7-cone01-O3-F4-certificate-triad.template.json
+    caveat: r28_contract_ready_no_certificate_triad_submission_no_o3_closure_no_reroute_or_b7_credit
+    report: ../results/B1_B7_cone01_R28_o3_f4_certificate_triad_contract_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R28_o3_f4_certificate_triad_contract_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate

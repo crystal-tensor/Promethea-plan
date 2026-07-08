@@ -1,0 +1,62 @@
+{
+  "artifact_hash": "<sha256>",
+  "artifact_id": "B1-B7-cone01-O3-F4-certificate-triad-submission.<submitter-id>",
+  "b7_credit_delta": 0,
+  "candidate_id": "NL-C02",
+  "challenge_rows_covered": "<must equal 8>",
+  "checker_returncode": 0,
+  "checker_stdout_hash": "<sha256>",
+  "claim_boundary": {
+    "kill_conditions": [
+      "replay exceeds strict tolerance",
+      "replay certificate missing",
+      "denominator comparison incomplete",
+      "same-access model false",
+      "optimizer leakage"
+    ],
+    "not_supported": "O3 closure, R5 reroute, B7 credit, STV credit, and resource savings are not supported before acceptance",
+    "supported": "candidate O3-F4 certificate-triad submission only after all C1-C9 gates pass"
+  },
+  "family_id": "O3-F4",
+  "leakage_free_optimizer_trace": {
+    "challenge_packet_visible_to_optimizer": false,
+    "hidden_restart_count": 0,
+    "optimizer_trace_hash": "<sha256>",
+    "seed_schedule_hash": "<sha256>",
+    "status": "required"
+  },
+  "machine_check_command": "python3 tools/b1_b7_cone01_r28_o3_f4_certificate_triad_contract_gate.py --submission <this-file> --pretty",
+  "o3_closed": false,
+  "offline_bundle_hash": "<sha256>",
+  "r11_r12_rows_covered": "<must equal 31>",
+  "reroute_allowed": false,
+  "route_a_effect": "not_claimed_until_certificate_acceptance",
+  "same_access_denominator_comparison": {
+    "comparison_table": [],
+    "covered_r11_r12_rows": 31,
+    "denominator_hash": "<sha256>",
+    "required_r11_r12_rows": 31,
+    "same_access_model": true,
+    "status": "required"
+  },
+  "same_unitary_replay_certificate": {
+    "certificate_hash": "<sha256>",
+    "certificate_type": "<symbolic|interval|verified_numeric_with_bounds>",
+    "proof_or_bound_file": "<path>",
+    "replay_command": "<command>",
+    "status": "required"
+  },
+  "source_harness_hash": "7738931cd3284750f0ce9a8d2ec4acb8aac952b2dd3b335203d35f7213fd007d",
+  "source_r27_ablation_hash": "fd9d2333a13057ab367029cd4e1cac7423ffb4a6ed816e5b498fd8e9dba9f7be",
+  "source_target_id": "T-B1-004ed/T-B7-013m",
+  "strict_tolerance": 1e-08,
+  "submitted_by": "<agent-or-human-id>",
+  "template_hash": "2d99a28a1b1523e3958a280474d565d771052935b9826b2b7dc239d55a32d078",
+  "unitary_replay_protocol": {
+    "challenge_ids": "<all 8 O3-F4 challenge ids>",
+    "max_unitary_replay_error": "<must be <= strict_tolerance>",
+    "replay_rows": [],
+    "status": "required",
+    "tolerance": 1e-08
+  }
+}
