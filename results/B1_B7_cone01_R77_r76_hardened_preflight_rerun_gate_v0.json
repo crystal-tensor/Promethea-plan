@@ -1,0 +1,168 @@
+{
+  "artifact": "B1/B7 cone01 R77 R76-aware hardened preflight rerun gate",
+  "blocker_queue_hash": "49504532b491d340adf4d5242526adcce006d99124a523a1588a7edc4c9c3737",
+  "blocker_queue_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R77-post-r76-hardened-blocker-queue.json",
+  "failed_requirement_ids": [],
+  "generated_at_unix": 1783536877,
+  "method": "b1_b7_cone01_r77_r76_hardened_preflight_rerun_gate_v0",
+  "model_status": "post_source_closure_positive_delta_promotion_remains_blocked",
+  "payload_hash": "10bbd7daf0c7f33dcfad0effe50ac06e317d40c3ab0576675baf05d2511e1d40",
+  "positive_promotion_candidate_hash": "7b58dd24d2658e14272cb6ac3ae777c7e5c57dfac9d87c29fa14f5354c4ab1b5",
+  "positive_promotion_candidate_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R77-r76-positive-promotion-candidate.json",
+  "requirement_count": 8,
+  "requirements": [
+    {
+      "evidence": {
+        "r72_hardened_failed_gate_count": 8,
+        "r72_result_path": "results/B1_B7_cone01_R72_source_backed_delta_preflight_gate_v0.json",
+        "r72_result_sha256": "d8682c04771e6042bcef8262a51d4b10201dbdfc9e76c122c0cfc62bfa067470"
+      },
+      "label": "R77 consumes the R72 hardened-preflight baseline",
+      "passed": true,
+      "requirement_id": "H1"
+    },
+    {
+      "evidence": {
+        "r76_requirements_failed": 0,
+        "r76_requirements_passed": 8,
+        "r76_result_path": "results/B1_B7_cone01_R76_line1378_no_double_counting_gate_v0.json",
+        "r76_result_sha256": "88041ed6ee9591bd817163fa6d73c3b42ab994e0331426ba5a1df6ef4a83a8f4"
+      },
+      "label": "R77 consumes the R76 source-closure result",
+      "passed": true,
+      "requirement_id": "H2"
+    },
+    {
+      "evidence": {
+        "r76_intake_accepted": true,
+        "r76_intake_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R76-r1-d1-d2-d3-source-closure-intake.verdict.json",
+        "r76_intake_sha256": "68c85114e434b9b34b0cb122c294f1efb0dab0a890973778467487461598aa5b",
+        "source_closure_gates": {
+          "r76_hash_bound_artifacts_exist": true,
+          "r76_intake_failed_gate_count_zero": true,
+          "r76_r73_d1_d2_d3_prefilled": true,
+          "r76_r73_intake_accepted": true,
+          "r76_result_requirements_pass": true
+        }
+      },
+      "label": "R73 D1/D2/D3 source closure is accepted after R76",
+      "passed": true,
+      "requirement_id": "H3"
+    },
+    {
+      "evidence": {
+        "failed_promotion_gates": [
+          "accepted_exit_route_positive",
+          "accepted_occurrence_positive",
+          "accepted_proxy_t_positive"
+        ],
+        "positive_promotion_gates": {
+          "accepted_exit_route_positive": false,
+          "accepted_occurrence_positive": false,
+          "accepted_proxy_t_positive": false
+        }
+      },
+      "label": "R77 rejects positive promotion after source closure",
+      "passed": true,
+      "requirement_id": "H4"
+    },
+    {
+      "evidence": {
+        "accepted_exit_route_count": 0,
+        "accepted_occurrence_removal": 0,
+        "accepted_proxy_t_reduction": 0
+      },
+      "label": "Accepted counters remain zero",
+      "passed": true,
+      "requirement_id": "H5"
+    },
+    {
+      "evidence": {
+        "b7_credit_delta": 0,
+        "b7_nonzero_retest_allowed": false
+      },
+      "label": "B7 retest and credit remain blocked",
+      "passed": true,
+      "requirement_id": "H6"
+    },
+    {
+      "evidence": {
+        "blocker_queue_hash": "49504532b491d340adf4d5242526adcce006d99124a523a1588a7edc4c9c3737",
+        "blocker_queue_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R77-post-r76-hardened-blocker-queue.json",
+        "blocker_queue_sha256": "a22410734c388de4fdd14c94a687636a093a86759c108c2b86c535c78dc978d8"
+      },
+      "label": "R77 emits a post-source-closure blocker queue",
+      "passed": true,
+      "requirement_id": "H7"
+    },
+    {
+      "evidence": {
+        "boundary_gates": {
+          "b7_credit_still_zero": true,
+          "b7_nonzero_retest_not_allowed": true,
+          "o3_not_closed": true,
+          "reroute_not_allowed": true,
+          "resource_saving_not_claimed": true
+        },
+        "claim_boundary": "R77 consumes the R76 source-closure packet and asks whether it can be promoted into a positive accepted route. It cannot: source closure is now accepted, but accepted exit-route, occurrence, proxy-T, and B7 credit counters remain zero."
+      },
+      "label": "R77 preserves the no-overclaim boundary",
+      "passed": true,
+      "requirement_id": "H8"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 8,
+  "source_target_id": "T-B1-004ga/T-B7-015j",
+  "sources": {
+    "r72_result": "results/B1_B7_cone01_R72_source_backed_delta_preflight_gate_v0.json",
+    "r76_intake": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R76-r1-d1-d2-d3-source-closure-intake.verdict.json",
+    "r76_result": "results/B1_B7_cone01_R76_line1378_no_double_counting_gate_v0.json",
+    "r76_submission": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R76-r1-d1-d2-d3-source-closure-submission.json"
+  },
+  "status": "cone01_r77_r76_source_closure_passes_positive_promotion_rejected",
+  "stdout_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R77-r76-hardened-preflight-rerun.stdout.txt",
+  "stdout_sha256": "48d572dbc9bdffe1029314a3670f1531002e037cfea73919b50c956646488dce",
+  "summary": {
+    "accepted_exit_route_count": 0,
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "b7_credit_delta": 0,
+    "b7_ledger_improvement_claimed": false,
+    "b7_nonzero_retest_allowed": false,
+    "blocker_queue_hash": "49504532b491d340adf4d5242526adcce006d99124a523a1588a7edc4c9c3737",
+    "failed_requirement_ids": [],
+    "hardened_accepted": false,
+    "hardened_failed_gate_count": 3,
+    "hardened_failed_gates": [
+      "accepted_exit_route_positive",
+      "accepted_occurrence_positive",
+      "accepted_proxy_t_positive"
+    ],
+    "method": "b1_b7_cone01_r77_r76_hardened_preflight_rerun_gate_v0",
+    "model_status": "post_source_closure_positive_delta_promotion_remains_blocked",
+    "o3_closed": false,
+    "payload_hash": "10bbd7daf0c7f33dcfad0effe50ac06e317d40c3ab0576675baf05d2511e1d40",
+    "positive_promotion_passed": false,
+    "r73_d1_prefilled": true,
+    "r73_d2_prefilled": true,
+    "r73_d3_prefilled": true,
+    "r73_intake_accepted": true,
+    "r76_source_closure_passed": true,
+    "requirements_failed": 0,
+    "requirements_passed": 8,
+    "reroute_allowed": false,
+    "resource_saving_claimed": false,
+    "source_target_id": "T-B1-004ga/T-B7-015j",
+    "status": "cone01_r77_r76_source_closure_passes_positive_promotion_rejected",
+    "upstream_target_id": "T-B1-004fz/T-B7-015i",
+    "validation_error_count": 0,
+    "verdict_hash": "0750d595905334787f241f4b82cfe003bcb46a9d9c99260fab5392acbaed13d5"
+  },
+  "upstream_target_id": "T-B1-004fz/T-B7-015i",
+  "validation_error_count": 0,
+  "validation_errors": [],
+  "verdict_hash": "0750d595905334787f241f4b82cfe003bcb46a9d9c99260fab5392acbaed13d5",
+  "verdict_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R77-r76-hardened-preflight-rerun.verdict.json",
+  "version": "0.1"
+}

@@ -2038,3 +2038,14 @@ contained window. The R73 source-closure intake shape now passes with D1/D2/D3
 source-backed, but accepted exit routes, occurrence removal, accepted proxy-T
 reduction, and B7 credit remain 0. The next gate is a hardened R72/R73 rerun,
 not a resource or B7 promotion.
+
+`T-B1-004ga` / `T-B7-015j` now completes that hardened R72/R73 rerun after
+R76. R77 consumes the R72 preflight baseline plus the R76 D1/D2/D3
+source-closure submission and proves the source-closure axis is no longer the
+active blocker: R73 intake is accepted, D1/D2/D3 are prefilled, and all
+hash-bound packet artifacts match. The promotion still fails exactly where it
+should: accepted exit route, accepted occurrence removal, and accepted proxy-T
+reduction remain 0, so `b7_nonzero_retest_allowed=false`, B7 credit remains 0,
+and O3/reroute/resource claims remain blocked. Requirements pass 8/8; the next
+useful artifact is a real accepted positive-route packet, not another
+source-closure packet.

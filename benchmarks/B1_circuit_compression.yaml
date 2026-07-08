@@ -6288,6 +6288,39 @@ current_results:
     caveat: r76_passes_r73_source_closure_shape_but_requires_hardened_r72_rerun_before_any_credit
     report: ../results/B1_B7_cone01_R76_line1378_no_double_counting_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R76_line1378_no_double_counting_gate.md
+  b1_b7_cone01_r77_r76_hardened_preflight_rerun_gate_v0:
+    circuits: 1
+    status: cone01_r77_r76_source_closure_passes_positive_promotion_rejected
+    model_status: post_source_closure_positive_delta_promotion_remains_blocked
+    method: b1_b7_cone01_r77_r76_hardened_preflight_rerun_gate_v0
+    source_target_id: T-B1-004ga/T-B7-015j
+    upstream_target_id: T-B1-004fz/T-B7-015i
+    source_r72_source_backed_delta_preflight: ../results/B1_B7_cone01_R72_source_backed_delta_preflight_gate_v0.json
+    source_r76_line1378_no_double_counting: ../results/B1_B7_cone01_R76_line1378_no_double_counting_gate_v0.json
+    r77_positive_promotion_candidate: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R77-r76-positive-promotion-candidate.json
+    r77_hardened_preflight_verdict: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R77-r76-hardened-preflight-rerun.verdict.json
+    r77_hardened_preflight_stdout: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R77-r76-hardened-preflight-rerun.stdout.txt
+    r77_blocker_queue: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R77-post-r76-hardened-blocker-queue.json
+    r76_source_closure_passed: true
+    r73_intake_accepted: true
+    r73_d1_prefilled: true
+    r73_d2_prefilled: true
+    r73_d3_prefilled: true
+    positive_promotion_passed: false
+    hardened_failed_gate_count: 3
+    hardened_failed_gates: [accepted_exit_route_positive, accepted_occurrence_positive, accepted_proxy_t_positive]
+    accepted_exit_route_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_nonzero_retest_allowed: false
+    b7_credit_delta: 0
+    blocker_queue_hash: 49504532b491d340adf4d5242526adcce006d99124a523a1588a7edc4c9c3737
+    requirements_passed: 8
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r77_passes_source_closure_axis_but_rejects_positive_route_promotion_and_b7_credit
+    report: ../results/B1_B7_cone01_R77_r76_hardened_preflight_rerun_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R77_r76_hardened_preflight_rerun_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate

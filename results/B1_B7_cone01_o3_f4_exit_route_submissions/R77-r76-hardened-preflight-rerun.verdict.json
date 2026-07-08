@@ -1,0 +1,79 @@
+{
+  "accepted_exit_route_count": 0,
+  "accepted_occurrence_removal": 0,
+  "accepted_proxy_t_reduction": 0,
+  "artifact": "R77 R76-aware hardened preflight rerun verdict",
+  "b7_credit_delta": 0,
+  "b7_nonzero_retest_allowed": false,
+  "boundary_gates": {
+    "b7_credit_still_zero": true,
+    "b7_nonzero_retest_not_allowed": true,
+    "o3_not_closed": true,
+    "reroute_not_allowed": true,
+    "resource_saving_not_claimed": true
+  },
+  "candidate_hash": "7b58dd24d2658e14272cb6ac3ae777c7e5c57dfac9d87c29fa14f5354c4ab1b5",
+  "claim_boundary": "R77 consumes the R76 source-closure packet and asks whether it can be promoted into a positive accepted route. It cannot: source closure is now accepted, but accepted exit-route, occurrence, proxy-T, and B7 credit counters remain zero.",
+  "expected_rejection": true,
+  "failed_gate_count": 3,
+  "failed_gates": [
+    "accepted_exit_route_positive",
+    "accepted_occurrence_positive",
+    "accepted_proxy_t_positive"
+  ],
+  "failed_promotion_gate_count": 3,
+  "failed_promotion_gates": [
+    "accepted_exit_route_positive",
+    "accepted_occurrence_positive",
+    "accepted_proxy_t_positive"
+  ],
+  "gates": {
+    "accepted_exit_route_positive": false,
+    "accepted_occurrence_positive": false,
+    "accepted_proxy_t_positive": false,
+    "b7_credit_still_zero": true,
+    "b7_nonzero_retest_not_allowed": true,
+    "o3_not_closed": true,
+    "r76_hash_bound_artifacts_exist": true,
+    "r76_intake_failed_gate_count_zero": true,
+    "r76_r73_d1_d2_d3_prefilled": true,
+    "r76_r73_intake_accepted": true,
+    "r76_result_requirements_pass": true,
+    "reroute_not_allowed": true,
+    "resource_saving_not_claimed": true
+  },
+  "hardened_accepted": false,
+  "legacy_r1_r2_note": "R77 does not mutate the historical R1/R2 packet reports. It consumes the later R73/R76 source-closure path, then reruns the promotion logic with source closure satisfied.",
+  "legacy_r1_r2_packet_reports_still_open": true,
+  "method": "b1_b7_cone01_r77_r76_hardened_preflight_rerun_gate_v0",
+  "passed_gate_count": 10,
+  "positive_promotion_gates": {
+    "accepted_exit_route_positive": false,
+    "accepted_occurrence_positive": false,
+    "accepted_proxy_t_positive": false
+  },
+  "positive_promotion_passed": false,
+  "r72_hardened_failed_gate_count": 8,
+  "r72_hardened_failed_gates": [
+    "r1_packet_requirements_all_pass",
+    "r1_submitted_source_backed_artifact_exists",
+    "r1_accepted_occurrence_positive",
+    "r1_accepted_proxy_t_positive",
+    "r2_packet_requirements_all_pass",
+    "r2_submitted_source_backed_artifact_exists",
+    "r2_no_double_counting_recovery_valid",
+    "ledger_positive_values_not_metadata_only"
+  ],
+  "r77_source_closure_axis_status": "passed_via_r76_r73_intake",
+  "source_closure_gates": {
+    "r76_hash_bound_artifacts_exist": true,
+    "r76_intake_failed_gate_count_zero": true,
+    "r76_r73_d1_d2_d3_prefilled": true,
+    "r76_r73_intake_accepted": true,
+    "r76_result_requirements_pass": true
+  },
+  "source_closure_passed": true,
+  "source_target_id": "T-B1-004ga/T-B7-015j",
+  "upstream_target_id": "T-B1-004fz/T-B7-015i",
+  "verdict_hash": "0750d595905334787f241f4b82cfe003bcb46a9d9c99260fab5392acbaed13d5"
+}

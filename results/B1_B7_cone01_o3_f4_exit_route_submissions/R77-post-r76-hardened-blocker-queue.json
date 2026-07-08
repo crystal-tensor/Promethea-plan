@@ -1,0 +1,35 @@
+{
+  "artifact": "R77 post-R76 hardened blocker queue",
+  "b7_next_gate": "Only after R77-P1/P2/P3 pass should any nonzero B7 retest or FT ledger credit be attempted.",
+  "blocker_queue_hash": "49504532b491d340adf4d5242526adcce006d99124a523a1588a7edc4c9c3737",
+  "failed_promotion_gates": [
+    "accepted_exit_route_positive",
+    "accepted_occurrence_positive",
+    "accepted_proxy_t_positive"
+  ],
+  "method": "b1_b7_cone01_r77_r76_hardened_preflight_rerun_gate_v0",
+  "positive_promotion_passed": false,
+  "queue": [
+    {
+      "blocker_id": "R77-P1",
+      "failed_gate": "accepted_exit_route_positive",
+      "needed_artifact": "accepted positive route packet that promotes the R76 source-closure evidence into at least one accepted exit route",
+      "priority": 1
+    },
+    {
+      "blocker_id": "R77-P2",
+      "failed_gate": "accepted_occurrence_positive",
+      "needed_artifact": "source-backed occurrence-removal acceptance artifact with the R76 no-double-counting exclusion preserved",
+      "priority": 2
+    },
+    {
+      "blocker_id": "R77-P3",
+      "failed_gate": "accepted_proxy_t_positive",
+      "needed_artifact": "proxy-T acceptance artifact proving a counted reduction rather than a prefill-only pricing delta",
+      "priority": 3
+    }
+  ],
+  "source_closure_passed": true,
+  "source_target_id": "T-B1-004ga/T-B7-015j",
+  "upstream_target_id": "T-B1-004fz/T-B7-015i"
+}

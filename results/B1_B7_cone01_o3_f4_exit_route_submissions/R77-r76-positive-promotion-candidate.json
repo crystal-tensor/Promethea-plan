@@ -1,0 +1,81 @@
+{
+  "artifact": "R77 R76-aware positive promotion candidate",
+  "candidate_hash": "7b58dd24d2658e14272cb6ac3ae777c7e5c57dfac9d87c29fa14f5354c4ab1b5",
+  "candidate_id": "B1-B7-cone01-R77-r76-positive-promotion-candidate",
+  "claim_boundary": "R77 consumes the R76 source-closure packet and asks whether it can be promoted into a positive accepted route. It cannot: source closure is now accepted, but accepted exit-route, occurrence, proxy-T, and B7 credit counters remain zero.",
+  "method": "b1_b7_cone01_r77_r76_hardened_preflight_rerun_gate_v0",
+  "observed_accepted_exit_route_count": 0,
+  "observed_accepted_occurrence_removal": 0,
+  "observed_accepted_proxy_t_reduction": 0,
+  "observed_b7_credit_delta": 0,
+  "packets": {
+    "R73-D1-line1381-source-backed-occurrence": {
+      "r1_claim_boundary": "R74 fills the R73-D1 occurrence packet shape with source-backed line evidence. It does not close R73, does not accept the positive-delta row, does not close O3, does not allow reroute, and does not grant B7 credit.",
+      "r1_occurrence_delta_derivation": "R74 line-scoped source-backed prefill: source OpenQASM3 line 1381 is `cx q[3],q[15];`, the same candidate line is not a CNOT, and the source/candidate OpenQASM3 files plus replay verdict are hash-bound. This fills R73-D1 only; it is not a full accepted occurrence proof until proxy-T and line1378 no-double-counting closure pass.",
+      "r1_occurrence_removed_lines": [
+        1381
+      ],
+      "r1_replay_command": "python3 tools/b1_b7_cone01_r74_r1_occurrence_packet_prefill_gate.py --repo-root . --pretty",
+      "r1_replay_stdout_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R74-r1-line1381-occurrence-replay.stdout.txt",
+      "r1_replay_stdout_sha256": "447b859f226f12b30a249983433fca5494419abe806898a85d3052bd7e2e1471",
+      "r1_replay_verdict_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R74-r1-line1381-occurrence-replay.verdict.json",
+      "r1_replay_verdict_sha256": "df15d374e1bba4c68510174946e20f748b2e92b6ed0ff39fe7b86c42315a3a1f",
+      "r1_selected_lines": [
+        268,
+        1381
+      ],
+      "r1_source_artifact_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R74-r1-line1381-occurrence-replay-artifact.json",
+      "r1_source_artifact_sha256": "4a3eb2ea8c1cd6e31402b73074db4eb4f90230a75ac94f422fbcdb24fd4f1482"
+    },
+    "R73-D2-line1381-source-backed-proxy-t": {
+      "proxy_t_after": 99,
+      "proxy_t_before": 100,
+      "proxy_t_claim_boundary": "R75 source-backs the D2 pricing packet shape. It does not close R73, does not prove a resource-escape route, does not allow B7 nonzero retest, and does not grant proxy-T or B7 credit.",
+      "proxy_t_delta": 1,
+      "proxy_t_derivation_artifact_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R75-proxy-t-pricing-derivation-artifact.json",
+      "proxy_t_derivation_artifact_sha256": "8833c591993acc62aa3446d05d843bc7dc99bd454e4191773a4d69b1c699b0fc",
+      "proxy_t_pricing_model_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R75-proxy-t-pricing-model.json",
+      "proxy_t_pricing_model_sha256": "000728a32d12962f0fd12eeccdeeec7bc9be50cf7ad6c6957451b37068d77652",
+      "proxy_t_replay_command": "python3 tools/b1_b7_cone01_r75_proxy_t_packet_prefill_gate.py --repo-root . --pretty",
+      "proxy_t_replay_stdout_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R75-proxy-t-pricing-replay.stdout.txt",
+      "proxy_t_replay_stdout_sha256": "2ced021b37e9207d1d3b1dc45300c22b4ac9a5165d68fbab3a7860050ecec247"
+    },
+    "R73-D3-line1378-source-backed-no-double-counting": {
+      "line1378_overlap_window": [
+        1369,
+        1377
+      ],
+      "line1378_recovery_or_exclusion_decision": "excluded_from_line1381_count",
+      "line1381_window": [
+        1369,
+        1379
+      ],
+      "no_double_counting_ledger_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R76-line1378-no-double-counting-ledger.json",
+      "no_double_counting_ledger_sha256": "fb0200b36c68f2481a3873d2dbc18d5e6c3e1ab3eab92a427e569c2c00e4dc83",
+      "r2_claim_boundary": "R76 closes the D3 no-double-counting evidence shape for R73 only. It is not a merged-region recovery, not an accepted R2 recovery artifact, not a resource saving, and not B7 credit.",
+      "r2_replay_command": "python3 tools/b1_b7_cone01_r76_line1378_no_double_counting_gate.py --repo-root . --pretty",
+      "r2_replay_stdout_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R76-line1378-no-double-counting-replay.stdout.txt",
+      "r2_replay_stdout_sha256": "d937b993715151fc6b6cca39ebfe03e7c9bc352b9740a858f499c533adae00f2",
+      "r2_source_artifact_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R76-line1378-no-double-counting-source-artifact.json",
+      "r2_source_artifact_sha256": "affce9f99c9b69b904e9e14843bdbe2f87f564989dfdd5ea47244a8821d6edc0"
+    }
+  },
+  "promotion_status": "rejected_before_b7_retest",
+  "r73_d1_prefilled": true,
+  "r73_d2_prefilled": true,
+  "r73_d3_prefilled": true,
+  "r73_intake_accepted": true,
+  "r73_source_closure_hash_bound": true,
+  "requested_accepted_exit_route_count": 1,
+  "requested_accepted_occurrence_removal": 1,
+  "requested_accepted_proxy_t_reduction": 1,
+  "requested_b7_nonzero_retest": true,
+  "source_r76_intake_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R76-r1-d1-d2-d3-source-closure-intake.verdict.json",
+  "source_r76_intake_sha256": "68c85114e434b9b34b0cb122c294f1efb0dab0a890973778467487461598aa5b",
+  "source_r76_result_path": "results/B1_B7_cone01_R76_line1378_no_double_counting_gate_v0.json",
+  "source_r76_result_sha256": "88041ed6ee9591bd817163fa6d73c3b42ab994e0331426ba5a1df6ef4a83a8f4",
+  "source_r76_submission_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R76-r1-d1-d2-d3-source-closure-submission.json",
+  "source_r76_submission_sha256": "16026f38a3c222efc7a128159ed370bd19d2edbaacd62c8d240efd6f89936a8d",
+  "source_target_id": "T-B1-004ga/T-B7-015j",
+  "upstream_target_id": "T-B1-004fz/T-B7-015i"
+}
