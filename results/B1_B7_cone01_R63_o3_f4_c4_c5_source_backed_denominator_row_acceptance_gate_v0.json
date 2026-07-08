@@ -1,0 +1,1647 @@
+{
+  "benchmark_id": "B1",
+  "claim_boundary": {
+    "b7_ledger_improvement_claimed": false,
+    "next_gate": "Run C6 leakage-free optimizer trace on the accepted rows, then C7 machine-check replay before any B7 ledger retest.",
+    "resource_saving_claimed": false,
+    "what_is_not_supported": "R63 does not complete C6 leakage-free optimizer trace, does not produce a C7 machine-check bundle, does not close O3, and does not grant reroute, B7, STV, or resource-ledger promotion.",
+    "what_is_supported": "R63 submits all 8 C4/C5 same-access denominator rows with existing implementation, replay stdout, hash-matched verifier transcripts, transcript-bound distances, and structured same-access/leakage audits. The rows pass an R62-compatible hardened verifier."
+  },
+  "last_updated": "2026-07-08",
+  "linked_benchmark_id": "B7",
+  "method": "b1_b7_cone01_r63_o3_f4_c4_c5_source_backed_denominator_row_acceptance_gate_v0",
+  "model_status": "all_8_same_access_rz_denominator_rows_pass_r62_compatible_acceptance",
+  "r63_source_backed_denominator_row_acceptance_packet": {
+    "acceptance_transcripts": [
+      {
+        "accepted": true,
+        "artifact": "R63 R62-compatible denominator row acceptance transcript",
+        "challenge_id": "O3-F4-C01",
+        "check_count": 10,
+        "checks": [
+          {
+            "check_id": "H1",
+            "evidence": {
+              "missing_fields": [],
+              "required_field_count": 24
+            },
+            "label": "all R60 required fields are present",
+            "passed": true
+          },
+          {
+            "check_id": "H2",
+            "evidence": {
+              "row_challenge_id": "O3-F4-C01",
+              "row_schema": "r60_c4_c5_same_access_denominator_row_v0",
+              "template_challenge_id": "O3-F4-C01",
+              "template_schema": "r60_c4_c5_same_access_denominator_row_v0"
+            },
+            "label": "challenge id and schema version match the template",
+            "passed": true
+          },
+          {
+            "check_id": "H3",
+            "evidence": {
+              "access_model_hash": "aed63fbc196f1ce1fc33d265c15b307fa67ce053687c4695231d44b21cf0d20d"
+            },
+            "label": "source, candidate, R59 certificate, metric, tolerance, and access-model hashes match",
+            "passed": true
+          },
+          {
+            "check_id": "H4",
+            "evidence": {
+              "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py"
+            },
+            "label": "denominator implementation exists in the repository",
+            "passed": true
+          },
+          {
+            "check_id": "H5",
+            "evidence": {
+              "command_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+              "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+              "reproducible_command_replayed": true
+            },
+            "label": "reproducible command points at the reviewed implementation and was replayed",
+            "passed": true
+          },
+          {
+            "check_id": "H6",
+            "evidence": {
+              "transcript_exists": true,
+              "transcript_hash_ok": true,
+              "verifier_transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r63_same_access_denominator_verifier_transcript.json"
+            },
+            "label": "verifier transcript exists and hash-matches the row",
+            "passed": true
+          },
+          {
+            "check_id": "H7",
+            "evidence": {
+              "denominator_distance_source": "verifier_transcript_bound",
+              "distance_from_transcript": 0.0,
+              "row_denominator_distance": 0.0
+            },
+            "label": "denominator distance is finite and transcript-bound",
+            "passed": true
+          },
+          {
+            "check_id": "H8",
+            "evidence": {
+              "leakage_audit_statement_type": "dict",
+              "same_access_statement_type": "dict",
+              "structured_leakage_audit": true
+            },
+            "label": "same-access and leakage audits are structured",
+            "passed": true
+          },
+          {
+            "check_id": "H9",
+            "evidence": {
+              "denominator_beats_r59_positive_distance": true,
+              "denominator_rejects_r59_negative_control_pressure": true,
+              "pressure_flags_transcript_bound": true
+            },
+            "label": "computed denominator pressure flags are transcript-derived",
+            "passed": true
+          },
+          {
+            "check_id": "H10",
+            "evidence": {
+              "claim_boundary": "C4/C5 row evidence only; no O3 closing, reroute permission, B7/STV promotion, or resource-ledger promotion is claimed.",
+              "overclaims": false
+            },
+            "label": "claim boundary avoids O3/reroute/B7/STV overclaim",
+            "passed": true
+          }
+        ],
+        "claim_boundary": "Acceptance transcript only. Row acceptance can move the C4/C5 evidence gate but does not promote architecture or resource claims.",
+        "failed_check_count": 0,
+        "failed_check_ids": [],
+        "input_row_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r63_source_backed_denominator_row.json",
+        "input_row_hash": "b657ddcae52f8f76f4f009e78c61bef2bb0f26d804c4325e2ae9c3e42ca39e28",
+        "method": "b1_b7_cone01_r63_o3_f4_c4_c5_source_backed_denominator_row_acceptance_gate_v0",
+        "passed_check_count": 10,
+        "source_target_id": "T-B1-004fm/T-B7-014v",
+        "template_hash": "99cb321b85c76f1daa37e6df9f8a5d39c825c21c5c2b2124e0edaf9669b9049f",
+        "transcript_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r63_r62_acceptance_verifier_transcript.json",
+        "transcript_file_sha256": "8fd158bf66b43a81692ac9c429d54d8d77dd6722d23be53f554a4cbe636401e6",
+        "transcript_hash": "dc17d44f64f58727f7e5eb6693c5fe1c6985dce5297e60d3e407f2e47bcfe778",
+        "upstream_target_id": "T-B1-004fl/T-B7-014u"
+      },
+      {
+        "accepted": true,
+        "artifact": "R63 R62-compatible denominator row acceptance transcript",
+        "challenge_id": "O3-F4-C02",
+        "check_count": 10,
+        "checks": [
+          {
+            "check_id": "H1",
+            "evidence": {
+              "missing_fields": [],
+              "required_field_count": 24
+            },
+            "label": "all R60 required fields are present",
+            "passed": true
+          },
+          {
+            "check_id": "H2",
+            "evidence": {
+              "row_challenge_id": "O3-F4-C02",
+              "row_schema": "r60_c4_c5_same_access_denominator_row_v0",
+              "template_challenge_id": "O3-F4-C02",
+              "template_schema": "r60_c4_c5_same_access_denominator_row_v0"
+            },
+            "label": "challenge id and schema version match the template",
+            "passed": true
+          },
+          {
+            "check_id": "H3",
+            "evidence": {
+              "access_model_hash": "26a512e2ed8be1d8697e608f9dcc5b1cb890c0a96b0cbba8dbefc437ac782151"
+            },
+            "label": "source, candidate, R59 certificate, metric, tolerance, and access-model hashes match",
+            "passed": true
+          },
+          {
+            "check_id": "H4",
+            "evidence": {
+              "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py"
+            },
+            "label": "denominator implementation exists in the repository",
+            "passed": true
+          },
+          {
+            "check_id": "H5",
+            "evidence": {
+              "command_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+              "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+              "reproducible_command_replayed": true
+            },
+            "label": "reproducible command points at the reviewed implementation and was replayed",
+            "passed": true
+          },
+          {
+            "check_id": "H6",
+            "evidence": {
+              "transcript_exists": true,
+              "transcript_hash_ok": true,
+              "verifier_transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r63_same_access_denominator_verifier_transcript.json"
+            },
+            "label": "verifier transcript exists and hash-matches the row",
+            "passed": true
+          },
+          {
+            "check_id": "H7",
+            "evidence": {
+              "denominator_distance_source": "verifier_transcript_bound",
+              "distance_from_transcript": 0.0,
+              "row_denominator_distance": 0.0
+            },
+            "label": "denominator distance is finite and transcript-bound",
+            "passed": true
+          },
+          {
+            "check_id": "H8",
+            "evidence": {
+              "leakage_audit_statement_type": "dict",
+              "same_access_statement_type": "dict",
+              "structured_leakage_audit": true
+            },
+            "label": "same-access and leakage audits are structured",
+            "passed": true
+          },
+          {
+            "check_id": "H9",
+            "evidence": {
+              "denominator_beats_r59_positive_distance": true,
+              "denominator_rejects_r59_negative_control_pressure": true,
+              "pressure_flags_transcript_bound": true
+            },
+            "label": "computed denominator pressure flags are transcript-derived",
+            "passed": true
+          },
+          {
+            "check_id": "H10",
+            "evidence": {
+              "claim_boundary": "C4/C5 row evidence only; no O3 closing, reroute permission, B7/STV promotion, or resource-ledger promotion is claimed.",
+              "overclaims": false
+            },
+            "label": "claim boundary avoids O3/reroute/B7/STV overclaim",
+            "passed": true
+          }
+        ],
+        "claim_boundary": "Acceptance transcript only. Row acceptance can move the C4/C5 evidence gate but does not promote architecture or resource claims.",
+        "failed_check_count": 0,
+        "failed_check_ids": [],
+        "input_row_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r63_source_backed_denominator_row.json",
+        "input_row_hash": "8f81f8868f97a859640dca17f5d106d2bb34f0dc7889e5801a4d0f90ea53c9ba",
+        "method": "b1_b7_cone01_r63_o3_f4_c4_c5_source_backed_denominator_row_acceptance_gate_v0",
+        "passed_check_count": 10,
+        "source_target_id": "T-B1-004fm/T-B7-014v",
+        "template_hash": "91590da2bd42573a78e60c62d5b8c0d853a918d524f2ada116256029510a6b84",
+        "transcript_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r63_r62_acceptance_verifier_transcript.json",
+        "transcript_file_sha256": "2d25a5381c8a112e456e6904de7e47177e43e70a09ede2becc9127773da0dbc4",
+        "transcript_hash": "5cd3afb1c87540271f68e11ddc4d4e02cc1c279f0636946e030c30baae256f16",
+        "upstream_target_id": "T-B1-004fl/T-B7-014u"
+      },
+      {
+        "accepted": true,
+        "artifact": "R63 R62-compatible denominator row acceptance transcript",
+        "challenge_id": "O3-F4-C03",
+        "check_count": 10,
+        "checks": [
+          {
+            "check_id": "H1",
+            "evidence": {
+              "missing_fields": [],
+              "required_field_count": 24
+            },
+            "label": "all R60 required fields are present",
+            "passed": true
+          },
+          {
+            "check_id": "H2",
+            "evidence": {
+              "row_challenge_id": "O3-F4-C03",
+              "row_schema": "r60_c4_c5_same_access_denominator_row_v0",
+              "template_challenge_id": "O3-F4-C03",
+              "template_schema": "r60_c4_c5_same_access_denominator_row_v0"
+            },
+            "label": "challenge id and schema version match the template",
+            "passed": true
+          },
+          {
+            "check_id": "H3",
+            "evidence": {
+              "access_model_hash": "9f462fc38d2c3440f749fe70c1bc60f8f3476140d835fbe1bad251df69dd3874"
+            },
+            "label": "source, candidate, R59 certificate, metric, tolerance, and access-model hashes match",
+            "passed": true
+          },
+          {
+            "check_id": "H4",
+            "evidence": {
+              "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py"
+            },
+            "label": "denominator implementation exists in the repository",
+            "passed": true
+          },
+          {
+            "check_id": "H5",
+            "evidence": {
+              "command_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+              "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+              "reproducible_command_replayed": true
+            },
+            "label": "reproducible command points at the reviewed implementation and was replayed",
+            "passed": true
+          },
+          {
+            "check_id": "H6",
+            "evidence": {
+              "transcript_exists": true,
+              "transcript_hash_ok": true,
+              "verifier_transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r63_same_access_denominator_verifier_transcript.json"
+            },
+            "label": "verifier transcript exists and hash-matches the row",
+            "passed": true
+          },
+          {
+            "check_id": "H7",
+            "evidence": {
+              "denominator_distance_source": "verifier_transcript_bound",
+              "distance_from_transcript": 0.0,
+              "row_denominator_distance": 0.0
+            },
+            "label": "denominator distance is finite and transcript-bound",
+            "passed": true
+          },
+          {
+            "check_id": "H8",
+            "evidence": {
+              "leakage_audit_statement_type": "dict",
+              "same_access_statement_type": "dict",
+              "structured_leakage_audit": true
+            },
+            "label": "same-access and leakage audits are structured",
+            "passed": true
+          },
+          {
+            "check_id": "H9",
+            "evidence": {
+              "denominator_beats_r59_positive_distance": true,
+              "denominator_rejects_r59_negative_control_pressure": true,
+              "pressure_flags_transcript_bound": true
+            },
+            "label": "computed denominator pressure flags are transcript-derived",
+            "passed": true
+          },
+          {
+            "check_id": "H10",
+            "evidence": {
+              "claim_boundary": "C4/C5 row evidence only; no O3 closing, reroute permission, B7/STV promotion, or resource-ledger promotion is claimed.",
+              "overclaims": false
+            },
+            "label": "claim boundary avoids O3/reroute/B7/STV overclaim",
+            "passed": true
+          }
+        ],
+        "claim_boundary": "Acceptance transcript only. Row acceptance can move the C4/C5 evidence gate but does not promote architecture or resource claims.",
+        "failed_check_count": 0,
+        "failed_check_ids": [],
+        "input_row_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r63_source_backed_denominator_row.json",
+        "input_row_hash": "5fb28638e4c22cdef510b739b6b49d3370f46d8fb90ea42c2ba66d9c1d865231",
+        "method": "b1_b7_cone01_r63_o3_f4_c4_c5_source_backed_denominator_row_acceptance_gate_v0",
+        "passed_check_count": 10,
+        "source_target_id": "T-B1-004fm/T-B7-014v",
+        "template_hash": "8b14dcbc4cf2513c36b305a7f0b1b914f1b87794137c627bc3d66e9b475deea0",
+        "transcript_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r63_r62_acceptance_verifier_transcript.json",
+        "transcript_file_sha256": "1982d9d1a511248f641d5aa93d47b96543ea46bdbc5285d1a9d7cb278bb4b8fb",
+        "transcript_hash": "337f638e56334105d2629652d07ce47eddbc6cc24c865bf6b0211005d40599ec",
+        "upstream_target_id": "T-B1-004fl/T-B7-014u"
+      },
+      {
+        "accepted": true,
+        "artifact": "R63 R62-compatible denominator row acceptance transcript",
+        "challenge_id": "O3-F4-C04",
+        "check_count": 10,
+        "checks": [
+          {
+            "check_id": "H1",
+            "evidence": {
+              "missing_fields": [],
+              "required_field_count": 24
+            },
+            "label": "all R60 required fields are present",
+            "passed": true
+          },
+          {
+            "check_id": "H2",
+            "evidence": {
+              "row_challenge_id": "O3-F4-C04",
+              "row_schema": "r60_c4_c5_same_access_denominator_row_v0",
+              "template_challenge_id": "O3-F4-C04",
+              "template_schema": "r60_c4_c5_same_access_denominator_row_v0"
+            },
+            "label": "challenge id and schema version match the template",
+            "passed": true
+          },
+          {
+            "check_id": "H3",
+            "evidence": {
+              "access_model_hash": "7c3ea706f9c07a3c99e54f44b3b9e637c707ebba9cee7241518880ac8c270220"
+            },
+            "label": "source, candidate, R59 certificate, metric, tolerance, and access-model hashes match",
+            "passed": true
+          },
+          {
+            "check_id": "H4",
+            "evidence": {
+              "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py"
+            },
+            "label": "denominator implementation exists in the repository",
+            "passed": true
+          },
+          {
+            "check_id": "H5",
+            "evidence": {
+              "command_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+              "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+              "reproducible_command_replayed": true
+            },
+            "label": "reproducible command points at the reviewed implementation and was replayed",
+            "passed": true
+          },
+          {
+            "check_id": "H6",
+            "evidence": {
+              "transcript_exists": true,
+              "transcript_hash_ok": true,
+              "verifier_transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r63_same_access_denominator_verifier_transcript.json"
+            },
+            "label": "verifier transcript exists and hash-matches the row",
+            "passed": true
+          },
+          {
+            "check_id": "H7",
+            "evidence": {
+              "denominator_distance_source": "verifier_transcript_bound",
+              "distance_from_transcript": 0.0,
+              "row_denominator_distance": 0.0
+            },
+            "label": "denominator distance is finite and transcript-bound",
+            "passed": true
+          },
+          {
+            "check_id": "H8",
+            "evidence": {
+              "leakage_audit_statement_type": "dict",
+              "same_access_statement_type": "dict",
+              "structured_leakage_audit": true
+            },
+            "label": "same-access and leakage audits are structured",
+            "passed": true
+          },
+          {
+            "check_id": "H9",
+            "evidence": {
+              "denominator_beats_r59_positive_distance": true,
+              "denominator_rejects_r59_negative_control_pressure": true,
+              "pressure_flags_transcript_bound": true
+            },
+            "label": "computed denominator pressure flags are transcript-derived",
+            "passed": true
+          },
+          {
+            "check_id": "H10",
+            "evidence": {
+              "claim_boundary": "C4/C5 row evidence only; no O3 closing, reroute permission, B7/STV promotion, or resource-ledger promotion is claimed.",
+              "overclaims": false
+            },
+            "label": "claim boundary avoids O3/reroute/B7/STV overclaim",
+            "passed": true
+          }
+        ],
+        "claim_boundary": "Acceptance transcript only. Row acceptance can move the C4/C5 evidence gate but does not promote architecture or resource claims.",
+        "failed_check_count": 0,
+        "failed_check_ids": [],
+        "input_row_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r63_source_backed_denominator_row.json",
+        "input_row_hash": "b7b5d317f8ae7f574bf2f26fe52bdae24017e451e0afb44bd51af226bcbb014e",
+        "method": "b1_b7_cone01_r63_o3_f4_c4_c5_source_backed_denominator_row_acceptance_gate_v0",
+        "passed_check_count": 10,
+        "source_target_id": "T-B1-004fm/T-B7-014v",
+        "template_hash": "48e7cb034c5d9683f4242269a04482db97c6feb71e081bd7ff273df98842fd4a",
+        "transcript_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r63_r62_acceptance_verifier_transcript.json",
+        "transcript_file_sha256": "fa3c28eaf4164d6de1986d34935197df1216c6990dcf987262556e21d7e44421",
+        "transcript_hash": "9f7326781e179fee67644641950673734ff22c9cc77f7ea35a70fc88a01338cd",
+        "upstream_target_id": "T-B1-004fl/T-B7-014u"
+      },
+      {
+        "accepted": true,
+        "artifact": "R63 R62-compatible denominator row acceptance transcript",
+        "challenge_id": "O3-F4-C05",
+        "check_count": 10,
+        "checks": [
+          {
+            "check_id": "H1",
+            "evidence": {
+              "missing_fields": [],
+              "required_field_count": 24
+            },
+            "label": "all R60 required fields are present",
+            "passed": true
+          },
+          {
+            "check_id": "H2",
+            "evidence": {
+              "row_challenge_id": "O3-F4-C05",
+              "row_schema": "r60_c4_c5_same_access_denominator_row_v0",
+              "template_challenge_id": "O3-F4-C05",
+              "template_schema": "r60_c4_c5_same_access_denominator_row_v0"
+            },
+            "label": "challenge id and schema version match the template",
+            "passed": true
+          },
+          {
+            "check_id": "H3",
+            "evidence": {
+              "access_model_hash": "54ce28d3a0c095875f9f0747560ffb0627a83ab5a813b806edb34af6420a104a"
+            },
+            "label": "source, candidate, R59 certificate, metric, tolerance, and access-model hashes match",
+            "passed": true
+          },
+          {
+            "check_id": "H4",
+            "evidence": {
+              "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py"
+            },
+            "label": "denominator implementation exists in the repository",
+            "passed": true
+          },
+          {
+            "check_id": "H5",
+            "evidence": {
+              "command_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+              "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+              "reproducible_command_replayed": true
+            },
+            "label": "reproducible command points at the reviewed implementation and was replayed",
+            "passed": true
+          },
+          {
+            "check_id": "H6",
+            "evidence": {
+              "transcript_exists": true,
+              "transcript_hash_ok": true,
+              "verifier_transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r63_same_access_denominator_verifier_transcript.json"
+            },
+            "label": "verifier transcript exists and hash-matches the row",
+            "passed": true
+          },
+          {
+            "check_id": "H7",
+            "evidence": {
+              "denominator_distance_source": "verifier_transcript_bound",
+              "distance_from_transcript": 0.0,
+              "row_denominator_distance": 0.0
+            },
+            "label": "denominator distance is finite and transcript-bound",
+            "passed": true
+          },
+          {
+            "check_id": "H8",
+            "evidence": {
+              "leakage_audit_statement_type": "dict",
+              "same_access_statement_type": "dict",
+              "structured_leakage_audit": true
+            },
+            "label": "same-access and leakage audits are structured",
+            "passed": true
+          },
+          {
+            "check_id": "H9",
+            "evidence": {
+              "denominator_beats_r59_positive_distance": true,
+              "denominator_rejects_r59_negative_control_pressure": true,
+              "pressure_flags_transcript_bound": true
+            },
+            "label": "computed denominator pressure flags are transcript-derived",
+            "passed": true
+          },
+          {
+            "check_id": "H10",
+            "evidence": {
+              "claim_boundary": "C4/C5 row evidence only; no O3 closing, reroute permission, B7/STV promotion, or resource-ledger promotion is claimed.",
+              "overclaims": false
+            },
+            "label": "claim boundary avoids O3/reroute/B7/STV overclaim",
+            "passed": true
+          }
+        ],
+        "claim_boundary": "Acceptance transcript only. Row acceptance can move the C4/C5 evidence gate but does not promote architecture or resource claims.",
+        "failed_check_count": 0,
+        "failed_check_ids": [],
+        "input_row_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r63_source_backed_denominator_row.json",
+        "input_row_hash": "f11c63505827f3d8fc9d735632372c497e78ff27ffe5b17c34c84004252618f7",
+        "method": "b1_b7_cone01_r63_o3_f4_c4_c5_source_backed_denominator_row_acceptance_gate_v0",
+        "passed_check_count": 10,
+        "source_target_id": "T-B1-004fm/T-B7-014v",
+        "template_hash": "22131e0e9085e0532d7b754763b0dbff3af2245231d7ecb0590c0cb9118a525c",
+        "transcript_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r63_r62_acceptance_verifier_transcript.json",
+        "transcript_file_sha256": "3aae434e824bdb2d73b9fc40a89e5a5763d7a575395f4dcc797ba69e414541df",
+        "transcript_hash": "0d350138e45320507a84cd6884152dfc602b7a69ecc32bc1a0e400e93b467a60",
+        "upstream_target_id": "T-B1-004fl/T-B7-014u"
+      },
+      {
+        "accepted": true,
+        "artifact": "R63 R62-compatible denominator row acceptance transcript",
+        "challenge_id": "O3-F4-C06",
+        "check_count": 10,
+        "checks": [
+          {
+            "check_id": "H1",
+            "evidence": {
+              "missing_fields": [],
+              "required_field_count": 24
+            },
+            "label": "all R60 required fields are present",
+            "passed": true
+          },
+          {
+            "check_id": "H2",
+            "evidence": {
+              "row_challenge_id": "O3-F4-C06",
+              "row_schema": "r60_c4_c5_same_access_denominator_row_v0",
+              "template_challenge_id": "O3-F4-C06",
+              "template_schema": "r60_c4_c5_same_access_denominator_row_v0"
+            },
+            "label": "challenge id and schema version match the template",
+            "passed": true
+          },
+          {
+            "check_id": "H3",
+            "evidence": {
+              "access_model_hash": "8e137ad9c88972700bd8a282cad4ba02b1bb09702b2d799876d174bb71fd266a"
+            },
+            "label": "source, candidate, R59 certificate, metric, tolerance, and access-model hashes match",
+            "passed": true
+          },
+          {
+            "check_id": "H4",
+            "evidence": {
+              "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py"
+            },
+            "label": "denominator implementation exists in the repository",
+            "passed": true
+          },
+          {
+            "check_id": "H5",
+            "evidence": {
+              "command_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+              "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+              "reproducible_command_replayed": true
+            },
+            "label": "reproducible command points at the reviewed implementation and was replayed",
+            "passed": true
+          },
+          {
+            "check_id": "H6",
+            "evidence": {
+              "transcript_exists": true,
+              "transcript_hash_ok": true,
+              "verifier_transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r63_same_access_denominator_verifier_transcript.json"
+            },
+            "label": "verifier transcript exists and hash-matches the row",
+            "passed": true
+          },
+          {
+            "check_id": "H7",
+            "evidence": {
+              "denominator_distance_source": "verifier_transcript_bound",
+              "distance_from_transcript": 0.0,
+              "row_denominator_distance": 0.0
+            },
+            "label": "denominator distance is finite and transcript-bound",
+            "passed": true
+          },
+          {
+            "check_id": "H8",
+            "evidence": {
+              "leakage_audit_statement_type": "dict",
+              "same_access_statement_type": "dict",
+              "structured_leakage_audit": true
+            },
+            "label": "same-access and leakage audits are structured",
+            "passed": true
+          },
+          {
+            "check_id": "H9",
+            "evidence": {
+              "denominator_beats_r59_positive_distance": true,
+              "denominator_rejects_r59_negative_control_pressure": true,
+              "pressure_flags_transcript_bound": true
+            },
+            "label": "computed denominator pressure flags are transcript-derived",
+            "passed": true
+          },
+          {
+            "check_id": "H10",
+            "evidence": {
+              "claim_boundary": "C4/C5 row evidence only; no O3 closing, reroute permission, B7/STV promotion, or resource-ledger promotion is claimed.",
+              "overclaims": false
+            },
+            "label": "claim boundary avoids O3/reroute/B7/STV overclaim",
+            "passed": true
+          }
+        ],
+        "claim_boundary": "Acceptance transcript only. Row acceptance can move the C4/C5 evidence gate but does not promote architecture or resource claims.",
+        "failed_check_count": 0,
+        "failed_check_ids": [],
+        "input_row_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r63_source_backed_denominator_row.json",
+        "input_row_hash": "e904dbabf81f475ca630a059a0487a746dab6ac9aa17a89b7fc1efe85ece041e",
+        "method": "b1_b7_cone01_r63_o3_f4_c4_c5_source_backed_denominator_row_acceptance_gate_v0",
+        "passed_check_count": 10,
+        "source_target_id": "T-B1-004fm/T-B7-014v",
+        "template_hash": "c0fabe65a77bae432e66dbb90518aa312ef2791f6e22e05e3d52e5e403e560ba",
+        "transcript_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r63_r62_acceptance_verifier_transcript.json",
+        "transcript_file_sha256": "61f91580e972f2c4470d585ba5fd55aa637a2cc9f2eab86dba1c1c22e48c767a",
+        "transcript_hash": "e1222e53e7fe8bed02e948696ba03ddabda3f4aadd7b46eff16c2c54f47265e8",
+        "upstream_target_id": "T-B1-004fl/T-B7-014u"
+      },
+      {
+        "accepted": true,
+        "artifact": "R63 R62-compatible denominator row acceptance transcript",
+        "challenge_id": "O3-F4-C07",
+        "check_count": 10,
+        "checks": [
+          {
+            "check_id": "H1",
+            "evidence": {
+              "missing_fields": [],
+              "required_field_count": 24
+            },
+            "label": "all R60 required fields are present",
+            "passed": true
+          },
+          {
+            "check_id": "H2",
+            "evidence": {
+              "row_challenge_id": "O3-F4-C07",
+              "row_schema": "r60_c4_c5_same_access_denominator_row_v0",
+              "template_challenge_id": "O3-F4-C07",
+              "template_schema": "r60_c4_c5_same_access_denominator_row_v0"
+            },
+            "label": "challenge id and schema version match the template",
+            "passed": true
+          },
+          {
+            "check_id": "H3",
+            "evidence": {
+              "access_model_hash": "14f7162ddfaaf631e1f38aa0e57aa121a2bd378d37fa9fecceeb0208844fad69"
+            },
+            "label": "source, candidate, R59 certificate, metric, tolerance, and access-model hashes match",
+            "passed": true
+          },
+          {
+            "check_id": "H4",
+            "evidence": {
+              "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py"
+            },
+            "label": "denominator implementation exists in the repository",
+            "passed": true
+          },
+          {
+            "check_id": "H5",
+            "evidence": {
+              "command_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+              "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+              "reproducible_command_replayed": true
+            },
+            "label": "reproducible command points at the reviewed implementation and was replayed",
+            "passed": true
+          },
+          {
+            "check_id": "H6",
+            "evidence": {
+              "transcript_exists": true,
+              "transcript_hash_ok": true,
+              "verifier_transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r63_same_access_denominator_verifier_transcript.json"
+            },
+            "label": "verifier transcript exists and hash-matches the row",
+            "passed": true
+          },
+          {
+            "check_id": "H7",
+            "evidence": {
+              "denominator_distance_source": "verifier_transcript_bound",
+              "distance_from_transcript": 0.0,
+              "row_denominator_distance": 0.0
+            },
+            "label": "denominator distance is finite and transcript-bound",
+            "passed": true
+          },
+          {
+            "check_id": "H8",
+            "evidence": {
+              "leakage_audit_statement_type": "dict",
+              "same_access_statement_type": "dict",
+              "structured_leakage_audit": true
+            },
+            "label": "same-access and leakage audits are structured",
+            "passed": true
+          },
+          {
+            "check_id": "H9",
+            "evidence": {
+              "denominator_beats_r59_positive_distance": true,
+              "denominator_rejects_r59_negative_control_pressure": true,
+              "pressure_flags_transcript_bound": true
+            },
+            "label": "computed denominator pressure flags are transcript-derived",
+            "passed": true
+          },
+          {
+            "check_id": "H10",
+            "evidence": {
+              "claim_boundary": "C4/C5 row evidence only; no O3 closing, reroute permission, B7/STV promotion, or resource-ledger promotion is claimed.",
+              "overclaims": false
+            },
+            "label": "claim boundary avoids O3/reroute/B7/STV overclaim",
+            "passed": true
+          }
+        ],
+        "claim_boundary": "Acceptance transcript only. Row acceptance can move the C4/C5 evidence gate but does not promote architecture or resource claims.",
+        "failed_check_count": 0,
+        "failed_check_ids": [],
+        "input_row_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r63_source_backed_denominator_row.json",
+        "input_row_hash": "d854057e2f17b94b361ecb50e7d6ec6f02f4159ac219bce41a5611db801c5e70",
+        "method": "b1_b7_cone01_r63_o3_f4_c4_c5_source_backed_denominator_row_acceptance_gate_v0",
+        "passed_check_count": 10,
+        "source_target_id": "T-B1-004fm/T-B7-014v",
+        "template_hash": "0a9ef8437fd3ab25188e9b62edd8b5bc81086f6ad57307db4c0b4c82c307bcac",
+        "transcript_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r63_r62_acceptance_verifier_transcript.json",
+        "transcript_file_sha256": "94a23189f05e7d0a770269cf3f4c60d2a650d305d428b5ec65ee365cdd192ebf",
+        "transcript_hash": "90112b9e2d83cdcca16d8a9996d46a6109b32d571cd833ba73764c36e412b479",
+        "upstream_target_id": "T-B1-004fl/T-B7-014u"
+      },
+      {
+        "accepted": true,
+        "artifact": "R63 R62-compatible denominator row acceptance transcript",
+        "challenge_id": "O3-F4-C08",
+        "check_count": 10,
+        "checks": [
+          {
+            "check_id": "H1",
+            "evidence": {
+              "missing_fields": [],
+              "required_field_count": 24
+            },
+            "label": "all R60 required fields are present",
+            "passed": true
+          },
+          {
+            "check_id": "H2",
+            "evidence": {
+              "row_challenge_id": "O3-F4-C08",
+              "row_schema": "r60_c4_c5_same_access_denominator_row_v0",
+              "template_challenge_id": "O3-F4-C08",
+              "template_schema": "r60_c4_c5_same_access_denominator_row_v0"
+            },
+            "label": "challenge id and schema version match the template",
+            "passed": true
+          },
+          {
+            "check_id": "H3",
+            "evidence": {
+              "access_model_hash": "87dc68ce3aec5c953ad93b542f11b9b0c627bf3171720bc842d2f6d42b1e470f"
+            },
+            "label": "source, candidate, R59 certificate, metric, tolerance, and access-model hashes match",
+            "passed": true
+          },
+          {
+            "check_id": "H4",
+            "evidence": {
+              "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py"
+            },
+            "label": "denominator implementation exists in the repository",
+            "passed": true
+          },
+          {
+            "check_id": "H5",
+            "evidence": {
+              "command_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+              "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+              "reproducible_command_replayed": true
+            },
+            "label": "reproducible command points at the reviewed implementation and was replayed",
+            "passed": true
+          },
+          {
+            "check_id": "H6",
+            "evidence": {
+              "transcript_exists": true,
+              "transcript_hash_ok": true,
+              "verifier_transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r63_same_access_denominator_verifier_transcript.json"
+            },
+            "label": "verifier transcript exists and hash-matches the row",
+            "passed": true
+          },
+          {
+            "check_id": "H7",
+            "evidence": {
+              "denominator_distance_source": "verifier_transcript_bound",
+              "distance_from_transcript": 0.0,
+              "row_denominator_distance": 0.0
+            },
+            "label": "denominator distance is finite and transcript-bound",
+            "passed": true
+          },
+          {
+            "check_id": "H8",
+            "evidence": {
+              "leakage_audit_statement_type": "dict",
+              "same_access_statement_type": "dict",
+              "structured_leakage_audit": true
+            },
+            "label": "same-access and leakage audits are structured",
+            "passed": true
+          },
+          {
+            "check_id": "H9",
+            "evidence": {
+              "denominator_beats_r59_positive_distance": true,
+              "denominator_rejects_r59_negative_control_pressure": true,
+              "pressure_flags_transcript_bound": true
+            },
+            "label": "computed denominator pressure flags are transcript-derived",
+            "passed": true
+          },
+          {
+            "check_id": "H10",
+            "evidence": {
+              "claim_boundary": "C4/C5 row evidence only; no O3 closing, reroute permission, B7/STV promotion, or resource-ledger promotion is claimed.",
+              "overclaims": false
+            },
+            "label": "claim boundary avoids O3/reroute/B7/STV overclaim",
+            "passed": true
+          }
+        ],
+        "claim_boundary": "Acceptance transcript only. Row acceptance can move the C4/C5 evidence gate but does not promote architecture or resource claims.",
+        "failed_check_count": 0,
+        "failed_check_ids": [],
+        "input_row_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r63_source_backed_denominator_row.json",
+        "input_row_hash": "cc810559d5e4651f8ce5115e04dac2a45aa1f9d8b8d7cb8e57b4f85923b9d6dc",
+        "method": "b1_b7_cone01_r63_o3_f4_c4_c5_source_backed_denominator_row_acceptance_gate_v0",
+        "passed_check_count": 10,
+        "source_target_id": "T-B1-004fm/T-B7-014v",
+        "template_hash": "e7d557e780ac857be14c4be00a31e36065267bb5ba7d3e866102842bab14ed43",
+        "transcript_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r63_r62_acceptance_verifier_transcript.json",
+        "transcript_file_sha256": "2f833155e2f62b2099c42b01b465f5393f850bfb69955e7fa21acc67aa4fa9ed",
+        "transcript_hash": "e2d0323f116fda4eae93be49b081a671930501e16b5cffcd73017d86017e2c5e",
+        "upstream_target_id": "T-B1-004fl/T-B7-014u"
+      }
+    ],
+    "bundle": {
+      "acceptance_transcript_files": {
+        "O3-F4-C01": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r63_r62_acceptance_verifier_transcript.json",
+        "O3-F4-C02": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r63_r62_acceptance_verifier_transcript.json",
+        "O3-F4-C03": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r63_r62_acceptance_verifier_transcript.json",
+        "O3-F4-C04": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r63_r62_acceptance_verifier_transcript.json",
+        "O3-F4-C05": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r63_r62_acceptance_verifier_transcript.json",
+        "O3-F4-C06": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r63_r62_acceptance_verifier_transcript.json",
+        "O3-F4-C07": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r63_r62_acceptance_verifier_transcript.json",
+        "O3-F4-C08": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r63_r62_acceptance_verifier_transcript.json"
+      },
+      "accepted_denominator_row_count": 8,
+      "all_denominator_transcripts_hash_match": true,
+      "all_required_fields_present": true,
+      "all_rows_accepted_under_r62_compatible_verifier": true,
+      "artifact": "R63 all-row source-backed denominator row acceptance bundle",
+      "b7_credit_delta": 0,
+      "b7_ledger_improvement_claimed": false,
+      "b7_space_time_volume_credit": 0,
+      "bundle_hash": "7089f6070e7d5a75c57a765e3406f8199b1539b92ff23777159a8344e99c356f",
+      "c4_c5_same_access_denominator_comparison_complete": true,
+      "c4_c5_same_access_denominator_row_acceptance_complete": true,
+      "c6_leakage_free_optimizer_trace_complete": false,
+      "c7_machine_check_replay_complete": false,
+      "claim_boundary": "R63 accepts 8 C4/C5 same-access denominator rows under an R62-compatible verifier. This advances the row-acceptance gate only; C6, C7, O3, reroute, B7, STV, and resource-ledger claims remain blocked.",
+      "denominator_transcript_files": {
+        "O3-F4-C01": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r63_same_access_denominator_verifier_transcript.json",
+        "O3-F4-C02": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r63_same_access_denominator_verifier_transcript.json",
+        "O3-F4-C03": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r63_same_access_denominator_verifier_transcript.json",
+        "O3-F4-C04": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r63_same_access_denominator_verifier_transcript.json",
+        "O3-F4-C05": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r63_same_access_denominator_verifier_transcript.json",
+        "O3-F4-C06": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r63_same_access_denominator_verifier_transcript.json",
+        "O3-F4-C07": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r63_same_access_denominator_verifier_transcript.json",
+        "O3-F4-C08": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r63_same_access_denominator_verifier_transcript.json"
+      },
+      "denominator_verifier_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+      "denominator_verifier_sha256": "6d3249a59c55fe3fb0d7364536de716b5b75bb41c0a2792e474caf71d5fa87d5",
+      "max_denominator_distance": 0.0,
+      "method": "b1_b7_cone01_r63_o3_f4_c4_c5_source_backed_denominator_row_acceptance_gate_v0",
+      "min_denominator_distance": 0.0,
+      "o3_closed": false,
+      "r62_compatible_acceptance_transcript_count": 8,
+      "reroute_allowed": false,
+      "resource_saving_claimed": false,
+      "row_files": {
+        "O3-F4-C01": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r63_source_backed_denominator_row.json",
+        "O3-F4-C02": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r63_source_backed_denominator_row.json",
+        "O3-F4-C03": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r63_source_backed_denominator_row.json",
+        "O3-F4-C04": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r63_source_backed_denominator_row.json",
+        "O3-F4-C05": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r63_source_backed_denominator_row.json",
+        "O3-F4-C06": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r63_source_backed_denominator_row.json",
+        "O3-F4-C07": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r63_source_backed_denominator_row.json",
+        "O3-F4-C08": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r63_source_backed_denominator_row.json"
+      },
+      "row_hashes": {
+        "O3-F4-C01": "b657ddcae52f8f76f4f009e78c61bef2bb0f26d804c4325e2ae9c3e42ca39e28",
+        "O3-F4-C02": "8f81f8868f97a859640dca17f5d106d2bb34f0dc7889e5801a4d0f90ea53c9ba",
+        "O3-F4-C03": "5fb28638e4c22cdef510b739b6b49d3370f46d8fb90ea42c2ba66d9c1d865231",
+        "O3-F4-C04": "b7b5d317f8ae7f574bf2f26fe52bdae24017e451e0afb44bd51af226bcbb014e",
+        "O3-F4-C05": "f11c63505827f3d8fc9d735632372c497e78ff27ffe5b17c34c84004252618f7",
+        "O3-F4-C06": "e904dbabf81f475ca630a059a0487a746dab6ac9aa17a89b7fc1efe85ece041e",
+        "O3-F4-C07": "d854057e2f17b94b361ecb50e7d6ec6f02f4159ac219bce41a5611db801c5e70",
+        "O3-F4-C08": "cc810559d5e4651f8ce5115e04dac2a45aa1f9d8b8d7cb8e57b4f85923b9d6dc"
+      },
+      "source_r60_file_sha256": "8d874dea626c5d908f292f46c99030d17c0064589720cce2f2ab9118067a1294",
+      "source_r60_result": "results/B1_B7_cone01_R60_o3_f4_c4_c5_same_access_denominator_contract_gate_v0.json",
+      "source_r62_bundle_hash": "0900006a8639e0aa00e1d80c5cf3c5901520be262c0c930af2a4d5820245b6fd",
+      "source_r62_file_sha256": "b805e53de9244d813197000ed069d427c3affbbd732062adb2734e14eafd86f6",
+      "source_r62_result": "results/B1_B7_cone01_R62_o3_f4_c4_c5_hardened_denominator_acceptance_verifier_gate_v0.json",
+      "source_target_id": "T-B1-004fm/T-B7-014v",
+      "submitted_denominator_row_count": 8,
+      "upstream_target_id": "T-B1-004fl/T-B7-014u"
+    },
+    "bundle_output": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-all8.r63_source_backed_denominator_acceptance_bundle.json",
+    "denominator_verifier_replays": [
+      {
+        "challenge_id": "O3-F4-C01",
+        "command": "python3 tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py --challenge-id O3-F4-C01 --source results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C01.source.qasm --candidate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C01.candidate.qasm --r59-certificate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r59_c3_same_unitary_replay_certificate.json --negative-control results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r59_c3_negative_control.json --access-model-hash aed63fbc196f1ce1fc33d265c15b307fa67ce053687c4695231d44b21cf0d20d --output results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r63_same_access_denominator_verifier_transcript.json",
+        "denominator_distance": 0.0,
+        "stdout_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r63_same_access_denominator_verifier.stdout.txt",
+        "stdout_file_sha256": "2d2514783602e974bad353580ad6f97a8b23162ce093e4d09b162e50cc263522",
+        "transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r63_same_access_denominator_verifier_transcript.json",
+        "transcript_sha256": "4910f6ce3880cf1543ef1c052d7ac3ea11b7725c36a4b37bab022fd69887e2cc"
+      },
+      {
+        "challenge_id": "O3-F4-C02",
+        "command": "python3 tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py --challenge-id O3-F4-C02 --source results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C02.source.qasm --candidate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C02.candidate.qasm --r59-certificate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r59_c3_same_unitary_replay_certificate.json --negative-control results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r59_c3_negative_control.json --access-model-hash 26a512e2ed8be1d8697e608f9dcc5b1cb890c0a96b0cbba8dbefc437ac782151 --output results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r63_same_access_denominator_verifier_transcript.json",
+        "denominator_distance": 0.0,
+        "stdout_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r63_same_access_denominator_verifier.stdout.txt",
+        "stdout_file_sha256": "6bf52993bd78d5aba83e7021e56c745c2f485b3e2be019ecc75d1ae38790af13",
+        "transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r63_same_access_denominator_verifier_transcript.json",
+        "transcript_sha256": "8852d912f6b96b71cb2b80aa15ac9316ed6f57050fc1dc0fed4229b17c002f12"
+      },
+      {
+        "challenge_id": "O3-F4-C03",
+        "command": "python3 tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py --challenge-id O3-F4-C03 --source results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C03.source.qasm --candidate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C03.candidate.qasm --r59-certificate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r59_c3_same_unitary_replay_certificate.json --negative-control results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r59_c3_negative_control.json --access-model-hash 9f462fc38d2c3440f749fe70c1bc60f8f3476140d835fbe1bad251df69dd3874 --output results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r63_same_access_denominator_verifier_transcript.json",
+        "denominator_distance": 0.0,
+        "stdout_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r63_same_access_denominator_verifier.stdout.txt",
+        "stdout_file_sha256": "a203d176c899102eb0ba489ac59dd92f12f71bb21fc294cf8c11c4f6810d5256",
+        "transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r63_same_access_denominator_verifier_transcript.json",
+        "transcript_sha256": "07d21ff3b06da0a6d59e3f07e56098cae07db2fb84c2e06114f48cbedb48b75d"
+      },
+      {
+        "challenge_id": "O3-F4-C04",
+        "command": "python3 tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py --challenge-id O3-F4-C04 --source results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C04.source.qasm --candidate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C04.candidate.qasm --r59-certificate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r59_c3_same_unitary_replay_certificate.json --negative-control results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r59_c3_negative_control.json --access-model-hash 7c3ea706f9c07a3c99e54f44b3b9e637c707ebba9cee7241518880ac8c270220 --output results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r63_same_access_denominator_verifier_transcript.json",
+        "denominator_distance": 0.0,
+        "stdout_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r63_same_access_denominator_verifier.stdout.txt",
+        "stdout_file_sha256": "114cd2402014b867516ab7bf882ee797b118adb241352da47f63850f714df4a3",
+        "transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r63_same_access_denominator_verifier_transcript.json",
+        "transcript_sha256": "e322af1f3e0d6ca6ebb9b78cf11a0d78f7090a65bcda82a7886d4d8286e8f2f6"
+      },
+      {
+        "challenge_id": "O3-F4-C05",
+        "command": "python3 tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py --challenge-id O3-F4-C05 --source results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C05.source.qasm --candidate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C05.candidate.qasm --r59-certificate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r59_c3_same_unitary_replay_certificate.json --negative-control results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r59_c3_negative_control.json --access-model-hash 54ce28d3a0c095875f9f0747560ffb0627a83ab5a813b806edb34af6420a104a --output results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r63_same_access_denominator_verifier_transcript.json",
+        "denominator_distance": 0.0,
+        "stdout_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r63_same_access_denominator_verifier.stdout.txt",
+        "stdout_file_sha256": "5b5a6d3e8ccaecc09e698ce64955a5436953a10106261c14341d38e855fc2e4b",
+        "transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r63_same_access_denominator_verifier_transcript.json",
+        "transcript_sha256": "a2c037ca8b1e78ae6496c6c4b3a0f4d4d56d925a3dd3dd3a79d38aa3c95ab74a"
+      },
+      {
+        "challenge_id": "O3-F4-C06",
+        "command": "python3 tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py --challenge-id O3-F4-C06 --source results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C06.source.qasm --candidate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C06.candidate.qasm --r59-certificate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r59_c3_same_unitary_replay_certificate.json --negative-control results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r59_c3_negative_control.json --access-model-hash 8e137ad9c88972700bd8a282cad4ba02b1bb09702b2d799876d174bb71fd266a --output results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r63_same_access_denominator_verifier_transcript.json",
+        "denominator_distance": 0.0,
+        "stdout_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r63_same_access_denominator_verifier.stdout.txt",
+        "stdout_file_sha256": "ba7f9e45e5de6b5e4d45859ff743c72eccb7005d73ffe41461fdba9e7acfd989",
+        "transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r63_same_access_denominator_verifier_transcript.json",
+        "transcript_sha256": "db5e1ce6786b7d7b13992229b9347be1f00742d084754ea646a9bdfbf7e4a80f"
+      },
+      {
+        "challenge_id": "O3-F4-C07",
+        "command": "python3 tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py --challenge-id O3-F4-C07 --source results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C07.source.qasm --candidate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C07.candidate.qasm --r59-certificate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r59_c3_same_unitary_replay_certificate.json --negative-control results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r59_c3_negative_control.json --access-model-hash 14f7162ddfaaf631e1f38aa0e57aa121a2bd378d37fa9fecceeb0208844fad69 --output results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r63_same_access_denominator_verifier_transcript.json",
+        "denominator_distance": 0.0,
+        "stdout_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r63_same_access_denominator_verifier.stdout.txt",
+        "stdout_file_sha256": "5f27b318fed16762b0dd519f90f56fae3b962326d6a14f7695ec4e124bf9e9e5",
+        "transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r63_same_access_denominator_verifier_transcript.json",
+        "transcript_sha256": "d2ab07edb7650890699a2bab67144dfcd7776b9b9f0b21bc8258c72aae16f9f3"
+      },
+      {
+        "challenge_id": "O3-F4-C08",
+        "command": "python3 tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py --challenge-id O3-F4-C08 --source results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C08.source.qasm --candidate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C08.candidate.qasm --r59-certificate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r59_c3_same_unitary_replay_certificate.json --negative-control results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r59_c3_negative_control.json --access-model-hash 87dc68ce3aec5c953ad93b542f11b9b0c627bf3171720bc842d2f6d42b1e470f --output results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r63_same_access_denominator_verifier_transcript.json",
+        "denominator_distance": 0.0,
+        "stdout_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r63_same_access_denominator_verifier.stdout.txt",
+        "stdout_file_sha256": "492491e8f88b9bece2ae155f69d00a3ee56c6ad5f0189dc045cd7e7606929afc",
+        "transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r63_same_access_denominator_verifier_transcript.json",
+        "transcript_sha256": "98b2ef27d3000a01de724fb366e1abd7a1e44a8aa8e4af248ca34e2c2155d34f"
+      }
+    ],
+    "source_r60_result": "results/B1_B7_cone01_R60_o3_f4_c4_c5_same_access_denominator_contract_gate_v0.json",
+    "source_r62_result": "results/B1_B7_cone01_R62_o3_f4_c4_c5_hardened_denominator_acceptance_verifier_gate_v0.json",
+    "submitted_rows": [
+      {
+        "acceptance_schema_version": "r60_c4_c5_same_access_denominator_row_v0",
+        "access_model_hash": "aed63fbc196f1ce1fc33d265c15b307fa67ce053687c4695231d44b21cf0d20d",
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C01.candidate.qasm",
+        "candidate_circuit_sha256": "b7896e91e03ae5a50d58c547aaccffee9cedd2c714fa1ae22b0fb0280e3e0f6c",
+        "challenge_id": "O3-F4-C01",
+        "claim_boundary": "C4/C5 row evidence only; no O3 closing, reroute permission, B7/STV promotion, or resource-ledger promotion is claimed.",
+        "denominator_beats_r59_positive_distance": true,
+        "denominator_cost_units": "single_qubit_rz_parse_and_operator_norm",
+        "denominator_cost_value": 1,
+        "denominator_distance": 0.0,
+        "denominator_distance_source": "verifier_transcript_bound",
+        "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+        "denominator_method_id": "same_access_single_qubit_rz_distance_denominator_v0",
+        "denominator_rejects_r59_negative_control_pressure": true,
+        "leakage_audit_statement": {
+          "audit_hash": "191f5deae734879f4c66cf9b278c826f76f630648d4e2ba781bc041423111b8e",
+          "forbidden_inputs_reviewed": [
+            "future C6 optimizer traces",
+            "hidden solver traces not listed in this template",
+            "hardware calibration data",
+            "unbound external oracles",
+            "manual post-hoc angle edits"
+          ],
+          "forbidden_inputs_used": [],
+          "leakage_free": true
+        },
+        "r59_certificate_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r59_c3_same_unitary_replay_certificate.json",
+        "r59_certificate_hash": "964331600a97b513b50eebcc16539615a2a75705c4d001ecf966920397885811",
+        "reproducible_command": "python3 tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py --challenge-id O3-F4-C01 --source results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C01.source.qasm --candidate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C01.candidate.qasm --r59-certificate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r59_c3_same_unitary_replay_certificate.json --negative-control results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r59_c3_negative_control.json --access-model-hash aed63fbc196f1ce1fc33d265c15b307fa67ce053687c4695231d44b21cf0d20d --output results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r63_same_access_denominator_verifier_transcript.json",
+        "reproducible_command_replayed": true,
+        "row_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r63_source_backed_denominator_row.json",
+        "row_file_sha256": "02815b1a161b6376b8ccf0834bcf658dbc27a3f729df6dad18f27d05b8c25a4f",
+        "row_hash": "b657ddcae52f8f76f4f009e78c61bef2bb0f26d804c4325e2ae9c3e42ca39e28",
+        "same_access_statement": {
+          "access_model_hash": "aed63fbc196f1ce1fc33d265c15b307fa67ce053687c4695231d44b21cf0d20d",
+          "allowed_inputs_used": [
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C01.source.qasm",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C01.candidate.qasm",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r59_c3_same_unitary_replay_certificate.json",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r59_c3_negative_control.json"
+          ],
+          "forbidden_inputs_used": [],
+          "same_access_replay_stdout": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r63_same_access_denominator_verifier.stdout.txt",
+          "same_metric_used": "single_qubit_rz_operator_norm"
+        },
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C01.source.qasm",
+        "source_circuit_sha256": "e0922fdb81e0370a7c231094b448235212e4591202410421736926a0fe1fffe3",
+        "strict_tolerance": 1e-08,
+        "structured_leakage_audit": true,
+        "unitary_distance_metric": "single_qubit_rz_operator_norm",
+        "verifier_transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r63_same_access_denominator_verifier_transcript.json",
+        "verifier_transcript_sha256": "4910f6ce3880cf1543ef1c052d7ac3ea11b7725c36a4b37bab022fd69887e2cc"
+      },
+      {
+        "acceptance_schema_version": "r60_c4_c5_same_access_denominator_row_v0",
+        "access_model_hash": "26a512e2ed8be1d8697e608f9dcc5b1cb890c0a96b0cbba8dbefc437ac782151",
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C02.candidate.qasm",
+        "candidate_circuit_sha256": "56d6b1fc54101afaf87ba0825885cf39af0595b25a7b22d2dca9ec148ae88c81",
+        "challenge_id": "O3-F4-C02",
+        "claim_boundary": "C4/C5 row evidence only; no O3 closing, reroute permission, B7/STV promotion, or resource-ledger promotion is claimed.",
+        "denominator_beats_r59_positive_distance": true,
+        "denominator_cost_units": "single_qubit_rz_parse_and_operator_norm",
+        "denominator_cost_value": 1,
+        "denominator_distance": 0.0,
+        "denominator_distance_source": "verifier_transcript_bound",
+        "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+        "denominator_method_id": "same_access_single_qubit_rz_distance_denominator_v0",
+        "denominator_rejects_r59_negative_control_pressure": true,
+        "leakage_audit_statement": {
+          "audit_hash": "6b6cdebfb6dd3cadcbc28dda1130b1933b0f112896f5f9bed8c61726348d123d",
+          "forbidden_inputs_reviewed": [
+            "future C6 optimizer traces",
+            "hidden solver traces not listed in this template",
+            "hardware calibration data",
+            "unbound external oracles",
+            "manual post-hoc angle edits"
+          ],
+          "forbidden_inputs_used": [],
+          "leakage_free": true
+        },
+        "r59_certificate_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r59_c3_same_unitary_replay_certificate.json",
+        "r59_certificate_hash": "0db538be5dfe518cb1c308b4d6c04c3e66ed2477709df78b3d887c2c8aab414a",
+        "reproducible_command": "python3 tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py --challenge-id O3-F4-C02 --source results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C02.source.qasm --candidate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C02.candidate.qasm --r59-certificate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r59_c3_same_unitary_replay_certificate.json --negative-control results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r59_c3_negative_control.json --access-model-hash 26a512e2ed8be1d8697e608f9dcc5b1cb890c0a96b0cbba8dbefc437ac782151 --output results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r63_same_access_denominator_verifier_transcript.json",
+        "reproducible_command_replayed": true,
+        "row_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r63_source_backed_denominator_row.json",
+        "row_file_sha256": "7121b82654ed23fbd5f1e7b1be722e8e8a2a502a7db0da5335c5902e8e39260f",
+        "row_hash": "8f81f8868f97a859640dca17f5d106d2bb34f0dc7889e5801a4d0f90ea53c9ba",
+        "same_access_statement": {
+          "access_model_hash": "26a512e2ed8be1d8697e608f9dcc5b1cb890c0a96b0cbba8dbefc437ac782151",
+          "allowed_inputs_used": [
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C02.source.qasm",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C02.candidate.qasm",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r59_c3_same_unitary_replay_certificate.json",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r59_c3_negative_control.json"
+          ],
+          "forbidden_inputs_used": [],
+          "same_access_replay_stdout": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r63_same_access_denominator_verifier.stdout.txt",
+          "same_metric_used": "single_qubit_rz_operator_norm"
+        },
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C02.source.qasm",
+        "source_circuit_sha256": "a6b226e1b22579ff47f031eb42b3ab54a2dc61439589c4b9f41009b4df2de42a",
+        "strict_tolerance": 1e-08,
+        "structured_leakage_audit": true,
+        "unitary_distance_metric": "single_qubit_rz_operator_norm",
+        "verifier_transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r63_same_access_denominator_verifier_transcript.json",
+        "verifier_transcript_sha256": "8852d912f6b96b71cb2b80aa15ac9316ed6f57050fc1dc0fed4229b17c002f12"
+      },
+      {
+        "acceptance_schema_version": "r60_c4_c5_same_access_denominator_row_v0",
+        "access_model_hash": "9f462fc38d2c3440f749fe70c1bc60f8f3476140d835fbe1bad251df69dd3874",
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C03.candidate.qasm",
+        "candidate_circuit_sha256": "ed432f15fcd1c0895589fd55af4295caf053fb8ab875160e374b1df7e71bea5c",
+        "challenge_id": "O3-F4-C03",
+        "claim_boundary": "C4/C5 row evidence only; no O3 closing, reroute permission, B7/STV promotion, or resource-ledger promotion is claimed.",
+        "denominator_beats_r59_positive_distance": true,
+        "denominator_cost_units": "single_qubit_rz_parse_and_operator_norm",
+        "denominator_cost_value": 1,
+        "denominator_distance": 0.0,
+        "denominator_distance_source": "verifier_transcript_bound",
+        "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+        "denominator_method_id": "same_access_single_qubit_rz_distance_denominator_v0",
+        "denominator_rejects_r59_negative_control_pressure": true,
+        "leakage_audit_statement": {
+          "audit_hash": "dd4636a8d08f697cfd9157d692669c68e2579494e62ac921fc382a9847169d8a",
+          "forbidden_inputs_reviewed": [
+            "future C6 optimizer traces",
+            "hidden solver traces not listed in this template",
+            "hardware calibration data",
+            "unbound external oracles",
+            "manual post-hoc angle edits"
+          ],
+          "forbidden_inputs_used": [],
+          "leakage_free": true
+        },
+        "r59_certificate_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r59_c3_same_unitary_replay_certificate.json",
+        "r59_certificate_hash": "0c57294d8baa24b7291a368aee269af1810b491e054db7f4c83de41f3f9dc5c8",
+        "reproducible_command": "python3 tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py --challenge-id O3-F4-C03 --source results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C03.source.qasm --candidate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C03.candidate.qasm --r59-certificate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r59_c3_same_unitary_replay_certificate.json --negative-control results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r59_c3_negative_control.json --access-model-hash 9f462fc38d2c3440f749fe70c1bc60f8f3476140d835fbe1bad251df69dd3874 --output results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r63_same_access_denominator_verifier_transcript.json",
+        "reproducible_command_replayed": true,
+        "row_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r63_source_backed_denominator_row.json",
+        "row_file_sha256": "8a811666e6219346de4e62d89a36dba0fc3c82048dd634feab4297440fc35a31",
+        "row_hash": "5fb28638e4c22cdef510b739b6b49d3370f46d8fb90ea42c2ba66d9c1d865231",
+        "same_access_statement": {
+          "access_model_hash": "9f462fc38d2c3440f749fe70c1bc60f8f3476140d835fbe1bad251df69dd3874",
+          "allowed_inputs_used": [
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C03.source.qasm",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C03.candidate.qasm",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r59_c3_same_unitary_replay_certificate.json",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r59_c3_negative_control.json"
+          ],
+          "forbidden_inputs_used": [],
+          "same_access_replay_stdout": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r63_same_access_denominator_verifier.stdout.txt",
+          "same_metric_used": "single_qubit_rz_operator_norm"
+        },
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C03.source.qasm",
+        "source_circuit_sha256": "a42c394ae32ea1febff6e44c6b5196c089add5dc09d3b9555ba381318ed10c9b",
+        "strict_tolerance": 1e-08,
+        "structured_leakage_audit": true,
+        "unitary_distance_metric": "single_qubit_rz_operator_norm",
+        "verifier_transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r63_same_access_denominator_verifier_transcript.json",
+        "verifier_transcript_sha256": "07d21ff3b06da0a6d59e3f07e56098cae07db2fb84c2e06114f48cbedb48b75d"
+      },
+      {
+        "acceptance_schema_version": "r60_c4_c5_same_access_denominator_row_v0",
+        "access_model_hash": "7c3ea706f9c07a3c99e54f44b3b9e637c707ebba9cee7241518880ac8c270220",
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C04.candidate.qasm",
+        "candidate_circuit_sha256": "855ab8315878612a1b932115ab180fae80f56d2a08715eb9601e6d688d65bd49",
+        "challenge_id": "O3-F4-C04",
+        "claim_boundary": "C4/C5 row evidence only; no O3 closing, reroute permission, B7/STV promotion, or resource-ledger promotion is claimed.",
+        "denominator_beats_r59_positive_distance": true,
+        "denominator_cost_units": "single_qubit_rz_parse_and_operator_norm",
+        "denominator_cost_value": 1,
+        "denominator_distance": 0.0,
+        "denominator_distance_source": "verifier_transcript_bound",
+        "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+        "denominator_method_id": "same_access_single_qubit_rz_distance_denominator_v0",
+        "denominator_rejects_r59_negative_control_pressure": true,
+        "leakage_audit_statement": {
+          "audit_hash": "edbd14633d13c8e8a646fd704aea368e1e64e06bdb7d82d4963246a8a2c692c5",
+          "forbidden_inputs_reviewed": [
+            "future C6 optimizer traces",
+            "hidden solver traces not listed in this template",
+            "hardware calibration data",
+            "unbound external oracles",
+            "manual post-hoc angle edits"
+          ],
+          "forbidden_inputs_used": [],
+          "leakage_free": true
+        },
+        "r59_certificate_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r59_c3_same_unitary_replay_certificate.json",
+        "r59_certificate_hash": "788d20aea145da343859b76e047dc290ca3e4af59edec844f7120bdcb8d8f2b9",
+        "reproducible_command": "python3 tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py --challenge-id O3-F4-C04 --source results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C04.source.qasm --candidate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C04.candidate.qasm --r59-certificate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r59_c3_same_unitary_replay_certificate.json --negative-control results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r59_c3_negative_control.json --access-model-hash 7c3ea706f9c07a3c99e54f44b3b9e637c707ebba9cee7241518880ac8c270220 --output results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r63_same_access_denominator_verifier_transcript.json",
+        "reproducible_command_replayed": true,
+        "row_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r63_source_backed_denominator_row.json",
+        "row_file_sha256": "c578b724c4a39bce36de52eff8d1d8d19434d2530233de6efbc33ef86bde14ee",
+        "row_hash": "b7b5d317f8ae7f574bf2f26fe52bdae24017e451e0afb44bd51af226bcbb014e",
+        "same_access_statement": {
+          "access_model_hash": "7c3ea706f9c07a3c99e54f44b3b9e637c707ebba9cee7241518880ac8c270220",
+          "allowed_inputs_used": [
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C04.source.qasm",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C04.candidate.qasm",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r59_c3_same_unitary_replay_certificate.json",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r59_c3_negative_control.json"
+          ],
+          "forbidden_inputs_used": [],
+          "same_access_replay_stdout": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r63_same_access_denominator_verifier.stdout.txt",
+          "same_metric_used": "single_qubit_rz_operator_norm"
+        },
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C04.source.qasm",
+        "source_circuit_sha256": "5c8d0dedaaa5a028abb13b60e36f3d7fa5b4c8f5a5bb23b3ca0296b40232cfb3",
+        "strict_tolerance": 1e-08,
+        "structured_leakage_audit": true,
+        "unitary_distance_metric": "single_qubit_rz_operator_norm",
+        "verifier_transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r63_same_access_denominator_verifier_transcript.json",
+        "verifier_transcript_sha256": "e322af1f3e0d6ca6ebb9b78cf11a0d78f7090a65bcda82a7886d4d8286e8f2f6"
+      },
+      {
+        "acceptance_schema_version": "r60_c4_c5_same_access_denominator_row_v0",
+        "access_model_hash": "54ce28d3a0c095875f9f0747560ffb0627a83ab5a813b806edb34af6420a104a",
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C05.candidate.qasm",
+        "candidate_circuit_sha256": "266afdd8ea74a16bb9f78c7c2e0c6fd23faf26402a197868b834fbd576735ee5",
+        "challenge_id": "O3-F4-C05",
+        "claim_boundary": "C4/C5 row evidence only; no O3 closing, reroute permission, B7/STV promotion, or resource-ledger promotion is claimed.",
+        "denominator_beats_r59_positive_distance": true,
+        "denominator_cost_units": "single_qubit_rz_parse_and_operator_norm",
+        "denominator_cost_value": 1,
+        "denominator_distance": 0.0,
+        "denominator_distance_source": "verifier_transcript_bound",
+        "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+        "denominator_method_id": "same_access_single_qubit_rz_distance_denominator_v0",
+        "denominator_rejects_r59_negative_control_pressure": true,
+        "leakage_audit_statement": {
+          "audit_hash": "d0cb481f19fe698ecf7d93b79cc25edd9909383fb074066438f45b2a1f118e9b",
+          "forbidden_inputs_reviewed": [
+            "future C6 optimizer traces",
+            "hidden solver traces not listed in this template",
+            "hardware calibration data",
+            "unbound external oracles",
+            "manual post-hoc angle edits"
+          ],
+          "forbidden_inputs_used": [],
+          "leakage_free": true
+        },
+        "r59_certificate_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r59_c3_same_unitary_replay_certificate.json",
+        "r59_certificate_hash": "166cce5829bba5040bb7d183b232bd936050a0124bd5310e38a362b5b833f073",
+        "reproducible_command": "python3 tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py --challenge-id O3-F4-C05 --source results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C05.source.qasm --candidate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C05.candidate.qasm --r59-certificate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r59_c3_same_unitary_replay_certificate.json --negative-control results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r59_c3_negative_control.json --access-model-hash 54ce28d3a0c095875f9f0747560ffb0627a83ab5a813b806edb34af6420a104a --output results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r63_same_access_denominator_verifier_transcript.json",
+        "reproducible_command_replayed": true,
+        "row_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r63_source_backed_denominator_row.json",
+        "row_file_sha256": "3f23471d94a3c17ef8e22d10a742b5dac843df990f0e2c5b6a5f3e59d353a572",
+        "row_hash": "f11c63505827f3d8fc9d735632372c497e78ff27ffe5b17c34c84004252618f7",
+        "same_access_statement": {
+          "access_model_hash": "54ce28d3a0c095875f9f0747560ffb0627a83ab5a813b806edb34af6420a104a",
+          "allowed_inputs_used": [
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C05.source.qasm",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C05.candidate.qasm",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r59_c3_same_unitary_replay_certificate.json",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r59_c3_negative_control.json"
+          ],
+          "forbidden_inputs_used": [],
+          "same_access_replay_stdout": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r63_same_access_denominator_verifier.stdout.txt",
+          "same_metric_used": "single_qubit_rz_operator_norm"
+        },
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C05.source.qasm",
+        "source_circuit_sha256": "5a709555e5743cecdce2aff7a24aa0a66e5538d3e62490a9a54f1d5ea954ebf7",
+        "strict_tolerance": 1e-08,
+        "structured_leakage_audit": true,
+        "unitary_distance_metric": "single_qubit_rz_operator_norm",
+        "verifier_transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r63_same_access_denominator_verifier_transcript.json",
+        "verifier_transcript_sha256": "a2c037ca8b1e78ae6496c6c4b3a0f4d4d56d925a3dd3dd3a79d38aa3c95ab74a"
+      },
+      {
+        "acceptance_schema_version": "r60_c4_c5_same_access_denominator_row_v0",
+        "access_model_hash": "8e137ad9c88972700bd8a282cad4ba02b1bb09702b2d799876d174bb71fd266a",
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C06.candidate.qasm",
+        "candidate_circuit_sha256": "8e06e926c9638f9bd977a4e6ae28f7f654272f78388a4313687c7dfdb3bd56ee",
+        "challenge_id": "O3-F4-C06",
+        "claim_boundary": "C4/C5 row evidence only; no O3 closing, reroute permission, B7/STV promotion, or resource-ledger promotion is claimed.",
+        "denominator_beats_r59_positive_distance": true,
+        "denominator_cost_units": "single_qubit_rz_parse_and_operator_norm",
+        "denominator_cost_value": 1,
+        "denominator_distance": 0.0,
+        "denominator_distance_source": "verifier_transcript_bound",
+        "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+        "denominator_method_id": "same_access_single_qubit_rz_distance_denominator_v0",
+        "denominator_rejects_r59_negative_control_pressure": true,
+        "leakage_audit_statement": {
+          "audit_hash": "24c4bf96e92579706feb763d59d430239f4335705e1d4dfe1db71da19876c420",
+          "forbidden_inputs_reviewed": [
+            "future C6 optimizer traces",
+            "hidden solver traces not listed in this template",
+            "hardware calibration data",
+            "unbound external oracles",
+            "manual post-hoc angle edits"
+          ],
+          "forbidden_inputs_used": [],
+          "leakage_free": true
+        },
+        "r59_certificate_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r59_c3_same_unitary_replay_certificate.json",
+        "r59_certificate_hash": "b178116739189914bea25b7a90cb7854aef71b590888a22dbf8635b8a72189c9",
+        "reproducible_command": "python3 tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py --challenge-id O3-F4-C06 --source results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C06.source.qasm --candidate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C06.candidate.qasm --r59-certificate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r59_c3_same_unitary_replay_certificate.json --negative-control results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r59_c3_negative_control.json --access-model-hash 8e137ad9c88972700bd8a282cad4ba02b1bb09702b2d799876d174bb71fd266a --output results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r63_same_access_denominator_verifier_transcript.json",
+        "reproducible_command_replayed": true,
+        "row_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r63_source_backed_denominator_row.json",
+        "row_file_sha256": "4a351dc4efb3f99c580e4726152f805b8f98aaecfc14d12b17b01651cd2ea031",
+        "row_hash": "e904dbabf81f475ca630a059a0487a746dab6ac9aa17a89b7fc1efe85ece041e",
+        "same_access_statement": {
+          "access_model_hash": "8e137ad9c88972700bd8a282cad4ba02b1bb09702b2d799876d174bb71fd266a",
+          "allowed_inputs_used": [
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C06.source.qasm",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C06.candidate.qasm",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r59_c3_same_unitary_replay_certificate.json",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r59_c3_negative_control.json"
+          ],
+          "forbidden_inputs_used": [],
+          "same_access_replay_stdout": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r63_same_access_denominator_verifier.stdout.txt",
+          "same_metric_used": "single_qubit_rz_operator_norm"
+        },
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C06.source.qasm",
+        "source_circuit_sha256": "04cb9f2f81e75f1b3623a65c4ce0f4d2cfbdb2a87823b1ba09e5529bff79f84f",
+        "strict_tolerance": 1e-08,
+        "structured_leakage_audit": true,
+        "unitary_distance_metric": "single_qubit_rz_operator_norm",
+        "verifier_transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r63_same_access_denominator_verifier_transcript.json",
+        "verifier_transcript_sha256": "db5e1ce6786b7d7b13992229b9347be1f00742d084754ea646a9bdfbf7e4a80f"
+      },
+      {
+        "acceptance_schema_version": "r60_c4_c5_same_access_denominator_row_v0",
+        "access_model_hash": "14f7162ddfaaf631e1f38aa0e57aa121a2bd378d37fa9fecceeb0208844fad69",
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C07.candidate.qasm",
+        "candidate_circuit_sha256": "7280a8c49ee98b018011f59c18db0e2a06344248c5857f1c2f86c511a460de31",
+        "challenge_id": "O3-F4-C07",
+        "claim_boundary": "C4/C5 row evidence only; no O3 closing, reroute permission, B7/STV promotion, or resource-ledger promotion is claimed.",
+        "denominator_beats_r59_positive_distance": true,
+        "denominator_cost_units": "single_qubit_rz_parse_and_operator_norm",
+        "denominator_cost_value": 1,
+        "denominator_distance": 0.0,
+        "denominator_distance_source": "verifier_transcript_bound",
+        "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+        "denominator_method_id": "same_access_single_qubit_rz_distance_denominator_v0",
+        "denominator_rejects_r59_negative_control_pressure": true,
+        "leakage_audit_statement": {
+          "audit_hash": "ad9264648363d1580e5b3ee054d840ea9666e1717803ad1ea4d56ac490ffb481",
+          "forbidden_inputs_reviewed": [
+            "future C6 optimizer traces",
+            "hidden solver traces not listed in this template",
+            "hardware calibration data",
+            "unbound external oracles",
+            "manual post-hoc angle edits"
+          ],
+          "forbidden_inputs_used": [],
+          "leakage_free": true
+        },
+        "r59_certificate_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r59_c3_same_unitary_replay_certificate.json",
+        "r59_certificate_hash": "6823012899a1b1ca281568ed56cc5fe2d3b2a955eb166300101809ddba91776f",
+        "reproducible_command": "python3 tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py --challenge-id O3-F4-C07 --source results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C07.source.qasm --candidate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C07.candidate.qasm --r59-certificate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r59_c3_same_unitary_replay_certificate.json --negative-control results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r59_c3_negative_control.json --access-model-hash 14f7162ddfaaf631e1f38aa0e57aa121a2bd378d37fa9fecceeb0208844fad69 --output results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r63_same_access_denominator_verifier_transcript.json",
+        "reproducible_command_replayed": true,
+        "row_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r63_source_backed_denominator_row.json",
+        "row_file_sha256": "d5c7ce0a6c3c27a2f348189392369b504653b1d7ae5d9400e92d54a2566f7813",
+        "row_hash": "d854057e2f17b94b361ecb50e7d6ec6f02f4159ac219bce41a5611db801c5e70",
+        "same_access_statement": {
+          "access_model_hash": "14f7162ddfaaf631e1f38aa0e57aa121a2bd378d37fa9fecceeb0208844fad69",
+          "allowed_inputs_used": [
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C07.source.qasm",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C07.candidate.qasm",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r59_c3_same_unitary_replay_certificate.json",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r59_c3_negative_control.json"
+          ],
+          "forbidden_inputs_used": [],
+          "same_access_replay_stdout": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r63_same_access_denominator_verifier.stdout.txt",
+          "same_metric_used": "single_qubit_rz_operator_norm"
+        },
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C07.source.qasm",
+        "source_circuit_sha256": "c4db45035fe3c0d7a0128f6de41c57c7938ee474be24e4471743db22b5cba229",
+        "strict_tolerance": 1e-08,
+        "structured_leakage_audit": true,
+        "unitary_distance_metric": "single_qubit_rz_operator_norm",
+        "verifier_transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r63_same_access_denominator_verifier_transcript.json",
+        "verifier_transcript_sha256": "d2ab07edb7650890699a2bab67144dfcd7776b9b9f0b21bc8258c72aae16f9f3"
+      },
+      {
+        "acceptance_schema_version": "r60_c4_c5_same_access_denominator_row_v0",
+        "access_model_hash": "87dc68ce3aec5c953ad93b542f11b9b0c627bf3171720bc842d2f6d42b1e470f",
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C08.candidate.qasm",
+        "candidate_circuit_sha256": "c7cb640d755334de87e692b1c75393efee17f2fc26c10a480d4b19220b05bb52",
+        "challenge_id": "O3-F4-C08",
+        "claim_boundary": "C4/C5 row evidence only; no O3 closing, reroute permission, B7/STV promotion, or resource-ledger promotion is claimed.",
+        "denominator_beats_r59_positive_distance": true,
+        "denominator_cost_units": "single_qubit_rz_parse_and_operator_norm",
+        "denominator_cost_value": 1,
+        "denominator_distance": 0.0,
+        "denominator_distance_source": "verifier_transcript_bound",
+        "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+        "denominator_method_id": "same_access_single_qubit_rz_distance_denominator_v0",
+        "denominator_rejects_r59_negative_control_pressure": true,
+        "leakage_audit_statement": {
+          "audit_hash": "4a9263c90c5d86c9df0f0d44e67cf9a3349a56d2d8a7f9681bbb7f5b65f0731f",
+          "forbidden_inputs_reviewed": [
+            "future C6 optimizer traces",
+            "hidden solver traces not listed in this template",
+            "hardware calibration data",
+            "unbound external oracles",
+            "manual post-hoc angle edits"
+          ],
+          "forbidden_inputs_used": [],
+          "leakage_free": true
+        },
+        "r59_certificate_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r59_c3_same_unitary_replay_certificate.json",
+        "r59_certificate_hash": "9bb1c2640722eeb3fd39aea61df2ca187c200dbeebb2b9ef96daad89c5428229",
+        "reproducible_command": "python3 tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py --challenge-id O3-F4-C08 --source results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C08.source.qasm --candidate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C08.candidate.qasm --r59-certificate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r59_c3_same_unitary_replay_certificate.json --negative-control results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r59_c3_negative_control.json --access-model-hash 87dc68ce3aec5c953ad93b542f11b9b0c627bf3171720bc842d2f6d42b1e470f --output results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r63_same_access_denominator_verifier_transcript.json",
+        "reproducible_command_replayed": true,
+        "row_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r63_source_backed_denominator_row.json",
+        "row_file_sha256": "58fd4b2c32140455c99d14394465f794740026ff0668189bc141f02ae655d38d",
+        "row_hash": "cc810559d5e4651f8ce5115e04dac2a45aa1f9d8b8d7cb8e57b4f85923b9d6dc",
+        "same_access_statement": {
+          "access_model_hash": "87dc68ce3aec5c953ad93b542f11b9b0c627bf3171720bc842d2f6d42b1e470f",
+          "allowed_inputs_used": [
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C08.source.qasm",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C08.candidate.qasm",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r59_c3_same_unitary_replay_certificate.json",
+            "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r59_c3_negative_control.json"
+          ],
+          "forbidden_inputs_used": [],
+          "same_access_replay_stdout": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r63_same_access_denominator_verifier.stdout.txt",
+          "same_metric_used": "single_qubit_rz_operator_norm"
+        },
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C08.source.qasm",
+        "source_circuit_sha256": "b7dcac442b0f46b145374866b1689d2bf7019eccd1f2cfbbb1a6900c6ef1bff9",
+        "strict_tolerance": 1e-08,
+        "structured_leakage_audit": true,
+        "unitary_distance_metric": "single_qubit_rz_operator_norm",
+        "verifier_transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r63_same_access_denominator_verifier_transcript.json",
+        "verifier_transcript_sha256": "98b2ef27d3000a01de724fb366e1abd7a1e44a8aa8e4af248ca34e2c2155d34f"
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "evidence": {
+        "source_r62_bundle_hash": "0900006a8639e0aa00e1d80c5cf3c5901520be262c0c930af2a4d5820245b6fd",
+        "template_count": 8
+      },
+      "label": "R60 templates and R62 verifier gate are present",
+      "passed": true,
+      "requirement_id": "D1"
+    },
+    {
+      "evidence": {
+        "denominator_verifier_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+        "denominator_verifier_sha256": "6d3249a59c55fe3fb0d7364536de716b5b75bb41c0a2792e474caf71d5fa87d5",
+        "verifier_replay_count": 8
+      },
+      "label": "R63 denominator verifier implementation is hash-bound and replayed",
+      "passed": true,
+      "requirement_id": "D2"
+    },
+    {
+      "evidence": {
+        "required_field_count": 24,
+        "submitted_denominator_row_count": 8
+      },
+      "label": "R63 submits all 8 source-backed denominator rows with R60 required fields",
+      "passed": true,
+      "requirement_id": "D3"
+    },
+    {
+      "evidence": {
+        "max_denominator_distance": 0.0,
+        "min_denominator_distance": 0.0
+      },
+      "label": "R63 denominator transcripts are hash-bound and finite",
+      "passed": true,
+      "requirement_id": "D4"
+    },
+    {
+      "evidence": {
+        "accepted_denominator_row_count": 8,
+        "r62_compatible_acceptance_transcript_count": 8
+      },
+      "label": "R63 rows pass the R62-compatible hardened acceptance verifier",
+      "passed": true,
+      "requirement_id": "D5"
+    },
+    {
+      "evidence": {
+        "structured_row_count": 8
+      },
+      "label": "R63 keeps same-access and leakage audits structured",
+      "passed": true,
+      "requirement_id": "D6"
+    },
+    {
+      "evidence": {
+        "c4_c5_same_access_denominator_row_acceptance_complete": true,
+        "c6_leakage_free_optimizer_trace_complete": false,
+        "c7_machine_check_replay_complete": false
+      },
+      "label": "R63 completes C4/C5 row acceptance but leaves C6 and C7 open",
+      "passed": true,
+      "requirement_id": "D7"
+    },
+    {
+      "evidence": {
+        "b7_credit_delta": 0,
+        "b7_space_time_volume_credit": 0,
+        "o3_closed": false,
+        "reroute_allowed": false
+      },
+      "label": "R63 preserves O3/reroute/B7 zero-credit boundaries",
+      "passed": true,
+      "requirement_id": "D8"
+    }
+  ],
+  "runtime_seconds": 0.246379,
+  "source_target_id": "T-B1-004fm/T-B7-014v",
+  "status": "cone01_r63_c4_c5_source_backed_denominator_rows_accepted_zero_b7_credit",
+  "summary": {
+    "accepted_denominator_row_count": 8,
+    "all_rows_accepted_under_r62_compatible_verifier": true,
+    "b7_credit_delta": 0,
+    "b7_ledger_improvement_claimed": false,
+    "b7_space_time_volume_credit": 0,
+    "c4_c5_same_access_denominator_comparison_complete": true,
+    "c4_c5_same_access_denominator_row_acceptance_complete": true,
+    "c6_leakage_free_optimizer_trace_complete": false,
+    "c7_machine_check_replay_complete": false,
+    "denominator_verifier_sha256": "6d3249a59c55fe3fb0d7364536de716b5b75bb41c0a2792e474caf71d5fa87d5",
+    "failed_requirement_ids": [],
+    "max_denominator_distance": 0.0,
+    "min_denominator_distance": 0.0,
+    "o3_closed": false,
+    "r62_compatible_acceptance_transcript_count": 8,
+    "r63_bundle_file_sha256": "393ad755632db27349cdc6eebf3bad7ee5544f13badaf93b03f6c0e2673a9163",
+    "r63_bundle_hash": "7089f6070e7d5a75c57a765e3406f8199b1539b92ff23777159a8344e99c356f",
+    "remaining_open_obligation_count": 3,
+    "remaining_open_obligations": [
+      "C6_leakage_free_optimizer_trace",
+      "C7_machine_check_replay_bundle",
+      "B7_ledger_retest_after_C6_C7"
+    ],
+    "requirement_count": 8,
+    "requirements_failed": 0,
+    "requirements_passed": 8,
+    "reroute_allowed": false,
+    "resource_saving_claimed": false,
+    "source_r62_bundle_hash": "0900006a8639e0aa00e1d80c5cf3c5901520be262c0c930af2a4d5820245b6fd",
+    "submitted_denominator_row_count": 8,
+    "validation_error_count": 0
+  },
+  "title": "B1/B7 Cone01 R63 O3-F4 C4/C5 Source-Backed Denominator Row Acceptance Gate",
+  "upstream_target_id": "T-B1-004fl/T-B7-014u",
+  "validation_errors": [],
+  "version": "0.1"
+}

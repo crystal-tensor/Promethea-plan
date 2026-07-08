@@ -2672,6 +2672,38 @@ current_results:
     caveat: r62_rejects_denominator_theater_only_no_dependency_no_resource_no_ft_ledger_credit
     report: ../results/B1_B7_cone01_R62_o3_f4_c4_c5_hardened_denominator_acceptance_verifier_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R62_o3_f4_c4_c5_hardened_denominator_acceptance_verifier_gate.md
+  b1_b7_cone01_r63_o3_f4_c4_c5_source_backed_denominator_row_acceptance_gate_v0:
+    status: cone01_r63_c4_c5_source_backed_denominator_rows_accepted_zero_b7_credit
+    method: b1_b7_cone01_r63_o3_f4_c4_c5_source_backed_denominator_row_acceptance_gate_v0
+    source_b1_r63_source_backed_denominator_row_acceptance: ../results/B1_B7_cone01_R63_o3_f4_c4_c5_source_backed_denominator_row_acceptance_gate_v0.json
+    source_b1_r62_hardened_denominator_acceptance_verifier: ../results/B1_B7_cone01_R62_o3_f4_c4_c5_hardened_denominator_acceptance_verifier_gate_v0.json
+    r63_source_backed_denominator_acceptance_bundle: ../results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-all8.r63_source_backed_denominator_acceptance_bundle.json
+    source_target_id: T-B1-004fm/T-B7-014v
+    upstream_target_id: T-B1-004fl/T-B7-014u
+    submitted_denominator_row_count: 8
+    accepted_denominator_row_count: 8
+    r62_compatible_acceptance_transcript_count: 8
+    max_denominator_distance: 0.0
+    c4_c5_same_access_denominator_row_acceptance_complete: true
+    c4_c5_same_access_denominator_comparison_complete: true
+    c6_leakage_free_optimizer_trace_complete: false
+    c7_machine_check_replay_complete: false
+    r63_bundle_hash: 7089f6070e7d5a75c57a765e3406f8199b1539b92ff23777159a8344e99c356f
+    o3_closed: false
+    reroute_allowed: false
+    b7_dependency_credit_allowed: false
+    b7_resource_credit_allowed: false
+    b7_ft_ledger_credit_allowed: false
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    requirements_passed: 8
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r63_completes_c4_c5_row_acceptance_only_no_dependency_no_resource_no_ft_ledger_credit
+    report: ../results/B1_B7_cone01_R63_o3_f4_c4_c5_source_backed_denominator_row_acceptance_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R63_o3_f4_c4_c5_source_backed_denominator_row_acceptance_gate.md
   b2_calibrated_dependency_credit_gate_v0:
     status: b2_calibrated_dependency_credit_rejected_missing_hardware_evidence
     method: b7_b2_calibrated_dependency_credit_gate_v0

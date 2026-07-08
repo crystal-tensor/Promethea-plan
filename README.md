@@ -1777,6 +1777,19 @@ B7/STV/resource/ledger credit remain 0/false. The next useful PR must submit
 real source-backed C4/C5 denominator rows with existing implementation and
 verifier transcript artifacts under the R62 verifier.
 
+`T-B1-004fm` / `T-B7-014v` now submits those source-backed C4/C5 rows. R63
+uses a reviewed same-access OpenQASM 3.0 single-`rz(theta)` denominator
+verifier, replays 8 row commands, writes 8 denominator transcripts, writes 8
+R62-compatible acceptance transcripts, and accepts `8/8` submitted denominator
+rows. The max denominator distance is `0.0`; C4/C5 same-access denominator
+comparison complete is true. R63 bundle hash
+`7089f6070e7d5a75c57a765e3406f8199b1539b92ff23777159a8344e99c356f`.
+This is still not O3 closure and not B7 credit: C6 leakage-free optimizer
+trace and C7 machine-check replay remain open, `reroute_allowed=false`, and
+B7/STV/resource/ledger credit remain 0/false. The next useful PR should run C6
+leakage-free optimizer trace over the accepted R63 rows before any C7 or B7
+ledger retest.
+
 B4/B8 now has a formal verifier-private challenge protocol model:
 `T-B4-002b` / `T-B8-003f` turns the previous private-predicate pressure gate
 into a commit-challenge-response-verify protocol over 36 shared challenge rows.

@@ -1,0 +1,114 @@
+{
+  "accepted": true,
+  "artifact": "R63 R62-compatible denominator row acceptance transcript",
+  "challenge_id": "O3-F4-C07",
+  "check_count": 10,
+  "checks": [
+    {
+      "check_id": "H1",
+      "evidence": {
+        "missing_fields": [],
+        "required_field_count": 24
+      },
+      "label": "all R60 required fields are present",
+      "passed": true
+    },
+    {
+      "check_id": "H2",
+      "evidence": {
+        "row_challenge_id": "O3-F4-C07",
+        "row_schema": "r60_c4_c5_same_access_denominator_row_v0",
+        "template_challenge_id": "O3-F4-C07",
+        "template_schema": "r60_c4_c5_same_access_denominator_row_v0"
+      },
+      "label": "challenge id and schema version match the template",
+      "passed": true
+    },
+    {
+      "check_id": "H3",
+      "evidence": {
+        "access_model_hash": "14f7162ddfaaf631e1f38aa0e57aa121a2bd378d37fa9fecceeb0208844fad69"
+      },
+      "label": "source, candidate, R59 certificate, metric, tolerance, and access-model hashes match",
+      "passed": true
+    },
+    {
+      "check_id": "H4",
+      "evidence": {
+        "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py"
+      },
+      "label": "denominator implementation exists in the repository",
+      "passed": true
+    },
+    {
+      "check_id": "H5",
+      "evidence": {
+        "command_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+        "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+        "reproducible_command_replayed": true
+      },
+      "label": "reproducible command points at the reviewed implementation and was replayed",
+      "passed": true
+    },
+    {
+      "check_id": "H6",
+      "evidence": {
+        "transcript_exists": true,
+        "transcript_hash_ok": true,
+        "verifier_transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r63_same_access_denominator_verifier_transcript.json"
+      },
+      "label": "verifier transcript exists and hash-matches the row",
+      "passed": true
+    },
+    {
+      "check_id": "H7",
+      "evidence": {
+        "denominator_distance_source": "verifier_transcript_bound",
+        "distance_from_transcript": 0.0,
+        "row_denominator_distance": 0.0
+      },
+      "label": "denominator distance is finite and transcript-bound",
+      "passed": true
+    },
+    {
+      "check_id": "H8",
+      "evidence": {
+        "leakage_audit_statement_type": "dict",
+        "same_access_statement_type": "dict",
+        "structured_leakage_audit": true
+      },
+      "label": "same-access and leakage audits are structured",
+      "passed": true
+    },
+    {
+      "check_id": "H9",
+      "evidence": {
+        "denominator_beats_r59_positive_distance": true,
+        "denominator_rejects_r59_negative_control_pressure": true,
+        "pressure_flags_transcript_bound": true
+      },
+      "label": "computed denominator pressure flags are transcript-derived",
+      "passed": true
+    },
+    {
+      "check_id": "H10",
+      "evidence": {
+        "claim_boundary": "C4/C5 row evidence only; no O3 closing, reroute permission, B7/STV promotion, or resource-ledger promotion is claimed.",
+        "overclaims": false
+      },
+      "label": "claim boundary avoids O3/reroute/B7/STV overclaim",
+      "passed": true
+    }
+  ],
+  "claim_boundary": "Acceptance transcript only. Row acceptance can move the C4/C5 evidence gate but does not promote architecture or resource claims.",
+  "failed_check_count": 0,
+  "failed_check_ids": [],
+  "input_row_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r63_source_backed_denominator_row.json",
+  "input_row_hash": "d854057e2f17b94b361ecb50e7d6ec6f02f4159ac219bce41a5611db801c5e70",
+  "method": "b1_b7_cone01_r63_o3_f4_c4_c5_source_backed_denominator_row_acceptance_gate_v0",
+  "passed_check_count": 10,
+  "source_target_id": "T-B1-004fm/T-B7-014v",
+  "template_hash": "0a9ef8437fd3ab25188e9b62edd8b5bc81086f6ad57307db4c0b4c82c307bcac",
+  "transcript_hash": "90112b9e2d83cdcca16d8a9996d46a6109b32d571cd833ba73764c36e412b479",
+  "upstream_target_id": "T-B1-004fl/T-B7-014u"
+}

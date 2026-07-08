@@ -1,0 +1,54 @@
+{
+  "acceptance_schema_version": "r60_c4_c5_same_access_denominator_row_v0",
+  "access_model_hash": "14f7162ddfaaf631e1f38aa0e57aa121a2bd378d37fa9fecceeb0208844fad69",
+  "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C07.candidate.qasm",
+  "candidate_circuit_sha256": "7280a8c49ee98b018011f59c18db0e2a06344248c5857f1c2f86c511a460de31",
+  "challenge_id": "O3-F4-C07",
+  "claim_boundary": "C4/C5 row evidence only; no O3 closing, reroute permission, B7/STV promotion, or resource-ledger promotion is claimed.",
+  "denominator_beats_r59_positive_distance": true,
+  "denominator_cost_units": "single_qubit_rz_parse_and_operator_norm",
+  "denominator_cost_value": 1,
+  "denominator_distance": 0.0,
+  "denominator_distance_source": "verifier_transcript_bound",
+  "denominator_implementation_path": "tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py",
+  "denominator_method_id": "same_access_single_qubit_rz_distance_denominator_v0",
+  "denominator_rejects_r59_negative_control_pressure": true,
+  "leakage_audit_statement": {
+    "audit_hash": "ad9264648363d1580e5b3ee054d840ea9666e1717803ad1ea4d56ac490ffb481",
+    "forbidden_inputs_reviewed": [
+      "future C6 optimizer traces",
+      "hidden solver traces not listed in this template",
+      "hardware calibration data",
+      "unbound external oracles",
+      "manual post-hoc angle edits"
+    ],
+    "forbidden_inputs_used": [],
+    "leakage_free": true
+  },
+  "r59_certificate_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r59_c3_same_unitary_replay_certificate.json",
+  "r59_certificate_hash": "6823012899a1b1ca281568ed56cc5fe2d3b2a955eb166300101809ddba91776f",
+  "reproducible_command": "python3 tools/b1_b7_o3_f4_same_access_rz_denominator_verifier.py --challenge-id O3-F4-C07 --source results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C07.source.qasm --candidate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C07.candidate.qasm --r59-certificate results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r59_c3_same_unitary_replay_certificate.json --negative-control results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r59_c3_negative_control.json --access-model-hash 14f7162ddfaaf631e1f38aa0e57aa121a2bd378d37fa9fecceeb0208844fad69 --output results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r63_same_access_denominator_verifier_transcript.json",
+  "reproducible_command_replayed": true,
+  "row_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r63_source_backed_denominator_row.json",
+  "row_file_sha256": "02302a8cdac33c487f38039353d065bae84d8014a6b261809b7ecbaf1137538d",
+  "row_hash": "d854057e2f17b94b361ecb50e7d6ec6f02f4159ac219bce41a5611db801c5e70",
+  "same_access_statement": {
+    "access_model_hash": "14f7162ddfaaf631e1f38aa0e57aa121a2bd378d37fa9fecceeb0208844fad69",
+    "allowed_inputs_used": [
+      "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C07.source.qasm",
+      "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C07.candidate.qasm",
+      "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r59_c3_same_unitary_replay_certificate.json",
+      "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r59_c3_negative_control.json"
+    ],
+    "forbidden_inputs_used": [],
+    "same_access_replay_stdout": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r63_same_access_denominator_verifier.stdout.txt",
+    "same_metric_used": "single_qubit_rz_operator_norm"
+  },
+  "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C07.source.qasm",
+  "source_circuit_sha256": "c4db45035fe3c0d7a0128f6de41c57c7938ee474be24e4471743db22b5cba229",
+  "strict_tolerance": 1e-08,
+  "structured_leakage_audit": true,
+  "unitary_distance_metric": "single_qubit_rz_operator_norm",
+  "verifier_transcript_path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r63_same_access_denominator_verifier_transcript.json",
+  "verifier_transcript_sha256": "d2ab07edb7650890699a2bab67144dfcd7776b9b9f0b21bc8258c72aae16f9f3"
+}
