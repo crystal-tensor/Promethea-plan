@@ -1,0 +1,27 @@
+{
+  "accepted": true,
+  "accepted_b7_credit_delta": 0,
+  "accepted_b7_space_time_volume_credit": 0,
+  "artifact": "R82 downstream B7 retest verdict",
+  "b7_downstream_retest_completed": true,
+  "candidate_logical_t_count_delta": 1,
+  "claim_boundary": "R82 consumes the R81 accepted B1 route as a downstream B7 retest input. The one-unit proxy-T delta is too small to satisfy the current gcm_h6 B7 target gaps, so no dependency, resource, FT-ledger, STV, O3, reroute, or B7 credit is granted.",
+  "failed_gate_count": 0,
+  "failed_gates": [],
+  "gates": {
+    "b7_retest_consumed_r81_packet": true,
+    "b7_threshold_gap_remains_positive": true,
+    "candidate_logical_t_delta_bound": true,
+    "no_b7_credit_granted": true,
+    "no_overclaim_flags": true,
+    "r81_positive_packet_accepted": true
+  },
+  "ledger_hash": "20c28c61dfa70b040207feb0ff4d503232fbc6ea186701b4622c7278401da4b9",
+  "ledger_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R82-b7-downstream-retest-ledger.json",
+  "method": "b1_b7_cone01_r82_b7_downstream_retest_gate_v0",
+  "min_t_ledger_gap_after_r81": 591,
+  "passed_gate_count": 6,
+  "source_target_id": "T-B1-004gf/T-B7-015o",
+  "upstream_target_id": "T-B1-004ge/T-B7-015n",
+  "verdict_hash": "c49d3f1ac0efaab7cf46af674014ad0231b19878e44f65c9aa6d8fd164bc4460"
+}

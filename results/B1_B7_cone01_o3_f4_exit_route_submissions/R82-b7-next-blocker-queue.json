@@ -1,0 +1,35 @@
+{
+  "accepted_b7_credit_delta": 0,
+  "accepted_exit_route_count": 1,
+  "accepted_occurrence_removal": 1,
+  "accepted_proxy_t_reduction": 1,
+  "artifact": "R82 B7 next blocker queue",
+  "b7_downstream_retest_completed": true,
+  "blocker_queue_hash": "1ed204037a6e2b2184b45a74f87d87a35f2e48fda9c81ec89e3abfaa9106534c",
+  "method": "b1_b7_cone01_r82_b7_downstream_retest_gate_v0",
+  "queue": [
+    {
+      "blocker_id": "R82-B7-1",
+      "needed_artifact": "remove at least 591 additional T-ledger units or provide an equivalent B7 reprice that reaches the 1.20x target",
+      "priority": 1,
+      "remaining_t_ledger_gap_after_r81": 591,
+      "target_gate": "gcm_h6_1_20x_stv_threshold"
+    },
+    {
+      "blocker_id": "R82-B7-2",
+      "needed_artifact": "remove at least 823 additional T-ledger units or provide an equivalent B7 reprice that reaches the 1.25x target",
+      "priority": 2,
+      "remaining_t_ledger_gap_after_r81": 823,
+      "target_gate": "gcm_h6_1_25x_stv_threshold"
+    },
+    {
+      "blocker_id": "R82-B7-3",
+      "needed_artifact": "independent audit that any future B7 credit derives from a full downstream B7 ledger replay, not from B1 route acceptance alone",
+      "priority": 3,
+      "target_gate": "claim_boundary_audit"
+    }
+  ],
+  "source_target_id": "T-B1-004gf/T-B7-015o",
+  "upstream_target_id": "T-B1-004ge/T-B7-015n",
+  "verdict_hash": "c49d3f1ac0efaab7cf46af674014ad0231b19878e44f65c9aa6d8fd164bc4460"
+}

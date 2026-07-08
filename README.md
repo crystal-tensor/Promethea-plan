@@ -2092,3 +2092,19 @@ accepted exit routes `1`, accepted occurrence removal `1`, accepted proxy-T
 reduction `1`. O3 closure, reroute permission, resource saving, and B7 credit
 remain blocked until a downstream B7 resource/FT ledger retest accepts the
 R81 packet.
+
+`T-B1-004gf` / `T-B7-015o` now completes that downstream B7 retest without
+promoting the result into a B7 win. R82 consumes the R81 accepted B1 route as a
+candidate B7 input, maps its one-unit proxy-T reduction into a candidate
+logical-T delta, and compares it against the current `gcm_h6` FT boundary. The
+current B7 ledger still needs 592 additional T-ledger units removed to reach the
+1.20x STV target and 824 units for the 1.25x target; after R81 those gaps are
+591 and 823. The R82 gate passes 8/8 requirements, marks the downstream retest
+complete, and keeps accepted B7 dependency/resource/FT/STV credit at `0`.
+Ledger hash `20c28c61dfa70b040207feb0ff4d503232fbc6ea186701b4622c7278401da4b9`;
+verdict hash `c49d3f1ac0efaab7cf46af674014ad0231b19878e44f65c9aa6d8fd164bc4460`;
+blocker queue hash `1ed204037a6e2b2184b45a74f87d87a35f2e48fda9c81ec89e3abfaa9106534c`.
+This closes the vague "run B7 retest" blocker and replaces it with a quantified
+gap: the next useful PR must remove at least 591 additional T-ledger units or
+provide an equivalent full B7 reprice before any nonzero B7 credit can be
+claimed.

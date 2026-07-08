@@ -3358,6 +3358,43 @@ current_results:
     caveat: r81_positive_b1_route_is_input_to_downstream_b7_retest_not_b7_credit
     report: ../results/B1_B7_cone01_R81_positive_route_promotion_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R81_positive_route_promotion_gate.md
+  b1_b7_cone01_r82_b7_downstream_retest_gate_v0:
+    method: b1_b7_cone01_r82_b7_downstream_retest_gate_v0
+    source_b1_r82_b7_downstream_retest: ../results/B1_B7_cone01_R82_b7_downstream_retest_gate_v0.json
+    source_b1_r81_positive_route_promotion: ../results/B1_B7_cone01_R81_positive_route_promotion_gate_v0.json
+    r82_retest_ledger: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R82-b7-downstream-retest-ledger.json
+    source_b7_ft_ledger: ../results/B7_ft_synthesis_ledger_v0.json
+    source_b7_gcm_boundary: ../results/B7_gcm_h6_ft_boundary_v0.json
+    source_target_id: T-B1-004gf/T-B7-015o
+    upstream_target_id: T-B1-004ge/T-B7-015n
+    b7_downstream_retest_completed: true
+    accepted_exit_route_count: 1
+    accepted_occurrence_removal: 1
+    accepted_proxy_t_reduction: 1
+    candidate_logical_t_count_delta: 1
+    target_1_20_t_ledger_gap_before_r81: 592
+    target_1_20_t_ledger_gap_after_r81: 591
+    target_1_25_t_ledger_gap_before_r81: 824
+    target_1_25_t_ledger_gap_after_r81: 823
+    b7_dependency_credit_allowed: false
+    b7_resource_credit_allowed: false
+    b7_ft_ledger_credit_allowed: false
+    b7_nonzero_credit_allowed: false
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    o3_closed: false
+    reroute_allowed: false
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    ledger_hash: 20c28c61dfa70b040207feb0ff4d503232fbc6ea186701b4622c7278401da4b9
+    verdict_hash: c49d3f1ac0efaab7cf46af674014ad0231b19878e44f65c9aa6d8fd164bc4460
+    blocker_queue_hash: 1ed204037a6e2b2184b45a74f87d87a35f2e48fda9c81ec89e3abfaa9106534c
+    requirements_passed: 8
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r82_downstream_b7_retest_complete_but_current_ft_threshold_gap_remains_positive_no_b7_credit
+    report: ../results/B1_B7_cone01_R82_b7_downstream_retest_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R82_b7_downstream_retest_gate.md
   b2_calibrated_dependency_credit_gate_v0:
     status: b2_calibrated_dependency_credit_rejected_missing_hardware_evidence
     method: b7_b2_calibrated_dependency_credit_gate_v0
