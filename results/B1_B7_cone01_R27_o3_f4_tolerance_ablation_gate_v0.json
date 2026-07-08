@@ -1,0 +1,373 @@
+{
+  "benchmark_id": "B1",
+  "claim_boundary": {
+    "b7_ledger_improvement_claimed": false,
+    "next_gate": "Submit a valid O3-F4 artifact that passes all F4-A1..F4-A9 under the strict tolerance with complete certificate, same-access denominator comparison, and leakage-free trace; or return to O3-F3/O3-F5.",
+    "resource_saving_claimed": false,
+    "what_is_not_supported": "R27 does not submit or accept a valid O3-F4 refit artifact, does not close O3, and does not permit R5 reroute. No B7 credit or resource saving is supported.",
+    "what_is_supported": "R27 shows that relaxing same-unitary replay tolerance can make F4-A2 pass, but cannot accept the R26 near-miss fixture because certificate, denominator, and leakage gates remain failed."
+  },
+  "last_updated": "2026-07-08",
+  "linked_benchmark_id": "B7",
+  "method": "b1_b7_cone01_r27_o3_f4_tolerance_ablation_gate_v0",
+  "model_status": "o3_f4_tolerance_relaxation_not_sufficient_no_o3_no_reroute",
+  "o3_f4_tolerance_ablation_packet": {
+    "ablation_hash": "fd9d2333a13057ab367029cd4e1cac7423ffb4a6ed816e5b498fd8e9dba9f7be",
+    "ablation_id": "B1-B7-cone01-R27-O3-F4-tolerance-ablation",
+    "accepted_tolerances": [],
+    "accepted_under_any_tolerance": false,
+    "candidate_id": "NL-C02",
+    "core_blocking_gate_ids": [
+      "F4-A5",
+      "F4-A6",
+      "F4-A7"
+    ],
+    "decision": {
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "accepted_route_count": 0,
+      "b7_credit_delta": 0,
+      "b7_space_time_volume_credit": 0,
+      "checked_negative_lemma_present": false,
+      "nlc02_full_lemma_ready": false,
+      "o3_closed": false,
+      "o3_f4_artifact_accepted": false,
+      "reroute_allowed": false,
+      "tolerance_waiver_allowed": false,
+      "why": "At relaxed replay tolerances F4-A2 can flip to pass, but F4-A5/F4-A6/F4-A7 still fail; tolerance relaxation alone is not an acceptance route."
+    },
+    "family_id": "O3-F4",
+    "relaxed_replay_pass_count": 2,
+    "relaxed_replay_pass_tolerances": [
+      2e-08,
+      1e-07
+    ],
+    "source_harness_hash": "7738931cd3284750f0ce9a8d2ec4acb8aac952b2dd3b335203d35f7213fd007d",
+    "source_hashes": {
+      "near_miss_fixture_file": "7230a2fbe3febb95ef9f11bfca88fd18bb1fd28cb7086c3826451e64bd841a22",
+      "r24_harness_file": "c9548e116f736e7b44066cb7e42d06ebbeca6a3116855470583a7fbba3b843b4",
+      "r26_sentinel_file": "6d61dfd1832e05fda5f17535b06420548e0bc1105d64204f4d735dd9b4064e98"
+    },
+    "source_near_miss_fixture": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/B1-B7-cone01-O3-F4-refit.near-miss-sentinel.json",
+    "source_near_miss_fixture_hash": "a239097cd2ca844d616829a141a6490e74285f8af16fee506c70088125d43873",
+    "source_r24_harness": "results/B1_B7_cone01_R24_o3_f4_numerical_refit_harness_gate_v0.json",
+    "source_r26_sentinel": "results/B1_B7_cone01_R26_o3_f4_near_miss_refit_sentinel_gate_v0.json",
+    "source_r26_sentinel_hash": "bb93711b3b2dc2a8b73ded6536e56ad14357eeb544029bd65a7c6b18a751add3",
+    "source_target_id": "T-B1-004ec/T-B7-013l",
+    "strict_replay_passed": false,
+    "strict_tolerance": 1e-08,
+    "sweep_rows": [
+      {
+        "accepted": false,
+        "core_blocking_gate_ids": [
+          "F4-A5",
+          "F4-A6",
+          "F4-A7"
+        ],
+        "f4_a2_replay_passed": false,
+        "failed_gate_ids": [
+          "F4-A2",
+          "F4-A5",
+          "F4-A6",
+          "F4-A7"
+        ],
+        "max_unitary_replay_error": 1.8000000000000002e-08,
+        "passed_gate_ids": [
+          "F4-A1",
+          "F4-A3",
+          "F4-A4",
+          "F4-A8",
+          "F4-A9"
+        ],
+        "tolerance": 1e-08,
+        "why": "Replay tolerance alone cannot accept the fixture because the certificate, denominator, and leakage gates remain failed."
+      },
+      {
+        "accepted": false,
+        "core_blocking_gate_ids": [
+          "F4-A5",
+          "F4-A6",
+          "F4-A7"
+        ],
+        "f4_a2_replay_passed": false,
+        "failed_gate_ids": [
+          "F4-A2",
+          "F4-A5",
+          "F4-A6",
+          "F4-A7"
+        ],
+        "max_unitary_replay_error": 1.8000000000000002e-08,
+        "passed_gate_ids": [
+          "F4-A1",
+          "F4-A3",
+          "F4-A4",
+          "F4-A8",
+          "F4-A9"
+        ],
+        "tolerance": 1.8e-08,
+        "why": "Replay tolerance alone cannot accept the fixture because the certificate, denominator, and leakage gates remain failed."
+      },
+      {
+        "accepted": false,
+        "core_blocking_gate_ids": [
+          "F4-A5",
+          "F4-A6",
+          "F4-A7"
+        ],
+        "f4_a2_replay_passed": true,
+        "failed_gate_ids": [
+          "F4-A5",
+          "F4-A6",
+          "F4-A7"
+        ],
+        "max_unitary_replay_error": 1.8000000000000002e-08,
+        "passed_gate_ids": [
+          "F4-A1",
+          "F4-A2",
+          "F4-A3",
+          "F4-A4",
+          "F4-A8",
+          "F4-A9"
+        ],
+        "tolerance": 2e-08,
+        "why": "Replay tolerance alone cannot accept the fixture because the certificate, denominator, and leakage gates remain failed."
+      },
+      {
+        "accepted": false,
+        "core_blocking_gate_ids": [
+          "F4-A5",
+          "F4-A6",
+          "F4-A7"
+        ],
+        "f4_a2_replay_passed": true,
+        "failed_gate_ids": [
+          "F4-A5",
+          "F4-A6",
+          "F4-A7"
+        ],
+        "max_unitary_replay_error": 1.8000000000000002e-08,
+        "passed_gate_ids": [
+          "F4-A1",
+          "F4-A2",
+          "F4-A3",
+          "F4-A4",
+          "F4-A8",
+          "F4-A9"
+        ],
+        "tolerance": 1e-07,
+        "why": "Replay tolerance alone cannot accept the fixture because the certificate, denominator, and leakage gates remain failed."
+      }
+    ],
+    "sweep_tolerances": [
+      1e-08,
+      1.8e-08,
+      2e-08,
+      1e-07
+    ],
+    "upstream_target_id": "T-B1-004eb/T-B7-013k"
+  },
+  "requirements": [
+    {
+      "evidence": {
+        "r24_validation_error_count": 0,
+        "r26_validation_error_count": 0
+      },
+      "label": "R24 harness and R26 near-miss sentinel are validation-clean sources",
+      "passed": true,
+      "requirement_id": "S1"
+    },
+    {
+      "evidence": {
+        "r26_max_unitary_replay_error": 1.8000000000000002e-08,
+        "strict_tolerance": 1e-08,
+        "sweep_tolerances": [
+          1e-08,
+          1.8e-08,
+          2e-08,
+          1e-07
+        ]
+      },
+      "label": "Tolerance sweep includes strict and relaxed replay thresholds",
+      "passed": true,
+      "requirement_id": "S2"
+    },
+    {
+      "evidence": {
+        "max_unitary_replay_error": 1.8000000000000002e-08,
+        "strict_failed_gate_ids": [
+          "F4-A2",
+          "F4-A5",
+          "F4-A6",
+          "F4-A7"
+        ],
+        "strict_tolerance": 1e-08
+      },
+      "label": "Strict R26 tolerance still rejects same-unitary replay",
+      "passed": true,
+      "requirement_id": "S3"
+    },
+    {
+      "evidence": {
+        "relaxed_replay_pass_count": 2,
+        "relaxed_replay_pass_tolerances": [
+          2e-08,
+          1e-07
+        ]
+      },
+      "label": "At least one relaxed tolerance flips only F4-A2 to pass",
+      "passed": true,
+      "requirement_id": "S4"
+    },
+    {
+      "evidence": {
+        "core_blocking_gate_ids": [
+          "F4-A5",
+          "F4-A6",
+          "F4-A7"
+        ],
+        "sweep_failed_gate_ids": [
+          [
+            "F4-A2",
+            "F4-A5",
+            "F4-A6",
+            "F4-A7"
+          ],
+          [
+            "F4-A2",
+            "F4-A5",
+            "F4-A6",
+            "F4-A7"
+          ],
+          [
+            "F4-A5",
+            "F4-A6",
+            "F4-A7"
+          ],
+          [
+            "F4-A5",
+            "F4-A6",
+            "F4-A7"
+          ]
+        ]
+      },
+      "label": "Certificate, denominator, and leakage gates remain failed for every tolerance",
+      "passed": true,
+      "requirement_id": "S5"
+    },
+    {
+      "evidence": {
+        "accepted_tolerances": []
+      },
+      "label": "No sweep row accepts the near-miss fixture",
+      "passed": true,
+      "requirement_id": "S6"
+    },
+    {
+      "evidence": {
+        "accepted_occurrence_removal": 0,
+        "accepted_proxy_t_reduction": 0,
+        "accepted_route_count": 0,
+        "b7_credit_delta": 0,
+        "b7_space_time_volume_credit": 0,
+        "checked_negative_lemma_present": false,
+        "nlc02_full_lemma_ready": false,
+        "o3_closed": false,
+        "o3_f4_artifact_accepted": false,
+        "reroute_allowed": false,
+        "tolerance_waiver_allowed": false,
+        "why": "At relaxed replay tolerances F4-A2 can flip to pass, but F4-A5/F4-A6/F4-A7 still fail; tolerance relaxation alone is not an acceptance route."
+      },
+      "label": "Tolerance waiver remains disallowed without certificate, denominator, and leakage fixes",
+      "passed": true,
+      "requirement_id": "S7"
+    },
+    {
+      "evidence": {
+        "accepted_occurrence_removal": 0,
+        "accepted_proxy_t_reduction": 0,
+        "accepted_route_count": 0,
+        "b7_credit_delta": 0,
+        "b7_space_time_volume_credit": 0,
+        "checked_negative_lemma_present": false,
+        "nlc02_full_lemma_ready": false,
+        "o3_closed": false,
+        "o3_f4_artifact_accepted": false,
+        "reroute_allowed": false,
+        "tolerance_waiver_allowed": false,
+        "why": "At relaxed replay tolerances F4-A2 can flip to pass, but F4-A5/F4-A6/F4-A7 still fail; tolerance relaxation alone is not an acceptance route."
+      },
+      "label": "R27 preserves zero O3, reroute, and B7 credit claims",
+      "passed": true,
+      "requirement_id": "S8"
+    },
+    {
+      "evidence": {
+        "ablation_hash": "fd9d2333a13057ab367029cd4e1cac7423ffb4a6ed816e5b498fd8e9dba9f7be",
+        "source_near_miss_fixture_hash": "a239097cd2ca844d616829a141a6490e74285f8af16fee506c70088125d43873",
+        "source_r26_sentinel_hash": "bb93711b3b2dc2a8b73ded6536e56ad14357eeb544029bd65a7c6b18a751add3"
+      },
+      "label": "Ablation packet is hash-bound to R24, R26, and the near-miss fixture",
+      "passed": true,
+      "requirement_id": "S9"
+    }
+  ],
+  "runtime_seconds": 0.000391,
+  "source_target_id": "T-B1-004ec/T-B7-013l",
+  "status": "cone01_r27_o3_f4_tolerance_ablation_blocks_tolerance_waiver",
+  "summary": {
+    "ablation_hash": "fd9d2333a13057ab367029cd4e1cac7423ffb4a6ed816e5b498fd8e9dba9f7be",
+    "ablation_id": "B1-B7-cone01-R27-O3-F4-tolerance-ablation",
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "accepted_route_count": 0,
+    "accepted_tolerances": [],
+    "accepted_under_any_tolerance": false,
+    "b7_credit_delta": 0,
+    "b7_ledger_improvement_claimed": false,
+    "b7_space_time_volume_credit": 0,
+    "candidate_id": "NL-C02",
+    "checked_negative_lemma_present": false,
+    "core_blocking_gate_ids": [
+      "F4-A5",
+      "F4-A6",
+      "F4-A7"
+    ],
+    "failed_requirement_ids": [],
+    "family_id": "O3-F4",
+    "nlc02_full_lemma_ready": false,
+    "o3_closed": false,
+    "o3_f4_artifact_accepted": false,
+    "relaxed_replay_pass_count": 2,
+    "relaxed_replay_pass_tolerances": [
+      2e-08,
+      1e-07
+    ],
+    "remaining_open_obligation_count": 3,
+    "remaining_open_obligations": [
+      "O3-F3_symbolic_lu_artifact",
+      "O3-F4_valid_refit_artifact",
+      "O3-F5_route_a_artifact"
+    ],
+    "requirement_count": 9,
+    "requirements_failed": 0,
+    "requirements_passed": 9,
+    "reroute_allowed": false,
+    "resource_saving_claimed": false,
+    "source_near_miss_fixture_hash": "a239097cd2ca844d616829a141a6490e74285f8af16fee506c70088125d43873",
+    "source_r26_sentinel_hash": "bb93711b3b2dc2a8b73ded6536e56ad14357eeb544029bd65a7c6b18a751add3",
+    "strict_replay_passed": false,
+    "strict_tolerance": 1e-08,
+    "sweep_tolerances": [
+      1e-08,
+      1.8e-08,
+      2e-08,
+      1e-07
+    ],
+    "tolerance_waiver_allowed": false,
+    "validation_error_count": 0
+  },
+  "title": "B1/B7 Cone01 R27 O3-F4 Tolerance-Ablation Gate",
+  "upstream_target_id": "T-B1-004eb/T-B7-013k",
+  "validation_errors": [],
+  "version": "0.1"
+}
