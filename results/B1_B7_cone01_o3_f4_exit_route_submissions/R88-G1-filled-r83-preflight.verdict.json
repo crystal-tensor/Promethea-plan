@@ -1,0 +1,66 @@
+{
+  "accepted": false,
+  "accepted_b7_credit_delta": 0,
+  "accepted_b7_space_time_volume_credit": 0,
+  "artifact": "R88 G1 filled R83 preflight verdict",
+  "claim_boundary": "R88 changes only the filled_r83_submission_present gate from missing to present. It still rejects credit until downstream B7 replay exists.",
+  "closed_r87_failed_gates": [
+    "filled_r83_submission_present"
+  ],
+  "evidence_bundle_hash": "96e14ca9e5b97799ea503e4f3e8a7a32070ca42757ed1eb3b470f22beac2052e",
+  "failed_gate_count": 1,
+  "failed_gates": [
+    "downstream_b7_replay_present"
+  ],
+  "filled_submission_hash": "6ac1427a6c04a6ced8d9d1cb22461c7721fd755c5b1d4d01dc139bc4647d04e7",
+  "gates": {
+    "downstream_b7_replay_present": false,
+    "filled_r83_submission_present": true,
+    "replay_stdout_present": true,
+    "source_rows_present": true,
+    "stv_reprice_ledger_present": true
+  },
+  "hash_checks": {
+    "evidence_bundle_sha256": true,
+    "logical_t_mapping_ledger_sha256": true,
+    "no_double_counting_ledger_sha256": true,
+    "replay_stdout_sha256": true,
+    "source_b7_boundary_sha256": true,
+    "source_r82_ledger_sha256": true,
+    "source_r82_result_sha256": true,
+    "source_r82_verdict_sha256": true,
+    "stv_reprice_ledger_sha256": true,
+    "t_ledger_reduction_rows_sha256": true
+  },
+  "method": "b1_b7_cone01_r88_g1_filled_r83_submission_gate_v0",
+  "o3_closed": false,
+  "passed_gate_count": 4,
+  "preflight_hash": "ca6d79111ba0d8dc950c2385c18f2902fa756d2a48970e627fbbdbe7160401fd",
+  "r83_acceptance_gate_count": 10,
+  "r83_acceptance_gates": {
+    "all_hash_bound_artifacts_match": true,
+    "all_required_fields_complete": true,
+    "candidate_after_t_ledger_at_or_below_5632": true,
+    "claim_boundary_blocks_o3_reroute_until_audit": true,
+    "claimed_t_ledger_reduction_at_least_591": true,
+    "logical_t_mapping_ledger_present": true,
+    "no_double_counting_ledger_present": true,
+    "replay_stdout_hash_matches": true,
+    "source_r82_boundary_hashes_match": true,
+    "stv_reprice_ledger_present": true
+  },
+  "r83_acceptance_gates_failed": [],
+  "r83_acceptance_gates_passed": 10,
+  "remaining_r87_failed_gates": [
+    "downstream_b7_replay_present"
+  ],
+  "reroute_allowed": false,
+  "resource_saving_claimed": false,
+  "source_r87_failed_gates": [
+    "filled_r83_submission_present",
+    "downstream_b7_replay_present"
+  ],
+  "source_r87_preflight_hash": "5bb78c88b7265a6af247b771d4ae0cc73938b4a9b7e39880b1ea8c8106fa064f",
+  "source_target_id": "T-B1-004gl/T-B7-015u",
+  "upstream_target_id": "T-B1-004gk/T-B7-015t"
+}

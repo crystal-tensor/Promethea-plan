@@ -1,0 +1,17 @@
+{
+  "accepted_b7_credit_delta": 0,
+  "artifact": "R88 G1 downstream B7 blocker queue",
+  "blocker_queue_hash": "09e25308180ee3e41e2ce6f14ed737139b77f3c3a749a718f6617bdf731e44bc",
+  "method": "b1_b7_cone01_r88_g1_filled_r83_submission_gate_v0",
+  "preflight_hash": "ca6d79111ba0d8dc950c2385c18f2902fa756d2a48970e627fbbdbe7160401fd",
+  "queue": [
+    {
+      "blocker_id": "R88-G1-1",
+      "needed_artifact": "full downstream B7 replay against the filled R83 G1 submission before any nonzero B7 credit",
+      "priority": 1,
+      "target_gate": "downstream_b7_replay_present"
+    }
+  ],
+  "source_target_id": "T-B1-004gl/T-B7-015u",
+  "upstream_target_id": "T-B1-004gk/T-B7-015t"
+}

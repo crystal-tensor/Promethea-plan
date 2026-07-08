@@ -2183,3 +2183,18 @@ preflight hash `5bb78c88b7265a6af247b771d4ae0cc73938b4a9b7e39880b1ea8c8106fa064f
 blocker queue hash `0b65c44240c6f14b6f9e754c6dc734c2972a69f596f6dd49b1842edf9d169562`.
 B7 credit remains `0`; this is a candidate STV ledger, not a filled R83 packet,
 downstream replay, or O3 closure.
+
+`T-B1-004gl` / `T-B7-015u` now closes the filled-submission blocker by
+materializing the G1 route as a complete R83 production packet. R88 fills all
+`33/33` required fields, binds `10` evidence artifacts by SHA-256, and passes
+all `10/10` R83 acceptance-shape gates. The candidate ledger still claims
+`600` T-ledger units and `5624` after-T ledger with `8` units of margin below
+the `5632` 1.20x target ceiling, but downstream B7 replay is still missing.
+Evidence-bundle hash
+`96e14ca9e5b97799ea503e4f3e8a7a32070ca42757ed1eb3b470f22beac2052e`;
+filled-submission hash
+`6ac1427a6c04a6ced8d9d1cb22461c7721fd755c5b1d4d01dc139bc4647d04e7`;
+preflight hash `ca6d79111ba0d8dc950c2385c18f2902fa756d2a48970e627fbbdbe7160401fd`;
+blocker queue hash `09e25308180ee3e41e2ce6f14ed737139b77f3c3a749a718f6617bdf731e44bc`.
+B7 credit remains `0`; this is a filled R83 submission, not downstream replay,
+resource-saving permission, reroute permission, or O3 closure.

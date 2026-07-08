@@ -1,0 +1,83 @@
+{
+  "artifact": "R88 G1 filled R83 evidence bundle",
+  "artifact_count": 10,
+  "artifacts": [
+    {
+      "actual_sha256": "00be0899104d4707f6d084579265ee019ec5c202c00b9668bfa6a77cfceb516a",
+      "hash_matches": true,
+      "path": "results/B1_B7_cone01_R82_b7_downstream_retest_gate_v0.json",
+      "role": "source_r82_result",
+      "sha256": "00be0899104d4707f6d084579265ee019ec5c202c00b9668bfa6a77cfceb516a"
+    },
+    {
+      "actual_sha256": "cb9c56e6a753c71a65232978fec16fc88240200b82d11f3cc03d54b3b8790c99",
+      "hash_matches": true,
+      "path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R82-b7-downstream-retest-ledger.json",
+      "role": "source_r82_ledger",
+      "sha256": "cb9c56e6a753c71a65232978fec16fc88240200b82d11f3cc03d54b3b8790c99"
+    },
+    {
+      "actual_sha256": "41da970e8a776c9ad7a04308c8f7a2506aace3a8545395804e6852a5b35f8b32",
+      "hash_matches": true,
+      "path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R82-b7-downstream-retest.verdict.json",
+      "role": "source_r82_verdict",
+      "sha256": "41da970e8a776c9ad7a04308c8f7a2506aace3a8545395804e6852a5b35f8b32"
+    },
+    {
+      "actual_sha256": "e1a37664da13d8f8f05120101d0d6c477027fe94c161c7a5cf9da12131197db5",
+      "hash_matches": true,
+      "path": "results/B7_gcm_h6_ft_boundary_v0.json",
+      "role": "source_b7_boundary",
+      "sha256": "e1a37664da13d8f8f05120101d0d6c477027fe94c161c7a5cf9da12131197db5"
+    },
+    {
+      "actual_sha256": "4efe9839cafe6502f297afc0ab0a1d06f343e3da26c38eb5223dd0077a5f1004",
+      "hash_matches": true,
+      "path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R86-G1-source-binding-replay.stdout.txt",
+      "role": "replay_stdout",
+      "sha256": "4efe9839cafe6502f297afc0ab0a1d06f343e3da26c38eb5223dd0077a5f1004"
+    },
+    {
+      "actual_sha256": "f8218b1170ab5a8f66142de0df0165c60afee65bdd02f03341f1acdaa51ccc55",
+      "hash_matches": true,
+      "path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R87-G1-stv-reprice-ledger.json",
+      "role": "t_ledger_reduction_rows",
+      "sha256": "f8218b1170ab5a8f66142de0df0165c60afee65bdd02f03341f1acdaa51ccc55"
+    },
+    {
+      "actual_sha256": "269424808f7991a72fdb081cfdb527fad116e4fb1c8d690e19afa9eb488153b9",
+      "hash_matches": true,
+      "path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R85-G1-no-double-counting-screen.json",
+      "role": "no_double_counting_ledger",
+      "sha256": "269424808f7991a72fdb081cfdb527fad116e4fb1c8d690e19afa9eb488153b9"
+    },
+    {
+      "actual_sha256": "bd9131a48b51bb54251c8d3fa0f46a055312c9e85ae611fb530b4fe17cfa0d8c",
+      "hash_matches": true,
+      "path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R85-G1-candidate-logical-t-mapping.json",
+      "role": "logical_t_mapping_ledger",
+      "sha256": "bd9131a48b51bb54251c8d3fa0f46a055312c9e85ae611fb530b4fe17cfa0d8c"
+    },
+    {
+      "actual_sha256": "f8218b1170ab5a8f66142de0df0165c60afee65bdd02f03341f1acdaa51ccc55",
+      "hash_matches": true,
+      "path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R87-G1-stv-reprice-ledger.json",
+      "role": "stv_reprice_ledger",
+      "sha256": "f8218b1170ab5a8f66142de0df0165c60afee65bdd02f03341f1acdaa51ccc55"
+    },
+    {
+      "actual_sha256": "17796bbb3233a5ee21bb32aeec5160b1b56fb20670c57fcffdc5588064d6d709",
+      "hash_matches": true,
+      "path": "results/B1_B7_cone01_R87_g1_stv_reprice_ledger_gate_v0.json",
+      "role": "r87_result",
+      "sha256": "17796bbb3233a5ee21bb32aeec5160b1b56fb20670c57fcffdc5588064d6d709"
+    }
+  ],
+  "claim_boundary": "Evidence bundle only. It binds the filled R83 submission inputs but does not run downstream B7 replay or grant credit.",
+  "evidence_bundle_hash": "96e14ca9e5b97799ea503e4f3e8a7a32070ca42757ed1eb3b470f22beac2052e",
+  "method": "b1_b7_cone01_r88_g1_filled_r83_submission_gate_v0",
+  "source_contract_hash": "3c306524d0fa44b789b6723608d8f919c1847dcce622ca90104b1d9af51f7c43",
+  "source_r87_payload_hash": "80c2e832a4172116c65625261f6f5a0b51288fac69082f128ba03daa7406e292",
+  "source_target_id": "T-B1-004gl/T-B7-015u",
+  "upstream_target_id": "T-B1-004gk/T-B7-015t"
+}

@@ -6642,6 +6642,45 @@ current_results:
     caveat: r87_candidate_stv_reprice_only_missing_filled_r83_and_b7_replay_no_credit
     report: ../results/B1_B7_cone01_R87_g1_stv_reprice_ledger_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R87_g1_stv_reprice_ledger_gate.md
+  b1_b7_cone01_r88_g1_filled_r83_submission_gate_v0:
+    circuits: 1
+    status: cone01_r88_g1_filled_r83_submission_ready_no_b7_credit
+    model_status: r87_filled_r83_submission_gate_closed_without_downstream_b7_replay
+    method: b1_b7_cone01_r88_g1_filled_r83_submission_gate_v0
+    source_target_id: T-B1-004gl/T-B7-015u
+    upstream_target_id: T-B1-004gk/T-B7-015t
+    route_id: R83-G1-30-arbitrary-rotation-batch
+    source_b1_r87_g1_stv_reprice_ledger: ../results/B1_B7_cone01_R87_g1_stv_reprice_ledger_gate_v0.json
+    r88_evidence_bundle: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R88-G1-filled-r83-evidence-bundle.json
+    r88_filled_submission: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R88-G1-filled-r83-submission.json
+    r88_filled_preflight: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R88-G1-filled-r83-preflight.verdict.json
+    r88_downstream_blocker_queue: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R88-G1-downstream-b7-blocker-queue.json
+    filled_field_count: 33
+    required_field_count: 33
+    missing_required_field_count: 0
+    hash_bound_artifact_count: 10
+    r83_acceptance_gates_passed: 10
+    r83_acceptance_gate_count: 10
+    claimed_t_ledger_reduction: 600
+    candidate_after_t_ledger: 5624
+    candidate_margin_to_1_20_target: 8
+    filled_r83_submission_present: true
+    downstream_b7_replay_present: false
+    preflight_accepted: false
+    preflight_failed_gate_count: 1
+    failed_gates: [downstream_b7_replay_present]
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    evidence_bundle_hash: 96e14ca9e5b97799ea503e4f3e8a7a32070ca42757ed1eb3b470f22beac2052e
+    filled_submission_hash: 6ac1427a6c04a6ced8d9d1cb22461c7721fd755c5b1d4d01dc139bc4647d04e7
+    preflight_hash: ca6d79111ba0d8dc950c2385c18f2902fa756d2a48970e627fbbdbe7160401fd
+    blocker_queue_hash: 09e25308180ee3e41e2ce6f14ed737139b77f3c3a749a718f6617bdf731e44bc
+    requirements_passed: 7
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r88_filled_r83_submission_only_missing_downstream_b7_replay_no_credit
+    report: ../results/B1_B7_cone01_R88_g1_filled_r83_submission_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R88_g1_filled_r83_submission_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate

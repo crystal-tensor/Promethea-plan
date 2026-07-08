@@ -34686,6 +34686,9 @@ def audit(root: Path) -> dict:
             "b1_b7_cone01_r87_g1_stv_reprice_ledger_gate": str(
                 research / "B1_B7_cone01_R87_g1_stv_reprice_ledger_gate.md"
             ),
+            "b1_b7_cone01_r88_g1_filled_r83_submission_gate": str(
+                research / "B1_B7_cone01_R88_g1_filled_r83_submission_gate.md"
+            ),
             "b7_w8_21_symbolic_certificate_replay_validation_manifest_gate": str(
                 research / "B7_w8_21_symbolic_certificate_replay_validation_manifest_gate.md"
             ),
