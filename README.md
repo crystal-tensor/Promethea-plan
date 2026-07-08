@@ -1715,6 +1715,21 @@ certificate, C4/C5 denominator comparison, C6 leakage-free trace, C7
 machine-check replay, and B7 ledger retest remain open; reroute remains false
 and B7/STV/resource/ledger credit remain 0/false.
 
+`T-B1-004fi` / `T-B7-014r` now attacks the next C3 gate directly. R59
+replays the all-8 R58 rows as single-qubit OpenQASM 3.0 `rz(theta)`
+certificates and adds one perturbed negative control per row. It passes 8/8
+requirements: row count `8`, positive replay certificates passed `8`,
+negative controls rejected `8`, max positive replay distance `0.0`, minimum
+negative-control distance `0.015624841054765663`, and restricted C3
+same-unitary replay certificate complete true. R59 also records an important
+audit observation: all 8 R58 evidence-packet semantic hashes still match, but
+the R58 evidence-packet file SHA fields are stale after final row binding, so
+R59 rebinds the actual file hashes instead of hiding the mismatch. R59 bundle
+hash `fa7ab308e09644f3d58228a92ea580fb40f6ea88b8408cc75ddc21df79b84cbb`.
+This is still not O3 closure and not B7 credit: C4/C5 denominator comparison,
+C6 leakage-free trace, C7 machine-check replay, and B7 ledger retest remain
+open; reroute remains false and B7/STV/resource/ledger credit remain 0/false.
+
 B4/B8 now has a formal verifier-private challenge protocol model:
 `T-B4-002b` / `T-B8-003f` turns the previous private-predicate pressure gate
 into a commit-challenge-response-verify protocol over 36 shared challenge rows.

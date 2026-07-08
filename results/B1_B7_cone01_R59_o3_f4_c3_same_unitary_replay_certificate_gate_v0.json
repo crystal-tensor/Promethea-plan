@@ -1,0 +1,925 @@
+{
+  "benchmark_id": "B1",
+  "claim_boundary": {
+    "b7_ledger_improvement_claimed": false,
+    "next_gate": "Run C4/C5 same-access denominator comparison before C6 leakage-free trace, C7 machine-check bundle, or any B7 ledger retest.",
+    "resource_saving_claimed": false,
+    "what_is_not_supported": "R59 does not prove a global O3 theorem, does not compare against a same-access denominator, does not audit leakage, does not produce a machine-check replay bundle, and does not grant reroute or B7/STV credit.",
+    "what_is_supported": "R59 completes the restricted C3 same-unitary replay certificate for the 8 O3-F4 single-qubit RZ rows accepted by R58, adds negative-control perturbations that the verifier rejects, and normalizes the observed R58 evidence-packet file-SHA staleness by rebinding actual file hashes."
+  },
+  "last_updated": "2026-07-08",
+  "linked_benchmark_id": "B7",
+  "method": "b1_b7_cone01_r59_o3_f4_c3_same_unitary_replay_certificate_gate_v0",
+  "model_status": "o3_f4_c3_same_unitary_replay_certificate_passed_c4_c7_and_b7_open",
+  "r59_c3_replay_certificate_packet": {
+    "bundle": {
+      "artifact": "R59 C3 all-row same-unitary replay certificate bundle",
+      "bundle_hash": "fa7ab308e09644f3d58228a92ea580fb40f6ea88b8408cc75ddc21df79b84cbb",
+      "c3_same_unitary_replay_certificate_complete": true,
+      "certificate_hashes": {
+        "O3-F4-C01": "964331600a97b513b50eebcc16539615a2a75705c4d001ecf966920397885811",
+        "O3-F4-C02": "0db538be5dfe518cb1c308b4d6c04c3e66ed2477709df78b3d887c2c8aab414a",
+        "O3-F4-C03": "0c57294d8baa24b7291a368aee269af1810b491e054db7f4c83de41f3f9dc5c8",
+        "O3-F4-C04": "788d20aea145da343859b76e047dc290ca3e4af59edec844f7120bdcb8d8f2b9",
+        "O3-F4-C05": "166cce5829bba5040bb7d183b232bd936050a0124bd5310e38a362b5b833f073",
+        "O3-F4-C06": "b178116739189914bea25b7a90cb7854aef71b590888a22dbf8635b8a72189c9",
+        "O3-F4-C07": "6823012899a1b1ca281568ed56cc5fe2d3b2a955eb166300101809ddba91776f",
+        "O3-F4-C08": "9bb1c2640722eeb3fd39aea61df2ca187c200dbeebb2b9ef96daad89c5428229"
+      },
+      "claim_boundary": "R59 completes C3 for the restricted O3-F4 single-qubit RZ replay surface. It also records that R58 evidence-packet file SHA fields are stale after final row binding, while semantic packet hashes still match. C4/C5, C6, C7, O3 closure, reroute, and B7 ledger credit remain open.",
+      "evidence_packet_file_sha256_mismatch_count": 8,
+      "evidence_packet_semantic_hash_match_count": 8,
+      "max_positive_replay_distance": 0.0,
+      "method": "b1_b7_cone01_r59_o3_f4_c3_same_unitary_replay_certificate_gate_v0",
+      "min_negative_control_distance": 0.015624841054765663,
+      "negative_control_delta": 0.03125,
+      "negative_control_hashes": {
+        "O3-F4-C01": "cb1108ef647cc0b12dfdac909dab21e2af6d7316b4ff34eca644c2396c455f93",
+        "O3-F4-C02": "14be983b2c34cd7b56ba77d2eddd4cc8703daf07526270231b2e2d5b55a8dd7b",
+        "O3-F4-C03": "de73bb22bc01bd0533778be4cbcaeae2177c152c2038c6d9231edca8f4bef4da",
+        "O3-F4-C04": "acf4620d176b1dd0f67c92c7819bcf353952583469f9d178d88237b63752d996",
+        "O3-F4-C05": "a63052a4829ad4a0094e33d172f5bfddf8f922afb725537aa35b8c0a580d4a26",
+        "O3-F4-C06": "dd13bd4ecd102b53c2cd285aef5036edf1ae5071b5f07b75c01e83c5d941b2af",
+        "O3-F4-C07": "d6f7ad6dd1994383afc9f720e96f48e46b0ee4455016632a47eb499573a7d9ff",
+        "O3-F4-C08": "3360536b20ea70e84de145d5ce8a1cc5c05540afbd0cacd9eaa5046437405aa0"
+      },
+      "negative_control_rejected_count": 8,
+      "positive_replay_passed_count": 8,
+      "row_count": 8,
+      "source_r58_evaluation_hash": "fe7faded3f89bebd0a55d83ad273cf2925fcfcb6b314d47dac06f9fc4403f77d",
+      "source_r58_fixture": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-all8.r58_r47_all8_fixture.json",
+      "source_r58_fixture_hash": "d0d637b0c262f29dc0665ee0c33fe4a115cb774effe946cce6d65353376431b4",
+      "source_r58_result": "results/B1_B7_cone01_R58_o3_f4_c2_all8_source_backed_expansion_gate_v0.json",
+      "source_target_id": "T-B1-004fi/T-B7-014r",
+      "strict_tolerance": 1e-08,
+      "upstream_target_id": "T-B1-004fh/T-B7-014q"
+    },
+    "bundle_output": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-all8.r59_c3_replay_certificate_bundle.json",
+    "certificates": [
+      {
+        "accepted": true,
+        "artifact": "R59 C3 same-unitary replay certificate",
+        "bound_files": [
+          {
+            "actual_hash": "e0922fdb81e0370a7c231094b448235212e4591202410421736926a0fe1fffe3",
+            "exists": true,
+            "expected_hash": "e0922fdb81e0370a7c231094b448235212e4591202410421736926a0fe1fffe3",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C01.source.qasm"
+          },
+          {
+            "actual_hash": "b7896e91e03ae5a50d58c547aaccffee9cedd2c714fa1ae22b0fb0280e3e0f6c",
+            "exists": true,
+            "expected_hash": "b7896e91e03ae5a50d58c547aaccffee9cedd2c714fa1ae22b0fb0280e3e0f6c",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C01.candidate.qasm"
+          },
+          {
+            "actual_hash": "4e7923be94d166f56f3a60636c2e8117b6911a881f775d095c4329b5cf54a030",
+            "exists": true,
+            "expected_hash": "4e7923be94d166f56f3a60636c2e8117b6911a881f775d095c4329b5cf54a030",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r58_same_unitary_witness.json"
+          },
+          {
+            "actual_hash": "6e86c5c4b7025225de92ecc8b03c3107d60907c7625acb72dec9e7b88b8a21d7",
+            "exists": true,
+            "expected_hash": "6e86c5c4b7025225de92ecc8b03c3107d60907c7625acb72dec9e7b88b8a21d7",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r58_same_unitary_verifier_transcript.json"
+          },
+          {
+            "actual_hash": "088dfe1240fa176d53abb82f5c0a134d63c97a7b22fe5f4f71d0e49c610eada2",
+            "exists": true,
+            "expected_hash": "088dfe1240fa176d53abb82f5c0a134d63c97a7b22fe5f4f71d0e49c610eada2",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r58_verifier_signature_artifact.json"
+          }
+        ],
+        "bound_files_passed": true,
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C01.candidate.qasm",
+        "candidate_circuit_sha256": "b7896e91e03ae5a50d58c547aaccffee9cedd2c714fa1ae22b0fb0280e3e0f6c",
+        "candidate_theta": 0.125,
+        "certificate_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r59_c3_same_unitary_replay_certificate.json",
+        "certificate_file_sha256": "1150ea8a0ec80e0ea5ae72999da0436a622af063af1ad164a3b38b7a871ecb85",
+        "certificate_hash": "964331600a97b513b50eebcc16539615a2a75705c4d001ecf966920397885811",
+        "challenge_id": "O3-F4-C01",
+        "claim_boundary": "C3 row-level single-qubit RZ replay certificate only; no O3 closure, no reroute, no B7 credit, no STV credit",
+        "evidence_packet_actual_sha256": "614c6602a0aa3bc04b1f7eaa7c75f3b38db1f2bddc2248bcc6fa7bd4abce7f7a",
+        "evidence_packet_expected_sha256_from_r58": "ddab0d82785ad7059ed7f102dcaedccfa954902d03e7b84a08d50ba0fcc57e87",
+        "evidence_packet_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r58_evidence_packet.json",
+        "evidence_packet_file_sha256_matches_r58": false,
+        "evidence_packet_semantic_hash_matches": true,
+        "method": "b1_b7_cone01_r59_o3_f4_c3_same_unitary_replay_certificate_gate_v0",
+        "positive_replay_distance": 0.0,
+        "positive_replay_passed": true,
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C01.source.qasm",
+        "source_circuit_sha256": "e0922fdb81e0370a7c231094b448235212e4591202410421736926a0fe1fffe3",
+        "source_r58_discriminator_row_hash": "43f700dff30a8b33f87bcf8afbf6dc4284256a3b22cc907821259cfdc2297038",
+        "source_r58_evidence_packet_hash": "dd86a169570352e7ba674c80a28d7a86b0985bae70019de1c96f37bdf78102ef",
+        "source_r58_same_unitary_witness_sha256": "4e7923be94d166f56f3a60636c2e8117b6911a881f775d095c4329b5cf54a030",
+        "source_target_id": "T-B1-004fi/T-B7-014r",
+        "source_theta": 0.125,
+        "strict_tolerance": 1e-08,
+        "unitary_distance_metric": "single_qubit_rz_operator_norm",
+        "upstream_target_id": "T-B1-004fh/T-B7-014q"
+      },
+      {
+        "accepted": true,
+        "artifact": "R59 C3 same-unitary replay certificate",
+        "bound_files": [
+          {
+            "actual_hash": "a6b226e1b22579ff47f031eb42b3ab54a2dc61439589c4b9f41009b4df2de42a",
+            "exists": true,
+            "expected_hash": "a6b226e1b22579ff47f031eb42b3ab54a2dc61439589c4b9f41009b4df2de42a",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C02.source.qasm"
+          },
+          {
+            "actual_hash": "56d6b1fc54101afaf87ba0825885cf39af0595b25a7b22d2dca9ec148ae88c81",
+            "exists": true,
+            "expected_hash": "56d6b1fc54101afaf87ba0825885cf39af0595b25a7b22d2dca9ec148ae88c81",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C02.candidate.qasm"
+          },
+          {
+            "actual_hash": "fbe51226ae5425232c417a77c3d4f8cdc9443ac0445d065bd6e25ef771ed02e1",
+            "exists": true,
+            "expected_hash": "fbe51226ae5425232c417a77c3d4f8cdc9443ac0445d065bd6e25ef771ed02e1",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r58_same_unitary_witness.json"
+          },
+          {
+            "actual_hash": "a51cad9a736f610c886f29ba9fa68de2f4c80fda60e719ef13a5116fabb862a8",
+            "exists": true,
+            "expected_hash": "a51cad9a736f610c886f29ba9fa68de2f4c80fda60e719ef13a5116fabb862a8",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r58_same_unitary_verifier_transcript.json"
+          },
+          {
+            "actual_hash": "cd9c289efd810e9d695e04040fdea88ca2dbaddbf478b2066ca1ccae7d667f66",
+            "exists": true,
+            "expected_hash": "cd9c289efd810e9d695e04040fdea88ca2dbaddbf478b2066ca1ccae7d667f66",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r58_verifier_signature_artifact.json"
+          }
+        ],
+        "bound_files_passed": true,
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C02.candidate.qasm",
+        "candidate_circuit_sha256": "56d6b1fc54101afaf87ba0825885cf39af0595b25a7b22d2dca9ec148ae88c81",
+        "candidate_theta": 0.126,
+        "certificate_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r59_c3_same_unitary_replay_certificate.json",
+        "certificate_file_sha256": "1d4fa7bcd61291b3cc72e99b2e52cea0206c3d94f74edfe3727e3eb078d53bcb",
+        "certificate_hash": "0db538be5dfe518cb1c308b4d6c04c3e66ed2477709df78b3d887c2c8aab414a",
+        "challenge_id": "O3-F4-C02",
+        "claim_boundary": "C3 row-level single-qubit RZ replay certificate only; no O3 closure, no reroute, no B7 credit, no STV credit",
+        "evidence_packet_actual_sha256": "0cb36ca3045783a1859e9c5070b7acc079e3e846a45c15873e4a10b2e016437f",
+        "evidence_packet_expected_sha256_from_r58": "0772d653f5b2c01806ae4a28cc89bd8c77275c294d0630b5f3067329ba613990",
+        "evidence_packet_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r58_evidence_packet.json",
+        "evidence_packet_file_sha256_matches_r58": false,
+        "evidence_packet_semantic_hash_matches": true,
+        "method": "b1_b7_cone01_r59_o3_f4_c3_same_unitary_replay_certificate_gate_v0",
+        "positive_replay_distance": 0.0,
+        "positive_replay_passed": true,
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C02.source.qasm",
+        "source_circuit_sha256": "a6b226e1b22579ff47f031eb42b3ab54a2dc61439589c4b9f41009b4df2de42a",
+        "source_r58_discriminator_row_hash": "3b91497a1f0bb2f927f1ab7ff21b6f477232e9c31bedd44c6d4909cc53316c2a",
+        "source_r58_evidence_packet_hash": "ed4ac9433495ba00ff2a83d38af52a6e991bf26472c4d0edbdc92d3a1ccf16b1",
+        "source_r58_same_unitary_witness_sha256": "fbe51226ae5425232c417a77c3d4f8cdc9443ac0445d065bd6e25ef771ed02e1",
+        "source_target_id": "T-B1-004fi/T-B7-014r",
+        "source_theta": 0.126,
+        "strict_tolerance": 1e-08,
+        "unitary_distance_metric": "single_qubit_rz_operator_norm",
+        "upstream_target_id": "T-B1-004fh/T-B7-014q"
+      },
+      {
+        "accepted": true,
+        "artifact": "R59 C3 same-unitary replay certificate",
+        "bound_files": [
+          {
+            "actual_hash": "a42c394ae32ea1febff6e44c6b5196c089add5dc09d3b9555ba381318ed10c9b",
+            "exists": true,
+            "expected_hash": "a42c394ae32ea1febff6e44c6b5196c089add5dc09d3b9555ba381318ed10c9b",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C03.source.qasm"
+          },
+          {
+            "actual_hash": "ed432f15fcd1c0895589fd55af4295caf053fb8ab875160e374b1df7e71bea5c",
+            "exists": true,
+            "expected_hash": "ed432f15fcd1c0895589fd55af4295caf053fb8ab875160e374b1df7e71bea5c",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C03.candidate.qasm"
+          },
+          {
+            "actual_hash": "546e64573cbeadf5d7a218bf00610d768626c534e600c7a3178e8d95d4a2e761",
+            "exists": true,
+            "expected_hash": "546e64573cbeadf5d7a218bf00610d768626c534e600c7a3178e8d95d4a2e761",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r58_same_unitary_witness.json"
+          },
+          {
+            "actual_hash": "80a160284a9f6538f4a7c7352d1382e316d2adc3defea50e935ca73e255badc3",
+            "exists": true,
+            "expected_hash": "80a160284a9f6538f4a7c7352d1382e316d2adc3defea50e935ca73e255badc3",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r58_same_unitary_verifier_transcript.json"
+          },
+          {
+            "actual_hash": "3244888fc07f9be7965154339e4ca17a541ccf1db01257e2bf247ad1685ad8a3",
+            "exists": true,
+            "expected_hash": "3244888fc07f9be7965154339e4ca17a541ccf1db01257e2bf247ad1685ad8a3",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r58_verifier_signature_artifact.json"
+          }
+        ],
+        "bound_files_passed": true,
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C03.candidate.qasm",
+        "candidate_circuit_sha256": "ed432f15fcd1c0895589fd55af4295caf053fb8ab875160e374b1df7e71bea5c",
+        "candidate_theta": 0.127,
+        "certificate_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r59_c3_same_unitary_replay_certificate.json",
+        "certificate_file_sha256": "0eb92d4730450b9a6a0c286c21a0e7e8897e0afbed42057d6876dc492a7c509f",
+        "certificate_hash": "0c57294d8baa24b7291a368aee269af1810b491e054db7f4c83de41f3f9dc5c8",
+        "challenge_id": "O3-F4-C03",
+        "claim_boundary": "C3 row-level single-qubit RZ replay certificate only; no O3 closure, no reroute, no B7 credit, no STV credit",
+        "evidence_packet_actual_sha256": "0b31ffe194cdcc01514be3cb7b3234e8354f39f712cb1a563993ed268b30a9ce",
+        "evidence_packet_expected_sha256_from_r58": "4d8d5efa82d85434b231280b73db6c2b9c90b55c16ffcb9c5b72b2ef37469fff",
+        "evidence_packet_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r58_evidence_packet.json",
+        "evidence_packet_file_sha256_matches_r58": false,
+        "evidence_packet_semantic_hash_matches": true,
+        "method": "b1_b7_cone01_r59_o3_f4_c3_same_unitary_replay_certificate_gate_v0",
+        "positive_replay_distance": 0.0,
+        "positive_replay_passed": true,
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C03.source.qasm",
+        "source_circuit_sha256": "a42c394ae32ea1febff6e44c6b5196c089add5dc09d3b9555ba381318ed10c9b",
+        "source_r58_discriminator_row_hash": "9a75c7c7ba3d30f66fa8c5458475fb5bffa89fc10ffc8b468061b215087dc23e",
+        "source_r58_evidence_packet_hash": "2168935fae5bac0b95636fdeab96242a36b13830fd167afba3925787eb2dae9b",
+        "source_r58_same_unitary_witness_sha256": "546e64573cbeadf5d7a218bf00610d768626c534e600c7a3178e8d95d4a2e761",
+        "source_target_id": "T-B1-004fi/T-B7-014r",
+        "source_theta": 0.127,
+        "strict_tolerance": 1e-08,
+        "unitary_distance_metric": "single_qubit_rz_operator_norm",
+        "upstream_target_id": "T-B1-004fh/T-B7-014q"
+      },
+      {
+        "accepted": true,
+        "artifact": "R59 C3 same-unitary replay certificate",
+        "bound_files": [
+          {
+            "actual_hash": "5c8d0dedaaa5a028abb13b60e36f3d7fa5b4c8f5a5bb23b3ca0296b40232cfb3",
+            "exists": true,
+            "expected_hash": "5c8d0dedaaa5a028abb13b60e36f3d7fa5b4c8f5a5bb23b3ca0296b40232cfb3",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C04.source.qasm"
+          },
+          {
+            "actual_hash": "855ab8315878612a1b932115ab180fae80f56d2a08715eb9601e6d688d65bd49",
+            "exists": true,
+            "expected_hash": "855ab8315878612a1b932115ab180fae80f56d2a08715eb9601e6d688d65bd49",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C04.candidate.qasm"
+          },
+          {
+            "actual_hash": "9f84ccb82bfabca12afa74679622489a79f30b8f28436dace2c85dd5e57036a0",
+            "exists": true,
+            "expected_hash": "9f84ccb82bfabca12afa74679622489a79f30b8f28436dace2c85dd5e57036a0",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r58_same_unitary_witness.json"
+          },
+          {
+            "actual_hash": "4b5cfbbd1b60b5fb05de88eb935a233c087bc69ea1c63e9831cce0e9b324ac54",
+            "exists": true,
+            "expected_hash": "4b5cfbbd1b60b5fb05de88eb935a233c087bc69ea1c63e9831cce0e9b324ac54",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r58_same_unitary_verifier_transcript.json"
+          },
+          {
+            "actual_hash": "6866c818575cee786fff31d0d5582a0a4abfccb822711590dae52f96698cdb5b",
+            "exists": true,
+            "expected_hash": "6866c818575cee786fff31d0d5582a0a4abfccb822711590dae52f96698cdb5b",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r58_verifier_signature_artifact.json"
+          }
+        ],
+        "bound_files_passed": true,
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C04.candidate.qasm",
+        "candidate_circuit_sha256": "855ab8315878612a1b932115ab180fae80f56d2a08715eb9601e6d688d65bd49",
+        "candidate_theta": 0.128,
+        "certificate_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r59_c3_same_unitary_replay_certificate.json",
+        "certificate_file_sha256": "43d004d33c45666de4bc22d3b2b5d619081eba1206a5a6c94b5d65a40a03de0c",
+        "certificate_hash": "788d20aea145da343859b76e047dc290ca3e4af59edec844f7120bdcb8d8f2b9",
+        "challenge_id": "O3-F4-C04",
+        "claim_boundary": "C3 row-level single-qubit RZ replay certificate only; no O3 closure, no reroute, no B7 credit, no STV credit",
+        "evidence_packet_actual_sha256": "73c90e4fa098c0d0962dff0380e4e416c6e6107f86e1973157f3bcf834274de7",
+        "evidence_packet_expected_sha256_from_r58": "104cad7da023e56702c7ddbb66394392aa0299abce30b6465b84729521ec60be",
+        "evidence_packet_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r58_evidence_packet.json",
+        "evidence_packet_file_sha256_matches_r58": false,
+        "evidence_packet_semantic_hash_matches": true,
+        "method": "b1_b7_cone01_r59_o3_f4_c3_same_unitary_replay_certificate_gate_v0",
+        "positive_replay_distance": 0.0,
+        "positive_replay_passed": true,
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C04.source.qasm",
+        "source_circuit_sha256": "5c8d0dedaaa5a028abb13b60e36f3d7fa5b4c8f5a5bb23b3ca0296b40232cfb3",
+        "source_r58_discriminator_row_hash": "e90decfa077afb418971c67b55018efa7ab25a7165878fe1241e02bfab3042dd",
+        "source_r58_evidence_packet_hash": "c83b8a801538c05a9da36c300784841ff9180a850865bc55e2d990d5996a8bfe",
+        "source_r58_same_unitary_witness_sha256": "9f84ccb82bfabca12afa74679622489a79f30b8f28436dace2c85dd5e57036a0",
+        "source_target_id": "T-B1-004fi/T-B7-014r",
+        "source_theta": 0.128,
+        "strict_tolerance": 1e-08,
+        "unitary_distance_metric": "single_qubit_rz_operator_norm",
+        "upstream_target_id": "T-B1-004fh/T-B7-014q"
+      },
+      {
+        "accepted": true,
+        "artifact": "R59 C3 same-unitary replay certificate",
+        "bound_files": [
+          {
+            "actual_hash": "5a709555e5743cecdce2aff7a24aa0a66e5538d3e62490a9a54f1d5ea954ebf7",
+            "exists": true,
+            "expected_hash": "5a709555e5743cecdce2aff7a24aa0a66e5538d3e62490a9a54f1d5ea954ebf7",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C05.source.qasm"
+          },
+          {
+            "actual_hash": "266afdd8ea74a16bb9f78c7c2e0c6fd23faf26402a197868b834fbd576735ee5",
+            "exists": true,
+            "expected_hash": "266afdd8ea74a16bb9f78c7c2e0c6fd23faf26402a197868b834fbd576735ee5",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C05.candidate.qasm"
+          },
+          {
+            "actual_hash": "1cc59e455f2da3a47729ab84f5f58183eddd8ce9f2b356572e20497b140d3e20",
+            "exists": true,
+            "expected_hash": "1cc59e455f2da3a47729ab84f5f58183eddd8ce9f2b356572e20497b140d3e20",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r58_same_unitary_witness.json"
+          },
+          {
+            "actual_hash": "d89fc7562cd076f1998f28fe0d7ba9ebf324cf7e31019a3136c852b90c1bcd02",
+            "exists": true,
+            "expected_hash": "d89fc7562cd076f1998f28fe0d7ba9ebf324cf7e31019a3136c852b90c1bcd02",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r58_same_unitary_verifier_transcript.json"
+          },
+          {
+            "actual_hash": "93c3751b36c9ff39d917515a70346ed5013011d79dde78cd7078472435979324",
+            "exists": true,
+            "expected_hash": "93c3751b36c9ff39d917515a70346ed5013011d79dde78cd7078472435979324",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r58_verifier_signature_artifact.json"
+          }
+        ],
+        "bound_files_passed": true,
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C05.candidate.qasm",
+        "candidate_circuit_sha256": "266afdd8ea74a16bb9f78c7c2e0c6fd23faf26402a197868b834fbd576735ee5",
+        "candidate_theta": 0.129,
+        "certificate_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r59_c3_same_unitary_replay_certificate.json",
+        "certificate_file_sha256": "696d8da03ced47b6c4f50d50f92e5af60c82efd857757aff659cffa6f2c08e2d",
+        "certificate_hash": "166cce5829bba5040bb7d183b232bd936050a0124bd5310e38a362b5b833f073",
+        "challenge_id": "O3-F4-C05",
+        "claim_boundary": "C3 row-level single-qubit RZ replay certificate only; no O3 closure, no reroute, no B7 credit, no STV credit",
+        "evidence_packet_actual_sha256": "82fa757a537a9119ba4413b3d6b00fd7c6b9e00fa81d8dba31cb076241779581",
+        "evidence_packet_expected_sha256_from_r58": "25e9ceb56d0cd4972ab177d9cf64671f9f8242acfcb90da913afe6a7498ef694",
+        "evidence_packet_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r58_evidence_packet.json",
+        "evidence_packet_file_sha256_matches_r58": false,
+        "evidence_packet_semantic_hash_matches": true,
+        "method": "b1_b7_cone01_r59_o3_f4_c3_same_unitary_replay_certificate_gate_v0",
+        "positive_replay_distance": 0.0,
+        "positive_replay_passed": true,
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C05.source.qasm",
+        "source_circuit_sha256": "5a709555e5743cecdce2aff7a24aa0a66e5538d3e62490a9a54f1d5ea954ebf7",
+        "source_r58_discriminator_row_hash": "58db62efd1be32a717869134b2055638213d5abf908e5f70fed098e3340ce07d",
+        "source_r58_evidence_packet_hash": "154db4ac6c6dc98738e722a2786f6e77d79b2b92cf66ccc783d1a40d1fcb6a60",
+        "source_r58_same_unitary_witness_sha256": "1cc59e455f2da3a47729ab84f5f58183eddd8ce9f2b356572e20497b140d3e20",
+        "source_target_id": "T-B1-004fi/T-B7-014r",
+        "source_theta": 0.129,
+        "strict_tolerance": 1e-08,
+        "unitary_distance_metric": "single_qubit_rz_operator_norm",
+        "upstream_target_id": "T-B1-004fh/T-B7-014q"
+      },
+      {
+        "accepted": true,
+        "artifact": "R59 C3 same-unitary replay certificate",
+        "bound_files": [
+          {
+            "actual_hash": "04cb9f2f81e75f1b3623a65c4ce0f4d2cfbdb2a87823b1ba09e5529bff79f84f",
+            "exists": true,
+            "expected_hash": "04cb9f2f81e75f1b3623a65c4ce0f4d2cfbdb2a87823b1ba09e5529bff79f84f",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C06.source.qasm"
+          },
+          {
+            "actual_hash": "8e06e926c9638f9bd977a4e6ae28f7f654272f78388a4313687c7dfdb3bd56ee",
+            "exists": true,
+            "expected_hash": "8e06e926c9638f9bd977a4e6ae28f7f654272f78388a4313687c7dfdb3bd56ee",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C06.candidate.qasm"
+          },
+          {
+            "actual_hash": "ee0582ea3c7695b53bd4b9e8c919f8e6b824be8baf8f4f1aaa5d966fffad5f09",
+            "exists": true,
+            "expected_hash": "ee0582ea3c7695b53bd4b9e8c919f8e6b824be8baf8f4f1aaa5d966fffad5f09",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r58_same_unitary_witness.json"
+          },
+          {
+            "actual_hash": "7b5611596740997f55bb22abb9b0dc59d1ab93eec249c6a969691c1aa9266f52",
+            "exists": true,
+            "expected_hash": "7b5611596740997f55bb22abb9b0dc59d1ab93eec249c6a969691c1aa9266f52",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r58_same_unitary_verifier_transcript.json"
+          },
+          {
+            "actual_hash": "1cf893950bd6d94b8fa7025516709435e764c93a532e47c792ed8446a162059b",
+            "exists": true,
+            "expected_hash": "1cf893950bd6d94b8fa7025516709435e764c93a532e47c792ed8446a162059b",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r58_verifier_signature_artifact.json"
+          }
+        ],
+        "bound_files_passed": true,
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C06.candidate.qasm",
+        "candidate_circuit_sha256": "8e06e926c9638f9bd977a4e6ae28f7f654272f78388a4313687c7dfdb3bd56ee",
+        "candidate_theta": 0.13,
+        "certificate_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r59_c3_same_unitary_replay_certificate.json",
+        "certificate_file_sha256": "438866944800b21d3420608ef39db30a4103d7f7413b60e44a6807cd7ed794a7",
+        "certificate_hash": "b178116739189914bea25b7a90cb7854aef71b590888a22dbf8635b8a72189c9",
+        "challenge_id": "O3-F4-C06",
+        "claim_boundary": "C3 row-level single-qubit RZ replay certificate only; no O3 closure, no reroute, no B7 credit, no STV credit",
+        "evidence_packet_actual_sha256": "a6b17ddfe44c1159119ddcfc38919ee9c79def7c03437bf1d0f8d7f5cf16a1d7",
+        "evidence_packet_expected_sha256_from_r58": "d99fc96a810ead88a4e78b34c2df22a55400826c9d04b433459e1217aac5f901",
+        "evidence_packet_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r58_evidence_packet.json",
+        "evidence_packet_file_sha256_matches_r58": false,
+        "evidence_packet_semantic_hash_matches": true,
+        "method": "b1_b7_cone01_r59_o3_f4_c3_same_unitary_replay_certificate_gate_v0",
+        "positive_replay_distance": 0.0,
+        "positive_replay_passed": true,
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C06.source.qasm",
+        "source_circuit_sha256": "04cb9f2f81e75f1b3623a65c4ce0f4d2cfbdb2a87823b1ba09e5529bff79f84f",
+        "source_r58_discriminator_row_hash": "9d45d47dcc2b90eec3f5b7cfb6fb54f0322975170588cf466efe307794d9d2d5",
+        "source_r58_evidence_packet_hash": "3c5dc8892dc835a15a66c36e9dec4116a777e6f9cd6d6dc38af32e045112cb17",
+        "source_r58_same_unitary_witness_sha256": "ee0582ea3c7695b53bd4b9e8c919f8e6b824be8baf8f4f1aaa5d966fffad5f09",
+        "source_target_id": "T-B1-004fi/T-B7-014r",
+        "source_theta": 0.13,
+        "strict_tolerance": 1e-08,
+        "unitary_distance_metric": "single_qubit_rz_operator_norm",
+        "upstream_target_id": "T-B1-004fh/T-B7-014q"
+      },
+      {
+        "accepted": true,
+        "artifact": "R59 C3 same-unitary replay certificate",
+        "bound_files": [
+          {
+            "actual_hash": "c4db45035fe3c0d7a0128f6de41c57c7938ee474be24e4471743db22b5cba229",
+            "exists": true,
+            "expected_hash": "c4db45035fe3c0d7a0128f6de41c57c7938ee474be24e4471743db22b5cba229",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C07.source.qasm"
+          },
+          {
+            "actual_hash": "7280a8c49ee98b018011f59c18db0e2a06344248c5857f1c2f86c511a460de31",
+            "exists": true,
+            "expected_hash": "7280a8c49ee98b018011f59c18db0e2a06344248c5857f1c2f86c511a460de31",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C07.candidate.qasm"
+          },
+          {
+            "actual_hash": "968d5d267d59745c2c9ebde46c8b4eb0f2a70956970a8592dea2d5b254704504",
+            "exists": true,
+            "expected_hash": "968d5d267d59745c2c9ebde46c8b4eb0f2a70956970a8592dea2d5b254704504",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r58_same_unitary_witness.json"
+          },
+          {
+            "actual_hash": "d4ab25a3942b863ba2e582bfaea3373df7dc3529e71a941b456f44ac14f6eec1",
+            "exists": true,
+            "expected_hash": "d4ab25a3942b863ba2e582bfaea3373df7dc3529e71a941b456f44ac14f6eec1",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r58_same_unitary_verifier_transcript.json"
+          },
+          {
+            "actual_hash": "1f6f654b0f09afc544b4bf57b5e1c1d7617f6901bb2752735b38afa02987a7a0",
+            "exists": true,
+            "expected_hash": "1f6f654b0f09afc544b4bf57b5e1c1d7617f6901bb2752735b38afa02987a7a0",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r58_verifier_signature_artifact.json"
+          }
+        ],
+        "bound_files_passed": true,
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C07.candidate.qasm",
+        "candidate_circuit_sha256": "7280a8c49ee98b018011f59c18db0e2a06344248c5857f1c2f86c511a460de31",
+        "candidate_theta": 0.131,
+        "certificate_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r59_c3_same_unitary_replay_certificate.json",
+        "certificate_file_sha256": "02a65b1ffac909b9d9b532b1c90489f9c6e3f80d19b343d5abf2f11b449a405a",
+        "certificate_hash": "6823012899a1b1ca281568ed56cc5fe2d3b2a955eb166300101809ddba91776f",
+        "challenge_id": "O3-F4-C07",
+        "claim_boundary": "C3 row-level single-qubit RZ replay certificate only; no O3 closure, no reroute, no B7 credit, no STV credit",
+        "evidence_packet_actual_sha256": "c147cc1b662a59a4f847ff465c98596f0aa95c4c6e176985e03bcbcc5740525a",
+        "evidence_packet_expected_sha256_from_r58": "05548a32f31be5eda1e690c1d328be5d7e89bfac27835f4d98583a99c6ade468",
+        "evidence_packet_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r58_evidence_packet.json",
+        "evidence_packet_file_sha256_matches_r58": false,
+        "evidence_packet_semantic_hash_matches": true,
+        "method": "b1_b7_cone01_r59_o3_f4_c3_same_unitary_replay_certificate_gate_v0",
+        "positive_replay_distance": 0.0,
+        "positive_replay_passed": true,
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C07.source.qasm",
+        "source_circuit_sha256": "c4db45035fe3c0d7a0128f6de41c57c7938ee474be24e4471743db22b5cba229",
+        "source_r58_discriminator_row_hash": "70ef8ee09fa9ee61e54441a78f485f979e2a51377c33dbcba5859c0d87b08086",
+        "source_r58_evidence_packet_hash": "9e40abfe2a401fb90fa0d665f73327ffe177f72eedf0e76c01524a5608ffcc3b",
+        "source_r58_same_unitary_witness_sha256": "968d5d267d59745c2c9ebde46c8b4eb0f2a70956970a8592dea2d5b254704504",
+        "source_target_id": "T-B1-004fi/T-B7-014r",
+        "source_theta": 0.131,
+        "strict_tolerance": 1e-08,
+        "unitary_distance_metric": "single_qubit_rz_operator_norm",
+        "upstream_target_id": "T-B1-004fh/T-B7-014q"
+      },
+      {
+        "accepted": true,
+        "artifact": "R59 C3 same-unitary replay certificate",
+        "bound_files": [
+          {
+            "actual_hash": "b7dcac442b0f46b145374866b1689d2bf7019eccd1f2cfbbb1a6900c6ef1bff9",
+            "exists": true,
+            "expected_hash": "b7dcac442b0f46b145374866b1689d2bf7019eccd1f2cfbbb1a6900c6ef1bff9",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C08.source.qasm"
+          },
+          {
+            "actual_hash": "c7cb640d755334de87e692b1c75393efee17f2fc26c10a480d4b19220b05bb52",
+            "exists": true,
+            "expected_hash": "c7cb640d755334de87e692b1c75393efee17f2fc26c10a480d4b19220b05bb52",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C08.candidate.qasm"
+          },
+          {
+            "actual_hash": "290628cb29481945315dc2752422dc204aa10c4dc57757bb2ef9c68262f575b5",
+            "exists": true,
+            "expected_hash": "290628cb29481945315dc2752422dc204aa10c4dc57757bb2ef9c68262f575b5",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r58_same_unitary_witness.json"
+          },
+          {
+            "actual_hash": "6ee5192b839964977ad9fb2170a69891e66161d4fb43e0a79654f1d9ed194323",
+            "exists": true,
+            "expected_hash": "6ee5192b839964977ad9fb2170a69891e66161d4fb43e0a79654f1d9ed194323",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r58_same_unitary_verifier_transcript.json"
+          },
+          {
+            "actual_hash": "50348194fa8e515c5c129f8d561146c839be758315dd5628b303efaee583ecd4",
+            "exists": true,
+            "expected_hash": "50348194fa8e515c5c129f8d561146c839be758315dd5628b303efaee583ecd4",
+            "hash_matches": true,
+            "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r58_verifier_signature_artifact.json"
+          }
+        ],
+        "bound_files_passed": true,
+        "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C08.candidate.qasm",
+        "candidate_circuit_sha256": "c7cb640d755334de87e692b1c75393efee17f2fc26c10a480d4b19220b05bb52",
+        "candidate_theta": 0.132,
+        "certificate_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r59_c3_same_unitary_replay_certificate.json",
+        "certificate_file_sha256": "6b6f019e14d39a1c4ba6fc5ddb296e152a05be02782895c0378779c2c602a861",
+        "certificate_hash": "9bb1c2640722eeb3fd39aea61df2ca187c200dbeebb2b9ef96daad89c5428229",
+        "challenge_id": "O3-F4-C08",
+        "claim_boundary": "C3 row-level single-qubit RZ replay certificate only; no O3 closure, no reroute, no B7 credit, no STV credit",
+        "evidence_packet_actual_sha256": "2c153cce64f55f748f4a895c31c77e4aa7105debdce62c1573e6fbf00d420008",
+        "evidence_packet_expected_sha256_from_r58": "56d02f5e7fcb15fc48c78cde7337b1b65afc3dfe41a5a26a5f4244bf3faa16ca",
+        "evidence_packet_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r58_evidence_packet.json",
+        "evidence_packet_file_sha256_matches_r58": false,
+        "evidence_packet_semantic_hash_matches": true,
+        "method": "b1_b7_cone01_r59_o3_f4_c3_same_unitary_replay_certificate_gate_v0",
+        "positive_replay_distance": 0.0,
+        "positive_replay_passed": true,
+        "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C08.source.qasm",
+        "source_circuit_sha256": "b7dcac442b0f46b145374866b1689d2bf7019eccd1f2cfbbb1a6900c6ef1bff9",
+        "source_r58_discriminator_row_hash": "20ed50665078769dc39dc2a1ced7415a95a8386d984e9620ced12c153beb6e86",
+        "source_r58_evidence_packet_hash": "0071e933192eaea3960db55f0ffdb88a3178fc1a5bfc9f9c9939479ea8f5c643",
+        "source_r58_same_unitary_witness_sha256": "290628cb29481945315dc2752422dc204aa10c4dc57757bb2ef9c68262f575b5",
+        "source_target_id": "T-B1-004fi/T-B7-014r",
+        "source_theta": 0.132,
+        "strict_tolerance": 1e-08,
+        "unitary_distance_metric": "single_qubit_rz_operator_norm",
+        "upstream_target_id": "T-B1-004fh/T-B7-014q"
+      }
+    ],
+    "negative_controls": [
+      {
+        "artifact": "R59 C3 negative-control replay challenge",
+        "challenge_id": "O3-F4-C01",
+        "claim_boundary": "Negative control must be rejected; this is verifier-pressure evidence, not a resource or B7 ledger claim.",
+        "method": "b1_b7_cone01_r59_o3_f4_c3_same_unitary_replay_certificate_gate_v0",
+        "negative_candidate_theta": 0.15625,
+        "negative_control_delta": 0.03125,
+        "negative_control_distance": 0.015624841054765663,
+        "negative_control_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C01.r59_c3_negative_control.json",
+        "negative_control_file_sha256": "bf083d1dbdd0ee499528989e2887a59572962ba3f63c42c7ae05cead31f2a7e8",
+        "negative_control_hash": "cb1108ef647cc0b12dfdac909dab21e2af6d7316b4ff34eca644c2396c455f93",
+        "negative_control_rejected": true,
+        "original_candidate_theta": 0.125,
+        "source_theta": 0.125,
+        "strict_tolerance": 1e-08,
+        "would_be_false_positive": false
+      },
+      {
+        "artifact": "R59 C3 negative-control replay challenge",
+        "challenge_id": "O3-F4-C02",
+        "claim_boundary": "Negative control must be rejected; this is verifier-pressure evidence, not a resource or B7 ledger claim.",
+        "method": "b1_b7_cone01_r59_o3_f4_c3_same_unitary_replay_certificate_gate_v0",
+        "negative_candidate_theta": 0.15725,
+        "negative_control_delta": 0.03125,
+        "negative_control_distance": 0.015624841054765663,
+        "negative_control_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C02.r59_c3_negative_control.json",
+        "negative_control_file_sha256": "36146a1cd212c6a19e08fd6601e06194819949c6518aaf8516d87c6d26395761",
+        "negative_control_hash": "14be983b2c34cd7b56ba77d2eddd4cc8703daf07526270231b2e2d5b55a8dd7b",
+        "negative_control_rejected": true,
+        "original_candidate_theta": 0.126,
+        "source_theta": 0.126,
+        "strict_tolerance": 1e-08,
+        "would_be_false_positive": false
+      },
+      {
+        "artifact": "R59 C3 negative-control replay challenge",
+        "challenge_id": "O3-F4-C03",
+        "claim_boundary": "Negative control must be rejected; this is verifier-pressure evidence, not a resource or B7 ledger claim.",
+        "method": "b1_b7_cone01_r59_o3_f4_c3_same_unitary_replay_certificate_gate_v0",
+        "negative_candidate_theta": 0.15825,
+        "negative_control_delta": 0.03125,
+        "negative_control_distance": 0.015624841054765663,
+        "negative_control_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C03.r59_c3_negative_control.json",
+        "negative_control_file_sha256": "b8e06c27168e088d097183cc4e49072a74c76911fff788ccb3b5f5f752fd9c41",
+        "negative_control_hash": "de73bb22bc01bd0533778be4cbcaeae2177c152c2038c6d9231edca8f4bef4da",
+        "negative_control_rejected": true,
+        "original_candidate_theta": 0.127,
+        "source_theta": 0.127,
+        "strict_tolerance": 1e-08,
+        "would_be_false_positive": false
+      },
+      {
+        "artifact": "R59 C3 negative-control replay challenge",
+        "challenge_id": "O3-F4-C04",
+        "claim_boundary": "Negative control must be rejected; this is verifier-pressure evidence, not a resource or B7 ledger claim.",
+        "method": "b1_b7_cone01_r59_o3_f4_c3_same_unitary_replay_certificate_gate_v0",
+        "negative_candidate_theta": 0.15925,
+        "negative_control_delta": 0.03125,
+        "negative_control_distance": 0.015624841054765663,
+        "negative_control_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r59_c3_negative_control.json",
+        "negative_control_file_sha256": "42c51ea173e7d0183b0e02cfc16f78cab7dc4e1185badf6c90e649761a93ac41",
+        "negative_control_hash": "acf4620d176b1dd0f67c92c7819bcf353952583469f9d178d88237b63752d996",
+        "negative_control_rejected": true,
+        "original_candidate_theta": 0.128,
+        "source_theta": 0.128,
+        "strict_tolerance": 1e-08,
+        "would_be_false_positive": false
+      },
+      {
+        "artifact": "R59 C3 negative-control replay challenge",
+        "challenge_id": "O3-F4-C05",
+        "claim_boundary": "Negative control must be rejected; this is verifier-pressure evidence, not a resource or B7 ledger claim.",
+        "method": "b1_b7_cone01_r59_o3_f4_c3_same_unitary_replay_certificate_gate_v0",
+        "negative_candidate_theta": 0.16025,
+        "negative_control_delta": 0.03125,
+        "negative_control_distance": 0.015624841054765663,
+        "negative_control_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C05.r59_c3_negative_control.json",
+        "negative_control_file_sha256": "d37a4347ad09df599f211b5c5a7d28b86046a4eab0f3b505920ca0b0d9c2a42a",
+        "negative_control_hash": "a63052a4829ad4a0094e33d172f5bfddf8f922afb725537aa35b8c0a580d4a26",
+        "negative_control_rejected": true,
+        "original_candidate_theta": 0.129,
+        "source_theta": 0.129,
+        "strict_tolerance": 1e-08,
+        "would_be_false_positive": false
+      },
+      {
+        "artifact": "R59 C3 negative-control replay challenge",
+        "challenge_id": "O3-F4-C06",
+        "claim_boundary": "Negative control must be rejected; this is verifier-pressure evidence, not a resource or B7 ledger claim.",
+        "method": "b1_b7_cone01_r59_o3_f4_c3_same_unitary_replay_certificate_gate_v0",
+        "negative_candidate_theta": 0.16125,
+        "negative_control_delta": 0.03125,
+        "negative_control_distance": 0.015624841054765663,
+        "negative_control_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C06.r59_c3_negative_control.json",
+        "negative_control_file_sha256": "20d5cff4cb603f2293f6c29dfc615f613f7d6e2007b6474c4af260d9753d4896",
+        "negative_control_hash": "dd13bd4ecd102b53c2cd285aef5036edf1ae5071b5f07b75c01e83c5d941b2af",
+        "negative_control_rejected": true,
+        "original_candidate_theta": 0.13,
+        "source_theta": 0.13,
+        "strict_tolerance": 1e-08,
+        "would_be_false_positive": false
+      },
+      {
+        "artifact": "R59 C3 negative-control replay challenge",
+        "challenge_id": "O3-F4-C07",
+        "claim_boundary": "Negative control must be rejected; this is verifier-pressure evidence, not a resource or B7 ledger claim.",
+        "method": "b1_b7_cone01_r59_o3_f4_c3_same_unitary_replay_certificate_gate_v0",
+        "negative_candidate_theta": 0.16225,
+        "negative_control_delta": 0.03125,
+        "negative_control_distance": 0.015624841054765663,
+        "negative_control_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C07.r59_c3_negative_control.json",
+        "negative_control_file_sha256": "b78b5e7ab49aaf3ddc9ee8e4f347e647b5592af48af3288c9c8fb63887fa6f17",
+        "negative_control_hash": "d6f7ad6dd1994383afc9f720e96f48e46b0ee4455016632a47eb499573a7d9ff",
+        "negative_control_rejected": true,
+        "original_candidate_theta": 0.131,
+        "source_theta": 0.131,
+        "strict_tolerance": 1e-08,
+        "would_be_false_positive": false
+      },
+      {
+        "artifact": "R59 C3 negative-control replay challenge",
+        "challenge_id": "O3-F4-C08",
+        "claim_boundary": "Negative control must be rejected; this is verifier-pressure evidence, not a resource or B7 ledger claim.",
+        "method": "b1_b7_cone01_r59_o3_f4_c3_same_unitary_replay_certificate_gate_v0",
+        "negative_candidate_theta": 0.16325,
+        "negative_control_delta": 0.03125,
+        "negative_control_distance": 0.015624841054765663,
+        "negative_control_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C08.r59_c3_negative_control.json",
+        "negative_control_file_sha256": "f328840484161c3993878aa060052631f9ab84d046e7113a27a3800eff2397f4",
+        "negative_control_hash": "3360536b20ea70e84de145d5ce8a1cc5c05540afbd0cacd9eaa5046437405aa0",
+        "negative_control_rejected": true,
+        "original_candidate_theta": 0.132,
+        "source_theta": 0.132,
+        "strict_tolerance": 1e-08,
+        "would_be_false_positive": false
+      }
+    ],
+    "source_r58_fixture": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-all8.r58_r47_all8_fixture.json",
+    "source_r58_result": "results/B1_B7_cone01_R58_o3_f4_c2_all8_source_backed_expansion_gate_v0.json"
+  },
+  "requirements": [
+    {
+      "evidence": {
+        "r58_r47_all8_rows_accepted": true,
+        "r58_requirements_passed": 8,
+        "r58_source_backed_rows_passed": 8,
+        "zero_credit_ok": true
+      },
+      "label": "R58 upstream accepted all 8 C2 source-backed discriminator rows with zero B7 credit",
+      "passed": true,
+      "requirement_id": "S1"
+    },
+    {
+      "evidence": {
+        "challenge_ids": [
+          "O3-F4-C01",
+          "O3-F4-C02",
+          "O3-F4-C03",
+          "O3-F4-C04",
+          "O3-F4-C05",
+          "O3-F4-C06",
+          "O3-F4-C07",
+          "O3-F4-C08"
+        ],
+        "row_count": 8
+      },
+      "label": "R59 parses exactly one OpenQASM 3.0 RZ angle for each source and candidate row",
+      "passed": true,
+      "requirement_id": "S2"
+    },
+    {
+      "evidence": {
+        "evidence_packet_file_sha256_mismatch_count": 8,
+        "evidence_packet_semantic_hash_match_count": 8,
+        "rows_with_bound_file_failures": []
+      },
+      "label": "All critical R58-bound files hash-match and evidence packets remain semantically bound",
+      "passed": true,
+      "requirement_id": "S3"
+    },
+    {
+      "evidence": {
+        "max_positive_replay_distance": 0.0,
+        "positive_replay_passed_count": 8
+      },
+      "label": "Positive same-unitary replay certificates pass for all 8 rows",
+      "passed": true,
+      "requirement_id": "S4"
+    },
+    {
+      "evidence": {
+        "min_negative_control_distance": 0.015624841054765663,
+        "negative_control_delta": 0.03125,
+        "negative_control_rejected_count": 8
+      },
+      "label": "Negative-control perturbations are rejected for all 8 rows",
+      "passed": true,
+      "requirement_id": "S5"
+    },
+    {
+      "evidence": {
+        "b7_credit_delta": 0,
+        "b7_space_time_volume_credit": 0,
+        "c3_same_unitary_replay_certificate_complete": true,
+        "o3_closed": false,
+        "reroute_allowed": false
+      },
+      "label": "R59 completes the restricted C3 replay certificate without promoting O3/reroute/B7 credit",
+      "passed": true,
+      "requirement_id": "S6"
+    },
+    {
+      "evidence": {
+        "remaining_open_obligations": [
+          "C4_C5_same_access_denominator_comparison",
+          "C6_leakage_free_optimizer_trace",
+          "C7_machine_check_replay_bundle",
+          "B7_ledger_retest_after_C4_C7"
+        ]
+      },
+      "label": "R59 leaves C4/C5, C6, C7, and B7 ledger retest open",
+      "passed": true,
+      "requirement_id": "S7"
+    },
+    {
+      "evidence": {
+        "bundle_file_sha256": "dfb0cedebe4bbf06a26da670a6f9382ba64febcf291afe8fa0cba442df1484df",
+        "bundle_hash": "fa7ab308e09644f3d58228a92ea580fb40f6ea88b8408cc75ddc21df79b84cbb",
+        "certificate_hashes": {
+          "O3-F4-C01": "964331600a97b513b50eebcc16539615a2a75705c4d001ecf966920397885811",
+          "O3-F4-C02": "0db538be5dfe518cb1c308b4d6c04c3e66ed2477709df78b3d887c2c8aab414a",
+          "O3-F4-C03": "0c57294d8baa24b7291a368aee269af1810b491e054db7f4c83de41f3f9dc5c8",
+          "O3-F4-C04": "788d20aea145da343859b76e047dc290ca3e4af59edec844f7120bdcb8d8f2b9",
+          "O3-F4-C05": "166cce5829bba5040bb7d183b232bd936050a0124bd5310e38a362b5b833f073",
+          "O3-F4-C06": "b178116739189914bea25b7a90cb7854aef71b590888a22dbf8635b8a72189c9",
+          "O3-F4-C07": "6823012899a1b1ca281568ed56cc5fe2d3b2a955eb166300101809ddba91776f",
+          "O3-F4-C08": "9bb1c2640722eeb3fd39aea61df2ca187c200dbeebb2b9ef96daad89c5428229"
+        },
+        "negative_control_hashes": {
+          "O3-F4-C01": "cb1108ef647cc0b12dfdac909dab21e2af6d7316b4ff34eca644c2396c455f93",
+          "O3-F4-C02": "14be983b2c34cd7b56ba77d2eddd4cc8703daf07526270231b2e2d5b55a8dd7b",
+          "O3-F4-C03": "de73bb22bc01bd0533778be4cbcaeae2177c152c2038c6d9231edca8f4bef4da",
+          "O3-F4-C04": "acf4620d176b1dd0f67c92c7819bcf353952583469f9d178d88237b63752d996",
+          "O3-F4-C05": "a63052a4829ad4a0094e33d172f5bfddf8f922afb725537aa35b8c0a580d4a26",
+          "O3-F4-C06": "dd13bd4ecd102b53c2cd285aef5036edf1ae5071b5f07b75c01e83c5d941b2af",
+          "O3-F4-C07": "d6f7ad6dd1994383afc9f720e96f48e46b0ee4455016632a47eb499573a7d9ff",
+          "O3-F4-C08": "3360536b20ea70e84de145d5ce8a1cc5c05540afbd0cacd9eaa5046437405aa0"
+        }
+      },
+      "label": "R59 bundle and per-row certificates are hash-bound",
+      "passed": true,
+      "requirement_id": "S8"
+    }
+  ],
+  "runtime_seconds": 0.004823,
+  "source_target_id": "T-B1-004fi/T-B7-014r",
+  "status": "cone01_r59_o3_f4_c3_same_unitary_replay_certificate_passed_zero_b7_credit",
+  "summary": {
+    "b7_credit_delta": 0,
+    "b7_ledger_improvement_claimed": false,
+    "b7_space_time_volume_credit": 0,
+    "c2_strict_replay_rows_accepted": true,
+    "c3_same_unitary_replay_certificate_complete": true,
+    "c4_c5_same_access_denominator_comparison_complete": false,
+    "c6_leakage_free_optimizer_trace_complete": false,
+    "c7_machine_check_replay_bundle_complete": false,
+    "certificate_hashes": {
+      "O3-F4-C01": "964331600a97b513b50eebcc16539615a2a75705c4d001ecf966920397885811",
+      "O3-F4-C02": "0db538be5dfe518cb1c308b4d6c04c3e66ed2477709df78b3d887c2c8aab414a",
+      "O3-F4-C03": "0c57294d8baa24b7291a368aee269af1810b491e054db7f4c83de41f3f9dc5c8",
+      "O3-F4-C04": "788d20aea145da343859b76e047dc290ca3e4af59edec844f7120bdcb8d8f2b9",
+      "O3-F4-C05": "166cce5829bba5040bb7d183b232bd936050a0124bd5310e38a362b5b833f073",
+      "O3-F4-C06": "b178116739189914bea25b7a90cb7854aef71b590888a22dbf8635b8a72189c9",
+      "O3-F4-C07": "6823012899a1b1ca281568ed56cc5fe2d3b2a955eb166300101809ddba91776f",
+      "O3-F4-C08": "9bb1c2640722eeb3fd39aea61df2ca187c200dbeebb2b9ef96daad89c5428229"
+    },
+    "evidence_packet_file_sha256_mismatch_count": 8,
+    "evidence_packet_semantic_hash_match_count": 8,
+    "failed_requirement_ids": [],
+    "max_positive_replay_distance": 0.0,
+    "min_negative_control_distance": 0.015624841054765663,
+    "negative_control_delta": 0.03125,
+    "negative_control_hashes": {
+      "O3-F4-C01": "cb1108ef647cc0b12dfdac909dab21e2af6d7316b4ff34eca644c2396c455f93",
+      "O3-F4-C02": "14be983b2c34cd7b56ba77d2eddd4cc8703daf07526270231b2e2d5b55a8dd7b",
+      "O3-F4-C03": "de73bb22bc01bd0533778be4cbcaeae2177c152c2038c6d9231edca8f4bef4da",
+      "O3-F4-C04": "acf4620d176b1dd0f67c92c7819bcf353952583469f9d178d88237b63752d996",
+      "O3-F4-C05": "a63052a4829ad4a0094e33d172f5bfddf8f922afb725537aa35b8c0a580d4a26",
+      "O3-F4-C06": "dd13bd4ecd102b53c2cd285aef5036edf1ae5071b5f07b75c01e83c5d941b2af",
+      "O3-F4-C07": "d6f7ad6dd1994383afc9f720e96f48e46b0ee4455016632a47eb499573a7d9ff",
+      "O3-F4-C08": "3360536b20ea70e84de145d5ce8a1cc5c05540afbd0cacd9eaa5046437405aa0"
+    },
+    "negative_control_rejected_count": 8,
+    "o3_closed": false,
+    "positive_replay_passed_count": 8,
+    "r59_bundle_file_sha256": "dfb0cedebe4bbf06a26da670a6f9382ba64febcf291afe8fa0cba442df1484df",
+    "r59_bundle_hash": "fa7ab308e09644f3d58228a92ea580fb40f6ea88b8408cc75ddc21df79b84cbb",
+    "remaining_open_obligation_count": 4,
+    "remaining_open_obligations": [
+      "C4_C5_same_access_denominator_comparison",
+      "C6_leakage_free_optimizer_trace",
+      "C7_machine_check_replay_bundle",
+      "B7_ledger_retest_after_C4_C7"
+    ],
+    "requirement_count": 8,
+    "requirements_failed": 0,
+    "requirements_passed": 8,
+    "reroute_allowed": false,
+    "resource_saving_claimed": false,
+    "row_count": 8,
+    "source_r58_evaluation_hash": "fe7faded3f89bebd0a55d83ad273cf2925fcfcb6b314d47dac06f9fc4403f77d",
+    "source_r58_file_sha256": "b9f6770e2bccfaba6dcb793acbbf3e081e7a7e5b509a17686d759cd57078a4c5",
+    "source_r58_fixture_hash": "d0d637b0c262f29dc0665ee0c33fe4a115cb774effe946cce6d65353376431b4",
+    "strict_tolerance": 1e-08,
+    "validation_error_count": 0
+  },
+  "title": "B1/B7 Cone01 R59 O3-F4 C3 Same-Unitary Replay Certificate Gate",
+  "upstream_target_id": "T-B1-004fh/T-B7-014q",
+  "validation_errors": [],
+  "version": "0.1"
+}

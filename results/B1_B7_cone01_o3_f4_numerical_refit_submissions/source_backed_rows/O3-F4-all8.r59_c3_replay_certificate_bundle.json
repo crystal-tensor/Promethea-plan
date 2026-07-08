@@ -1,0 +1,42 @@
+{
+  "artifact": "R59 C3 all-row same-unitary replay certificate bundle",
+  "bundle_hash": "fa7ab308e09644f3d58228a92ea580fb40f6ea88b8408cc75ddc21df79b84cbb",
+  "c3_same_unitary_replay_certificate_complete": true,
+  "certificate_hashes": {
+    "O3-F4-C01": "964331600a97b513b50eebcc16539615a2a75705c4d001ecf966920397885811",
+    "O3-F4-C02": "0db538be5dfe518cb1c308b4d6c04c3e66ed2477709df78b3d887c2c8aab414a",
+    "O3-F4-C03": "0c57294d8baa24b7291a368aee269af1810b491e054db7f4c83de41f3f9dc5c8",
+    "O3-F4-C04": "788d20aea145da343859b76e047dc290ca3e4af59edec844f7120bdcb8d8f2b9",
+    "O3-F4-C05": "166cce5829bba5040bb7d183b232bd936050a0124bd5310e38a362b5b833f073",
+    "O3-F4-C06": "b178116739189914bea25b7a90cb7854aef71b590888a22dbf8635b8a72189c9",
+    "O3-F4-C07": "6823012899a1b1ca281568ed56cc5fe2d3b2a955eb166300101809ddba91776f",
+    "O3-F4-C08": "9bb1c2640722eeb3fd39aea61df2ca187c200dbeebb2b9ef96daad89c5428229"
+  },
+  "claim_boundary": "R59 completes C3 for the restricted O3-F4 single-qubit RZ replay surface. It also records that R58 evidence-packet file SHA fields are stale after final row binding, while semantic packet hashes still match. C4/C5, C6, C7, O3 closure, reroute, and B7 ledger credit remain open.",
+  "evidence_packet_file_sha256_mismatch_count": 8,
+  "evidence_packet_semantic_hash_match_count": 8,
+  "max_positive_replay_distance": 0.0,
+  "method": "b1_b7_cone01_r59_o3_f4_c3_same_unitary_replay_certificate_gate_v0",
+  "min_negative_control_distance": 0.015624841054765663,
+  "negative_control_delta": 0.03125,
+  "negative_control_hashes": {
+    "O3-F4-C01": "cb1108ef647cc0b12dfdac909dab21e2af6d7316b4ff34eca644c2396c455f93",
+    "O3-F4-C02": "14be983b2c34cd7b56ba77d2eddd4cc8703daf07526270231b2e2d5b55a8dd7b",
+    "O3-F4-C03": "de73bb22bc01bd0533778be4cbcaeae2177c152c2038c6d9231edca8f4bef4da",
+    "O3-F4-C04": "acf4620d176b1dd0f67c92c7819bcf353952583469f9d178d88237b63752d996",
+    "O3-F4-C05": "a63052a4829ad4a0094e33d172f5bfddf8f922afb725537aa35b8c0a580d4a26",
+    "O3-F4-C06": "dd13bd4ecd102b53c2cd285aef5036edf1ae5071b5f07b75c01e83c5d941b2af",
+    "O3-F4-C07": "d6f7ad6dd1994383afc9f720e96f48e46b0ee4455016632a47eb499573a7d9ff",
+    "O3-F4-C08": "3360536b20ea70e84de145d5ce8a1cc5c05540afbd0cacd9eaa5046437405aa0"
+  },
+  "negative_control_rejected_count": 8,
+  "positive_replay_passed_count": 8,
+  "row_count": 8,
+  "source_r58_evaluation_hash": "fe7faded3f89bebd0a55d83ad273cf2925fcfcb6b314d47dac06f9fc4403f77d",
+  "source_r58_fixture": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-all8.r58_r47_all8_fixture.json",
+  "source_r58_fixture_hash": "d0d637b0c262f29dc0665ee0c33fe4a115cb774effe946cce6d65353376431b4",
+  "source_r58_result": "results/B1_B7_cone01_R58_o3_f4_c2_all8_source_backed_expansion_gate_v0.json",
+  "source_target_id": "T-B1-004fi/T-B7-014r",
+  "strict_tolerance": 1e-08,
+  "upstream_target_id": "T-B1-004fh/T-B7-014q"
+}

@@ -1,0 +1,66 @@
+{
+  "accepted": true,
+  "artifact": "R59 C3 same-unitary replay certificate",
+  "bound_files": [
+    {
+      "actual_hash": "5c8d0dedaaa5a028abb13b60e36f3d7fa5b4c8f5a5bb23b3ca0296b40232cfb3",
+      "exists": true,
+      "expected_hash": "5c8d0dedaaa5a028abb13b60e36f3d7fa5b4c8f5a5bb23b3ca0296b40232cfb3",
+      "hash_matches": true,
+      "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C04.source.qasm"
+    },
+    {
+      "actual_hash": "855ab8315878612a1b932115ab180fae80f56d2a08715eb9601e6d688d65bd49",
+      "exists": true,
+      "expected_hash": "855ab8315878612a1b932115ab180fae80f56d2a08715eb9601e6d688d65bd49",
+      "hash_matches": true,
+      "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C04.candidate.qasm"
+    },
+    {
+      "actual_hash": "9f84ccb82bfabca12afa74679622489a79f30b8f28436dace2c85dd5e57036a0",
+      "exists": true,
+      "expected_hash": "9f84ccb82bfabca12afa74679622489a79f30b8f28436dace2c85dd5e57036a0",
+      "hash_matches": true,
+      "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r58_same_unitary_witness.json"
+    },
+    {
+      "actual_hash": "4b5cfbbd1b60b5fb05de88eb935a233c087bc69ea1c63e9831cce0e9b324ac54",
+      "exists": true,
+      "expected_hash": "4b5cfbbd1b60b5fb05de88eb935a233c087bc69ea1c63e9831cce0e9b324ac54",
+      "hash_matches": true,
+      "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r58_same_unitary_verifier_transcript.json"
+    },
+    {
+      "actual_hash": "6866c818575cee786fff31d0d5582a0a4abfccb822711590dae52f96698cdb5b",
+      "exists": true,
+      "expected_hash": "6866c818575cee786fff31d0d5582a0a4abfccb822711590dae52f96698cdb5b",
+      "hash_matches": true,
+      "path": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r58_verifier_signature_artifact.json"
+    }
+  ],
+  "bound_files_passed": true,
+  "candidate_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C04.candidate.qasm",
+  "candidate_circuit_sha256": "855ab8315878612a1b932115ab180fae80f56d2a08715eb9601e6d688d65bd49",
+  "candidate_theta": 0.128,
+  "certificate_hash": "788d20aea145da343859b76e047dc290ca3e4af59edec844f7120bdcb8d8f2b9",
+  "challenge_id": "O3-F4-C04",
+  "claim_boundary": "C3 row-level single-qubit RZ replay certificate only; no O3 closure, no reroute, no B7 credit, no STV credit",
+  "evidence_packet_actual_sha256": "73c90e4fa098c0d0962dff0380e4e416c6e6107f86e1973157f3bcf834274de7",
+  "evidence_packet_expected_sha256_from_r58": "104cad7da023e56702c7ddbb66394392aa0299abce30b6465b84729521ec60be",
+  "evidence_packet_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/source_backed_rows/O3-F4-C04.r58_evidence_packet.json",
+  "evidence_packet_file_sha256_matches_r58": false,
+  "evidence_packet_semantic_hash_matches": true,
+  "method": "b1_b7_cone01_r59_o3_f4_c3_same_unitary_replay_certificate_gate_v0",
+  "positive_replay_distance": 0.0,
+  "positive_replay_passed": true,
+  "source_circuit_file": "results/B1_B7_cone01_o3_f4_numerical_refit_submissions/materialized_artifacts/r37_smoke/O3-F4-C04.source.qasm",
+  "source_circuit_sha256": "5c8d0dedaaa5a028abb13b60e36f3d7fa5b4c8f5a5bb23b3ca0296b40232cfb3",
+  "source_r58_discriminator_row_hash": "e90decfa077afb418971c67b55018efa7ab25a7165878fe1241e02bfab3042dd",
+  "source_r58_evidence_packet_hash": "c83b8a801538c05a9da36c300784841ff9180a850865bc55e2d990d5996a8bfe",
+  "source_r58_same_unitary_witness_sha256": "9f84ccb82bfabca12afa74679622489a79f30b8f28436dace2c85dd5e57036a0",
+  "source_target_id": "T-B1-004fi/T-B7-014r",
+  "source_theta": 0.128,
+  "strict_tolerance": 1e-08,
+  "unitary_distance_metric": "single_qubit_rz_operator_norm",
+  "upstream_target_id": "T-B1-004fh/T-B7-014q"
+}
