@@ -1,0 +1,35 @@
+{
+  "artifact": "R95 post maintainer review transcript blocker queue",
+  "blocker_queue_hash": "e9929538c9e3557b0cccab0e2399ad42b87fda3f9ab8fd9b8516109138335767",
+  "method": "b1_b7_cone01_r95_maintainer_review_transcript_intake_gate_v0",
+  "preflight_hash": "881708dee9955519b1819027b0e49fb2c60cebd750a14255e81b3895b9de9383",
+  "queue": [
+    {
+      "blocker_id": "R95-G1-1",
+      "needed_artifact": "filled non-fixture R93 packet path, SHA-256, and packet hash",
+      "priority": 1,
+      "target_gate": "filled_r93_packet_hash_binding"
+    },
+    {
+      "blocker_id": "R95-G1-2",
+      "needed_artifact": "command transcript, environment manifest, recomputed target rows, double-count test, and review notes",
+      "priority": 2,
+      "target_gate": "review_evidence_file_bundle"
+    },
+    {
+      "blocker_id": "R95-G1-3",
+      "needed_artifact": "R94-allowed evidence sufficiency label, counter target, credit decision, and zero direct new-credit increment",
+      "priority": 3,
+      "target_gate": "r94_allowed_verdict_fields"
+    },
+    {
+      "blocker_id": "R95-G1-4",
+      "needed_artifact": "source-backed maintainer verdict that references the accepted R95 transcript",
+      "priority": 4,
+      "target_gate": "accepted_r94_maintainer_verdict"
+    }
+  ],
+  "source_target_id": "T-B1-004gs/T-B7-016b",
+  "transcript_contract_hash": "a5b59461a201d0488075fb9436a7d8a85a5b9207591b3e0a6b0c1f3144b269e2",
+  "upstream_target_id": "T-B1-004gr/T-B7-016a"
+}

@@ -2291,3 +2291,24 @@ preflight hash `d857144c4623eb10eba2d69129349acd80ee71b5e25e4e923a572ee305992538
 blocker queue hash `0f4774f61f1f607f934514f2d51bc09fd1ac2a3bf58bf031fb453b0d93027cad`.
 The next real gate is a filled R93 packet plus a source-backed maintainer
 review transcript.
+
+`T-B1-004gs` / `T-B7-016b` now adds the R95 maintainer review transcript
+intake gate. R95 turns the R94 verdict blocker into a source-backed transcript
+contract: a real review transcript must bind the filled R93 packet hash,
+command transcript, environment manifest, recomputed target rows, double-count
+test, review notes, evidence-sufficiency label, counter target, proposed credit
+decision, and claim boundary before any R94 verdict can count. It emits a `30`
+field transcript contract with `18` production-required fields and `6`
+evidence-file classes. The current empty transcript is rejected on `13`
+preflight gates with `16` missing production fields. Review transcript accepted
+remains `false`, maintainer verdict accepted remains `false`, counter delta
+remains `0`, accepted external reproductions remain `0`, accepted external
+falsifications remain `0`, and `new_credit_delta` remains `0`.
+Transcript-contract hash
+`a5b59461a201d0488075fb9436a7d8a85a5b9207591b3e0a6b0c1f3144b269e2`;
+transcript-template hash
+`26eaa32db7cf0557403e96de1e2e553d291149c9d44c2c0a829f9815d49caad1`;
+preflight hash `881708dee9955519b1819027b0e49fb2c60cebd750a14255e81b3895b9de9383`;
+blocker queue hash `e9929538c9e3557b0cccab0e2399ad42b87fda3f9ab8fd9b8516109138335767`.
+The next real gate is a filled R95 transcript that can feed an R94 maintainer
+verdict.

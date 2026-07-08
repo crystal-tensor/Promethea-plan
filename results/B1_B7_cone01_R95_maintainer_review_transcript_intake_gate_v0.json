@@ -1,0 +1,164 @@
+{
+  "artifact": "B1/B7 cone01 R95 maintainer review transcript intake gate",
+  "blocker_queue_hash": "e9929538c9e3557b0cccab0e2399ad42b87fda3f9ab8fd9b8516109138335767",
+  "blocker_queue_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R95-G1-post-review-transcript-blocker-queue.json",
+  "empty_transcript_hash": "f0b97b88862ddbeef630a8ec74099c28f8806eed0e2d77f21a062cffbdd3264a",
+  "empty_transcript_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R95-G1-empty-maintainer-review-transcript.json",
+  "failed_requirement_ids": [],
+  "generated_at_unix": 1783548506,
+  "method": "b1_b7_cone01_r95_maintainer_review_transcript_intake_gate_v0",
+  "model_status": "r94_verdict_contract_ready_but_review_transcript_missing",
+  "payload_hash": "62991c261ea82929dc803a06c96abafb5886540e6d91a8117e66a4a4288f076b",
+  "preflight_hash": "881708dee9955519b1819027b0e49fb2c60cebd750a14255e81b3895b9de9383",
+  "preflight_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R95-G1-maintainer-review-transcript-preflight.verdict.json",
+  "requirement_count": 7,
+  "requirements": [
+    {
+      "evidence": {
+        "r94_blocker_queue_hash": "0f4774f61f1f607f934514f2d51bc09fd1ac2a3bf58bf031fb453b0d93027cad",
+        "r94_payload_hash": "ee88fed94efe62cd8eec88f7fdab0528a225bd256b5d64c1f4bf1f1138791e1f",
+        "r94_preflight_hash": "d857144c4623eb10eba2d69129349acd80ee71b5e25e4e923a572ee305992538",
+        "r94_verdict_contract_hash": "8b9628a69d93855f005cfe0ea554f7ee4e7d7f4e57c109568a77082097814040"
+      },
+      "label": "R95 binds the R94 result, verdict contract, verdict template, preflight, and blocker queue",
+      "passed": true,
+      "requirement_id": "A1"
+    },
+    {
+      "evidence": {
+        "production_required_field_count": 18,
+        "required_evidence_files": [
+          "reviewed_r93_packet",
+          "command_transcript",
+          "environment_manifest",
+          "recomputed_target_rows",
+          "double_count_test",
+          "review_notes"
+        ],
+        "required_field_count": 30,
+        "transcript_contract_hash": "a5b59461a201d0488075fb9436a7d8a85a5b9207591b3e0a6b0c1f3144b269e2"
+      },
+      "label": "R95 emits a review transcript intake contract with explicit evidence-file classes",
+      "passed": true,
+      "requirement_id": "A2"
+    },
+    {
+      "evidence": {
+        "template_field_count": 30,
+        "transcript_template_hash": "26eaa32db7cf0557403e96de1e2e553d291149c9d44c2c0a829f9815d49caad1"
+      },
+      "label": "R95 emits a fillable review transcript template",
+      "passed": true,
+      "requirement_id": "A3"
+    },
+    {
+      "evidence": {
+        "failed_gates": [
+          "production_required_fields_present",
+          "reviewer_identity_present",
+          "reviewed_r93_packet_bound",
+          "command_transcript_bound",
+          "environment_manifest_bound",
+          "recomputed_rows_bound",
+          "double_count_test_bound",
+          "review_notes_bound",
+          "allowed_evidence_sufficiency",
+          "allowed_counter_target",
+          "allowed_credit_decision",
+          "signature_present",
+          "maintainer_review_transcript_accepted"
+        ],
+        "missing_production_field_count": 16,
+        "preflight_hash": "881708dee9955519b1819027b0e49fb2c60cebd750a14255e81b3895b9de9383"
+      },
+      "label": "R95 rejects the empty review transcript before source-backed review evidence exists",
+      "passed": true,
+      "requirement_id": "A4"
+    },
+    {
+      "evidence": {
+        "accepted_external_falsification_count": 0,
+        "accepted_external_reproduction_count": 0,
+        "counter_delta": 0,
+        "maintainer_verdict_accepted": false,
+        "new_credit_delta": 0
+      },
+      "label": "R95 keeps maintainer verdict, external counters, and new credit at zero",
+      "passed": true,
+      "requirement_id": "A5"
+    },
+    {
+      "evidence": {
+        "o3_closed": false,
+        "physical_layout_claimed": false,
+        "resource_saving_claimed": false
+      },
+      "label": "R95 keeps O3, resource-saving, and physical-layout claims closed",
+      "passed": true,
+      "requirement_id": "A6"
+    },
+    {
+      "evidence": {
+        "blocker_ids": [
+          "R95-G1-1",
+          "R95-G1-2",
+          "R95-G1-3",
+          "R95-G1-4"
+        ],
+        "blocker_queue_hash": "e9929538c9e3557b0cccab0e2399ad42b87fda3f9ab8fd9b8516109138335767"
+      },
+      "label": "R95 emits blockers for R93 packet binding, review evidence bundle, R94 fields, and accepted verdict",
+      "passed": true,
+      "requirement_id": "A7"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 7,
+  "source_target_id": "T-B1-004gs/T-B7-016b",
+  "status": "cone01_r95_review_transcript_intake_open_no_transcript_yet",
+  "stdout_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R95-G1-maintainer-review-transcript.stdout.txt",
+  "stdout_sha256": "ab1db389daf8d06013d62ce086382c646abbc869783b2adc941ee83eb2398972",
+  "summary": {
+    "accepted_external_falsification_count": 0,
+    "accepted_external_reproduction_count": 0,
+    "blocker_queue_hash": "e9929538c9e3557b0cccab0e2399ad42b87fda3f9ab8fd9b8516109138335767",
+    "contract_id": "R95-G1-maintainer-review-transcript-intake",
+    "counter_delta": 0,
+    "empty_transcript_hash": "f0b97b88862ddbeef630a8ec74099c28f8806eed0e2d77f21a062cffbdd3264a",
+    "empty_transcript_rejected": true,
+    "failed_requirement_ids": [],
+    "maintainer_review_transcript_accepted": false,
+    "maintainer_verdict_accepted": false,
+    "method": "b1_b7_cone01_r95_maintainer_review_transcript_intake_gate_v0",
+    "missing_production_field_count": 16,
+    "model_status": "r94_verdict_contract_ready_but_review_transcript_missing",
+    "new_credit_delta": 0,
+    "o3_closed": false,
+    "payload_hash": "62991c261ea82929dc803a06c96abafb5886540e6d91a8117e66a4a4288f076b",
+    "physical_layout_claimed": false,
+    "preflight_failed_gate_count": 13,
+    "preflight_hash": "881708dee9955519b1819027b0e49fb2c60cebd750a14255e81b3895b9de9383",
+    "production_required_field_count": 18,
+    "required_evidence_file_count": 6,
+    "required_field_count": 30,
+    "requirements_failed": 0,
+    "requirements_passed": 7,
+    "resource_saving_claimed": false,
+    "route_id": "R83-G1-30-arbitrary-rotation-batch",
+    "source_target_id": "T-B1-004gs/T-B7-016b",
+    "status": "cone01_r95_review_transcript_intake_open_no_transcript_yet",
+    "stdout_sha256": "ab1db389daf8d06013d62ce086382c646abbc869783b2adc941ee83eb2398972",
+    "transcript_contract_hash": "a5b59461a201d0488075fb9436a7d8a85a5b9207591b3e0a6b0c1f3144b269e2",
+    "transcript_template_hash": "26eaa32db7cf0557403e96de1e2e553d291149c9d44c2c0a829f9815d49caad1",
+    "upstream_target_id": "T-B1-004gr/T-B7-016a",
+    "validation_error_count": 0
+  },
+  "transcript_contract_hash": "a5b59461a201d0488075fb9436a7d8a85a5b9207591b3e0a6b0c1f3144b269e2",
+  "transcript_contract_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R95-G1-maintainer-review-transcript-contract.json",
+  "transcript_template_hash": "26eaa32db7cf0557403e96de1e2e553d291149c9d44c2c0a829f9815d49caad1",
+  "transcript_template_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R95-G1-maintainer-review-transcript.template.json",
+  "upstream_target_id": "T-B1-004gr/T-B7-016a",
+  "validation_error_count": 0,
+  "validation_errors": [],
+  "version": "0.1"
+}

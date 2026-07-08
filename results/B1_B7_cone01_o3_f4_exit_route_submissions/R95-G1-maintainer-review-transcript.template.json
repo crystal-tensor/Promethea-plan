@@ -1,0 +1,71 @@
+{
+  "allowed_counter_targets": [
+    "accepted_external_reproduction_count",
+    "accepted_external_falsification_count",
+    "new_credit_candidate_pending_review",
+    "no_counter_change"
+  ],
+  "allowed_credit_decisions": [
+    "preserve_one_unit_proxy_credit",
+    "revoke_one_unit_proxy_credit",
+    "insufficient_evidence_no_counter",
+    "quarantine_new_credit_candidate",
+    "reject_double_counted_submission"
+  ],
+  "allowed_evidence_sufficiency": [
+    "sufficient_for_reproduction_counter",
+    "sufficient_for_falsification_counter",
+    "insufficient_evidence_no_counter",
+    "quarantine_new_credit_candidate"
+  ],
+  "artifact": "R95 G1 maintainer review transcript template",
+  "contract_id": "R95-G1-maintainer-review-transcript-intake",
+  "fields": {
+    "claim_boundary": null,
+    "command_transcript_path": null,
+    "command_transcript_sha256": null,
+    "counter_target": null,
+    "double_count_test_path": null,
+    "double_count_test_sha256": null,
+    "environment_manifest_path": null,
+    "environment_manifest_sha256": null,
+    "evidence_sufficiency_label": null,
+    "new_credit_delta": null,
+    "o3_closed": null,
+    "one_unit_credit_preserved": null,
+    "one_unit_credit_revoked": null,
+    "physical_layout_claimed": null,
+    "proposed_counter_delta": null,
+    "proposed_credit_decision": null,
+    "recomputed_target_rows_path": null,
+    "recomputed_target_rows_sha256": null,
+    "resource_saving_claimed": null,
+    "review_notes_path": null,
+    "review_notes_sha256": null,
+    "reviewed_r93_packet_hash": null,
+    "reviewed_r93_packet_path": null,
+    "reviewed_r93_packet_sha256": null,
+    "reviewer_agent_id": null,
+    "reviewer_signature_hash": null,
+    "source_r94_verdict_contract_hash": null,
+    "source_r94_verdict_template_hash": null,
+    "transcript_id": null,
+    "transcript_timestamp_unix": null
+  },
+  "instructions": [
+    "Bind a filled non-fixture R93 packet and its packet hash.",
+    "Attach command transcript, environment manifest, recomputed rows, double-count test, and review notes.",
+    "Use an R94-allowed evidence sufficiency label, counter target, and credit decision.",
+    "Do not claim O3, physical layout, resource savings, or new credit from R95 alone."
+  ],
+  "required_evidence_files": [
+    "reviewed_r93_packet",
+    "command_transcript",
+    "environment_manifest",
+    "recomputed_target_rows",
+    "double_count_test",
+    "review_notes"
+  ],
+  "transcript_contract_hash": "a5b59461a201d0488075fb9436a7d8a85a5b9207591b3e0a6b0c1f3144b269e2",
+  "transcript_template_hash": "26eaa32db7cf0557403e96de1e2e553d291149c9d44c2c0a829f9815d49caad1"
+}
