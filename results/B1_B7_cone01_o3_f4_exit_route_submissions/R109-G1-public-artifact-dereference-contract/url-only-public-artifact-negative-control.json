@@ -1,0 +1,26 @@
+{
+  "artifact": "R109 URL-only public artifact negative control",
+  "contract_hash": "85fada945943cce2e57ac18e82670cc44d8cc5c8ac038fe998e9cf82deb6700e",
+  "fields": {
+    "artifact_http_transcript_path": "",
+    "artifact_http_transcript_sha256": "",
+    "artifact_url": "https://github.com/crystal-tensor/Prometheus-plan/actions/runs/1090000001/artifacts/r109-material-evidence",
+    "challenge_issued_at_unix": 1783557600,
+    "challenge_nonce": "R109-CHALLENGE-0001-abcdef1234567890",
+    "challenge_scope": "T-B1-004hg/T-B7-016p",
+    "ci_run_http_transcript_path": "",
+    "ci_run_http_transcript_sha256": "",
+    "ci_run_url": "https://github.com/crystal-tensor/Prometheus-plan/actions/runs/1090000001",
+    "claim_boundary": "url-only-negative-control; should be rejected before counter audit",
+    "immutable_commit_sha": "c9d6885fe9dd97b2bbeff03aa57c9c7e1cd78c23",
+    "requested_counter_transition": "external_reproduction_counter_increment",
+    "reviewer_id": "r109-public-artifact-reviewer",
+    "reviewer_key_http_transcript_path": "",
+    "reviewer_key_http_transcript_sha256": "",
+    "reviewer_key_url": "https://github.com/r109-reviewer.keys"
+  },
+  "method": "b1_b7_cone01_r109_public_artifact_dereference_contract_gate_v0",
+  "negative_control_reason": "URLs are present, but no dereference transcripts are attached.",
+  "source_target_id": "T-B1-004hg/T-B7-016p",
+  "url_only_packet_hash": "7ac9a5cd48dedde5ddbd92fff4f4964334c207333fac816f14582c36bf2641da"
+}

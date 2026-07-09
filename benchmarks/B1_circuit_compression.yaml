@@ -7381,6 +7381,48 @@ current_results:
     caveat: r108_preflight_verifier_rejects_local_synthetic_material_no_counter
     report: ../results/B1_B7_cone01_R108_material_evidence_preflight_verifier_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R108_material_evidence_preflight_verifier_gate.md
+  b1_b7_cone01_r109_public_artifact_dereference_contract_gate_v0:
+    circuits: 1
+    status: cone01_r109_public_dereference_contract_ready_url_only_rejected
+    model_status: r108_preflight_requires_public_artifact_dereference_challenge
+    method: b1_b7_cone01_r109_public_artifact_dereference_contract_gate_v0
+    source_target_id: T-B1-004hg/T-B7-016p
+    upstream_target_id: T-B1-004hf/T-B7-016o
+    source_b1_r109_public_artifact_dereference_contract: ../results/B1_B7_cone01_R109_public_artifact_dereference_contract_gate_v0.json
+    source_b1_r108_material_evidence_preflight_verifier: ../results/B1_B7_cone01_R108_material_evidence_preflight_verifier_gate_v0.json
+    r109_contract: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R109-G1-public-artifact-dereference-contract/public-artifact-dereference-contract.json
+    r109_template: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R109-G1-public-artifact-dereference-contract/public-artifact-dereference-packet.template.json
+    r109_url_only_packet: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R109-G1-public-artifact-dereference-contract/url-only-public-artifact-negative-control.json
+    r109_url_only_preflight: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R109-G1-public-artifact-dereference-contract/url-only-public-artifact-preflight.verdict.json
+    r109_cached_packet: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R109-G1-public-artifact-dereference-contract/cached-transcript-negative-control.json
+    r109_cached_preflight: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R109-G1-public-artifact-dereference-contract/cached-transcript-preflight.verdict.json
+    r109_blocker_queue: ../results/B1_B7_cone01_o3_f4_exit_route_submissions/R109-G1-post-public-dereference-contract-blocker-queue.json
+    required_field_count: 16
+    acceptance_gate_count: 13
+    url_only_packet_accepted: false
+    url_only_passed_gate_count: 8
+    url_only_failed_gate_count: 7
+    cached_packet_accepted: false
+    cached_passed_gate_count: 12
+    cached_failed_gate_count: 3
+    counter_transition_accepted: false
+    counter_delta: 0
+    accepted_external_reproduction_count: 0
+    accepted_external_falsification_count: 0
+    new_credit_delta: 0
+    contract_hash: 85fada945943cce2e57ac18e82670cc44d8cc5c8ac038fe998e9cf82deb6700e
+    template_hash: c5ea8379e8a697435e89bee499822f7c6fe759c9237fbae7a4dfb27067ae43cf
+    url_only_packet_hash: 7ac9a5cd48dedde5ddbd92fff4f4964334c207333fac816f14582c36bf2641da
+    url_only_preflight_hash: a2638f4a8c1fffa7432651a584102df8f045f5a58c9854382e98ecf62a45e59c
+    cached_packet_hash: 72bee664df686f09b48a751df352d24be9066b044733f0e8aa3d641fddfbe6af
+    cached_transcript_preflight_hash: e2152d8d4ab82fe056c129c66d1e4078b7b20ee4972d7e861e9e0dd8f72741c8
+    blocker_queue_hash: bf746fd1618e4305cf311640f476e265b98b56ef56a5abc4b8d487b7ca9cd168
+    requirements_passed: 6
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r109_public_dereference_contract_rejects_url_only_and_cached_transcripts_no_counter
+    report: ../results/B1_B7_cone01_R109_public_artifact_dereference_contract_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R109_public_artifact_dereference_contract_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate

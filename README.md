@@ -2561,3 +2561,27 @@ blocker queue hash `7ff0fa3784990b1d005f05d4e5a1349cd127913b7b24bebfbbb2888fb975
 The next real gate must replace the local-synthetic support files with public
 third-party artifacts and rerun the R108 verifier before any separate
 single-counter audit.
+
+`T-B1-004hg` / `T-B7-016p` now adds the R109 public artifact dereference
+contract gate. R109 hardens the R108 blocker into a challenge-nonce contract
+for live public artifact dereferencing: public URLs alone do not count, and
+cached local transcripts do not count. The gate emits a 16-field public
+dereference contract plus packet template, rejects a URL-only packet, rejects a
+cached-transcript packet, and keeps every reproduction/falsification counter at
+zero until live HTTP transcripts are attached to the reviewer key, CI run, and
+artifact URLs and bound to the R109 challenge nonce. Requirements pass `6/6`;
+URL-only packet accepted is `false`; cached-transcript packet accepted is
+`false`; counter transition accepted is `false`; counter delta remains `0`;
+accepted external reproductions remain `0`; accepted external falsifications
+remain `0`; and `new_credit_delta` remains `0`. Contract hash
+`85fada945943cce2e57ac18e82670cc44d8cc5c8ac038fe998e9cf82deb6700e`;
+template hash `c5ea8379e8a697435e89bee499822f7c6fe759c9237fbae7a4dfb27067ae43cf`;
+URL-only preflight hash
+`a2638f4a8c1fffa7432651a584102df8f045f5a58c9854382e98ecf62a45e59c`;
+cached-transcript preflight hash
+`e2152d8d4ab82fe056c129c66d1e4078b7b20ee4972d7e861e9e0dd8f72741c8`;
+blocker queue hash `bf746fd1618e4305cf311640f476e265b98b56ef56a5abc4b8d487b7ca9cd168`.
+The next real gate must attach live public HTTP transcripts for the reviewer
+key, CI run, and artifact URL, bind those transcripts to the R109 challenge
+nonce and requested URLs, rerun R109/R108, then run a separate single-counter
+audit.

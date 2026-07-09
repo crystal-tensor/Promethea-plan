@@ -1,0 +1,135 @@
+{
+  "artifact": "B1/B7 cone01 R109 public artifact dereference contract gate",
+  "blocker_queue_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R109-G1-post-public-dereference-contract-blocker-queue.json",
+  "cached_packet_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R109-G1-public-artifact-dereference-contract/cached-transcript-negative-control.json",
+  "cached_transcript_preflight_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R109-G1-public-artifact-dereference-contract/cached-transcript-preflight.verdict.json",
+  "contract_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R109-G1-public-artifact-dereference-contract/public-artifact-dereference-contract.json",
+  "generated_at_unix": 1783558415,
+  "method": "b1_b7_cone01_r109_public_artifact_dereference_contract_gate_v0",
+  "model_status": "r108_preflight_requires_public_artifact_dereference_challenge",
+  "payload_hash": "e132aaf84b9fd5b972343a8529ed2546ff1439501c367c61d9ab1c6f64a238c0",
+  "requirement_count": 6,
+  "requirements": [
+    {
+      "evidence": {
+        "r108_payload_hash": "95850ab775d8cdfdc0d96a4e231b1fc6dbab8280ba1f3eaa7c2c4ac007337b6f",
+        "r108_verifier_rules_hash": "4edf2f0114ed4854db58e1a20ce5276f1be7090503600a3f4c3a89a9d8aa692e"
+      },
+      "label": "R109 binds the R108 result and verifier rules",
+      "passed": true,
+      "requirement_id": "A1"
+    },
+    {
+      "evidence": {
+        "acceptance_gate_count": 13,
+        "contract_hash": "85fada945943cce2e57ac18e82670cc44d8cc5c8ac038fe998e9cf82deb6700e",
+        "required_field_count": 16,
+        "template_hash": "c5ea8379e8a697435e89bee499822f7c6fe759c9237fbae7a4dfb27067ae43cf"
+      },
+      "label": "R109 emits a challenge-nonce public dereference contract and template",
+      "passed": true,
+      "requirement_id": "A2"
+    },
+    {
+      "evidence": {
+        "url_only_failed_gates": [
+          "required_fields_nonempty",
+          "http_transcript_hashes_match",
+          "http_transcripts_are_live_public_fetches",
+          "http_transcripts_bind_challenge_nonce",
+          "http_transcripts_bind_requested_urls",
+          "synthetic_markers_absent",
+          "dereference_packet_accepted"
+        ],
+        "url_only_preflight_hash": "a2638f4a8c1fffa7432651a584102df8f045f5a58c9854382e98ecf62a45e59c"
+      },
+      "label": "R109 rejects URL-only public artifact claims",
+      "passed": true,
+      "requirement_id": "A3"
+    },
+    {
+      "evidence": {
+        "cached_failed_gates": [
+          "http_transcripts_are_live_public_fetches",
+          "synthetic_markers_absent",
+          "dereference_packet_accepted"
+        ],
+        "cached_transcript_preflight_hash": "e2152d8d4ab82fe056c129c66d1e4078b7b20ee4972d7e861e9e0dd8f72741c8"
+      },
+      "label": "R109 rejects cached transcripts that are not live public fetches",
+      "passed": true,
+      "requirement_id": "A4"
+    },
+    {
+      "evidence": {
+        "accepted_external_falsification_count": 0,
+        "accepted_external_reproduction_count": 0,
+        "counter_delta": 0,
+        "new_credit_delta": 0
+      },
+      "label": "R109 keeps counters and new credit at zero",
+      "passed": true,
+      "requirement_id": "A5"
+    },
+    {
+      "evidence": {
+        "blocker_ids": [
+          "R109-G1-1",
+          "R109-G1-2",
+          "R109-G1-3",
+          "R109-G1-4"
+        ],
+        "blocker_queue_hash": "bf746fd1618e4305cf311640f476e265b98b56ef56a5abc4b8d487b7ca9cd168"
+      },
+      "label": "R109 emits blockers for live transcript, nonce binding, and separate counter audit",
+      "passed": true,
+      "requirement_id": "A6"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 6,
+  "source_target_id": "T-B1-004hg/T-B7-016p",
+  "status": "cone01_r109_public_dereference_contract_ready_url_only_rejected",
+  "stdout_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R109-G1-public-artifact-dereference-contract.stdout.txt",
+  "stdout_sha256": "b8ab1d37e97b09c8fdefe14d58c7451562fa1429a133d443b69b8ec6895dd53a",
+  "summary": {
+    "acceptance_gate_count": 13,
+    "accepted_external_falsification_count": 0,
+    "accepted_external_reproduction_count": 0,
+    "blocker_queue_hash": "bf746fd1618e4305cf311640f476e265b98b56ef56a5abc4b8d487b7ca9cd168",
+    "cached_failed_gate_count": 3,
+    "cached_packet_accepted": false,
+    "cached_packet_hash": "72bee664df686f09b48a751df352d24be9066b044733f0e8aa3d641fddfbe6af",
+    "cached_passed_gate_count": 12,
+    "cached_transcript_preflight_hash": "e2152d8d4ab82fe056c129c66d1e4078b7b20ee4972d7e861e9e0dd8f72741c8",
+    "contract_hash": "85fada945943cce2e57ac18e82670cc44d8cc5c8ac038fe998e9cf82deb6700e",
+    "counter_delta": 0,
+    "counter_transition_accepted": false,
+    "failed_requirement_ids": [],
+    "method": "b1_b7_cone01_r109_public_artifact_dereference_contract_gate_v0",
+    "model_status": "r108_preflight_requires_public_artifact_dereference_challenge",
+    "new_credit_delta": 0,
+    "payload_hash": "e132aaf84b9fd5b972343a8529ed2546ff1439501c367c61d9ab1c6f64a238c0",
+    "required_field_count": 16,
+    "requirements_failed": 0,
+    "requirements_passed": 6,
+    "source_target_id": "T-B1-004hg/T-B7-016p",
+    "status": "cone01_r109_public_dereference_contract_ready_url_only_rejected",
+    "stdout_sha256": "b8ab1d37e97b09c8fdefe14d58c7451562fa1429a133d443b69b8ec6895dd53a",
+    "template_hash": "c5ea8379e8a697435e89bee499822f7c6fe759c9237fbae7a4dfb27067ae43cf",
+    "upstream_target_id": "T-B1-004hf/T-B7-016o",
+    "url_only_failed_gate_count": 7,
+    "url_only_packet_accepted": false,
+    "url_only_packet_hash": "7ac9a5cd48dedde5ddbd92fff4f4964334c207333fac816f14582c36bf2641da",
+    "url_only_passed_gate_count": 8,
+    "url_only_preflight_hash": "a2638f4a8c1fffa7432651a584102df8f045f5a58c9854382e98ecf62a45e59c",
+    "validation_error_count": 0
+  },
+  "template_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R109-G1-public-artifact-dereference-contract/public-artifact-dereference-packet.template.json",
+  "upstream_target_id": "T-B1-004hf/T-B7-016o",
+  "url_only_packet_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R109-G1-public-artifact-dereference-contract/url-only-public-artifact-negative-control.json",
+  "url_only_preflight_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R109-G1-public-artifact-dereference-contract/url-only-public-artifact-preflight.verdict.json",
+  "validation_error_count": 0,
+  "validation_errors": [],
+  "version": "0.1"
+}

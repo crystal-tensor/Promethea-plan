@@ -1,0 +1,26 @@
+{
+  "artifact": "R109 cached transcript negative control",
+  "cached_packet_hash": "72bee664df686f09b48a751df352d24be9066b044733f0e8aa3d641fddfbe6af",
+  "contract_hash": "85fada945943cce2e57ac18e82670cc44d8cc5c8ac038fe998e9cf82deb6700e",
+  "fields": {
+    "artifact_http_transcript_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R109-G1-public-artifact-dereference-contract/cached-artifact-http-transcript.json",
+    "artifact_http_transcript_sha256": "91e941eb6456ae133671080eddd03cafbb6fb1d13c80da49fcbe694e99038727",
+    "artifact_url": "https://github.com/crystal-tensor/Prometheus-plan/actions/runs/1090000001/artifacts/r109-material-evidence",
+    "challenge_issued_at_unix": 1783557600,
+    "challenge_nonce": "R109-CHALLENGE-0001-abcdef1234567890",
+    "challenge_scope": "T-B1-004hg/T-B7-016p",
+    "ci_run_http_transcript_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R109-G1-public-artifact-dereference-contract/cached-ci-run-http-transcript.json",
+    "ci_run_http_transcript_sha256": "64c25e4ee6071fffbdc3669434dfdfe940236762c7bfcee328a91d341213a4fb",
+    "ci_run_url": "https://github.com/crystal-tensor/Prometheus-plan/actions/runs/1090000001",
+    "claim_boundary": "cached-transcript-negative-control; no live public fetch",
+    "immutable_commit_sha": "c9d6885fe9dd97b2bbeff03aa57c9c7e1cd78c23",
+    "requested_counter_transition": "external_reproduction_counter_increment",
+    "reviewer_id": "r109-public-artifact-reviewer",
+    "reviewer_key_http_transcript_path": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R109-G1-public-artifact-dereference-contract/cached-key-http-transcript.json",
+    "reviewer_key_http_transcript_sha256": "ed5d0a1ae20565a1b10b719e7c72345c85639b9c71c5aa7d8c04d9e3c394f3dd",
+    "reviewer_key_url": "https://github.com/r109-reviewer.keys"
+  },
+  "method": "b1_b7_cone01_r109_public_artifact_dereference_contract_gate_v0",
+  "negative_control_reason": "Transcript files exist and hashes match, but they explicitly say live_public_fetch=false.",
+  "source_target_id": "T-B1-004hg/T-B7-016p"
+}

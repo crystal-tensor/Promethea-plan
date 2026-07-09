@@ -1,0 +1,61 @@
+{
+  "acceptance_gates": [
+    "contract_hash_matches",
+    "required_fields_present",
+    "required_fields_nonempty",
+    "challenge_nonce_format",
+    "challenge_scope_matches_target",
+    "immutable_commit_sha_format",
+    "urls_are_https",
+    "http_transcript_hashes_match",
+    "http_transcripts_are_live_public_fetches",
+    "http_transcripts_bind_challenge_nonce",
+    "http_transcripts_bind_requested_urls",
+    "counter_transition_mode_allowed",
+    "claim_boundary_present"
+  ],
+  "accepted_counter_transition_modes": [
+    "external_reproduction_counter_increment",
+    "external_falsification_counter_increment"
+  ],
+  "artifact": "R109 public artifact dereference contract",
+  "claim_boundary": "R109 requires public HTTP dereference transcripts bound to a challenge nonce before R108 passing material may enter a single-counter audit.",
+  "contract_hash": "85fada945943cce2e57ac18e82670cc44d8cc5c8ac038fe998e9cf82deb6700e",
+  "method": "b1_b7_cone01_r109_public_artifact_dereference_contract_gate_v0",
+  "required_fields": [
+    "challenge_nonce",
+    "challenge_issued_at_unix",
+    "challenge_scope",
+    "reviewer_id",
+    "reviewer_key_url",
+    "reviewer_key_http_transcript_path",
+    "reviewer_key_http_transcript_sha256",
+    "ci_run_url",
+    "ci_run_http_transcript_path",
+    "ci_run_http_transcript_sha256",
+    "artifact_url",
+    "artifact_http_transcript_path",
+    "artifact_http_transcript_sha256",
+    "immutable_commit_sha",
+    "requested_counter_transition",
+    "claim_boundary"
+  ],
+  "required_hash_bindings": {
+    "artifact_http_transcript_path": "artifact_http_transcript_sha256",
+    "ci_run_http_transcript_path": "ci_run_http_transcript_sha256",
+    "reviewer_key_http_transcript_path": "reviewer_key_http_transcript_sha256"
+  },
+  "source_r108_blocker_queue": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R108-G1-post-preflight-verifier-blocker-queue.json",
+  "source_r108_payload_hash": "95850ab775d8cdfdc0d96a4e231b1fc6dbab8280ba1f3eaa7c2c4ac007337b6f",
+  "source_r108_result": "results/B1_B7_cone01_R108_material_evidence_preflight_verifier_gate_v0.json",
+  "source_r108_rules": "results/B1_B7_cone01_o3_f4_exit_route_submissions/R108-G1-material-evidence-preflight-verifier/material-evidence-preflight-verifier-rules.json",
+  "source_r108_verifier_rules_hash": "4edf2f0114ed4854db58e1a20ce5276f1be7090503600a3f4c3a89a9d8aa692e",
+  "source_target_id": "T-B1-004hg/T-B7-016p",
+  "synthetic_markers": [
+    "url-only-negative-control",
+    "cached-transcript-negative-control",
+    "local-cache-no-live-fetch",
+    "not-live-public-fetch"
+  ],
+  "upstream_target_id": "T-B1-004hf/T-B7-016o"
+}

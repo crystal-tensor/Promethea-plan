@@ -1,0 +1,35 @@
+{
+  "artifact": "R109 public dereference preflight verdict: cached-transcript",
+  "claim_boundary": "R109 acceptance would only allow R108 rerun and a separate single-counter audit.",
+  "contract_hash": "85fada945943cce2e57ac18e82670cc44d8cc5c8ac038fe998e9cf82deb6700e",
+  "dereference_packet_accepted": false,
+  "failed_gate_count": 3,
+  "failed_gates": [
+    "http_transcripts_are_live_public_fetches",
+    "synthetic_markers_absent",
+    "dereference_packet_accepted"
+  ],
+  "gates": {
+    "challenge_nonce_format": true,
+    "challenge_scope_matches_target": true,
+    "claim_boundary_present": true,
+    "contract_hash_matches": true,
+    "counter_transition_mode_allowed": true,
+    "dereference_packet_accepted": false,
+    "http_transcript_hashes_match": true,
+    "http_transcripts_are_live_public_fetches": false,
+    "http_transcripts_bind_challenge_nonce": true,
+    "http_transcripts_bind_requested_urls": true,
+    "immutable_commit_sha_format": true,
+    "required_fields_nonempty": true,
+    "required_fields_present": true,
+    "synthetic_markers_absent": false,
+    "urls_are_https": true
+  },
+  "method": "b1_b7_cone01_r109_public_artifact_dereference_contract_gate_v0",
+  "packet_label": "cached-transcript",
+  "passed_gate_count": 12,
+  "preflight_hash": "e2152d8d4ab82fe056c129c66d1e4078b7b20ee4972d7e861e9e0dd8f72741c8",
+  "source_target_id": "T-B1-004hg/T-B7-016p",
+  "upstream_target_id": "T-B1-004hf/T-B7-016o"
+}

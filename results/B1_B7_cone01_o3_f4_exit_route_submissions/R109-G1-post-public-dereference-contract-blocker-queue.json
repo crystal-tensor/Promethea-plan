@@ -1,0 +1,33 @@
+{
+  "accepted_external_falsification_count": 0,
+  "accepted_external_reproduction_count": 0,
+  "artifact": "R109 post-public-dereference-contract blocker queue",
+  "blocker_queue_hash": "bf746fd1618e4305cf311640f476e265b98b56ef56a5abc4b8d487b7ca9cd168",
+  "blockers": [
+    {
+      "blocker_id": "R109-G1-1",
+      "label": "Attach live public HTTP transcripts for reviewer key, CI run, and artifact URL."
+    },
+    {
+      "blocker_id": "R109-G1-2",
+      "label": "Bind every transcript to the R109 challenge nonce and requested URL."
+    },
+    {
+      "blocker_id": "R109-G1-3",
+      "label": "Remove local-cache/synthetic markers and rerun R109 plus R108."
+    },
+    {
+      "blocker_id": "R109-G1-4",
+      "label": "Only after R109/R108 pass, run a separate single-counter audit."
+    }
+  ],
+  "cached_transcript_preflight_hash": "e2152d8d4ab82fe056c129c66d1e4078b7b20ee4972d7e861e9e0dd8f72741c8",
+  "contract_hash": "85fada945943cce2e57ac18e82670cc44d8cc5c8ac038fe998e9cf82deb6700e",
+  "counter_delta": 0,
+  "counter_transition_accepted": false,
+  "method": "b1_b7_cone01_r109_public_artifact_dereference_contract_gate_v0",
+  "new_credit_delta": 0,
+  "source_target_id": "T-B1-004hg/T-B7-016p",
+  "upstream_target_id": "T-B1-004hf/T-B7-016o",
+  "url_only_preflight_hash": "a2638f4a8c1fffa7432651a584102df8f045f5a58c9854382e98ecf62a45e59c"
+}
