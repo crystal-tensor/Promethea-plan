@@ -1,0 +1,122 @@
+{
+  "artifacts": {
+    "candidate_metrics": "results/B1_B7_cone01_R113_adversarial_2q_reduction_gate/candidate_metrics.json",
+    "candidate_qasm": "results/B1_B7_cone01_R113_adversarial_2q_reduction_gate/work/gcm_h6_qiskit_level3_candidate.qasm",
+    "commands_stdout": "results/B1_B7_cone01_R113_adversarial_2q_reduction_gate/commands.stdout.txt",
+    "exact_equivalence": "results/B1_B7_cone01_R113_adversarial_2q_reduction_gate/exact_equivalence.json",
+    "source_metrics": "results/B1_B7_cone01_R113_adversarial_2q_reduction_gate/source_metrics.json"
+  },
+  "claim_boundary": {
+    "next_gate": "Find a composable candidate that passes exact equivalence and retains a nonzero two-qubit or proxy-T delta under the same denominator.",
+    "what_is_not_supported": "No accepted 2Q reduction, arbitrary-input equivalence, T-resource reduction, layout improvement, or B7 credit.",
+    "what_is_supported": "Qiskit level-3 emits a candidate with a nonzero two-qubit reduction that is rejected by exact statevector equivalence."
+  },
+  "generated_at_unix": 1783688034,
+  "method": "b1_b7_cone01_r113_adversarial_2q_reduction_gate_v0",
+  "model_status": "qiskit_level3_two_qubit_reduction_fails_exact_equivalence",
+  "payload_hash": "2c1ed99f8a0b65e13ca669ed15049f1812fc3ccb3a06941d6e358b4ab4e3fc67",
+  "requirement_count": 8,
+  "requirements": [
+    {
+      "evidence": {
+        "candidate": "results/B1_B7_cone01_R113_adversarial_2q_reduction_gate/candidate_metrics.json",
+        "source": "results/B1_B7_cone01_R113_adversarial_2q_reduction_gate/source_metrics.json"
+      },
+      "label": "source and candidate metrics are materialized",
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "evidence": {
+        "candidate": 528.0,
+        "delta": -234.0,
+        "source": 762.0
+      },
+      "label": "candidate shows a nonzero two-qubit reduction",
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "evidence": {
+        "failed": 1,
+        "first_failed_fidelity": 0.4999999999999999,
+        "passed": 0
+      },
+      "label": "exact equivalence checker rejects the candidate",
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "evidence": {
+        "candidate_accepted": false
+      },
+      "label": "candidate acceptance is gated on exact equivalence",
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "evidence": {
+        "counter_delta": 0,
+        "new_credit_delta": 0
+      },
+      "label": "rejection keeps counters and credit at zero",
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "evidence": {
+        "model_status": "qiskit_level3_two_qubit_reduction_fails_exact_equivalence"
+      },
+      "label": "adversarial claim boundary is recorded",
+      "passed": true,
+      "requirement_id": "P6"
+    },
+    {
+      "evidence": {
+        "candidate": "results/B1_B7_cone01_R113_adversarial_2q_reduction_gate/work/gcm_h6_qiskit_level3_candidate.qasm",
+        "equivalence": "results/B1_B7_cone01_R113_adversarial_2q_reduction_gate/exact_equivalence.json"
+      },
+      "label": "candidate circuit is hashable and replayable",
+      "passed": true,
+      "requirement_id": "P7"
+    },
+    {
+      "evidence": {
+        "b7_credit": 0
+      },
+      "label": "no B7 promotion occurs from the rejected 2Q delta",
+      "passed": true,
+      "requirement_id": "P8"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 8,
+  "source_path": "benchmarks/qasmbench_medium_exact/gcm_h6.qasm",
+  "source_target_id": "T-B1-004hk/T-B7-016t",
+  "status": "cone01_r113_adversarial_2q_reduction_rejected_non_equivalent",
+  "summary": {
+    "candidate_accepted": false,
+    "candidate_operation_count": 1288.0,
+    "candidate_two_qubit_gate_count": 528.0,
+    "counter_delta": 0,
+    "counter_transition_accepted": false,
+    "equivalence_failed": 1,
+    "equivalence_passed": 0,
+    "first_failed_fidelity": 0.4999999999999999,
+    "method": "b1_b7_cone01_r113_adversarial_2q_reduction_gate_v0",
+    "model_status": "qiskit_level3_two_qubit_reduction_fails_exact_equivalence",
+    "new_credit_delta": 0,
+    "operation_reduction_pct": 59.09812638932994,
+    "source_operation_count": 3149.0,
+    "source_target_id": "T-B1-004hk/T-B7-016t",
+    "source_two_qubit_gate_count": 762.0,
+    "status": "cone01_r113_adversarial_2q_reduction_rejected_non_equivalent",
+    "transpile_seconds": 0.07401583300088532,
+    "two_qubit_gate_delta": -234.0,
+    "two_qubit_reduction_pct": 30.708661417322837,
+    "upstream_target_id": "T-B1-004hj/T-B7-016s"
+  },
+  "title": "B1/B7 cone01 R113 adversarial 2Q reduction gate",
+  "upstream_target_id": "T-B1-004hj/T-B7-016s",
+  "version": "0.1"
+}

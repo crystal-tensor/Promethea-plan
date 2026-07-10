@@ -4526,6 +4526,36 @@ current_results:
     caveat: r112_exact_single_workload_replay_improves_local_metrics_but_no_two_qubit_or_b7_credit
     report: ../results/B1_B7_cone01_R112_exact_replay_qubit_guard_v0.json
     markdown_report: ../research/B1_B7_cone01_R112_exact_replay_qubit_guard.md
+  b1_b7_cone01_r113_adversarial_2q_reduction_gate_v0:
+    method: b1_b7_cone01_r113_adversarial_2q_reduction_gate_v0
+    source_b1_r113_adversarial_2q_reduction: ../results/B1_B7_cone01_R113_adversarial_2q_reduction_gate_v0.json
+    source_qasm: ../benchmarks/qasmbench_medium_exact/gcm_h6.qasm
+    source_target_id: T-B1-004hk/T-B7-016t
+    upstream_target_id: T-B1-004hj/T-B7-016s
+    source_two_qubit_gate_count: 762
+    candidate_two_qubit_gate_count: 528
+    two_qubit_gate_delta: -234
+    two_qubit_reduction_pct: 30.708661417322837
+    equivalence_passed: 0
+    equivalence_failed: 1
+    first_failed_fidelity: 0.4999999999999999
+    candidate_accepted: false
+    counter_transition_accepted: false
+    counter_delta: 0
+    accepted_external_reproduction_count: 0
+    accepted_external_falsification_count: 0
+    b7_dependency_credit_allowed: false
+    b7_resource_credit_allowed: false
+    b7_ft_ledger_credit_allowed: false
+    b7_credit_delta: 0
+    b7_space_time_volume_credit: 0
+    new_credit_delta: 0
+    requirements_passed: 8
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r113_adversarial_2q_delta_rejected_by_exact_equivalence_no_b7_credit
+    report: ../results/B1_B7_cone01_R113_adversarial_2q_reduction_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R113_adversarial_2q_reduction_gate.md
   b2_calibrated_dependency_credit_gate_v0:
     status: b2_calibrated_dependency_credit_rejected_missing_hardware_evidence
     method: b7_b2_calibrated_dependency_credit_gate_v0

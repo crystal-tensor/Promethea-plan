@@ -1,0 +1,18 @@
+{
+  "benchmark_id": "B1",
+  "check": "statevector_equivalence",
+  "failed": 1,
+  "pair_count": 1,
+  "passed": 0,
+  "results": [
+    {
+      "equivalent": false,
+      "fidelity": 0.4999999999999999,
+      "left": "benchmarks/qasmbench_medium_exact/gcm_h6.qasm",
+      "max_global_phase_adjusted_delta": 0.3826834323651054,
+      "qubits": 13,
+      "right": "/private/tmp/prometheus-r113-work/results/B1_B7_cone01_R113_adversarial_2q_reduction_gate/work/gcm_h6_qiskit_level3_candidate.qasm"
+    }
+  ],
+  "tolerance": 1e-09
+}

@@ -2626,3 +2626,12 @@ credit is claimed. Requirements pass `8/8`; counter delta remains `0`; and
 `new_credit_delta` remains `0`. The next technical gate is a composable
 full-circuit semantic certificate with a nonzero two-qubit or proxy-T delta
 under the same denominator.
+
+`T-B1-004hk` / `T-B7-016t` now adds an adversarial two-qubit reduction gate.
+Qiskit level 3 produces a visually attractive candidate on `gcm_h6.qasm` with
+CX count `762 -> 528`, a `30.7087%` reduction. The exact statevector checker
+rejects it: equivalence is `0/1` and the first failed fidelity is `0.5`.
+Candidate acceptance is `false`; counter delta and `new_credit_delta` remain
+`0`; no B7 credit is granted. Requirements pass `8/8`. The result sharpens the
+next target: find a composable candidate that passes exact equivalence while
+retaining a nonzero two-qubit or proxy-T delta under the same denominator.

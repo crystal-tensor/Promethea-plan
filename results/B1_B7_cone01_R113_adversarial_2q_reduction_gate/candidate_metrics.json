@@ -1,0 +1,31 @@
+{
+  "benchmark_id": "B1",
+  "circuit_count": 1,
+  "profile": "heavy_hex_like_sparse",
+  "results": [
+    {
+      "classical_bits": 1,
+      "gate_class_counts": {
+        "measurement": 1,
+        "multi_qubit": 0,
+        "single_qubit": 759,
+        "two_qubit": 528
+      },
+      "gate_counts": {
+        "cx": 528,
+        "measure": 1,
+        "u3": 759
+      },
+      "hardware_weighted_error_exposure": 3.6991,
+      "idle_layer_proxy": 11080,
+      "logical_depth": 992,
+      "operation_count": 1288,
+      "path": "/private/tmp/prometheus-r113-work/results/B1_B7_cone01_R113_adversarial_2q_reduction_gate/work/gcm_h6_qiskit_level3_candidate.qasm",
+      "qubits": 13,
+      "t_count_proxy": 0,
+      "t_depth_proxy": 0,
+      "two_qubit_gate_count": 528,
+      "two_qubit_or_larger_depth_proxy": 992
+    }
+  ]
+}
