@@ -1,0 +1,192 @@
+{
+  "artifacts": {
+    "final_qasm": "results/B1_B7_cone01_R112_exact_replay_qubit_guard/pipeline_work/final/gcm_h6.qasm",
+    "max12_guard_stdout": "results/B1_B7_cone01_R112_exact_replay_qubit_guard/pipeline_results/max12_guard.stdout.txt",
+    "pipeline_stdout": "results/B1_B7_cone01_R112_exact_replay_qubit_guard/pipeline_results/pipeline.stdout.txt",
+    "pipeline_summary": "results/B1_B7_cone01_R112_exact_replay_qubit_guard/pipeline_results/r112_exact_replay_summary.json"
+  },
+  "claim_boundary": {
+    "next_gate": "Produce a composable full-circuit semantic certificate and nonzero two-qubit or proxy-T delta under the same denominator.",
+    "what_is_not_supported": "No arbitrary-input equivalence, two-qubit gate reduction, T-resource reduction, layout improvement, or B7 credit.",
+    "what_is_supported": "One 13-qubit exact statevector replay of the fixed-point local-rewrite pipeline with explicit max-qubits guard."
+  },
+  "generated_at_unix": 1783686339,
+  "method": "b1_b7_cone01_r112_exact_replay_qubit_guard_v0",
+  "model_status": "13_qubit_exact_replay_passes_but_no_two_qubit_or_b7_credit",
+  "payload_hash": "2f3088567f474e16a5e228163213b98e5e5b610b7291b77d01f9f305fecf7b3f",
+  "pipeline_summary": {
+    "benchmark_id": "B1",
+    "certificate_mode": "local_rewrite_certificates_plus_exact_statevector",
+    "circuit_count": 1,
+    "equivalence_failed": 0,
+    "equivalence_mode": "exact_statevector",
+    "equivalence_passed": 1,
+    "final_dir": "results/B1_B7_cone01_R112_exact_replay_qubit_guard/pipeline_work/final",
+    "hardware_weighted_exposure_after": 5.3506599999999995,
+    "hardware_weighted_exposure_before": 5.938599999999999,
+    "hardware_weighted_exposure_delta": -0.5879399999999997,
+    "hardware_weighted_exposure_reduction_pct": 9.90031320513252,
+    "local_certificates": {
+      "rzz_window_resynthesis": {
+        "certificate_type": "local_rewrite_identity_plus_disjoint_commutation",
+        "commuting_disjoint_windows": 0,
+        "cx_removed": 0,
+        "rule": "cx(control,target); rz(theta) target; cx(control,target) -> rzz(theta) control,target",
+        "rzz_inserted": 0,
+        "windows": 0
+      },
+      "single_qubit_block_resynthesis": {
+        "certificate_type": "constructive_1q_unitary_matrix_decomposition",
+        "commuted_disjoint_single_qubit_gates": 17078,
+        "identity_gates_removed": 0,
+        "removed_single_qubit_gates": 1297,
+        "resynthesized_runs": 480,
+        "rule": "maximal_single_qubit_gate_run -> one u3(theta,phi,lambda)"
+      }
+    },
+    "logical_depth_after": 1466.0,
+    "logical_depth_before": 2447.0,
+    "logical_depth_delta": -981.0,
+    "logical_depth_reduction_pct": 40.08990600735595,
+    "method": "fixed_point_commuting_1q_plus_iterative_rzz_v0",
+    "operation_count_after": 1852.0,
+    "operation_count_before": 3149.0,
+    "operation_count_delta": -1297.0,
+    "operation_count_reduction_pct": 41.18767862813591,
+    "profile": "heavy_hex_like_sparse",
+    "proof_log_mode": "jsonl_local_rewrite_events_v1",
+    "proof_logs": {
+      "rzz_window_resynthesis": [
+        {
+          "entries": 0,
+          "mode": "adjacent",
+          "pass": 1,
+          "path": "results/B1_B7_cone01_R112_exact_replay_qubit_guard/pipeline_results/r112_exact_replay_rzz_pass_1_proofs.jsonl"
+        }
+      ],
+      "single_qubit_block_resynthesis": {
+        "entries": 480,
+        "path": "results/B1_B7_cone01_R112_exact_replay_qubit_guard/pipeline_results/r112_exact_replay_1q_proofs.jsonl"
+      }
+    },
+    "rzz_passes": [
+      {
+        "commuting_disjoint_windows": 0,
+        "cx_removed": 0,
+        "mode": "adjacent",
+        "output_dir": "results/B1_B7_cone01_R112_exact_replay_qubit_guard/pipeline_work/02_rzz_pass",
+        "pass": 1,
+        "rzz_inserted": 0,
+        "windows": 0
+      }
+    ],
+    "two_qubit_gate_count_after": 762.0,
+    "two_qubit_gate_count_before": 762.0,
+    "two_qubit_gate_count_delta": 0.0,
+    "two_qubit_gate_count_reduction_pct": 0.0
+  },
+  "requirement_count": 8,
+  "requirements": [
+    {
+      "evidence": {
+        "qubit_count": 13
+      },
+      "label": "source workload has 13 qubits",
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "evidence": {
+        "message": "te/tmp/prometheus-r110-publish/tools/b1_equivalence_check.py\", line 239, in simulate\n    raise ValueError(f\"{path} has {qubit_count} qubits, exceeding max {max_qubits}\")\nValueError: results/B1_B7_cone01_R112_exact_replay_qubit_guard/pipeline_work/00_input/gcm_h6.qasm has 13 qubits, exceeding max 12\n",
+        "returncode": 1
+      },
+      "label": "max-qubits=12 rejects the 13-qubit workload explicitly",
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "evidence": {
+        "equivalence_failed": 0,
+        "equivalence_passed": 1,
+        "pipeline_returncode": 0
+      },
+      "label": "max-qubits=13 exact equivalence passes",
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "evidence": {
+        "removed_single_qubit_gates": 1297,
+        "resynthesized_runs": 480,
+        "rzz_windows": 0
+      },
+      "label": "local rewrite certificates are emitted",
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "evidence": {
+        "hardware_weighted_exposure_delta": -0.5879399999999997,
+        "logical_depth_delta": -981.0,
+        "operation_count_delta": -1297.0
+      },
+      "label": "operation, depth, and exposure improve on this workload",
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "evidence": {
+        "two_qubit_gate_count_delta": 0.0
+      },
+      "label": "two-qubit gate count does not receive false credit",
+      "passed": true,
+      "requirement_id": "P6"
+    },
+    {
+      "evidence": {
+        "pipeline_stdout": "results/B1_B7_cone01_R112_exact_replay_qubit_guard/pipeline_results/pipeline.stdout.txt",
+        "summary": "results/B1_B7_cone01_R112_exact_replay_qubit_guard/pipeline_results/r112_exact_replay_summary.json"
+      },
+      "label": "replay artifacts are materialized and hashable",
+      "passed": true,
+      "requirement_id": "P7"
+    },
+    {
+      "evidence": {
+        "model_status": "13_qubit_exact_replay_passes_but_no_two_qubit_or_b7_credit"
+      },
+      "label": "claim boundary keeps B7 credit at zero",
+      "passed": true,
+      "requirement_id": "P8"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 8,
+  "source_path": "benchmarks/qasmbench_medium_exact/gcm_h6.qasm",
+  "source_target_id": "T-B1-004hj/T-B7-016s",
+  "status": "cone01_r112_exact_replay_passed_qubit_guard_explicit",
+  "summary": {
+    "counter_delta": 0,
+    "counter_transition_accepted": false,
+    "equivalence_failed": 0,
+    "equivalence_passed": 1,
+    "failed_requirement_ids": [],
+    "hardware_exposure_reduction_pct": 9.90031320513252,
+    "logical_depth_reduction_pct": 40.08990600735595,
+    "max12_guard_rejected": true,
+    "method": "b1_b7_cone01_r112_exact_replay_qubit_guard_v0",
+    "model_status": "13_qubit_exact_replay_passes_but_no_two_qubit_or_b7_credit",
+    "new_credit_delta": 0,
+    "operation_reduction_pct": 41.18767862813591,
+    "qubit_count": 13,
+    "requirements_failed": 0,
+    "requirements_passed": 8,
+    "source_target_id": "T-B1-004hj/T-B7-016s",
+    "status": "cone01_r112_exact_replay_passed_qubit_guard_explicit",
+    "two_qubit_gate_delta": 0.0,
+    "upstream_target_id": "T-B1-004hi/T-B7-016r"
+  },
+  "title": "B1/B7 cone01 R112 exact replay qubit guard",
+  "upstream_target_id": "T-B1-004hi/T-B7-016r",
+  "version": "0.1"
+}

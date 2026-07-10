@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/private/tmp/prometheus-r110-publish/tools/b1_equivalence_check.py", line 369, in <module>
+    raise SystemExit(main(sys.argv[1:]))
+                     ^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/prometheus-r110-publish/tools/b1_equivalence_check.py", line 347, in main
+    compare_pair(left, right, max_qubits=args.max_qubits, tolerance=args.tolerance)
+  File "/private/tmp/prometheus-r110-publish/tools/b1_equivalence_check.py", line 296, in compare_pair
+    left = simulate(left_path, max_qubits)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/prometheus-r110-publish/tools/b1_equivalence_check.py", line 239, in simulate
+    raise ValueError(f"{path} has {qubit_count} qubits, exceeding max {max_qubits}")
+ValueError: results/B1_B7_cone01_R112_exact_replay_qubit_guard/pipeline_work/00_input/gcm_h6.qasm has 13 qubits, exceeding max 12

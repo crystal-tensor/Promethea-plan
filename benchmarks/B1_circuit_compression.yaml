@@ -7490,6 +7490,34 @@ current_results:
     caveat: r111_public_fetchability_passes_but_same_repository_origin_blocks_independent_materiality
     report: ../results/B1_B7_cone01_R111_independent_origin_materiality_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R111_independent_origin_materiality_gate.md
+  b1_b7_cone01_r112_exact_replay_qubit_guard_v0:
+    circuits: 1
+    status: cone01_r112_exact_replay_passed_qubit_guard_explicit
+    model_status: 13_qubit_exact_replay_passes_but_no_two_qubit_or_b7_credit
+    method: b1_b7_cone01_r112_exact_replay_qubit_guard_v0
+    source_target_id: T-B1-004hj/T-B7-016s
+    upstream_target_id: T-B1-004hi/T-B7-016r
+    source_qasm: ../benchmarks/qasmbench_medium_exact/gcm_h6.qasm
+    source_b1_r112_exact_replay_qubit_guard: ../results/B1_B7_cone01_R112_exact_replay_qubit_guard_v0.json
+    max12_guard_rejected: true
+    qubit_count: 13
+    equivalence_passed: 1
+    equivalence_failed: 0
+    operation_reduction_pct: 41.18767862813591
+    logical_depth_reduction_pct: 40.08990600735595
+    hardware_exposure_reduction_pct: 9.90031320513252
+    two_qubit_gate_delta: 0
+    counter_transition_accepted: false
+    counter_delta: 0
+    new_credit_delta: 0
+    b7_resource_credit_allowed: false
+    b7_credit_delta: 0
+    requirements_passed: 8
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r112_exact_single_workload_replay_improves_local_metrics_but_no_two_qubit_or_b7_credit
+    report: ../results/B1_B7_cone01_R112_exact_replay_qubit_guard_v0.json
+    markdown_report: ../research/B1_B7_cone01_R112_exact_replay_qubit_guard.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate

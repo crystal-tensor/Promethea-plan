@@ -1,0 +1,71 @@
+{
+  "benchmark_id": "B1",
+  "certificate_mode": "local_rewrite_certificates_plus_exact_statevector",
+  "circuit_count": 1,
+  "equivalence_failed": 0,
+  "equivalence_mode": "exact_statevector",
+  "equivalence_passed": 1,
+  "final_dir": "results/B1_B7_cone01_R112_exact_replay_qubit_guard/pipeline_work/final",
+  "hardware_weighted_exposure_after": 5.3506599999999995,
+  "hardware_weighted_exposure_before": 5.938599999999999,
+  "hardware_weighted_exposure_delta": -0.5879399999999997,
+  "hardware_weighted_exposure_reduction_pct": 9.90031320513252,
+  "local_certificates": {
+    "rzz_window_resynthesis": {
+      "certificate_type": "local_rewrite_identity_plus_disjoint_commutation",
+      "commuting_disjoint_windows": 0,
+      "cx_removed": 0,
+      "rule": "cx(control,target); rz(theta) target; cx(control,target) -> rzz(theta) control,target",
+      "rzz_inserted": 0,
+      "windows": 0
+    },
+    "single_qubit_block_resynthesis": {
+      "certificate_type": "constructive_1q_unitary_matrix_decomposition",
+      "commuted_disjoint_single_qubit_gates": 17078,
+      "identity_gates_removed": 0,
+      "removed_single_qubit_gates": 1297,
+      "resynthesized_runs": 480,
+      "rule": "maximal_single_qubit_gate_run -> one u3(theta,phi,lambda)"
+    }
+  },
+  "logical_depth_after": 1466.0,
+  "logical_depth_before": 2447.0,
+  "logical_depth_delta": -981.0,
+  "logical_depth_reduction_pct": 40.08990600735595,
+  "method": "fixed_point_commuting_1q_plus_iterative_rzz_v0",
+  "operation_count_after": 1852.0,
+  "operation_count_before": 3149.0,
+  "operation_count_delta": -1297.0,
+  "operation_count_reduction_pct": 41.18767862813591,
+  "profile": "heavy_hex_like_sparse",
+  "proof_log_mode": "jsonl_local_rewrite_events_v1",
+  "proof_logs": {
+    "rzz_window_resynthesis": [
+      {
+        "entries": 0,
+        "mode": "adjacent",
+        "pass": 1,
+        "path": "results/B1_B7_cone01_R112_exact_replay_qubit_guard/pipeline_results/r112_exact_replay_rzz_pass_1_proofs.jsonl"
+      }
+    ],
+    "single_qubit_block_resynthesis": {
+      "entries": 480,
+      "path": "results/B1_B7_cone01_R112_exact_replay_qubit_guard/pipeline_results/r112_exact_replay_1q_proofs.jsonl"
+    }
+  },
+  "rzz_passes": [
+    {
+      "commuting_disjoint_windows": 0,
+      "cx_removed": 0,
+      "mode": "adjacent",
+      "output_dir": "results/B1_B7_cone01_R112_exact_replay_qubit_guard/pipeline_work/02_rzz_pass",
+      "pass": 1,
+      "rzz_inserted": 0,
+      "windows": 0
+    }
+  ],
+  "two_qubit_gate_count_after": 762.0,
+  "two_qubit_gate_count_before": 762.0,
+  "two_qubit_gate_count_delta": 0.0,
+  "two_qubit_gate_count_reduction_pct": 0.0
+}

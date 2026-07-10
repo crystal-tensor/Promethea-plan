@@ -2615,3 +2615,14 @@ remain `0`; and `new_credit_delta` remains `0`. Verdict hash
 blocker queue hash `9b6b707ea3d984b62bcf8a41d7fc5c9aee22d91fd72d5da42c2d28a0e514e81b`.
 The next gate requires an independent reviewer key, third-party CI transcript,
 and externally attested artifact transcript outside the project repository.
+
+`T-B1-004hj` / `T-B7-016s` now adds the R112 exact replay qubit guard. The
+13-qubit `gcm_h6.qasm` workload is deliberately rejected by the explicit
+`max-qubits=12` guard, then passes exact statevector equivalence at
+`max-qubits=13`. The fixed-point local rewrite removes `1,297` one-qubit
+operations, reduces logical depth by `40.0899%`, and reduces hardware exposure
+by `9.9003%`; the two-qubit gate delta is `0`, so no T-resource, layout, or B7
+credit is claimed. Requirements pass `8/8`; counter delta remains `0`; and
+`new_credit_delta` remains `0`. The next technical gate is a composable
+full-circuit semantic certificate with a nonzero two-qubit or proxy-T delta
+under the same denominator.

@@ -1,0 +1,18 @@
+{
+  "benchmark_id": "B1",
+  "check": "statevector_equivalence",
+  "failed": 0,
+  "pair_count": 1,
+  "passed": 1,
+  "results": [
+    {
+      "equivalent": true,
+      "fidelity": 1.0,
+      "left": "results/B1_B7_cone01_R112_exact_replay_qubit_guard/pipeline_work/00_input/gcm_h6.qasm",
+      "max_global_phase_adjusted_delta": 3.5201467671373413e-15,
+      "qubits": 13,
+      "right": "results/B1_B7_cone01_R112_exact_replay_qubit_guard/pipeline_work/02_rzz_pass/gcm_h6.qasm"
+    }
+  ],
+  "tolerance": 1e-09
+}
