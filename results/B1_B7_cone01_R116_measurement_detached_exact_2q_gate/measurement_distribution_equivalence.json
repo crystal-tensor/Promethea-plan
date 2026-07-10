@@ -1,0 +1,20 @@
+{
+  "benchmark_id": "B1",
+  "check": "measurement_distribution_equivalence",
+  "failed": 0,
+  "pair_count": 1,
+  "passed": 1,
+  "results": [
+    {
+      "classical_outcome_count_left": 2,
+      "classical_outcome_count_right": 2,
+      "equivalent": true,
+      "l1_delta": 3.83026943495679e-15,
+      "left": "benchmarks/qasmbench_medium_exact/gcm_h6.qasm",
+      "max_probability_delta": 1.942890293094024e-15,
+      "right": "/private/tmp/prometheus-r113-work/results/B1_B7_cone01_R116_measurement_detached_exact_2q_gate/measurement_detached_candidate.qasm",
+      "semantic_model": "sequential_statevector_with_branching_mid_circuit_measurements"
+    }
+  ],
+  "tolerance": 1e-08
+}

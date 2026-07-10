@@ -7612,6 +7612,46 @@ current_results:
     caveat: r115_fixed_initial_state_final_measurement_scope_only_no_arbitrary_input_or_b7_credit
     report: ../results/B1_B7_cone01_R115_measurement_semantics_2q_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R115_measurement_semantics_2q_gate.md
+  b1_b7_cone01_r116_measurement_detached_exact_2q_gate_v0:
+    circuits: 1
+    status: cone01_r116_measurement_detached_exact_2q_accepted_finite_probe
+    model_status: measurement_detached_core_compilation_passes_default_and_22_input_replay
+    method: b1_b7_cone01_r116_measurement_detached_exact_2q_gate_v0
+    source_target_id: T-B1-004hn/T-B7-016w
+    upstream_target_id: T-B1-004hm/T-B7-016v
+    source_qasm: ../benchmarks/qasmbench_medium_exact/gcm_h6.qasm
+    source_b1_r116_measurement_detached_exact_2q: ../results/B1_B7_cone01_R116_measurement_detached_exact_2q_gate_v0.json
+    source_two_qubit_gate_count: 762
+    candidate_two_qubit_gate_count: 528
+    two_qubit_gate_delta: -234
+    two_qubit_reduction_pct: 30.708661417322837
+    terminal_measurements_detached_before_compile: true
+    compiled_core_measurement_count: 0
+    default_state_passed: 1
+    default_state_failed: 0
+    default_state_fidelity: 1.0
+    multi_input_probe_count: 22
+    multi_input_passed: 22
+    multi_input_failed: 0
+    max_multi_input_fidelity_deficit: 9.992007221626409e-15
+    measurement_passed: 1
+    measurement_failed: 0
+    measurement_l1_delta: 3.83026943495679e-15
+    measurement_max_probability_delta: 1.942890293094024e-15
+    finite_probe_acceptance: true
+    arbitrary_input_unitary_proof_claimed: false
+    measurement_scope_credit_allowed: true
+    b7_resource_credit_allowed: false
+    b7_credit_delta: 0
+    counter_transition_accepted: false
+    counter_delta: 0
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r116_terminal_measurement_detached_finite_probe_only_no_arbitrary_unitary_proof_or_b7_credit
+    report: ../results/B1_B7_cone01_R116_measurement_detached_exact_2q_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R116_measurement_detached_exact_2q_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate

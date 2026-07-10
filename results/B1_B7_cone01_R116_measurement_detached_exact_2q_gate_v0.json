@@ -1,0 +1,145 @@
+{
+  "artifacts": {
+    "candidate_qasm": "results/B1_B7_cone01_R116_measurement_detached_exact_2q_gate/measurement_detached_candidate.qasm",
+    "default_state_equivalence": "results/B1_B7_cone01_R116_measurement_detached_exact_2q_gate/default_state_equivalence.json",
+    "measurement_distribution_equivalence": "results/B1_B7_cone01_R116_measurement_detached_exact_2q_gate/measurement_distribution_equivalence.json",
+    "multi_input_probe": "results/B1_B7_cone01_R116_measurement_detached_exact_2q_gate/multi_input_probe.json"
+  },
+  "claim_boundary": {
+    "next_gate": "Promote the finite probe certificate to a composable symbolic/unitary certificate or run an independent compiler cross-check before any B7 ledger credit.",
+    "what_is_not_supported": "Arbitrary-input unitary proof, mid-circuit measurement semantics, layout improvement, T-resource reduction, or B7 credit.",
+    "what_is_supported": "Terminal-measurement workload with measurement-detached compilation, 30.7087% CX reduction, default replay, and 22 finite input probes passing."
+  },
+  "generated_at_unix": 1783690099,
+  "method": "b1_b7_cone01_r116_measurement_detached_exact_2q_gate_v0",
+  "model_status": "measurement_detached_core_compilation_passes_default_and_22_input_replay",
+  "payload_hash": "4e385647a268d99f64d14ed876f73df01f2981ec2f87cc0d54a54d6a1ec0e69b",
+  "requirement_count": 10,
+  "requirements": [
+    {
+      "evidence": {
+        "candidate": 528,
+        "delta": -234,
+        "source": 762
+      },
+      "label": "candidate has a nonzero two-qubit reduction",
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "evidence": {
+        "compiled_core_measurement_count": 0,
+        "source_measurement_count": 1
+      },
+      "label": "terminal measurements are detached before compilation",
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "evidence": {
+        "fidelity": 1.0
+      },
+      "label": "default statevector replay passes",
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "evidence": {
+        "l1_delta": 3.83026943495679e-15,
+        "max_probability_delta": 1.942890293094024e-15
+      },
+      "label": "final measurement distribution passes",
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "evidence": {
+        "passed": 22,
+        "probe_count": 22
+      },
+      "label": "finite multi-input replay passes",
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "evidence": {
+        "max_fidelity_deficit": 9.992007221626409e-15,
+        "tolerance": 1e-09
+      },
+      "label": "multi-input fidelity deficit stays within tolerance",
+      "passed": true,
+      "requirement_id": "P6"
+    },
+    {
+      "evidence": {
+        "l1_delta": 3.83026943495679e-15,
+        "max_probability_delta": 1.942890293094024e-15
+      },
+      "label": "measurement error stays within tolerance",
+      "passed": true,
+      "requirement_id": "P7"
+    },
+    {
+      "evidence": {
+        "candidate": "results/B1_B7_cone01_R116_measurement_detached_exact_2q_gate/measurement_detached_candidate.qasm",
+        "default": "results/B1_B7_cone01_R116_measurement_detached_exact_2q_gate/default_state_equivalence.json",
+        "measurement": "results/B1_B7_cone01_R116_measurement_detached_exact_2q_gate/measurement_distribution_equivalence.json",
+        "multi_input": "results/B1_B7_cone01_R116_measurement_detached_exact_2q_gate/multi_input_probe.json"
+      },
+      "label": "candidate and all checker outputs are materialized",
+      "passed": true,
+      "requirement_id": "P8"
+    },
+    {
+      "evidence": {
+        "b7_credit_delta": 0
+      },
+      "label": "B7 credit remains zero until hardware and resource ledgers are closed",
+      "passed": true,
+      "requirement_id": "P9"
+    },
+    {
+      "evidence": {
+        "model_status": "measurement_detached_core_compilation_passes_default_and_22_input_replay"
+      },
+      "label": "claim boundary excludes arbitrary proof and hardware claims",
+      "passed": true,
+      "requirement_id": "P10"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 10,
+  "source_path": "benchmarks/qasmbench_medium_exact/gcm_h6.qasm",
+  "source_target_id": "T-B1-004hn/T-B7-016w",
+  "status": "cone01_r116_measurement_detached_exact_2q_accepted_finite_probe",
+  "summary": {
+    "b7_credit_delta": 0,
+    "candidate_two_qubit_gate_count": 528,
+    "counter_delta": 0,
+    "default_checker_returncode": 0,
+    "default_state_failed": 0,
+    "default_state_fidelity": 1.0,
+    "default_state_passed": 1,
+    "max_multi_input_fidelity_deficit": 9.992007221626409e-15,
+    "measurement_checker_returncode": 0,
+    "measurement_failed": 0,
+    "measurement_l1_delta": 3.83026943495679e-15,
+    "measurement_max_probability_delta": 1.942890293094024e-15,
+    "measurement_passed": 1,
+    "method": "b1_b7_cone01_r116_measurement_detached_exact_2q_gate_v0",
+    "model_status": "measurement_detached_core_compilation_passes_default_and_22_input_replay",
+    "multi_input_failed": 0,
+    "multi_input_passed": 22,
+    "multi_input_probe_count": 22,
+    "new_credit_delta": 0,
+    "source_target_id": "T-B1-004hn/T-B7-016w",
+    "source_two_qubit_gate_count": 762,
+    "status": "cone01_r116_measurement_detached_exact_2q_accepted_finite_probe",
+    "two_qubit_gate_delta": -234,
+    "two_qubit_reduction_pct": 30.708661417322837,
+    "upstream_target_id": "T-B1-004hm/T-B7-016v"
+  },
+  "title": "B1/B7 cone01 R116 measurement-detached exact 2Q gate",
+  "upstream_target_id": "T-B1-004hm/T-B7-016v",
+  "version": "0.1"
+}

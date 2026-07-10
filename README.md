@@ -2652,3 +2652,15 @@ This is accepted only as a narrow B1 measurement-scope result. It does not
 support arbitrary-input/full-state equivalence, mid-circuit measurement
 semantics, hardware layout, T-resource, or B7 credit; B7 credit remains `0`.
 Requirements pass `8/8`.
+
+`T-B1-004hn` / `T-B7-016w` now adds the R116 measurement-detached exact 2Q
+gate. R116 removes the terminal measurement before Qiskit optimization, compiles
+the 13-qubit quantum core, and restores the original classical measurement map.
+The candidate keeps the R115 CX count `762 -> 528` (`30.7087%`), passes the
+default statevector replay with fidelity `1.0`, passes `22/22` finite input
+probes with maximum fidelity deficit `9.99e-15`, and passes final measurement
+distribution replay with L1 delta `3.83e-15`. This is a materially stronger
+B1 candidate, but it is still finite-probe evidence rather than an arbitrary-input
+unitary proof; mid-circuit measurement semantics, hardware layout, T-resource,
+and B7 credit remain outside the claim boundary. Requirements pass `10/10`;
+B7 credit remains `0`.
