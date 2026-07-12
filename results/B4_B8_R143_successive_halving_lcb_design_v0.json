@@ -1,0 +1,1086 @@
+{
+  "artifacts": {
+    "markdown_report": "research/B4_B8_R143_successive_halving_lcb_design.md",
+    "r142_design_result": "results/B4_B8_R142_seed_robust_lcb_mapping_design_v0.json",
+    "result": "results/B4_B8_R143_successive_halving_lcb_design_v0.json",
+    "selected_circuit_directory": "results/B4_B8_R143_successive_halving_lcb_design/selected_circuits"
+  },
+  "claim_boundary": {
+    "what_is_not_supported": "fresh hidden acceptance, live wall-clock savings, cross-calibration transfer, hardware, soundness, quantum advantage, BQP separation, solved B4/B8/B10, or new credit",
+    "what_is_supported": "a fixed counterfactual successive-halving schedule with charged execution savings and low full-budget LCB regret"
+  },
+  "failed_requirement_ids": [],
+  "generated_at_unix": 1783881384,
+  "group_rows": [
+    {
+      "charged_execution_count": 68,
+      "full_budget_lcb_regret": 0.0,
+      "full_budget_selected_lcb": 0.007125796221965354,
+      "r142_full_budget_lcb": 0.007125796221965354,
+      "selected_circuit_path": "results/B4_B8_R143_successive_halving_lcb_design/selected_circuits/FakeJakartaV2_dense_validation_complete_ising_n6.qasm",
+      "selected_circuit_sha256": "67dcb703349c5db53303eb12c6d7f487ca470b4d77472b1c7e4b18c1cbed99cc",
+      "selected_mapping": [
+        3,
+        1,
+        5,
+        2,
+        0,
+        6
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_replay_matches": true,
+      "selected_qasm_stable_hash": "6467316444e2c1154abbec344bcf4cffd759271bd1e54f010825c412ef9aad42",
+      "selected_realization_seed": 13610,
+      "selection_matches_r142": true,
+      "selection_trace": [
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 8,
+          "cumulative_seed_count": 4,
+          "leader_lcb": 0.01100101122565799,
+          "leader_mapping": [
+            3,
+            1,
+            5,
+            2,
+            0,
+            6
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13610,
+          "round": 1,
+          "survivor_count": 4
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 4,
+          "cumulative_seed_count": 8,
+          "leader_lcb": 0.008141962496727238,
+          "leader_mapping": [
+            1,
+            3,
+            0,
+            2,
+            5,
+            6
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13610,
+          "round": 2,
+          "survivor_count": 2
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 2,
+          "cumulative_seed_count": 12,
+          "leader_lcb": 0.006748803131653892,
+          "leader_mapping": [
+            3,
+            1,
+            5,
+            2,
+            0,
+            6
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13610,
+          "round": 3,
+          "survivor_count": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999989,
+      "snapshot": "FakeJakartaV2",
+      "task_id": "dense_validation_complete_ising_n6"
+    },
+    {
+      "charged_execution_count": 68,
+      "full_budget_lcb_regret": 0.0,
+      "full_budget_selected_lcb": -0.00013972171004081638,
+      "r142_full_budget_lcb": -0.00013972171004081638,
+      "selected_circuit_path": "results/B4_B8_R143_successive_halving_lcb_design/selected_circuits/FakeJakartaV2_dense_validation_inverse_qft_n6.qasm",
+      "selected_circuit_sha256": "661bbbfa1d7719186f2091d95cb535866744c3aa1efa6570c110f39e31b2d209",
+      "selected_mapping": [
+        0,
+        2,
+        3,
+        5,
+        1,
+        6
+      ],
+      "selected_policy_id": "selected_o3_lookahead",
+      "selected_qasm_replay_matches": true,
+      "selected_qasm_stable_hash": "5da69d402ff86712315406dbec502e1c2938b05db3f851ad59289d05bc968392",
+      "selected_realization_seed": 13601,
+      "selection_matches_r142": true,
+      "selection_trace": [
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 8,
+          "cumulative_seed_count": 4,
+          "leader_lcb": -0.0003487261361121353,
+          "leader_mapping": [
+            0,
+            1,
+            2,
+            5,
+            3,
+            6
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13601,
+          "round": 1,
+          "survivor_count": 4
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 4,
+          "cumulative_seed_count": 8,
+          "leader_lcb": -0.0005914182742770389,
+          "leader_mapping": [
+            0,
+            1,
+            2,
+            6,
+            3,
+            5
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13606,
+          "round": 2,
+          "survivor_count": 2
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 2,
+          "cumulative_seed_count": 12,
+          "leader_lcb": -0.00027066746013587725,
+          "leader_mapping": [
+            0,
+            2,
+            3,
+            5,
+            1,
+            6
+          ],
+          "leader_policy_id": "selected_o3_lookahead",
+          "leader_realization_seed": 13601,
+          "round": 3,
+          "survivor_count": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999976,
+      "snapshot": "FakeJakartaV2",
+      "task_id": "dense_validation_inverse_qft_n6"
+    },
+    {
+      "charged_execution_count": 68,
+      "full_budget_lcb_regret": 0.0,
+      "full_budget_selected_lcb": -0.0005449161161169085,
+      "r142_full_budget_lcb": -0.0005449161161169085,
+      "selected_circuit_path": "results/B4_B8_R143_successive_halving_lcb_design/selected_circuits/FakeJakartaV2_dense_validation_scrambled_qft_n6.qasm",
+      "selected_circuit_sha256": "0f848be0b718708c31609094a944c019af8a5deacbfedf7a70d7492cad863f8a",
+      "selected_mapping": [
+        5,
+        3,
+        1,
+        6,
+        2,
+        0
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_replay_matches": true,
+      "selected_qasm_stable_hash": "386050d72d2d7aaaae4bb0be4ade8a77d612277c6f9aefdae77a0cf432274967",
+      "selected_realization_seed": 13601,
+      "selection_matches_r142": true,
+      "selection_trace": [
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 8,
+          "cumulative_seed_count": 4,
+          "leader_lcb": -0.0007940013333980701,
+          "leader_mapping": [
+            5,
+            0,
+            3,
+            6,
+            2,
+            1
+          ],
+          "leader_policy_id": "selected_o3_lookahead",
+          "leader_realization_seed": 13601,
+          "round": 1,
+          "survivor_count": 4
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 4,
+          "cumulative_seed_count": 8,
+          "leader_lcb": -0.0007193668067603184,
+          "leader_mapping": [
+            5,
+            3,
+            1,
+            6,
+            2,
+            0
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13601,
+          "round": 2,
+          "survivor_count": 2
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 2,
+          "cumulative_seed_count": 12,
+          "leader_lcb": -0.0005260996302932975,
+          "leader_mapping": [
+            5,
+            3,
+            1,
+            6,
+            2,
+            0
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13601,
+          "round": 3,
+          "survivor_count": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999996,
+      "snapshot": "FakeJakartaV2",
+      "task_id": "dense_validation_scrambled_qft_n6"
+    },
+    {
+      "charged_execution_count": 68,
+      "full_budget_lcb_regret": 0.0,
+      "full_budget_selected_lcb": 0.025665678430189347,
+      "r142_full_budget_lcb": 0.025665678430189347,
+      "selected_circuit_path": "results/B4_B8_R143_successive_halving_lcb_design/selected_circuits/FakeJakartaV2_dense_validation_xy_network_n6.qasm",
+      "selected_circuit_sha256": "6e2cfb6af8dd6a14987bd080cd44822e161532d622081d2fef7291ef42bd4e77",
+      "selected_mapping": [
+        0,
+        1,
+        3,
+        2,
+        5,
+        6
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_replay_matches": true,
+      "selected_qasm_stable_hash": "270bfccea0ee083ec6c2a4f3c6660de51f044bd2e966f3e8ed79447a4ecedc45",
+      "selected_realization_seed": 13601,
+      "selection_matches_r142": true,
+      "selection_trace": [
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 8,
+          "cumulative_seed_count": 4,
+          "leader_lcb": 0.02105266983258161,
+          "leader_mapping": [
+            0,
+            1,
+            3,
+            2,
+            5,
+            6
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13601,
+          "round": 1,
+          "survivor_count": 4
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 4,
+          "cumulative_seed_count": 8,
+          "leader_lcb": 0.023681612249076896,
+          "leader_mapping": [
+            0,
+            1,
+            3,
+            2,
+            5,
+            6
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13601,
+          "round": 2,
+          "survivor_count": 2
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 2,
+          "cumulative_seed_count": 12,
+          "leader_lcb": 0.025208237891101975,
+          "leader_mapping": [
+            0,
+            1,
+            3,
+            2,
+            5,
+            6
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13601,
+          "round": 3,
+          "survivor_count": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999973,
+      "snapshot": "FakeJakartaV2",
+      "task_id": "dense_validation_xy_network_n6"
+    },
+    {
+      "charged_execution_count": 68,
+      "full_budget_lcb_regret": 0.0,
+      "full_budget_selected_lcb": 0.005234377251983724,
+      "r142_full_budget_lcb": 0.005234377251983724,
+      "selected_circuit_path": "results/B4_B8_R143_successive_halving_lcb_design/selected_circuits/FakeLagosV2_dense_validation_complete_ising_n6.qasm",
+      "selected_circuit_sha256": "aaae4bfb346ae708feabe58035f076e9d523fc71de79d9629a73868a635f58e6",
+      "selected_mapping": [
+        5,
+        3,
+        6,
+        4,
+        1,
+        0
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_replay_matches": true,
+      "selected_qasm_stable_hash": "35ec28448b4d9264681390a001d5fccfc3eb6af4afc34131c0dd70a044cb0042",
+      "selected_realization_seed": 13601,
+      "selection_matches_r142": true,
+      "selection_trace": [
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 8,
+          "cumulative_seed_count": 4,
+          "leader_lcb": 0.0019158764537212276,
+          "leader_mapping": [
+            5,
+            3,
+            6,
+            4,
+            1,
+            0
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13601,
+          "round": 1,
+          "survivor_count": 4
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 4,
+          "cumulative_seed_count": 8,
+          "leader_lcb": 0.003848028153032152,
+          "leader_mapping": [
+            5,
+            3,
+            6,
+            4,
+            1,
+            0
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13601,
+          "round": 2,
+          "survivor_count": 2
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 2,
+          "cumulative_seed_count": 12,
+          "leader_lcb": 0.002917520758660164,
+          "leader_mapping": [
+            5,
+            3,
+            6,
+            4,
+            1,
+            0
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13601,
+          "round": 3,
+          "survivor_count": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999989,
+      "snapshot": "FakeLagosV2",
+      "task_id": "dense_validation_complete_ising_n6"
+    },
+    {
+      "charged_execution_count": 68,
+      "full_budget_lcb_regret": 0.0,
+      "full_budget_selected_lcb": -0.0007060842962352772,
+      "r142_full_budget_lcb": -0.0007060842962352772,
+      "selected_circuit_path": "results/B4_B8_R143_successive_halving_lcb_design/selected_circuits/FakeLagosV2_dense_validation_inverse_qft_n6.qasm",
+      "selected_circuit_sha256": "f434cb802a697271caaac42a314be64ac6db15458f0070f8c984312bced4231f",
+      "selected_mapping": [
+        4,
+        5,
+        0,
+        2,
+        3,
+        1
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_replay_matches": true,
+      "selected_qasm_stable_hash": "f996a66468cb3f02eada14a1aa75dc0606feafc305071221213d77d6a27e2827",
+      "selected_realization_seed": 13603,
+      "selection_matches_r142": true,
+      "selection_trace": [
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 8,
+          "cumulative_seed_count": 4,
+          "leader_lcb": -0.0007443773548691493,
+          "leader_mapping": [
+            4,
+            5,
+            2,
+            0,
+            3,
+            1
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13610,
+          "round": 1,
+          "survivor_count": 4
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 4,
+          "cumulative_seed_count": 8,
+          "leader_lcb": -0.0011277329533667102,
+          "leader_mapping": [
+            4,
+            5,
+            0,
+            2,
+            3,
+            1
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13603,
+          "round": 2,
+          "survivor_count": 2
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 2,
+          "cumulative_seed_count": 12,
+          "leader_lcb": -0.0009674471302003973,
+          "leader_mapping": [
+            4,
+            5,
+            0,
+            2,
+            3,
+            1
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13603,
+          "round": 3,
+          "survivor_count": 1
+        }
+      ],
+      "semantic_fidelity": 0.999999999999998,
+      "snapshot": "FakeLagosV2",
+      "task_id": "dense_validation_inverse_qft_n6"
+    },
+    {
+      "charged_execution_count": 68,
+      "full_budget_lcb_regret": 0.00024854782731324244,
+      "full_budget_selected_lcb": 0.00018516545178097477,
+      "r142_full_budget_lcb": 0.0004337132790942172,
+      "selected_circuit_path": "results/B4_B8_R143_successive_halving_lcb_design/selected_circuits/FakeLagosV2_dense_validation_scrambled_qft_n6.qasm",
+      "selected_circuit_sha256": "235bfec72b36090206aabd0aabe9ab0de32e92f6686810e0e42d16bb2038895a",
+      "selected_mapping": [
+        5,
+        0,
+        1,
+        4,
+        2,
+        3
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_replay_matches": true,
+      "selected_qasm_stable_hash": "75eb73021d2db74691f9dc5dbfdae51a02addec093959d819e6ec579e3efba9c",
+      "selected_realization_seed": 13601,
+      "selection_matches_r142": false,
+      "selection_trace": [
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 8,
+          "cumulative_seed_count": 4,
+          "leader_lcb": 0.00041518345556224587,
+          "leader_mapping": [
+            5,
+            0,
+            1,
+            4,
+            2,
+            3
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13602,
+          "round": 1,
+          "survivor_count": 4
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 4,
+          "cumulative_seed_count": 8,
+          "leader_lcb": 0.0002496678394586817,
+          "leader_mapping": [
+            5,
+            0,
+            1,
+            4,
+            2,
+            3
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13601,
+          "round": 2,
+          "survivor_count": 2
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 2,
+          "cumulative_seed_count": 12,
+          "leader_lcb": 0.0004403531618318104,
+          "leader_mapping": [
+            5,
+            0,
+            1,
+            4,
+            2,
+            3
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13601,
+          "round": 3,
+          "survivor_count": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999993,
+      "snapshot": "FakeLagosV2",
+      "task_id": "dense_validation_scrambled_qft_n6"
+    },
+    {
+      "charged_execution_count": 68,
+      "full_budget_lcb_regret": 0.0009886587028746351,
+      "full_budget_selected_lcb": 0.0015929343353560934,
+      "r142_full_budget_lcb": 0.0025815930382307286,
+      "selected_circuit_path": "results/B4_B8_R143_successive_halving_lcb_design/selected_circuits/FakeLagosV2_dense_validation_xy_network_n6.qasm",
+      "selected_circuit_sha256": "47632ad4350ef856d5aff2aabc53ea4779f4cd417fe89621e2f46cb547f599eb",
+      "selected_mapping": [
+        6,
+        4,
+        5,
+        3,
+        1,
+        0
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_replay_matches": true,
+      "selected_qasm_stable_hash": "7a1f9e3b58d0e1321db311d3dba70dd5b0f5ef9ced89c96a78641f273963ea9f",
+      "selected_realization_seed": 13609,
+      "selection_matches_r142": false,
+      "selection_trace": [
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 8,
+          "cumulative_seed_count": 4,
+          "leader_lcb": -0.0016156734239773825,
+          "leader_mapping": [
+            6,
+            4,
+            5,
+            3,
+            1,
+            0
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13604,
+          "round": 1,
+          "survivor_count": 4
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 4,
+          "cumulative_seed_count": 8,
+          "leader_lcb": -0.00020405255393803924,
+          "leader_mapping": [
+            6,
+            4,
+            5,
+            3,
+            1,
+            0
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13604,
+          "round": 2,
+          "survivor_count": 2
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 2,
+          "cumulative_seed_count": 12,
+          "leader_lcb": 0.001881178692777318,
+          "leader_mapping": [
+            6,
+            4,
+            5,
+            3,
+            1,
+            0
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13609,
+          "round": 3,
+          "survivor_count": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999956,
+      "snapshot": "FakeLagosV2",
+      "task_id": "dense_validation_xy_network_n6"
+    },
+    {
+      "charged_execution_count": 68,
+      "full_budget_lcb_regret": 0.0,
+      "full_budget_selected_lcb": 0.0072264041577883974,
+      "r142_full_budget_lcb": 0.0072264041577883974,
+      "selected_circuit_path": "results/B4_B8_R143_successive_halving_lcb_design/selected_circuits/FakeOslo_dense_validation_complete_ising_n6.qasm",
+      "selected_circuit_sha256": "ff417effd28ab7cb12b88d8e3676df50efcd3f2074e77704e2bfbb96f78d2d8f",
+      "selected_mapping": [
+        3,
+        1,
+        5,
+        0,
+        2,
+        4
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_replay_matches": true,
+      "selected_qasm_stable_hash": "144f600efa175938bc2634f0477e051d1d0db14e3c79cb5302b4e21473df71eb",
+      "selected_realization_seed": 13610,
+      "selection_matches_r142": true,
+      "selection_trace": [
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 8,
+          "cumulative_seed_count": 4,
+          "leader_lcb": 0.00787412800029165,
+          "leader_mapping": [
+            3,
+            1,
+            5,
+            0,
+            2,
+            4
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13610,
+          "round": 1,
+          "survivor_count": 4
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 4,
+          "cumulative_seed_count": 8,
+          "leader_lcb": 0.00947977308063075,
+          "leader_mapping": [
+            3,
+            1,
+            5,
+            0,
+            2,
+            4
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13610,
+          "round": 2,
+          "survivor_count": 2
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 2,
+          "cumulative_seed_count": 12,
+          "leader_lcb": 0.007367746734957601,
+          "leader_mapping": [
+            3,
+            1,
+            5,
+            0,
+            2,
+            4
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13610,
+          "round": 3,
+          "survivor_count": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999987,
+      "snapshot": "FakeOslo",
+      "task_id": "dense_validation_complete_ising_n6"
+    },
+    {
+      "charged_execution_count": 68,
+      "full_budget_lcb_regret": 0.0,
+      "full_budget_selected_lcb": 1.8217605421487308e-05,
+      "r142_full_budget_lcb": 1.8217605421487308e-05,
+      "selected_circuit_path": "results/B4_B8_R143_successive_halving_lcb_design/selected_circuits/FakeOslo_dense_validation_inverse_qft_n6.qasm",
+      "selected_circuit_sha256": "d89b75f913a2222d814e093cfcebe912ac8bc300970a2dc034970c128744c7e5",
+      "selected_mapping": [
+        2,
+        1,
+        4,
+        6,
+        3,
+        5
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_replay_matches": true,
+      "selected_qasm_stable_hash": "38873bf299f077fcc6af24b03c8f394f00058531b1be7d65e8e94959d9006c15",
+      "selected_realization_seed": 13610,
+      "selection_matches_r142": true,
+      "selection_trace": [
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 8,
+          "cumulative_seed_count": 4,
+          "leader_lcb": -0.0009577790561319796,
+          "leader_mapping": [
+            6,
+            5,
+            0,
+            2,
+            3,
+            1
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13605,
+          "round": 1,
+          "survivor_count": 4
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 4,
+          "cumulative_seed_count": 8,
+          "leader_lcb": -0.0005757373958321395,
+          "leader_mapping": [
+            2,
+            1,
+            4,
+            6,
+            3,
+            5
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13610,
+          "round": 2,
+          "survivor_count": 2
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 2,
+          "cumulative_seed_count": 12,
+          "leader_lcb": -0.00022137705992537595,
+          "leader_mapping": [
+            2,
+            1,
+            4,
+            6,
+            3,
+            5
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13610,
+          "round": 3,
+          "survivor_count": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999984,
+      "snapshot": "FakeOslo",
+      "task_id": "dense_validation_inverse_qft_n6"
+    },
+    {
+      "charged_execution_count": 68,
+      "full_budget_lcb_regret": 0.0,
+      "full_budget_selected_lcb": -0.00021002306713095438,
+      "r142_full_budget_lcb": -0.00021002306713095438,
+      "selected_circuit_path": "results/B4_B8_R143_successive_halving_lcb_design/selected_circuits/FakeOslo_dense_validation_scrambled_qft_n6.qasm",
+      "selected_circuit_sha256": "d8e23e9367b02bead7c540517566f73cf44828bb0d8d09c1650d02b515a177ee",
+      "selected_mapping": [
+        5,
+        2,
+        1,
+        4,
+        0,
+        3
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_replay_matches": true,
+      "selected_qasm_stable_hash": "d833263a7178c1f2cc5e1778ca0364ebaeb8056c5bef3dc97ae27c677df85f8b",
+      "selected_realization_seed": 13601,
+      "selection_matches_r142": true,
+      "selection_trace": [
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 8,
+          "cumulative_seed_count": 4,
+          "leader_lcb": -0.0005283561292360106,
+          "leader_mapping": [
+            5,
+            2,
+            3,
+            4,
+            0,
+            1
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13601,
+          "round": 1,
+          "survivor_count": 4
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 4,
+          "cumulative_seed_count": 8,
+          "leader_lcb": -0.00040771703960604776,
+          "leader_mapping": [
+            5,
+            2,
+            1,
+            4,
+            0,
+            3
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13601,
+          "round": 2,
+          "survivor_count": 2
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 2,
+          "cumulative_seed_count": 12,
+          "leader_lcb": -0.00022901855045449977,
+          "leader_mapping": [
+            5,
+            2,
+            1,
+            4,
+            0,
+            3
+          ],
+          "leader_policy_id": "selected_o3_default",
+          "leader_realization_seed": 13601,
+          "round": 3,
+          "survivor_count": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999982,
+      "snapshot": "FakeOslo",
+      "task_id": "dense_validation_scrambled_qft_n6"
+    },
+    {
+      "charged_execution_count": 68,
+      "full_budget_lcb_regret": 0.0,
+      "full_budget_selected_lcb": 0.02592042311325037,
+      "r142_full_budget_lcb": 0.02592042311325037,
+      "selected_circuit_path": "results/B4_B8_R143_successive_halving_lcb_design/selected_circuits/FakeOslo_dense_validation_xy_network_n6.qasm",
+      "selected_circuit_sha256": "c1fe839f95fe96697877ad7beb3d5be5dfb20ac37a28a6ed0ca1e4618994ce4b",
+      "selected_mapping": [
+        0,
+        2,
+        1,
+        3,
+        5,
+        4
+      ],
+      "selected_policy_id": "selected_o3_lookahead",
+      "selected_qasm_replay_matches": true,
+      "selected_qasm_stable_hash": "c646fab9785b18dd71869981ad8c6e863721b61b1b5e0bcc4a9424f3ef435208",
+      "selected_realization_seed": 13601,
+      "selection_matches_r142": true,
+      "selection_trace": [
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 8,
+          "cumulative_seed_count": 4,
+          "leader_lcb": 0.023674075103530215,
+          "leader_mapping": [
+            0,
+            2,
+            1,
+            3,
+            5,
+            4
+          ],
+          "leader_policy_id": "selected_o3_lookahead",
+          "leader_realization_seed": 13601,
+          "round": 1,
+          "survivor_count": 4
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 4,
+          "cumulative_seed_count": 8,
+          "leader_lcb": 0.026369093302613864,
+          "leader_mapping": [
+            0,
+            2,
+            1,
+            3,
+            5,
+            4
+          ],
+          "leader_policy_id": "selected_o3_lookahead",
+          "leader_realization_seed": 13601,
+          "round": 2,
+          "survivor_count": 2
+        },
+        {
+          "additional_seed_count": 4,
+          "candidate_count_before": 2,
+          "cumulative_seed_count": 12,
+          "leader_lcb": 0.025425996279022048,
+          "leader_mapping": [
+            0,
+            2,
+            1,
+            3,
+            5,
+            4
+          ],
+          "leader_policy_id": "selected_o3_lookahead",
+          "leader_realization_seed": 13601,
+          "round": 3,
+          "survivor_count": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999969,
+      "snapshot": "FakeOslo",
+      "task_id": "dense_validation_xy_network_n6"
+    }
+  ],
+  "method": "b4_b8_r143_successive_halving_lcb_design_v0",
+  "model_status": "r142_design_rows_replayed_under_fixed_8_to_4_to_2_to_1_schedule",
+  "payload_hash": "1a7bac658ec807d22d2407545973de22d280aab530f3672a3ffdafa8b37ef754",
+  "requirement_count": 10,
+  "requirements": [
+    {
+      "label": "all 96 R142 shortlist rows are replayed",
+      "passed": true,
+      "requirement_id": "R1"
+    },
+    {
+      "label": "the fixed 8-to-4-to-2-to-1 schedule uses twelve seeds per finalist",
+      "passed": true,
+      "requirement_id": "R2"
+    },
+    {
+      "label": "charged execution count is 816",
+      "passed": true,
+      "requirement_id": "R3"
+    },
+    {
+      "label": "execution reduction exceeds fifty percent",
+      "passed": true,
+      "requirement_id": "R4"
+    },
+    {
+      "label": "at least ten of twelve selections match R142",
+      "passed": true,
+      "requirement_id": "R5"
+    },
+    {
+      "label": "maximum full-budget LCB regret remains below 0.001",
+      "passed": true,
+      "requirement_id": "R6"
+    },
+    {
+      "label": "Lagos selection matches accepted R142",
+      "passed": true,
+      "requirement_id": "R7"
+    },
+    {
+      "label": "all selected QASM files replay with exact semantics",
+      "passed": true,
+      "requirement_id": "R8"
+    },
+    {
+      "label": "R142 holdout rows remain unread and no fresh holdout runs",
+      "passed": true,
+      "requirement_id": "R9"
+    },
+    {
+      "label": "live savings, cross-calibration, hardware, advantage, BQP, and credit claims remain false",
+      "passed": true,
+      "requirement_id": "R10"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 10,
+  "source_target_id": "T-B4-002au/T-B8-003ay/T-B10-009am",
+  "status": "successive_halving_lcb_design_frozen_before_holdout",
+  "summary": {
+    "bqp_separation_claimed": false,
+    "charged_execution_count": 816,
+    "cross_calibration_transfer_claimed": false,
+    "execution_reduction_fraction": 0.5277777777777778,
+    "execution_saving_count": 912,
+    "fresh_holdout_executed": false,
+    "hardware_execution_performed": false,
+    "lagos_ising_full_budget_lcb": 0.005234377251983724,
+    "lagos_ising_selected_mapping": [
+      5,
+      3,
+      6,
+      4,
+      1,
+      0
+    ],
+    "lagos_ising_selection_matches_r142": true,
+    "live_wall_clock_saving_claimed": false,
+    "maximum_full_budget_lcb_regret": 0.0009886587028746351,
+    "mean_full_budget_lcb_regret": 0.00010310054418232313,
+    "minimum_selected_semantic_fidelity": 0.9999999999999956,
+    "new_credit_delta": 0,
+    "quantum_advantage_claimed": false,
+    "r142_design_execution_count": 1728,
+    "r142_holdout_rows_read_during_selection": 0,
+    "round_schedule": [
+      {
+        "additional_seed_count": 4,
+        "survivor_count": 4
+      },
+      {
+        "additional_seed_count": 4,
+        "survivor_count": 2
+      },
+      {
+        "additional_seed_count": 4,
+        "survivor_count": 1
+      }
+    ],
+    "seeds_used_per_finalist": 12,
+    "selected_qasm_preexisting_count": 12,
+    "selected_qasm_replay_match_count": 12,
+    "selection_agreement_count": 10,
+    "source_candidate_count": 96,
+    "source_group_count": 12
+  },
+  "title": "B4/B8 R143 successive-halving LCB design",
+  "upstream_target_id": "T-B4-002at/T-B8-003ax/T-B10-009al",
+  "version": 0
+}

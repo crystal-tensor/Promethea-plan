@@ -37044,6 +37044,86 @@ def audit(root: Path) -> dict:
         ).get("what_is_not_supported", ""):
             errors.append("R142 holdout must exclude efficient production selection")
 
+    r143_design_result_path = results / "B4_B8_R143_successive_halving_lcb_design_v0.json"
+    r143_design_report_path = research / "B4_B8_R143_successive_halving_lcb_design.md"
+    r143_contract_path = benchmarks / "B4_B8_R143_successive_halving_lcb_holdout_contract_v0.json"
+    r143_contract_sha256 = hashlib.sha256(r143_contract_path.read_bytes()).hexdigest() if r143_contract_path.exists() else None
+    r143_status = {"path": str(r143_design_result_path), "report_path": str(r143_design_report_path), "contract_path": str(r143_contract_path), "exists": r143_design_result_path.exists(), "report_exists": r143_design_report_path.exists(), "contract_exists": r143_contract_path.exists(), "contract_sha256": r143_contract_sha256}
+    r143_manifest_rows = [
+        ("B4", b4_manifest.get("current_results", {}).get("b4_b8_r143_successive_halving_lcb_design_v0")),
+        ("B8", b8_manifest.get("current_results", {}).get("b4_b8_r143_successive_halving_lcb_design_v0")),
+        ("B10", b10_manifest.get("current_results", {}).get("b10_t2_b4_b8_r143_successive_halving_lcb_design_v0")),
+    ]
+    for label, manifest_row in r143_manifest_rows:
+        if not manifest_row:
+            errors.append(f"{label} manifest missing R143 successive-halving design")
+            continue
+        for field in ["result", "markdown_report", "holdout_contract"]:
+            value = manifest_row.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(f"{label} R143 manifest missing existing {field}: {value}")
+        if manifest_row.get("holdout_contract_sha256") != r143_contract_sha256:
+            errors.append(f"{label} R143 contract hash mismatch")
+    if not all(path.exists() for path in [r143_design_result_path, r143_design_report_path, r143_contract_path]):
+        errors.append("R143 design result, report, or contract missing")
+    else:
+        r143 = json.loads(read(r143_design_result_path))
+        s = r143.get("summary", {})
+        r143_status.update({"status": r143.get("status"), "method": r143.get("method"), "requirements_passed": r143.get("requirements_passed"), "requirements_failed": r143.get("requirements_failed"), "charged_execution_count": s.get("charged_execution_count"), "selection_agreement_count": s.get("selection_agreement_count"), "maximum_full_budget_lcb_regret": s.get("maximum_full_budget_lcb_regret")})
+        expected = {
+            "source_group_count": 12,
+            "source_candidate_count": 96,
+            "seeds_used_per_finalist": 12,
+            "charged_execution_count": 816,
+            "r142_design_execution_count": 1728,
+            "execution_saving_count": 912,
+            "execution_reduction_fraction": 0.5277777777777778,
+            "selection_agreement_count": 10,
+            "mean_full_budget_lcb_regret": 0.00010310054418232313,
+            "maximum_full_budget_lcb_regret": 0.0009886587028746351,
+            "lagos_ising_selection_matches_r142": True,
+            "lagos_ising_selected_mapping": [5, 3, 6, 4, 1, 0],
+            "lagos_ising_full_budget_lcb": 0.005234377251983724,
+            "r142_holdout_rows_read_during_selection": 0,
+            "fresh_holdout_executed": False,
+            "selected_qasm_replay_match_count": 12,
+            "new_credit_delta": 0,
+        }
+        if r143.get("status") != "successive_halving_lcb_design_frozen_before_holdout" or r143.get("method") != "b4_b8_r143_successive_halving_lcb_design_v0":
+            errors.append("R143 design status or method mismatch")
+        if r143.get("source_target_id") != "T-B4-002au/T-B8-003ay/T-B10-009am":
+            errors.append("R143 design target mismatch")
+        if r143.get("requirements_passed") != 10 or r143.get("requirements_failed") != 0:
+            errors.append("R143 design requirements must pass 10/10")
+        for field, value in expected.items():
+            if s.get(field) != value:
+                errors.append(f"R143 design {field} mismatch")
+        if len(r143.get("group_rows", [])) != 12:
+            errors.append("R143 design group ledger mismatch")
+        for row in r143.get("group_rows", []):
+            path = row.get("selected_circuit_path")
+            if not path or not (root / path).exists() or "OPENQASM 3" not in read(root / path):
+                errors.append(f"R143 selected QASM missing or invalid: {path}")
+            elif hashlib.sha256((root / path).read_bytes()).hexdigest() != row.get("selected_circuit_sha256"):
+                errors.append(f"R143 selected QASM hash mismatch: {path}")
+        hp = dict(r143); ph = hp.pop("payload_hash", None)
+        if ph != hashlib.sha256(json.dumps(hp, sort_keys=True, separators=(",", ":")).encode()).hexdigest():
+            errors.append("R143 design payload hash mismatch")
+        contract = json.loads(read(r143_contract_path))
+        if r143_contract_sha256 != "f26cb5cd47223dc9ef46e6164e3581d99eb50730ddb6af15f43822c21c9c62f3":
+            errors.append("R143 contract file hash mismatch")
+        if contract.get("contract_id") != "B4-B8-R143-successive-halving-lcb-holdout-v0" or contract.get("contract_status") != "public_preregistration_execution_unopened":
+            errors.append("R143 contract ID or status mismatch")
+        if contract.get("target_id") != "T-B4-002av/T-B8-003az/T-B10-009an" or "challenge_secret" in contract or "trial_rows" in contract:
+            errors.append("R143 contract target or unopened boundary mismatch")
+        if contract.get("source_bindings", {}).get("r143_design_payload_hash") != ph:
+            errors.append("R143 contract payload binding mismatch")
+        if len(contract.get("artifact_bindings", [])) != 12 or len(contract.get("acceptance_conditions", [])) != 10:
+            errors.append("R143 contract artifact or condition count mismatch")
+        challenge = contract.get("challenge_design", {})
+        if challenge.get("paired_trial_row_count") != 96 or challenge.get("simulated_circuit_execution_count") != 288 or challenge.get("total_simulated_shots") != 1179648:
+            errors.append("R143 contract challenge design mismatch")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -37496,6 +37576,7 @@ def audit(root: Path) -> dict:
             "r141_hashed_output_sketch_holdout": r141_holdout_status,
             "r142_seed_robust_lcb_mapping_design": r142_status,
             "r142_seed_robust_lcb_mapping_holdout": r142_holdout_status,
+            "r143_successive_halving_lcb_design": r143_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -38887,6 +38968,12 @@ def audit(root: Path) -> dict:
             ),
             "b4_b8_r142_seed_robust_lcb_mapping_holdout": str(
                 research / "B4_B8_R142_seed_robust_lcb_mapping_holdout.md"
+            ),
+            "b4_b8_r143_successive_halving_lcb_design": str(
+                research / "B4_B8_R143_successive_halving_lcb_design.md"
+            ),
+            "b4_b8_r143_successive_halving_lcb_holdout_contract": str(
+                r143_contract_path
             ),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),

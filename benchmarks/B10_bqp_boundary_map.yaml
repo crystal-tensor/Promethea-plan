@@ -1628,6 +1628,30 @@ current_results:
     caveat: R142_synthetic_hidden_seed_acceptance_is_not_production_hardware_advantage_or_bqp_evidence
     result: ../results/B4_B8_R142_seed_robust_lcb_mapping_holdout_v0.json
     markdown_report: ../research/B4_B8_R142_seed_robust_lcb_mapping_holdout.md
+  b10_t2_b4_b8_r143_successive_halving_lcb_design_v0:
+    status: successive_halving_lcb_design_not_bqp_claim
+    method: b4_b8_r143_successive_halving_lcb_design_v0
+    source_b8_result: ../results/B4_B8_R143_successive_halving_lcb_design_v0.json
+    source_target_id: T-B4-002au/T-B8-003ay/T-B10-009am
+    upstream_target_id: T-B4-002at/T-B8-003ax/T-B10-009al
+    charged_execution_count: 816
+    execution_reduction_fraction: 0.5277777777777778
+    selection_agreement_count: 10
+    maximum_full_budget_lcb_regret: 0.0009886587028746351
+    lagos_ising_selection_matches_r142: true
+    selected_qasm_replay_match_count: 12
+    r142_holdout_rows_read_during_selection: 0
+    holdout_contract_sha256: f26cb5cd47223dc9ef46e6164e3581d99eb50730ddb6af15f43822c21c9c62f3
+    b10_t2_credit_allowed: false
+    b10_bqp_separation_credit_allowed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    caveat: R143_cost_design_is_not_hidden_hardware_advantage_or_bqp_evidence
+    result: ../results/B4_B8_R143_successive_halving_lcb_design_v0.json
+    markdown_report: ../research/B4_B8_R143_successive_halving_lcb_design.md
+    holdout_contract: B4_B8_R143_successive_halving_lcb_holdout_contract_v0.json
   b10_t3_b9_checked_transcript_acceptance_packet_gate_v0:
     status: checked_transcript_acceptance_packet_open_missing_artifact
     method: b9_checked_transcript_acceptance_packet_gate_v0

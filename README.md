@@ -2556,6 +2556,20 @@ This validates synthetic challenge-seed transfer for the LCB portfolio, not an
 efficient production mapper, current-calibration result, hardware result,
 soundness result, advantage, BQP separation, solved frontier, or new credit.
 
+`T-B4-002au` / `T-B8-003ay` / `T-B10-009am` now freezes the R143
+successive-halving LCB design. The fixed `8 -> 4 -> 2 -> 1` schedule evaluates
+four additional seeds per round and charges 816 executions, reducing R142's
+1,728-execution design denominator by `52.7778%`. It reproduces 10/12 R142
+choices; mean/max full-budget LCB regret are `0.00010310` / `0.00098866`, and
+the accepted Lagos route remains unchanged with full-budget LCB `+0.00523438`.
+All twelve selected OpenQASM 3 files replay exactly, and zero R142 holdout rows
+enter selection. The unopened contract hash is
+`f26cb5cd47223dc9ef46e6164e3581d99eb50730ddb6af15f43822c21c9c62f3`;
+it fixes 96 hidden three-arm rows and ten acceptance conditions. This is a
+counterfactual charged-execution reduction, not yet fresh hidden acceptance,
+live wall-clock savings, cross-calibration transfer, hardware evidence,
+advantage, BQP evidence, or new credit.
+
 `T-B4-002aj` / `T-B8-003an` / `T-B10-009ab` now adds the R135
 dense-interaction deterministic fallback boundary. For each new inverse-QFT,
 scrambled-QFT, complete-Ising, and dense-XY input, five temporal graph rules
