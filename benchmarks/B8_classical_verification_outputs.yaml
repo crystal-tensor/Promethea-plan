@@ -1699,6 +1699,49 @@ current_results:
     caveat: r136_first_dense_compiler_no_loss_gate_passes_but_verifier_acceptance_remains_unrun
     result: ../results/B4_B8_R136_route_realization_margin_v0.json
     markdown_report: ../research/B4_B8_R136_route_realization_margin.md
+  b4_b8_r137_artifact_bound_private_challenge_v0:
+    status: artifact_bound_private_challenge_integrity_acceptance_boundary
+    model_status: r136_qasm_cost_and_nonce_bound_with_adversarial_rejection
+    method: b4_b8_r137_artifact_bound_private_challenge_v0
+    source_target_id: T-B4-002al/T-B8-003ap/T-B10-009ad
+    upstream_target_id: T-B4-002ak/T-B8-003ao/T-B10-009ac
+    artifact_count: 12
+    artifact_hash_match_count: 12
+    semantic_fingerprint_match_count: 12
+    challenge_count: 48
+    response_count: 48
+    probe_type_count: 4
+    positive_transcript_accepted: true
+    positive_transcript_error_count: 0
+    adversarial_mutation_count: 10
+    adversarial_mutations_rejected: 10
+    route_realization_compilation_count: 1536
+    automatic_validation_compilation_count: 120
+    total_compilation_count: 1656
+    selection_attempts_per_artifact: 128
+    selection_to_validation_cost_ratio: 12.8
+    phase_artifact_count: 5
+    phase_artifact_preexisting_count: 5
+    phase_artifact_replay_match_count: 5
+    artifact_integrity_private_challenge_executed: true
+    artifact_integrity_verifier_accepted: true
+    selection_cost_ledger_bound: true
+    scientific_performance_holdout_executed: false
+    externally_timestamped_preregistration: false
+    independent_secret_custody: false
+    current_backend_calibration_used: false
+    hardware_execution_performed: false
+    protocol_soundness_claimed: false
+    cryptographic_soundness_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r137_accepts_local_artifact_integrity_only_not_external_or_statistical_verification
+    result: ../results/B4_B8_R137_artifact_bound_private_challenge_v0.json
+    markdown_report: ../research/B4_B8_R137_artifact_bound_private_challenge.md
 prototype_artifacts:
   output_invariant_verifier: ../tools/b8_output_invariant_verifier.py
   adaptive_leakage_spoofer: ../tools/b8_adaptive_spoofer_leakage.py

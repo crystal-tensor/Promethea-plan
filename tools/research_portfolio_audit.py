@@ -35343,6 +35343,243 @@ def audit(root: Path) -> dict:
         ):
             errors.append("R136 claim boundary must exclude verifier acceptance")
 
+    r137_result_path = results / "B4_B8_R137_artifact_bound_private_challenge_v0.json"
+    r137_report_path = research / "B4_B8_R137_artifact_bound_private_challenge.md"
+    r137_status = {
+        "path": str(r137_result_path),
+        "report_path": str(r137_report_path),
+        "exists": r137_result_path.exists(),
+        "report_exists": r137_report_path.exists(),
+    }
+    r137_manifest_rows = [
+        (
+            "B4",
+            b4_manifest.get("current_results", {}).get(
+                "b4_b8_r137_artifact_bound_private_challenge_v0"
+            ),
+        ),
+        (
+            "B8",
+            b8_manifest.get("current_results", {}).get(
+                "b4_b8_r137_artifact_bound_private_challenge_v0"
+            ),
+        ),
+        (
+            "B10",
+            b10_manifest.get("current_results", {}).get(
+                "b10_t2_b4_b8_r137_artifact_bound_private_challenge_v0"
+            ),
+        ),
+    ]
+    for label, manifest_row in r137_manifest_rows:
+        if not manifest_row:
+            errors.append(f"{label} manifest missing R137 artifact challenge")
+            continue
+        for field in ["result", "markdown_report"]:
+            value = manifest_row.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(f"{label} R137 manifest missing existing {field}: {value}")
+    if not r137_result_path.exists():
+        errors.append(f"missing R137 artifact challenge result: {r137_result_path}")
+    elif not r137_report_path.exists():
+        errors.append(f"missing R137 artifact challenge report: {r137_report_path}")
+    else:
+        r137_payload = json.loads(read(r137_result_path))
+        r137_summary = r137_payload.get("summary", {})
+        r137_claims = r137_payload.get("claim_boundary", {})
+        r137_status.update(
+            {
+                "status": r137_payload.get("status"),
+                "method": r137_payload.get("method"),
+                "requirements_passed": r137_payload.get("requirements_passed"),
+                "requirements_failed": r137_payload.get("requirements_failed"),
+                "artifact_count": r137_summary.get("artifact_count"),
+                "challenge_count": r137_summary.get("challenge_count"),
+                "positive_transcript_accepted": r137_summary.get(
+                    "positive_transcript_accepted"
+                ),
+                "adversarial_mutations_rejected": r137_summary.get(
+                    "adversarial_mutations_rejected"
+                ),
+                "route_realization_compilation_count": r137_summary.get(
+                    "route_realization_compilation_count"
+                ),
+                "phase_artifact_replay_match_count": r137_summary.get(
+                    "phase_artifact_replay_match_count"
+                ),
+            }
+        )
+        expected_r137_summary = {
+            "artifact_count": 12,
+            "artifact_hash_match_count": 12,
+            "semantic_fingerprint_match_count": 12,
+            "challenge_count": 48,
+            "response_count": 48,
+            "probe_type_count": 4,
+            "positive_transcript_accepted": True,
+            "positive_transcript_error_count": 0,
+            "adversarial_mutation_count": 10,
+            "adversarial_mutations_rejected": 10,
+            "route_realization_compilation_count": 1536,
+            "automatic_validation_compilation_count": 120,
+            "total_compilation_count": 1656,
+            "selection_attempts_per_artifact": 128,
+            "selection_to_validation_cost_ratio": 12.8,
+            "phase_artifact_count": 5,
+            "phase_artifact_preexisting_count": 5,
+            "phase_artifact_replay_match_count": 5,
+            "artifact_integrity_private_challenge_executed": True,
+            "artifact_integrity_verifier_accepted": True,
+            "selection_cost_ledger_bound": True,
+            "scientific_performance_holdout_executed": False,
+            "externally_timestamped_preregistration": False,
+            "independent_secret_custody": False,
+            "current_backend_calibration_used": False,
+            "hardware_execution_performed": False,
+            "protocol_soundness_claimed": False,
+            "cryptographic_soundness_claimed": False,
+            "quantum_advantage_claimed": False,
+            "bqp_separation_claimed": False,
+            "new_credit_delta": 0,
+        }
+        if r137_payload.get("status") != "artifact_bound_private_challenge_integrity_acceptance_boundary":
+            errors.append("R137 artifact challenge status mismatch")
+        if r137_payload.get("method") != "b4_b8_r137_artifact_bound_private_challenge_v0":
+            errors.append("R137 artifact challenge method mismatch")
+        if r137_payload.get("source_target_id") != "T-B4-002al/T-B8-003ap/T-B10-009ad":
+            errors.append("R137 artifact challenge target mismatch")
+        if r137_payload.get("upstream_target_id") != "T-B4-002ak/T-B8-003ao/T-B10-009ac":
+            errors.append("R137 artifact challenge upstream mismatch")
+        if r137_payload.get("requirements_passed") != 10 or r137_payload.get(
+            "requirements_failed"
+        ) != 0:
+            errors.append("R137 artifact challenge requirements must pass 10/10")
+        for field, expected in expected_r137_summary.items():
+            if r137_summary.get(field) != expected:
+                errors.append(f"R137 artifact challenge {field} mismatch")
+        if r137_summary.get("probe_counts") != {
+            "byte_range_hash": 12,
+            "operation_count": 12,
+            "source_window_hash": 12,
+            "structural_value": 12,
+        }:
+            errors.append("R137 artifact challenge probe coverage mismatch")
+        for label, manifest_row in r137_manifest_rows:
+            if not manifest_row:
+                continue
+            for field, expected in expected_r137_summary.items():
+                if field in manifest_row and manifest_row.get(field) != expected:
+                    errors.append(f"{label} R137 manifest {field} mismatch")
+        payload_hash = r137_payload.get("payload_hash")
+        hash_payload = dict(r137_payload)
+        hash_payload.pop("payload_hash", None)
+        expected_payload_hash = hashlib.sha256(
+            json.dumps(hash_payload, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest()
+        if payload_hash != expected_payload_hash:
+            errors.append("R137 artifact challenge payload hash mismatch")
+
+        commitment = r137_payload.get("commitment", {})
+        commitment_hash = hashlib.sha256(
+            json.dumps(commitment, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest()
+        if commitment_hash != r137_payload.get("commitment_hash"):
+            errors.append("R137 commitment hash mismatch")
+        ledger = commitment.get("selection_cost_ledger", {})
+        if ledger.get("group_count", 0) * ledger.get(
+            "top_candidate_count_per_group", 0
+        ) * ledger.get("realization_seed_count", 0) != 1536:
+            errors.append("R137 selection cost arithmetic mismatch")
+        committed_artifacts = commitment.get("artifacts", [])
+        if len(committed_artifacts) != 12:
+            errors.append("R137 commitment must bind 12 artifacts")
+        for artifact in committed_artifacts:
+            artifact_path = root / artifact.get("path", "")
+            if not artifact_path.exists():
+                errors.append(f"R137 committed artifact missing: {artifact.get('path')}")
+            elif hashlib.sha256(artifact_path.read_bytes()).hexdigest() != artifact.get(
+                "sha256"
+            ):
+                errors.append(f"R137 committed artifact hash mismatch: {artifact.get('path')}")
+
+        challenge_rows = r137_payload.get("challenge_rows", [])
+        response_rows = r137_payload.get("response_rows", [])
+        adversarial_rows = r137_payload.get("adversarial_rows", [])
+        if len(challenge_rows) != 48 or len(response_rows) != 48:
+            errors.append("R137 must contain 48 challenges and 48 responses")
+        challenge_pairs = [
+            (row.get("artifact_id"), row.get("probe_type")) for row in challenge_rows
+        ]
+        expected_pairs = {
+            (artifact.get("artifact_id"), probe_type)
+            for artifact in committed_artifacts
+            for probe_type in [
+                "byte_range_hash",
+                "source_window_hash",
+                "operation_count",
+                "structural_value",
+            ]
+        }
+        if set(challenge_pairs) != expected_pairs or len(challenge_pairs) != len(
+            expected_pairs
+        ):
+            errors.append("R137 challenge artifact/probe coverage mismatch")
+        if len(adversarial_rows) != 10 or not all(
+            row.get("rejected") is True for row in adversarial_rows
+        ):
+            errors.append("R137 must reject all ten adversarial mutations")
+        positive = r137_payload.get("positive_verifier_transcript", {})
+        if positive.get("accepted") is not True or positive.get("error_count") != 0:
+            errors.append("R137 positive verifier transcript must accept without errors")
+
+        phase_artifacts = r137_payload.get("artifacts", {})
+        expected_phase_keys = [
+            "commitment",
+            "challenge_reveal",
+            "challenges",
+            "responses",
+            "verifier_transcript",
+        ]
+        phase_payloads = {}
+        for phase_key in expected_phase_keys:
+            relative_path = phase_artifacts.get(phase_key)
+            phase_path = root / relative_path if relative_path else None
+            if phase_path is None or not phase_path.exists():
+                errors.append(f"R137 phase artifact missing: {phase_key}")
+            else:
+                phase_payloads[phase_key] = json.loads(read(phase_path))
+        if "commitment" in phase_payloads:
+            if phase_payloads["commitment"].get("commitment") != commitment:
+                errors.append("R137 commitment phase file drifted")
+        if "challenges" in phase_payloads:
+            if phase_payloads["challenges"].get("challenge_rows") != challenge_rows:
+                errors.append("R137 challenge phase file drifted")
+        if "responses" in phase_payloads:
+            if phase_payloads["responses"].get("response_rows") != response_rows:
+                errors.append("R137 response phase file drifted")
+        if "challenge_reveal" in phase_payloads:
+            reveal = phase_payloads["challenge_reveal"]
+            try:
+                revealed_secret = bytes.fromhex(reveal.get("challenge_secret_hex", ""))
+            except ValueError:
+                revealed_secret = b""
+            if hashlib.sha256(revealed_secret).hexdigest() != commitment.get(
+                "challenge_secret_commitment_sha256"
+            ):
+                errors.append("R137 secret reveal does not match commitment")
+        if "verifier_transcript" in phase_payloads:
+            transcript = phase_payloads["verifier_transcript"]
+            if transcript.get("positive_verdict") != positive or transcript.get(
+                "adversarial_verdicts"
+            ) != adversarial_rows:
+                errors.append("R137 verifier transcript phase file drifted")
+        if "External preregistration" not in r137_claims.get(
+            "what_is_not_supported", ""
+        ) or "cryptographic soundness" not in r137_claims.get(
+            "what_is_not_supported", ""
+        ):
+            errors.append("R137 claim boundary must exclude external and cryptographic claims")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -35785,6 +36022,7 @@ def audit(root: Path) -> dict:
             "r134_family_agnostic_mapping_rule": r134_status,
             "r135_dense_interaction_fallback": r135_status,
             "r136_route_realization_margin": r136_status,
+            "r137_artifact_bound_private_challenge": r137_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -37137,6 +37375,9 @@ def audit(root: Path) -> dict:
             ),
             "b4_b8_r136_route_realization_margin": str(
                 research / "B4_B8_R136_route_realization_margin.md"
+            ),
+            "b4_b8_r137_artifact_bound_private_challenge": str(
+                research / "B4_B8_R137_artifact_bound_private_challenge.md"
             ),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),

@@ -2413,6 +2413,24 @@ acceptance: no private-challenge execution, transcript soundness test, current
 calibration, hardware, quantum advantage, BQP separation, or new B10 credit is
 claimed. Requirements pass `10/10`.
 
+`T-B4-002al` / `T-B8-003ap` / `T-B10-009ad` now adds the R137
+artifact-bound private-challenge integrity boundary. R137 commits to the exact
+12 R136 OpenQASM 3 artifacts, their parsed semantic fingerprints, the R136
+result hash, the protocol nonce, and the full compiler-cost ledger before 48
+late-bound probes are generated. Every artifact receives one byte-range, source
+window, operation-count, and structural challenge. The positive transcript is
+accepted with 48/48 responses, all five phase artifacts replay byte-for-byte in
+a fresh process, and 10/10 artifact-substitution, response-swap, nonce-replay,
+secret-substitution, challenge-deletion, cost-underreporting, response-forgery,
+precommit-leakage, artifact-omission, and duplicate-response attacks are
+rejected. The ledger charges all 1,536 route-realization compilations, 120
+automatic validation compilations, and 128 selection attempts per frozen
+artifact. This accepts local artifact integrity only. It is not externally
+timestamped preregistration, independent secret custody, statistical
+performance acceptance, hardware execution, protocol or cryptographic
+soundness, quantum advantage, BQP separation, or new B10 credit. Requirements
+pass `10/10`.
+
 `T-B4-002aj` / `T-B8-003an` / `T-B10-009ab` now adds the R135
 dense-interaction deterministic fallback boundary. For each new inverse-QFT,
 scrambled-QFT, complete-Ising, and dense-XY input, five temporal graph rules

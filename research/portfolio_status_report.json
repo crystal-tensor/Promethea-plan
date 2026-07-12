@@ -8732,6 +8732,22 @@
       "total_compilation_count": 1656,
       "win_count_vs_automatic_default": 116
     },
+    "r137_artifact_bound_private_challenge": {
+      "adversarial_mutations_rejected": 10,
+      "artifact_count": 12,
+      "challenge_count": 48,
+      "exists": true,
+      "method": "b4_b8_r137_artifact_bound_private_challenge_v0",
+      "path": "results/B4_B8_R137_artifact_bound_private_challenge_v0.json",
+      "phase_artifact_replay_match_count": 5,
+      "positive_transcript_accepted": true,
+      "report_exists": true,
+      "report_path": "research/B4_B8_R137_artifact_bound_private_challenge.md",
+      "requirements_failed": 0,
+      "requirements_passed": 10,
+      "route_realization_compilation_count": 1536,
+      "status": "artifact_bound_private_challenge_integrity_acceptance_boundary"
+    },
     "real_backend_packet_scout": {
       "backend_calibrated_aer_circuit_count": 5760,
       "backend_calibrated_noise_parameters_instantiated": true,
@@ -9724,6 +9740,7 @@
     "b4_b8_r134_family_agnostic_mapping_rule": "research/B4_B8_R134_family_agnostic_mapping_rule.md",
     "b4_b8_r135_dense_interaction_fallback": "research/B4_B8_R135_dense_interaction_fallback.md",
     "b4_b8_r136_route_realization_margin": "research/B4_B8_R136_route_realization_margin.md",
+    "b4_b8_r137_artifact_bound_private_challenge": "research/B4_B8_R137_artifact_bound_private_challenge.md",
     "b4_b8_real_backend_packet_scout": "research/B4_B8_real_backend_packet_scout.md",
     "b4_b8_real_backend_provider_manifest_gate": "research/B4_B8_real_backend_provider_manifest_gate.md",
     "b4_b8_real_backend_transcript_contract_gate": "research/B4_B8_real_backend_transcript_contract_gate.md",

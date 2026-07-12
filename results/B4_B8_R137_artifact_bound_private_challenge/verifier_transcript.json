@@ -1,0 +1,102 @@
+{
+  "adversarial_verdicts": [
+    {
+      "attack_id": "post_commit_artifact_hash_substitution",
+      "rejected": true,
+      "verifier_errors": [
+        "artifact_hash_mismatch:FakeJakartaV2::dense_validation_complete_ising_n6",
+        "commitment_hash_mismatch"
+      ]
+    },
+    {
+      "attack_id": "cross_challenge_response_swap",
+      "rejected": true,
+      "verifier_errors": [
+        "response_mismatch:8ef64fdff7ffa496beb2f862f93ebf11a9a7c2f2f3d5356f3ce1b292538c1b90",
+        "response_mismatch:921a1b34e4963d3417e2b2284f64239e4052205bbc898247d13aa046a3329011"
+      ]
+    },
+    {
+      "attack_id": "stale_nonce_replay",
+      "rejected": true,
+      "verifier_errors": [
+        "challenge_regeneration_mismatch"
+      ]
+    },
+    {
+      "attack_id": "challenge_secret_substitution",
+      "rejected": true,
+      "verifier_errors": [
+        "challenge_regeneration_mismatch",
+        "challenge_secret_commitment_mismatch"
+      ]
+    },
+    {
+      "attack_id": "challenge_deletion",
+      "rejected": true,
+      "verifier_errors": [
+        "challenge_count_mismatch",
+        "challenge_coverage_mismatch",
+        "challenge_regeneration_mismatch",
+        "response_count_or_uniqueness_mismatch"
+      ]
+    },
+    {
+      "attack_id": "selection_cost_underreporting",
+      "rejected": true,
+      "verifier_errors": [
+        "commitment_hash_mismatch",
+        "selection_cost_underreported_or_inconsistent",
+        "total_compilation_cost_mismatch"
+      ]
+    },
+    {
+      "attack_id": "forged_probe_response",
+      "rejected": true,
+      "verifier_errors": [
+        "response_mismatch:fbec04589203123fd05eeb90a9c99c51b334ca5d527ce475bb3ff015aa931870"
+      ]
+    },
+    {
+      "attack_id": "private_material_injected_before_commit",
+      "rejected": true,
+      "verifier_errors": [
+        "commitment_hash_mismatch",
+        "precommit_contains_private_material:challenge_secret_hex"
+      ]
+    },
+    {
+      "attack_id": "artifact_omission",
+      "rejected": true,
+      "verifier_errors": [
+        "artifact_count_mismatch",
+        "challenge_regeneration_mismatch",
+        "commitment_hash_mismatch",
+        "missing_response_or_artifact:1d813d7caef320844921a7404361b0821855c2ad2b082859f6426a251a05140b",
+        "missing_response_or_artifact:5d0e28a5a3e8ad025c93d76e834dc31554e1ebc3a6bf42f7de64a0267c6190fc",
+        "missing_response_or_artifact:c0230c2cf3ea01c1b3707926605cbe841c31c33fa828a38d6bb54213d54d9b31",
+        "missing_response_or_artifact:c1eaaa6c9e0120f59d21b3e43675e2ae5019e142d1da750419051cd2cdec1c88"
+      ]
+    },
+    {
+      "attack_id": "duplicate_response_replay",
+      "rejected": true,
+      "verifier_errors": [
+        "missing_response_or_artifact:c1eaaa6c9e0120f59d21b3e43675e2ae5019e142d1da750419051cd2cdec1c88",
+        "response_count_or_uniqueness_mismatch"
+      ]
+    }
+  ],
+  "commitment_hash": "6a3bb72d0f0bacbdaacb82058ae3b66c5e5df7f5f8ad52ef4e114a8164ab61a4",
+  "positive_verdict": {
+    "accepted": true,
+    "artifact_count": 12,
+    "challenge_count": 48,
+    "error_count": 0,
+    "errors": [],
+    "observed_commitment_hash": "6a3bb72d0f0bacbdaacb82058ae3b66c5e5df7f5f8ad52ef4e114a8164ab61a4",
+    "response_count": 48
+  },
+  "protocol_id": "B4-B8-R137-artifact-bound-private-challenge-v0",
+  "verifier_acceptance_scope": "artifact_integrity_only"
+}

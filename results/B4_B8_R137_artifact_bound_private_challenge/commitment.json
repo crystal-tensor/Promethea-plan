@@ -1,0 +1,426 @@
+{
+  "commitment": {
+    "acceptance_contract": {
+      "all_adversarial_mutations_are_rejected": true,
+      "all_artifact_hashes_match": true,
+      "all_artifacts_receive_every_probe_type": true,
+      "all_challenges_regenerate_from_reveal": true,
+      "all_responses_match": true,
+      "all_semantic_fingerprints_match": true,
+      "selection_cost_ledger_is_exact": true
+    },
+    "artifacts": [
+      {
+        "artifact_id": "FakeJakartaV2::dense_validation_complete_ising_n6",
+        "byte_count": 2201,
+        "depth": 78,
+        "num_clbits": 6,
+        "num_qubits": 7,
+        "operation_counts": {
+          "barrier": 1,
+          "cx": 42,
+          "measure": 6,
+          "rz": 69,
+          "sx": 36,
+          "x": 2
+        },
+        "path": "results/B4_B8_R136_route_realization_margin/selected_circuits/FakeJakartaV2_dense_validation_complete_ising_n6.qasm",
+        "selected_combined_any_error_proxy": 0.420734572773552,
+        "selected_mapping": [
+          1,
+          3,
+          0,
+          2,
+          5,
+          6
+        ],
+        "selected_policy_id": "selected_o3_default",
+        "selected_realization_seed": 13610,
+        "semantic_fingerprint": "62364978a70407504041e9a0c4aadc8a97c75c50ae72df87e892b6cda817b6bf",
+        "sha256": "a4373e35c98d3fb1a407ab42f7352b50ca5ccd75f98dc07939fa9b6659cb60c0",
+        "size": 155,
+        "snapshot": "FakeJakartaV2",
+        "task_id": "dense_validation_complete_ising_n6"
+      },
+      {
+        "artifact_id": "FakeJakartaV2::dense_validation_inverse_qft_n6",
+        "byte_count": 1693,
+        "depth": 67,
+        "num_clbits": 6,
+        "num_qubits": 7,
+        "operation_counts": {
+          "barrier": 1,
+          "cx": 48,
+          "measure": 6,
+          "rz": 57,
+          "sx": 18,
+          "x": 1
+        },
+        "path": "results/B4_B8_R136_route_realization_margin/selected_circuits/FakeJakartaV2_dense_validation_inverse_qft_n6.qasm",
+        "selected_combined_any_error_proxy": 0.4193329126925156,
+        "selected_mapping": [
+          0,
+          1,
+          2,
+          6,
+          3,
+          5
+        ],
+        "selected_policy_id": "selected_o3_default",
+        "selected_realization_seed": 13601,
+        "semantic_fingerprint": "9a59fd4c00855c0a100dca0e3612c5ef45e27045e40b8c2c6c2ad1ebcdbe0607",
+        "sha256": "d9c6102eb2404ec9d96bdd4db9ae65da39c2a61430dadc8ee80b102fbcb3b6f2",
+        "size": 130,
+        "snapshot": "FakeJakartaV2",
+        "task_id": "dense_validation_inverse_qft_n6"
+      },
+      {
+        "artifact_id": "FakeJakartaV2::dense_validation_scrambled_qft_n6",
+        "byte_count": 1599,
+        "depth": 66,
+        "num_clbits": 6,
+        "num_qubits": 7,
+        "operation_counts": {
+          "barrier": 1,
+          "cx": 42,
+          "measure": 6,
+          "rz": 53,
+          "sx": 14,
+          "x": 2
+        },
+        "path": "results/B4_B8_R136_route_realization_margin/selected_circuits/FakeJakartaV2_dense_validation_scrambled_qft_n6.qasm",
+        "selected_combined_any_error_proxy": 0.4154372731698517,
+        "selected_mapping": [
+          5,
+          0,
+          3,
+          6,
+          2,
+          1
+        ],
+        "selected_policy_id": "selected_o3_default",
+        "selected_realization_seed": 13601,
+        "semantic_fingerprint": "09c3f06888ae8888d8c3dc9f61d1b58901341d21636f6007eedfe8eb47ee750d",
+        "sha256": "163692bd7a4c7f0986a17bfdecc4e598977f5e61769f26a727978a35dfe9faa5",
+        "size": 117,
+        "snapshot": "FakeJakartaV2",
+        "task_id": "dense_validation_scrambled_qft_n6"
+      },
+      {
+        "artifact_id": "FakeJakartaV2::dense_validation_xy_network_n6",
+        "byte_count": 3988,
+        "depth": 118,
+        "num_clbits": 6,
+        "num_qubits": 7,
+        "operation_counts": {
+          "barrier": 1,
+          "cx": 59,
+          "measure": 6,
+          "rz": 124,
+          "sx": 98
+        },
+        "path": "results/B4_B8_R136_route_realization_margin/selected_circuits/FakeJakartaV2_dense_validation_xy_network_n6.qasm",
+        "selected_combined_any_error_proxy": 0.48647405628492035,
+        "selected_mapping": [
+          0,
+          1,
+          3,
+          2,
+          5,
+          6
+        ],
+        "selected_policy_id": "selected_o3_default",
+        "selected_realization_seed": 13601,
+        "semantic_fingerprint": "a0428547007ea8657ca25ed016b47ac93db079f168d3a0a9aa35450d6bea3f77",
+        "sha256": "6e2cfb6af8dd6a14987bd080cd44822e161532d622081d2fef7291ef42bd4e77",
+        "size": 287,
+        "snapshot": "FakeJakartaV2",
+        "task_id": "dense_validation_xy_network_n6"
+      },
+      {
+        "artifact_id": "FakeLagosV2::dense_validation_complete_ising_n6",
+        "byte_count": 2201,
+        "depth": 73,
+        "num_clbits": 6,
+        "num_qubits": 7,
+        "operation_counts": {
+          "barrier": 1,
+          "cx": 40,
+          "measure": 6,
+          "rz": 69,
+          "sx": 36,
+          "x": 1
+        },
+        "path": "results/B4_B8_R136_route_realization_margin/selected_circuits/FakeLagosV2_dense_validation_complete_ising_n6.qasm",
+        "selected_combined_any_error_proxy": 0.8388010214110106,
+        "selected_mapping": [
+          5,
+          3,
+          6,
+          4,
+          1,
+          0
+        ],
+        "selected_policy_id": "selected_o3_default",
+        "selected_realization_seed": 13610,
+        "semantic_fingerprint": "8612be166ccb2ddcfed2d9d3e7265fc11b49f670ebf30ace0e479292fc04eb7d",
+        "sha256": "c0f7adc9febd2254fa27eeae04b52d138afc882ebd07445295bb057321a56e9f",
+        "size": 152,
+        "snapshot": "FakeLagosV2",
+        "task_id": "dense_validation_complete_ising_n6"
+      },
+      {
+        "artifact_id": "FakeLagosV2::dense_validation_inverse_qft_n6",
+        "byte_count": 1867,
+        "depth": 69,
+        "num_clbits": 6,
+        "num_qubits": 6,
+        "operation_counts": {
+          "barrier": 1,
+          "cx": 42,
+          "measure": 6,
+          "rz": 65,
+          "sx": 26,
+          "x": 3
+        },
+        "path": "results/B4_B8_R136_route_realization_margin/selected_circuits/FakeLagosV2_dense_validation_inverse_qft_n6.qasm",
+        "selected_combined_any_error_proxy": 0.8416346331042848,
+        "selected_mapping": [
+          4,
+          5,
+          2,
+          0,
+          3,
+          1
+        ],
+        "selected_policy_id": "selected_o3_default",
+        "selected_realization_seed": 13610,
+        "semantic_fingerprint": "aa8c322702ce732c14e4b45e1de988233e66de79527f5a92274aeceec55855f2",
+        "sha256": "a43ec21e220de8f9016933bc863bcd5a6889676a9491fc3814cb9b44a42528c7",
+        "size": 142,
+        "snapshot": "FakeLagosV2",
+        "task_id": "dense_validation_inverse_qft_n6"
+      },
+      {
+        "artifact_id": "FakeLagosV2::dense_validation_scrambled_qft_n6",
+        "byte_count": 1777,
+        "depth": 67,
+        "num_clbits": 6,
+        "num_qubits": 7,
+        "operation_counts": {
+          "barrier": 1,
+          "cx": 42,
+          "measure": 6,
+          "rz": 62,
+          "sx": 22,
+          "x": 1
+        },
+        "path": "results/B4_B8_R136_route_realization_margin/selected_circuits/FakeLagosV2_dense_validation_scrambled_qft_n6.qasm",
+        "selected_combined_any_error_proxy": 0.8395196118812364,
+        "selected_mapping": [
+          1,
+          6,
+          5,
+          0,
+          4,
+          3
+        ],
+        "selected_policy_id": "selected_o3_default",
+        "selected_realization_seed": 13603,
+        "semantic_fingerprint": "da5261e7ee3054a5b6d80d0917c9b6ea19864af769a453795357a3f7ec762adb",
+        "sha256": "e4e494b49f0c86c15a6575595ba6ed7947b75f8a77a277b4ff23e92680836049",
+        "size": 133,
+        "snapshot": "FakeLagosV2",
+        "task_id": "dense_validation_scrambled_qft_n6"
+      },
+      {
+        "artifact_id": "FakeLagosV2::dense_validation_xy_network_n6",
+        "byte_count": 4011,
+        "depth": 123,
+        "num_clbits": 6,
+        "num_qubits": 7,
+        "operation_counts": {
+          "barrier": 1,
+          "cx": 59,
+          "measure": 6,
+          "rz": 126,
+          "sx": 98,
+          "x": 2
+        },
+        "path": "results/B4_B8_R136_route_realization_margin/selected_circuits/FakeLagosV2_dense_validation_xy_network_n6.qasm",
+        "selected_combined_any_error_proxy": 0.8696292399979129,
+        "selected_mapping": [
+          6,
+          4,
+          5,
+          3,
+          1,
+          0
+        ],
+        "selected_policy_id": "selected_o3_default",
+        "selected_realization_seed": 13609,
+        "semantic_fingerprint": "51d9e4298b0c7c80b798ac9f1cad2e51bf37c2f6904197168a36450e4f70ae4b",
+        "sha256": "47632ad4350ef856d5aff2aabc53ea4779f4cd417fe89621e2f46cb547f599eb",
+        "size": 291,
+        "snapshot": "FakeLagosV2",
+        "task_id": "dense_validation_xy_network_n6"
+      },
+      {
+        "artifact_id": "FakeOslo::dense_validation_complete_ising_n6",
+        "byte_count": 2201,
+        "depth": 78,
+        "num_clbits": 6,
+        "num_qubits": 6,
+        "operation_counts": {
+          "barrier": 1,
+          "cx": 42,
+          "measure": 6,
+          "rz": 69,
+          "sx": 36,
+          "x": 2
+        },
+        "path": "results/B4_B8_R136_route_realization_margin/selected_circuits/FakeOslo_dense_validation_complete_ising_n6.qasm",
+        "selected_combined_any_error_proxy": 0.34289865809456854,
+        "selected_mapping": [
+          1,
+          3,
+          2,
+          0,
+          5,
+          4
+        ],
+        "selected_policy_id": "selected_o3_default",
+        "selected_realization_seed": 13610,
+        "semantic_fingerprint": "b880cfe2fbf3a248a32b0b66dd1c6bfe836b9aab309ff12a389fbe30ec74a7ce",
+        "sha256": "daaa1749d787f8b73a0f89dabbcefe729e8eba056a6700505e76b9b9ff94bc0d",
+        "size": 155,
+        "snapshot": "FakeOslo",
+        "task_id": "dense_validation_complete_ising_n6"
+      },
+      {
+        "artifact_id": "FakeOslo::dense_validation_inverse_qft_n6",
+        "byte_count": 1873,
+        "depth": 69,
+        "num_clbits": 6,
+        "num_qubits": 6,
+        "operation_counts": {
+          "barrier": 1,
+          "cx": 42,
+          "measure": 6,
+          "rz": 65,
+          "sx": 26,
+          "x": 3
+        },
+        "path": "results/B4_B8_R136_route_realization_margin/selected_circuits/FakeOslo_dense_validation_inverse_qft_n6.qasm",
+        "selected_combined_any_error_proxy": 0.34289865809456865,
+        "selected_mapping": [
+          4,
+          5,
+          0,
+          2,
+          3,
+          1
+        ],
+        "selected_policy_id": "selected_o3_default",
+        "selected_realization_seed": 13610,
+        "semantic_fingerprint": "aa8c322702ce732c14e4b45e1de988233e66de79527f5a92274aeceec55855f2",
+        "sha256": "6ffd952f6d3fa992570877ad86082c985e37a6d177d8defe5ee9ab9034c5ffac",
+        "size": 142,
+        "snapshot": "FakeOslo",
+        "task_id": "dense_validation_inverse_qft_n6"
+      },
+      {
+        "artifact_id": "FakeOslo::dense_validation_scrambled_qft_n6",
+        "byte_count": 1772,
+        "depth": 66,
+        "num_clbits": 6,
+        "num_qubits": 6,
+        "operation_counts": {
+          "barrier": 1,
+          "cx": 42,
+          "measure": 6,
+          "rz": 61,
+          "sx": 22,
+          "x": 1
+        },
+        "path": "results/B4_B8_R136_route_realization_margin/selected_circuits/FakeOslo_dense_validation_scrambled_qft_n6.qasm",
+        "selected_combined_any_error_proxy": 0.3413343956743957,
+        "selected_mapping": [
+          5,
+          0,
+          1,
+          4,
+          2,
+          3
+        ],
+        "selected_policy_id": "selected_o3_default",
+        "selected_realization_seed": 13603,
+        "semantic_fingerprint": "884fc7c2c666a55c6237a237e6cc78a63fe649ac426b04a8c524d7e0dce139e4",
+        "sha256": "0e382ae6a42ed34cfb6950055e36ec6a35d0f056f1a6d6a95614bb71f54aeed5",
+        "size": 132,
+        "snapshot": "FakeOslo",
+        "task_id": "dense_validation_scrambled_qft_n6"
+      },
+      {
+        "artifact_id": "FakeOslo::dense_validation_xy_network_n6",
+        "byte_count": 3885,
+        "depth": 111,
+        "num_clbits": 6,
+        "num_qubits": 6,
+        "operation_counts": {
+          "barrier": 1,
+          "cx": 56,
+          "measure": 6,
+          "rz": 116,
+          "sx": 102,
+          "x": 1
+        },
+        "path": "results/B4_B8_R136_route_realization_margin/selected_circuits/FakeOslo_dense_validation_xy_network_n6.qasm",
+        "selected_combined_any_error_proxy": 0.4144583771484299,
+        "selected_mapping": [
+          2,
+          0,
+          5,
+          4,
+          1,
+          3
+        ],
+        "selected_policy_id": "selected_o3_lookahead",
+        "selected_realization_seed": 13601,
+        "semantic_fingerprint": "30467fc06f945f9338fdda90a41391813fee5a804caa67e4aa365c1b6b697538",
+        "sha256": "e5917bdc573dd7c4ec62e574c610e5e1ebeb84351593a7195fbe1cc26ff1e62b",
+        "size": 281,
+        "snapshot": "FakeOslo",
+        "task_id": "dense_validation_xy_network_n6"
+      }
+    ],
+    "challenge_secret_commitment_sha256": "2d78c966f03e09931bb7205ed1a51bde5f1e060f9771e2cd938d92b969a40411",
+    "expected_artifact_count": 12,
+    "expected_challenge_count": 48,
+    "probe_types": [
+      "byte_range_hash",
+      "source_window_hash",
+      "operation_count",
+      "structural_value"
+    ],
+    "probes_per_artifact": 4,
+    "protocol_id": "B4-B8-R137-artifact-bound-private-challenge-v0",
+    "protocol_nonce": "r137-artifact-holdout-001",
+    "r136_payload_hash": "bc3daf7d4a02138503309e0803161f396b9a641c595fb2a81316b742f7e6bb27",
+    "r136_result_path": "results/B4_B8_R136_route_realization_margin_v0.json",
+    "r136_result_sha256": "11e4e3dd6f2e94bbe7c0e90300d11b3b7d1bf573596759b50fafc62fbd538aab",
+    "selection_cost_ledger": {
+      "automatic_validation_compilation_count": 120,
+      "group_count": 12,
+      "realization_seed_count": 16,
+      "route_realization_compilation_count": 1536,
+      "selection_attempts_per_artifact": 128,
+      "selection_cost_must_be_charged": true,
+      "top_candidate_count_per_group": 8,
+      "total_compilation_count": 1656
+    },
+    "source_target_id": "T-B4-002al/T-B8-003ap/T-B10-009ad",
+    "upstream_target_id": "T-B4-002ak/T-B8-003ao/T-B10-009ac"
+  },
+  "commitment_hash": "6a3bb72d0f0bacbdaacb82058ae3b66c5e5df7f5f8ad52ef4e114a8164ab61a4"
+}
