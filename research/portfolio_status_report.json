@@ -8564,6 +8564,24 @@
       "status": "public_qasm_packet_spoofer_boundary_not_protocol_soundness",
       "validation_error_count": 0
     },
+    "r128_transpiler_loop_layout_ranking": {
+      "candidate_compilation_count": 300,
+      "default_layout_compilation_count": 30,
+      "exists": true,
+      "four_of_five_default_seed_win_count": 1,
+      "mean_default_improvement_count": 5,
+      "method": "b4_b8_r128_transpiler_loop_layout_ranking_v0",
+      "path": "results/B4_B8_R128_transpiler_loop_layout_ranking_v0.json",
+      "report_exists": true,
+      "report_path": "research/B4_B8_R128_transpiler_loop_layout_ranking.md",
+      "requirements_failed": 0,
+      "requirements_passed": 10,
+      "retained_candidate_count": 60,
+      "routing_survival_gate_passed": false,
+      "selected_circuit_count": 30,
+      "status": "transpiler_loop_layout_ranking_boundary",
+      "strict_static_rerank_count": 3
+    },
     "real_backend_packet_scout": {
       "backend_calibrated_aer_circuit_count": 5760,
       "backend_calibrated_noise_parameters_instantiated": true,
@@ -9547,6 +9565,7 @@
     "b4_b8_r125_historical_snapshot_replay": "research/B4_B8_R125_historical_snapshot_replay.md",
     "b4_b8_r126_calibration_attribution_ledger": "research/B4_B8_R126_calibration_attribution_ledger.md",
     "b4_b8_r127_calibration_aware_layout_design": "research/B4_B8_R127_calibration_aware_layout_design.md",
+    "b4_b8_r128_transpiler_loop_layout_ranking": "research/B4_B8_R128_transpiler_loop_layout_ranking.md",
     "b4_b8_real_backend_packet_scout": "research/B4_B8_real_backend_packet_scout.md",
     "b4_b8_real_backend_provider_manifest_gate": "research/B4_B8_real_backend_provider_manifest_gate.md",
     "b4_b8_real_backend_transcript_contract_gate": "research/B4_B8_real_backend_transcript_contract_gate.md",

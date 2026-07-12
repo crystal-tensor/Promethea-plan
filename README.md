@@ -2293,6 +2293,19 @@ readout mitigation is executed, R125 is not reused for acceptance, and current
 calibration, hardware, soundness, advantage, BQP, and B10 credit remain
 unclaimed. Requirements pass `10/10`.
 
+`T-B4-002ac` / `T-B8-003ag` / `T-B10-009u` now adds the R128
+transpiler-in-the-loop layout ranking gate. It reranks all `60` retained R127
+candidates over five fixed transpiler seeds, producing `300` candidate and
+`30` same-condition automatic-layout compilations. The compiled objective
+replaces three static rank-one layouts; `5/6` groups improve mean exposure and
+`6/6` improve worst exposure. However, only the Lagos graph task beats the
+automatic layout in at least four of five seeds, while Jakarta GHZ remains
+worse on mean exposure and carries `14` CX versus the automatic layout's `11`.
+The strict routing-survival gate therefore fails and no new holdout is opened.
+R125 acceptance rows are not read, and no mitigation, current calibration,
+hardware, soundness, advantage, BQP, or B10 credit is claimed. Requirements
+pass `10/10`.
+
 `T-B1-004gj` / `T-B7-015s` now closes the first R85 blocker without
 promoting the candidate. R86 emits source-binding replay stdout for all `30`
 selected G1 rows and verifies that every row still binds to the original

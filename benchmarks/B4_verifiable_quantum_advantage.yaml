@@ -1230,6 +1230,40 @@ current_results:
     caveat: r127_static_layout_objective_fails_transpiler_invariance_on_ghz
     result: ../results/B4_B8_R127_calibration_aware_layout_design_v0.json
     markdown_report: ../research/B4_B8_R127_calibration_aware_layout_design.md
+  b4_b8_r128_transpiler_loop_layout_ranking_v0:
+    status: transpiler_loop_layout_ranking_boundary
+    model_status: r127_static_candidates_reranked_by_compiled_exposure_without_holdout
+    method: b4_b8_r128_transpiler_loop_layout_ranking_v0
+    source_target_id: T-B4-002ac/T-B8-003ag/T-B10-009u
+    upstream_target_id: T-B4-002ab/T-B8-003af/T-B10-009t
+    dependency_benchmark: B8
+    retained_candidate_count: 60
+    transpiler_seed_count: 5
+    candidate_compilation_count: 300
+    default_layout_compilation_count: 30
+    strict_static_rerank_count: 3
+    mean_default_improvement_count: 5
+    worst_default_improvement_count: 6
+    four_of_five_default_seed_win_count: 1
+    routing_survival_gate_passed: false
+    acceptance_holdout_executed: false
+    r125_acceptance_rows_read: false
+    readout_mitigation_tested: false
+    current_backend_calibration_used: false
+    hardware_execution_performed: false
+    b4_verifiable_advantage_credit_allowed: false
+    b8_protocol_soundness_credit_allowed: false
+    b10_t2_credit_allowed: false
+    protocol_soundness_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r128_mean_improvement_is_not_seed_robust_enough_for_holdout_preregistration
+    result: ../results/B4_B8_R128_transpiler_loop_layout_ranking_v0.json
+    markdown_report: ../research/B4_B8_R128_transpiler_loop_layout_ranking.md
   toy_hidden_trap_protocol_sim_v0:
     status: toy_statistical_protocol
     model_status: toy_statistical_protocol_not_quantum_advantage_claim

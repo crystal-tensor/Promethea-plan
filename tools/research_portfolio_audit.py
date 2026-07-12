@@ -33635,6 +33635,163 @@ def audit(root: Path) -> dict:
         )
     )
 
+    r128_result_path = results / "B4_B8_R128_transpiler_loop_layout_ranking_v0.json"
+    r128_report_path = research / "B4_B8_R128_transpiler_loop_layout_ranking.md"
+    r128_status = {
+        "path": str(r128_result_path),
+        "report_path": str(r128_report_path),
+        "exists": r128_result_path.exists(),
+        "report_exists": r128_report_path.exists(),
+    }
+    r128_manifest_rows = [
+        (
+            "B4",
+            b4_manifest.get("current_results", {}).get(
+                "b4_b8_r128_transpiler_loop_layout_ranking_v0"
+            ),
+        ),
+        (
+            "B8",
+            b8_manifest.get("current_results", {}).get(
+                "b4_b8_r128_transpiler_loop_layout_ranking_v0"
+            ),
+        ),
+        (
+            "B10",
+            b10_manifest.get("current_results", {}).get(
+                "b10_t2_b4_b8_r128_transpiler_loop_layout_ranking_v0"
+            ),
+        ),
+    ]
+    for label, manifest_row in r128_manifest_rows:
+        if not manifest_row:
+            errors.append(f"{label} manifest missing R128 transpiler-loop ranking")
+            continue
+        for field in ["result", "markdown_report"]:
+            value = manifest_row.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(f"{label} R128 manifest missing existing {field}: {value}")
+    if not r128_result_path.exists():
+        errors.append(f"missing R128 transpiler-loop result: {r128_result_path}")
+    elif not r128_report_path.exists():
+        errors.append(f"missing R128 transpiler-loop report: {r128_report_path}")
+    else:
+        r128_payload = json.loads(read(r128_result_path))
+        r128_summary = r128_payload.get("summary", {})
+        r128_claims = r128_payload.get("claim_boundary", {})
+        r128_status.update(
+            {
+                "status": r128_payload.get("status"),
+                "method": r128_payload.get("method"),
+                "requirements_passed": r128_payload.get("requirements_passed"),
+                "requirements_failed": r128_payload.get("requirements_failed"),
+                "retained_candidate_count": r128_summary.get("retained_candidate_count"),
+                "candidate_compilation_count": r128_summary.get(
+                    "candidate_compilation_count"
+                ),
+                "default_layout_compilation_count": r128_summary.get(
+                    "default_layout_compilation_count"
+                ),
+                "strict_static_rerank_count": r128_summary.get(
+                    "strict_static_rerank_count"
+                ),
+                "mean_default_improvement_count": r128_summary.get(
+                    "mean_default_improvement_count"
+                ),
+                "four_of_five_default_seed_win_count": r128_summary.get(
+                    "four_of_five_default_seed_win_count"
+                ),
+                "routing_survival_gate_passed": r128_summary.get(
+                    "routing_survival_gate_passed"
+                ),
+                "selected_circuit_count": len(
+                    r128_payload.get("artifacts", {}).get("selected_circuits", [])
+                ),
+            }
+        )
+        expected_r128_summary = {
+            "retained_candidate_count": 60,
+            "transpiler_seed_count": 5,
+            "candidate_compilation_count": 300,
+            "default_layout_compilation_count": 30,
+            "strict_static_rerank_count": 3,
+            "mean_default_improvement_count": 5,
+            "worst_default_improvement_count": 6,
+            "four_of_five_default_seed_win_count": 1,
+            "routing_survival_gate_passed": False,
+            "acceptance_holdout_executed": False,
+            "r125_acceptance_rows_read": False,
+            "readout_mitigation_tested": False,
+            "current_backend_calibration_used": False,
+            "hardware_execution_performed": False,
+            "protocol_soundness_claimed": False,
+            "quantum_advantage_claimed": False,
+            "bqp_separation_claimed": False,
+            "new_credit_delta": 0,
+        }
+        if r128_payload.get("status") != "transpiler_loop_layout_ranking_boundary":
+            errors.append("R128 transpiler-loop status mismatch")
+        if r128_payload.get("method") != "b4_b8_r128_transpiler_loop_layout_ranking_v0":
+            errors.append("R128 transpiler-loop method mismatch")
+        if r128_payload.get("source_target_id") != "T-B4-002ac/T-B8-003ag/T-B10-009u":
+            errors.append("R128 transpiler-loop target mismatch")
+        if r128_payload.get("requirements_passed") != 10 or r128_payload.get(
+            "requirements_failed"
+        ) != 0:
+            errors.append("R128 transpiler-loop requirements must pass 10/10")
+        if len(r128_payload.get("candidate_aggregate_rows", [])) != 60:
+            errors.append("R128 transpiler-loop must retain 60 candidate aggregates")
+        if len(r128_payload.get("selected_layout_rows", [])) != 6:
+            errors.append("R128 transpiler-loop must select six layouts")
+        for field, expected in expected_r128_summary.items():
+            if r128_summary.get(field) != expected:
+                errors.append(f"R128 transpiler-loop {field} mismatch")
+        for label, manifest_row in r128_manifest_rows:
+            if not manifest_row:
+                continue
+            for field in [
+                "retained_candidate_count",
+                "candidate_compilation_count",
+                "default_layout_compilation_count",
+                "strict_static_rerank_count",
+                "mean_default_improvement_count",
+                "four_of_five_default_seed_win_count",
+                "routing_survival_gate_passed",
+                "acceptance_holdout_executed",
+                "readout_mitigation_tested",
+                "current_backend_calibration_used",
+                "hardware_execution_performed",
+                "protocol_soundness_claimed",
+                "quantum_advantage_claimed",
+                "bqp_separation_claimed",
+                "new_credit_delta",
+            ]:
+                if manifest_row.get(field) != r128_summary.get(field):
+                    errors.append(f"{label} R128 manifest {field} mismatch")
+        payload_hash = r128_payload.get("payload_hash")
+        hash_payload = dict(r128_payload)
+        hash_payload.pop("payload_hash", None)
+        expected_payload_hash = hashlib.sha256(
+            json.dumps(hash_payload, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest()
+        if payload_hash != expected_payload_hash:
+            errors.append("R128 transpiler-loop payload hash mismatch")
+        selected_circuits = r128_payload.get("artifacts", {}).get(
+            "selected_circuits", []
+        )
+        if len(selected_circuits) != 30:
+            errors.append("R128 transpiler-loop must emit 30 selected QASM circuits")
+        for relative_path in selected_circuits:
+            circuit_path = root / relative_path
+            if not circuit_path.exists():
+                errors.append(f"R128 selected circuit missing: {relative_path}")
+            elif not read(circuit_path).startswith("OPENQASM 3.0;"):
+                errors.append(f"R128 selected circuit is not OpenQASM 3: {relative_path}")
+        if "Acceptance holdout performance" not in r128_claims.get(
+            "what_is_not_supported", ""
+        ):
+            errors.append("R128 claim boundary must exclude acceptance holdout performance")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -34068,6 +34225,7 @@ def audit(root: Path) -> dict:
             "real_backend_transcript_contract_gate": b8_real_backend_transcript_contract_status,
             "real_backend_packet_scout": b8_real_backend_packet_scout_status,
             "generative_spoofer_refresh": b8_generative_spoofer_status,
+            "r128_transpiler_loop_layout_ranking": r128_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -35393,6 +35551,9 @@ def audit(root: Path) -> dict:
             ),
             "b4_b8_r127_calibration_aware_layout_design": str(
                 research / "B4_B8_R127_calibration_aware_layout_design.md"
+            ),
+            "b4_b8_r128_transpiler_loop_layout_ranking": str(
+                research / "B4_B8_R128_transpiler_loop_layout_ranking.md"
             ),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),
