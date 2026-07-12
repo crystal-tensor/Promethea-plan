@@ -1206,6 +1206,50 @@ current_results:
     caveat: r124_preregistered_acceptance_is_not_protocol_soundness
     result: ../results/B4_B8_R124_preregistered_holdout_block_replay_v0.json
     markdown_report: ../research/B4_B8_R124_preregistered_holdout_block_replay.md
+  b4_b8_r125_historical_snapshot_replay_v0:
+    status: preregistered_historical_qpu_snapshot_replay_boundary
+    model_status: r124_candidate_replayed_with_frozen_ibm_qpu_snapshot_properties
+    method: b4_b8_r125_historical_snapshot_replay_v0
+    source_target_id: T-B4-002z/T-B8-003ad/T-B10-009r
+    upstream_target_id: T-B4-002y/T-B8-003ac/T-B10-009q
+    preregistration_discussion: https://github.com/crystal-tensor/Prometheus-plan/discussions/126
+    contract: B4_B8_R125_historical_snapshot_replay_contract_v0.json
+    contract_sha256: 547bef430ce85ea9052d791edd939e554b4a72f67dcabbb61169c7e02a675716
+    qiskit_ibm_runtime_version: 0.46.1
+    snapshot_names: [FakeOslo, FakeJakartaV2, FakeLagosV2]
+    seed_block_count: 5
+    shot_budgets: [4096, 8192]
+    trials_per_block_snapshot_task: 16
+    trial_row_count: 480
+    block_row_count: 30
+    transition_row_count: 30
+    compiled_basis_circuit_count: 4374
+    oslo_candidate_point_wilson_lobo: [0.8625, 0.7703289993301339, 0.7178678837734179]
+    jakarta_candidate_point_wilson_lobo: [0.8, 0.6995375627182917, 0.6486674241743136]
+    lagos_candidate_point_wilson_lobo: [0.0, 0.0, 0.0]
+    blocks_meeting_candidate_point_floor:
+      FakeOslo: 3
+      FakeJakartaV2: 2
+      FakeLagosV2: 0
+    accepted_snapshot_count: 0
+    global_acceptance: false
+    fail_to_pass_transition_count: 38
+    pass_to_fail_transition_count: 6
+    historical_real_system_snapshot_properties_used: true
+    current_backend_calibration_used: false
+    hardware_execution_performed: false
+    independent_backend_transcript_used: false
+    real_backend_transcript_rows: 0
+    protocol_soundness_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 13
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r125_extra_shots_do_not_repair_historical_snapshot_bias
+    result: ../results/B4_B8_R125_historical_snapshot_replay_v0.json
+    markdown_report: ../research/B4_B8_R125_historical_snapshot_replay.md
 prototype_artifacts:
   output_invariant_verifier: ../tools/b8_output_invariant_verifier.py
   adaptive_leakage_spoofer: ../tools/b8_adaptive_spoofer_leakage.py

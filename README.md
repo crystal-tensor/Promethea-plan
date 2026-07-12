@@ -2248,6 +2248,22 @@ replay only; it does not establish a universal threshold, hardware result,
 protocol soundness, advantage, BQP separation, or B10 credit. Requirements
 pass `12/12`.
 
+`T-B4-002z` / `T-B8-003ad` / `T-B10-009r` now adds the R125 historical QPU
+snapshot replay. Discussion #126 preregisters contract SHA-256
+`547bef430ce85ea9052d791edd939e554b4a72f67dcabbb61169c7e02a675716`,
+three Qiskit IBM Runtime `0.46.1` fake-backend snapshot hashes, five disjoint
+seed blocks, `16` trials per block/snapshot/task, and the unchanged A1-A5
+rules. R125 transpiles `4374` randomized-measurement basis circuits to the
+FakeOslo, FakeJakartaV2, and FakeLagosV2 targets and emits `480` paired trial
+rows. At `8192` shots, weakest point/Wilson/leave-one-block-out values are
+Oslo `0.8625/0.7703/0.7179`, Jakarta `0.8000/0.6995/0.6487`, and Lagos
+`0/0/0`. No snapshot passes all five conditions; the global verdict is
+`REJECT`, with `38` fail-to-pass and `6` pass-to-fail transitions. Extra shots
+therefore do not repair this historical topology/readout boundary. These are
+frozen historical system properties for local Aer testing, not current
+calibration, provider access, hardware execution, soundness, advantage, BQP
+separation, or B10 credit. Requirements pass `13/13`.
+
 `T-B1-004gj` / `T-B7-015s` now closes the first R85 blocker without
 promoting the candidate. R86 emits source-binding replay stdout for all `30`
 selected G1 rows and verifies that every row still binds to the original

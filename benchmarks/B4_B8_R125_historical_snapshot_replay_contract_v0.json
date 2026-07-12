@@ -1,0 +1,105 @@
+{
+  "schema_version": "0.1",
+  "contract_id": "B4B8-R125-historical-snapshot-replay-v0",
+  "status": "preregistered_before_historical_snapshot_execution",
+  "source_target_id": "T-B4-002y/T-B8-003ac/T-B10-009q",
+  "source_result": "results/B4_B8_R124_preregistered_holdout_block_replay_v0.json",
+  "source_payload_hash": "4ed4a45ff7872a87a0a2ac437e19958628c0b21cd58f80ae357cded65c6169ee",
+  "software_contract": {
+    "qiskit_minimum_version": "2.4",
+    "qiskit_ibm_runtime_version": "0.46.1",
+    "qiskit_aer_minimum_version": "0.17",
+    "official_fake_provider_documentation": "https://qiskit.qotlabs.org/docs/api/qiskit-ibm-runtime/fake-provider",
+    "historical_snapshot_not_current_calibration": true
+  },
+  "snapshot_contract": [
+    {
+      "backend_class": "FakeOslo",
+      "backend_name": "fake_oslo",
+      "role": "low_noise_historical_snapshot",
+      "canonical_snapshot_sha256": "6bed500622325d2389027630158ffeee0688fd6755d08fe9d26d395007a3c1a5",
+      "mean_cx_error": 0.008231000137978265,
+      "max_cx_error": 0.009496172164203343,
+      "mean_measure_error": 0.015742857142857152,
+      "max_measure_error": 0.02939999999999998
+    },
+    {
+      "backend_class": "FakeJakartaV2",
+      "backend_name": "fake_jakarta",
+      "role": "mid_noise_historical_snapshot",
+      "canonical_snapshot_sha256": "419e965e97e15687437fa1603d589beae7f3212cfb115eaa7e053e42dc52fc5d",
+      "mean_cx_error": 0.009228727127195876,
+      "max_cx_error": 0.013420197085121627,
+      "mean_measure_error": 0.03069999999999998,
+      "max_measure_error": 0.055499999999999994
+    },
+    {
+      "backend_class": "FakeLagosV2",
+      "backend_name": "fake_lagos",
+      "role": "readout_stress_historical_snapshot",
+      "canonical_snapshot_sha256": "314813b271352991b0faa742d24777558ffe39d3608a5d8349c2278516227062",
+      "mean_cx_error": 0.01463497474634004,
+      "max_cx_error": 0.02897748999596947,
+      "mean_measure_error": 0.20354285714285714,
+      "max_measure_error": 0.4638
+    }
+  ],
+  "holdout_design": {
+    "root_seeds": [12501, 12502, 12503, 12504, 12505],
+    "root_seeds_disjoint_from_r123_and_r124": true,
+    "seed_block_count": 5,
+    "trials_per_block_snapshot_task": 16,
+    "task_ids": ["private_bundle_ghz_n6", "private_bundle_graph_n6"],
+    "control_shot_budget": 4096,
+    "candidate_shot_budget": 8192,
+    "maximum_replay_shots": 8192,
+    "transpiler_optimization_level": 1,
+    "transpiler_seed": 125,
+    "classical_measurement_map_must_preserve_logical_qubit_order": true,
+    "same_ordered_stream_prefix_within_trial": true,
+    "same_hidden_bundle_within_trial": true,
+    "seed_substitution_allowed": false,
+    "optional_stopping_allowed": false,
+    "snapshot_substitution_allowed": false,
+    "failed_trial_replacement_allowed": false
+  },
+  "acceptance_statistic": {
+    "bundle_maximum_absolute_error_tolerance": 0.6,
+    "honest_completeness_floor": 0.8,
+    "confidence_level": 0.95,
+    "interval": "wilson_score",
+    "candidate_budget_only": 8192,
+    "snapshot_conditions": [
+      "minimum pooled task pass rate is at least 0.8",
+      "minimum pooled task Wilson lower bound is at least 0.8",
+      "minimum leave-one-block-out task Wilson lower bound is at least 0.8",
+      "every block minimum task pass rate is at least 0.8",
+      "paired 4096-to-8192 pass-to-fail transition rate is at most 0.1"
+    ],
+    "global_acceptance": "all snapshot conditions pass for Oslo, Jakarta, and Lagos",
+    "pass_to_fail_transition_denominator_per_snapshot": 160,
+    "maximum_pass_to_fail_transitions_per_snapshot": 16,
+    "post_hoc_threshold_revision_allowed": false
+  },
+  "evidence_classification": {
+    "historical_real_system_snapshot_properties_used": true,
+    "current_backend_calibration_used": false,
+    "backend_refresh_performed": false,
+    "provider_session_used": false,
+    "hardware_execution_performed": false,
+    "independent_backend_transcript_used": false,
+    "real_backend_transcript_rows": 0
+  },
+  "decision_policy": {
+    "accepted": "advance the locked 8192-shot candidate to current calibrated-provider replay or independent hardware transcript intake",
+    "rejected": "report the failed snapshot and condition without changing seeds, snapshots, or thresholds",
+    "partial_snapshot_acceptance_grants_credit": false,
+    "new_b4_credit_on_acceptance": 0,
+    "new_b8_credit_on_acceptance": 0,
+    "new_b10_credit_on_acceptance": 0
+  },
+  "claim_boundary": {
+    "supported_if_accepted": "a preregistered local Aer replay driven by frozen historical IBM QPU snapshot properties",
+    "not_supported": "current calibrated backend evidence, provider access, hardware execution, independent transcript evidence, protocol or cryptographic soundness, sampling hardness, quantum advantage, BQP separation, or B10 credit"
+  }
+}
