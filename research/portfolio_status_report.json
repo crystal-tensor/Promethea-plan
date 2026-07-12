@@ -8660,6 +8660,24 @@
       "training_compilation_count": 240,
       "validation_compilation_count": 180
     },
+    "r133_unseen_circuit_family_holdout": {
+      "automatic_baseline_no_loss_gate_passed": false,
+      "constrained_circuit_count": 120,
+      "exact_qasm_seed_invariant_group_count": 12,
+      "exists": true,
+      "frozen_qasm_replay_match_count": 120,
+      "holdout_compilation_count": 360,
+      "loss_count_vs_automatic_default": 75,
+      "method": "b4_b8_r133_unseen_circuit_family_holdout_v0",
+      "path": "results/B4_B8_R133_unseen_circuit_family_holdout_v0.json",
+      "report_exists": true,
+      "report_path": "research/B4_B8_R133_unseen_circuit_family_holdout.md",
+      "requirements_failed": 0,
+      "requirements_passed": 10,
+      "route_family_invariant_group_count": 12,
+      "source_circuit_count": 4,
+      "status": "unseen_circuit_family_route_holdout_boundary"
+    },
     "real_backend_packet_scout": {
       "backend_calibrated_aer_circuit_count": 5760,
       "backend_calibrated_noise_parameters_instantiated": true,
@@ -9648,6 +9666,7 @@
     "b4_b8_r130_route_signature_candidate_expansion": "research/B4_B8_R130_route_signature_candidate_expansion.md",
     "b4_b8_r131_compiled_route_family_attribution": "research/B4_B8_R131_compiled_route_family_attribution.md",
     "b4_b8_r132_topology_constrained_route_policy": "research/B4_B8_R132_topology_constrained_route_policy.md",
+    "b4_b8_r133_unseen_circuit_family_holdout": "research/B4_B8_R133_unseen_circuit_family_holdout.md",
     "b4_b8_real_backend_packet_scout": "research/B4_B8_real_backend_packet_scout.md",
     "b4_b8_real_backend_provider_manifest_gate": "research/B4_B8_real_backend_provider_manifest_gate.md",
     "b4_b8_real_backend_transcript_contract_gate": "research/B4_B8_real_backend_transcript_contract_gate.md",

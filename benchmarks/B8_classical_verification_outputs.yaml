@@ -1511,6 +1511,51 @@ current_results:
     caveat: r132_stabilizes_compilation_but_only_three_of_six_groups_avoid_automatic_baseline_losses
     result: ../results/B4_B8_R132_topology_constrained_route_policy_v0.json
     markdown_report: ../research/B4_B8_R132_topology_constrained_route_policy.md
+  b4_b8_r133_unseen_circuit_family_holdout_v0:
+    status: unseen_circuit_family_route_holdout_boundary
+    model_status: deterministic_route_generalizes_but_automatic_baseline_no_loss_gate_fails
+    method: b4_b8_r133_unseen_circuit_family_holdout_v0
+    source_target_id: T-B4-002ah/T-B8-003al/T-B10-009z
+    upstream_target_id: T-B4-002ag/T-B8-003ak/T-B10-009y
+    holdout_task_count: 4
+    holdout_group_count: 12
+    holdout_seed_count: 10
+    holdout_compilation_count: 360
+    holdout_row_count: 120
+    source_circuit_count: 4
+    source_circuits_unseen_vs_r119_count: 4
+    selected_policy_id: selected_o3_lookahead
+    mapping_or_policy_selected_on_holdout: false
+    route_family_invariant_group_count: 12
+    exact_qasm_seed_invariant_group_count: 12
+    frozen_qasm_preexisting_count: 120
+    frozen_qasm_replay_match_count: 120
+    win_tie_loss_counts_vs_automatic: [21, 24, 75]
+    no_loss_group_count_vs_automatic_default: 4
+    fixed_mapping_gap_not_recovered_count: 46
+    fixed_mapping_and_policy_regression_count: 20
+    lookahead_policy_induced_loss_count: 9
+    attributed_loss_count: 75
+    deterministic_generalization_gate_passed: true
+    automatic_baseline_no_loss_gate_passed: false
+    exact_qasm_cross_process_replay_claimed: true
+    fresh_holdout_seed_block_used: true
+    r130_or_r132_seeds_reused: false
+    acceptance_holdout_executed: false
+    r125_acceptance_rows_read: false
+    readout_mitigation_tested: false
+    current_backend_calibration_used: false
+    hardware_execution_performed: false
+    protocol_soundness_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r133_determinism_generalizes_but_transferred_mapping_and_policy_fail_automatic_no_loss
+    result: ../results/B4_B8_R133_unseen_circuit_family_holdout_v0.json
+    markdown_report: ../research/B4_B8_R133_unseen_circuit_family_holdout.md
 prototype_artifacts:
   output_invariant_verifier: ../tools/b8_output_invariant_verifier.py
   adaptive_leakage_spoofer: ../tools/b8_adaptive_spoofer_leakage.py

@@ -34534,6 +34534,204 @@ def audit(root: Path) -> dict:
         ):
             errors.append("R132 claim boundary must exclude verifier holdout acceptance")
 
+    r133_result_path = results / "B4_B8_R133_unseen_circuit_family_holdout_v0.json"
+    r133_report_path = research / "B4_B8_R133_unseen_circuit_family_holdout.md"
+    r133_status = {
+        "path": str(r133_result_path),
+        "report_path": str(r133_report_path),
+        "exists": r133_result_path.exists(),
+        "report_exists": r133_report_path.exists(),
+    }
+    r133_manifest_rows = [
+        (
+            "B4",
+            b4_manifest.get("current_results", {}).get(
+                "b4_b8_r133_unseen_circuit_family_holdout_v0"
+            ),
+        ),
+        (
+            "B8",
+            b8_manifest.get("current_results", {}).get(
+                "b4_b8_r133_unseen_circuit_family_holdout_v0"
+            ),
+        ),
+        (
+            "B10",
+            b10_manifest.get("current_results", {}).get(
+                "b10_t2_b4_b8_r133_unseen_circuit_family_holdout_v0"
+            ),
+        ),
+    ]
+    for label, manifest_row in r133_manifest_rows:
+        if not manifest_row:
+            errors.append(f"{label} manifest missing R133 unseen-family holdout")
+            continue
+        for field in ["result", "markdown_report"]:
+            value = manifest_row.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(f"{label} R133 manifest missing existing {field}: {value}")
+    if not r133_result_path.exists():
+        errors.append(f"missing R133 unseen-family result: {r133_result_path}")
+    elif not r133_report_path.exists():
+        errors.append(f"missing R133 unseen-family report: {r133_report_path}")
+    else:
+        r133_payload = json.loads(read(r133_result_path))
+        r133_summary = r133_payload.get("summary", {})
+        r133_claims = r133_payload.get("claim_boundary", {})
+        r133_status.update(
+            {
+                "status": r133_payload.get("status"),
+                "method": r133_payload.get("method"),
+                "requirements_passed": r133_payload.get("requirements_passed"),
+                "requirements_failed": r133_payload.get("requirements_failed"),
+                "holdout_compilation_count": r133_summary.get(
+                    "holdout_compilation_count"
+                ),
+                "route_family_invariant_group_count": r133_summary.get(
+                    "route_family_invariant_group_count"
+                ),
+                "exact_qasm_seed_invariant_group_count": r133_summary.get(
+                    "exact_qasm_seed_invariant_group_count"
+                ),
+                "frozen_qasm_replay_match_count": r133_summary.get(
+                    "frozen_qasm_replay_match_count"
+                ),
+                "loss_count_vs_automatic_default": r133_summary.get(
+                    "loss_count_vs_automatic_default"
+                ),
+                "automatic_baseline_no_loss_gate_passed": r133_summary.get(
+                    "automatic_baseline_no_loss_gate_passed"
+                ),
+                "source_circuit_count": len(
+                    r133_payload.get("artifacts", {}).get("source_circuits", [])
+                ),
+                "constrained_circuit_count": len(
+                    r133_payload.get("artifacts", {}).get("constrained_circuits", [])
+                ),
+            }
+        )
+        expected_r133_summary = {
+            "holdout_task_count": 4,
+            "holdout_group_count": 12,
+            "holdout_seed_count": 10,
+            "holdout_compilation_count": 360,
+            "holdout_row_count": 120,
+            "source_circuit_count": 4,
+            "source_circuits_unseen_vs_r119_count": 4,
+            "selected_policy_id": "selected_o3_lookahead",
+            "mapping_or_policy_selected_on_holdout": False,
+            "route_family_invariant_group_count": 12,
+            "exact_qasm_seed_invariant_group_count": 12,
+            "frozen_qasm_preexisting_count": 120,
+            "frozen_qasm_replay_match_count": 120,
+            "win_count_vs_automatic_default": 21,
+            "tie_count_vs_automatic_default": 24,
+            "loss_count_vs_automatic_default": 75,
+            "no_loss_group_count_vs_automatic_default": 4,
+            "fixed_mapping_gap_not_recovered_count": 46,
+            "fixed_mapping_and_policy_regression_count": 20,
+            "lookahead_policy_induced_loss_count": 9,
+            "attributed_loss_count": 75,
+            "deterministic_generalization_gate_passed": True,
+            "automatic_baseline_no_loss_gate_passed": False,
+            "exact_qasm_cross_process_replay_claimed": True,
+            "fresh_holdout_seed_block_used": True,
+            "r130_or_r132_seeds_reused": False,
+            "acceptance_holdout_executed": False,
+            "r125_acceptance_rows_read": False,
+            "readout_mitigation_tested": False,
+            "current_backend_calibration_used": False,
+            "hardware_execution_performed": False,
+            "protocol_soundness_claimed": False,
+            "quantum_advantage_claimed": False,
+            "bqp_separation_claimed": False,
+            "new_credit_delta": 0,
+        }
+        if r133_payload.get("status") != "unseen_circuit_family_route_holdout_boundary":
+            errors.append("R133 unseen-family status mismatch")
+        if r133_payload.get("method") != "b4_b8_r133_unseen_circuit_family_holdout_v0":
+            errors.append("R133 unseen-family method mismatch")
+        if r133_payload.get("source_target_id") != "T-B4-002ah/T-B8-003al/T-B10-009z":
+            errors.append("R133 unseen-family target mismatch")
+        if r133_payload.get("requirements_passed") != 10 or r133_payload.get(
+            "requirements_failed"
+        ) != 0:
+            errors.append("R133 unseen-family requirements must pass 10/10")
+        if len(r133_payload.get("source_circuit_rows", [])) != 4:
+            errors.append("R133 unseen-family result must contain four source rows")
+        if len(r133_payload.get("holdout_rows", [])) != 120:
+            errors.append("R133 unseen-family result must contain 120 holdout rows")
+        if len(r133_payload.get("holdout_group_rows", [])) != 12:
+            errors.append("R133 unseen-family result must contain 12 group rows")
+        for field, expected in expected_r133_summary.items():
+            if r133_summary.get(field) != expected:
+                errors.append(f"R133 unseen-family {field} mismatch")
+        manifest_fields = [
+            "holdout_task_count",
+            "holdout_group_count",
+            "holdout_seed_count",
+            "holdout_compilation_count",
+            "holdout_row_count",
+            "source_circuit_count",
+            "source_circuits_unseen_vs_r119_count",
+            "selected_policy_id",
+            "mapping_or_policy_selected_on_holdout",
+            "route_family_invariant_group_count",
+            "exact_qasm_seed_invariant_group_count",
+            "frozen_qasm_preexisting_count",
+            "frozen_qasm_replay_match_count",
+            "no_loss_group_count_vs_automatic_default",
+            "fixed_mapping_gap_not_recovered_count",
+            "fixed_mapping_and_policy_regression_count",
+            "lookahead_policy_induced_loss_count",
+            "attributed_loss_count",
+            "deterministic_generalization_gate_passed",
+            "automatic_baseline_no_loss_gate_passed",
+            "exact_qasm_cross_process_replay_claimed",
+            "fresh_holdout_seed_block_used",
+            "r130_or_r132_seeds_reused",
+            "acceptance_holdout_executed",
+            "readout_mitigation_tested",
+            "current_backend_calibration_used",
+            "hardware_execution_performed",
+            "protocol_soundness_claimed",
+            "quantum_advantage_claimed",
+            "bqp_separation_claimed",
+            "new_credit_delta",
+        ]
+        for label, manifest_row in r133_manifest_rows:
+            if not manifest_row:
+                continue
+            for field in manifest_fields:
+                if manifest_row.get(field) != r133_summary.get(field):
+                    errors.append(f"{label} R133 manifest {field} mismatch")
+        payload_hash = r133_payload.get("payload_hash")
+        hash_payload = dict(r133_payload)
+        hash_payload.pop("payload_hash", None)
+        expected_payload_hash = hashlib.sha256(
+            json.dumps(hash_payload, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest()
+        if payload_hash != expected_payload_hash:
+            errors.append("R133 unseen-family payload hash mismatch")
+        source_circuits = r133_payload.get("artifacts", {}).get("source_circuits", [])
+        constrained_circuits = r133_payload.get("artifacts", {}).get(
+            "constrained_circuits", []
+        )
+        if len(source_circuits) != 4:
+            errors.append("R133 unseen-family result must emit four source circuits")
+        if len(constrained_circuits) != 120:
+            errors.append("R133 unseen-family result must emit 120 constrained circuits")
+        for relative_path in [*source_circuits, *constrained_circuits]:
+            circuit_path = root / relative_path
+            if not circuit_path.exists():
+                errors.append(f"R133 circuit missing: {relative_path}")
+            elif not read(circuit_path).startswith("OPENQASM 3.0;"):
+                errors.append(f"R133 circuit is not OpenQASM 3: {relative_path}")
+        if "Verifier acceptance" not in r133_claims.get(
+            "what_is_not_supported", ""
+        ):
+            errors.append("R133 claim boundary must exclude verifier acceptance")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -34972,6 +35170,7 @@ def audit(root: Path) -> dict:
             "r130_route_signature_candidate_expansion": r130_status,
             "r131_compiled_route_family_attribution": r131_status,
             "r132_topology_constrained_route_policy": r132_status,
+            "r133_unseen_circuit_family_holdout": r133_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -36312,6 +36511,9 @@ def audit(root: Path) -> dict:
             ),
             "b4_b8_r132_topology_constrained_route_policy": str(
                 research / "B4_B8_R132_topology_constrained_route_policy.md"
+            ),
+            "b4_b8_r133_unseen_circuit_family_holdout": str(
+                research / "B4_B8_R133_unseen_circuit_family_holdout.md"
             ),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),

@@ -2367,6 +2367,22 @@ are `27` wins, `19` ties, and `14` losses. The compiler stability gate passes;
 verifier acceptance, mitigation, current calibration, hardware, soundness,
 advantage, BQP, and new B10 credit remain excluded. Requirements pass `10/10`.
 
+`T-B4-002ah` / `T-B8-003al` / `T-B10-009z` now adds the R133 unseen
+circuit-family holdout boundary. Four source families absent from R119-R132
+(star echo, star phase, ring phase, and brickwork) are compiled on three
+historical fake backends over ten fresh seeds. The upstream R130 mappings and
+R132 `selected_o3_lookahead` policy are frozen before the `360` holdout
+compilations. All `12/12` backend/circuit groups retain one route-exposure
+class and one exact QASM hash; `120/120` constrained circuits replay
+byte-for-byte in a fresh process. Determinism therefore generalizes, but cost
+quality does not: only `4/12` groups avoid every automatic-layout loss, with
+`21` wins, `24` ties, and `75` losses. The attribution ledger assigns `46`
+losses to an inherited fixed-mapping gap not recovered by lookahead, `20` to
+combined mapping and policy regression, and `9` to lookahead-only regression.
+The automatic-baseline no-loss gate fails. No holdout selection, verifier
+acceptance, hardware, soundness, advantage, BQP, or new B10 credit is claimed.
+Requirements pass `10/10`.
+
 `T-B1-004gj` / `T-B7-015s` now closes the first R85 blocker without
 promoting the candidate. R86 emits source-binding replay stdout for all `30`
 selected G1 rows and verifies that every row still binds to the original
