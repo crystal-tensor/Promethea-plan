@@ -1157,6 +1157,55 @@ current_results:
     caveat: r123_block_robustness_boundary_not_protocol_soundness
     result: ../results/B4_B8_R123_independent_seed_block_replay_v0.json
     markdown_report: ../research/B4_B8_R123_independent_seed_block_replay.md
+  b4_b8_r124_preregistered_holdout_block_replay_v0:
+    status: preregistered_disjoint_holdout_block_acceptance_boundary
+    model_status: publicly_preregistered_r123_boundary_replay_on_disjoint_seed_blocks
+    method: b4_b8_r124_preregistered_holdout_block_replay_v0
+    source_target_id: T-B4-002y/T-B8-003ac/T-B10-009q
+    upstream_target_id: T-B4-002x/T-B8-003ab/T-B10-009p
+    preregistration_discussion: https://github.com/crystal-tensor/Prometheus-plan/discussions/124
+    contract: B4_B8_R124_block_robust_acceptance_contract_v0.json
+    contract_sha256: 18da0e4fe50a98f2830782c04563102371a608e87a0e5859c9b5a65839693604
+    preregistered_before_execution: true
+    profiles: [ideal, light]
+    seed_block_count: 5
+    block_seeds: [12401, 12402, 12403, 12404, 12405]
+    shot_budgets: [4096, 8192]
+    trials_per_block_profile_task: 16
+    trials_per_profile_task: 80
+    trial_row_count: 320
+    block_row_count: 20
+    transition_row_count: 20
+    ideal_minimum_pooled_honest_completeness: [0.7625, 0.975]
+    light_minimum_pooled_honest_completeness: [0.8375, 0.95]
+    ideal_minimum_pooled_wilson_lower: [0.6585922106615945, 0.9133556701442198]
+    light_minimum_pooled_wilson_lower: [0.7415709565930229, 0.8783772379535698]
+    ideal_minimum_leave_one_block_out_wilson_lower: [0.5822979889645707, 0.8930270822904169]
+    light_minimum_leave_one_block_out_wilson_lower: [0.7002563943589847, 0.8500251490779133]
+    blocks_meeting_point_floor:
+      ideal: [1, 5]
+      light: [4, 5]
+    ideal_acceptance_conditions_passed: 5
+    light_acceptance_conditions_passed: 5
+    accepted_profile_count: 2
+    global_acceptance: true
+    fail_to_pass_transition_count: 26
+    pass_to_fail_transition_count: 0
+    seed_substitution_performed: false
+    optional_stopping_performed: false
+    post_hoc_threshold_revision_performed: false
+    hardware_execution_performed: false
+    calibrated_backend_evidence: false
+    protocol_soundness_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 12
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r124_preregistered_acceptance_is_not_protocol_soundness
+    result: ../results/B4_B8_R124_preregistered_holdout_block_replay_v0.json
+    markdown_report: ../research/B4_B8_R124_preregistered_holdout_block_replay.md
 prototype_artifacts:
   output_invariant_verifier: ../tools/b8_output_invariant_verifier.py
   adaptive_leakage_spoofer: ../tools/b8_adaptive_spoofer_leakage.py

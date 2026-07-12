@@ -1,0 +1,57 @@
+{
+  "schema_version": "0.1",
+  "contract_id": "B4B8-R124-block-robust-acceptance-v0",
+  "status": "preregistered_before_holdout_execution",
+  "source_target_id": "T-B4-002x/T-B8-003ab/T-B10-009p",
+  "source_result": "results/B4_B8_R123_independent_seed_block_replay_v0.json",
+  "source_payload_hash": "f7b1f07df9d5bc9033d20ec7b5bbff4f6bdffc3862a8ea780edc6337c23b21f1",
+  "holdout_design": {
+    "root_seeds": [12401, 12402, 12403, 12404, 12405],
+    "root_seeds_disjoint_from_r123": true,
+    "seed_block_count": 5,
+    "trials_per_block_profile_task": 16,
+    "profiles": {
+      "ideal": {"p1": 0.0, "p2": 0.0, "readout": 0.0},
+      "light": {"p1": 0.001, "p2": 0.005, "readout": 0.005}
+    },
+    "task_ids": ["private_bundle_ghz_n6", "private_bundle_graph_n6"],
+    "control_shot_budget": 4096,
+    "candidate_shot_budget": 8192,
+    "maximum_replay_shots": 8192,
+    "same_ordered_stream_prefix_within_trial": true,
+    "same_hidden_bundle_within_trial": true,
+    "seed_substitution_allowed": false,
+    "optional_stopping_allowed": false,
+    "failed_trial_replacement_allowed": false
+  },
+  "acceptance_statistic": {
+    "bundle_maximum_absolute_error_tolerance": 0.6,
+    "honest_completeness_floor": 0.8,
+    "confidence_level": 0.95,
+    "interval": "wilson_score",
+    "candidate_budget_only": 8192,
+    "profile_conditions": [
+      "minimum pooled task pass rate is at least 0.8",
+      "minimum pooled task Wilson lower bound is at least 0.8",
+      "minimum leave-one-block-out task Wilson lower bound is at least 0.8",
+      "every block minimum task pass rate is at least 0.8",
+      "paired 4096-to-8192 pass-to-fail transition rate is at most 0.1"
+    ],
+    "global_acceptance": "all profile conditions pass for both ideal and light",
+    "pass_to_fail_transition_denominator_per_profile": 160,
+    "maximum_pass_to_fail_transitions_per_profile": 16,
+    "post_hoc_threshold_revision_allowed": false
+  },
+  "decision_policy": {
+    "accepted": "advance 8192-shot candidate to calibrated-backend-property or independent-backend-transcript replay",
+    "rejected": "report the failed condition as a negative result and require a new public preregistration before collecting another holdout",
+    "partial_profile_acceptance_grants_credit": false,
+    "new_b4_credit_on_acceptance": 0,
+    "new_b8_credit_on_acceptance": 0,
+    "new_b10_credit_on_acceptance": 0
+  },
+  "claim_boundary": {
+    "supported_if_accepted": "a preregistered synthetic Aer block-robustness result for the fixed tasks, profiles, and 8192-shot budget",
+    "not_supported": "an iid theorem, universal shot threshold, calibrated hardware performance, real hardware execution, protocol or cryptographic soundness, sampling hardness, quantum advantage, BQP separation, or B10 credit"
+  }
+}

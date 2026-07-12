@@ -2233,6 +2233,21 @@ pass-to-fail transitions. This isolates a block-robustness gap; it does not
 establish a universal shot threshold, iid law, hardware evidence, protocol
 soundness, advantage, BQP separation, or B10 credit. Requirements pass `10/10`.
 
+`T-B4-002y` / `T-B8-003ac` / `T-B10-009q` now adds the R124 publicly
+preregistered holdout replay. Discussion #124 publishes contract SHA-256
+`18da0e4fe50a98f2830782c04563102371a608e87a0e5859c9b5a65839693604`
+before execution, fixing five disjoint root seeds, `16` trials per
+block/profile/task, the `4096/8192` paired budgets, and five acceptance
+conditions. At `8192`, ideal/light pooled Wilson lower bounds are
+`0.9134/0.8784`, minimum leave-one-block-out lower bounds are
+`0.8930/0.8500`, and all `5/5` blocks clear the point floor. The paired ledger
+records `26` fail-to-pass and `0` pass-to-fail transitions. Both profiles pass
+A1-A5, so the global preregistered synthetic holdout verdict is `ACCEPT`.
+This unlocks calibrated-backend-property or independent-backend-transcript
+replay only; it does not establish a universal threshold, hardware result,
+protocol soundness, advantage, BQP separation, or B10 credit. Requirements
+pass `12/12`.
+
 `T-B1-004gj` / `T-B7-015s` now closes the first R85 blocker without
 promoting the candidate. R86 emits source-binding replay stdout for all `30`
 selected G1 rows and verifies that every row still binds to the original

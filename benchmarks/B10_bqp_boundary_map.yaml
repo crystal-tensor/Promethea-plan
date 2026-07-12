@@ -774,6 +774,41 @@ current_results:
     caveat: r123_independent_seed_blocks_keep_b10_zero_credit
     result: ../results/B4_B8_R123_independent_seed_block_replay_v0.json
     markdown_report: ../research/B4_B8_R123_independent_seed_block_replay.md
+  b10_t2_b4_b8_r124_preregistered_holdout_block_replay_v0:
+    status: preregistered_holdout_acceptance_not_bqp_claim
+    model_status: synthetic_holdout_acceptance_keeps_b10_t2_credit_blocked
+    method: b4_b8_r124_preregistered_holdout_block_replay_v0
+    source_b8_result: ../results/B4_B8_R124_preregistered_holdout_block_replay_v0.json
+    source_target_id: T-B4-002y/T-B8-003ac/T-B10-009q
+    upstream_target_id: T-B4-002x/T-B8-003ab/T-B10-009p
+    dependency_benchmark: B4/B8
+    preregistration_discussion: https://github.com/crystal-tensor/Prometheus-plan/discussions/124
+    contract_sha256: 18da0e4fe50a98f2830782c04563102371a608e87a0e5859c9b5a65839693604
+    profiles: [ideal, light]
+    seed_block_count: 5
+    shot_budgets: [4096, 8192]
+    trials_per_block_profile_task: 16
+    ideal_candidate_pooled_wilson_lower: 0.9133556701442198
+    light_candidate_pooled_wilson_lower: 0.8783772379535698
+    ideal_candidate_leave_one_block_out_wilson_lower: 0.8930270822904169
+    light_candidate_leave_one_block_out_wilson_lower: 0.8500251490779133
+    ideal_acceptance_conditions_passed: 5
+    light_acceptance_conditions_passed: 5
+    global_acceptance: true
+    fail_to_pass_transition_count: 26
+    pass_to_fail_transition_count: 0
+    protocol_soundness_claimed: false
+    b10_t2_credit_allowed: false
+    b10_bqp_separation_credit_allowed: false
+    quantum_advantage_claimed: false
+    explicit_not_bqp_separation: true
+    hardware_execution_performed: false
+    calibrated_backend_evidence: false
+    new_credit_delta: 0
+    validation_error_count: 0
+    caveat: r124_synthetic_holdout_acceptance_keeps_b10_zero_credit
+    result: ../results/B4_B8_R124_preregistered_holdout_block_replay_v0.json
+    markdown_report: ../research/B4_B8_R124_preregistered_holdout_block_replay.md
   b10_t3_b9_checked_transcript_acceptance_packet_gate_v0:
     status: checked_transcript_acceptance_packet_open_missing_artifact
     method: b9_checked_transcript_acceptance_packet_gate_v0
