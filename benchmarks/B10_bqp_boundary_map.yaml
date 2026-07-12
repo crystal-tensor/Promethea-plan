@@ -1652,6 +1652,28 @@ current_results:
     result: ../results/B4_B8_R143_successive_halving_lcb_design_v0.json
     markdown_report: ../research/B4_B8_R143_successive_halving_lcb_design.md
     holdout_contract: B4_B8_R143_successive_halving_lcb_holdout_contract_v0.json
+  b10_t2_b4_b8_r143_successive_halving_lcb_holdout_v0:
+    status: successive_halving_lcb_holdout_acceptance_not_bqp_claim
+    method: b4_b8_r143_successive_halving_lcb_holdout_v0
+    source_b8_result: ../results/B4_B8_R143_successive_halving_lcb_holdout_v0.json
+    source_target_id: T-B4-002av/T-B8-003az/T-B10-009an
+    charged_design_execution_count: 816
+    execution_reduction_fraction: 0.5277777777777778
+    lagos_ising_mean_r143_minus_automatic: 0.008334167103553058
+    portfolio_mean_r143_minus_automatic: 0.008367069058185388
+    portfolio_mean_r143_minus_r142: -0.0002042029622800924
+    acceptance_conditions_passed: 10
+    acceptance_conditions_failed: 0
+    global_acceptance: true
+    phase_artifact_replay_match_count: 4
+    b10_t2_credit_allowed: false
+    b10_bqp_separation_credit_allowed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R143_successive_halving_lcb_holdout_v0.json
+    markdown_report: ../research/B4_B8_R143_successive_halving_lcb_holdout.md
   b10_t3_b9_checked_transcript_acceptance_packet_gate_v0:
     status: checked_transcript_acceptance_packet_open_missing_artifact
     method: b9_checked_transcript_acceptance_packet_gate_v0

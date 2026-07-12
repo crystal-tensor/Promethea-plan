@@ -8916,6 +8916,19 @@
       "selection_agreement_count": 10,
       "status": "successive_halving_lcb_design_frozen_before_holdout"
     },
+    "r143_successive_halving_lcb_holdout": {
+      "charged_design_execution_count": 816,
+      "exists": true,
+      "global_acceptance": true,
+      "lagos_ising_mean_r143_minus_automatic": 0.008334167103553058,
+      "method": "b4_b8_r143_successive_halving_lcb_holdout_v0",
+      "path": "results/B4_B8_R143_successive_halving_lcb_holdout_v0.json",
+      "report_exists": true,
+      "report_path": "research/B4_B8_R143_successive_halving_lcb_holdout.md",
+      "requirements_failed": 0,
+      "requirements_passed": 10,
+      "status": "successive_halving_lcb_preregistered_holdout_acceptance"
+    },
     "real_backend_packet_scout": {
       "backend_calibrated_aer_circuit_count": 5760,
       "backend_calibrated_noise_parameters_instantiated": true,
@@ -9922,6 +9935,7 @@
     "b4_b8_r142_seed_robust_lcb_mapping_holdout": "research/B4_B8_R142_seed_robust_lcb_mapping_holdout.md",
     "b4_b8_r142_seed_robust_lcb_mapping_holdout_contract": "benchmarks/B4_B8_R142_seed_robust_lcb_mapping_holdout_contract_v0.json",
     "b4_b8_r143_successive_halving_lcb_design": "research/B4_B8_R143_successive_halving_lcb_design.md",
+    "b4_b8_r143_successive_halving_lcb_holdout": "research/B4_B8_R143_successive_halving_lcb_holdout.md",
     "b4_b8_r143_successive_halving_lcb_holdout_contract": "benchmarks/B4_B8_R143_successive_halving_lcb_holdout_contract_v0.json",
     "b4_b8_real_backend_packet_scout": "research/B4_B8_real_backend_packet_scout.md",
     "b4_b8_real_backend_provider_manifest_gate": "research/B4_B8_real_backend_provider_manifest_gate.md",

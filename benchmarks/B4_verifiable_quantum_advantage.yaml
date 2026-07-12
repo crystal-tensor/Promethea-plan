@@ -2030,6 +2030,31 @@ current_results:
     result: ../results/B4_B8_R143_successive_halving_lcb_design_v0.json
     markdown_report: ../research/B4_B8_R143_successive_halving_lcb_design.md
     holdout_contract: B4_B8_R143_successive_halving_lcb_holdout_contract_v0.json
+  b4_b8_r143_successive_halving_lcb_holdout_v0:
+    status: successive_halving_lcb_preregistered_holdout_acceptance
+    method: b4_b8_r143_successive_halving_lcb_holdout_v0
+    source_target_id: T-B4-002av/T-B8-003az/T-B10-009an
+    upstream_target_id: T-B4-002au/T-B8-003ay/T-B10-009am
+    contract_sha256: f26cb5cd47223dc9ef46e6164e3581d99eb50730ddb6af15f43822c21c9c62f3
+    charged_design_execution_count: 816
+    execution_reduction_fraction: 0.5277777777777778
+    trial_row_count: 96
+    lagos_ising_mean_r143_minus_automatic: 0.008334167103553058
+    lagos_ising_r143_win_count_vs_automatic: 5
+    lagos_ising_mean_r143_minus_r142: 0.0
+    portfolio_mean_r143_minus_automatic: 0.008367069058185388
+    portfolio_r143_minus_automatic_bootstrap_95_lower: 0.005911626534927596
+    portfolio_mean_r143_minus_r142: -0.0002042029622800924
+    groups_with_mean_r143_minus_r142_at_least_negative_0_01: 12
+    acceptance_conditions_passed: 10
+    acceptance_conditions_failed: 0
+    global_acceptance: true
+    phase_artifact_replay_match_count: 4
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R143_successive_halving_lcb_holdout_v0.json
+    markdown_report: ../research/B4_B8_R143_successive_halving_lcb_holdout.md
   toy_hidden_trap_protocol_sim_v0:
     status: toy_statistical_protocol
     model_status: toy_statistical_protocol_not_quantum_advantage_claim

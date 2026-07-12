@@ -2570,6 +2570,17 @@ counterfactual charged-execution reduction, not yet fresh hidden acceptance,
 live wall-clock savings, cross-calibration transfer, hardware evidence,
 advantage, BQP evidence, or new credit.
 
+The R143 holdout at `T-B4-002av` / `T-B8-003az` / `T-B10-009an`
+then passes all preregistered A1-A10 gates. Lagos R143-minus-automatic is
+`+0.00833417` with `5/8` wins and R143-minus-R142 is exactly `0`. Portfolio
+R143-minus-automatic is `+0.00836707` with bootstrap lower `+0.00591163`;
+R143-minus-R142 is `-0.00020420` with bootstrap lower `-0.00050431`. All 12/12
+groups stay above `-0.01` versus R142, severe regressions are zero, requirements
+pass `10/10`, and phase replay passes `4/4`. The 52.7778% charged-execution
+reduction therefore preserves synthetic hidden-seed performance. Live
+wall-clock savings, cross-calibration transfer, hardware, advantage, BQP, and
+new credit remain unclaimed.
+
 `T-B4-002aj` / `T-B8-003an` / `T-B10-009ab` now adds the R135
 dense-interaction deterministic fallback boundary. For each new inverse-QFT,
 scrambled-QFT, complete-Ising, and dense-XY input, five temporal graph rules

@@ -37124,6 +37124,56 @@ def audit(root: Path) -> dict:
         if challenge.get("paired_trial_row_count") != 96 or challenge.get("simulated_circuit_execution_count") != 288 or challenge.get("total_simulated_shots") != 1179648:
             errors.append("R143 contract challenge design mismatch")
 
+    r143_holdout_result_path = results / "B4_B8_R143_successive_halving_lcb_holdout_v0.json"
+    r143_holdout_report_path = research / "B4_B8_R143_successive_halving_lcb_holdout.md"
+    r143_holdout_status = {"path": str(r143_holdout_result_path), "report_path": str(r143_holdout_report_path), "exists": r143_holdout_result_path.exists(), "report_exists": r143_holdout_report_path.exists()}
+    r143_holdout_manifest_rows = [
+        ("B4", b4_manifest.get("current_results", {}).get("b4_b8_r143_successive_halving_lcb_holdout_v0")),
+        ("B8", b8_manifest.get("current_results", {}).get("b4_b8_r143_successive_halving_lcb_holdout_v0")),
+        ("B10", b10_manifest.get("current_results", {}).get("b10_t2_b4_b8_r143_successive_halving_lcb_holdout_v0")),
+    ]
+    for label, row in r143_holdout_manifest_rows:
+        if not row:
+            errors.append(f"{label} manifest missing R143 holdout")
+            continue
+        for field in ["result", "markdown_report"]:
+            if not row.get(field) or not path_exists_from(benchmarks, row[field]):
+                errors.append(f"{label} R143 holdout missing {field}")
+    if not r143_holdout_result_path.exists() or not r143_holdout_report_path.exists():
+        errors.append("R143 holdout result or report missing")
+    else:
+        h = json.loads(read(r143_holdout_result_path)); s = h.get("summary", {})
+        r143_holdout_status.update({"status": h.get("status"), "method": h.get("method"), "requirements_passed": h.get("requirements_passed"), "requirements_failed": h.get("requirements_failed"), "global_acceptance": s.get("global_acceptance"), "charged_design_execution_count": s.get("charged_design_execution_count"), "lagos_ising_mean_r143_minus_automatic": s.get("lagos_ising_mean_r143_minus_automatic")})
+        expected = {
+            "artifact_count": 12, "trial_row_count": 96, "group_count": 12,
+            "charged_design_execution_count": 816, "r142_design_execution_count": 1728, "execution_reduction_fraction": 0.5277777777777778,
+            "lagos_ising_mean_r143_minus_automatic": 0.008334167103553058, "lagos_ising_r143_win_count_vs_automatic": 5, "lagos_ising_mean_r143_minus_r142": 0.0,
+            "portfolio_mean_r143_minus_automatic": 0.008367069058185388, "portfolio_r143_minus_automatic_bootstrap_95_lower": 0.005911626534927596,
+            "portfolio_mean_r143_minus_r142": -0.0002042029622800924, "portfolio_r143_minus_r142_bootstrap_95_lower": -0.0005043050053085904,
+            "groups_with_mean_r143_minus_r142_at_least_negative_0_01": 12, "severe_r143_minus_r142_regression_count_below_negative_0_05": 0,
+            "simulated_circuit_execution_count": 288, "total_simulated_shots": 1179648,
+            "acceptance_conditions_passed": 10, "acceptance_conditions_failed": 0, "failed_acceptance_condition_ids": [], "global_acceptance": True,
+            "phase_artifact_count": 4, "phase_artifact_preexisting_count": 4, "phase_artifact_replay_match_count": 4, "new_credit_delta": 0,
+        }
+        if h.get("status") != "successive_halving_lcb_preregistered_holdout_acceptance" or h.get("method") != "b4_b8_r143_successive_halving_lcb_holdout_v0":
+            errors.append("R143 holdout status or method mismatch")
+        if h.get("requirements_passed") != 10 or h.get("requirements_failed") != 0:
+            errors.append("R143 holdout requirements must pass 10/10")
+        for field, value in expected.items():
+            if s.get(field) != value:
+                errors.append(f"R143 holdout {field} mismatch")
+        if len(h.get("acceptance_conditions", [])) != 10 or any(not x.get("passed") for x in h.get("acceptance_conditions", [])):
+            errors.append("R143 holdout must pass A1-A10")
+        if len(h.get("three_arm_trial_rows", [])) != 96 or len(h.get("group_rows", [])) != 12:
+            errors.append("R143 holdout row counts mismatch")
+        hp = dict(h); ph = hp.pop("payload_hash", None)
+        if ph != hashlib.sha256(json.dumps(hp, sort_keys=True, separators=(",", ":")).encode()).hexdigest():
+            errors.append("R143 holdout payload hash mismatch")
+        for phase_key in ["challenge_commitment", "three_arm_trial_rows", "challenge_reveal", "verifier_transcript"]:
+            rel = h.get("artifacts", {}).get(phase_key)
+            if not rel or not (root / rel).exists():
+                errors.append(f"R143 phase missing: {phase_key}")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -37577,6 +37627,7 @@ def audit(root: Path) -> dict:
             "r142_seed_robust_lcb_mapping_design": r142_status,
             "r142_seed_robust_lcb_mapping_holdout": r142_holdout_status,
             "r143_successive_halving_lcb_design": r143_status,
+            "r143_successive_halving_lcb_holdout": r143_holdout_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -38974,6 +39025,9 @@ def audit(root: Path) -> dict:
             ),
             "b4_b8_r143_successive_halving_lcb_holdout_contract": str(
                 r143_contract_path
+            ),
+            "b4_b8_r143_successive_halving_lcb_holdout": str(
+                research / "B4_B8_R143_successive_halving_lcb_holdout.md"
             ),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),

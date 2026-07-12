@@ -1,0 +1,96 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition_id": "A1",
+      "label": "bindings exact and charged design executions at most 864",
+      "passed": true,
+      "threshold": [
+        true,
+        "<= 864"
+      ],
+      "value": [
+        true,
+        816
+      ]
+    },
+    {
+      "condition_id": "A2",
+      "label": "all groups contain eight complete three-arm rows",
+      "passed": true,
+      "threshold": [
+        96,
+        12
+      ],
+      "value": [
+        96,
+        12
+      ]
+    },
+    {
+      "condition_id": "A3",
+      "label": "Lagos R143-auto mean nonnegative",
+      "passed": true,
+      "threshold": ">= 0",
+      "value": 0.008334167103553058
+    },
+    {
+      "condition_id": "A4",
+      "label": "Lagos R143 wins at least half",
+      "passed": true,
+      "threshold": ">= 4",
+      "value": 5
+    },
+    {
+      "condition_id": "A5",
+      "label": "Lagos R143-R142 noninferiority",
+      "passed": true,
+      "threshold": ">= -0.002",
+      "value": 0.0
+    },
+    {
+      "condition_id": "A6",
+      "label": "portfolio R143-auto bootstrap lower",
+      "passed": true,
+      "threshold": ">= -0.005",
+      "value": 0.005911626534927596
+    },
+    {
+      "condition_id": "A7",
+      "label": "portfolio R143-R142 mean",
+      "passed": true,
+      "threshold": ">= -0.002",
+      "value": -0.0002042029622800924
+    },
+    {
+      "condition_id": "A8",
+      "label": "groups avoid broad R142 regression",
+      "passed": true,
+      "threshold": ">= 11",
+      "value": 12
+    },
+    {
+      "condition_id": "A9",
+      "label": "execution and shot budget",
+      "passed": true,
+      "threshold": [
+        288,
+        1179648
+      ],
+      "value": [
+        288,
+        1179648
+      ]
+    },
+    {
+      "condition_id": "A10",
+      "label": "live savings, calibration, hardware, soundness, advantage, BQP, and credit false",
+      "passed": true,
+      "threshold": 0,
+      "value": 0
+    }
+  ],
+  "challenge_secret_commitment_sha256": "9ca8ef57593672a57bd9f2af603a01fe52ad98d0cfa98872bb2dcadea4f63c22",
+  "contract_sha256": "f26cb5cd47223dc9ef46e6164e3581d99eb50730ddb6af15f43822c21c9c62f3",
+  "global_acceptance": true,
+  "trial_rows_sha256": "9369c1fa801e23c434a8fa46ab8c8b86fd756b21f3f2810308f71bb5a63d8698"
+}
