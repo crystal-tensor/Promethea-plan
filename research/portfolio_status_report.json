@@ -8780,6 +8780,23 @@
       "shots_per_circuit": 4096,
       "target_id": "T-B4-002am/T-B8-003aq/T-B10-009ae"
     },
+    "r139_lagos_ising_channel_attribution": {
+      "attribution": "output_aware_readout_assignment_dominates_synthetic_regression",
+      "exact_sampled_readout_delta_correlation": 0.9849334259238103,
+      "exact_sampled_readout_sign_agreement_count": 8,
+      "exists": true,
+      "full_mean_delta": -0.013999892476764766,
+      "gate_only_mean_delta": -0.00033016430769314264,
+      "method": "b4_b8_r139_lagos_ising_channel_attribution_v0",
+      "path": "results/B4_B8_R139_lagos_ising_channel_attribution_v0.json",
+      "phase_artifact_replay_match_count": 2,
+      "readout_only_mean_delta": -0.023657188120066897,
+      "report_exists": true,
+      "report_path": "research/B4_B8_R139_lagos_ising_channel_attribution.md",
+      "requirements_failed": 0,
+      "requirements_passed": 10,
+      "status": "lagos_ising_output_aware_readout_assignment_boundary"
+    },
     "real_backend_packet_scout": {
       "backend_calibrated_aer_circuit_count": 5760,
       "backend_calibrated_noise_parameters_instantiated": true,
@@ -9775,6 +9792,7 @@
     "b4_b8_r137_artifact_bound_private_challenge": "research/B4_B8_R137_artifact_bound_private_challenge.md",
     "b4_b8_r138_postcommit_statistical_challenge": "research/B4_B8_R138_postcommit_statistical_challenge.md",
     "b4_b8_r138_postcommit_statistical_challenge_contract": "benchmarks/B4_B8_R138_postcommit_statistical_challenge_contract_v0.json",
+    "b4_b8_r139_lagos_ising_channel_attribution": "research/B4_B8_R139_lagos_ising_channel_attribution.md",
     "b4_b8_real_backend_packet_scout": "research/B4_B8_real_backend_packet_scout.md",
     "b4_b8_real_backend_provider_manifest_gate": "research/B4_B8_real_backend_provider_manifest_gate.md",
     "b4_b8_real_backend_transcript_contract_gate": "research/B4_B8_real_backend_transcript_contract_gate.md",

@@ -1,0 +1,59 @@
+{
+  "artifact_id": "FakeLagosV2::dense_validation_complete_ising_n6",
+  "attribution": "output_aware_readout_assignment_dominates_synthetic_regression",
+  "attribution_passed": true,
+  "channel_summaries": {
+    "full": {
+      "bootstrap_95_lower": -0.02310644805385742,
+      "bootstrap_95_upper": -0.0041506016767907895,
+      "maximum_paired_delta": 0.008813117965210782,
+      "mean_automatic_hellinger_fidelity": 0.8252037596110979,
+      "mean_paired_delta": -0.013999892476764766,
+      "mean_selected_hellinger_fidelity": 0.8112038671343331,
+      "minimum_paired_delta": -0.03383755387499221,
+      "selected_loss_count": 6,
+      "selected_win_count": 2,
+      "trial_count": 8
+    },
+    "gate_only": {
+      "bootstrap_95_lower": -0.0031263513028963463,
+      "bootstrap_95_upper": 0.002853804408241456,
+      "maximum_paired_delta": 0.006618911155701124,
+      "mean_automatic_hellinger_fidelity": 0.9274924696356756,
+      "mean_paired_delta": -0.00033016430769314264,
+      "mean_selected_hellinger_fidelity": 0.9271623053279824,
+      "minimum_paired_delta": -0.004808705971620086,
+      "selected_loss_count": 5,
+      "selected_win_count": 3,
+      "trial_count": 8
+    },
+    "noiseless": {
+      "bootstrap_95_lower": -0.000398082856209123,
+      "bootstrap_95_upper": 0.0005674533519386143,
+      "maximum_paired_delta": 0.001011367373403127,
+      "mean_automatic_hellinger_fidelity": 0.9962470732128147,
+      "mean_paired_delta": 8.690101920581783e-05,
+      "mean_selected_hellinger_fidelity": 0.9963339742320205,
+      "minimum_paired_delta": -0.0009070840432203742,
+      "selected_loss_count": 3,
+      "selected_win_count": 5,
+      "trial_count": 8
+    },
+    "readout_only": {
+      "bootstrap_95_lower": -0.037753433447707284,
+      "bootstrap_95_upper": -0.00745905418716207,
+      "maximum_paired_delta": 0.014960602094208797,
+      "mean_automatic_hellinger_fidelity": 0.8724771975865938,
+      "mean_paired_delta": -0.023657188120066897,
+      "mean_selected_hellinger_fidelity": 0.8488200094665269,
+      "minimum_paired_delta": -0.046564096404724475,
+      "selected_loss_count": 6,
+      "selected_win_count": 2,
+      "trial_count": 8
+    }
+  },
+  "exact_output_aware_readout_mean_delta": -0.022860615513126778,
+  "exact_sampled_readout_delta_correlation": 0.9849334259238103,
+  "exact_sampled_readout_sign_agreement_count": 8,
+  "source_result_sha256": "165629eb489bf7dacd9b465d293969414a196d256dd44325751b5ac326dd21e7"
+}

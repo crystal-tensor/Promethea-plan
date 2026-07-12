@@ -35955,6 +35955,221 @@ def audit(root: Path) -> dict:
         ):
             errors.append("R138 claim boundary must exclude hardware and advantage")
 
+    r139_result_path = results / "B4_B8_R139_lagos_ising_channel_attribution_v0.json"
+    r139_report_path = research / "B4_B8_R139_lagos_ising_channel_attribution.md"
+    r139_status = {
+        "path": str(r139_result_path),
+        "report_path": str(r139_report_path),
+        "exists": r139_result_path.exists(),
+        "report_exists": r139_report_path.exists(),
+    }
+    r139_manifest_rows = [
+        (
+            "B4",
+            b4_manifest.get("current_results", {}).get(
+                "b4_b8_r139_lagos_ising_channel_attribution_v0"
+            ),
+        ),
+        (
+            "B8",
+            b8_manifest.get("current_results", {}).get(
+                "b4_b8_r139_lagos_ising_channel_attribution_v0"
+            ),
+        ),
+        (
+            "B10",
+            b10_manifest.get("current_results", {}).get(
+                "b10_t2_b4_b8_r139_lagos_ising_channel_attribution_v0"
+            ),
+        ),
+    ]
+    for label, manifest_row in r139_manifest_rows:
+        if not manifest_row:
+            errors.append(f"{label} manifest missing R139 Lagos attribution")
+            continue
+        for field in ["result", "markdown_report"]:
+            value = manifest_row.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(f"{label} R139 manifest missing existing {field}: {value}")
+    if not r139_result_path.exists():
+        errors.append(f"missing R139 Lagos attribution result: {r139_result_path}")
+    elif not r139_report_path.exists():
+        errors.append(f"missing R139 Lagos attribution report: {r139_report_path}")
+    else:
+        r139_payload = json.loads(read(r139_result_path))
+        r139_summary = r139_payload.get("summary", {})
+        r139_claims = r139_payload.get("claim_boundary", {})
+        r139_status.update(
+            {
+                "status": r139_payload.get("status"),
+                "method": r139_payload.get("method"),
+                "requirements_passed": r139_payload.get("requirements_passed"),
+                "requirements_failed": r139_payload.get("requirements_failed"),
+                "full_mean_delta": r139_summary.get("full_mean_delta"),
+                "gate_only_mean_delta": r139_summary.get("gate_only_mean_delta"),
+                "readout_only_mean_delta": r139_summary.get(
+                    "readout_only_mean_delta"
+                ),
+                "exact_sampled_readout_sign_agreement_count": r139_summary.get(
+                    "exact_sampled_readout_sign_agreement_count"
+                ),
+                "exact_sampled_readout_delta_correlation": r139_summary.get(
+                    "exact_sampled_readout_delta_correlation"
+                ),
+                "attribution": r139_summary.get("attribution"),
+                "phase_artifact_replay_match_count": r139_summary.get(
+                    "phase_artifact_replay_match_count"
+                ),
+            }
+        )
+        expected_r139_summary = {
+            "artifact_id": "FakeLagosV2::dense_validation_complete_ising_n6",
+            "source_trial_count": 8,
+            "channel_count": 4,
+            "paired_channel_row_count": 32,
+            "simulated_circuit_execution_count": 64,
+            "shots_per_execution": 4096,
+            "total_simulated_shots": 262144,
+            "r138_full_mean_delta": -0.013999892476764766,
+            "full_mean_delta": -0.013999892476764766,
+            "gate_only_mean_delta": -0.00033016430769314264,
+            "readout_only_mean_delta": -0.023657188120066897,
+            "noiseless_mean_delta": 0.00008690101920581783,
+            "r138_full_channel_replay_match_count": 8,
+            "minimum_exact_semantic_fidelity": 0.9999999999999984,
+            "exact_output_aware_readout_mean_delta": -0.022860615513126778,
+            "exact_sampled_readout_sign_agreement_count": 8,
+            "exact_sampled_readout_delta_correlation": 0.9849334259238103,
+            "full_sampled_readout_delta_correlation": 0.9120499036930562,
+            "proxy_selected_but_exact_readout_loses_count": 6,
+            "attribution": "output_aware_readout_assignment_dominates_synthetic_regression",
+            "attribution_passed": True,
+            "phase_artifact_count": 2,
+            "phase_artifact_preexisting_count": 2,
+            "phase_artifact_replay_match_count": 2,
+            "new_seed_selected": False,
+            "new_circuit_selected": False,
+            "current_backend_calibration_used": False,
+            "hardware_execution_performed": False,
+            "readout_mitigation_tested": False,
+            "causal_hardware_attribution_claimed": False,
+            "mapping_repair_claimed": False,
+            "protocol_soundness_claimed": False,
+            "quantum_advantage_claimed": False,
+            "bqp_separation_claimed": False,
+            "new_credit_delta": 0,
+        }
+        if r139_payload.get("status") != "lagos_ising_output_aware_readout_assignment_boundary":
+            errors.append("R139 Lagos attribution status mismatch")
+        if r139_payload.get("method") != "b4_b8_r139_lagos_ising_channel_attribution_v0":
+            errors.append("R139 Lagos attribution method mismatch")
+        if r139_payload.get("source_target_id") != "T-B4-002an/T-B8-003ar/T-B10-009af":
+            errors.append("R139 Lagos attribution target mismatch")
+        if r139_payload.get("upstream_target_id") != "T-B4-002am/T-B8-003aq/T-B10-009ae":
+            errors.append("R139 Lagos attribution upstream mismatch")
+        if r139_payload.get("requirements_passed") != 10 or r139_payload.get(
+            "requirements_failed"
+        ) != 0:
+            errors.append("R139 Lagos attribution requirements must pass 10/10")
+        for field, expected in expected_r139_summary.items():
+            if r139_summary.get(field) != expected:
+                errors.append(f"R139 Lagos attribution {field} mismatch")
+        channel_summaries = r139_payload.get("channel_summaries", {})
+        if set(channel_summaries) != {"full", "gate_only", "readout_only", "noiseless"}:
+            errors.append("R139 Lagos attribution channel set mismatch")
+        elif not all(row.get("trial_count") == 8 for row in channel_summaries.values()):
+            errors.append("R139 Lagos attribution channel trial count mismatch")
+        channel_rows = r139_payload.get("channel_rows", [])
+        structure_rows = r139_payload.get("structure_rows", [])
+        if len(channel_rows) != 32 or len(structure_rows) != 8:
+            errors.append("R139 must contain 32 channel and eight structure rows")
+        if len(
+            {(row.get("trial"), row.get("channel")) for row in channel_rows}
+        ) != 32:
+            errors.append("R139 channel trial keys must be unique")
+        if not all(
+            row.get("selected_exact_semantic_fidelity", 0) >= 1.0 - 1e-12
+            and row.get("automatic_exact_semantic_fidelity", 0) >= 1.0 - 1e-12
+            for row in structure_rows
+        ):
+            errors.append("R139 exact semantic fidelity boundary failed")
+        readout_rows = sorted(
+            [row for row in channel_rows if row.get("channel") == "readout_only"],
+            key=lambda row: row.get("trial"),
+        )
+        sorted_structure_rows = sorted(structure_rows, key=lambda row: row.get("trial"))
+        sign_agreement = sum(
+            (sampled.get("paired_delta", 0) > 0)
+            == (exact.get("exact_output_aware_readout_delta", 0) > 0)
+            for sampled, exact in zip(readout_rows, sorted_structure_rows)
+        )
+        if sign_agreement != 8:
+            errors.append("R139 exact/sample readout sign agreement mismatch")
+        if sum(
+            row.get("combined_proxy_gain_selected_over_automatic", 0) > 0
+            and row.get("exact_output_aware_readout_delta", 0) < 0
+            for row in structure_rows
+        ) != 6:
+            errors.append("R139 proxy/readout disagreement count mismatch")
+        if r138_result_path.exists():
+            current_r138 = json.loads(read(r138_result_path))
+            source_rows = sorted(
+                [
+                    row
+                    for row in current_r138.get("paired_trial_rows", [])
+                    if row.get("artifact_id")
+                    == "FakeLagosV2::dense_validation_complete_ising_n6"
+                ],
+                key=lambda row: row.get("trial"),
+            )
+            full_rows = sorted(
+                [row for row in channel_rows if row.get("channel") == "full"],
+                key=lambda row: row.get("trial"),
+            )
+            if len(source_rows) != 8 or any(
+                full.get("paired_delta") != source.get(
+                    "paired_hellinger_fidelity_delta"
+                )
+                for full, source in zip(full_rows, source_rows)
+            ):
+                errors.append("R139 full channel does not replay R138")
+        for label, manifest_row in r139_manifest_rows:
+            if not manifest_row:
+                continue
+            for field, expected in expected_r139_summary.items():
+                if field in manifest_row and manifest_row.get(field) != expected:
+                    errors.append(f"{label} R139 manifest {field} mismatch")
+        payload_hash = r139_payload.get("payload_hash")
+        hash_payload = dict(r139_payload)
+        hash_payload.pop("payload_hash", None)
+        expected_payload_hash = hashlib.sha256(
+            json.dumps(hash_payload, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest()
+        if payload_hash != expected_payload_hash:
+            errors.append("R139 Lagos attribution payload hash mismatch")
+        phase_artifacts = r139_payload.get("artifacts", {})
+        channel_phase_path = root / phase_artifacts.get("channel_rows", "")
+        transcript_phase_path = root / phase_artifacts.get("attribution_transcript", "")
+        if not channel_phase_path.exists() or not transcript_phase_path.exists():
+            errors.append("R139 phase artifacts missing")
+        else:
+            channel_phase = json.loads(read(channel_phase_path))
+            transcript_phase = json.loads(read(transcript_phase_path))
+            if channel_phase.get("channel_rows") != channel_rows or channel_phase.get(
+                "structure_rows"
+            ) != structure_rows:
+                errors.append("R139 channel phase artifact drifted")
+            if transcript_phase.get("attribution") != r139_summary.get(
+                "attribution"
+            ) or transcript_phase.get("attribution_passed") is not True:
+                errors.append("R139 attribution transcript drifted")
+        if "Causal hardware attribution" not in r139_claims.get(
+            "what_is_not_supported", ""
+        ) or "repaired mapping" not in r139_claims.get(
+            "what_is_not_supported", ""
+        ):
+            errors.append("R139 claim boundary must exclude hardware causality and repair")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -36400,6 +36615,7 @@ def audit(root: Path) -> dict:
             "r137_artifact_bound_private_challenge": r137_status,
             "r138_postcommit_statistical_challenge_contract": r138_contract_status,
             "r138_postcommit_statistical_challenge": r138_status,
+            "r139_lagos_ising_channel_attribution": r139_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -37761,6 +37977,9 @@ def audit(root: Path) -> dict:
             ),
             "b4_b8_r138_postcommit_statistical_challenge": str(
                 research / "B4_B8_R138_postcommit_statistical_challenge.md"
+            ),
+            "b4_b8_r139_lagos_ising_channel_attribution": str(
+                research / "B4_B8_R139_lagos_ising_channel_attribution.md"
             ),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),

@@ -1791,6 +1791,52 @@ current_results:
     caveat: r138_accepts_preregistered_synthetic_noninferiority_but_has_32_row_losses_and_no_hardware_or_soundness
     result: ../results/B4_B8_R138_postcommit_statistical_challenge_v0.json
     markdown_report: ../research/B4_B8_R138_postcommit_statistical_challenge.md
+  b4_b8_r139_lagos_ising_channel_attribution_v0:
+    status: lagos_ising_output_aware_readout_assignment_boundary
+    model_status: synthetic_channel_ablation_attributes_negative_group_to_readout_assignment
+    method: b4_b8_r139_lagos_ising_channel_attribution_v0
+    source_target_id: T-B4-002an/T-B8-003ar/T-B10-009af
+    upstream_target_id: T-B4-002am/T-B8-003aq/T-B10-009ae
+    artifact_id: FakeLagosV2::dense_validation_complete_ising_n6
+    source_trial_count: 8
+    channel_count: 4
+    paired_channel_row_count: 32
+    simulated_circuit_execution_count: 64
+    shots_per_execution: 4096
+    total_simulated_shots: 262144
+    r138_full_mean_delta: -0.013999892476764766
+    full_mean_delta: -0.013999892476764766
+    gate_only_mean_delta: -0.00033016430769314264
+    readout_only_mean_delta: -0.023657188120066897
+    noiseless_mean_delta: 0.00008690101920581783
+    r138_full_channel_replay_match_count: 8
+    minimum_exact_semantic_fidelity: 0.9999999999999984
+    exact_output_aware_readout_mean_delta: -0.022860615513126778
+    exact_sampled_readout_sign_agreement_count: 8
+    exact_sampled_readout_delta_correlation: 0.9849334259238103
+    full_sampled_readout_delta_correlation: 0.9120499036930562
+    proxy_selected_but_exact_readout_loses_count: 6
+    attribution: output_aware_readout_assignment_dominates_synthetic_regression
+    attribution_passed: true
+    phase_artifact_preexisting_count: 2
+    phase_artifact_replay_match_count: 2
+    new_seed_selected: false
+    new_circuit_selected: false
+    current_backend_calibration_used: false
+    hardware_execution_performed: false
+    readout_mitigation_tested: false
+    causal_hardware_attribution_claimed: false
+    mapping_repair_claimed: false
+    protocol_soundness_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r139_attributes_synthetic_failure_to_output_aware_readout_assignment_but_does_not_repair_mapping_or_claim_hardware_causality
+    result: ../results/B4_B8_R139_lagos_ising_channel_attribution_v0.json
+    markdown_report: ../research/B4_B8_R139_lagos_ising_channel_attribution.md
 prototype_artifacts:
   output_invariant_verifier: ../tools/b8_output_invariant_verifier.py
   adaptive_leakage_spoofer: ../tools/b8_adaptive_spoofer_leakage.py

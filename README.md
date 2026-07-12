@@ -2455,6 +2455,22 @@ artifacts replay `4/4`; requirements pass `10/10`. No current calibration,
 hardware, mitigation, independent custody, soundness, quantum advantage, BQP,
 or new credit is claimed.
 
+`T-B4-002an` / `T-B8-003ar` / `T-B10-009af` now adds the R139
+Lagos complete-Ising channel attribution boundary. It reuses the eight revealed
+R138 circuit/seed pairs and executes 32 paired channel rows under full,
+gate-only, readout-only, and noiseless models. The full-noise mean delta exactly
+replays `-0.01399989`; gate-only shrinks to `-0.00033016`, readout-only expands
+to `-0.02365719`, and noiseless sampling is `+0.00008690`. All compiled circuits
+retain exact semantic fidelity of at least `0.9999999999999984`. An analytic
+output-aware readout channel using each logical bit's actual physical
+measurement assignment produces mean delta `-0.02286062`, agrees with sampled
+readout ranking signs `8/8`, and reaches correlation `0.98493343`. The old
+combined-error proxy prefers the selected route while exact output-aware
+readout prefers automatic routing in `6/8` rows. This supports a synthetic
+output-aware readout-assignment attribution, not hardware causality or a
+mapping repair. Phase replay passes `2/2`; requirements pass `10/10`; hardware,
+mitigation, soundness, advantage, BQP, and new credit remain excluded.
+
 `T-B4-002aj` / `T-B8-003an` / `T-B10-009ab` now adds the R135
 dense-interaction deterministic fallback boundary. For each new inverse-QFT,
 scrambled-QFT, complete-Ising, and dense-XY input, five temporal graph rules
