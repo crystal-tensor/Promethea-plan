@@ -2431,6 +2431,18 @@ performance acceptance, hardware execution, protocol or cryptographic
 soundness, quantum advantage, BQP separation, or new B10 credit. Requirements
 pass `10/10`.
 
+`T-B4-002am` / `T-B8-003aq` / `T-B10-009ae` preregisters the R138
+post-commit statistical challenge before any challenge secret or trial row
+exists. The fixed contract binds the public R137 commit and commitment hash,
+all 12 selected-QASM hashes, 96 paired trials, 4,096 shots per circuit, matching
+historical FakeBackend noise, squared Hellinger fidelity to the exact logical
+distribution, and eight immutable acceptance conditions. The primary paired
+mean noninferiority floor is `-0.005`; the bootstrap 95% lower floor is
+`-0.0125`; at least 10/12 groups must remain above `-0.025`; and at most two
+rows may fall below `-0.05`. Execution is intentionally unopened at this
+commit. Thresholds may not change after publication, and a rejection must be
+reported rather than repaired after seeing the holdout.
+
 `T-B4-002aj` / `T-B8-003an` / `T-B10-009ab` now adds the R135
 dense-interaction deterministic fallback boundary. For each new inverse-QFT,
 scrambled-QFT, complete-Ising, and dense-XY input, five temporal graph rules

@@ -1,0 +1,140 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition_id": "A1",
+      "label": "all committed artifacts and the R137 source remain hash-bound",
+      "predicate": "artifact_hash_match_count == 12 and source_binding_valid == true"
+    },
+    {
+      "condition_id": "A2",
+      "label": "the hidden challenge expands to every preregistered group and trial",
+      "predicate": "paired_trial_row_count == 96 and group_count == 12"
+    },
+    {
+      "condition_id": "A3",
+      "label": "selected mean Hellinger fidelity is noninferior on the paired holdout",
+      "predicate": "mean_paired_hellinger_fidelity_delta >= -0.005"
+    },
+    {
+      "condition_id": "A4",
+      "label": "paired bootstrap uncertainty remains inside the preregistered margin",
+      "predicate": "paired_bootstrap_95_lower >= -0.0125"
+    },
+    {
+      "condition_id": "A5",
+      "label": "noninferiority is not concentrated in only a few backend-task groups",
+      "predicate": "groups_with_mean_delta_at_least_negative_0_025 >= 10"
+    },
+    {
+      "condition_id": "A6",
+      "label": "large row-level regressions remain rare",
+      "predicate": "severe_regression_count_delta_below_negative_0_05 <= 2"
+    },
+    {
+      "condition_id": "A7",
+      "label": "the complete R136 selection cost remains charged",
+      "predicate": "route_realization_compilation_count == 1536 and total_compilation_count == 1656"
+    },
+    {
+      "condition_id": "A8",
+      "label": "forbidden scientific claims remain false regardless of the verdict",
+      "predicate": "hardware_execution_performed == false and protocol_soundness_claimed == false and quantum_advantage_claimed == false and bqp_separation_claimed == false and new_credit_delta == 0"
+    }
+  ],
+  "artifact_bindings": [
+    {
+      "artifact_id": "FakeJakartaV2::dense_validation_complete_ising_n6",
+      "sha256": "a4373e35c98d3fb1a407ab42f7352b50ca5ccd75f98dc07939fa9b6659cb60c0"
+    },
+    {
+      "artifact_id": "FakeJakartaV2::dense_validation_inverse_qft_n6",
+      "sha256": "d9c6102eb2404ec9d96bdd4db9ae65da39c2a61430dadc8ee80b102fbcb3b6f2"
+    },
+    {
+      "artifact_id": "FakeJakartaV2::dense_validation_scrambled_qft_n6",
+      "sha256": "163692bd7a4c7f0986a17bfdecc4e598977f5e61769f26a727978a35dfe9faa5"
+    },
+    {
+      "artifact_id": "FakeJakartaV2::dense_validation_xy_network_n6",
+      "sha256": "6e2cfb6af8dd6a14987bd080cd44822e161532d622081d2fef7291ef42bd4e77"
+    },
+    {
+      "artifact_id": "FakeLagosV2::dense_validation_complete_ising_n6",
+      "sha256": "c0f7adc9febd2254fa27eeae04b52d138afc882ebd07445295bb057321a56e9f"
+    },
+    {
+      "artifact_id": "FakeLagosV2::dense_validation_inverse_qft_n6",
+      "sha256": "a43ec21e220de8f9016933bc863bcd5a6889676a9491fc3814cb9b44a42528c7"
+    },
+    {
+      "artifact_id": "FakeLagosV2::dense_validation_scrambled_qft_n6",
+      "sha256": "e4e494b49f0c86c15a6575595ba6ed7947b75f8a77a277b4ff23e92680836049"
+    },
+    {
+      "artifact_id": "FakeLagosV2::dense_validation_xy_network_n6",
+      "sha256": "47632ad4350ef856d5aff2aabc53ea4779f4cd417fe89621e2f46cb547f599eb"
+    },
+    {
+      "artifact_id": "FakeOslo::dense_validation_complete_ising_n6",
+      "sha256": "daaa1749d787f8b73a0f89dabbcefe729e8eba056a6700505e76b9b9ff94bc0d"
+    },
+    {
+      "artifact_id": "FakeOslo::dense_validation_inverse_qft_n6",
+      "sha256": "6ffd952f6d3fa992570877ad86082c985e37a6d177d8defe5ee9ab9034c5ffac"
+    },
+    {
+      "artifact_id": "FakeOslo::dense_validation_scrambled_qft_n6",
+      "sha256": "0e382ae6a42ed34cfb6950055e36ec6a35d0f056f1a6d6a95614bb71f54aeed5"
+    },
+    {
+      "artifact_id": "FakeOslo::dense_validation_xy_network_n6",
+      "sha256": "e5917bdc573dd7c4ec62e574c610e5e1ebeb84351593a7195fbe1cc26ff1e62b"
+    }
+  ],
+  "challenge_design": {
+    "automatic_baseline": {
+      "backend": "matching historical fake backend",
+      "optimization_level": 3,
+      "seed_source": "post-publication HMAC challenge"
+    },
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed_source": "post-publication HMAC challenge",
+    "comparison": "frozen R136 selected QASM versus fresh automatic compilation",
+    "exact_target": "logical pre-measurement statevector Z-basis distribution",
+    "group_count": 12,
+    "metric": "squared Hellinger fidelity to exact target distribution",
+    "noise_model": "AerSimulator.from_backend on the matching historical fake backend",
+    "paired_trial_row_count": 96,
+    "same_simulator_seed_within_pair": true,
+    "shots_per_circuit": 4096,
+    "simulated_circuit_execution_count": 192,
+    "total_simulated_shots": 786432,
+    "trial_count_per_group": 8
+  },
+  "claim_boundary": {
+    "what_is_not_supported": "Current calibration, real hardware, mitigation, external verifier custody, protocol or cryptographic soundness, sampling hardness, quantum advantage, BQP separation, or new B10 credit.",
+    "what_will_be_supported_if_accepted": "One publicly preregistered post-commit synthetic-noise statistical noninferiority result for the fixed 12-artifact R136 bundle under the stated historical fake-backend design."
+  },
+  "contract_id": "B4-B8-R138-postcommit-statistical-challenge-v0",
+  "contract_status": "public_preregistration_execution_unopened",
+  "execution_rules": {
+    "challenge_secret_bytes": 32,
+    "challenge_secret_generation": "os.urandom after public contract publication",
+    "challenge_secret_reveal": "only after all 96 paired trial rows are written",
+    "failed_contract_may_not_be_rewritten": true,
+    "no_threshold_revision_after_publication": true,
+    "result_must_report_accept_or_reject": true,
+    "seed_derivation": "HMAC-SHA256(secret, contract_sha256|artifact_id|trial|role)",
+    "selected_artifacts_may_not_be_recompiled": true
+  },
+  "source_bindings": {
+    "r136_result_sha256": "11e4e3dd6f2e94bbe7c0e90300d11b3b7d1bf573596759b50fafc62fbd538aab",
+    "r137_commitment_hash": "6a3bb72d0f0bacbdaacb82058ae3b66c5e5df7f5f8ad52ef4e114a8164ab61a4",
+    "r137_payload_hash": "b8f796bd6709d934a1e767fe3106a20b09618caa88f85a5abf8d8dcda70a2ef1",
+    "r137_remote_commit": "ca12b5f98dbfd6391fbcfe42f0fa19071e465ee5",
+    "r137_result": "../results/B4_B8_R137_artifact_bound_private_challenge_v0.json",
+    "source_target_id": "T-B4-002al/T-B8-003ap/T-B10-009ad"
+  },
+  "target_id": "T-B4-002am/T-B8-003aq/T-B10-009ae",
+  "version": "0.1"
+}

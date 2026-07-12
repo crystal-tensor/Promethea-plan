@@ -35580,6 +35580,89 @@ def audit(root: Path) -> dict:
         ):
             errors.append("R137 claim boundary must exclude external and cryptographic claims")
 
+    r138_contract_path = benchmarks / "B4_B8_R138_postcommit_statistical_challenge_contract_v0.json"
+    r138_contract_status = {
+        "path": str(r138_contract_path),
+        "exists": r138_contract_path.exists(),
+        "expected_sha256": "caee4c8fe9d8fb7b12482e714b3aa29a23f8531bfa4a9682e56e84438a288ab0",
+    }
+    if not r138_contract_path.exists():
+        errors.append(f"missing R138 statistical challenge contract: {r138_contract_path}")
+    else:
+        r138_contract_sha256 = hashlib.sha256(r138_contract_path.read_bytes()).hexdigest()
+        r138_contract = json.loads(read(r138_contract_path))
+        r138_design = r138_contract.get("challenge_design", {})
+        r138_sources = r138_contract.get("source_bindings", {})
+        r138_conditions = r138_contract.get("acceptance_conditions", [])
+        r138_artifacts = r138_contract.get("artifact_bindings", [])
+        r138_contract_status.update(
+            {
+                "sha256": r138_contract_sha256,
+                "contract_id": r138_contract.get("contract_id"),
+                "contract_status": r138_contract.get("contract_status"),
+                "target_id": r138_contract.get("target_id"),
+                "artifact_count": len(r138_artifacts),
+                "acceptance_condition_count": len(r138_conditions),
+                "paired_trial_row_count": r138_design.get("paired_trial_row_count"),
+                "shots_per_circuit": r138_design.get("shots_per_circuit"),
+                "execution_unopened": "challenge_secret" not in r138_contract
+                and "trial_rows" not in r138_contract,
+            }
+        )
+        if r138_contract_sha256 != r138_contract_status["expected_sha256"]:
+            errors.append("R138 statistical challenge contract hash mismatch")
+        if r138_contract.get("contract_id") != "B4-B8-R138-postcommit-statistical-challenge-v0":
+            errors.append("R138 statistical challenge contract ID mismatch")
+        if r138_contract.get("contract_status") != "public_preregistration_execution_unopened":
+            errors.append("R138 statistical challenge must remain unopened at preregistration")
+        if r138_contract.get("target_id") != "T-B4-002am/T-B8-003aq/T-B10-009ae":
+            errors.append("R138 statistical challenge target mismatch")
+        expected_r138_design = {
+            "bootstrap_resamples": 10000,
+            "group_count": 12,
+            "paired_trial_row_count": 96,
+            "same_simulator_seed_within_pair": True,
+            "shots_per_circuit": 4096,
+            "simulated_circuit_execution_count": 192,
+            "total_simulated_shots": 786432,
+            "trial_count_per_group": 8,
+        }
+        for field, expected in expected_r138_design.items():
+            if r138_design.get(field) != expected:
+                errors.append(f"R138 statistical challenge design {field} mismatch")
+        if len(r138_conditions) != 8 or [
+            row.get("condition_id") for row in r138_conditions
+        ] != [f"A{index}" for index in range(1, 9)]:
+            errors.append("R138 statistical challenge must fix conditions A1-A8")
+        if len(r138_artifacts) != 12 or len(
+            {row.get("artifact_id") for row in r138_artifacts}
+        ) != 12:
+            errors.append("R138 statistical challenge must bind 12 unique artifacts")
+        if "challenge_secret" in r138_contract or "trial_rows" in r138_contract:
+            errors.append("R138 preregistration must not contain secret or trial rows")
+        if r138_sources.get("r137_remote_commit") != "ca12b5f98dbfd6391fbcfe42f0fa19071e465ee5":
+            errors.append("R138 contract R137 remote commit mismatch")
+        if r138_sources.get("r137_commitment_hash") != "6a3bb72d0f0bacbdaacb82058ae3b66c5e5df7f5f8ad52ef4e114a8164ab61a4":
+            errors.append("R138 contract R137 commitment hash mismatch")
+        if r138_sources.get("r137_payload_hash") != "b8f796bd6709d934a1e767fe3106a20b09618caa88f85a5abf8d8dcda70a2ef1":
+            errors.append("R138 contract R137 payload hash mismatch")
+        if r137_result_path.exists():
+            current_r137 = json.loads(read(r137_result_path))
+            if current_r137.get("payload_hash") != r138_sources.get("r137_payload_hash"):
+                errors.append("R138 contract does not bind the current R137 payload")
+            expected_artifact_bindings = sorted(
+                (
+                    row.get("artifact_id"),
+                    row.get("sha256"),
+                )
+                for row in current_r137.get("commitment", {}).get("artifacts", [])
+            )
+            observed_artifact_bindings = sorted(
+                (row.get("artifact_id"), row.get("sha256")) for row in r138_artifacts
+            )
+            if observed_artifact_bindings != expected_artifact_bindings:
+                errors.append("R138 contract artifact bindings drift from R137")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -36023,6 +36106,7 @@ def audit(root: Path) -> dict:
             "r135_dense_interaction_fallback": r135_status,
             "r136_route_realization_margin": r136_status,
             "r137_artifact_bound_private_challenge": r137_status,
+            "r138_postcommit_statistical_challenge_contract": r138_contract_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -37378,6 +37462,9 @@ def audit(root: Path) -> dict:
             ),
             "b4_b8_r137_artifact_bound_private_challenge": str(
                 research / "B4_B8_R137_artifact_bound_private_challenge.md"
+            ),
+            "b4_b8_r138_postcommit_statistical_challenge_contract": str(
+                r138_contract_path
             ),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),
