@@ -36341,6 +36341,126 @@ def audit(root: Path) -> dict:
         ) or "Lagos repair" not in r140_claims.get("what_is_not_supported", ""):
             errors.append("R140 design claim boundary must exclude validation and repair")
 
+    r140_holdout_result_path = results / "B4_B8_R140_output_aware_mapping_holdout_v0.json"
+    r140_holdout_report_path = research / "B4_B8_R140_output_aware_mapping_holdout.md"
+    r140_holdout_status = {
+        "path": str(r140_holdout_result_path),
+        "report_path": str(r140_holdout_report_path),
+        "exists": r140_holdout_result_path.exists(),
+        "report_exists": r140_holdout_report_path.exists(),
+    }
+    holdout_manifest_rows = [
+        ("B4", b4_manifest.get("current_results", {}).get("b4_b8_r140_output_aware_mapping_holdout_v0")),
+        ("B8", b8_manifest.get("current_results", {}).get("b4_b8_r140_output_aware_mapping_holdout_v0")),
+        ("B10", b10_manifest.get("current_results", {}).get("b10_t2_b4_b8_r140_output_aware_mapping_holdout_v0")),
+    ]
+    for label, manifest_row in holdout_manifest_rows:
+        if not manifest_row:
+            errors.append(f"{label} manifest missing R140 holdout")
+            continue
+        for field in ["result", "markdown_report"]:
+            value = manifest_row.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(f"{label} R140 holdout missing existing {field}: {value}")
+    if not r140_holdout_result_path.exists() or not r140_holdout_report_path.exists():
+        errors.append("R140 holdout result or report missing")
+    else:
+        holdout = json.loads(read(r140_holdout_result_path))
+        hs = holdout.get("summary", {})
+        r140_holdout_status.update(
+            {
+                "status": holdout.get("status"),
+                "method": holdout.get("method"),
+                "requirements_passed": holdout.get("requirements_passed"),
+                "requirements_failed": holdout.get("requirements_failed"),
+                "acceptance_conditions_passed": hs.get("acceptance_conditions_passed"),
+                "acceptance_conditions_failed": hs.get("acceptance_conditions_failed"),
+                "failed_acceptance_condition_ids": hs.get("failed_acceptance_condition_ids"),
+                "global_acceptance": hs.get("global_acceptance"),
+                "lagos_ising_mean_new_minus_automatic": hs.get("lagos_ising_mean_new_minus_automatic"),
+                "lagos_ising_mean_new_minus_old": hs.get("lagos_ising_mean_new_minus_old"),
+                "phase_artifact_replay_match_count": hs.get("phase_artifact_replay_match_count"),
+            }
+        )
+        expected = {
+            "artifact_count": 12,
+            "artifact_hash_match_count": 12,
+            "group_count": 12,
+            "paired_trial_row_count": 96,
+            "simulated_circuit_execution_count": 288,
+            "total_simulated_shots": 1179648,
+            "lagos_ising_mean_new_minus_automatic": 0.0034015551454047027,
+            "lagos_ising_mean_new_minus_old": 0.0010305772700850424,
+            "lagos_ising_new_win_count_vs_automatic": 4,
+            "portfolio_mean_new_minus_automatic": 0.005821948550744641,
+            "portfolio_new_minus_automatic_bootstrap_95_lower": 0.004053452345122788,
+            "portfolio_mean_new_minus_old": 0.0002481102923812016,
+            "groups_with_mean_new_minus_old_at_least_negative_0_01": 12,
+            "severe_new_minus_old_regression_count_below_negative_0_05": 0,
+            "design_candidate_compilation_count": 1536,
+            "acceptance_conditions_passed": 9,
+            "acceptance_conditions_failed": 1,
+            "failed_acceptance_condition_ids": ["A4"],
+            "global_acceptance": False,
+            "phase_artifact_count": 4,
+            "phase_artifact_preexisting_count": 4,
+            "phase_artifact_replay_match_count": 4,
+            "new_credit_delta": 0,
+        }
+        if holdout.get("status") != "output_aware_mapping_preregistered_holdout_rejection":
+            errors.append("R140 holdout status must remain rejection")
+        if holdout.get("method") != "b4_b8_r140_output_aware_mapping_holdout_v0":
+            errors.append("R140 holdout method mismatch")
+        if holdout.get("requirements_passed") != 10 or holdout.get("requirements_failed") != 0:
+            errors.append("R140 holdout requirements must pass 10/10")
+        for field, value in expected.items():
+            if hs.get(field) != value:
+                errors.append(f"R140 holdout {field} mismatch")
+        conditions = holdout.get("acceptance_conditions", [])
+        if len(conditions) != 10 or [row.get("condition_id") for row in conditions if not row.get("passed")] != ["A4"]:
+            errors.append("R140 holdout must fail exactly A4")
+        if len(holdout.get("three_arm_trial_rows", [])) != 96 or len(holdout.get("group_rows", [])) != 12:
+            errors.append("R140 holdout row counts mismatch")
+        for label, manifest_row in holdout_manifest_rows:
+            if not manifest_row:
+                continue
+            for field in [
+                "artifact_count",
+                "paired_trial_row_count",
+                "simulated_circuit_execution_count",
+                "total_simulated_shots",
+                "lagos_ising_mean_new_minus_automatic",
+                "lagos_ising_mean_new_minus_old",
+                "lagos_ising_new_win_count_vs_automatic",
+                "portfolio_mean_new_minus_automatic",
+                "portfolio_new_minus_automatic_bootstrap_95_lower",
+                "portfolio_mean_new_minus_old",
+                "groups_with_mean_new_minus_old_at_least_negative_0_01",
+                "severe_new_minus_old_regression_count_below_negative_0_05",
+                "acceptance_conditions_passed",
+                "acceptance_conditions_failed",
+                "failed_acceptance_condition_ids",
+                "global_acceptance",
+                "phase_artifact_replay_match_count",
+                "new_credit_delta",
+            ]:
+                if field in manifest_row and manifest_row.get(field) != hs.get(field):
+                    errors.append(f"{label} R140 holdout manifest {field} mismatch")
+        payload_hash = holdout.get("payload_hash")
+        hash_payload = dict(holdout)
+        hash_payload.pop("payload_hash", None)
+        if payload_hash != hashlib.sha256(
+            json.dumps(hash_payload, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest():
+            errors.append("R140 holdout payload hash mismatch")
+        phase_artifacts = holdout.get("artifacts", {})
+        for phase_key in ["challenge_commitment", "three_arm_trial_rows", "challenge_reveal", "verifier_transcript"]:
+            relative_path = phase_artifacts.get(phase_key)
+            if not relative_path or not (root / relative_path).exists():
+                errors.append(f"R140 holdout phase missing: {phase_key}")
+        if "Scalable exact-output estimation" not in holdout.get("claim_boundary", {}).get("what_is_not_supported", ""):
+            errors.append("R140 holdout must exclude scalable output claim")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -36788,6 +36908,7 @@ def audit(root: Path) -> dict:
             "r138_postcommit_statistical_challenge": r138_status,
             "r139_lagos_ising_channel_attribution": r139_status,
             "r140_output_aware_mapping_design": r140_status,
+            "r140_output_aware_mapping_holdout": r140_holdout_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -38158,6 +38279,9 @@ def audit(root: Path) -> dict:
             ),
             "b4_b8_r140_output_aware_mapping_holdout_contract": str(
                 r140_contract_path
+            ),
+            "b4_b8_r140_output_aware_mapping_holdout": str(
+                research / "B4_B8_R140_output_aware_mapping_holdout.md"
             ),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),

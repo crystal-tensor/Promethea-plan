@@ -1828,6 +1828,36 @@ current_results:
     result: ../results/B4_B8_R140_output_aware_mapping_design_v0.json
     markdown_report: ../research/B4_B8_R140_output_aware_mapping_design.md
     holdout_contract: B4_B8_R140_output_aware_mapping_holdout_contract_v0.json
+  b4_b8_r140_output_aware_mapping_holdout_v0:
+    status: output_aware_mapping_preregistered_holdout_rejection
+    method: b4_b8_r140_output_aware_mapping_holdout_v0
+    source_target_id: T-B4-002ap/T-B8-003at/T-B10-009ah
+    upstream_target_id: T-B4-002ao/T-B8-003as/T-B10-009ag
+    contract_sha256: d11f07b5d5a25c81a3f89a1b03297deb1a80486ce3613d1c17d3071e651a7cb5
+    preregistration_commit: 9b39d062a613209366f74aea9d9e8804641401dd
+    artifact_count: 12
+    paired_trial_row_count: 96
+    simulated_circuit_execution_count: 288
+    total_simulated_shots: 1179648
+    lagos_ising_mean_new_minus_automatic: 0.0034015551454047027
+    lagos_ising_mean_new_minus_old: 0.0010305772700850424
+    lagos_ising_new_win_count_vs_automatic: 4
+    portfolio_mean_new_minus_automatic: 0.005821948550744641
+    portfolio_new_minus_automatic_bootstrap_95_lower: 0.004053452345122788
+    portfolio_mean_new_minus_old: 0.0002481102923812016
+    groups_with_mean_new_minus_old_at_least_negative_0_01: 12
+    severe_new_minus_old_regression_count_below_negative_0_05: 0
+    acceptance_conditions_passed: 9
+    acceptance_conditions_failed: 1
+    failed_acceptance_condition_ids: [A4]
+    global_acceptance: false
+    phase_artifact_replay_match_count: 4
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    caveat: targeted_sign_repair_passes_but_material_improvement_gate_A4_fails
+    result: ../results/B4_B8_R140_output_aware_mapping_holdout_v0.json
+    markdown_report: ../research/B4_B8_R140_output_aware_mapping_holdout.md
   toy_hidden_trap_protocol_sim_v0:
     status: toy_statistical_protocol
     model_status: toy_statistical_protocol_not_quantum_advantage_claim

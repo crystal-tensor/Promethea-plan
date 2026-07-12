@@ -2486,6 +2486,20 @@ least `0.9999999999999976`. The unopened holdout contract hash is
 it fixes 96 fresh three-arm trials and ten immutable acceptance conditions.
 This is a frozen design and preregistration, not a validated repair.
 
+The R140 holdout at `T-B4-002ap` / `T-B8-003at` / `T-B10-009ah`
+then executes 96 fresh three-arm rows and 1,179,648 synthetic shots after public
+commit `9b39d062...` and Discussion #143. The verdict is `REJECT`: 9/10 fixed
+conditions pass, but A4 fails. Lagos complete-Ising changes from negative to
+positive against automatic compilation (`+0.00340156`) and wins `4/8`, while
+the new route improves on the old frozen route by only `+0.00103058`, below the
+preregistered `+0.01` materiality floor. Portfolio new-minus-automatic is
+`+0.00582195` with bootstrap lower `+0.00405345`; new-minus-old is
+`+0.00024811`; all 12/12 groups avoid a `-0.01` mean regression and severe row
+regressions are 0. The sign repair is real under this synthetic model, but its
+increment over the previous route is too small to count as a validated repair.
+Requirements pass 10/10 and phase replay passes 4/4; all downstream credit
+remains zero.
+
 `T-B4-002aj` / `T-B8-003an` / `T-B10-009ab` now adds the R135
 dense-interaction deterministic fallback boundary. For each new inverse-QFT,
 scrambled-QFT, complete-Ising, and dense-XY input, five temporal graph rules

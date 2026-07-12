@@ -8817,6 +8817,25 @@
       "selected_qasm_replay_match_count": 12,
       "status": "output_aware_parameter_free_mapping_design_frozen_before_holdout"
     },
+    "r140_output_aware_mapping_holdout": {
+      "acceptance_conditions_failed": 1,
+      "acceptance_conditions_passed": 9,
+      "exists": true,
+      "failed_acceptance_condition_ids": [
+        "A4"
+      ],
+      "global_acceptance": false,
+      "lagos_ising_mean_new_minus_automatic": 0.0034015551454047027,
+      "lagos_ising_mean_new_minus_old": 0.0010305772700850424,
+      "method": "b4_b8_r140_output_aware_mapping_holdout_v0",
+      "path": "results/B4_B8_R140_output_aware_mapping_holdout_v0.json",
+      "phase_artifact_replay_match_count": 4,
+      "report_exists": true,
+      "report_path": "research/B4_B8_R140_output_aware_mapping_holdout.md",
+      "requirements_failed": 0,
+      "requirements_passed": 10,
+      "status": "output_aware_mapping_preregistered_holdout_rejection"
+    },
     "real_backend_packet_scout": {
       "backend_calibrated_aer_circuit_count": 5760,
       "backend_calibrated_noise_parameters_instantiated": true,
@@ -9814,6 +9833,7 @@
     "b4_b8_r138_postcommit_statistical_challenge_contract": "benchmarks/B4_B8_R138_postcommit_statistical_challenge_contract_v0.json",
     "b4_b8_r139_lagos_ising_channel_attribution": "research/B4_B8_R139_lagos_ising_channel_attribution.md",
     "b4_b8_r140_output_aware_mapping_design": "research/B4_B8_R140_output_aware_mapping_design.md",
+    "b4_b8_r140_output_aware_mapping_holdout": "research/B4_B8_R140_output_aware_mapping_holdout.md",
     "b4_b8_r140_output_aware_mapping_holdout_contract": "benchmarks/B4_B8_R140_output_aware_mapping_holdout_contract_v0.json",
     "b4_b8_real_backend_packet_scout": "research/B4_B8_real_backend_packet_scout.md",
     "b4_b8_real_backend_provider_manifest_gate": "research/B4_B8_real_backend_provider_manifest_gate.md",

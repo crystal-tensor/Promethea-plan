@@ -1,0 +1,104 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition_id": "A1",
+      "label": "the R140 design, 12 selected QASM files, and immutable contract remain hash-bound",
+      "passed": true,
+      "threshold": "12 and bound",
+      "value": 12
+    },
+    {
+      "condition_id": "A2",
+      "label": "all 12 groups contain eight complete new/old/automatic paired trials",
+      "passed": true,
+      "threshold": [
+        96,
+        12
+      ],
+      "value": [
+        96,
+        12
+      ]
+    },
+    {
+      "condition_id": "A3",
+      "label": "the targeted Lagos complete-Ising group is repaired against automatic compilation",
+      "passed": true,
+      "threshold": ">= 0.0",
+      "value": 0.0034015551454047027
+    },
+    {
+      "condition_id": "A4",
+      "label": "the targeted Lagos complete-Ising repair materially improves on the R136 selection",
+      "passed": false,
+      "threshold": ">= 0.01",
+      "value": 0.0010305772700850424
+    },
+    {
+      "condition_id": "A5",
+      "label": "the targeted Lagos complete-Ising route wins at least half of hidden trials against automatic compilation",
+      "passed": true,
+      "threshold": ">= 4",
+      "value": 4
+    },
+    {
+      "condition_id": "A6",
+      "label": "portfolio noninferiority against automatic compilation survives paired uncertainty",
+      "passed": true,
+      "threshold": ">= -0.005",
+      "value": 0.004053452345122788
+    },
+    {
+      "condition_id": "A7",
+      "label": "the output-aware portfolio does not materially regress against the frozen R136 portfolio",
+      "passed": true,
+      "threshold": ">= -0.002",
+      "value": 0.0002481102923812016
+    },
+    {
+      "condition_id": "A8",
+      "label": "cross-group repair is not purchased by broad regressions",
+      "passed": true,
+      "threshold": ">= 11",
+      "value": 12
+    },
+    {
+      "condition_id": "A9",
+      "label": "large new-versus-old row regressions remain rare and all design cost is disclosed",
+      "passed": true,
+      "threshold": [
+        "<= 2",
+        1536
+      ],
+      "value": [
+        0,
+        1536
+      ]
+    },
+    {
+      "condition_id": "A10",
+      "label": "hardware, scalable-output, soundness, advantage, BQP, and credit claims remain false",
+      "passed": true,
+      "threshold": "forbidden claims false",
+      "value": 0
+    }
+  ],
+  "bootstrap_new_minus_automatic": {
+    "lower_95": 0.004053452345122788,
+    "median": 0.00579519969168509,
+    "resamples": 10000,
+    "seed": 219609159,
+    "upper_95": 0.0077397859787492595
+  },
+  "bootstrap_new_minus_old": {
+    "lower_95": -0.0002605083783399715,
+    "median": 0.00024525674139254166,
+    "resamples": 10000,
+    "seed": 1620048511,
+    "upper_95": 0.0007889601088949718
+  },
+  "challenge_secret_commitment_sha256": "2b61b183d9da9fc0b0d20d5ef585aa021de8d7bd73b144beea684349833997ae",
+  "contract_sha256": "d11f07b5d5a25c81a3f89a1b03297deb1a80486ce3613d1c17d3071e651a7cb5",
+  "global_verdict": "REJECT",
+  "trial_rows_hash": "cde5cddbcc7fd41b36e6883c781a5861a12a0fedc4fad7535b5dd6df25cf6b6d"
+}
