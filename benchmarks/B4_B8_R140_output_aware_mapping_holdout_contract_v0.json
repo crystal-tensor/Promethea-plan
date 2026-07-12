@@ -1,0 +1,154 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition_id": "A1",
+      "label": "the R140 design, 12 selected QASM files, and immutable contract remain hash-bound",
+      "predicate": "source_binding_valid == true and artifact_hash_match_count == 12"
+    },
+    {
+      "condition_id": "A2",
+      "label": "all 12 groups contain eight complete new/old/automatic paired trials",
+      "predicate": "paired_trial_row_count == 96 and group_count == 12"
+    },
+    {
+      "condition_id": "A3",
+      "label": "the targeted Lagos complete-Ising group is repaired against automatic compilation",
+      "predicate": "lagos_ising_mean_new_minus_automatic >= 0.0"
+    },
+    {
+      "condition_id": "A4",
+      "label": "the targeted Lagos complete-Ising repair materially improves on the R136 selection",
+      "predicate": "lagos_ising_mean_new_minus_old >= 0.01"
+    },
+    {
+      "condition_id": "A5",
+      "label": "the targeted Lagos complete-Ising route wins at least half of hidden trials against automatic compilation",
+      "predicate": "lagos_ising_new_win_count_vs_automatic >= 4"
+    },
+    {
+      "condition_id": "A6",
+      "label": "portfolio noninferiority against automatic compilation survives paired uncertainty",
+      "predicate": "portfolio_new_minus_automatic_bootstrap_95_lower >= -0.005"
+    },
+    {
+      "condition_id": "A7",
+      "label": "the output-aware portfolio does not materially regress against the frozen R136 portfolio",
+      "predicate": "portfolio_mean_new_minus_old >= -0.002"
+    },
+    {
+      "condition_id": "A8",
+      "label": "cross-group repair is not purchased by broad regressions",
+      "predicate": "groups_with_mean_new_minus_old_at_least_negative_0_01 >= 11"
+    },
+    {
+      "condition_id": "A9",
+      "label": "large new-versus-old row regressions remain rare and all design cost is disclosed",
+      "predicate": "severe_new_minus_old_regression_count_below_negative_0_05 <= 2 and design_candidate_compilation_count == 1536"
+    },
+    {
+      "condition_id": "A10",
+      "label": "hardware, scalable-output, soundness, advantage, BQP, and credit claims remain false",
+      "predicate": "hardware_execution_performed == false and scalable_output_estimation_claimed == false and protocol_soundness_claimed == false and quantum_advantage_claimed == false and bqp_separation_claimed == false and new_credit_delta == 0"
+    }
+  ],
+  "artifact_bindings": [
+    {
+      "artifact_id": "FakeJakartaV2::dense_validation_complete_ising_n6",
+      "sha256": "a4373e35c98d3fb1a407ab42f7352b50ca5ccd75f98dc07939fa9b6659cb60c0"
+    },
+    {
+      "artifact_id": "FakeJakartaV2::dense_validation_inverse_qft_n6",
+      "sha256": "5c733fd5337be414e833fad6157ff2d49063a10bcc520ba21470bdb47c93f9d7"
+    },
+    {
+      "artifact_id": "FakeJakartaV2::dense_validation_scrambled_qft_n6",
+      "sha256": "163692bd7a4c7f0986a17bfdecc4e598977f5e61769f26a727978a35dfe9faa5"
+    },
+    {
+      "artifact_id": "FakeJakartaV2::dense_validation_xy_network_n6",
+      "sha256": "6e2cfb6af8dd6a14987bd080cd44822e161532d622081d2fef7291ef42bd4e77"
+    },
+    {
+      "artifact_id": "FakeLagosV2::dense_validation_complete_ising_n6",
+      "sha256": "616d987dc0f8ec5cd4e34a92cc518a2bc77fffaaf9beaf10fff4f9f69aee7f47"
+    },
+    {
+      "artifact_id": "FakeLagosV2::dense_validation_inverse_qft_n6",
+      "sha256": "a43ec21e220de8f9016933bc863bcd5a6889676a9491fc3814cb9b44a42528c7"
+    },
+    {
+      "artifact_id": "FakeLagosV2::dense_validation_scrambled_qft_n6",
+      "sha256": "7a5a441cfb7f1566d66a64fb1aaac03d800ba34e8b32e7713c6bb21b89b9ce1f"
+    },
+    {
+      "artifact_id": "FakeLagosV2::dense_validation_xy_network_n6",
+      "sha256": "f9053a99071f4190f2e37b4a53946f9bc99c45e3d28471fe16c8ee758f4be2df"
+    },
+    {
+      "artifact_id": "FakeOslo::dense_validation_complete_ising_n6",
+      "sha256": "daaa1749d787f8b73a0f89dabbcefe729e8eba056a6700505e76b9b9ff94bc0d"
+    },
+    {
+      "artifact_id": "FakeOslo::dense_validation_inverse_qft_n6",
+      "sha256": "6ffd952f6d3fa992570877ad86082c985e37a6d177d8defe5ee9ab9034c5ffac"
+    },
+    {
+      "artifact_id": "FakeOslo::dense_validation_scrambled_qft_n6",
+      "sha256": "0e382ae6a42ed34cfb6950055e36ec6a35d0f056f1a6d6a95614bb71f54aeed5"
+    },
+    {
+      "artifact_id": "FakeOslo::dense_validation_xy_network_n6",
+      "sha256": "e5917bdc573dd7c4ec62e574c610e5e1ebeb84351593a7195fbe1cc26ff1e62b"
+    }
+  ],
+  "challenge_design": {
+    "automatic_baseline": "fresh optimization-level-3 automatic compilation",
+    "bootstrap_resamples": 10000,
+    "comparison_arms": [
+      "R140 output-aware selection",
+      "R136 frozen selection",
+      "fresh automatic compilation"
+    ],
+    "exact_target": "logical pre-measurement statevector Z-basis distribution",
+    "group_count": 12,
+    "metric": "squared Hellinger fidelity to exact target distribution",
+    "noise_model": "AerSimulator.from_backend on matching historical fake backend",
+    "paired_trial_row_count": 96,
+    "same_simulator_seed_within_three_arm_trial": true,
+    "shots_per_circuit": 4096,
+    "simulated_circuit_execution_count": 288,
+    "total_simulated_shots": 1179648,
+    "trial_count_per_group": 8
+  },
+  "claim_boundary": {
+    "what_is_not_supported": "Scalable exact-output estimation, current calibration, real hardware, mitigation, independent verifier custody, protocol or cryptographic soundness, quantum advantage, BQP separation, or new B10 credit.",
+    "what_will_be_supported_if_accepted": "One frozen synthetic-noise holdout showing that the parameter-free output-aware score repairs the targeted Lagos complete-Ising group without material portfolio regression under the stated conditions."
+  },
+  "contract_id": "B4-B8-R140-output-aware-mapping-holdout-v0",
+  "contract_status": "public_preregistration_execution_unopened",
+  "design_cost_ledger": {
+    "candidate_compilation_count": 1536,
+    "candidate_count_per_group": 128,
+    "design_process_replay_count": 2,
+    "group_count": 12,
+    "score_formula": "(1-cx_any_error_proxy)*exact_output_aware_readout_fidelity"
+  },
+  "execution_rules": {
+    "challenge_secret_bytes": 32,
+    "challenge_secret_generation": "os.urandom after public contract publication",
+    "failed_contract_may_not_be_rewritten": true,
+    "no_threshold_revision_after_publication": true,
+    "result_must_report_accept_or_reject": true,
+    "seed_derivation": "HMAC-SHA256(secret, contract_sha256|artifact_id|trial|role)",
+    "selected_artifacts_may_not_be_recompiled": true
+  },
+  "source_bindings": {
+    "r139_remote_commit": "bf810d69a3e0975ac4aea2e651de2f2c181d93dd",
+    "r140_design_payload_hash": "29ec01e82e700fe817be0182320d5f5ddce33ba0520126adce2681da7ad6d1d3",
+    "r140_design_result": "../results/B4_B8_R140_output_aware_mapping_design_v0.json",
+    "r140_design_result_sha256": "0ae638367c5cd23ce50628798cef50a0cdd97a8c81cae90a5cdadd42e99f6c3f",
+    "source_target_id": "T-B4-002ao/T-B8-003as/T-B10-009ag"
+  },
+  "target_id": "T-B4-002ap/T-B8-003at/T-B10-009ah",
+  "version": "0.1"
+}

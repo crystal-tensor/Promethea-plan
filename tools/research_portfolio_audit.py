@@ -36170,6 +36170,177 @@ def audit(root: Path) -> dict:
         ):
             errors.append("R139 claim boundary must exclude hardware causality and repair")
 
+    r140_design_result_path = results / "B4_B8_R140_output_aware_mapping_design_v0.json"
+    r140_design_report_path = research / "B4_B8_R140_output_aware_mapping_design.md"
+    r140_contract_path = benchmarks / "B4_B8_R140_output_aware_mapping_holdout_contract_v0.json"
+    r140_status = {
+        "path": str(r140_design_result_path),
+        "report_path": str(r140_design_report_path),
+        "contract_path": str(r140_contract_path),
+        "exists": r140_design_result_path.exists(),
+        "report_exists": r140_design_report_path.exists(),
+        "contract_exists": r140_contract_path.exists(),
+        "expected_contract_sha256": "d11f07b5d5a25c81a3f89a1b03297deb1a80486ce3613d1c17d3071e651a7cb5",
+    }
+    r140_manifest_rows = [
+        ("B4", b4_manifest.get("current_results", {}).get("b4_b8_r140_output_aware_mapping_design_v0")),
+        ("B8", b8_manifest.get("current_results", {}).get("b4_b8_r140_output_aware_mapping_design_v0")),
+        ("B10", b10_manifest.get("current_results", {}).get("b10_t2_b4_b8_r140_output_aware_mapping_design_v0")),
+    ]
+    for label, manifest_row in r140_manifest_rows:
+        if not manifest_row:
+            errors.append(f"{label} manifest missing R140 output-aware design")
+            continue
+        for field in ["result", "markdown_report", "holdout_contract"]:
+            value = manifest_row.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(f"{label} R140 manifest missing existing {field}: {value}")
+    if not r140_design_result_path.exists():
+        errors.append(f"missing R140 design result: {r140_design_result_path}")
+    elif not r140_design_report_path.exists():
+        errors.append(f"missing R140 design report: {r140_design_report_path}")
+    elif not r140_contract_path.exists():
+        errors.append(f"missing R140 holdout contract: {r140_contract_path}")
+    else:
+        r140_payload = json.loads(read(r140_design_result_path))
+        r140_summary = r140_payload.get("summary", {})
+        r140_claims = r140_payload.get("claim_boundary", {})
+        r140_contract = json.loads(read(r140_contract_path))
+        r140_contract_sha256 = hashlib.sha256(r140_contract_path.read_bytes()).hexdigest()
+        r140_status.update(
+            {
+                "status": r140_payload.get("status"),
+                "method": r140_payload.get("method"),
+                "requirements_passed": r140_payload.get("requirements_passed"),
+                "requirements_failed": r140_payload.get("requirements_failed"),
+                "candidate_count": r140_summary.get("candidate_count"),
+                "changed_selection_count": r140_summary.get("changed_selection_count"),
+                "lagos_ising_selection_changed": r140_summary.get(
+                    "lagos_ising_selection_changed"
+                ),
+                "selected_qasm_replay_match_count": r140_summary.get(
+                    "selected_qasm_replay_match_count"
+                ),
+                "contract_sha256": r140_contract_sha256,
+                "contract_status": r140_contract.get("contract_status"),
+                "execution_unopened": "challenge_secret" not in r140_contract
+                and "trial_rows" not in r140_contract,
+            }
+        )
+        expected_r140_summary = {
+            "candidate_count": 1536,
+            "candidate_qasm_hash_match_count": 1536,
+            "group_count": 12,
+            "candidates_per_group": 128,
+            "score_formula": "(1-cx_any_error_proxy)*exact_output_aware_readout_fidelity",
+            "fitted_weight_count": 0,
+            "changed_selection_count": 4,
+            "groups_with_score_improvement": 3,
+            "groups_with_exact_readout_improvement": 2,
+            "minimum_selected_exact_semantic_fidelity": 0.9999999999999976,
+            "selected_qasm_preexisting_count": 12,
+            "selected_qasm_replay_match_count": 12,
+            "lagos_ising_selection_changed": True,
+            "lagos_ising_exact_readout_improvement": 0.0040898617536290205,
+            "lagos_ising_score_improvement": 0.07231394978673339,
+            "r138_validation_rows_read_during_selection": 0,
+            "r139_channel_rows_read_during_selection": 0,
+            "noisy_holdout_executed": False,
+            "current_backend_calibration_used": False,
+            "hardware_execution_performed": False,
+            "mapping_repair_claimed": False,
+            "protocol_soundness_claimed": False,
+            "quantum_advantage_claimed": False,
+            "bqp_separation_claimed": False,
+            "new_credit_delta": 0,
+        }
+        if r140_payload.get("status") != "output_aware_parameter_free_mapping_design_frozen_before_holdout":
+            errors.append("R140 output-aware design status mismatch")
+        if r140_payload.get("method") != "b4_b8_r140_output_aware_mapping_design_v0":
+            errors.append("R140 output-aware design method mismatch")
+        if r140_payload.get("source_target_id") != "T-B4-002ao/T-B8-003as/T-B10-009ag":
+            errors.append("R140 output-aware design target mismatch")
+        if r140_payload.get("requirements_passed") != 10 or r140_payload.get(
+            "requirements_failed"
+        ) != 0:
+            errors.append("R140 output-aware design requirements must pass 10/10")
+        for field, expected in expected_r140_summary.items():
+            if r140_summary.get(field) != expected:
+                errors.append(f"R140 output-aware design {field} mismatch")
+        if len(r140_payload.get("candidate_rows", [])) != 1536:
+            errors.append("R140 output-aware design must contain 1536 candidate rows")
+        group_rows = r140_payload.get("group_rows", [])
+        if len(group_rows) != 12 or sum(
+            row.get("selection_changed") is True for row in group_rows
+        ) != 4:
+            errors.append("R140 output-aware group ledger mismatch")
+        selected_circuits = r140_payload.get("artifacts", {}).get("selected_circuits", [])
+        if len(selected_circuits) != 12:
+            errors.append("R140 output-aware design must emit 12 selected QASM files")
+        for relative_path in selected_circuits:
+            circuit_path = root / relative_path
+            if not circuit_path.exists():
+                errors.append(f"R140 selected QASM missing: {relative_path}")
+            elif not read(circuit_path).startswith("OPENQASM 3.0;"):
+                errors.append(f"R140 selected circuit is not OpenQASM 3: {relative_path}")
+        payload_hash = r140_payload.get("payload_hash")
+        hash_payload = dict(r140_payload)
+        hash_payload.pop("payload_hash", None)
+        expected_payload_hash = hashlib.sha256(
+            json.dumps(hash_payload, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest()
+        if payload_hash != expected_payload_hash:
+            errors.append("R140 output-aware design payload hash mismatch")
+        if hashlib.sha256(r140_design_result_path.read_bytes()).hexdigest() != "0ae638367c5cd23ce50628798cef50a0cdd97a8c81cae90a5cdadd42e99f6c3f":
+            errors.append("R140 output-aware design file hash mismatch")
+        if r140_contract_sha256 != r140_status["expected_contract_sha256"]:
+            errors.append("R140 holdout contract hash mismatch")
+        if r140_contract.get("contract_id") != "B4-B8-R140-output-aware-mapping-holdout-v0":
+            errors.append("R140 holdout contract ID mismatch")
+        if r140_contract.get("contract_status") != "public_preregistration_execution_unopened":
+            errors.append("R140 holdout contract must remain unopened")
+        if r140_contract.get("target_id") != "T-B4-002ap/T-B8-003at/T-B10-009ah":
+            errors.append("R140 holdout contract target mismatch")
+        if "challenge_secret" in r140_contract or "trial_rows" in r140_contract:
+            errors.append("R140 holdout contract must not contain secret or trial rows")
+        design_bindings = r140_contract.get("source_bindings", {})
+        if design_bindings.get("r140_design_payload_hash") != payload_hash:
+            errors.append("R140 holdout contract payload binding mismatch")
+        if design_bindings.get("r140_design_result_sha256") != "0ae638367c5cd23ce50628798cef50a0cdd97a8c81cae90a5cdadd42e99f6c3f":
+            errors.append("R140 holdout contract result hash mismatch")
+        contract_artifacts = sorted(
+            (row.get("artifact_id"), row.get("sha256"))
+            for row in r140_contract.get("artifact_bindings", [])
+        )
+        result_artifacts = sorted(
+            (
+                f"{row.get('snapshot')}::{row.get('task_id')}",
+                row.get("selected_circuit_sha256"),
+            )
+            for row in group_rows
+        )
+        if contract_artifacts != result_artifacts:
+            errors.append("R140 holdout artifact bindings drift from design")
+        design = r140_contract.get("challenge_design", {})
+        if design.get("paired_trial_row_count") != 96 or design.get(
+            "simulated_circuit_execution_count"
+        ) != 288 or design.get("total_simulated_shots") != 1179648:
+            errors.append("R140 holdout challenge design mismatch")
+        if len(r140_contract.get("acceptance_conditions", [])) != 10:
+            errors.append("R140 holdout contract must fix A1-A10")
+        for label, manifest_row in r140_manifest_rows:
+            if not manifest_row:
+                continue
+            for field, expected in expected_r140_summary.items():
+                if field in manifest_row and manifest_row.get(field) != expected:
+                    errors.append(f"{label} R140 manifest {field} mismatch")
+            if manifest_row.get("holdout_contract_sha256") != r140_contract_sha256:
+                errors.append(f"{label} R140 manifest contract hash mismatch")
+        if "Noisy validation acceptance" not in r140_claims.get(
+            "what_is_not_supported", ""
+        ) or "Lagos repair" not in r140_claims.get("what_is_not_supported", ""):
+            errors.append("R140 design claim boundary must exclude validation and repair")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -36616,6 +36787,7 @@ def audit(root: Path) -> dict:
             "r138_postcommit_statistical_challenge_contract": r138_contract_status,
             "r138_postcommit_statistical_challenge": r138_status,
             "r139_lagos_ising_channel_attribution": r139_status,
+            "r140_output_aware_mapping_design": r140_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -37980,6 +38152,12 @@ def audit(root: Path) -> dict:
             ),
             "b4_b8_r139_lagos_ising_channel_attribution": str(
                 research / "B4_B8_R139_lagos_ising_channel_attribution.md"
+            ),
+            "b4_b8_r140_output_aware_mapping_design": str(
+                research / "B4_B8_R140_output_aware_mapping_design.md"
+            ),
+            "b4_b8_r140_output_aware_mapping_holdout_contract": str(
+                r140_contract_path
             ),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),

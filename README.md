@@ -2471,6 +2471,21 @@ output-aware readout-assignment attribution, not hardware causality or a
 mapping repair. Phase replay passes `2/2`; requirements pass `10/10`; hardware,
 mitigation, soundness, advantage, BQP, and new credit remain excluded.
 
+`T-B4-002ao` / `T-B8-003as` / `T-B10-009ag` now freezes the R140
+parameter-free output-aware mapping design before noisy validation. R140
+recompiles and hash-checks all `1,536/1,536` R136 route realizations, then ranks
+each candidate by `(1 - cx_any_error_proxy) *
+exact_output_aware_readout_fidelity`. It fits no weight and reads zero R138 or
+R139 validation rows. Four of twelve selections change; Lagos complete-Ising
+moves from `[5,3,6,4,1,0]` to `[1,3,2,0,5,4]`, improves exact readout fidelity
+by `0.00408986`, lowers CX-any-error pressure from `0.51115694` to
+`0.42900958`, and raises the design score by `0.07231395`. All twelve selected
+QASM files replay across a second process and retain exact semantic fidelity at
+least `0.9999999999999976`. The unopened holdout contract hash is
+`d11f07b5d5a25c81a3f89a1b03297deb1a80486ce3613d1c17d3071e651a7cb5`;
+it fixes 96 fresh three-arm trials and ten immutable acceptance conditions.
+This is a frozen design and preregistration, not a validated repair.
+
 `T-B4-002aj` / `T-B8-003an` / `T-B10-009ab` now adds the R135
 dense-interaction deterministic fallback boundary. For each new inverse-QFT,
 scrambled-QFT, complete-Ising, and dense-XY input, five temporal graph rules

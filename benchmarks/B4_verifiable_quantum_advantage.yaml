@@ -1784,6 +1784,50 @@ current_results:
     caveat: r139_attributes_synthetic_failure_to_output_aware_readout_assignment_but_does_not_repair_mapping_or_claim_hardware_causality
     result: ../results/B4_B8_R139_lagos_ising_channel_attribution_v0.json
     markdown_report: ../research/B4_B8_R139_lagos_ising_channel_attribution.md
+  b4_b8_r140_output_aware_mapping_design_v0:
+    status: output_aware_parameter_free_mapping_design_frozen_before_holdout
+    model_status: r136_portfolio_reranked_without_r138_or_r139_validation_outcomes
+    method: b4_b8_r140_output_aware_mapping_design_v0
+    source_target_id: T-B4-002ao/T-B8-003as/T-B10-009ag
+    upstream_target_id: T-B4-002an/T-B8-003ar/T-B10-009af
+    dependency_benchmark: B8
+    candidate_count: 1536
+    candidate_qasm_hash_match_count: 1536
+    group_count: 12
+    candidates_per_group: 128
+    score_formula: (1-cx_any_error_proxy)*exact_output_aware_readout_fidelity
+    fitted_weight_count: 0
+    changed_selection_count: 4
+    groups_with_score_improvement: 3
+    groups_with_exact_readout_improvement: 2
+    minimum_selected_exact_semantic_fidelity: 0.9999999999999976
+    selected_qasm_preexisting_count: 12
+    selected_qasm_replay_match_count: 12
+    lagos_ising_selection_changed: true
+    lagos_ising_exact_readout_improvement: 0.0040898617536290205
+    lagos_ising_score_improvement: 0.07231394978673339
+    r138_validation_rows_read_during_selection: 0
+    r139_channel_rows_read_during_selection: 0
+    noisy_holdout_executed: false
+    holdout_contract_sha256: d11f07b5d5a25c81a3f89a1b03297deb1a80486ce3613d1c17d3071e651a7cb5
+    holdout_contract_status: public_preregistration_execution_unopened
+    current_backend_calibration_used: false
+    hardware_execution_performed: false
+    mapping_repair_claimed: false
+    b4_verifiable_advantage_credit_allowed: false
+    b8_protocol_soundness_credit_allowed: false
+    b10_t2_credit_allowed: false
+    protocol_soundness_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r140_design_and_holdout_contract_are_frozen_but_no_noisy_repair_validation_has_run
+    result: ../results/B4_B8_R140_output_aware_mapping_design_v0.json
+    markdown_report: ../research/B4_B8_R140_output_aware_mapping_design.md
+    holdout_contract: B4_B8_R140_output_aware_mapping_holdout_contract_v0.json
   toy_hidden_trap_protocol_sim_v0:
     status: toy_statistical_protocol
     model_status: toy_statistical_protocol_not_quantum_advantage_claim

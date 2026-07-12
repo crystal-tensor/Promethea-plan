@@ -1436,6 +1436,45 @@ current_results:
     caveat: r139_synthetic_readout_attribution_is_not_hardware_causality_repair_soundness_advantage_or_bqp_evidence
     result: ../results/B4_B8_R139_lagos_ising_channel_attribution_v0.json
     markdown_report: ../research/B4_B8_R139_lagos_ising_channel_attribution.md
+  b10_t2_b4_b8_r140_output_aware_mapping_design_v0:
+    status: output_aware_mapping_design_not_bqp_claim
+    model_status: parameter_free_design_frozen_before_noisy_holdout_keeps_b10_credit_blocked
+    method: b4_b8_r140_output_aware_mapping_design_v0
+    source_b8_result: ../results/B4_B8_R140_output_aware_mapping_design_v0.json
+    source_target_id: T-B4-002ao/T-B8-003as/T-B10-009ag
+    upstream_target_id: T-B4-002an/T-B8-003ar/T-B10-009af
+    dependency_benchmark: B4/B8
+    candidate_count: 1536
+    candidate_qasm_hash_match_count: 1536
+    group_count: 12
+    changed_selection_count: 4
+    groups_with_score_improvement: 3
+    minimum_selected_exact_semantic_fidelity: 0.9999999999999976
+    selected_qasm_replay_match_count: 12
+    lagos_ising_selection_changed: true
+    lagos_ising_exact_readout_improvement: 0.0040898617536290205
+    lagos_ising_score_improvement: 0.07231394978673339
+    r138_validation_rows_read_during_selection: 0
+    r139_channel_rows_read_during_selection: 0
+    noisy_holdout_executed: false
+    holdout_contract_sha256: d11f07b5d5a25c81a3f89a1b03297deb1a80486ce3613d1c17d3071e651a7cb5
+    current_backend_calibration_used: false
+    hardware_execution_performed: false
+    mapping_repair_claimed: false
+    protocol_soundness_claimed: false
+    b10_t2_credit_allowed: false
+    b10_bqp_separation_credit_allowed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    explicit_not_bqp_separation: true
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r140_output_aware_design_is_not_noisy_validation_hardware_repair_advantage_or_bqp_evidence
+    result: ../results/B4_B8_R140_output_aware_mapping_design_v0.json
+    markdown_report: ../research/B4_B8_R140_output_aware_mapping_design.md
+    holdout_contract: B4_B8_R140_output_aware_mapping_holdout_contract_v0.json
   b10_t3_b9_checked_transcript_acceptance_packet_gate_v0:
     status: checked_transcript_acceptance_packet_open_missing_artifact
     method: b9_checked_transcript_acceptance_packet_gate_v0
