@@ -2516,6 +2516,19 @@ is fixed-width, but the current pilot samples are statevector-backed, so this
 is not yet an end-to-end scalability result, holdout acceptance, hardware
 evidence, advantage, BQP evidence, or new credit.
 
+The R141 holdout at `T-B4-002ar` / `T-B8-003av` / `T-B10-009aj`
+then opens the hidden challenge after public commit `d6de013...` and Discussion
+#145. Across 96 four-arm rows, 384 synthetic executions, and 1,572,864 shots,
+the sketch matches R140 exact selection `87/96` times and Lagos complete-Ising
+`8/8`; mean/max exact-score regret are `0.00004099` / `0.00197748`. Portfolio
+sketch-minus-automatic is `+0.00386523` with bootstrap lower `+0.00213694`, and
+sketch-minus-R140-exact is `-0.00044153`, so the fixed-width approximation and
+portfolio noninferiority gates pass. The global verdict is nevertheless
+`REJECT`: A7 alone fails because Lagos sketch-minus-automatic is
+`-0.00355006` with only `3/8` wins. This fresh-seed reversal shows that the
+R140 local repair is not challenge-seed robust. Requirements pass `10/10`,
+phase replay passes `4/4`, and downstream credit remains zero.
+
 `T-B4-002aj` / `T-B8-003an` / `T-B10-009ab` now adds the R135
 dense-interaction deterministic fallback boundary. For each new inverse-QFT,
 scrambled-QFT, complete-Ising, and dense-XY input, five temporal graph rules

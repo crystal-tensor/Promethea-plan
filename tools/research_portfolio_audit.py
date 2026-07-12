@@ -36612,6 +36612,151 @@ def audit(root: Path) -> dict:
         ):
             errors.append("R141 claim boundary must exclude scalable pilot acquisition")
 
+    r141_holdout_result_path = results / "B4_B8_R141_hashed_output_sketch_holdout_v0.json"
+    r141_holdout_report_path = research / "B4_B8_R141_hashed_output_sketch_holdout.md"
+    r141_holdout_status = {
+        "path": str(r141_holdout_result_path),
+        "report_path": str(r141_holdout_report_path),
+        "exists": r141_holdout_result_path.exists(),
+        "report_exists": r141_holdout_report_path.exists(),
+    }
+    r141_holdout_manifest_rows = [
+        ("B4", b4_manifest.get("current_results", {}).get("b4_b8_r141_hashed_output_sketch_holdout_v0")),
+        ("B8", b8_manifest.get("current_results", {}).get("b4_b8_r141_hashed_output_sketch_holdout_v0")),
+        ("B10", b10_manifest.get("current_results", {}).get("b10_t2_b4_b8_r141_hashed_output_sketch_holdout_v0")),
+    ]
+    for label, manifest_row in r141_holdout_manifest_rows:
+        if not manifest_row:
+            errors.append(f"{label} manifest missing R141 hashed-output-sketch holdout")
+            continue
+        for field in ["result", "markdown_report"]:
+            value = manifest_row.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(f"{label} R141 holdout missing existing {field}: {value}")
+    if not r141_holdout_result_path.exists() or not r141_holdout_report_path.exists():
+        errors.append("R141 hashed-output-sketch holdout result or report missing")
+    else:
+        r141_holdout = json.loads(read(r141_holdout_result_path))
+        r141_hs = r141_holdout.get("summary", {})
+        r141_holdout_status.update(
+            {
+                "status": r141_holdout.get("status"),
+                "method": r141_holdout.get("method"),
+                "requirements_passed": r141_holdout.get("requirements_passed"),
+                "requirements_failed": r141_holdout.get("requirements_failed"),
+                "acceptance_conditions_passed": r141_hs.get(
+                    "acceptance_conditions_passed"
+                ),
+                "acceptance_conditions_failed": r141_hs.get(
+                    "acceptance_conditions_failed"
+                ),
+                "failed_acceptance_condition_ids": r141_hs.get(
+                    "failed_acceptance_condition_ids"
+                ),
+                "global_acceptance": r141_hs.get("global_acceptance"),
+                "selection_agreement_count": r141_hs.get(
+                    "selection_agreement_count"
+                ),
+                "lagos_ising_mean_sketch_minus_automatic": r141_hs.get(
+                    "lagos_ising_mean_sketch_minus_automatic"
+                ),
+            }
+        )
+        expected_r141_holdout = {
+            "artifact_count": 12,
+            "candidate_count_per_selection": 128,
+            "trial_row_count": 96,
+            "group_count": 12,
+            "selection_agreement_count": 87,
+            "lagos_ising_selection_agreement_count": 8,
+            "mean_exact_score_regret": 0.000040991776757047633,
+            "maximum_exact_score_regret": 0.0019774847695264164,
+            "selected_qasm_hash_match_count": 96,
+            "portfolio_mean_sketch_minus_automatic": 0.0038652293195688622,
+            "portfolio_sketch_minus_automatic_bootstrap_95_lower": 0.0021369426677347765,
+            "portfolio_mean_sketch_minus_r140_exact": -0.0004415306660382704,
+            "lagos_ising_mean_sketch_minus_automatic": -0.003550061697868895,
+            "lagos_ising_sketch_win_count_vs_automatic": 3,
+            "simulated_circuit_execution_count": 384,
+            "total_simulated_shots": 1572864,
+            "selector_full_distribution_value_count": 0,
+            "acceptance_conditions_passed": 9,
+            "acceptance_conditions_failed": 1,
+            "failed_acceptance_condition_ids": ["A7"],
+            "global_acceptance": False,
+            "phase_artifact_count": 4,
+            "phase_artifact_preexisting_count": 4,
+            "phase_artifact_replay_match_count": 4,
+            "new_credit_delta": 0,
+        }
+        if r141_holdout.get("status") != "hashed_output_sketch_preregistered_holdout_rejection":
+            errors.append("R141 hashed-output-sketch holdout status must remain rejection")
+        if r141_holdout.get("method") != "b4_b8_r141_hashed_output_sketch_holdout_v0":
+            errors.append("R141 hashed-output-sketch holdout method mismatch")
+        if r141_holdout.get("source_target_id") != "T-B4-002ar/T-B8-003av/T-B10-009aj":
+            errors.append("R141 hashed-output-sketch holdout target mismatch")
+        if r141_holdout.get("requirements_passed") != 10 or r141_holdout.get("requirements_failed") != 0:
+            errors.append("R141 hashed-output-sketch holdout requirements must pass 10/10")
+        for field, value in expected_r141_holdout.items():
+            if r141_hs.get(field) != value:
+                errors.append(f"R141 hashed-output-sketch holdout {field} mismatch")
+        conditions = r141_holdout.get("acceptance_conditions", [])
+        if len(conditions) != 10 or [
+            row.get("condition_id") for row in conditions if not row.get("passed")
+        ] != ["A7"]:
+            errors.append("R141 hashed-output-sketch holdout must fail exactly A7")
+        if len(r141_holdout.get("four_arm_trial_rows", [])) != 96 or len(
+            r141_holdout.get("group_rows", [])
+        ) != 12:
+            errors.append("R141 hashed-output-sketch holdout row counts mismatch")
+        for label, manifest_row in r141_holdout_manifest_rows:
+            if not manifest_row:
+                continue
+            for field in [
+                "artifact_count",
+                "trial_row_count",
+                "simulated_circuit_execution_count",
+                "total_simulated_shots",
+                "selection_agreement_count",
+                "lagos_ising_selection_agreement_count",
+                "mean_exact_score_regret",
+                "maximum_exact_score_regret",
+                "selected_qasm_hash_match_count",
+                "portfolio_mean_sketch_minus_automatic",
+                "portfolio_sketch_minus_automatic_bootstrap_95_lower",
+                "lagos_ising_mean_sketch_minus_automatic",
+                "lagos_ising_sketch_win_count_vs_automatic",
+                "portfolio_mean_sketch_minus_r140_exact",
+                "acceptance_conditions_passed",
+                "acceptance_conditions_failed",
+                "failed_acceptance_condition_ids",
+                "global_acceptance",
+                "phase_artifact_replay_match_count",
+                "new_credit_delta",
+            ]:
+                if field in manifest_row and manifest_row.get(field) != r141_hs.get(field):
+                    errors.append(f"{label} R141 holdout manifest {field} mismatch")
+        hash_payload = dict(r141_holdout)
+        payload_hash = hash_payload.pop("payload_hash", None)
+        if payload_hash != hashlib.sha256(
+            json.dumps(hash_payload, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest():
+            errors.append("R141 hashed-output-sketch holdout payload hash mismatch")
+        phase_artifacts = r141_holdout.get("artifacts", {})
+        for phase_key in [
+            "challenge_commitment",
+            "four_arm_trial_rows",
+            "challenge_reveal",
+            "verifier_transcript",
+        ]:
+            relative_path = phase_artifacts.get(phase_key)
+            if not relative_path or not (root / relative_path).exists():
+                errors.append(f"R141 hashed-output-sketch phase missing: {phase_key}")
+        if "scalable pilot acquisition" not in r141_holdout.get(
+            "claim_boundary", {}
+        ).get("what_is_not_supported", ""):
+            errors.append("R141 holdout must exclude scalable pilot acquisition")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -37061,6 +37206,7 @@ def audit(root: Path) -> dict:
             "r140_output_aware_mapping_design": r140_status,
             "r140_output_aware_mapping_holdout": r140_holdout_status,
             "r141_hashed_output_sketch_design": r141_status,
+            "r141_hashed_output_sketch_holdout": r141_holdout_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -38440,6 +38586,9 @@ def audit(root: Path) -> dict:
             ),
             "b4_b8_r141_hashed_output_sketch_holdout_contract": str(
                 r141_contract_path
+            ),
+            "b4_b8_r141_hashed_output_sketch_holdout": str(
+                research / "B4_B8_R141_hashed_output_sketch_holdout.md"
             ),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),

@@ -1898,6 +1898,39 @@ current_results:
     result: ../results/B4_B8_R141_hashed_output_sketch_design_v0.json
     markdown_report: ../research/B4_B8_R141_hashed_output_sketch_design.md
     holdout_contract: B4_B8_R141_hashed_output_sketch_holdout_contract_v0.json
+  b4_b8_r141_hashed_output_sketch_holdout_v0:
+    status: hashed_output_sketch_preregistered_holdout_rejection
+    method: b4_b8_r141_hashed_output_sketch_holdout_v0
+    source_target_id: T-B4-002ar/T-B8-003av/T-B10-009aj
+    upstream_target_id: T-B4-002aq/T-B8-003au/T-B10-009ai
+    contract_sha256: 388fb1aa35ae98d2c5f624e34541832e8590481046b42af105e57be63d6a770f
+    preregistration_commit: d6de013849e4df1ce8cded48310197cf83ff71c4
+    artifact_count: 12
+    trial_row_count: 96
+    simulated_circuit_execution_count: 384
+    total_simulated_shots: 1572864
+    selection_agreement_count: 87
+    lagos_ising_selection_agreement_count: 8
+    mean_exact_score_regret: 0.000040991776757047633
+    maximum_exact_score_regret: 0.0019774847695264164
+    selected_qasm_hash_match_count: 96
+    portfolio_mean_sketch_minus_automatic: 0.0038652293195688622
+    portfolio_sketch_minus_automatic_bootstrap_95_lower: 0.0021369426677347765
+    lagos_ising_mean_sketch_minus_automatic: -0.003550061697868895
+    lagos_ising_sketch_win_count_vs_automatic: 3
+    portfolio_mean_sketch_minus_r140_exact: -0.0004415306660382704
+    acceptance_conditions_passed: 9
+    acceptance_conditions_failed: 1
+    failed_acceptance_condition_ids: [A7]
+    global_acceptance: false
+    phase_artifact_replay_match_count: 4
+    scalable_pilot_acquisition_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    caveat: sketch_selection_and_portfolio_gates_pass_but_fresh_seed_Lagos_gate_A7_fails
+    result: ../results/B4_B8_R141_hashed_output_sketch_holdout_v0.json
+    markdown_report: ../research/B4_B8_R141_hashed_output_sketch_holdout.md
   toy_hidden_trap_protocol_sim_v0:
     status: toy_statistical_protocol
     model_status: toy_statistical_protocol_not_quantum_advantage_claim

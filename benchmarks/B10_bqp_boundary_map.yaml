@@ -1537,6 +1537,35 @@ current_results:
     result: ../results/B4_B8_R141_hashed_output_sketch_design_v0.json
     markdown_report: ../research/B4_B8_R141_hashed_output_sketch_design.md
     holdout_contract: B4_B8_R141_hashed_output_sketch_holdout_contract_v0.json
+  b10_t2_b4_b8_r141_hashed_output_sketch_holdout_v0:
+    status: hashed_output_sketch_holdout_rejection_not_bqp_claim
+    method: b4_b8_r141_hashed_output_sketch_holdout_v0
+    source_b8_result: ../results/B4_B8_R141_hashed_output_sketch_holdout_v0.json
+    source_target_id: T-B4-002ar/T-B8-003av/T-B10-009aj
+    upstream_target_id: T-B4-002aq/T-B8-003au/T-B10-009ai
+    contract_sha256: 388fb1aa35ae98d2c5f624e34541832e8590481046b42af105e57be63d6a770f
+    trial_row_count: 96
+    selection_agreement_count: 87
+    lagos_ising_selection_agreement_count: 8
+    maximum_exact_score_regret: 0.0019774847695264164
+    portfolio_mean_sketch_minus_automatic: 0.0038652293195688622
+    lagos_ising_mean_sketch_minus_automatic: -0.003550061697868895
+    acceptance_conditions_passed: 9
+    acceptance_conditions_failed: 1
+    failed_acceptance_condition_ids: [A7]
+    global_acceptance: false
+    phase_artifact_replay_match_count: 4
+    scalable_pilot_acquisition_claimed: false
+    b10_t2_credit_allowed: false
+    b10_bqp_separation_credit_allowed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    caveat: R141_rejected_on_fresh_seed_Lagos_A7_not_bqp_evidence
+    result: ../results/B4_B8_R141_hashed_output_sketch_holdout_v0.json
+    markdown_report: ../research/B4_B8_R141_hashed_output_sketch_holdout.md
   b10_t3_b9_checked_transcript_acceptance_packet_gate_v0:
     status: checked_transcript_acceptance_packet_open_missing_artifact
     method: b9_checked_transcript_acceptance_packet_gate_v0

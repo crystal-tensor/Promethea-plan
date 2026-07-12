@@ -1,0 +1,107 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition_id": "A1",
+      "label": "design, candidate pool, and QASM bindings remain exact",
+      "passed": true,
+      "threshold": [
+        true,
+        96
+      ],
+      "value": [
+        true,
+        96
+      ]
+    },
+    {
+      "condition_id": "A2",
+      "label": "all rows contain sample-only selection and four noisy arms",
+      "passed": true,
+      "threshold": [
+        96,
+        12,
+        0
+      ],
+      "value": [
+        96,
+        12,
+        0
+      ]
+    },
+    {
+      "condition_id": "A3",
+      "label": "Lagos selection matches R140 exact in hidden pilot blocks",
+      "passed": true,
+      "threshold": ">= 7",
+      "value": 8
+    },
+    {
+      "condition_id": "A4",
+      "label": "portfolio selection agreement with R140 exact",
+      "passed": true,
+      "threshold": ">= 80",
+      "value": 87
+    },
+    {
+      "condition_id": "A5",
+      "label": "maximum exact R140 score regret",
+      "passed": true,
+      "threshold": "<= 0.005",
+      "value": 0.0019774847695264164
+    },
+    {
+      "condition_id": "A6",
+      "label": "portfolio sketch-auto bootstrap lower bound",
+      "passed": true,
+      "threshold": ">= -0.005",
+      "value": 0.0021369426677347765
+    },
+    {
+      "condition_id": "A7",
+      "label": "Lagos sketch-auto mean is nonnegative and wins at least half",
+      "passed": false,
+      "threshold": [
+        ">= 0",
+        ">= 4"
+      ],
+      "value": [
+        -0.003550061697868895,
+        3
+      ]
+    },
+    {
+      "condition_id": "A8",
+      "label": "portfolio sketch-R140-exact noisy noninferiority",
+      "passed": true,
+      "threshold": ">= -0.002",
+      "value": -0.0004415306660382704
+    },
+    {
+      "condition_id": "A9",
+      "label": "phase replay and disclosed execution budget",
+      "passed": true,
+      "threshold": [
+        384,
+        1572864
+      ],
+      "value": [
+        384,
+        1572864
+      ]
+    },
+    {
+      "condition_id": "A10",
+      "label": "pilot acquisition, hardware, soundness, advantage, BQP, and credit claims remain false",
+      "passed": true,
+      "threshold": 0,
+      "value": 0
+    }
+  ],
+  "candidate_identity_sha256": "23fc0ba1af7d34f2397369c59cbed7abe8468e1b5d20fae2813e4a96147e30a4",
+  "challenge_secret_commitment_sha256": "f6d99f49e6c9c939bdb6af693996be3e001ef7f9c04c70eea7b20e2159222499",
+  "contract_sha256": "388fb1aa35ae98d2c5f624e34541832e8590481046b42af105e57be63d6a770f",
+  "global_acceptance": false,
+  "maximum_exact_score_regret": 0.0019774847695264164,
+  "selection_agreement_count": 87,
+  "trial_rows_sha256": "313b0c9e4ab1b25ba06cdeb6e0c90ad91c04fd53dcffbf66a9ad11446bcb7576"
+}
