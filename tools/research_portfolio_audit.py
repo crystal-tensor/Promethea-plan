@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import hmac
 import json
 import re
 from pathlib import Path
@@ -35663,6 +35664,297 @@ def audit(root: Path) -> dict:
             if observed_artifact_bindings != expected_artifact_bindings:
                 errors.append("R138 contract artifact bindings drift from R137")
 
+    r138_result_path = results / "B4_B8_R138_postcommit_statistical_challenge_v0.json"
+    r138_report_path = research / "B4_B8_R138_postcommit_statistical_challenge.md"
+    r138_status = {
+        "path": str(r138_result_path),
+        "report_path": str(r138_report_path),
+        "exists": r138_result_path.exists(),
+        "report_exists": r138_report_path.exists(),
+    }
+    r138_manifest_rows = [
+        (
+            "B4",
+            b4_manifest.get("current_results", {}).get(
+                "b4_b8_r138_postcommit_statistical_challenge_v0"
+            ),
+        ),
+        (
+            "B8",
+            b8_manifest.get("current_results", {}).get(
+                "b4_b8_r138_postcommit_statistical_challenge_v0"
+            ),
+        ),
+        (
+            "B10",
+            b10_manifest.get("current_results", {}).get(
+                "b10_t2_b4_b8_r138_postcommit_statistical_challenge_v0"
+            ),
+        ),
+    ]
+    for label, manifest_row in r138_manifest_rows:
+        if not manifest_row:
+            errors.append(f"{label} manifest missing R138 statistical challenge result")
+            continue
+        for field in ["result", "markdown_report"]:
+            value = manifest_row.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(f"{label} R138 manifest missing existing {field}: {value}")
+    if not r138_result_path.exists():
+        errors.append(f"missing R138 statistical challenge result: {r138_result_path}")
+    elif not r138_report_path.exists():
+        errors.append(f"missing R138 statistical challenge report: {r138_report_path}")
+    else:
+        r138_payload = json.loads(read(r138_result_path))
+        r138_summary = r138_payload.get("summary", {})
+        r138_claims = r138_payload.get("claim_boundary", {})
+        r138_status.update(
+            {
+                "status": r138_payload.get("status"),
+                "method": r138_payload.get("method"),
+                "requirements_passed": r138_payload.get("requirements_passed"),
+                "requirements_failed": r138_payload.get("requirements_failed"),
+                "paired_trial_row_count": r138_summary.get("paired_trial_row_count"),
+                "mean_paired_hellinger_fidelity_delta": r138_summary.get(
+                    "mean_paired_hellinger_fidelity_delta"
+                ),
+                "paired_bootstrap_95_lower": r138_summary.get(
+                    "paired_bootstrap_95_lower"
+                ),
+                "selected_win_count": r138_summary.get("selected_win_count"),
+                "selected_loss_count": r138_summary.get("selected_loss_count"),
+                "acceptance_conditions_passed": r138_summary.get(
+                    "acceptance_conditions_passed"
+                ),
+                "global_acceptance": r138_summary.get("global_acceptance"),
+                "phase_artifact_replay_match_count": r138_summary.get(
+                    "phase_artifact_replay_match_count"
+                ),
+            }
+        )
+        expected_r138_summary = {
+            "source_binding_valid": True,
+            "artifact_count": 12,
+            "artifact_hash_match_count": 12,
+            "group_count": 12,
+            "trial_count_per_group": 8,
+            "paired_trial_row_count": 96,
+            "simulated_circuit_execution_count": 192,
+            "shots_per_circuit": 4096,
+            "total_simulated_shots": 786432,
+            "mean_selected_hellinger_fidelity": 0.8534718817974379,
+            "mean_automatic_hellinger_fidelity": 0.8499212971464777,
+            "mean_paired_hellinger_fidelity_delta": 0.0035505846509601906,
+            "paired_bootstrap_resamples": 10000,
+            "paired_bootstrap_95_lower": 0.001376466732817468,
+            "paired_bootstrap_95_upper": 0.005778070516455607,
+            "selected_win_count": 64,
+            "tie_count": 0,
+            "selected_loss_count": 32,
+            "groups_with_mean_delta_at_least_negative_0_025": 12,
+            "severe_regression_count_delta_below_negative_0_05": 0,
+            "route_realization_compilation_count": 1536,
+            "total_compilation_count": 1656,
+            "challenge_generated_after_preregistration": True,
+            "secret_revealed_after_all_trials": True,
+            "contract_thresholds_revised": False,
+            "current_backend_calibration_used": False,
+            "hardware_execution_performed": False,
+            "independent_verifier_custody_claimed": False,
+            "protocol_soundness_claimed": False,
+            "cryptographic_soundness_claimed": False,
+            "quantum_advantage_claimed": False,
+            "bqp_separation_claimed": False,
+            "new_credit_delta": 0,
+            "acceptance_conditions_passed": 8,
+            "acceptance_conditions_failed": 0,
+            "global_acceptance": True,
+            "phase_artifact_count": 4,
+            "phase_artifact_preexisting_count": 4,
+            "phase_artifact_replay_match_count": 4,
+        }
+        if r138_payload.get("status") != "preregistered_postcommit_statistical_noninferiority_acceptance":
+            errors.append("R138 statistical challenge status mismatch")
+        if r138_payload.get("method") != "b4_b8_r138_postcommit_statistical_challenge_v0":
+            errors.append("R138 statistical challenge method mismatch")
+        if r138_payload.get("source_target_id") != "T-B4-002am/T-B8-003aq/T-B10-009ae":
+            errors.append("R138 statistical challenge target mismatch")
+        if r138_payload.get("upstream_target_id") != "T-B4-002al/T-B8-003ap/T-B10-009ad":
+            errors.append("R138 statistical challenge upstream mismatch")
+        preregistration = r138_payload.get("preregistration", {})
+        if preregistration.get("contract_sha256") != "caee4c8fe9d8fb7b12482e714b3aa29a23f8531bfa4a9682e56e84438a288ab0":
+            errors.append("R138 result contract hash mismatch")
+        if preregistration.get("remote_commit") != "17012a4a5706eca8ec3c650c3e2a72bbfa82c80c":
+            errors.append("R138 result preregistration commit mismatch")
+        if preregistration.get("discussion") != "https://github.com/crystal-tensor/Prometheus-plan/discussions/140":
+            errors.append("R138 result preregistration discussion mismatch")
+        if preregistration.get("created_before_execution") is not True:
+            errors.append("R138 result must prove preregistration before execution")
+        if r138_payload.get("requirements_passed") != 10 or r138_payload.get(
+            "requirements_failed"
+        ) != 0:
+            errors.append("R138 statistical challenge requirements must pass 10/10")
+        for field, expected in expected_r138_summary.items():
+            if r138_summary.get(field) != expected:
+                errors.append(f"R138 statistical challenge {field} mismatch")
+        conditions = r138_payload.get("acceptance_conditions", [])
+        if len(conditions) != 8 or not all(row.get("passed") is True for row in conditions):
+            errors.append("R138 statistical challenge conditions must pass A1-A8")
+        if [row.get("condition_id") for row in conditions] != [
+            f"A{index}" for index in range(1, 9)
+        ]:
+            errors.append("R138 statistical challenge condition IDs mismatch")
+        group_rows = r138_payload.get("group_rows", [])
+        trial_rows = r138_payload.get("paired_trial_rows", [])
+        if len(group_rows) != 12 or len(trial_rows) != 96:
+            errors.append("R138 result must contain 12 groups and 96 paired rows")
+        if len(
+            {(row.get("artifact_id"), row.get("trial")) for row in trial_rows}
+        ) != 96:
+            errors.append("R138 paired artifact/trial keys must be unique")
+        if not all(
+            row.get("shots") == 4096
+            and row.get("same_simulator_seed_within_pair") is True
+            and row.get("selected_qasm_sha256")
+            for row in trial_rows
+        ):
+            errors.append("R138 paired rows violate shots, seed, or QASM binding")
+        if sum(
+            row.get("mean_paired_hellinger_fidelity_delta", 0.0) < 0
+            for row in group_rows
+        ) != 3:
+            errors.append("R138 group-level negative-boundary count mismatch")
+        lagos_ising = next(
+            (
+                row
+                for row in group_rows
+                if row.get("artifact_id")
+                == "FakeLagosV2::dense_validation_complete_ising_n6"
+            ),
+            None,
+        )
+        if lagos_ising is None or lagos_ising.get(
+            "mean_paired_hellinger_fidelity_delta"
+        ) != -0.013999892476764766:
+            errors.append("R138 Lagos complete-Ising boundary mismatch")
+        for label, manifest_row in r138_manifest_rows:
+            if not manifest_row:
+                continue
+            for field in [
+                "artifact_count",
+                "artifact_hash_match_count",
+                "group_count",
+                "trial_count_per_group",
+                "paired_trial_row_count",
+                "simulated_circuit_execution_count",
+                "shots_per_circuit",
+                "total_simulated_shots",
+                "mean_selected_hellinger_fidelity",
+                "mean_automatic_hellinger_fidelity",
+                "mean_paired_hellinger_fidelity_delta",
+                "paired_bootstrap_95_lower",
+                "paired_bootstrap_95_upper",
+                "groups_with_mean_delta_at_least_negative_0_025",
+                "severe_regression_count_delta_below_negative_0_05",
+                "acceptance_conditions_passed",
+                "acceptance_conditions_failed",
+                "global_acceptance",
+                "route_realization_compilation_count",
+                "total_compilation_count",
+                "phase_artifact_preexisting_count",
+                "phase_artifact_replay_match_count",
+                "challenge_generated_after_preregistration",
+                "secret_revealed_after_all_trials",
+                "contract_thresholds_revised",
+                "current_backend_calibration_used",
+                "hardware_execution_performed",
+                "independent_verifier_custody_claimed",
+                "protocol_soundness_claimed",
+                "cryptographic_soundness_claimed",
+                "quantum_advantage_claimed",
+                "bqp_separation_claimed",
+                "new_credit_delta",
+            ]:
+                if manifest_row.get(field) != r138_summary.get(field):
+                    errors.append(f"{label} R138 manifest {field} mismatch")
+            if manifest_row.get("selected_win_tie_loss_counts") != [64, 0, 32]:
+                errors.append(f"{label} R138 manifest win/tie/loss mismatch")
+        payload_hash = r138_payload.get("payload_hash")
+        hash_payload = dict(r138_payload)
+        hash_payload.pop("payload_hash", None)
+        expected_payload_hash = hashlib.sha256(
+            json.dumps(hash_payload, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest()
+        if payload_hash != expected_payload_hash:
+            errors.append("R138 statistical challenge payload hash mismatch")
+        phase_artifacts = r138_payload.get("artifacts", {})
+        phase_payloads = {}
+        for phase_key in [
+            "challenge_commitment",
+            "paired_trial_rows",
+            "challenge_reveal",
+            "verifier_transcript",
+        ]:
+            relative_path = phase_artifacts.get(phase_key)
+            phase_path = root / relative_path if relative_path else None
+            if phase_path is None or not phase_path.exists():
+                errors.append(f"R138 phase artifact missing: {phase_key}")
+            else:
+                phase_payloads[phase_key] = json.loads(read(phase_path))
+        if "challenge_commitment" in phase_payloads and "challenge_reveal" in phase_payloads:
+            commitment = phase_payloads["challenge_commitment"]
+            reveal = phase_payloads["challenge_reveal"]
+            try:
+                secret = bytes.fromhex(reveal.get("challenge_secret_hex", ""))
+            except ValueError:
+                secret = b""
+            if hashlib.sha256(secret).hexdigest() != commitment.get(
+                "challenge_secret_commitment_sha256"
+            ):
+                errors.append("R138 challenge reveal does not match commitment")
+            if commitment.get("contract_sha256") != preregistration.get(
+                "contract_sha256"
+            ):
+                errors.append("R138 challenge commitment contract drift")
+            if commitment.get("challenge_generated_at_unix", 0) <= 1783875038:
+                errors.append("R138 challenge commitment does not postdate preregistration")
+            if reveal.get("revealed_after_trial_row_count") != 96:
+                errors.append("R138 challenge secret was not revealed after all 96 rows")
+            for row in trial_rows:
+                artifact_id = row.get("artifact_id")
+                trial = row.get("trial")
+                expected_seeds = {}
+                for role in ["transpiler", "simulator"]:
+                    message = (
+                        f"caee4c8fe9d8fb7b12482e714b3aa29a23f8531bfa4a9682e56e84438a288ab0|"
+                        f"{artifact_id}|{trial}|{role}"
+                    ).encode()
+                    digest = hmac.new(secret, message, hashlib.sha256).digest()
+                    expected_seeds[role] = int.from_bytes(digest[:8], "big") % (
+                        2**31 - 1
+                    ) + 1
+                if row.get("transpiler_seed") != expected_seeds["transpiler"] or row.get(
+                    "simulator_seed"
+                ) != expected_seeds["simulator"]:
+                    errors.append(
+                        f"R138 hidden seed derivation mismatch: {artifact_id} trial {trial}"
+                    )
+        if "paired_trial_rows" in phase_payloads:
+            if phase_payloads["paired_trial_rows"].get("paired_trial_rows") != trial_rows:
+                errors.append("R138 paired trial phase file drifted")
+        if "verifier_transcript" in phase_payloads:
+            transcript = phase_payloads["verifier_transcript"]
+            if transcript.get("acceptance_conditions") != conditions or transcript.get(
+                "global_verdict"
+            ) != "ACCEPT":
+                errors.append("R138 verifier transcript drifted")
+        if "real hardware" not in r138_claims.get(
+            "what_is_not_supported", ""
+        ) or "quantum advantage" not in r138_claims.get(
+            "what_is_not_supported", ""
+        ):
+            errors.append("R138 claim boundary must exclude hardware and advantage")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -36107,6 +36399,7 @@ def audit(root: Path) -> dict:
             "r136_route_realization_margin": r136_status,
             "r137_artifact_bound_private_challenge": r137_status,
             "r138_postcommit_statistical_challenge_contract": r138_contract_status,
+            "r138_postcommit_statistical_challenge": r138_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -37465,6 +37758,9 @@ def audit(root: Path) -> dict:
             ),
             "b4_b8_r138_postcommit_statistical_challenge_contract": str(
                 r138_contract_path
+            ),
+            "b4_b8_r138_postcommit_statistical_challenge": str(
+                research / "B4_B8_R138_postcommit_statistical_challenge.md"
             ),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),

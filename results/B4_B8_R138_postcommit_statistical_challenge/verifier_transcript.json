@@ -1,0 +1,83 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition_id": "A1",
+      "label": "all committed artifacts and the R137 source remain hash-bound",
+      "passed": true,
+      "threshold": "12 and source binding valid",
+      "value": 12
+    },
+    {
+      "condition_id": "A2",
+      "label": "the hidden challenge expands to every preregistered group and trial",
+      "passed": true,
+      "threshold": [
+        96,
+        12
+      ],
+      "value": [
+        96,
+        12
+      ]
+    },
+    {
+      "condition_id": "A3",
+      "label": "selected mean Hellinger fidelity is noninferior on the paired holdout",
+      "passed": true,
+      "threshold": ">= -0.005",
+      "value": 0.0035505846509601906
+    },
+    {
+      "condition_id": "A4",
+      "label": "paired bootstrap uncertainty remains inside the preregistered margin",
+      "passed": true,
+      "threshold": ">= -0.0125",
+      "value": 0.001376466732817468
+    },
+    {
+      "condition_id": "A5",
+      "label": "noninferiority is not concentrated in only a few backend-task groups",
+      "passed": true,
+      "threshold": ">= 10",
+      "value": 12
+    },
+    {
+      "condition_id": "A6",
+      "label": "large row-level regressions remain rare",
+      "passed": true,
+      "threshold": "<= 2",
+      "value": 0
+    },
+    {
+      "condition_id": "A7",
+      "label": "the complete R136 selection cost remains charged",
+      "passed": true,
+      "threshold": [
+        1536,
+        1656
+      ],
+      "value": [
+        1536,
+        1656
+      ]
+    },
+    {
+      "condition_id": "A8",
+      "label": "forbidden scientific claims remain false regardless of the verdict",
+      "passed": true,
+      "threshold": "all forbidden claims false and new_credit_delta == 0",
+      "value": 0
+    }
+  ],
+  "bootstrap": {
+    "lower_95": 0.001376466732817468,
+    "median": 0.0035556094030147227,
+    "resamples": 10000,
+    "seed": 81891409,
+    "upper_95": 0.005778070516455607
+  },
+  "challenge_secret_commitment_sha256": "9f4851dcddf1b654bbe00c39368ec51b9a6313aec075a31dae44e16b3707c4e2",
+  "contract_sha256": "caee4c8fe9d8fb7b12482e714b3aa29a23f8531bfa4a9682e56e84438a288ab0",
+  "global_verdict": "ACCEPT",
+  "trial_rows_hash": "848eff23d72c1d2e08e7577f4b9adbfac1643a9271c258ffa9bb85dd9c995ace"
+}

@@ -8748,6 +8748,24 @@
       "route_realization_compilation_count": 1536,
       "status": "artifact_bound_private_challenge_integrity_acceptance_boundary"
     },
+    "r138_postcommit_statistical_challenge": {
+      "acceptance_conditions_passed": 8,
+      "exists": true,
+      "global_acceptance": true,
+      "mean_paired_hellinger_fidelity_delta": 0.0035505846509601906,
+      "method": "b4_b8_r138_postcommit_statistical_challenge_v0",
+      "paired_bootstrap_95_lower": 0.001376466732817468,
+      "paired_trial_row_count": 96,
+      "path": "results/B4_B8_R138_postcommit_statistical_challenge_v0.json",
+      "phase_artifact_replay_match_count": 4,
+      "report_exists": true,
+      "report_path": "research/B4_B8_R138_postcommit_statistical_challenge.md",
+      "requirements_failed": 0,
+      "requirements_passed": 10,
+      "selected_loss_count": 32,
+      "selected_win_count": 64,
+      "status": "preregistered_postcommit_statistical_noninferiority_acceptance"
+    },
     "r138_postcommit_statistical_challenge_contract": {
       "acceptance_condition_count": 8,
       "artifact_count": 12,
@@ -9755,6 +9773,7 @@
     "b4_b8_r135_dense_interaction_fallback": "research/B4_B8_R135_dense_interaction_fallback.md",
     "b4_b8_r136_route_realization_margin": "research/B4_B8_R136_route_realization_margin.md",
     "b4_b8_r137_artifact_bound_private_challenge": "research/B4_B8_R137_artifact_bound_private_challenge.md",
+    "b4_b8_r138_postcommit_statistical_challenge": "research/B4_B8_R138_postcommit_statistical_challenge.md",
     "b4_b8_r138_postcommit_statistical_challenge_contract": "benchmarks/B4_B8_R138_postcommit_statistical_challenge_contract_v0.json",
     "b4_b8_real_backend_packet_scout": "research/B4_B8_real_backend_packet_scout.md",
     "b4_b8_real_backend_provider_manifest_gate": "research/B4_B8_real_backend_provider_manifest_gate.md",

@@ -2441,7 +2441,19 @@ mean noninferiority floor is `-0.005`; the bootstrap 95% lower floor is
 `-0.0125`; at least 10/12 groups must remain above `-0.025`; and at most two
 rows may fall below `-0.05`. Execution is intentionally unopened at this
 commit. Thresholds may not change after publication, and a rejection must be
-reported rather than repaired after seeing the holdout.
+reported rather than repaired after seeing the holdout. The contract was then
+published in commit `17012a4a5706eca8ec3c650c3e2a72bbfa82c80c` and Discussion
+`#140` before challenge generation. The executed holdout accepts all `8/8`
+conditions: 96 paired rows over 786,432 simulated shots produce mean selected
+and automatic Hellinger fidelities `0.85347188` and `0.84992130`, for paired
+delta `+0.00355058`; the 10,000-resample 95% interval is
+`[+0.00137647,+0.00577807]`. Outcomes are `64/0/32`, all `12/12` group means
+remain above `-0.025`, and no row falls below `-0.05`. The Lagos complete-Ising
+group still has a negative mean delta of `-0.01399989`, so this is a scoped
+synthetic-noise noninferiority acceptance, not uniform superiority. Four phase
+artifacts replay `4/4`; requirements pass `10/10`. No current calibration,
+hardware, mitigation, independent custody, soundness, quantum advantage, BQP,
+or new credit is claimed.
 
 `T-B4-002aj` / `T-B8-003an` / `T-B10-009ab` now adds the R135
 dense-interaction deterministic fallback boundary. For each new inverse-QFT,

@@ -1340,6 +1340,59 @@ current_results:
     caveat: r137_local_artifact_integrity_is_not_external_verification_soundness_advantage_or_bqp_evidence
     result: ../results/B4_B8_R137_artifact_bound_private_challenge_v0.json
     markdown_report: ../research/B4_B8_R137_artifact_bound_private_challenge.md
+  b10_t2_b4_b8_r138_postcommit_statistical_challenge_v0:
+    status: preregistered_synthetic_noninferiority_acceptance_not_bqp_claim
+    model_status: historical_fake_backend_statistical_pass_keeps_b10_credit_blocked
+    method: b4_b8_r138_postcommit_statistical_challenge_v0
+    source_b8_result: ../results/B4_B8_R138_postcommit_statistical_challenge_v0.json
+    source_target_id: T-B4-002am/T-B8-003aq/T-B10-009ae
+    upstream_target_id: T-B4-002al/T-B8-003ap/T-B10-009ad
+    dependency_benchmark: B4/B8
+    contract_sha256: caee4c8fe9d8fb7b12482e714b3aa29a23f8531bfa4a9682e56e84438a288ab0
+    preregistration_commit: 17012a4a5706eca8ec3c650c3e2a72bbfa82c80c
+    artifact_count: 12
+    artifact_hash_match_count: 12
+    group_count: 12
+    trial_count_per_group: 8
+    paired_trial_row_count: 96
+    simulated_circuit_execution_count: 192
+    shots_per_circuit: 4096
+    total_simulated_shots: 786432
+    mean_selected_hellinger_fidelity: 0.8534718817974379
+    mean_automatic_hellinger_fidelity: 0.8499212971464777
+    mean_paired_hellinger_fidelity_delta: 0.0035505846509601906
+    paired_bootstrap_95_lower: 0.001376466732817468
+    paired_bootstrap_95_upper: 0.005778070516455607
+    selected_win_tie_loss_counts: [64, 0, 32]
+    groups_with_mean_delta_at_least_negative_0_025: 12
+    severe_regression_count_delta_below_negative_0_05: 0
+    acceptance_conditions_passed: 8
+    acceptance_conditions_failed: 0
+    global_acceptance: true
+    route_realization_compilation_count: 1536
+    total_compilation_count: 1656
+    phase_artifact_preexisting_count: 4
+    phase_artifact_replay_match_count: 4
+    challenge_generated_after_preregistration: true
+    secret_revealed_after_all_trials: true
+    contract_thresholds_revised: false
+    current_backend_calibration_used: false
+    hardware_execution_performed: false
+    independent_verifier_custody_claimed: false
+    protocol_soundness_claimed: false
+    cryptographic_soundness_claimed: false
+    b10_t2_credit_allowed: false
+    b10_bqp_separation_credit_allowed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    explicit_not_bqp_separation: true
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r138_synthetic_statistical_noninferiority_is_not_hardware_soundness_advantage_or_bqp_evidence
+    result: ../results/B4_B8_R138_postcommit_statistical_challenge_v0.json
+    markdown_report: ../research/B4_B8_R138_postcommit_statistical_challenge.md
   b10_t3_b9_checked_transcript_acceptance_packet_gate_v0:
     status: checked_transcript_acceptance_packet_open_missing_artifact
     method: b9_checked_transcript_acceptance_packet_gate_v0
