@@ -2194,6 +2194,18 @@ evidence can be interpreted. This is synthetic simulator evidence only; no
 hardware, protocol soundness, quantum advantage, BQP, or B10 credit is claimed.
 Requirements pass `10/10`.
 
+`T-B4-002v` / `T-B8-003z` / `T-B10-009n` now adds the R121 shot-budget
+sweep. The R120 private bundle is replayed at `512/1024/2048/4096/8192`
+shots under ideal and light Aer profiles, with `12` trials per task/budget.
+Minimum honest completeness by budget is ideal
+`0.5/0.6666666666666666/0.5/0.8333333333333334/0.9166666666666666` and light
+`0.25/0.5833333333333334/0.75/1.0/0.8333333333333334`. Both profiles first
+cross the `0.80` floor at `4096` shots in this seeded run; intermediate values
+fluctuate, so this supports shot-budget sensitivity, not a monotonic noise law.
+Matched-seed repeats and calibrated backend evidence remain open. Requirements
+pass `10/10`; hardware, protocol soundness, quantum advantage, BQP, and B10
+credit remain unclaimed.
+
 `T-B1-004gj` / `T-B7-015s` now closes the first R85 blocker without
 promoting the candidate. R86 emits source-binding replay stdout for all `30`
 selected G1 rows and verifies that every row still binds to the original

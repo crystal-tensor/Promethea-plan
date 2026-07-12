@@ -35373,6 +35373,9 @@ def audit(root: Path) -> dict:
             "b4_b8_r120_private_bundle_noise_replay": str(
                 research / "B4_B8_R120_private_bundle_noise_replay.md"
             ),
+            "b4_b8_r121_private_bundle_shot_sweep": str(
+                research / "B4_B8_R121_private_bundle_shot_sweep.md"
+            ),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),
             "b8_challenge_refresh_repair": str(research / "B8_challenge_refresh_repair.md"),

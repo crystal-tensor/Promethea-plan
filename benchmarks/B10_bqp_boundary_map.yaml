@@ -680,6 +680,33 @@ current_results:
     caveat: r120_low_shot_noise_boundary_keeps_b10_zero_credit
     result: ../results/B4_B8_R120_private_bundle_noise_replay_v0.json
     markdown_report: ../research/B4_B8_R120_private_bundle_noise_replay.md
+  b10_t2_b4_b8_r121_private_bundle_shot_sweep_v0:
+    status: private_signed_observable_bundle_shot_budget_boundary_not_bqp_claim
+    model_status: b8_bundle_shot_budget_sweep_keeps_b10_t2_credit_blocked
+    method: b4_b8_r121_private_bundle_shot_sweep_v0
+    source_b8_result: ../results/B4_B8_R121_private_bundle_shot_sweep_v0.json
+    source_target_id: T-B4-002v/T-B8-003z/T-B10-009n
+    upstream_target_id: T-B4-002u/T-B8-003y/T-B10-009m
+    dependency_benchmark: B4/B8
+    profiles: [ideal, light]
+    shot_budgets: [512, 1024, 2048, 4096, 8192]
+    trials_per_profile_task_budget: 12
+    ideal_minimum_honest_completeness_by_budget: [0.5, 0.6666666666666666, 0.5, 0.8333333333333334, 0.9166666666666666]
+    light_minimum_honest_completeness_by_budget: [0.25, 0.5833333333333334, 0.75, 1.0, 0.8333333333333334]
+    ideal_first_budget_reaching_honest_floor: 4096
+    light_first_budget_reaching_honest_floor: 4096
+    intermediate_budget_fluctuation_observed: true
+    protocol_soundness_claimed: false
+    b10_t2_credit_allowed: false
+    b10_bqp_separation_credit_allowed: false
+    quantum_advantage_claimed: false
+    explicit_not_bqp_separation: true
+    hardware_execution_performed: false
+    calibrated_backend_evidence: false
+    validation_error_count: 0
+    caveat: r121_shot_budget_sensitivity_keeps_b10_zero_credit
+    result: ../results/B4_B8_R121_private_bundle_shot_sweep_v0.json
+    markdown_report: ../research/B4_B8_R121_private_bundle_shot_sweep.md
   b10_t3_b9_checked_transcript_acceptance_packet_gate_v0:
     status: checked_transcript_acceptance_packet_open_missing_artifact
     method: b9_checked_transcript_acceptance_packet_gate_v0

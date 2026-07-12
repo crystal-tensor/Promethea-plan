@@ -1039,6 +1039,39 @@ current_results:
     caveat: r120_synthetic_aer_noise_and_low_shot_margin_boundary_no_calibrated_or_hardware_credit
     result: ../results/B4_B8_R120_private_bundle_noise_replay_v0.json
     markdown_report: ../research/B4_B8_R120_private_bundle_noise_replay.md
+  b4_b8_r121_private_bundle_shot_sweep_v0:
+    status: private_signed_observable_bundle_shot_budget_boundary
+    model_status: r120_bundle_shot_budget_sweep_with_ideal_and_light_aer_profiles
+    method: b4_b8_r121_private_bundle_shot_sweep_v0
+    source_target_id: T-B4-002v/T-B8-003z/T-B10-009n
+    upstream_target_id: T-B4-002u/T-B8-003y/T-B10-009m
+    task_count: 2
+    profile_count: 2
+    profiles: [ideal, light]
+    shot_budgets: [512, 1024, 2048, 4096, 8192]
+    trials_per_profile_task_budget: 12
+    bundle_size: 3
+    tolerance: 0.6
+    honest_floor: 0.8
+    ideal_minimum_honest_completeness_by_budget: [0.5, 0.6666666666666666, 0.5, 0.8333333333333334, 0.9166666666666666]
+    light_minimum_honest_completeness_by_budget: [0.25, 0.5833333333333334, 0.75, 1.0, 0.8333333333333334]
+    first_budget_reaching_honest_floor:
+      ideal: 4096
+      light: 4096
+    r120_minimum_profile_honest_completeness: 0.45
+    intermediate_budget_fluctuation_observed: true
+    matched_seed_repeat_required: true
+    hardware_execution_performed: false
+    calibrated_backend_evidence: false
+    protocol_soundness_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    requirements_passed: 10
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r121_seeded_shot_budget_sensitivity_no_monotonic_noise_or_soundness_claim
+    result: ../results/B4_B8_R121_private_bundle_shot_sweep_v0.json
+    markdown_report: ../research/B4_B8_R121_private_bundle_shot_sweep.md
 prototype_artifacts:
   output_invariant_verifier: ../tools/b8_output_invariant_verifier.py
   adaptive_leakage_spoofer: ../tools/b8_adaptive_spoofer_leakage.py
