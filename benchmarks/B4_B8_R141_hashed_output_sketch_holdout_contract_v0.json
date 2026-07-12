@@ -1,0 +1,172 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition": "all design, candidate-pool, and selected-QASM bindings remain exact",
+      "condition_id": "A1"
+    },
+    {
+      "condition": "all 96 rows contain a complete sample-only sketch selection and four-arm noisy replay",
+      "condition_id": "A2"
+    },
+    {
+      "condition": "Lagos complete-Ising sketch selection matches R140 exact in at least 7 of 8 hidden pilot blocks",
+      "condition_id": "A3"
+    },
+    {
+      "condition": "at least 80 of 96 sketch selections match R140 exact selection",
+      "condition_id": "A4"
+    },
+    {
+      "condition": "maximum exact R140 score regret is at most 0.005",
+      "condition_id": "A5"
+    },
+    {
+      "condition": "portfolio sketch-minus-automatic noisy fidelity bootstrap 95% lower bound is at least -0.005",
+      "condition_id": "A6"
+    },
+    {
+      "condition": "Lagos sketch-minus-automatic mean noisy fidelity is nonnegative and wins at least 4 of 8 rows",
+      "condition_id": "A7"
+    },
+    {
+      "condition": "portfolio sketch-minus-R140-exact mean noisy fidelity is at least -0.002",
+      "condition_id": "A8"
+    },
+    {
+      "condition": "all phase artifacts replay and disclosed work equals 384 executions and 1,572,864 shots",
+      "condition_id": "A9"
+    },
+    {
+      "condition": "scalable pilot acquisition, hardware, soundness, advantage, BQP, and new-credit claims remain false",
+      "condition_id": "A10"
+    }
+  ],
+  "algorithm_lock": {
+    "full_distribution_values_visible_to_selector": 0,
+    "hash_multiplier": 173,
+    "hash_offset": 97,
+    "pilot_sample_count": 4096,
+    "readout_replica_count": 8,
+    "score_formula": "(1-cx_any_error_proxy)*hashed_hellinger_fidelity",
+    "sketch_bucket_count": 256,
+    "tie_break_order": [
+      "hashed_output_sketch_score_desc",
+      "hashed_output_sketch_readout_fidelity_desc",
+      "cx_any_error_proxy_asc",
+      "cx_occurrence_count_asc",
+      "policy_id_desc",
+      "mapping_lexicographic_desc",
+      "realization_seed_asc"
+    ]
+  },
+  "artifact_bindings": [
+    {
+      "artifact_id": "FakeJakartaV2::dense_validation_complete_ising_n6",
+      "path": "results/B4_B8_R141_hashed_output_sketch_design/selected_circuits/FakeJakartaV2_dense_validation_complete_ising_n6.qasm",
+      "sha256": "a4373e35c98d3fb1a407ab42f7352b50ca5ccd75f98dc07939fa9b6659cb60c0"
+    },
+    {
+      "artifact_id": "FakeJakartaV2::dense_validation_inverse_qft_n6",
+      "path": "results/B4_B8_R141_hashed_output_sketch_design/selected_circuits/FakeJakartaV2_dense_validation_inverse_qft_n6.qasm",
+      "sha256": "5c733fd5337be414e833fad6157ff2d49063a10bcc520ba21470bdb47c93f9d7"
+    },
+    {
+      "artifact_id": "FakeJakartaV2::dense_validation_scrambled_qft_n6",
+      "path": "results/B4_B8_R141_hashed_output_sketch_design/selected_circuits/FakeJakartaV2_dense_validation_scrambled_qft_n6.qasm",
+      "sha256": "163692bd7a4c7f0986a17bfdecc4e598977f5e61769f26a727978a35dfe9faa5"
+    },
+    {
+      "artifact_id": "FakeJakartaV2::dense_validation_xy_network_n6",
+      "path": "results/B4_B8_R141_hashed_output_sketch_design/selected_circuits/FakeJakartaV2_dense_validation_xy_network_n6.qasm",
+      "sha256": "92c2200893cf600588bd38629a23445f6f8193bce874231b7798887629546c14"
+    },
+    {
+      "artifact_id": "FakeLagosV2::dense_validation_complete_ising_n6",
+      "path": "results/B4_B8_R141_hashed_output_sketch_design/selected_circuits/FakeLagosV2_dense_validation_complete_ising_n6.qasm",
+      "sha256": "616d987dc0f8ec5cd4e34a92cc518a2bc77fffaaf9beaf10fff4f9f69aee7f47"
+    },
+    {
+      "artifact_id": "FakeLagosV2::dense_validation_inverse_qft_n6",
+      "path": "results/B4_B8_R141_hashed_output_sketch_design/selected_circuits/FakeLagosV2_dense_validation_inverse_qft_n6.qasm",
+      "sha256": "a43ec21e220de8f9016933bc863bcd5a6889676a9491fc3814cb9b44a42528c7"
+    },
+    {
+      "artifact_id": "FakeLagosV2::dense_validation_scrambled_qft_n6",
+      "path": "results/B4_B8_R141_hashed_output_sketch_design/selected_circuits/FakeLagosV2_dense_validation_scrambled_qft_n6.qasm",
+      "sha256": "7a5a441cfb7f1566d66a64fb1aaac03d800ba34e8b32e7713c6bb21b89b9ce1f"
+    },
+    {
+      "artifact_id": "FakeLagosV2::dense_validation_xy_network_n6",
+      "path": "results/B4_B8_R141_hashed_output_sketch_design/selected_circuits/FakeLagosV2_dense_validation_xy_network_n6.qasm",
+      "sha256": "976c1f3ad226f67e5a344c69c45be045cd8d2779a5b3fceb89c8eed0e56dd532"
+    },
+    {
+      "artifact_id": "FakeOslo::dense_validation_complete_ising_n6",
+      "path": "results/B4_B8_R141_hashed_output_sketch_design/selected_circuits/FakeOslo_dense_validation_complete_ising_n6.qasm",
+      "sha256": "daaa1749d787f8b73a0f89dabbcefe729e8eba056a6700505e76b9b9ff94bc0d"
+    },
+    {
+      "artifact_id": "FakeOslo::dense_validation_inverse_qft_n6",
+      "path": "results/B4_B8_R141_hashed_output_sketch_design/selected_circuits/FakeOslo_dense_validation_inverse_qft_n6.qasm",
+      "sha256": "6ffd952f6d3fa992570877ad86082c985e37a6d177d8defe5ee9ab9034c5ffac"
+    },
+    {
+      "artifact_id": "FakeOslo::dense_validation_scrambled_qft_n6",
+      "path": "results/B4_B8_R141_hashed_output_sketch_design/selected_circuits/FakeOslo_dense_validation_scrambled_qft_n6.qasm",
+      "sha256": "0e382ae6a42ed34cfb6950055e36ec6a35d0f056f1a6d6a95614bb71f54aeed5"
+    },
+    {
+      "artifact_id": "FakeOslo::dense_validation_xy_network_n6",
+      "path": "results/B4_B8_R141_hashed_output_sketch_design/selected_circuits/FakeOslo_dense_validation_xy_network_n6.qasm",
+      "sha256": "e5917bdc573dd7c4ec62e574c610e5e1ebeb84351593a7195fbe1cc26ff1e62b"
+    }
+  ],
+  "challenge_design": {
+    "arms": [
+      "sketch",
+      "r140_exact",
+      "r136_old",
+      "automatic"
+    ],
+    "backend_task_group_count": 12,
+    "bootstrap_resample_count": 10000,
+    "candidate_count_per_selection": 128,
+    "hidden_pilot_seed_derived_after_preregistration": true,
+    "hidden_pilot_trial_count_per_group": 8,
+    "pilot_source": "statevector_backed_samples_hidden_from_selector",
+    "selection_trial_row_count": 96,
+    "shared_simulator_seed_within_four_arm_row": true,
+    "shots_per_circuit": 4096,
+    "simulated_circuit_execution_count": 384,
+    "total_simulated_shots": 1572864
+  },
+  "claim_boundary": {
+    "positive_result_requires_all_conditions": true,
+    "what_is_not_supported_even_if_accepted": "scalable pilot acquisition, current calibration, real hardware, mitigation, independent custody, protocol soundness, quantum advantage, BQP separation, or solved B4/B8/B10"
+  },
+  "contract_id": "B4-B8-R141-hashed-output-sketch-holdout-v0",
+  "contract_status": "public_preregistration_execution_unopened",
+  "phase_protocol": [
+    "commit a fresh secret after this contract is public",
+    "derive hidden pilot, transpiler, simulator, and bootstrap seeds",
+    "write all 96 four-arm rows before revealing the secret",
+    "reveal the secret and replay every selection, row, and verdict"
+  ],
+  "research_question": "Can a fixed-width sample sketch preserve the useful mapping decisions of exact output-aware scoring under hidden pilot and noisy seeds?",
+  "source_bindings": {
+    "candidate_identity_sha256": "23fc0ba1af7d34f2397369c59cbed7abe8468e1b5d20fae2813e4a96147e30a4",
+    "r136_result_path": "results/B4_B8_R136_route_realization_margin_v0.json",
+    "r136_result_sha256": "11e4e3dd6f2e94bbe7c0e90300d11b3b7d1bf573596759b50fafc62fbd538aab",
+    "r140_design_path": "results/B4_B8_R140_output_aware_mapping_design_v0.json",
+    "r140_design_payload_hash": "29ec01e82e700fe817be0182320d5f5ddce33ba0520126adce2681da7ad6d1d3",
+    "r140_design_sha256": "0ae638367c5cd23ce50628798cef50a0cdd97a8c81cae90a5cdadd42e99f6c3f",
+    "r140_holdout_path": "results/B4_B8_R140_output_aware_mapping_holdout_v0.json",
+    "r140_holdout_payload_hash": "783ff600cc6058746dfe936a94478fc3fe849780b19915c0e2d537794a4a35e3",
+    "r140_holdout_sha256": "4e1a9dd0a1ad7192da647008df4ec591b9578def3aca2fd0d93cd40ad1460f22",
+    "r141_design_path": "results/B4_B8_R141_hashed_output_sketch_design_v0.json",
+    "r141_design_payload_hash": "3a8f01623f629968c31bc72b9a223b3a5c4f95109bbe7d983151a70868c02d3a",
+    "r141_design_sha256": "0aea06096c5f8d665ee43d110021d21288bb4e50602a9c3f152e99cf3fc1ed64"
+  },
+  "target_id": "T-B4-002ar/T-B8-003av/T-B10-009aj",
+  "upstream_target_id": "T-B4-002aq/T-B8-003au/T-B10-009ai"
+}

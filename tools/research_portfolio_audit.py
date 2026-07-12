@@ -36461,6 +36461,157 @@ def audit(root: Path) -> dict:
         if "Scalable exact-output estimation" not in holdout.get("claim_boundary", {}).get("what_is_not_supported", ""):
             errors.append("R140 holdout must exclude scalable output claim")
 
+    r141_design_result_path = results / "B4_B8_R141_hashed_output_sketch_design_v0.json"
+    r141_design_report_path = research / "B4_B8_R141_hashed_output_sketch_design.md"
+    r141_contract_path = benchmarks / "B4_B8_R141_hashed_output_sketch_holdout_contract_v0.json"
+    r141_contract_sha256 = (
+        hashlib.sha256(r141_contract_path.read_bytes()).hexdigest()
+        if r141_contract_path.exists()
+        else None
+    )
+    r141_status = {
+        "path": str(r141_design_result_path),
+        "report_path": str(r141_design_report_path),
+        "contract_path": str(r141_contract_path),
+        "exists": r141_design_result_path.exists(),
+        "report_exists": r141_design_report_path.exists(),
+        "contract_exists": r141_contract_path.exists(),
+        "contract_sha256": r141_contract_sha256,
+    }
+    r141_manifest_rows = [
+        ("B4", b4_manifest.get("current_results", {}).get("b4_b8_r141_hashed_output_sketch_design_v0")),
+        ("B8", b8_manifest.get("current_results", {}).get("b4_b8_r141_hashed_output_sketch_design_v0")),
+        ("B10", b10_manifest.get("current_results", {}).get("b10_t2_b4_b8_r141_hashed_output_sketch_design_v0")),
+    ]
+    for label, manifest_row in r141_manifest_rows:
+        if not manifest_row:
+            errors.append(f"{label} manifest missing R141 hashed-output-sketch design")
+            continue
+        for field in ["result", "markdown_report", "holdout_contract"]:
+            value = manifest_row.get(field)
+            if not value or not path_exists_from(benchmarks, value):
+                errors.append(f"{label} R141 manifest missing existing {field}: {value}")
+        if manifest_row.get("holdout_contract_sha256") != r141_contract_sha256:
+            errors.append(f"{label} R141 contract hash mismatch")
+    if not all(
+        path.exists()
+        for path in [r141_design_result_path, r141_design_report_path, r141_contract_path]
+    ):
+        errors.append("R141 design result, report, or holdout contract missing")
+    else:
+        r141 = json.loads(read(r141_design_result_path))
+        r141_summary = r141.get("summary", {})
+        r141_status.update(
+            {
+                "status": r141.get("status"),
+                "method": r141.get("method"),
+                "requirements_passed": r141.get("requirements_passed"),
+                "requirements_failed": r141.get("requirements_failed"),
+                "pressure_selection_agreement_count": r141_summary.get(
+                    "pressure_selection_agreement_count"
+                ),
+                "lagos_ising_pressure_agreement_count": r141_summary.get(
+                    "lagos_ising_pressure_agreement_count"
+                ),
+                "maximum_exact_score_regret": r141_summary.get(
+                    "maximum_exact_score_regret"
+                ),
+            }
+        )
+        expected_r141 = {
+            "candidate_count": 1536,
+            "group_count": 12,
+            "sketch_bucket_count": 256,
+            "pilot_sample_count": 4096,
+            "readout_replica_count": 8,
+            "canonical_selection_agreement_count": 10,
+            "pressure_selection_count": 192,
+            "pressure_selection_agreement_count": 171,
+            "lagos_ising_pressure_agreement_count": 16,
+            "mean_exact_score_regret": 0.00006503498619612098,
+            "maximum_exact_score_regret": 0.0020742645208131627,
+            "selected_qasm_replay_match_count": 12,
+            "selector_full_distribution_value_count": 0,
+            "pilot_acquisition_method": "statevector_backed_samples_design_only",
+            "scalable_pilot_acquisition_claimed": False,
+            "noisy_holdout_executed": False,
+            "new_credit_delta": 0,
+        }
+        if r141.get("status") != "fixed_width_hashed_output_sketch_frozen_before_holdout":
+            errors.append("R141 hashed-output-sketch design status mismatch")
+        if r141.get("method") != "b4_b8_r141_hashed_output_sketch_design_v0":
+            errors.append("R141 hashed-output-sketch method mismatch")
+        if r141.get("source_target_id") != "T-B4-002aq/T-B8-003au/T-B10-009ai":
+            errors.append("R141 hashed-output-sketch target mismatch")
+        if r141.get("requirements_passed") != 10 or r141.get("requirements_failed") != 0:
+            errors.append("R141 hashed-output-sketch requirements must pass 10/10")
+        for field, value in expected_r141.items():
+            if r141_summary.get(field) != value:
+                errors.append(f"R141 hashed-output-sketch {field} mismatch")
+        if len(r141.get("candidate_rows", [])) != 1536:
+            errors.append("R141 design must contain 1,536 candidate rows")
+        if len(r141.get("group_rows", [])) != 12 or len(r141.get("pressure_rows", [])) != 192:
+            errors.append("R141 design group or pressure ledger mismatch")
+        for row in r141.get("group_rows", []):
+            relative_path = row.get("selected_circuit_path")
+            if not relative_path or not (root / relative_path).exists():
+                errors.append(f"R141 selected QASM missing: {relative_path}")
+            elif "OPENQASM 3" not in read(root / relative_path):
+                errors.append(f"R141 selected circuit is not OpenQASM 3: {relative_path}")
+            elif hashlib.sha256((root / relative_path).read_bytes()).hexdigest() != row.get(
+                "selected_circuit_sha256"
+            ):
+                errors.append(f"R141 selected QASM hash mismatch: {relative_path}")
+        hash_payload = dict(r141)
+        payload_hash = hash_payload.pop("payload_hash", None)
+        if payload_hash != hashlib.sha256(
+            json.dumps(hash_payload, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest():
+            errors.append("R141 design payload hash mismatch")
+        contract = json.loads(read(r141_contract_path))
+        if r141_contract_sha256 != "388fb1aa35ae98d2c5f624e34541832e8590481046b42af105e57be63d6a770f":
+            errors.append("R141 holdout contract file hash mismatch")
+        if contract.get("contract_id") != "B4-B8-R141-hashed-output-sketch-holdout-v0":
+            errors.append("R141 holdout contract ID mismatch")
+        if contract.get("contract_status") != "public_preregistration_execution_unopened":
+            errors.append("R141 holdout contract must remain unopened")
+        if contract.get("target_id") != "T-B4-002ar/T-B8-003av/T-B10-009aj":
+            errors.append("R141 holdout contract target mismatch")
+        if "challenge_secret" in contract or "trial_rows" in contract:
+            errors.append("R141 holdout contract must not contain secret or trial rows")
+        bindings = contract.get("source_bindings", {})
+        if bindings.get("r141_design_payload_hash") != payload_hash:
+            errors.append("R141 holdout contract payload binding mismatch")
+        if bindings.get("r141_design_sha256") != hashlib.sha256(
+            r141_design_result_path.read_bytes()
+        ).hexdigest():
+            errors.append("R141 holdout contract design file binding mismatch")
+        contract_artifacts = {
+            row.get("artifact_id"): row.get("sha256")
+            for row in contract.get("artifact_bindings", [])
+        }
+        result_artifacts = {
+            f"{row.get('snapshot')}::{row.get('task_id')}": row.get(
+                "selected_circuit_sha256"
+            )
+            for row in r141.get("group_rows", [])
+        }
+        if contract_artifacts != result_artifacts:
+            errors.append("R141 holdout artifact bindings drift from design")
+        design = contract.get("challenge_design", {})
+        if (
+            design.get("selection_trial_row_count") != 96
+            or design.get("simulated_circuit_execution_count") != 384
+            or design.get("total_simulated_shots") != 1572864
+        ):
+            errors.append("R141 holdout challenge design mismatch")
+        if len(contract.get("acceptance_conditions", [])) != 10:
+            errors.append("R141 holdout contract must fix A1-A10")
+        if "scalable pilot acquisition" not in r141.get("claim_boundary", {}).get(
+            "what_is_not_supported", ""
+        ):
+            errors.append("R141 claim boundary must exclude scalable pilot acquisition")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -36909,6 +37060,7 @@ def audit(root: Path) -> dict:
             "r139_lagos_ising_channel_attribution": r139_status,
             "r140_output_aware_mapping_design": r140_status,
             "r140_output_aware_mapping_holdout": r140_holdout_status,
+            "r141_hashed_output_sketch_design": r141_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -38282,6 +38434,12 @@ def audit(root: Path) -> dict:
             ),
             "b4_b8_r140_output_aware_mapping_holdout": str(
                 research / "B4_B8_R140_output_aware_mapping_holdout.md"
+            ),
+            "b4_b8_r141_hashed_output_sketch_design": str(
+                research / "B4_B8_R141_hashed_output_sketch_design.md"
+            ),
+            "b4_b8_r141_hashed_output_sketch_holdout_contract": str(
+                r141_contract_path
             ),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),

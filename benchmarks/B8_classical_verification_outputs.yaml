@@ -1907,6 +1907,43 @@ current_results:
     caveat: targeted_sign_repair_passes_but_material_improvement_gate_A4_fails
     result: ../results/B4_B8_R140_output_aware_mapping_holdout_v0.json
     markdown_report: ../research/B4_B8_R140_output_aware_mapping_holdout.md
+  b4_b8_r141_hashed_output_sketch_design_v0:
+    status: fixed_width_hashed_output_sketch_frozen_before_holdout
+    model_status: sample_only_selector_replays_r140_candidates_without_holdout_rows
+    method: b4_b8_r141_hashed_output_sketch_design_v0
+    source_target_id: T-B4-002aq/T-B8-003au/T-B10-009ai
+    upstream_target_id: T-B4-002ap/T-B8-003at/T-B10-009ah
+    candidate_count: 1536
+    group_count: 12
+    sketch_bucket_count: 256
+    pilot_sample_count: 4096
+    readout_replica_count: 8
+    canonical_selection_agreement_count: 10
+    pressure_selection_count: 192
+    pressure_selection_agreement_count: 171
+    lagos_ising_pressure_agreement_count: 16
+    mean_exact_score_regret: 0.00006503498619612098
+    maximum_exact_score_regret: 0.0020742645208131627
+    selected_qasm_preexisting_count: 12
+    selected_qasm_replay_match_count: 12
+    selector_full_distribution_value_count: 0
+    pilot_acquisition_method: statevector_backed_samples_design_only
+    scalable_pilot_acquisition_claimed: false
+    noisy_holdout_executed: false
+    holdout_contract_sha256: 388fb1aa35ae98d2c5f624e34541832e8590481046b42af105e57be63d6a770f
+    holdout_contract_status: public_preregistration_execution_unopened
+    hardware_execution_performed: false
+    protocol_soundness_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: fixed_width_selector_design_does_not_prove_scalable_pilot_acquisition_or_noisy_acceptance
+    result: ../results/B4_B8_R141_hashed_output_sketch_design_v0.json
+    markdown_report: ../research/B4_B8_R141_hashed_output_sketch_design.md
+    holdout_contract: B4_B8_R141_hashed_output_sketch_holdout_contract_v0.json
 prototype_artifacts:
   output_invariant_verifier: ../tools/b8_output_invariant_verifier.py
   adaptive_leakage_spoofer: ../tools/b8_adaptive_spoofer_leakage.py

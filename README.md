@@ -2500,6 +2500,22 @@ increment over the previous route is too small to count as a validated repair.
 Requirements pass 10/10 and phase replay passes 4/4; all downstream credit
 remains zero.
 
+`T-B4-002aq` / `T-B8-003au` / `T-B10-009ai` now freezes the R141
+fixed-width hashed-output-sketch design before noisy validation. The selector
+uses 256 histogram buckets, 4,096 pilot samples, and eight shared readout
+replicas per sample; it receives no full output-distribution table. Across 16
+independent pilot blocks per backend/task group, it matches the R140 exact
+selection in 171/192 cases and in 16/16 Lagos complete-Ising cases. Mean exact
+R140 score regret is `0.00006503`, maximum regret is `0.00207426`, and all 12
+selected OpenQASM 3 artifacts replay exactly. The immutable four-arm holdout
+contract hash is
+`388fb1aa35ae98d2c5f624e34541832e8590481046b42af105e57be63d6a770f`;
+it fixes 96 hidden-pilot rows, 384 noisy executions, 1,572,864 shots, and ten
+acceptance conditions before a challenge secret exists. The scoring interface
+is fixed-width, but the current pilot samples are statevector-backed, so this
+is not yet an end-to-end scalability result, holdout acceptance, hardware
+evidence, advantage, BQP evidence, or new credit.
+
 `T-B4-002aj` / `T-B8-003an` / `T-B10-009ab` now adds the R135
 dense-interaction deterministic fallback boundary. For each new inverse-QFT,
 scrambled-QFT, complete-Ising, and dense-XY input, five temporal graph rules

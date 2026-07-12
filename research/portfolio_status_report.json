@@ -8836,6 +8836,22 @@
       "requirements_passed": 10,
       "status": "output_aware_mapping_preregistered_holdout_rejection"
     },
+    "r141_hashed_output_sketch_design": {
+      "contract_exists": true,
+      "contract_path": "benchmarks/B4_B8_R141_hashed_output_sketch_holdout_contract_v0.json",
+      "contract_sha256": "388fb1aa35ae98d2c5f624e34541832e8590481046b42af105e57be63d6a770f",
+      "exists": true,
+      "lagos_ising_pressure_agreement_count": 16,
+      "maximum_exact_score_regret": 0.0020742645208131627,
+      "method": "b4_b8_r141_hashed_output_sketch_design_v0",
+      "path": "results/B4_B8_R141_hashed_output_sketch_design_v0.json",
+      "pressure_selection_agreement_count": 171,
+      "report_exists": true,
+      "report_path": "research/B4_B8_R141_hashed_output_sketch_design.md",
+      "requirements_failed": 0,
+      "requirements_passed": 10,
+      "status": "fixed_width_hashed_output_sketch_frozen_before_holdout"
+    },
     "real_backend_packet_scout": {
       "backend_calibrated_aer_circuit_count": 5760,
       "backend_calibrated_noise_parameters_instantiated": true,
@@ -9835,6 +9851,8 @@
     "b4_b8_r140_output_aware_mapping_design": "research/B4_B8_R140_output_aware_mapping_design.md",
     "b4_b8_r140_output_aware_mapping_holdout": "research/B4_B8_R140_output_aware_mapping_holdout.md",
     "b4_b8_r140_output_aware_mapping_holdout_contract": "benchmarks/B4_B8_R140_output_aware_mapping_holdout_contract_v0.json",
+    "b4_b8_r141_hashed_output_sketch_design": "research/B4_B8_R141_hashed_output_sketch_design.md",
+    "b4_b8_r141_hashed_output_sketch_holdout_contract": "benchmarks/B4_B8_R141_hashed_output_sketch_holdout_contract_v0.json",
     "b4_b8_real_backend_packet_scout": "research/B4_B8_real_backend_packet_scout.md",
     "b4_b8_real_backend_provider_manifest_gate": "research/B4_B8_real_backend_provider_manifest_gate.md",
     "b4_b8_real_backend_transcript_contract_gate": "research/B4_B8_real_backend_transcript_contract_gate.md",
