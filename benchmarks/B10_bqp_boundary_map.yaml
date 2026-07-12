@@ -737,6 +737,43 @@ current_results:
     caveat: r122_paired_confidence_boundary_keeps_b10_zero_credit
     result: ../results/B4_B8_R122_matched_seed_prefix_replay_v0.json
     markdown_report: ../research/B4_B8_R122_matched_seed_prefix_replay.md
+  b10_t2_b4_b8_r123_independent_seed_block_replay_v0:
+    status: independent_seed_block_confidence_stability_boundary_not_bqp_claim
+    model_status: block_robustness_replay_keeps_b10_t2_credit_blocked
+    method: b4_b8_r123_independent_seed_block_replay_v0
+    source_b8_result: ../results/B4_B8_R123_independent_seed_block_replay_v0.json
+    source_target_id: T-B4-002x/T-B8-003ab/T-B10-009p
+    upstream_target_id: T-B4-002w/T-B8-003aa/T-B10-009o
+    dependency_benchmark: B4/B8
+    profiles: [ideal, light]
+    seed_block_count: 5
+    shot_budgets: [4096, 8192]
+    trials_per_block_profile_task: 12
+    pooled_point_first_budget_reaching_honest_floor:
+      ideal: 8192
+      light: 4096
+    pooled_confidence_first_budget_reaching_honest_floor:
+      ideal: 8192
+      light: 8192
+    leave_one_block_out_confidence_first_budget_reaching_honest_floor:
+      ideal: null
+      light: 8192
+    all_blocks_point_first_budget_reaching_honest_floor:
+      ideal: 8192
+      light: 8192
+    fail_to_pass_transition_count: 18
+    pass_to_fail_transition_count: 3
+    protocol_soundness_claimed: false
+    b10_t2_credit_allowed: false
+    b10_bqp_separation_credit_allowed: false
+    quantum_advantage_claimed: false
+    explicit_not_bqp_separation: true
+    hardware_execution_performed: false
+    calibrated_backend_evidence: false
+    validation_error_count: 0
+    caveat: r123_independent_seed_blocks_keep_b10_zero_credit
+    result: ../results/B4_B8_R123_independent_seed_block_replay_v0.json
+    markdown_report: ../research/B4_B8_R123_independent_seed_block_replay.md
   b10_t3_b9_checked_transcript_acceptance_packet_gate_v0:
     status: checked_transcript_acceptance_packet_open_missing_artifact
     method: b9_checked_transcript_acceptance_packet_gate_v0

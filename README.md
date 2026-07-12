@@ -2221,6 +2221,18 @@ stronger shot-budget evidence, not a monotonic law or soundness result.
 Requirements pass `10/10`; hardware, calibrated backend, advantage, BQP, and
 B10 credit remain unclaimed.
 
+`T-B4-002x` / `T-B8-003ab` / `T-B10-009p` now adds the R123 independent-seed
+block replay. Five distinct root-seed blocks run `12` paired trials per
+profile/task at the critical `4096/8192` prefixes, producing `240` trial rows.
+At `8192`, all five blocks clear the point-estimate floor in both profiles and
+the pooled 95% Wilson lower bounds are ideal `0.8193` and light `0.8630`.
+The stricter minimum leave-one-block-out lower bounds are ideal `0.7783` and
+light `0.8316`, so only the light profile remains confidence-qualified after
+every single-block deletion. The ledger records `18` fail-to-pass and `3`
+pass-to-fail transitions. This isolates a block-robustness gap; it does not
+establish a universal shot threshold, iid law, hardware evidence, protocol
+soundness, advantage, BQP separation, or B10 credit. Requirements pass `10/10`.
+
 `T-B1-004gj` / `T-B7-015s` now closes the first R85 blocker without
 promoting the candidate. R86 emits source-binding replay stdout for all `30`
 selected G1 rows and verifies that every row still binds to the original
