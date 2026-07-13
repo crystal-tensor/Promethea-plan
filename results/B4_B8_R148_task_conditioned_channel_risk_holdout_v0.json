@@ -1,0 +1,696 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition_id": "A1",
+      "label": "protocol, selector, route identities, and source bindings remain exact",
+      "passed": true,
+      "threshold": true,
+      "value": true
+    },
+    {
+      "condition_id": "A2",
+      "label": "groups, rows, and executions",
+      "passed": true,
+      "threshold": [
+        12,
+        96,
+        288
+      ],
+      "value": [
+        12,
+        96,
+        288
+      ]
+    },
+    {
+      "condition_id": "A3",
+      "label": "all conditioned and target routes retain semantic fidelity",
+      "passed": true,
+      "threshold": [
+        24,
+        0.9999999999
+      ],
+      "value": [
+        24,
+        0.9999999999999973
+      ]
+    },
+    {
+      "condition_id": "A4",
+      "label": "portfolio conditioned versus automatic noninferiority",
+      "passed": true,
+      "threshold": [
+        -0.005,
+        -0.01
+      ],
+      "value": [
+        0.0021654388194870936,
+        0.0005520747789749848
+      ]
+    },
+    {
+      "condition_id": "A5",
+      "label": "portfolio conditioned versus target-specific noninferiority",
+      "passed": true,
+      "threshold": [
+        -0.005,
+        -0.01
+      ],
+      "value": [
+        -0.004865114915543493,
+        -0.006904793190435366
+      ]
+    },
+    {
+      "condition_id": "A6",
+      "label": "groups above negative 0.02 versus target",
+      "passed": true,
+      "threshold": 11,
+      "value": 11
+    },
+    {
+      "condition_id": "A7",
+      "label": "severe row regressions below negative 0.05",
+      "passed": true,
+      "threshold": 0,
+      "value": 0
+    },
+    {
+      "condition_id": "A8",
+      "label": "each-target and all R147 failure-group guards",
+      "passed": false,
+      "threshold": [
+        -0.01,
+        -0.02,
+        0
+      ],
+      "value": [
+        -0.007621649124578148,
+        -0.027988081524400993,
+        0
+      ]
+    },
+    {
+      "condition_id": "A9",
+      "label": "commitment, hidden rows, reveal, and transcript",
+      "passed": true,
+      "threshold": true,
+      "value": true
+    },
+    {
+      "condition_id": "A10",
+      "label": "forbidden claims and credit remain false",
+      "passed": true,
+      "threshold": 0,
+      "value": 0
+    }
+  ],
+  "artifacts": {
+    "challenge_commitment": "results/B4_B8_R148_task_conditioned_channel_risk_holdout/challenge_commitment.json",
+    "challenge_reveal": "results/B4_B8_R148_task_conditioned_channel_risk_holdout/challenge_reveal.json",
+    "contract": "benchmarks/B4_B8_R148_task_conditioned_channel_risk_contract_v0.json",
+    "markdown_report": "research/B4_B8_R148_task_conditioned_channel_risk_holdout.md",
+    "result": "results/B4_B8_R148_task_conditioned_channel_risk_holdout_v0.json",
+    "three_arm_trial_rows": "results/B4_B8_R148_task_conditioned_channel_risk_holdout/three_arm_trial_rows.json",
+    "verifier_transcript": "results/B4_B8_R148_task_conditioned_channel_risk_holdout/verifier_transcript.json"
+  },
+  "claim_boundary": {
+    "what_is_not_supported": "scalable exact-output evaluation, temporal same-device transfer, cross-machine transfer, provider access, real hardware, mitigation, soundness, quantum advantage, BQP separation, solved B4/B8/B10, or new credit",
+    "what_is_supported": "one preregistered finite six-qubit synthetic task-conditioned foreign-route verdict"
+  },
+  "compiled_route_rows": [
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_complete_ising_n6",
+      "channel_priority_mode": "readout_first",
+      "conditioned_mapping": [
+        3,
+        1,
+        5,
+        0,
+        2,
+        4
+      ],
+      "conditioned_policy_id": "selected_o3_default",
+      "conditioned_qasm_stable_hash": "68416f1f20bcdd858fb404d00ec59c73c5759eb592c99da414e814be4c78d6d6",
+      "conditioned_realization_seed": 13610,
+      "conditioned_semantic_fidelity": 0.9999999999999993,
+      "conditioned_source_snapshot": "FakeOslo",
+      "selection_changed_from_r147": true,
+      "target_snapshot": "FakeJakartaV2",
+      "target_specific_qasm_stable_hash": "6467316444e2c1154abbec344bcf4cffd759271bd1e54f010825c412ef9aad42",
+      "target_specific_semantic_fidelity": 0.9999999999999996,
+      "task_id": "dense_validation_complete_ising_n6"
+    },
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_inverse_qft_n6",
+      "channel_priority_mode": "cx_first",
+      "conditioned_mapping": [
+        2,
+        1,
+        4,
+        6,
+        3,
+        5
+      ],
+      "conditioned_policy_id": "selected_o3_default",
+      "conditioned_qasm_stable_hash": "38873bf299f077fcc6af24b03c8f394f00058531b1be7d65e8e94959d9006c15",
+      "conditioned_realization_seed": 13610,
+      "conditioned_semantic_fidelity": 1.0,
+      "conditioned_source_snapshot": "FakeOslo",
+      "selection_changed_from_r147": false,
+      "target_snapshot": "FakeJakartaV2",
+      "target_specific_qasm_stable_hash": "5da69d402ff86712315406dbec502e1c2938b05db3f851ad59289d05bc968392",
+      "target_specific_semantic_fidelity": 0.9999999999999996,
+      "task_id": "dense_validation_inverse_qft_n6"
+    },
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_scrambled_qft_n6",
+      "channel_priority_mode": "cx_first",
+      "conditioned_mapping": [
+        5,
+        0,
+        1,
+        4,
+        2,
+        3
+      ],
+      "conditioned_policy_id": "selected_o3_default",
+      "conditioned_qasm_stable_hash": "d13c6196dbc582a7c33f5d80a80937fdbb1c65005eccfe9e960b4d3fe8f30f96",
+      "conditioned_realization_seed": 13601,
+      "conditioned_semantic_fidelity": 0.9999999999999991,
+      "conditioned_source_snapshot": "FakeLagosV2",
+      "selection_changed_from_r147": false,
+      "target_snapshot": "FakeJakartaV2",
+      "target_specific_qasm_stable_hash": "386050d72d2d7aaaae4bb0be4ade8a77d612277c6f9aefdae77a0cf432274967",
+      "target_specific_semantic_fidelity": 0.9999999999999987,
+      "task_id": "dense_validation_scrambled_qft_n6"
+    },
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_xy_network_n6",
+      "channel_priority_mode": "readout_first",
+      "conditioned_mapping": [
+        0,
+        2,
+        1,
+        3,
+        5,
+        4
+      ],
+      "conditioned_policy_id": "selected_o3_lookahead",
+      "conditioned_qasm_stable_hash": "a1686fc15d22ca6692248390c156887030630fc1182eebff2fa8ee435dc71a9c",
+      "conditioned_realization_seed": 13601,
+      "conditioned_semantic_fidelity": 0.9999999999999978,
+      "conditioned_source_snapshot": "FakeOslo",
+      "selection_changed_from_r147": true,
+      "target_snapshot": "FakeJakartaV2",
+      "target_specific_qasm_stable_hash": "270bfccea0ee083ec6c2a4f3c6660de51f044bd2e966f3e8ed79447a4ecedc45",
+      "target_specific_semantic_fidelity": 0.9999999999999982,
+      "task_id": "dense_validation_xy_network_n6"
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_complete_ising_n6",
+      "channel_priority_mode": "readout_first",
+      "conditioned_mapping": [
+        3,
+        1,
+        5,
+        2,
+        0,
+        6
+      ],
+      "conditioned_policy_id": "selected_o3_default",
+      "conditioned_qasm_stable_hash": "bcd969a0fc99e2da0dc71c528cac0888de5de814cede85c508383269af9854e8",
+      "conditioned_realization_seed": 13610,
+      "conditioned_semantic_fidelity": 0.9999999999999993,
+      "conditioned_source_snapshot": "FakeJakartaV2",
+      "selection_changed_from_r147": true,
+      "target_snapshot": "FakeLagosV2",
+      "target_specific_qasm_stable_hash": "35ec28448b4d9264681390a001d5fccfc3eb6af4afc34131c0dd70a044cb0042",
+      "target_specific_semantic_fidelity": 1.0,
+      "task_id": "dense_validation_complete_ising_n6"
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_inverse_qft_n6",
+      "channel_priority_mode": "cx_first",
+      "conditioned_mapping": [
+        2,
+        1,
+        4,
+        6,
+        3,
+        5
+      ],
+      "conditioned_policy_id": "selected_o3_default",
+      "conditioned_qasm_stable_hash": "f459159480d8cf7cd33618be5e951d582cc415d6bebeffafbf3b2204750d1c64",
+      "conditioned_realization_seed": 13610,
+      "conditioned_semantic_fidelity": 0.9999999999999993,
+      "conditioned_source_snapshot": "FakeOslo",
+      "selection_changed_from_r147": false,
+      "target_snapshot": "FakeLagosV2",
+      "target_specific_qasm_stable_hash": "f996a66468cb3f02eada14a1aa75dc0606feafc305071221213d77d6a27e2827",
+      "target_specific_semantic_fidelity": 0.9999999999999982,
+      "task_id": "dense_validation_inverse_qft_n6"
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_scrambled_qft_n6",
+      "channel_priority_mode": "cx_first",
+      "conditioned_mapping": [
+        5,
+        2,
+        1,
+        4,
+        0,
+        3
+      ],
+      "conditioned_policy_id": "selected_o3_default",
+      "conditioned_qasm_stable_hash": "2bc26489d0e089274759a0b49e54ff2e1ecdc72b6b3b4fd37feb741357840184",
+      "conditioned_realization_seed": 13601,
+      "conditioned_semantic_fidelity": 0.9999999999999991,
+      "conditioned_source_snapshot": "FakeOslo",
+      "selection_changed_from_r147": false,
+      "target_snapshot": "FakeLagosV2",
+      "target_specific_qasm_stable_hash": "75eb73021d2db74691f9dc5dbfdae51a02addec093959d819e6ec579e3efba9c",
+      "target_specific_semantic_fidelity": 0.9999999999999993,
+      "task_id": "dense_validation_scrambled_qft_n6"
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_xy_network_n6",
+      "channel_priority_mode": "readout_first",
+      "conditioned_mapping": [
+        0,
+        2,
+        1,
+        3,
+        5,
+        4
+      ],
+      "conditioned_policy_id": "selected_o3_lookahead",
+      "conditioned_qasm_stable_hash": "5bac89c6ad1ac176b5dce6f78a3e733ca2d374cfce18e1575bd771dcf0a14e1e",
+      "conditioned_realization_seed": 13601,
+      "conditioned_semantic_fidelity": 0.9999999999999996,
+      "conditioned_source_snapshot": "FakeOslo",
+      "selection_changed_from_r147": false,
+      "target_snapshot": "FakeLagosV2",
+      "target_specific_qasm_stable_hash": "7a1f9e3b58d0e1321db311d3dba70dd5b0f5ef9ced89c96a78641f273963ea9f",
+      "target_specific_semantic_fidelity": 0.9999999999999973,
+      "task_id": "dense_validation_xy_network_n6"
+    },
+    {
+      "adaptation_group_id": "FakeOslo::dense_validation_complete_ising_n6",
+      "channel_priority_mode": "readout_first",
+      "conditioned_mapping": [
+        3,
+        1,
+        5,
+        2,
+        0,
+        6
+      ],
+      "conditioned_policy_id": "selected_o3_default",
+      "conditioned_qasm_stable_hash": "6467316444e2c1154abbec344bcf4cffd759271bd1e54f010825c412ef9aad42",
+      "conditioned_realization_seed": 13610,
+      "conditioned_semantic_fidelity": 0.9999999999999996,
+      "conditioned_source_snapshot": "FakeJakartaV2",
+      "selection_changed_from_r147": false,
+      "target_snapshot": "FakeOslo",
+      "target_specific_qasm_stable_hash": "144f600efa175938bc2634f0477e051d1d0db14e3c79cb5302b4e21473df71eb",
+      "target_specific_semantic_fidelity": 0.9999999999999993,
+      "task_id": "dense_validation_complete_ising_n6"
+    },
+    {
+      "adaptation_group_id": "FakeOslo::dense_validation_inverse_qft_n6",
+      "channel_priority_mode": "cx_first",
+      "conditioned_mapping": [
+        4,
+        5,
+        0,
+        2,
+        3,
+        1
+      ],
+      "conditioned_policy_id": "selected_o3_default",
+      "conditioned_qasm_stable_hash": "4c050a64ef391e99b6974a47934c4ff05b0d4b7c51eba11acf6d78d69a478b2b",
+      "conditioned_realization_seed": 13603,
+      "conditioned_semantic_fidelity": 1.0,
+      "conditioned_source_snapshot": "FakeLagosV2",
+      "selection_changed_from_r147": false,
+      "target_snapshot": "FakeOslo",
+      "target_specific_qasm_stable_hash": "38873bf299f077fcc6af24b03c8f394f00058531b1be7d65e8e94959d9006c15",
+      "target_specific_semantic_fidelity": 1.0,
+      "task_id": "dense_validation_inverse_qft_n6"
+    },
+    {
+      "adaptation_group_id": "FakeOslo::dense_validation_scrambled_qft_n6",
+      "channel_priority_mode": "cx_first",
+      "conditioned_mapping": [
+        5,
+        3,
+        1,
+        6,
+        2,
+        0
+      ],
+      "conditioned_policy_id": "selected_o3_default",
+      "conditioned_qasm_stable_hash": "386050d72d2d7aaaae4bb0be4ade8a77d612277c6f9aefdae77a0cf432274967",
+      "conditioned_realization_seed": 13601,
+      "conditioned_semantic_fidelity": 0.9999999999999987,
+      "conditioned_source_snapshot": "FakeJakartaV2",
+      "selection_changed_from_r147": true,
+      "target_snapshot": "FakeOslo",
+      "target_specific_qasm_stable_hash": "d833263a7178c1f2cc5e1778ca0364ebaeb8056c5bef3dc97ae27c677df85f8b",
+      "target_specific_semantic_fidelity": 1.0000000000000009,
+      "task_id": "dense_validation_scrambled_qft_n6"
+    },
+    {
+      "adaptation_group_id": "FakeOslo::dense_validation_xy_network_n6",
+      "channel_priority_mode": "readout_first",
+      "conditioned_mapping": [
+        0,
+        1,
+        3,
+        2,
+        5,
+        6
+      ],
+      "conditioned_policy_id": "selected_o3_default",
+      "conditioned_qasm_stable_hash": "270bfccea0ee083ec6c2a4f3c6660de51f044bd2e966f3e8ed79447a4ecedc45",
+      "conditioned_realization_seed": 13601,
+      "conditioned_semantic_fidelity": 0.9999999999999982,
+      "conditioned_source_snapshot": "FakeJakartaV2",
+      "selection_changed_from_r147": false,
+      "target_snapshot": "FakeOslo",
+      "target_specific_qasm_stable_hash": "c646fab9785b18dd71869981ad8c6e863721b61b1b5e0bcc4a9424f3ef435208",
+      "target_specific_semantic_fidelity": 0.9999999999999987,
+      "task_id": "dense_validation_xy_network_n6"
+    }
+  ],
+  "failed_requirement_ids": [],
+  "generated_at_unix": 1783937313,
+  "group_rows": [
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_complete_ising_n6",
+      "conditioned_win_count_vs_automatic": 4,
+      "conditioned_win_count_vs_target": 1,
+      "mean_conditioned_minus_automatic": 0.0007262726055196345,
+      "mean_conditioned_minus_target": -0.004062487402164139,
+      "minimum_conditioned_minus_target": -0.0077335332137308255,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeJakartaV2",
+      "task_id": "dense_validation_complete_ising_n6"
+    },
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_inverse_qft_n6",
+      "conditioned_win_count_vs_automatic": 5,
+      "conditioned_win_count_vs_target": 4,
+      "mean_conditioned_minus_automatic": 0.000443581551577768,
+      "mean_conditioned_minus_target": 0.000391638276563272,
+      "minimum_conditioned_minus_target": -0.001560583530519799,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeJakartaV2",
+      "task_id": "dense_validation_inverse_qft_n6"
+    },
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_scrambled_qft_n6",
+      "conditioned_win_count_vs_automatic": 5,
+      "conditioned_win_count_vs_target": 7,
+      "mean_conditioned_minus_automatic": 0.00024820952543334884,
+      "mean_conditioned_minus_target": 0.0011723341516892694,
+      "minimum_conditioned_minus_target": -0.0005152414079584444,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeJakartaV2",
+      "task_id": "dense_validation_scrambled_qft_n6"
+    },
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_xy_network_n6",
+      "conditioned_win_count_vs_automatic": 2,
+      "conditioned_win_count_vs_target": 0,
+      "mean_conditioned_minus_automatic": -0.007825778804330899,
+      "mean_conditioned_minus_target": -0.027988081524400993,
+      "minimum_conditioned_minus_target": -0.0382114256558832,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeJakartaV2",
+      "task_id": "dense_validation_xy_network_n6"
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_complete_ising_n6",
+      "conditioned_win_count_vs_automatic": 5,
+      "conditioned_win_count_vs_target": 1,
+      "mean_conditioned_minus_automatic": 0.005212225875438056,
+      "mean_conditioned_minus_target": -0.006101223678664239,
+      "minimum_conditioned_minus_target": -0.01788604214165046,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeLagosV2",
+      "task_id": "dense_validation_complete_ising_n6"
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_inverse_qft_n6",
+      "conditioned_win_count_vs_automatic": 3,
+      "conditioned_win_count_vs_target": 1,
+      "mean_conditioned_minus_automatic": -0.0006168804327773836,
+      "mean_conditioned_minus_target": -0.00023110304742911258,
+      "minimum_conditioned_minus_target": -0.0019484168805931068,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeLagosV2",
+      "task_id": "dense_validation_inverse_qft_n6"
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_scrambled_qft_n6",
+      "conditioned_win_count_vs_automatic": 4,
+      "conditioned_win_count_vs_target": 5,
+      "mean_conditioned_minus_automatic": 0.0003468028599569045,
+      "mean_conditioned_minus_target": 0.0008173847569113435,
+      "minimum_conditioned_minus_target": -0.0030999446665211927,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeLagosV2",
+      "task_id": "dense_validation_scrambled_qft_n6"
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_xy_network_n6",
+      "conditioned_win_count_vs_automatic": 5,
+      "conditioned_win_count_vs_target": 3,
+      "mean_conditioned_minus_automatic": 0.0012049802793294255,
+      "mean_conditioned_minus_target": -0.007935483772467125,
+      "minimum_conditioned_minus_target": -0.023214882621815452,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeLagosV2",
+      "task_id": "dense_validation_xy_network_n6"
+    },
+    {
+      "adaptation_group_id": "FakeOslo::dense_validation_complete_ising_n6",
+      "conditioned_win_count_vs_automatic": 8,
+      "conditioned_win_count_vs_target": 4,
+      "mean_conditioned_minus_automatic": 0.013067473813583433,
+      "mean_conditioned_minus_target": -0.0014798823836847524,
+      "minimum_conditioned_minus_target": -0.007676346452095806,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeOslo",
+      "task_id": "dense_validation_complete_ising_n6"
+    },
+    {
+      "adaptation_group_id": "FakeOslo::dense_validation_inverse_qft_n6",
+      "conditioned_win_count_vs_automatic": 4,
+      "conditioned_win_count_vs_target": 2,
+      "mean_conditioned_minus_automatic": 0.00039747270656284583,
+      "mean_conditioned_minus_target": -0.00011048419699238865,
+      "minimum_conditioned_minus_target": -0.001720054346650124,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeOslo",
+      "task_id": "dense_validation_inverse_qft_n6"
+    },
+    {
+      "adaptation_group_id": "FakeOslo::dense_validation_scrambled_qft_n6",
+      "conditioned_win_count_vs_automatic": 6,
+      "conditioned_win_count_vs_target": 5,
+      "mean_conditioned_minus_automatic": 0.0010057691415279318,
+      "mean_conditioned_minus_target": 0.0004318624564733642,
+      "minimum_conditioned_minus_target": -0.0006651659596674797,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeOslo",
+      "task_id": "dense_validation_scrambled_qft_n6"
+    },
+    {
+      "adaptation_group_id": "FakeOslo::dense_validation_xy_network_n6",
+      "conditioned_win_count_vs_automatic": 7,
+      "conditioned_win_count_vs_target": 1,
+      "mean_conditioned_minus_automatic": 0.011775136712024056,
+      "mean_conditioned_minus_target": -0.013285852622356417,
+      "minimum_conditioned_minus_target": -0.024302016199830523,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeOslo",
+      "task_id": "dense_validation_xy_network_n6"
+    }
+  ],
+  "method": "b4_b8_r148_task_conditioned_channel_risk_holdout_v0",
+  "model_status": "finite_six_qubit_zero_fit_channel_priority_foreign_route_holdout",
+  "payload_hash": "082f83879eace8b46b32529dfdbad7550c189ef3c27135d4662b24478b33698e",
+  "r147_failure_group_rows": [
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_complete_ising_n6",
+      "conditioned_win_count_vs_automatic": 4,
+      "conditioned_win_count_vs_target": 1,
+      "mean_conditioned_minus_automatic": 0.0007262726055196345,
+      "mean_conditioned_minus_target": -0.004062487402164139,
+      "minimum_conditioned_minus_target": -0.0077335332137308255,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeJakartaV2",
+      "task_id": "dense_validation_complete_ising_n6"
+    },
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_xy_network_n6",
+      "conditioned_win_count_vs_automatic": 2,
+      "conditioned_win_count_vs_target": 0,
+      "mean_conditioned_minus_automatic": -0.007825778804330899,
+      "mean_conditioned_minus_target": -0.027988081524400993,
+      "minimum_conditioned_minus_target": -0.0382114256558832,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeJakartaV2",
+      "task_id": "dense_validation_xy_network_n6"
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_complete_ising_n6",
+      "conditioned_win_count_vs_automatic": 5,
+      "conditioned_win_count_vs_target": 1,
+      "mean_conditioned_minus_automatic": 0.005212225875438056,
+      "mean_conditioned_minus_target": -0.006101223678664239,
+      "minimum_conditioned_minus_target": -0.01788604214165046,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeLagosV2",
+      "task_id": "dense_validation_complete_ising_n6"
+    }
+  ],
+  "requirement_count": 10,
+  "requirements": [
+    {
+      "label": "public preregistration precedes challenge",
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "label": "contract, protocol, design, and R143 hashes verify",
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "label": "12 frozen groups execute",
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "label": "all three arms share one row seed",
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "label": "commitment matches revealed secret",
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "label": "trial rows are complete before reveal",
+      "passed": true,
+      "requirement_id": "P6"
+    },
+    {
+      "label": "24 compiled route semantic checks pass",
+      "passed": true,
+      "requirement_id": "P7"
+    },
+    {
+      "label": "four phase artifacts replay",
+      "passed": true,
+      "requirement_id": "P8"
+    },
+    {
+      "label": "acceptance transcript contains A1-A10",
+      "passed": true,
+      "requirement_id": "P9"
+    },
+    {
+      "label": "R147 rows stay unused and claim boundary remains explicit",
+      "passed": true,
+      "requirement_id": "P10"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 10,
+  "source_target_id": "T-B4-002bf/T-B8-003bj/T-B10-009ax",
+  "status": "task_conditioned_channel_risk_preregistered_rejection",
+  "summary": {
+    "acceptance_conditions_failed": 1,
+    "acceptance_conditions_passed": 9,
+    "adaptation_group_count": 12,
+    "bqp_separation_claimed": false,
+    "cross_machine_transfer_claimed": false,
+    "failed_acceptance_condition_ids": [
+      "A8"
+    ],
+    "global_acceptance": false,
+    "groups_with_mean_conditioned_minus_target_at_least_negative_0_02": 11,
+    "hardware_execution_claimed": false,
+    "minimum_r147_failure_group_mean_conditioned_minus_target": -0.027988081524400993,
+    "minimum_semantic_fidelity": 0.9999999999999973,
+    "minimum_target_snapshot_mean_conditioned_minus_target": -0.007621649124578148,
+    "new_credit_delta": 0,
+    "phase_artifact_count": 4,
+    "phase_artifact_preexisting_count": 4,
+    "phase_artifact_replay_match_count": 4,
+    "portfolio_conditioned_minus_automatic_bootstrap_95_lower": 0.0005520747789749848,
+    "portfolio_conditioned_minus_automatic_bootstrap_95_upper": 0.0037851503811787046,
+    "portfolio_conditioned_minus_target_bootstrap_95_lower": -0.006904793190435366,
+    "portfolio_conditioned_minus_target_bootstrap_95_upper": -0.002978689989569152,
+    "portfolio_mean_conditioned_minus_automatic": 0.0021654388194870936,
+    "portfolio_mean_conditioned_minus_target": -0.004865114915543493,
+    "quantum_advantage_claimed": false,
+    "r147_failure_group_count": 3,
+    "r147_failure_group_severe_regression_count": 0,
+    "r147_hidden_trial_rows_read_count": 0,
+    "scalable_exact_output_method_claimed": false,
+    "selection_change_count_from_r147": 4,
+    "semantic_fidelity_pass_count": 24,
+    "severe_conditioned_minus_target_regression_count_below_negative_0_05": 0,
+    "simulated_circuit_execution_count": 288,
+    "solved_frontier_claimed": false,
+    "target_specific_routes_in_selector_count": 0,
+    "temporal_same_device_transfer_claimed": false,
+    "total_simulated_shots": 589824,
+    "trial_row_count": 96
+  },
+  "target_snapshot_rows": [
+    {
+      "mean_conditioned_minus_automatic": -0.001601928780450037,
+      "mean_conditioned_minus_target": -0.007621649124578148,
+      "row_count": 32,
+      "target_snapshot": "FakeJakartaV2"
+    },
+    {
+      "mean_conditioned_minus_automatic": 0.0015367821454867507,
+      "mean_conditioned_minus_target": -0.0033626064354122832,
+      "row_count": 32,
+      "target_snapshot": "FakeLagosV2"
+    },
+    {
+      "mean_conditioned_minus_automatic": 0.006561463093424567,
+      "mean_conditioned_minus_target": -0.0036110891866400485,
+      "row_count": 32,
+      "target_snapshot": "FakeOslo"
+    }
+  ],
+  "title": "B4/B8 R148 task-conditioned channel-risk holdout",
+  "upstream_target_id": "T-B4-002be/T-B8-003bi/T-B10-009aw",
+  "version": 0
+}

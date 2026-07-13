@@ -1,0 +1,112 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition_id": "A1",
+      "label": "protocol, selector, route identities, and source bindings remain exact",
+      "passed": true,
+      "threshold": true,
+      "value": true
+    },
+    {
+      "condition_id": "A2",
+      "label": "groups, rows, and executions",
+      "passed": true,
+      "threshold": [
+        12,
+        96,
+        288
+      ],
+      "value": [
+        12,
+        96,
+        288
+      ]
+    },
+    {
+      "condition_id": "A3",
+      "label": "all conditioned and target routes retain semantic fidelity",
+      "passed": true,
+      "threshold": [
+        24,
+        0.9999999999
+      ],
+      "value": [
+        24,
+        0.9999999999999973
+      ]
+    },
+    {
+      "condition_id": "A4",
+      "label": "portfolio conditioned versus automatic noninferiority",
+      "passed": true,
+      "threshold": [
+        -0.005,
+        -0.01
+      ],
+      "value": [
+        0.0021654388194870936,
+        0.0005520747789749848
+      ]
+    },
+    {
+      "condition_id": "A5",
+      "label": "portfolio conditioned versus target-specific noninferiority",
+      "passed": true,
+      "threshold": [
+        -0.005,
+        -0.01
+      ],
+      "value": [
+        -0.004865114915543493,
+        -0.006904793190435366
+      ]
+    },
+    {
+      "condition_id": "A6",
+      "label": "groups above negative 0.02 versus target",
+      "passed": true,
+      "threshold": 11,
+      "value": 11
+    },
+    {
+      "condition_id": "A7",
+      "label": "severe row regressions below negative 0.05",
+      "passed": true,
+      "threshold": 0,
+      "value": 0
+    },
+    {
+      "condition_id": "A8",
+      "label": "each-target and all R147 failure-group guards",
+      "passed": false,
+      "threshold": [
+        -0.01,
+        -0.02,
+        0
+      ],
+      "value": [
+        -0.007621649124578148,
+        -0.027988081524400993,
+        0
+      ]
+    },
+    {
+      "condition_id": "A9",
+      "label": "commitment, hidden rows, reveal, and transcript",
+      "passed": true,
+      "threshold": true,
+      "value": true
+    },
+    {
+      "condition_id": "A10",
+      "label": "forbidden claims and credit remain false",
+      "passed": true,
+      "threshold": 0,
+      "value": 0
+    }
+  ],
+  "challenge_secret_commitment_sha256": "af22fc58c9023b710809522d6e1c9154a7f6a46a5dc3233d1828904e6ba8f440",
+  "contract_sha256": "fa2c21ca88e6f08ec65c689c44d065e00ca00a5182846ec74ca70177b7103132",
+  "global_acceptance": false,
+  "trial_rows_sha256": "85c526cf318382be2b8561abd09537a410721d18907397dd34770107307e7377"
+}

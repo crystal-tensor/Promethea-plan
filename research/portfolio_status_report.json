@@ -9065,6 +9065,20 @@
       "r147_hidden_trial_rows_read_count": 0,
       "selection_change_count_from_r147": 4
     },
+    "r148_task_conditioned_channel_risk_holdout": {
+      "exists": true,
+      "global_acceptance": false,
+      "groups_above_negative_0_02": 11,
+      "method": "b4_b8_r148_task_conditioned_channel_risk_holdout_v0",
+      "minimum_r147_failure_group_mean": -0.027988081524400993,
+      "path": "results/B4_B8_R148_task_conditioned_channel_risk_holdout_v0.json",
+      "portfolio_mean_conditioned_minus_target": -0.004865114915543493,
+      "report_exists": true,
+      "report_path": "research/B4_B8_R148_task_conditioned_channel_risk_holdout.md",
+      "requirements_failed": 0,
+      "requirements_passed": 10,
+      "status": "task_conditioned_channel_risk_preregistered_rejection"
+    },
     "real_backend_packet_scout": {
       "backend_calibrated_aer_circuit_count": 5760,
       "backend_calibrated_noise_parameters_instantiated": true,
@@ -10088,6 +10102,7 @@
     "b4_b8_r147_target_descriptor_adaptation_protocol": "research/B4_B8_R147_target_descriptor_adaptation_protocol.md",
     "b4_b8_r148_task_conditioned_channel_risk_contract": "benchmarks/B4_B8_R148_task_conditioned_channel_risk_contract_v0.json",
     "b4_b8_r148_task_conditioned_channel_risk_design": "research/B4_B8_R148_task_conditioned_channel_risk_design.md",
+    "b4_b8_r148_task_conditioned_channel_risk_holdout": "research/B4_B8_R148_task_conditioned_channel_risk_holdout.md",
     "b4_b8_r148_task_conditioned_channel_risk_protocol": "research/B4_B8_R148_task_conditioned_channel_risk_protocol.md",
     "b4_b8_real_backend_packet_scout": "research/B4_B8_real_backend_packet_scout.md",
     "b4_b8_real_backend_provider_manifest_gate": "research/B4_B8_real_backend_provider_manifest_gate.md",

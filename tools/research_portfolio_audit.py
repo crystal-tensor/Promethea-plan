@@ -37786,6 +37786,89 @@ def audit(root: Path) -> dict:
         if contract.get("source_bindings", {}).get("protocol_payload_hash") != ph or len(contract.get("acceptance_conditions", [])) != 10:
             errors.append("R148 channel-risk contract binding or acceptance count mismatch")
 
+    r148_result_path = results / "B4_B8_R148_task_conditioned_channel_risk_holdout_v0.json"
+    r148_result_report_path = research / "B4_B8_R148_task_conditioned_channel_risk_holdout.md"
+    r148_result_status = {
+        "path": str(r148_result_path), "report_path": str(r148_result_report_path),
+        "exists": r148_result_path.exists(), "report_exists": r148_result_report_path.exists(),
+    }
+    r148_result_manifest_rows = [
+        ("B4", b4_manifest.get("current_results", {}).get("b4_b8_r148_task_conditioned_channel_risk_holdout_v0")),
+        ("B8", b8_manifest.get("current_results", {}).get("b4_b8_r148_task_conditioned_channel_risk_holdout_v0")),
+        ("B10", b10_manifest.get("current_results", {}).get("b10_t2_b4_b8_r148_task_conditioned_channel_risk_holdout_v0")),
+    ]
+    for label, row in r148_result_manifest_rows:
+        if not row:
+            errors.append(f"{label} manifest missing R148 channel-risk result")
+            continue
+        for field in ["result", "markdown_report"]:
+            if not row.get(field) or not path_exists_from(benchmarks, row[field]):
+                errors.append(f"{label} R148 channel-risk result missing {field}")
+    if not r148_result_path.exists() or not r148_result_report_path.exists():
+        errors.append("R148 channel-risk result or report missing")
+    else:
+        result = json.loads(read(r148_result_path)); summary = result.get("summary", {})
+        r148_result_status.update({
+            "status": result.get("status"), "method": result.get("method"),
+            "requirements_passed": result.get("requirements_passed"),
+            "requirements_failed": result.get("requirements_failed"),
+            "global_acceptance": summary.get("global_acceptance"),
+            "portfolio_mean_conditioned_minus_target": summary.get("portfolio_mean_conditioned_minus_target"),
+            "groups_above_negative_0_02": summary.get("groups_with_mean_conditioned_minus_target_at_least_negative_0_02"),
+            "minimum_r147_failure_group_mean": summary.get("minimum_r147_failure_group_mean_conditioned_minus_target"),
+        })
+        expected = {
+            "adaptation_group_count": 12, "trial_row_count": 96,
+            "simulated_circuit_execution_count": 288, "total_simulated_shots": 589824,
+            "portfolio_mean_conditioned_minus_automatic": 0.0021654388194870936,
+            "portfolio_conditioned_minus_automatic_bootstrap_95_lower": 0.0005520747789749848,
+            "portfolio_conditioned_minus_automatic_bootstrap_95_upper": 0.0037851503811787046,
+            "portfolio_mean_conditioned_minus_target": -0.004865114915543493,
+            "portfolio_conditioned_minus_target_bootstrap_95_lower": -0.006904793190435366,
+            "portfolio_conditioned_minus_target_bootstrap_95_upper": -0.002978689989569152,
+            "groups_with_mean_conditioned_minus_target_at_least_negative_0_02": 11,
+            "severe_conditioned_minus_target_regression_count_below_negative_0_05": 0,
+            "minimum_target_snapshot_mean_conditioned_minus_target": -0.007621649124578148,
+            "r147_failure_group_count": 3,
+            "minimum_r147_failure_group_mean_conditioned_minus_target": -0.027988081524400993,
+            "r147_failure_group_severe_regression_count": 0,
+            "minimum_semantic_fidelity": 0.9999999999999973,
+            "semantic_fidelity_pass_count": 24,
+            "selection_change_count_from_r147": 4,
+            "phase_artifact_count": 4, "phase_artifact_preexisting_count": 4,
+            "phase_artifact_replay_match_count": 4,
+            "r147_hidden_trial_rows_read_count": 0,
+            "target_specific_routes_in_selector_count": 0,
+            "acceptance_conditions_passed": 9, "acceptance_conditions_failed": 1,
+            "failed_acceptance_condition_ids": ["A8"],
+            "global_acceptance": False, "new_credit_delta": 0,
+        }
+        if result.get("status") != "task_conditioned_channel_risk_preregistered_rejection" or result.get("method") != "b4_b8_r148_task_conditioned_channel_risk_holdout_v0":
+            errors.append("R148 channel-risk result status or method mismatch")
+        if result.get("requirements_passed") != 10 or result.get("requirements_failed") != 0:
+            errors.append("R148 channel-risk result requirements must pass 10/10")
+        for field, value in expected.items():
+            if summary.get(field) != value:
+                errors.append(f"R148 channel-risk result {field} mismatch")
+        conditions = result.get("acceptance_conditions", [])
+        if len(conditions) != 10 or sum(row.get("passed", False) for row in conditions) != 9 or conditions[7].get("passed") is not False:
+            errors.append("R148 channel-risk result must preserve A8-only rejection")
+        if len(result.get("compiled_route_rows", [])) != 12 or len(result.get("group_rows", [])) != 12 or len(result.get("target_snapshot_rows", [])) != 3 or len(result.get("r147_failure_group_rows", [])) != 3:
+            errors.append("R148 channel-risk result row counts mismatch")
+        hp = dict(result); ph = hp.pop("payload_hash", None)
+        if ph != hashlib.sha256(json.dumps(hp, sort_keys=True, separators=(",", ":")).encode()).hexdigest():
+            errors.append("R148 channel-risk result payload hash mismatch")
+        for phase_key in ["challenge_commitment", "three_arm_trial_rows", "challenge_reveal", "verifier_transcript"]:
+            rel = result.get("artifacts", {}).get(phase_key)
+            if not rel or not (root / rel).exists():
+                errors.append(f"R148 channel-risk result phase missing: {phase_key}")
+        trials_path = root / result.get("artifacts", {}).get("three_arm_trial_rows", "")
+        transcript_path = root / result.get("artifacts", {}).get("verifier_transcript", "")
+        if trials_path.exists() and transcript_path.exists():
+            transcript = json.loads(read(transcript_path))
+            if transcript.get("trial_rows_sha256") != hashlib.sha256(trials_path.read_bytes()).hexdigest():
+                errors.append("R148 channel-risk trial row transcript hash mismatch")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -38249,6 +38332,7 @@ def audit(root: Path) -> dict:
             "r147_target_descriptor_adaptation": r147_status,
             "r147_target_descriptor_adaptation_holdout": r147_result_status,
             "r148_task_conditioned_channel_risk": r148_status,
+            "r148_task_conditioned_channel_risk_holdout": r148_result_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -39688,6 +39772,9 @@ def audit(root: Path) -> dict:
                 research / "B4_B8_R148_task_conditioned_channel_risk_protocol.md"
             ),
             "b4_b8_r148_task_conditioned_channel_risk_contract": str(r148_contract_path),
+            "b4_b8_r148_task_conditioned_channel_risk_holdout": str(
+                research / "B4_B8_R148_task_conditioned_channel_risk_holdout.md"
+            ),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),
             "b8_challenge_refresh_repair": str(research / "B8_challenge_refresh_repair.md"),

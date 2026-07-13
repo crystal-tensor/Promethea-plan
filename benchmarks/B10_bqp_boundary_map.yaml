@@ -1877,6 +1877,25 @@ current_results:
     result: ../results/B4_B8_R148_task_conditioned_channel_risk_protocol_v0.json
     markdown_report: ../research/B4_B8_R148_task_conditioned_channel_risk_protocol.md
     holdout_contract: B4_B8_R148_task_conditioned_channel_risk_contract_v0.json
+  b10_t2_b4_b8_r148_task_conditioned_channel_risk_holdout_v0:
+    status: task_conditioned_channel_risk_rejection_not_bqp_claim
+    method: b4_b8_r148_task_conditioned_channel_risk_holdout_v0
+    source_b8_result: ../results/B4_B8_R148_task_conditioned_channel_risk_holdout_v0.json
+    source_target_id: T-B4-002bf/T-B8-003bj/T-B10-009ax
+    portfolio_mean_conditioned_minus_target: -0.004865114915543493
+    groups_above_negative_0_02_vs_target: 11
+    severe_regression_count_below_negative_0_05: 0
+    minimum_r147_failure_group_mean_conditioned_minus_target: -0.027988081524400993
+    acceptance_conditions_passed: 9
+    acceptance_conditions_failed: 1
+    global_acceptance: false
+    b10_t2_credit_allowed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R148_task_conditioned_channel_risk_holdout_v0.json
+    markdown_report: ../research/B4_B8_R148_task_conditioned_channel_risk_holdout.md
   b10_t3_b9_checked_transcript_acceptance_packet_gate_v0:
     status: checked_transcript_acceptance_packet_open_missing_artifact
     method: b9_checked_transcript_acceptance_packet_gate_v0

@@ -2723,6 +2723,24 @@ No R148 holdout, scalable exact-output method, temporal transfer, cross-machine
 transfer, hardware, advantage, BQP, solved-frontier status, or new credit is
 claimed.
 
+The R148 holdout at `T-B4-002bf` / `T-B8-003bj` / `T-B10-009ax` is
+then preregistered REJECT with A8 alone failed; A1-A7 and A9-A10 pass.
+Requirements and phase replay pass `10/10` and `4/4`, and all `24/24`
+conditioned and target-specific routes preserve semantics. Portfolio
+conditioned-automatic mean and bootstrap lower are positive at `+0.00216544`
+and `+0.00055207`. Conditioned-target mean `-0.00486511` clears the fixed
+`-0.005` floor and its bootstrap lower is `-0.00690479`; `11/12` groups clear
+`-0.02`, severe rows are zero, and every target mean clears `-0.01`. The rule
+repairs Jakarta complete Ising to `-0.00406249` and Lagos complete Ising to
+`-0.00610122`, both without severe rows. The sole residual is Jakarta dense XY
+at `-0.02798808`, below the dedicated `-0.02` simultaneous-repair floor, so A8
+and the global verdict remain false. This isolates a candidate-support limit:
+both available foreign routes are inadequate for that group, so the next gate
+must generate a new target-aware route without copying the target-specific R143
+identity rather than tune channel weights. Scalable exact-output evaluation,
+temporal transfer, cross-machine transfer, hardware, advantage, BQP,
+solved-frontier status, and new credit remain unclaimed.
+
 `T-B4-002aj` / `T-B8-003an` / `T-B10-009ab` now adds the R135
 dense-interaction deterministic fallback boundary. For each new inverse-QFT,
 scrambled-QFT, complete-Ising, and dense-XY input, five temporal graph rules
