@@ -1,0 +1,1381 @@
+{
+  "artifacts": {
+    "markdown_report": "research/B4_B8_R152_edge_signature_expansion_design.md",
+    "result": "results/B4_B8_R152_edge_signature_expansion_design_v0.json"
+  },
+  "candidate_rows": [
+    {
+      "circuit_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design/FakeCasablancaV2/denominator__seed_150128.qasm",
+      "circuit_sha256": "5e83637ba17375e2bdffbc6260aa1b8b52b3a9c7b204d7e991669f7bdea10e9b",
+      "compiled_combined_any_error_proxy": 0.5525725297965955,
+      "compiled_cx_occurrence_count": 59,
+      "design_fidelities": [
+        0.5727084181106729,
+        0.5511139633285247,
+        0.5415934415167684,
+        0.5697739737019992,
+        0.5567949376193854,
+        0.5748655351825884,
+        0.5518107790075762,
+        0.5652722401959521,
+        0.5595270062248809,
+        0.5647931728632191,
+        0.5789851213038306,
+        0.5760801213089688,
+        0.55138195872137,
+        0.5516335015440469,
+        0.5775052307860962,
+        0.5607018512039961
+      ],
+      "edge_signature": [
+        [
+          1,
+          2,
+          10
+        ],
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          9
+        ],
+        [
+          4,
+          5,
+          2
+        ],
+        [
+          5,
+          3,
+          15
+        ],
+        [
+          5,
+          4,
+          8
+        ],
+        [
+          5,
+          6,
+          4
+        ],
+        [
+          6,
+          5,
+          8
+        ]
+      ],
+      "edge_signature_sha256": "903457525d9522d8722360f640f08e35ca2a58f755486bf6fc009f01b5658c88",
+      "qasm_stable_hash": "2c3e8489690fb5a6b50af8717a1e624c69ba9ca877ac1f8ecca97786e7f98710",
+      "selection_trace": [
+        {
+          "lcb_95": 0.5441627863440492,
+          "mean_fidelity": 0.5587974491644913,
+          "round": 1
+        },
+        {
+          "lcb_95": 0.5522133742592007,
+          "mean_fidelity": 0.5604916610829334,
+          "round": 2
+        },
+        {
+          "lcb_95": 0.5571679398659785,
+          "mean_fidelity": 0.5627838282887423,
+          "round": 3
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999984,
+      "target_snapshot": "FakeCasablancaV2",
+      "transpiler_seed": 150128
+    },
+    {
+      "circuit_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design/FakeCasablancaV2/denominator__seed_150175.qasm",
+      "circuit_sha256": "a687cad3b037f2df48ea80fb5022a3c734b48763125b09b90328c567fca84d39",
+      "compiled_combined_any_error_proxy": 0.5544610300903114,
+      "compiled_cx_occurrence_count": 61,
+      "design_fidelities": [
+        0.5429128953899728,
+        0.5248947414575684,
+        0.5178448173329656,
+        0.5446045422651568
+      ],
+      "edge_signature": [
+        [
+          1,
+          2,
+          9
+        ],
+        [
+          1,
+          3,
+          4
+        ],
+        [
+          3,
+          1,
+          9
+        ],
+        [
+          4,
+          5,
+          9
+        ],
+        [
+          5,
+          3,
+          15
+        ],
+        [
+          5,
+          4,
+          2
+        ],
+        [
+          5,
+          6,
+          11
+        ],
+        [
+          6,
+          5,
+          2
+        ]
+      ],
+      "edge_signature_sha256": "8f5dd389b9cc6205576f34ef09ac5744b34567e189743ede23f582022573baf2",
+      "qasm_stable_hash": "7d9128ffd4324db5597a1b73fe77459878eb62ff7609bf728b5073902ab737be",
+      "selection_trace": [
+        {
+          "lcb_95": 0.5195686687001039,
+          "mean_fidelity": 0.5325642491114159,
+          "round": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999989,
+      "target_snapshot": "FakeCasablancaV2",
+      "transpiler_seed": 150175
+    },
+    {
+      "circuit_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design/FakeCasablancaV2/denominator__seed_150103.qasm",
+      "circuit_sha256": "0f3c26fcc3acd51912465cf554494b17c8e9bf7bb2b6f1e103fd4cd7afd30c6a",
+      "compiled_combined_any_error_proxy": 0.5578704045202914,
+      "compiled_cx_occurrence_count": 63,
+      "design_fidelities": [
+        0.5601051941868467,
+        0.544755430749594,
+        0.530351324035443,
+        0.5615874316639369,
+        0.545747737182564,
+        0.569728716640911,
+        0.5411021313390494,
+        0.5576857401719071
+      ],
+      "edge_signature": [
+        [
+          1,
+          2,
+          8
+        ],
+        [
+          1,
+          3,
+          4
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          13
+        ],
+        [
+          3,
+          5,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          5,
+          3,
+          15
+        ],
+        [
+          5,
+          4,
+          8
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          6,
+          5,
+          10
+        ]
+      ],
+      "edge_signature_sha256": "e071aae11ae180cda1a6b5d457a8a0d622526d92e6e95b491ac952a8395ae7f9",
+      "qasm_stable_hash": "eb79adc8ac01dab05c312d9d995d0f8ba8e7ede80653e0a3c20d641807daebb5",
+      "selection_trace": [
+        {
+          "lcb_95": 0.5348035316952807,
+          "mean_fidelity": 0.5491998451589551,
+          "round": 1
+        },
+        {
+          "lcb_95": 0.5423850693307264,
+          "mean_fidelity": 0.5513829632462814,
+          "round": 2
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999978,
+      "target_snapshot": "FakeCasablancaV2",
+      "transpiler_seed": 150103
+    },
+    {
+      "circuit_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design/FakeCasablancaV2/denominator__seed_150119.qasm",
+      "circuit_sha256": "aff4ae47e222aac75787383f1d0db265b0f8a8637d98c9396f20f4b833379e7f",
+      "compiled_combined_any_error_proxy": 0.5578704045202914,
+      "compiled_cx_occurrence_count": 63,
+      "design_fidelities": [
+        0.559123801085001,
+        0.5447018404389293,
+        0.5305428122245274,
+        0.5617709896791875,
+        0.5455841682341691,
+        0.5689021049846176,
+        0.5398668693724922,
+        0.5579041352356668
+      ],
+      "edge_signature": [
+        [
+          1,
+          2,
+          8
+        ],
+        [
+          1,
+          3,
+          3
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          14
+        ],
+        [
+          3,
+          5,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          5,
+          3,
+          15
+        ],
+        [
+          5,
+          4,
+          8
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          6,
+          5,
+          10
+        ]
+      ],
+      "edge_signature_sha256": "e6d947bf4a503fb3546660165644119beaf66e1130bb1a9d9e86150f72943734",
+      "qasm_stable_hash": "c182c657a209fa56d39aacb6bfa194467b5bcd72ddcdf6e65191c23723040f2b",
+      "selection_trace": [
+        {
+          "lcb_95": 0.5348928731762222,
+          "mean_fidelity": 0.5490348608569113,
+          "round": 1
+        },
+        {
+          "lcb_95": 0.5421229623598663,
+          "mean_fidelity": 0.5510495901568239,
+          "round": 2
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999978,
+      "target_snapshot": "FakeCasablancaV2",
+      "transpiler_seed": 150119
+    },
+    {
+      "circuit_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design/FakeCasablancaV2/denominator__seed_150104.qasm",
+      "circuit_sha256": "1dedf6d55b6694faaea1ccef79bd2d07ffda65e99d69541bd0e78cc3cdbac369",
+      "compiled_combined_any_error_proxy": 0.5582231998766294,
+      "compiled_cx_occurrence_count": 60,
+      "design_fidelities": [
+        0.5418233626509341,
+        0.5183661046666881,
+        0.5227603712228454,
+        0.5392372599151987
+      ],
+      "edge_signature": [
+        [
+          1,
+          2,
+          10
+        ],
+        [
+          1,
+          3,
+          1
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          10
+        ],
+        [
+          3,
+          5,
+          2
+        ],
+        [
+          4,
+          5,
+          10
+        ],
+        [
+          5,
+          3,
+          14
+        ],
+        [
+          5,
+          6,
+          11
+        ],
+        [
+          6,
+          5,
+          1
+        ]
+      ],
+      "edge_signature_sha256": "6d6d8d9ed6ad2765c0bfb05b8909f25f815298e8b78418192c3c6648695e0017",
+      "qasm_stable_hash": "32089e84e4398bb79fb65dd88af23f8a15e8f47fac4a0f195c98cfa131d617d4",
+      "selection_trace": [
+        {
+          "lcb_95": 0.5190666449261754,
+          "mean_fidelity": 0.5305467746139165,
+          "round": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999971,
+      "target_snapshot": "FakeCasablancaV2",
+      "transpiler_seed": 150104
+    },
+    {
+      "circuit_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design/FakeCasablancaV2/denominator__seed_150108.qasm",
+      "circuit_sha256": "c716cbf3f3c50f4cb23e269d97be4555a15360391500d477f53fbd70965794be",
+      "compiled_combined_any_error_proxy": 0.5582231998766294,
+      "compiled_cx_occurrence_count": 60,
+      "design_fidelities": [
+        0.5423383158835713,
+        0.519019366995196,
+        0.5228469868915663,
+        0.5390832840709678
+      ],
+      "edge_signature": [
+        [
+          1,
+          2,
+          10
+        ],
+        [
+          1,
+          3,
+          1
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          10
+        ],
+        [
+          3,
+          5,
+          3
+        ],
+        [
+          4,
+          5,
+          10
+        ],
+        [
+          5,
+          3,
+          13
+        ],
+        [
+          5,
+          6,
+          11
+        ],
+        [
+          6,
+          5,
+          1
+        ]
+      ],
+      "edge_signature_sha256": "4bdd380e8bc736de8dc2fd9eaa5fd8507f1b448a882e78a92d481a88425aa120",
+      "qasm_stable_hash": "1e60f1f23a6b9f43ebddad9954ae007cbc5da03fd273b7cb4659d55b3770d6db",
+      "selection_trace": [
+        {
+          "lcb_95": 0.5194526181486974,
+          "mean_fidelity": 0.5308219884603254,
+          "round": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999971,
+      "target_snapshot": "FakeCasablancaV2",
+      "transpiler_seed": 150108
+    },
+    {
+      "circuit_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design/FakeCasablancaV2/denominator__seed_150101.qasm",
+      "circuit_sha256": "f833c9beb778a6988ff4d100e3c3129146d92a72f1a2c4c0925c9bcd35ecd00f",
+      "compiled_combined_any_error_proxy": 0.5584293210318778,
+      "compiled_cx_occurrence_count": 60,
+      "design_fidelities": [
+        0.5443556796534313,
+        0.5313321988032405,
+        0.5191842159849928,
+        0.5526402359186781
+      ],
+      "edge_signature": [
+        [
+          1,
+          2,
+          10
+        ],
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          9
+        ],
+        [
+          3,
+          5,
+          2
+        ],
+        [
+          4,
+          5,
+          11
+        ],
+        [
+          5,
+          3,
+          13
+        ],
+        [
+          5,
+          6,
+          11
+        ],
+        [
+          6,
+          5,
+          1
+        ]
+      ],
+      "edge_signature_sha256": "f3879a10801e617e3deded74f4bfc1dd50944b2e20b616e618211df226e8033a",
+      "qasm_stable_hash": "21ff871c3ca0007da1f41930159ed995c428d9c95223040bbb96b5cebc8e220a",
+      "selection_trace": [
+        {
+          "lcb_95": 0.5224729750864896,
+          "mean_fidelity": 0.5368780825900856,
+          "round": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999984,
+      "target_snapshot": "FakeCasablancaV2",
+      "transpiler_seed": 150101
+    },
+    {
+      "circuit_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design/FakeCasablancaV2/denominator__seed_150102.qasm",
+      "circuit_sha256": "a49b0c8123ae8921f2a9fc93470f01375af2f3629c07cb8c0cdaacb2029ebc47",
+      "compiled_combined_any_error_proxy": 0.5584293210318778,
+      "compiled_cx_occurrence_count": 60,
+      "design_fidelities": [
+        0.5440702893224412,
+        0.5315799302378327,
+        0.5214705137990054,
+        0.553912425432707
+      ],
+      "edge_signature": [
+        [
+          1,
+          2,
+          10
+        ],
+        [
+          1,
+          3,
+          3
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          8
+        ],
+        [
+          3,
+          5,
+          3
+        ],
+        [
+          4,
+          5,
+          11
+        ],
+        [
+          5,
+          3,
+          12
+        ],
+        [
+          5,
+          6,
+          11
+        ],
+        [
+          6,
+          5,
+          1
+        ]
+      ],
+      "edge_signature_sha256": "4260c3e5c58b88b95976b3250ddd499a1c386f1d32e0481710b4570dbcb38a3c",
+      "qasm_stable_hash": "6e164436931b970b22f644a7ea5f70d5bae0835eb1307c968008bcaa4913f776",
+      "selection_trace": [
+        {
+          "lcb_95": 0.5238498693942716,
+          "mean_fidelity": 0.5377582896979965,
+          "round": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999984,
+      "target_snapshot": "FakeCasablancaV2",
+      "transpiler_seed": 150102
+    },
+    {
+      "circuit_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design/FakeCasablancaV2/denominator__seed_150125.qasm",
+      "circuit_sha256": "b3cc1ef1f2a83c259a99da8631b0406a942d093f4c0644141f4f9f39073cdc68",
+      "compiled_combined_any_error_proxy": 0.5592936498075031,
+      "compiled_cx_occurrence_count": 60,
+      "design_fidelities": [
+        0.5572238613727185,
+        0.5368441809624536,
+        0.5226066423163803,
+        0.5610561771202643
+      ],
+      "edge_signature": [
+        [
+          1,
+          2,
+          10
+        ],
+        [
+          1,
+          3,
+          1
+        ],
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          3,
+          1,
+          11
+        ],
+        [
+          3,
+          5,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          5,
+          3,
+          14
+        ],
+        [
+          5,
+          4,
+          9
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          6,
+          5,
+          9
+        ]
+      ],
+      "edge_signature_sha256": "0ac01aa2b705d2c4858777692d71e8677b872770376b4d5201df620406a57325",
+      "qasm_stable_hash": "328ca16ced7baa53534d03a4bebbea704da2e386e129a77b3465d07c8981fb65",
+      "selection_trace": [
+        {
+          "lcb_95": 0.5267753361180812,
+          "mean_fidelity": 0.5444327154429542,
+          "round": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999984,
+      "target_snapshot": "FakeCasablancaV2",
+      "transpiler_seed": 150125
+    },
+    {
+      "circuit_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design/FakeCasablancaV2/denominator__seed_150136.qasm",
+      "circuit_sha256": "18e7f2b8a8f6c18ffe3c1cf319f8042142733203f1c4c79716648ed29cf9beb3",
+      "compiled_combined_any_error_proxy": 0.5592936498075031,
+      "compiled_cx_occurrence_count": 60,
+      "design_fidelities": [
+        0.5573994803882576,
+        0.537462430637654,
+        0.522366731212902,
+        0.5616354085506363
+      ],
+      "edge_signature": [
+        [
+          1,
+          2,
+          10
+        ],
+        [
+          1,
+          3,
+          1
+        ],
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          3,
+          1,
+          11
+        ],
+        [
+          3,
+          5,
+          2
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          5,
+          3,
+          13
+        ],
+        [
+          5,
+          4,
+          9
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          6,
+          5,
+          9
+        ]
+      ],
+      "edge_signature_sha256": "b66d6b402a63e02bc2d69e2f99b31f52a7699b1d1e4aeb83ccc5bf9525776426",
+      "qasm_stable_hash": "944d0944f3af13ca8ba98aaabd785173f555b7a03f18c98ace2449b93e0cda85",
+      "selection_trace": [
+        {
+          "lcb_95": 0.5268305325997985,
+          "mean_fidelity": 0.5447160126973625,
+          "round": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999984,
+      "target_snapshot": "FakeCasablancaV2",
+      "transpiler_seed": 150136
+    },
+    {
+      "circuit_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design/FakeCasablancaV2/denominator__seed_150113.qasm",
+      "circuit_sha256": "0297f5d1bdd3936a66b79cddd44e216c4fe79029c0c3717a963fffa4b35d0e2f",
+      "compiled_combined_any_error_proxy": 0.5606978006674339,
+      "compiled_cx_occurrence_count": 63,
+      "design_fidelities": [
+        0.5456392710939046,
+        0.5283726971761723,
+        0.5243679296922585,
+        0.5527030130348268
+      ],
+      "edge_signature": [
+        [
+          1,
+          2,
+          8
+        ],
+        [
+          1,
+          3,
+          4
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          11
+        ],
+        [
+          3,
+          5,
+          2
+        ],
+        [
+          5,
+          3,
+          15
+        ],
+        [
+          5,
+          4,
+          9
+        ],
+        [
+          5,
+          6,
+          4
+        ],
+        [
+          6,
+          5,
+          9
+        ]
+      ],
+      "edge_signature_sha256": "8dbc565e3a1fdd4014868390ecac9cd34f0caf01f13dad6671ad7689f3d2a21d",
+      "qasm_stable_hash": "5597043387aabf46085733ffb07324eb0460fde09d828ac34234c33edb2fa2dc",
+      "selection_trace": [
+        {
+          "lcb_95": 0.524467189035129,
+          "mean_fidelity": 0.5377707277492906,
+          "round": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999982,
+      "target_snapshot": "FakeCasablancaV2",
+      "transpiler_seed": 150113
+    },
+    {
+      "circuit_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design/FakeCasablancaV2/denominator__seed_150120.qasm",
+      "circuit_sha256": "e490735ce88d9f34beeae356294b71323f441c3cceccd11a4a5c13ceaabe32af",
+      "compiled_combined_any_error_proxy": 0.5626439841798085,
+      "compiled_cx_occurrence_count": 63,
+      "design_fidelities": [
+        0.557137308616561,
+        0.5369957477793568,
+        0.5324580502513985,
+        0.5610199855204984,
+        0.5509873863954166,
+        0.5710679692809123,
+        0.5481975767134504,
+        0.551309259748009
+      ],
+      "edge_signature": [
+        [
+          1,
+          2,
+          8
+        ],
+        [
+          1,
+          3,
+          3
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          12
+        ],
+        [
+          3,
+          5,
+          2
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          5,
+          3,
+          15
+        ],
+        [
+          5,
+          4,
+          9
+        ],
+        [
+          5,
+          6,
+          4
+        ],
+        [
+          6,
+          5,
+          8
+        ]
+      ],
+      "edge_signature_sha256": "6a8198c5e8a42827d99a990fb92694198917e20a82e95c453ddc1e8484221672",
+      "qasm_stable_hash": "520522d265ef176394ce3ae9a91a9a53e981f889642e151edef76f25bc944ae9",
+      "selection_trace": [
+        {
+          "lcb_95": 0.5329188383790942,
+          "mean_fidelity": 0.5469027730419537,
+          "round": 1
+        },
+        {
+          "lcb_95": 0.5425054547541216,
+          "mean_fidelity": 0.5511466605382004,
+          "round": 2
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999976,
+      "target_snapshot": "FakeCasablancaV2",
+      "transpiler_seed": 150120
+    },
+    {
+      "circuit_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design/FakeCasablancaV2/denominator__seed_150161.qasm",
+      "circuit_sha256": "781bbc0378aa1d2f0cec3fbe9c64b4af30c496c00f6bbe95502250ca49a6df69",
+      "compiled_combined_any_error_proxy": 0.5646563175963781,
+      "compiled_cx_occurrence_count": 61,
+      "design_fidelities": [
+        0.5461889587396159,
+        0.5170313922182985,
+        0.5232002931195525,
+        0.5476067920067157
+      ],
+      "edge_signature": [
+        [
+          1,
+          2,
+          10
+        ],
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          3,
+          1,
+          12
+        ],
+        [
+          3,
+          5,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          5,
+          3,
+          16
+        ],
+        [
+          5,
+          4,
+          8
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          6,
+          5,
+          9
+        ]
+      ],
+      "edge_signature_sha256": "f686eca054ad0f376ab7852295247ff03d76c59541449614a4d72d084d5552b9",
+      "qasm_stable_hash": "7c4026c9a6610c69907c91bb4a6403d718f4d612e4f7be0c45332545066e0b3f",
+      "selection_trace": [
+        {
+          "lcb_95": 0.5181433460576454,
+          "mean_fidelity": 0.5335068590210457,
+          "round": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999982,
+      "target_snapshot": "FakeCasablancaV2",
+      "transpiler_seed": 150161
+    },
+    {
+      "circuit_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design/FakeCasablancaV2/denominator__seed_150114.qasm",
+      "circuit_sha256": "8a03bed87cac468027723a580127b90ad5f72d65c4eab933a0da5b489854797e",
+      "compiled_combined_any_error_proxy": 0.5691185497140747,
+      "compiled_cx_occurrence_count": 63,
+      "design_fidelities": [
+        0.5429542139737003,
+        0.521796330363731,
+        0.5180610967867626,
+        0.5506758275763006
+      ],
+      "edge_signature": [
+        [
+          1,
+          2,
+          10
+        ],
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          3,
+          1,
+          13
+        ],
+        [
+          3,
+          5,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          5,
+          3,
+          14
+        ],
+        [
+          5,
+          4,
+          9
+        ],
+        [
+          6,
+          5,
+          11
+        ]
+      ],
+      "edge_signature_sha256": "c292fdc12af45d68346e3cfae2d27b4fbd8dd5e12f5724f3cc64ccd8a3afcf74",
+      "qasm_stable_hash": "a5e818ff46e1a3fd263e73d0172a2c1d0e30663f1714f437b1fb81b5ba209ec4",
+      "selection_trace": [
+        {
+          "lcb_95": 0.5177772251868176,
+          "mean_fidelity": 0.5333718671751236,
+          "round": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999969,
+      "target_snapshot": "FakeCasablancaV2",
+      "transpiler_seed": 150114
+    },
+    {
+      "circuit_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design/FakeCasablancaV2/denominator__seed_150157.qasm",
+      "circuit_sha256": "e5b7a026ff2847674aa6f20ba67105c8c6939910faea408e5a16cf6c331ad55d",
+      "compiled_combined_any_error_proxy": 0.5698451603021567,
+      "compiled_cx_occurrence_count": 63,
+      "design_fidelities": [
+        0.5058693834383862,
+        0.48732824453760126,
+        0.4935871251080273,
+        0.5208275653142529
+      ],
+      "edge_signature": [
+        [
+          1,
+          2,
+          11
+        ],
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          12
+        ],
+        [
+          4,
+          5,
+          9
+        ],
+        [
+          5,
+          3,
+          14
+        ],
+        [
+          5,
+          4,
+          2
+        ],
+        [
+          5,
+          6,
+          12
+        ]
+      ],
+      "edge_signature_sha256": "3ae98af38b567e33c15151acdc67c1741dd7820edd90a4b0b6bdbd9c00b3b9d3",
+      "qasm_stable_hash": "72dcb4ddac06fcb649bbb4011a3b0f041fc0f25aaa580b8cb18b55f1fcf75d2a",
+      "selection_trace": [
+        {
+          "lcb_95": 0.4874175365114053,
+          "mean_fidelity": 0.5019030795995669,
+          "round": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999991,
+      "target_snapshot": "FakeCasablancaV2",
+      "transpiler_seed": 150157
+    },
+    {
+      "circuit_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design/FakeCasablancaV2/denominator__seed_150116.qasm",
+      "circuit_sha256": "0c62d2aaae048610442f0e70cc28ee8b1035cb657506a2f07d5d7c51c04c71dc",
+      "compiled_combined_any_error_proxy": 0.5737108282651464,
+      "compiled_cx_occurrence_count": 63,
+      "design_fidelities": [
+        0.5164090657297414,
+        0.4993269190629675,
+        0.5056429360658662,
+        0.528731716517707
+      ],
+      "edge_signature": [
+        [
+          1,
+          2,
+          10
+        ],
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          11
+        ],
+        [
+          3,
+          5,
+          4
+        ],
+        [
+          5,
+          3,
+          15
+        ],
+        [
+          5,
+          4,
+          10
+        ],
+        [
+          6,
+          5,
+          10
+        ]
+      ],
+      "edge_signature_sha256": "3053a3fdca9c39212bb68381ab7ac3811cdae7bd4a48b0f387e2739eda1387b3",
+      "qasm_stable_hash": "19e89535b8eea7103c38a4dfdd007dfce0fb7b0eb5d0e5d2a08904e3dc695e3f",
+      "selection_trace": [
+        {
+          "lcb_95": 0.49988482696651576,
+          "mean_fidelity": 0.5125276593440705,
+          "round": 1
+        }
+      ],
+      "semantic_fidelity": 0.9999999999999978,
+      "target_snapshot": "FakeCasablancaV2",
+      "transpiler_seed": 150116
+    }
+  ],
+  "claim_boundary": {
+    "what_is_not_supported": "a hidden repair, causal proof, temporal or real-device transfer, hardware performance, general route-generation advantage, quantum advantage, BQP separation, solved B4/B8/B10, or new credit",
+    "what_is_supported": "one novel Casablanca edge-signature route selected without copying the strong denominator or original R150 candidate signatures"
+  },
+  "design_protocol": {
+    "candidate_source": "unique R150 automatic denominator-pool edge signatures absent from the original candidate pool",
+    "excluded_classes": [
+      "R150 original candidate signatures",
+      "strong denominator exact QASM",
+      "strong denominator exact edge signature"
+    ],
+    "post_selection_diagnostics": [
+      "strong_denominator",
+      "R150_generated"
+    ],
+    "post_selection_diagnostics_used_for_selection": false,
+    "round_simulator_seeds": [
+      [
+        15201,
+        15202,
+        15203,
+        15204
+      ],
+      [
+        15205,
+        15206,
+        15207,
+        15208
+      ],
+      [
+        15209,
+        15210,
+        15211,
+        15212,
+        15213,
+        15214,
+        15215,
+        15216
+      ]
+    ],
+    "selection_statistic": "mean_fidelity_minus_1.96_standard_error",
+    "shots_per_execution": 2048,
+    "survivor_counts": [
+      4,
+      1,
+      1
+    ]
+  },
+  "failed_requirement_ids": [],
+  "generated_at_unix": 1783939932,
+  "method": "b4_b8_r152_edge_signature_expansion_design_v0",
+  "model_status": "novel_denominator_pool_signatures_excluding_winner_and_r150_candidate_support",
+  "payload_hash": "4824dd90ee463e861c93f74492f6f1b6481d7fb1eb098af75b27da4d0f8d2515",
+  "requirement_count": 10,
+  "requirements": [
+    {
+      "label": "R150 design and R151 attribution hashes are bound",
+      "passed": true,
+      "requirement_id": "R1"
+    },
+    {
+      "label": "all 48 original candidate signatures are excluded",
+      "passed": true,
+      "requirement_id": "R2"
+    },
+    {
+      "label": "strong denominator QASM and exact edge signature are excluded",
+      "passed": true,
+      "requirement_id": "R3"
+    },
+    {
+      "label": "16 novel edge signatures enter the candidate pool",
+      "passed": true,
+      "requirement_id": "R4"
+    },
+    {
+      "label": "16-to-4-to-1-to-1 selection charges 88 executions",
+      "passed": true,
+      "requirement_id": "R5"
+    },
+    {
+      "label": "32 post-selection diagnostics do not affect selection",
+      "passed": true,
+      "requirement_id": "R6"
+    },
+    {
+      "label": "selected route matches neither excluded signature class",
+      "passed": true,
+      "requirement_id": "R7"
+    },
+    {
+      "label": "R150 hidden trial values are not used for candidate scoring",
+      "passed": true,
+      "requirement_id": "R8"
+    },
+    {
+      "label": "no R152 holdout executes during design",
+      "passed": true,
+      "requirement_id": "R9"
+    },
+    {
+      "label": "hardware, general generation, advantage, BQP, solved-frontier, and credit claims remain false",
+      "passed": true,
+      "requirement_id": "R10"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 10,
+  "source_bindings": {
+    "r150_design_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design_v0.json",
+    "r150_design_payload_hash": "6b428750ab244ce574ade9821ea2f07684fc6bc4f321728ec46d751ac0744c14",
+    "r150_design_sha256": "d7b564c049804f71b732c9151cfd42ae2c1c88da6897339fff62118273c48394",
+    "r150_hidden_trial_values_used_for_candidate_scoring": false,
+    "r151_attribution_path": "results/B4_B8_R151_casablanca_failure_attribution_v0.json",
+    "r151_attribution_sha256_provenance_only": "a21a7072f0854d0d8879907ccf1a74bf486525e9b292b43eedceeaa9d6c14bdd"
+  },
+  "source_target_id": "T-B4-002bl/T-B8-003bp/T-B10-009bd",
+  "status": "edge_signature_expansion_design_frozen_before_holdout",
+  "successive_halving_rounds": [
+    {
+      "candidate_count_before": 16,
+      "leader_lcb_95": 0.5441627863440492,
+      "leader_transpiler_seed": 150128,
+      "round": 1,
+      "survivor_count": 4
+    },
+    {
+      "candidate_count_before": 4,
+      "leader_lcb_95": 0.5522133742592007,
+      "leader_transpiler_seed": 150128,
+      "round": 2,
+      "survivor_count": 1
+    },
+    {
+      "candidate_count_before": 1,
+      "leader_lcb_95": 0.5571679398659785,
+      "leader_transpiler_seed": 150128,
+      "round": 3,
+      "survivor_count": 1
+    }
+  ],
+  "summary": {
+    "bqp_separation_claimed": false,
+    "challenge_executed": false,
+    "charged_design_execution_count": 88,
+    "denominator_edge_signature_count": 17,
+    "denominator_pool_count": 80,
+    "diagnostic_execution_count": 32,
+    "eligible_novel_edge_signature_count": 16,
+    "general_route_generation_advantage_claimed": false,
+    "hardware_execution_claimed": false,
+    "new_credit_delta": 0,
+    "original_candidate_count": 48,
+    "original_candidate_edge_signature_count": 31,
+    "quantum_advantage_claimed": false,
+    "r150_hidden_trial_values_used_for_candidate_scoring_count": 0,
+    "selected_circuit_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design/FakeCasablancaV2/denominator__seed_150128.qasm",
+    "selected_circuit_sha256": "5e83637ba17375e2bdffbc6260aa1b8b52b3a9c7b204d7e991669f7bdea10e9b",
+    "selected_combined_any_error_proxy": 0.5525725297965955,
+    "selected_cx_occurrence_count": 59,
+    "selected_edge_signature_matches_strong_denominator": false,
+    "selected_edge_signature_present_in_original_candidates": false,
+    "selected_edge_signature_sha256": "903457525d9522d8722360f640f08e35ca2a58f755486bf6fc009f01b5658c88",
+    "selected_exact_qasm_matches_strong_denominator": false,
+    "selected_lcb_95": 0.5571679398659785,
+    "selected_mean_fidelity": 0.5627838282887423,
+    "selected_minus_r150_generated_mean": 0.023217792020243967,
+    "selected_minus_strong_denominator_mean": -0.003539288713542768,
+    "selected_transpiler_seed": 150128,
+    "solved_frontier_claimed": false,
+    "target_snapshot": "FakeCasablancaV2",
+    "target_task": "dense_validation_xy_network_n6",
+    "total_design_execution_count": 120,
+    "total_design_shots": 245760
+  },
+  "title": "B4/B8 R152 Casablanca edge-signature expansion design",
+  "upstream_target_id": "T-B4-002bk/T-B8-003bo/T-B10-009bc",
+  "version": 0
+}

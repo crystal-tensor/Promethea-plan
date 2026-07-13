@@ -2833,6 +2833,28 @@ candidate rule before any new hidden rows. R151 is diagnostic, not causal
 proof, a repair, hardware evidence, general route-generation advantage,
 quantum advantage, BQP separation, solved-frontier status, or new credit.
 
+`T-B4-002bl` / `T-B8-003bp` / `T-B10-009bd` now freezes the R152
+Casablanca edge-signature expansion before challenge. R151 found that all 31
+edge signatures in the original 48-candidate pool missed the strong
+denominator signature. R152 therefore starts from the independent 80-seed
+automatic-route library, excludes every original candidate signature, excludes
+the strong denominator QASM and exact signature, and admits 16 novel signature
+representatives. Public `16 -> 4 -> 1 -> 1` successive halving charges 88
+executions; 32 post-selection diagnostics cannot alter the winner. The selected
+seed `150128` has 59 CX operations, a combined exposure proxy of `0.55257253`,
+and copies none of the excluded signatures. Its public mean is `+0.02321779`
+versus the R150 generated route and `-0.00353929` versus the strong denominator.
+The unopened R152 contract keeps Nairobi and Perth on their R150 routes and
+replaces only Casablanca. It fixes 24 hidden rows, 72 executions, and 147,456
+shots; requires all 3/3 group means and Casablanca itself to clear `-0.02`;
+allows zero severe rows; and retains portfolio mean/bootstrap floors of
+`-0.005`/`-0.015` versus the denominator. Contract hash
+`f81dbba0ce3e4a4c601dde43c34fbf89efb0deaa49b8b57d772167f373889ce1`.
+R150 hidden trial values used for candidate scoring remain zero. No hidden
+result, causal proof, temporal or real-device transfer, hardware performance,
+general route-generation advantage, quantum advantage, BQP separation,
+solved-frontier status, or new credit is claimed.
+
 `T-B4-002aj` / `T-B8-003an` / `T-B10-009ab` now adds the R135
 dense-interaction deterministic fallback boundary. For each new inverse-QFT,
 scrambled-QFT, complete-Ising, and dense-XY input, five temporal graph rules

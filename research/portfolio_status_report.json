@@ -9155,6 +9155,21 @@
       "requirements_passed": 10,
       "status": "casablanca_failure_channel_and_route_attribution"
     },
+    "r152_edge_signature_expansion": {
+      "challenge_executed": false,
+      "contract_exists": true,
+      "contract_path": "benchmarks/B4_B8_R152_edge_signature_expansion_contract_v0.json",
+      "design_exists": true,
+      "design_path": "results/B4_B8_R152_edge_signature_expansion_design_v0.json",
+      "eligible_novel_edge_signature_count": 16,
+      "method": "b4_b8_r152_edge_signature_expansion_design_v0",
+      "protocol_exists": true,
+      "protocol_path": "results/B4_B8_R152_edge_signature_expansion_protocol_v0.json",
+      "requirements_failed": 0,
+      "requirements_passed": 10,
+      "selected_transpiler_seed": 150128,
+      "status": "edge_signature_expansion_design_frozen_before_holdout"
+    },
     "real_backend_packet_scout": {
       "backend_calibrated_aer_circuit_count": 5760,
       "backend_calibrated_noise_parameters_instantiated": true,
@@ -10189,6 +10204,9 @@
     "b4_b8_r150_unseen_backend_candidate_generation_holdout": "research/B4_B8_R150_unseen_backend_candidate_generation_holdout.md",
     "b4_b8_r150_unseen_backend_candidate_generation_protocol": "research/B4_B8_R150_unseen_backend_candidate_generation_protocol.md",
     "b4_b8_r151_casablanca_failure_attribution": "research/B4_B8_R151_casablanca_failure_attribution.md",
+    "b4_b8_r152_edge_signature_expansion_contract": "benchmarks/B4_B8_R152_edge_signature_expansion_contract_v0.json",
+    "b4_b8_r152_edge_signature_expansion_design": "research/B4_B8_R152_edge_signature_expansion_design.md",
+    "b4_b8_r152_edge_signature_expansion_protocol": "research/B4_B8_R152_edge_signature_expansion_protocol.md",
     "b4_b8_real_backend_packet_scout": "research/B4_B8_real_backend_packet_scout.md",
     "b4_b8_real_backend_provider_manifest_gate": "research/B4_B8_real_backend_provider_manifest_gate.md",
     "b4_b8_real_backend_transcript_contract_gate": "research/B4_B8_real_backend_transcript_contract_gate.md",

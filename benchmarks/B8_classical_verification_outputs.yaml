@@ -2490,6 +2490,36 @@ current_results:
     requirements_failed: 0
     result: ../results/B4_B8_R151_casablanca_failure_attribution_v0.json
     markdown_report: ../research/B4_B8_R151_casablanca_failure_attribution.md
+  b4_b8_r152_edge_signature_expansion_design_v0:
+    status: edge_signature_expansion_design_frozen_before_holdout
+    method: b4_b8_r152_edge_signature_expansion_design_v0
+    source_target_id: T-B4-002bl/T-B8-003bp/T-B10-009bd
+    eligible_novel_edge_signature_count: 16
+    selected_transpiler_seed: 150128
+    selected_edge_signature_matches_strong_denominator: false
+    selected_edge_signature_present_in_original_candidates: false
+    r150_hidden_trial_values_used_for_candidate_scoring_count: 0
+    challenge_executed: false
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R152_edge_signature_expansion_design_v0.json
+    markdown_report: ../research/B4_B8_R152_edge_signature_expansion_design.md
+  b4_b8_r152_edge_signature_expansion_protocol_v0:
+    status: edge_signature_expansion_protocol_frozen_before_challenge
+    method: b4_b8_r152_edge_signature_expansion_protocol_v0
+    source_target_id: T-B4-002bl/T-B8-003bp/T-B10-009bd
+    target_id: T-B4-002bm/T-B8-003bq/T-B10-009be
+    portfolio_group_count: 3
+    trial_row_count: 24
+    simulated_circuit_execution_count: 72
+    minimum_casablanca_mean_repaired_minus_denominator: -0.02
+    contract: B4_B8_R152_edge_signature_expansion_contract_v0.json
+    contract_sha256: f81dbba0ce3e4a4c601dde43c34fbf89efb0deaa49b8b57d772167f373889ce1
+    challenge_executed: false
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R152_edge_signature_expansion_protocol_v0.json
+    markdown_report: ../research/B4_B8_R152_edge_signature_expansion_protocol.md
 prototype_artifacts:
   output_invariant_verifier: ../tools/b8_output_invariant_verifier.py
   adaptive_leakage_spoofer: ../tools/b8_adaptive_spoofer_leakage.py

@@ -1,0 +1,116 @@
+{
+  "challenge_executed": false,
+  "claim_boundary": {
+    "what_is_not_supported": "a hidden result, causal proof, temporal or real-device transfer, hardware performance, general route-generation advantage, quantum advantage, BQP separation, solved B4/B8/B10, or new credit",
+    "what_is_supported": "an immutable three-backend simulated-noise holdout for one novel Casablanca edge signature"
+  },
+  "failed_requirement_ids": [],
+  "generated_at_unix": 1783940058,
+  "method": "b4_b8_r152_edge_signature_expansion_protocol_v0",
+  "model_status": "casablanca_novel_signature_repair_with_two_r150_control_routes",
+  "payload_hash": "4a66b7458ae6731fcf0a60732f30820daa020c48f5156f24955efe1903be56fc",
+  "protocol": {
+    "arms": [
+      "repaired_route",
+      "strong_seeded_denominator",
+      "fresh_automatic"
+    ],
+    "automatic_rule": "fresh optimization-level-3 compile with a hidden transpiler seed",
+    "challenge_seed_derivation": "HMAC-SHA256 from post-preregistration secret",
+    "denominator_rule": "replay the frozen R150 minimum-calibration-exposure route from 80 independent optimization-level-3 transpiler seeds",
+    "hidden_trial_count_per_group": 8,
+    "maximum_severe_regression_count_below_negative_0_05_vs_denominator": 0,
+    "minimum_casablanca_mean_repaired_minus_denominator": -0.02,
+    "minimum_each_target_mean_repaired_minus_denominator": -0.02,
+    "minimum_group_count_above_negative_0_02_vs_denominator": 3,
+    "minimum_portfolio_repaired_minus_automatic_bootstrap_lower": -0.01,
+    "minimum_portfolio_repaired_minus_automatic_mean": -0.005,
+    "minimum_portfolio_repaired_minus_denominator_bootstrap_lower": -0.015,
+    "minimum_portfolio_repaired_minus_denominator_mean": -0.005,
+    "minimum_semantic_fidelity": 0.9999999999,
+    "portfolio_group_count": 3,
+    "repaired_rule": "use the R152 selected novel Casablanca edge signature and preserve R150 generated routes on Nairobi and Perth",
+    "shared_seed_rule": "all three arms in one row share one simulator seed",
+    "shots_per_execution": 2048,
+    "simulated_circuit_execution_count": 72,
+    "snapshot_names": [
+      "FakeCasablancaV2",
+      "FakeNairobiV2",
+      "FakePerth"
+    ],
+    "task_id": "dense_validation_xy_network_n6",
+    "total_simulated_shots": 147456,
+    "trial_row_count": 24
+  },
+  "requirement_count": 10,
+  "requirements": [
+    {
+      "label": "R152 design and R151 provenance hashes are bound",
+      "passed": true,
+      "requirement_id": "R1"
+    },
+    {
+      "label": "Casablanca route is novel and does not copy excluded signatures",
+      "passed": true,
+      "requirement_id": "R2"
+    },
+    {
+      "label": "R150 hidden values remain unused for R152 candidate scoring",
+      "passed": true,
+      "requirement_id": "R3"
+    },
+    {
+      "label": "Nairobi and Perth retain their frozen R150 generated routes",
+      "passed": true,
+      "requirement_id": "R4"
+    },
+    {
+      "label": "eight hidden trials produce 24 rows and 72 executions",
+      "passed": true,
+      "requirement_id": "R5"
+    },
+    {
+      "label": "portfolio repaired-automatic and repaired-denominator floors are explicit",
+      "passed": true,
+      "requirement_id": "R6"
+    },
+    {
+      "label": "all three backend groups must clear -0.02",
+      "passed": true,
+      "requirement_id": "R7"
+    },
+    {
+      "label": "Casablanca must clear -0.02 with zero severe regressions",
+      "passed": true,
+      "requirement_id": "R8"
+    },
+    {
+      "label": "no R152 hidden holdout has run during protocol design",
+      "passed": true,
+      "requirement_id": "R9"
+    },
+    {
+      "label": "hardware, temporal, real-device transfer, general generation, advantage, BQP, solved-frontier, and credit claims remain false",
+      "passed": true,
+      "requirement_id": "R10"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 10,
+  "source_bindings": {
+    "r150_design_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design_v0.json",
+    "r150_design_payload_hash": "6b428750ab244ce574ade9821ea2f07684fc6bc4f321728ec46d751ac0744c14",
+    "r150_design_sha256": "d7b564c049804f71b732c9151cfd42ae2c1c88da6897339fff62118273c48394",
+    "r150_hidden_trial_values_used_for_candidate_scoring": false,
+    "r151_attribution_path": "results/B4_B8_R151_casablanca_failure_attribution_v0.json",
+    "r151_attribution_sha256_provenance_only": "a21a7072f0854d0d8879907ccf1a74bf486525e9b292b43eedceeaa9d6c14bdd",
+    "r152_design_path": "results/B4_B8_R152_edge_signature_expansion_design_v0.json",
+    "r152_design_payload_hash": "4824dd90ee463e861c93f74492f6f1b6481d7fb1eb098af75b27da4d0f8d2515",
+    "r152_design_sha256": "da7a221ba4a181aedc48a07fa441655e3b821b2aaadcf72d5a47891ecdce6c90"
+  },
+  "source_target_id": "T-B4-002bl/T-B8-003bp/T-B10-009bd",
+  "status": "edge_signature_expansion_protocol_frozen_before_challenge",
+  "title": "B4/B8 R152 edge-signature expansion protocol",
+  "upstream_target_id": "T-B4-002bk/T-B8-003bo/T-B10-009bc",
+  "version": 0
+}

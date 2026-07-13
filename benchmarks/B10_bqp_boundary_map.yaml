@@ -2023,6 +2023,39 @@ current_results:
     requirements_failed: 0
     result: ../results/B4_B8_R151_casablanca_failure_attribution_v0.json
     markdown_report: ../research/B4_B8_R151_casablanca_failure_attribution.md
+  b10_t2_b4_b8_r152_edge_signature_expansion_design_v0:
+    status: edge_signature_expansion_design_not_bqp_claim
+    method: b4_b8_r152_edge_signature_expansion_design_v0
+    source_b8_result: ../results/B4_B8_R152_edge_signature_expansion_design_v0.json
+    source_target_id: T-B4-002bl/T-B8-003bp/T-B10-009bd
+    eligible_novel_edge_signature_count: 16
+    selected_transpiler_seed: 150128
+    challenge_executed: false
+    b10_t2_credit_allowed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R152_edge_signature_expansion_design_v0.json
+    markdown_report: ../research/B4_B8_R152_edge_signature_expansion_design.md
+  b10_t2_b4_b8_r152_edge_signature_expansion_protocol_v0:
+    status: edge_signature_expansion_protocol_not_bqp_claim
+    method: b4_b8_r152_edge_signature_expansion_protocol_v0
+    source_b8_result: ../results/B4_B8_R152_edge_signature_expansion_protocol_v0.json
+    source_target_id: T-B4-002bl/T-B8-003bp/T-B10-009bd
+    target_id: T-B4-002bm/T-B8-003bq/T-B10-009be
+    trial_row_count: 24
+    simulated_circuit_execution_count: 72
+    contract: B4_B8_R152_edge_signature_expansion_contract_v0.json
+    contract_sha256: f81dbba0ce3e4a4c601dde43c34fbf89efb0deaa49b8b57d772167f373889ce1
+    challenge_executed: false
+    b10_t2_credit_allowed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R152_edge_signature_expansion_protocol_v0.json
+    markdown_report: ../research/B4_B8_R152_edge_signature_expansion_protocol.md
   b10_t3_b9_checked_transcript_acceptance_packet_gate_v0:
     status: checked_transcript_acceptance_packet_open_missing_artifact
     method: b9_checked_transcript_acceptance_packet_gate_v0

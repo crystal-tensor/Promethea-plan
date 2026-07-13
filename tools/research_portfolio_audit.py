@@ -38302,6 +38302,104 @@ def audit(root: Path) -> dict:
         if ph != hashlib.sha256(json.dumps(hp, sort_keys=True, separators=(",", ":")).encode()).hexdigest():
             errors.append("R151 Casablanca attribution payload hash mismatch")
 
+    r152_design_path = results / "B4_B8_R152_edge_signature_expansion_design_v0.json"
+    r152_design_report_path = research / "B4_B8_R152_edge_signature_expansion_design.md"
+    r152_protocol_path = results / "B4_B8_R152_edge_signature_expansion_protocol_v0.json"
+    r152_protocol_report_path = research / "B4_B8_R152_edge_signature_expansion_protocol.md"
+    r152_contract_path = benchmarks / "B4_B8_R152_edge_signature_expansion_contract_v0.json"
+    r152_status = {
+        "design_path": str(r152_design_path), "protocol_path": str(r152_protocol_path),
+        "contract_path": str(r152_contract_path),
+        "design_exists": r152_design_path.exists(), "protocol_exists": r152_protocol_path.exists(),
+        "contract_exists": r152_contract_path.exists(),
+    }
+    r152_contract_sha256 = hashlib.sha256(r152_contract_path.read_bytes()).hexdigest() if r152_contract_path.exists() else None
+    r152_manifest_rows = [
+        ("B4", b4_manifest.get("current_results", {}), "b4_b8_r152_edge_signature_expansion_design_v0", "b4_b8_r152_edge_signature_expansion_protocol_v0"),
+        ("B8", b8_manifest.get("current_results", {}), "b4_b8_r152_edge_signature_expansion_design_v0", "b4_b8_r152_edge_signature_expansion_protocol_v0"),
+        ("B10", b10_manifest.get("current_results", {}), "b10_t2_b4_b8_r152_edge_signature_expansion_design_v0", "b10_t2_b4_b8_r152_edge_signature_expansion_protocol_v0"),
+    ]
+    for label, manifest, design_key, protocol_key in r152_manifest_rows:
+        design_row = manifest.get(design_key); protocol_row = manifest.get(protocol_key)
+        if not design_row or not protocol_row:
+            errors.append(f"{label} manifest missing R152 edge-signature preregistration")
+            continue
+        for row_name, row in [("design", design_row), ("protocol", protocol_row)]:
+            for field in ["result", "markdown_report"]:
+                if not row.get(field) or not path_exists_from(benchmarks, row[field]):
+                    errors.append(f"{label} R152 {row_name} missing {field}")
+        if protocol_row.get("contract_sha256") != r152_contract_sha256:
+            errors.append(f"{label} R152 contract hash mismatch")
+    if not all(path.exists() for path in [r152_design_path, r152_design_report_path, r152_protocol_path, r152_protocol_report_path, r152_contract_path]):
+        errors.append("R152 edge-signature design, protocol, reports, or contract missing")
+    else:
+        r152_design = json.loads(read(r152_design_path)); r152_summary = r152_design.get("summary", {})
+        r152_protocol_payload = json.loads(read(r152_protocol_path)); r152_protocol = r152_protocol_payload.get("protocol", {})
+        r152_contract = json.loads(read(r152_contract_path))
+        r152_status.update({
+            "status": r152_design.get("status"), "method": r152_design.get("method"),
+            "requirements_passed": r152_design.get("requirements_passed"),
+            "requirements_failed": r152_design.get("requirements_failed"),
+            "selected_transpiler_seed": r152_summary.get("selected_transpiler_seed"),
+            "eligible_novel_edge_signature_count": r152_summary.get("eligible_novel_edge_signature_count"),
+            "challenge_executed": r152_protocol_payload.get("challenge_executed"),
+        })
+        expected_design = {
+            "original_candidate_edge_signature_count": 31,
+            "denominator_edge_signature_count": 17,
+            "eligible_novel_edge_signature_count": 16,
+            "selected_transpiler_seed": 150128,
+            "selected_cx_occurrence_count": 59,
+            "selected_exact_qasm_matches_strong_denominator": False,
+            "selected_edge_signature_matches_strong_denominator": False,
+            "selected_edge_signature_present_in_original_candidates": False,
+            "charged_design_execution_count": 88,
+            "diagnostic_execution_count": 32,
+            "total_design_execution_count": 120,
+            "r150_hidden_trial_values_used_for_candidate_scoring_count": 0,
+            "challenge_executed": False,
+            "new_credit_delta": 0,
+        }
+        if r152_design.get("status") != "edge_signature_expansion_design_frozen_before_holdout" or r152_design.get("method") != "b4_b8_r152_edge_signature_expansion_design_v0":
+            errors.append("R152 edge-signature design status or method mismatch")
+        if r152_design.get("requirements_passed") != 10 or r152_design.get("requirements_failed") != 0:
+            errors.append("R152 edge-signature design requirements must pass 10/10")
+        for field, value in expected_design.items():
+            if r152_summary.get(field) != value:
+                errors.append(f"R152 edge-signature design {field} mismatch")
+        hp = dict(r152_design); ph = hp.pop("payload_hash", None)
+        if ph != hashlib.sha256(json.dumps(hp, sort_keys=True, separators=(",", ":")).encode()).hexdigest():
+            errors.append("R152 edge-signature design payload hash mismatch")
+        if r152_protocol_payload.get("status") != "edge_signature_expansion_protocol_frozen_before_challenge" or r152_protocol_payload.get("method") != "b4_b8_r152_edge_signature_expansion_protocol_v0":
+            errors.append("R152 edge-signature protocol status or method mismatch")
+        if r152_protocol_payload.get("requirements_passed") != 10 or r152_protocol_payload.get("requirements_failed") != 0 or r152_protocol_payload.get("challenge_executed") is not False:
+            errors.append("R152 edge-signature protocol requirements or unopened boundary mismatch")
+        expected_protocol = {
+            "portfolio_group_count": 3, "hidden_trial_count_per_group": 8,
+            "trial_row_count": 24, "simulated_circuit_execution_count": 72,
+            "shots_per_execution": 2048, "total_simulated_shots": 147456,
+            "minimum_portfolio_repaired_minus_denominator_mean": -0.005,
+            "minimum_portfolio_repaired_minus_denominator_bootstrap_lower": -0.015,
+            "minimum_group_count_above_negative_0_02_vs_denominator": 3,
+            "maximum_severe_regression_count_below_negative_0_05_vs_denominator": 0,
+            "minimum_each_target_mean_repaired_minus_denominator": -0.02,
+            "minimum_casablanca_mean_repaired_minus_denominator": -0.02,
+        }
+        for field, value in expected_protocol.items():
+            if r152_protocol.get(field) != value:
+                errors.append(f"R152 edge-signature protocol {field} mismatch")
+        hp = dict(r152_protocol_payload); protocol_ph = hp.pop("payload_hash", None)
+        if protocol_ph != hashlib.sha256(json.dumps(hp, sort_keys=True, separators=(",", ":")).encode()).hexdigest():
+            errors.append("R152 edge-signature protocol payload hash mismatch")
+        if r152_contract_sha256 != "f81dbba0ce3e4a4c601dde43c34fbf89efb0deaa49b8b57d772167f373889ce1":
+            errors.append("R152 edge-signature contract file hash mismatch")
+        if r152_contract.get("contract_id") != "B4-B8-R152-edge-signature-expansion-contract-v0" or r152_contract.get("contract_status") != "public_preregistration_challenge_unopened":
+            errors.append("R152 edge-signature contract ID or status mismatch")
+        if r152_contract.get("target_id") != "T-B4-002bm/T-B8-003bq/T-B10-009be" or "challenge_secret" in r152_contract or "trial_rows" in r152_contract:
+            errors.append("R152 edge-signature contract target or unopened boundary mismatch")
+        if r152_contract.get("source_bindings", {}).get("protocol_payload_hash") != protocol_ph or len(r152_contract.get("acceptance_conditions", [])) != 10:
+            errors.append("R152 edge-signature contract binding or acceptance count mismatch")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -38771,6 +38869,7 @@ def audit(root: Path) -> dict:
             "r150_unseen_backend_candidate_generation": r150_status,
             "r150_unseen_backend_candidate_generation_holdout": r150_result_status,
             "r151_casablanca_failure_attribution": r151_status,
+            "r152_edge_signature_expansion": r152_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -40236,6 +40335,13 @@ def audit(root: Path) -> dict:
             "b4_b8_r151_casablanca_failure_attribution": str(
                 research / "B4_B8_R151_casablanca_failure_attribution.md"
             ),
+            "b4_b8_r152_edge_signature_expansion_design": str(
+                research / "B4_B8_R152_edge_signature_expansion_design.md"
+            ),
+            "b4_b8_r152_edge_signature_expansion_protocol": str(
+                research / "B4_B8_R152_edge_signature_expansion_protocol.md"
+            ),
+            "b4_b8_r152_edge_signature_expansion_contract": str(r152_contract_path),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),
             "b8_challenge_refresh_repair": str(research / "B8_challenge_refresh_repair.md"),
