@@ -1,0 +1,147 @@
+{
+  "claim_boundary": {
+    "what_is_not_supported": "measured wall-clock savings, cross-calibration transfer, hardware, soundness, quantum advantage, BQP separation, solved B4/B8/B10, or new credit",
+    "what_is_supported": "an immutable matched live-runtime protocol with explicit timing boundaries"
+  },
+  "failed_requirement_ids": [],
+  "generated_at_unix": 1783912035,
+  "measurement_executed": false,
+  "method": "b4_b8_r144_live_runtime_protocol_v0",
+  "model_status": "matched_strategy_timing_boundary_without_measurement",
+  "payload_hash": "65cc1bd58d62f639a2eb58b2ceb30261f6148290170da24669d52a89c0ea4d8c",
+  "protocol": {
+    "design_seeds": [
+      14201,
+      14202,
+      14203,
+      14204,
+      14205,
+      14206,
+      14207,
+      14208,
+      14209,
+      14210,
+      14211,
+      14212,
+      14213,
+      14214,
+      14215,
+      14216
+    ],
+    "full_strategy": {
+      "automatic_execution_count": 192,
+      "candidate_count_per_group": 8,
+      "candidate_execution_count": 1536,
+      "seed_count": 16,
+      "total_execution_count": 1728
+    },
+    "halving_strategy": {
+      "automatic_execution_count": 144,
+      "candidate_execution_count": 672,
+      "round_schedule": [
+        {
+          "additional_seed_count": 4,
+          "survivor_count": 4
+        },
+        {
+          "additional_seed_count": 4,
+          "survivor_count": 2
+        },
+        {
+          "additional_seed_count": 4,
+          "survivor_count": 1
+        }
+      ],
+      "total_execution_count": 816
+    },
+    "maximum_full_budget_lcb_regret": 0.001,
+    "maximum_selection_disagreement_count": 2,
+    "minimum_runtime_reduction_fraction": 0.3,
+    "shared_untimed_setup": [
+      "load frozen source rows",
+      "load or compile the same 96 unique-QASM shortlist circuits",
+      "verify exact circuit semantics",
+      "one simulator warmup circuit per backend snapshot"
+    ],
+    "shots_per_execution": 2048,
+    "strategy_order": "derived_from_post_preregistration_secret",
+    "timed_scope": [
+      "create fresh strategy-local AerSimulator instances",
+      "compile same-seed automatic baselines",
+      "execute automatic and candidate circuits",
+      "update online LCB statistics and eliminate candidates"
+    ],
+    "timer": "time.perf_counter_ns",
+    "timing_repeat_count": 1
+  },
+  "requirement_count": 10,
+  "requirements": [
+    {
+      "label": "R142 and R143 source hashes are bound",
+      "passed": true,
+      "requirement_id": "R1"
+    },
+    {
+      "label": "full strategy fixes 1,728 executions",
+      "passed": true,
+      "requirement_id": "R2"
+    },
+    {
+      "label": "halving strategy fixes 816 executions",
+      "passed": true,
+      "requirement_id": "R3"
+    },
+    {
+      "label": "both strategies use 2,048 shots and the same design seeds",
+      "passed": true,
+      "requirement_id": "R4"
+    },
+    {
+      "label": "shared preparation and timed scope are disjoint and explicit",
+      "passed": true,
+      "requirement_id": "R5"
+    },
+    {
+      "label": "strategy order is hidden until after preregistration",
+      "passed": true,
+      "requirement_id": "R6"
+    },
+    {
+      "label": "runtime reduction floor is fixed at thirty percent",
+      "passed": true,
+      "requirement_id": "R7"
+    },
+    {
+      "label": "selection disagreement and LCB regret gates are fixed",
+      "passed": true,
+      "requirement_id": "R8"
+    },
+    {
+      "label": "no timing measurement has run during protocol design",
+      "passed": true,
+      "requirement_id": "R9"
+    },
+    {
+      "label": "hardware, calibration-transfer, advantage, BQP, and credit claims remain false",
+      "passed": true,
+      "requirement_id": "R10"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 10,
+  "source_bindings": {
+    "r142_design_path": "results/B4_B8_R142_seed_robust_lcb_mapping_design_v0.json",
+    "r142_design_payload_hash": "e04572b3b92a4024d863d552f921d445c7b89faa4c435f2baa291979408dad15",
+    "r142_design_sha256": "883710ced7a5796232fafa4ca33ac577473ce6b09d4948713f6020ca2578204d",
+    "r143_design_path": "results/B4_B8_R143_successive_halving_lcb_design_v0.json",
+    "r143_design_payload_hash": "1a7bac658ec807d22d2407545973de22d280aab530f3672a3ffdafa8b37ef754",
+    "r143_design_sha256": "61340c0b242925be77a391552af62927af0fd66855d337daf955e36ae8f4bf34",
+    "r143_holdout_path": "results/B4_B8_R143_successive_halving_lcb_holdout_v0.json",
+    "r143_holdout_sha256": "229d2a573d394f5b09d7206e1dd4ad37421074fa569a76683ef658c576495c1f"
+  },
+  "source_target_id": "T-B4-002aw/T-B8-003ba/T-B10-009ao",
+  "status": "live_runtime_protocol_frozen_before_measurement",
+  "title": "B4/B8 R144 live runtime protocol",
+  "upstream_target_id": "T-B4-002av/T-B8-003az/T-B10-009an",
+  "version": 0
+}

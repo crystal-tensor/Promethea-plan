@@ -2581,6 +2581,20 @@ reduction therefore preserves synthetic hidden-seed performance. Live
 wall-clock savings, cross-calibration transfer, hardware, advantage, BQP, and
 new credit remain unclaimed.
 
+`T-B4-002aw` / `T-B8-003ba` / `T-B10-009ao` now freezes the R144
+matched live-runtime protocol before measurement. It compares the accepted
+R142 full strategy (`1,728` executions) with R143 successive halving (`816`)
+at `2,048` shots using identical circuits, seeds, snapshots, and a
+post-preregistration secret that chooses strategy order. Shared source loading,
+circuit preparation, semantic checks, and warmup are reported separately; the
+`perf_counter_ns` interval covers fresh simulator creation, automatic
+compilation, circuit execution, online LCB updates, and elimination. Acceptance
+requires at least `30%` measured execution-loop savings, exact selection
+reproduction, and fair per-execution timing. Contract hash
+`4eacb0b36f7cebc52dcd8892430905975374e0038c8cf61cb4b9ead8d5a6beb5`.
+No timing measurement, cross-calibration, hardware, billing, advantage, BQP,
+or new-credit claim has yet opened.
+
 `T-B4-002aj` / `T-B8-003an` / `T-B10-009ab` now adds the R135
 dense-interaction deterministic fallback boundary. For each new inverse-QFT,
 scrambled-QFT, complete-Ising, and dense-XY input, five temporal graph rules

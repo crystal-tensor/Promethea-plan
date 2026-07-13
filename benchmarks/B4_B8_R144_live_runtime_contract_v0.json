@@ -1,0 +1,139 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition": "protocol and source bindings remain exact",
+      "condition_id": "A1"
+    },
+    {
+      "condition": "full and halving execution counts equal 1,728 and 816",
+      "condition_id": "A2"
+    },
+    {
+      "condition": "full strategy reproduces all 12 R142 selections",
+      "condition_id": "A3"
+    },
+    {
+      "condition": "halving strategy reproduces all 12 R143 selections",
+      "condition_id": "A4"
+    },
+    {
+      "condition": "measured execution-loop runtime reduction is at least 30 percent",
+      "condition_id": "A5"
+    },
+    {
+      "condition": "halving/full per-execution runtime ratio lies between 0.5 and 2.0",
+      "condition_id": "A6"
+    },
+    {
+      "condition": "strategy order follows the post-preregistration secret",
+      "condition_id": "A7"
+    },
+    {
+      "condition": "both strategies use identical circuits, seeds, shots, and backend snapshots",
+      "condition_id": "A8"
+    },
+    {
+      "condition": "measurement transcript hashes and deterministic outputs verify",
+      "condition_id": "A9"
+    },
+    {
+      "condition": "cross-calibration, hardware, advantage, BQP, solved-frontier, and credit claims remain false",
+      "condition_id": "A10"
+    }
+  ],
+  "claim_boundary": {
+    "positive_result_requires_all_conditions": true,
+    "what_is_not_supported_even_if_accepted": "cross-calibration transfer, real hardware savings, cloud billing savings, protocol soundness, quantum advantage, BQP separation, or solved B4/B8/B10"
+  },
+  "contract_id": "B4-B8-R144-live-runtime-contract-v0",
+  "contract_status": "public_preregistration_measurement_unopened",
+  "phase_protocol": [
+    "commit a fresh secret after public preregistration",
+    "derive full-first or halving-first strategy order",
+    "perform shared untimed setup and warmup",
+    "time each strategy once with perf_counter_ns",
+    "write measurement rows before secret reveal",
+    "reveal secret and verify transcript hashes and deterministic selections"
+  ],
+  "research_question": "Does the accepted R143 charged-execution reduction produce at least thirty percent measured execution-loop wall-clock savings?",
+  "source_bindings": {
+    "protocol_path": "results/B4_B8_R144_live_runtime_protocol_v0.json",
+    "protocol_payload_hash": "65cc1bd58d62f639a2eb58b2ceb30261f6148290170da24669d52a89c0ea4d8c",
+    "protocol_sha256": "e034b7d5ade6d381a1564d2874d0a357ff6f83b6fe05193aa19282d82a604fde",
+    "r142_design_path": "results/B4_B8_R142_seed_robust_lcb_mapping_design_v0.json",
+    "r142_design_payload_hash": "e04572b3b92a4024d863d552f921d445c7b89faa4c435f2baa291979408dad15",
+    "r142_design_sha256": "883710ced7a5796232fafa4ca33ac577473ce6b09d4948713f6020ca2578204d",
+    "r143_design_path": "results/B4_B8_R143_successive_halving_lcb_design_v0.json",
+    "r143_design_payload_hash": "1a7bac658ec807d22d2407545973de22d280aab530f3672a3ffdafa8b37ef754",
+    "r143_design_sha256": "61340c0b242925be77a391552af62927af0fd66855d337daf955e36ae8f4bf34",
+    "r143_holdout_path": "results/B4_B8_R143_successive_halving_lcb_holdout_v0.json",
+    "r143_holdout_sha256": "229d2a573d394f5b09d7206e1dd4ad37421074fa569a76683ef658c576495c1f"
+  },
+  "target_id": "T-B4-002ax/T-B8-003bb/T-B10-009ap",
+  "timing_protocol": {
+    "design_seeds": [
+      14201,
+      14202,
+      14203,
+      14204,
+      14205,
+      14206,
+      14207,
+      14208,
+      14209,
+      14210,
+      14211,
+      14212,
+      14213,
+      14214,
+      14215,
+      14216
+    ],
+    "full_strategy": {
+      "automatic_execution_count": 192,
+      "candidate_count_per_group": 8,
+      "candidate_execution_count": 1536,
+      "seed_count": 16,
+      "total_execution_count": 1728
+    },
+    "halving_strategy": {
+      "automatic_execution_count": 144,
+      "candidate_execution_count": 672,
+      "round_schedule": [
+        {
+          "additional_seed_count": 4,
+          "survivor_count": 4
+        },
+        {
+          "additional_seed_count": 4,
+          "survivor_count": 2
+        },
+        {
+          "additional_seed_count": 4,
+          "survivor_count": 1
+        }
+      ],
+      "total_execution_count": 816
+    },
+    "maximum_full_budget_lcb_regret": 0.001,
+    "maximum_selection_disagreement_count": 2,
+    "minimum_runtime_reduction_fraction": 0.3,
+    "shared_untimed_setup": [
+      "load frozen source rows",
+      "load or compile the same 96 unique-QASM shortlist circuits",
+      "verify exact circuit semantics",
+      "one simulator warmup circuit per backend snapshot"
+    ],
+    "shots_per_execution": 2048,
+    "strategy_order": "derived_from_post_preregistration_secret",
+    "timed_scope": [
+      "create fresh strategy-local AerSimulator instances",
+      "compile same-seed automatic baselines",
+      "execute automatic and candidate circuits",
+      "update online LCB statistics and eliminate candidates"
+    ],
+    "timer": "time.perf_counter_ns",
+    "timing_repeat_count": 1
+  },
+  "upstream_target_id": "T-B4-002aw/T-B8-003ba/T-B10-009ao"
+}

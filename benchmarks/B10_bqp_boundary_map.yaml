@@ -1674,6 +1674,24 @@ current_results:
     requirements_failed: 0
     result: ../results/B4_B8_R143_successive_halving_lcb_holdout_v0.json
     markdown_report: ../research/B4_B8_R143_successive_halving_lcb_holdout.md
+  b10_t2_b4_b8_r144_live_runtime_protocol_v0:
+    status: live_runtime_protocol_not_bqp_claim
+    method: b4_b8_r144_live_runtime_protocol_v0
+    source_b8_result: ../results/B4_B8_R144_live_runtime_protocol_v0.json
+    source_target_id: T-B4-002aw/T-B8-003ba/T-B10-009ao
+    full_execution_count: 1728
+    halving_execution_count: 816
+    minimum_runtime_reduction_fraction: 0.30
+    measurement_executed: false
+    contract_sha256: 4eacb0b36f7cebc52dcd8892430905975374e0038c8cf61cb4b9ead8d5a6beb5
+    b10_t2_credit_allowed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R144_live_runtime_protocol_v0.json
+    markdown_report: ../research/B4_B8_R144_live_runtime_protocol.md
+    holdout_contract: B4_B8_R144_live_runtime_contract_v0.json
   b10_t3_b9_checked_transcript_acceptance_packet_gate_v0:
     status: checked_transcript_acceptance_packet_open_missing_artifact
     method: b9_checked_transcript_acceptance_packet_gate_v0

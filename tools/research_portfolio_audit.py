@@ -37174,6 +37174,49 @@ def audit(root: Path) -> dict:
             if not rel or not (root / rel).exists():
                 errors.append(f"R143 phase missing: {phase_key}")
 
+    r144_protocol_path = results / "B4_B8_R144_live_runtime_protocol_v0.json"
+    r144_report_path = research / "B4_B8_R144_live_runtime_protocol.md"
+    r144_contract_path = benchmarks / "B4_B8_R144_live_runtime_contract_v0.json"
+    r144_contract_sha256 = hashlib.sha256(r144_contract_path.read_bytes()).hexdigest() if r144_contract_path.exists() else None
+    r144_status = {"path": str(r144_protocol_path), "report_path": str(r144_report_path), "contract_path": str(r144_contract_path), "exists": r144_protocol_path.exists(), "report_exists": r144_report_path.exists(), "contract_exists": r144_contract_path.exists(), "contract_sha256": r144_contract_sha256}
+    r144_manifest_rows = [
+        ("B4", b4_manifest.get("current_results", {}).get("b4_b8_r144_live_runtime_protocol_v0")),
+        ("B8", b8_manifest.get("current_results", {}).get("b4_b8_r144_live_runtime_protocol_v0")),
+        ("B10", b10_manifest.get("current_results", {}).get("b10_t2_b4_b8_r144_live_runtime_protocol_v0")),
+    ]
+    for label, row in r144_manifest_rows:
+        if not row:
+            errors.append(f"{label} manifest missing R144 runtime protocol")
+            continue
+        for field in ["result", "markdown_report", "holdout_contract"]:
+            if not row.get(field) or not path_exists_from(benchmarks, row[field]):
+                errors.append(f"{label} R144 runtime missing {field}")
+        if row.get("contract_sha256") != r144_contract_sha256:
+            errors.append(f"{label} R144 contract hash mismatch")
+    if not all(x.exists() for x in [r144_protocol_path, r144_report_path, r144_contract_path]):
+        errors.append("R144 protocol, report, or contract missing")
+    else:
+        p = json.loads(read(r144_protocol_path)); protocol = p.get("protocol", {})
+        r144_status.update({"status": p.get("status"), "method": p.get("method"), "requirements_passed": p.get("requirements_passed"), "requirements_failed": p.get("requirements_failed"), "measurement_executed": p.get("measurement_executed")})
+        if p.get("status") != "live_runtime_protocol_frozen_before_measurement" or p.get("method") != "b4_b8_r144_live_runtime_protocol_v0":
+            errors.append("R144 protocol status or method mismatch")
+        if p.get("requirements_passed") != 10 or p.get("requirements_failed") != 0 or p.get("measurement_executed") is not False:
+            errors.append("R144 protocol requirements or unopened boundary mismatch")
+        if protocol.get("full_strategy", {}).get("total_execution_count") != 1728 or protocol.get("halving_strategy", {}).get("total_execution_count") != 816 or protocol.get("shots_per_execution") != 2048 or protocol.get("minimum_runtime_reduction_fraction") != 0.30:
+            errors.append("R144 strategy counts or runtime threshold mismatch")
+        hp = dict(p); ph = hp.pop("payload_hash", None)
+        if ph != hashlib.sha256(json.dumps(hp, sort_keys=True, separators=(",", ":")).encode()).hexdigest():
+            errors.append("R144 protocol payload hash mismatch")
+        contract = json.loads(read(r144_contract_path))
+        if r144_contract_sha256 != "4eacb0b36f7cebc52dcd8892430905975374e0038c8cf61cb4b9ead8d5a6beb5":
+            errors.append("R144 contract file hash mismatch")
+        if contract.get("contract_id") != "B4-B8-R144-live-runtime-contract-v0" or contract.get("contract_status") != "public_preregistration_measurement_unopened":
+            errors.append("R144 contract ID or status mismatch")
+        if contract.get("target_id") != "T-B4-002ax/T-B8-003bb/T-B10-009ap" or "challenge_secret" in contract or "measurement_rows" in contract:
+            errors.append("R144 contract target or unopened boundary mismatch")
+        if contract.get("source_bindings", {}).get("protocol_payload_hash") != ph or len(contract.get("acceptance_conditions", [])) != 10:
+            errors.append("R144 contract binding or acceptance count mismatch")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -37628,6 +37671,7 @@ def audit(root: Path) -> dict:
             "r142_seed_robust_lcb_mapping_holdout": r142_holdout_status,
             "r143_successive_halving_lcb_design": r143_status,
             "r143_successive_halving_lcb_holdout": r143_holdout_status,
+            "r144_live_runtime_protocol": r144_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -39029,6 +39073,10 @@ def audit(root: Path) -> dict:
             "b4_b8_r143_successive_halving_lcb_holdout": str(
                 research / "B4_B8_R143_successive_halving_lcb_holdout.md"
             ),
+            "b4_b8_r144_live_runtime_protocol": str(
+                research / "B4_B8_R144_live_runtime_protocol.md"
+            ),
+            "b4_b8_r144_live_runtime_contract": str(r144_contract_path),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),
             "b8_challenge_refresh_repair": str(research / "B8_challenge_refresh_repair.md"),
