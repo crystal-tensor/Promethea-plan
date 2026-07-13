@@ -2609,6 +2609,20 @@ execution-loop timing result, not repeated-order confidence, cross-machine or
 cross-calibration transfer, hardware or cloud billing savings, advantage, BQP,
 or new credit.
 
+`T-B4-002ay` / `T-B8-003bc` / `T-B10-009aq` now freezes the R145
+counterbalanced repeated-order runtime protocol before measurement. A fresh
+post-preregistration secret selects `ABBA` or `BAAB`, where A is the 1,728-run
+full strategy and B is the 816-run successive-halving strategy. Each strategy
+therefore runs twice at `2,048` shots with the same circuits, 16 seeds, backend
+snapshots, timer boundary, shared setup, and warmup disclosure used by R144.
+Acceptance requires `24/24` selection replay per strategy, at least `30%`
+pooled runtime reduction, at least `20%` reduction in both adjacent A/B pairs,
+no more than `15` percentage points between pair reductions, and a pooled
+per-execution ratio in `[0.5, 2.0]`. Contract hash
+`ab414301268580529042bc3e5e5e5f13a29a58b9cf78d08b191f34a856c48690`.
+No R145 timing, cross-machine or calibration transfer, hardware or billing
+savings, advantage, BQP, solved-frontier, or new-credit claim has opened.
+
 `T-B4-002aj` / `T-B8-003an` / `T-B10-009ab` now adds the R135
 dense-interaction deterministic fallback boundary. For each new inverse-QFT,
 scrambled-QFT, complete-Ising, and dense-XY input, five temporal graph rules

@@ -1,0 +1,141 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition": "protocol and source bindings remain exact",
+      "condition_id": "A1"
+    },
+    {
+      "condition": "each full and halving repeat records 1,728 and 816 executions",
+      "condition_id": "A2"
+    },
+    {
+      "condition": "both full repeats reproduce all 12 R142 selections",
+      "condition_id": "A3"
+    },
+    {
+      "condition": "both halving repeats reproduce all 12 R143 selections",
+      "condition_id": "A4"
+    },
+    {
+      "condition": "pooled execution-loop runtime reduction is at least 30 percent",
+      "condition_id": "A5"
+    },
+    {
+      "condition": "each adjacent full/halving pair has at least 20 percent runtime reduction",
+      "condition_id": "A6"
+    },
+    {
+      "condition": "the two paired runtime-reduction fractions differ by at most 15 percentage points",
+      "condition_id": "A7"
+    },
+    {
+      "condition": "pooled halving/full per-execution runtime ratio lies between 0.5 and 2.0",
+      "condition_id": "A8"
+    },
+    {
+      "condition": "schedule follows the post-preregistration secret and transcript hashes verify",
+      "condition_id": "A9"
+    },
+    {
+      "condition": "cross-machine, calibration, hardware, advantage, BQP, solved-frontier, and credit claims remain false",
+      "condition_id": "A10"
+    }
+  ],
+  "claim_boundary": {
+    "positive_result_requires_all_conditions": true,
+    "what_is_not_supported_even_if_accepted": "cross-machine or calibration transfer, real hardware or cloud billing savings, protocol soundness, quantum advantage, BQP separation, or solved B4/B8/B10"
+  },
+  "contract_id": "B4-B8-R145-counterbalanced-runtime-contract-v0",
+  "contract_status": "public_preregistration_measurement_unopened",
+  "phase_protocol": [
+    "commit a fresh secret after public preregistration",
+    "derive ABBA or BAAB from the secret",
+    "perform shared untimed setup and warmup",
+    "time four fresh strategy runs in the secret-selected order",
+    "write all measurement records before secret reveal",
+    "reveal the secret and verify counts, selections, pairing, and hashes"
+  ],
+  "research_question": "Does R144 retain at least thirty percent pooled runtime savings after a secret-selected ABBA/BAAB repeated-order challenge?",
+  "source_bindings": {
+    "protocol_path": "results/B4_B8_R145_counterbalanced_runtime_protocol_v0.json",
+    "protocol_payload_hash": "05205a06f2a4ec636f323c244ba6942ad1789491552efc45febd1e5394b44fa3",
+    "protocol_sha256": "a4b0f3a5782eb50ea239f58dd7c6366329f5580194a85874eb2f54a4016bf308",
+    "r142_design_path": "results/B4_B8_R142_seed_robust_lcb_mapping_design_v0.json",
+    "r142_design_payload_hash": "e04572b3b92a4024d863d552f921d445c7b89faa4c435f2baa291979408dad15",
+    "r142_design_sha256": "883710ced7a5796232fafa4ca33ac577473ce6b09d4948713f6020ca2578204d",
+    "r143_design_path": "results/B4_B8_R143_successive_halving_lcb_design_v0.json",
+    "r143_design_payload_hash": "1a7bac658ec807d22d2407545973de22d280aab530f3672a3ffdafa8b37ef754",
+    "r143_design_sha256": "61340c0b242925be77a391552af62927af0fd66855d337daf955e36ae8f4bf34",
+    "r144_runtime_path": "results/B4_B8_R144_live_runtime_benchmark_v0.json",
+    "r144_runtime_payload_hash": "d0dcd0aade49c9a25f08e713f9aa14f920c61503b968e8de998d460835cf308a",
+    "r144_runtime_sha256": "17c031ff76014ee27da556327efc31dda3eda56d005214f04cb1cb832c643ec6"
+  },
+  "target_id": "T-B4-002az/T-B8-003bd/T-B10-009ar",
+  "timing_protocol": {
+    "design_seeds": [
+      14201,
+      14202,
+      14203,
+      14204,
+      14205,
+      14206,
+      14207,
+      14208,
+      14209,
+      14210,
+      14211,
+      14212,
+      14213,
+      14214,
+      14215,
+      14216
+    ],
+    "full_execution_count_per_repeat": 1728,
+    "full_execution_count_total": 3456,
+    "halving_execution_count_per_repeat": 816,
+    "halving_execution_count_total": 1632,
+    "maximum_pair_reduction_spread_fraction": 0.15,
+    "minimum_each_pair_runtime_reduction_fraction": 0.2,
+    "minimum_pooled_runtime_reduction_fraction": 0.3,
+    "pairing_rule": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "per_execution_runtime_ratio_interval": [
+      0.5,
+      2.0
+    ],
+    "repeat_count_per_strategy": 2,
+    "required_selection_replay_count_per_strategy": 24,
+    "schedule_family": [
+      "ABBA",
+      "BAAB"
+    ],
+    "schedule_selection": "derived_from_post_preregistration_secret",
+    "shared_untimed_setup": [
+      "load frozen source rows",
+      "compile the same 96 unique-QASM shortlist circuits",
+      "verify exact circuit semantics",
+      "one simulator warmup circuit per backend snapshot"
+    ],
+    "shots_per_execution": 2048,
+    "strategy_labels": {
+      "A": "full",
+      "B": "halving"
+    },
+    "timed_scope": [
+      "create fresh strategy-local AerSimulator instances",
+      "compile same-seed automatic baselines",
+      "execute automatic and candidate circuits",
+      "update online LCB statistics and eliminate candidates"
+    ],
+    "timer": "time.perf_counter_ns"
+  },
+  "upstream_target_id": "T-B4-002ay/T-B8-003bc/T-B10-009aq"
+}

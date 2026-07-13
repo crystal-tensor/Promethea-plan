@@ -2152,6 +2152,27 @@ current_results:
     requirements_failed: 0
     result: ../results/B4_B8_R144_live_runtime_benchmark_v0.json
     markdown_report: ../research/B4_B8_R144_live_runtime_benchmark.md
+  b4_b8_r145_counterbalanced_runtime_protocol_v0:
+    status: counterbalanced_runtime_protocol_frozen_before_measurement
+    method: b4_b8_r145_counterbalanced_runtime_protocol_v0
+    source_target_id: T-B4-002ay/T-B8-003bc/T-B10-009aq
+    upstream_target_id: T-B4-002ax/T-B8-003bb/T-B10-009ap
+    schedule_family: [ABBA, BAAB]
+    repeat_count_per_strategy: 2
+    full_execution_count_per_repeat: 1728
+    halving_execution_count_per_repeat: 816
+    minimum_pooled_runtime_reduction_fraction: 0.30
+    minimum_each_pair_runtime_reduction_fraction: 0.20
+    maximum_pair_reduction_spread_fraction: 0.15
+    measurement_executed: false
+    contract_sha256: ab414301268580529042bc3e5e5e5f13a29a58b9cf78d08b191f34a856c48690
+    protocol_soundness_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R145_counterbalanced_runtime_protocol_v0.json
+    markdown_report: ../research/B4_B8_R145_counterbalanced_runtime_protocol.md
+    holdout_contract: B4_B8_R145_counterbalanced_runtime_contract_v0.json
 prototype_artifacts:
   output_invariant_verifier: ../tools/b8_output_invariant_verifier.py
   adaptive_leakage_spoofer: ../tools/b8_adaptive_spoofer_leakage.py

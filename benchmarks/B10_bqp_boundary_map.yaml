@@ -1710,6 +1710,26 @@ current_results:
     requirements_failed: 0
     result: ../results/B4_B8_R144_live_runtime_benchmark_v0.json
     markdown_report: ../research/B4_B8_R144_live_runtime_benchmark.md
+  b10_t2_b4_b8_r145_counterbalanced_runtime_protocol_v0:
+    status: counterbalanced_runtime_protocol_not_bqp_claim
+    method: b4_b8_r145_counterbalanced_runtime_protocol_v0
+    source_b8_result: ../results/B4_B8_R145_counterbalanced_runtime_protocol_v0.json
+    source_target_id: T-B4-002ay/T-B8-003bc/T-B10-009aq
+    schedule_family: [ABBA, BAAB]
+    repeat_count_per_strategy: 2
+    minimum_pooled_runtime_reduction_fraction: 0.30
+    minimum_each_pair_runtime_reduction_fraction: 0.20
+    maximum_pair_reduction_spread_fraction: 0.15
+    measurement_executed: false
+    contract_sha256: ab414301268580529042bc3e5e5e5f13a29a58b9cf78d08b191f34a856c48690
+    b10_t2_credit_allowed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R145_counterbalanced_runtime_protocol_v0.json
+    markdown_report: ../research/B4_B8_R145_counterbalanced_runtime_protocol.md
+    holdout_contract: B4_B8_R145_counterbalanced_runtime_contract_v0.json
   b10_t3_b9_checked_transcript_acceptance_packet_gate_v0:
     status: checked_transcript_acceptance_packet_open_missing_artifact
     method: b9_checked_transcript_acceptance_packet_gate_v0
