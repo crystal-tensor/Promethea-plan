@@ -3411,3 +3411,24 @@ within-backend block spread at 0.08. Contract `99aae340...`; this is a frozen
 replication test, not a hidden result, causal proof, temporal or real-device
 transfer, hardware performance, general route-generation advantage, quantum
 advantage, BQP separation, solved-frontier status, or new credit.
+
+The R153 holdout at `T-B4-002bo` / `T-B8-003bs` / `T-B10-009bg` is
+preregistered ACCEPT with A1-A10 and P1-P10 passing. The accepted R152 routes
+were replayed unchanged across 96 hidden rows, 12 independent blocks, 288
+same-seed three-arm executions, and 589,824 shots. Portfolio repaired-automatic
+mean/bootstrap lower are `+0.02595381` / `+0.02209900`; repaired-denominator
+mean/bootstrap lower are `+0.00327876` / `+0.00170832`. All `3/3` backend means
+clear `-0.02`, all `12/12` block means clear `-0.03`, the maximum
+within-backend block-mean spread is `0.00609251`, and no row falls below
+`-0.05`. Casablanca remains slightly below the strong denominator on average
+at `-0.00337217`, while Nairobi and Perth remain positive at `+0.00860058` and
+`+0.00460786`. A stable full replay matches all `96/96` rows and `4/4` phase
+artifacts. An earlier generation-to-first-replay comparison matched only `2/4`
+phase artifacts because the fresh-automatic mean moved by about `2.2e-6`; no
+acceptance condition changed. Payload hash `3f48a8ac...`. This supports one
+independent hidden-seed replication of the finite R152 simulated-noise result,
+with an open execution-reproducibility caveat that requires per-row automatic
+circuit hashes and serial Aer execution in the next gate. It is not causal
+proof, temporal or real-device transfer, hardware performance, general
+route-generation advantage, quantum advantage, BQP separation, solved-frontier
+status, or new credit.

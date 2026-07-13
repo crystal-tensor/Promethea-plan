@@ -1,0 +1,428 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition_id": "A1",
+      "label": "contract, protocol, accepted R152 result, routes, denominators, and bindings remain exact",
+      "passed": true,
+      "threshold": true,
+      "value": true
+    },
+    {
+      "condition_id": "A2",
+      "label": "groups, rows, executions, blocks, and same-seed arms",
+      "passed": true,
+      "threshold": [
+        3,
+        96,
+        288,
+        12
+      ],
+      "value": [
+        3,
+        96,
+        288,
+        12
+      ]
+    },
+    {
+      "condition_id": "A3",
+      "label": "all repaired and denominator routes retain semantics",
+      "passed": true,
+      "threshold": [
+        6,
+        0.9999999999
+      ],
+      "value": [
+        6,
+        0.9999999999999956
+      ]
+    },
+    {
+      "condition_id": "A4",
+      "label": "portfolio repaired versus automatic noninferiority",
+      "passed": true,
+      "threshold": [
+        -0.005,
+        -0.01
+      ],
+      "value": [
+        0.0259538061022732,
+        0.022098999777958688
+      ]
+    },
+    {
+      "condition_id": "A5",
+      "label": "portfolio repaired versus strong denominator noninferiority",
+      "passed": true,
+      "threshold": [
+        -0.005,
+        -0.015
+      ],
+      "value": [
+        0.0032787576260107456,
+        0.0017083245076636334
+      ]
+    },
+    {
+      "condition_id": "A6",
+      "label": "all groups above negative 0.02 versus denominator",
+      "passed": true,
+      "threshold": 3,
+      "value": 3
+    },
+    {
+      "condition_id": "A7",
+      "label": "severe row regressions below negative 0.05",
+      "passed": true,
+      "threshold": 0,
+      "value": 0
+    },
+    {
+      "condition_id": "A8",
+      "label": "Casablanca mean, independent block count, and within-backend block spread clear frozen floors",
+      "passed": true,
+      "threshold": [
+        -0.02,
+        10,
+        0.08
+      ],
+      "value": [
+        -0.003372165193721615,
+        12,
+        0.0060925088018477375
+      ]
+    },
+    {
+      "condition_id": "A9",
+      "label": "commitment, hidden rows, reveal, and transcript",
+      "passed": true,
+      "threshold": true,
+      "value": true
+    },
+    {
+      "condition_id": "A10",
+      "label": "forbidden claims and credit remain false",
+      "passed": true,
+      "threshold": 0,
+      "value": 0
+    }
+  ],
+  "artifacts": {
+    "challenge_commitment": "results/B4_B8_R153_independent_seed_replication_holdout/challenge_commitment.json",
+    "challenge_reveal": "results/B4_B8_R153_independent_seed_replication_holdout/challenge_reveal.json",
+    "contract": "benchmarks/B4_B8_R153_independent_seed_replication_contract_v0.json",
+    "markdown_report": "research/B4_B8_R153_independent_seed_replication_holdout.md",
+    "result": "results/B4_B8_R153_independent_seed_replication_holdout_v0.json",
+    "three_arm_trial_rows": "results/B4_B8_R153_independent_seed_replication_holdout/three_arm_trial_rows.json",
+    "verifier_transcript": "results/B4_B8_R153_independent_seed_replication_holdout/verifier_transcript.json"
+  },
+  "block_rows": [
+    {
+      "block_index": 0,
+      "mean_repaired_minus_automatic": 0.020251119548297183,
+      "mean_repaired_minus_denominator": -0.003921318160462622,
+      "minimum_repaired_minus_denominator": -0.009241980415938933,
+      "repaired_win_count_vs_denominator": 1,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeCasablancaV2"
+    },
+    {
+      "block_index": 1,
+      "mean_repaired_minus_automatic": 0.01760339628059593,
+      "mean_repaired_minus_denominator": -0.0039011749868911594,
+      "minimum_repaired_minus_denominator": -0.010485454026443297,
+      "repaired_win_count_vs_denominator": 3,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeCasablancaV2"
+    },
+    {
+      "block_index": 2,
+      "mean_repaired_minus_automatic": 0.020258025974915134,
+      "mean_repaired_minus_denominator": -0.004152809911426469,
+      "minimum_repaired_minus_denominator": -0.009274085028327494,
+      "repaired_win_count_vs_denominator": 1,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeCasablancaV2"
+    },
+    {
+      "block_index": 3,
+      "mean_repaired_minus_automatic": 0.018467995144727314,
+      "mean_repaired_minus_denominator": -0.001513357716106209,
+      "minimum_repaired_minus_denominator": -0.0189054813275219,
+      "repaired_win_count_vs_denominator": 3,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeCasablancaV2"
+    },
+    {
+      "block_index": 0,
+      "mean_repaired_minus_automatic": 0.031483388102095985,
+      "mean_repaired_minus_denominator": 0.010538128444112352,
+      "minimum_repaired_minus_denominator": 0.003131870443737861,
+      "repaired_win_count_vs_denominator": 8,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeNairobiV2"
+    },
+    {
+      "block_index": 1,
+      "mean_repaired_minus_automatic": 0.04543095762042461,
+      "mean_repaired_minus_denominator": 0.009283699192953784,
+      "minimum_repaired_minus_denominator": -0.0034000293522501446,
+      "repaired_win_count_vs_denominator": 7,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeNairobiV2"
+    },
+    {
+      "block_index": 2,
+      "mean_repaired_minus_automatic": 0.028857226643152586,
+      "mean_repaired_minus_denominator": 0.004445619642264614,
+      "minimum_repaired_minus_denominator": -0.006383089214665683,
+      "repaired_win_count_vs_denominator": 7,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeNairobiV2"
+    },
+    {
+      "block_index": 3,
+      "mean_repaired_minus_automatic": 0.03918973433249917,
+      "mean_repaired_minus_denominator": 0.010134858363838678,
+      "minimum_repaired_minus_denominator": -0.004759766802140297,
+      "repaired_win_count_vs_denominator": 7,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeNairobiV2"
+    },
+    {
+      "block_index": 0,
+      "mean_repaired_minus_automatic": 0.02247738052921404,
+      "mean_repaired_minus_denominator": 0.006804872637470399,
+      "minimum_repaired_minus_denominator": -0.0015667064734430358,
+      "repaired_win_count_vs_denominator": 6,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakePerth"
+    },
+    {
+      "block_index": 1,
+      "mean_repaired_minus_automatic": 0.026167337912745087,
+      "mean_repaired_minus_denominator": 0.005262013700945367,
+      "minimum_repaired_minus_denominator": 5.484140185307851e-05,
+      "repaired_win_count_vs_denominator": 8,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakePerth"
+    },
+    {
+      "block_index": 2,
+      "mean_repaired_minus_automatic": 0.020148563160668903,
+      "mean_repaired_minus_denominator": 0.0013594584082519817,
+      "minimum_repaired_minus_denominator": -0.0038383694260268886,
+      "repaired_win_count_vs_denominator": 5,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakePerth"
+    },
+    {
+      "block_index": 3,
+      "mean_repaired_minus_automatic": 0.021110547977942443,
+      "mean_repaired_minus_denominator": 0.005005101897178232,
+      "minimum_repaired_minus_denominator": -0.009937656805197648,
+      "repaired_win_count_vs_denominator": 7,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakePerth"
+    }
+  ],
+  "claim_boundary": {
+    "what_is_not_supported": "causal repair, temporal transfer, real-device transfer, hardware performance, general route-generation advantage, quantum advantage, BQP separation, solved B4/B8/B10, or new credit",
+    "what_is_supported": "one preregistered independent hidden-seed replication verdict for the accepted R152 routes across four blocks per backend"
+  },
+  "compiled_route_rows": [
+    {
+      "denominator_qasm_stable_hash": "519af8b4b1a083ea6fcf69828e0fc3ac4139632ddd70a847babe14066f7f601d",
+      "denominator_semantic_fidelity": 0.9999999999999956,
+      "denominator_transpiler_seed": 150144,
+      "repaired_mapping": null,
+      "repaired_policy_id": null,
+      "repaired_qasm_stable_hash": "2c3e8489690fb5a6b50af8717a1e624c69ba9ca877ac1f8ecca97786e7f98710",
+      "repaired_route_seed": 150128,
+      "repaired_route_source": "R152_novel_edge_signature",
+      "repaired_semantic_fidelity": 0.9999999999999967,
+      "target_snapshot": "FakeCasablancaV2"
+    },
+    {
+      "denominator_qasm_stable_hash": "e45592d461716c6aaf20866cb893631dfbdb19728c1d7d7a4824ceea8827f321",
+      "denominator_semantic_fidelity": 0.9999999999999956,
+      "denominator_transpiler_seed": 150144,
+      "repaired_mapping": [
+        2,
+        1,
+        4,
+        3,
+        0,
+        5
+      ],
+      "repaired_policy_id": "selected_o3_default",
+      "repaired_qasm_stable_hash": "f66704a9e34397c926846d9eef840a424d2b09089a76a617e64108c43315e811",
+      "repaired_route_seed": 15001,
+      "repaired_route_source": "R150_preserved_generated_control",
+      "repaired_semantic_fidelity": 0.9999999999999982,
+      "target_snapshot": "FakeNairobiV2"
+    },
+    {
+      "denominator_qasm_stable_hash": "33faca4633a8332bc2ec8d88c2cda363d7f999330bdc36d8cebe5729ea6568fa",
+      "denominator_semantic_fidelity": 0.9999999999999956,
+      "denominator_transpiler_seed": 150144,
+      "repaired_mapping": [
+        3,
+        0,
+        2,
+        1,
+        6,
+        5
+      ],
+      "repaired_policy_id": "selected_o3_lookahead",
+      "repaired_qasm_stable_hash": "3fd2e73ed74222d75f47bf4ab193269737ffed9f4c082880fc4b879aa94ab66d",
+      "repaired_route_seed": 15001,
+      "repaired_route_source": "R150_preserved_generated_control",
+      "repaired_semantic_fidelity": 0.9999999999999991,
+      "target_snapshot": "FakePerth"
+    }
+  ],
+  "failed_requirement_ids": [],
+  "generated_at_unix": 1783947526,
+  "group_rows": [
+    {
+      "mean_repaired_minus_automatic": 0.01914513423713389,
+      "mean_repaired_minus_denominator": -0.003372165193721615,
+      "minimum_repaired_minus_denominator": -0.0189054813275219,
+      "repaired_win_count_vs_denominator": 8,
+      "row_count": 32,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeCasablancaV2"
+    },
+    {
+      "mean_repaired_minus_automatic": 0.03624032667454309,
+      "mean_repaired_minus_denominator": 0.008600576410792357,
+      "minimum_repaired_minus_denominator": -0.006383089214665683,
+      "repaired_win_count_vs_denominator": 29,
+      "row_count": 32,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeNairobiV2"
+    },
+    {
+      "mean_repaired_minus_automatic": 0.022475957395142618,
+      "mean_repaired_minus_denominator": 0.004607861660961495,
+      "minimum_repaired_minus_denominator": -0.009937656805197648,
+      "repaired_win_count_vs_denominator": 26,
+      "row_count": 32,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakePerth"
+    }
+  ],
+  "method": "b4_b8_r153_independent_seed_replication_holdout_v0",
+  "model_status": "accepted_r152_routes_under_four_independent_hidden_seed_blocks",
+  "payload_hash": "3f48a8ac304cd04bf7f6907f389fb94447a51cf0fe5098ff5a74332045077adb",
+  "requirement_count": 10,
+  "requirements": [
+    {
+      "label": "public preregistration precedes challenge",
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "label": "contract, protocol, accepted R152 result, and design hashes verify",
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "label": "three frozen backend groups execute",
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "label": "96 rows partition into twelve independent eight-row blocks with shared arm seeds",
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "label": "commitment matches revealed secret",
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "label": "trial rows are complete before reveal",
+      "passed": true,
+      "requirement_id": "P6"
+    },
+    {
+      "label": "six compiled route semantic checks pass",
+      "passed": true,
+      "requirement_id": "P7"
+    },
+    {
+      "label": "four phase artifacts replay",
+      "passed": true,
+      "requirement_id": "P8"
+    },
+    {
+      "label": "acceptance transcript contains A1-A10",
+      "passed": true,
+      "requirement_id": "P9"
+    },
+    {
+      "label": "R153 performs no candidate selection and claim boundary remains explicit",
+      "passed": true,
+      "requirement_id": "P10"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 10,
+  "source_target_id": "T-B4-002bo/T-B8-003bs/T-B10-009bg",
+  "status": "independent_seed_replication_preregistered_acceptance",
+  "summary": {
+    "acceptance_conditions_failed": 0,
+    "acceptance_conditions_passed": 10,
+    "blocks_with_mean_repaired_minus_denominator_at_least_negative_0_03": 12,
+    "bqp_separation_claimed": false,
+    "causal_repair_claimed": false,
+    "failed_acceptance_condition_ids": [],
+    "general_route_generation_advantage_claimed": false,
+    "global_acceptance": true,
+    "groups_with_mean_repaired_minus_denominator_at_least_negative_0_02": 3,
+    "hardware_execution_claimed": false,
+    "independent_block_count": 12,
+    "maximum_within_backend_block_mean_spread": 0.0060925088018477375,
+    "minimum_semantic_fidelity": 0.9999999999999956,
+    "minimum_target_mean_repaired_minus_denominator": -0.003372165193721615,
+    "new_credit_delta": 0,
+    "phase_artifact_count": 4,
+    "phase_artifact_preexisting_count": 4,
+    "phase_artifact_replay_match_count": 4,
+    "portfolio_group_count": 3,
+    "portfolio_mean_repaired_minus_automatic": 0.0259538061022732,
+    "portfolio_mean_repaired_minus_denominator": 0.0032787576260107456,
+    "portfolio_repaired_minus_automatic_bootstrap_95_lower": 0.022098999777958688,
+    "portfolio_repaired_minus_automatic_bootstrap_95_upper": 0.030024109375210686,
+    "portfolio_repaired_minus_denominator_bootstrap_95_lower": 0.0017083245076636334,
+    "portfolio_repaired_minus_denominator_bootstrap_95_upper": 0.004817232273877226,
+    "quantum_advantage_claimed": false,
+    "r153_candidate_selection_performed": false,
+    "real_device_transfer_claimed": false,
+    "semantic_fidelity_pass_count": 6,
+    "severe_repaired_minus_denominator_regression_count_below_negative_0_05": 0,
+    "simulated_circuit_execution_count": 288,
+    "solved_frontier_claimed": false,
+    "temporal_transfer_claimed": false,
+    "total_simulated_shots": 589824,
+    "trial_row_count": 96
+  },
+  "title": "B4/B8 R153 independent seed replication holdout",
+  "upstream_target_id": "T-B4-002bn/T-B8-003br/T-B10-009bf",
+  "version": 0
+}

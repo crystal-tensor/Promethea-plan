@@ -1,0 +1,114 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition_id": "A1",
+      "label": "contract, protocol, accepted R152 result, routes, denominators, and bindings remain exact",
+      "passed": true,
+      "threshold": true,
+      "value": true
+    },
+    {
+      "condition_id": "A2",
+      "label": "groups, rows, executions, blocks, and same-seed arms",
+      "passed": true,
+      "threshold": [
+        3,
+        96,
+        288,
+        12
+      ],
+      "value": [
+        3,
+        96,
+        288,
+        12
+      ]
+    },
+    {
+      "condition_id": "A3",
+      "label": "all repaired and denominator routes retain semantics",
+      "passed": true,
+      "threshold": [
+        6,
+        0.9999999999
+      ],
+      "value": [
+        6,
+        0.9999999999999956
+      ]
+    },
+    {
+      "condition_id": "A4",
+      "label": "portfolio repaired versus automatic noninferiority",
+      "passed": true,
+      "threshold": [
+        -0.005,
+        -0.01
+      ],
+      "value": [
+        0.0259538061022732,
+        0.022098999777958688
+      ]
+    },
+    {
+      "condition_id": "A5",
+      "label": "portfolio repaired versus strong denominator noninferiority",
+      "passed": true,
+      "threshold": [
+        -0.005,
+        -0.015
+      ],
+      "value": [
+        0.0032787576260107456,
+        0.0017083245076636334
+      ]
+    },
+    {
+      "condition_id": "A6",
+      "label": "all groups above negative 0.02 versus denominator",
+      "passed": true,
+      "threshold": 3,
+      "value": 3
+    },
+    {
+      "condition_id": "A7",
+      "label": "severe row regressions below negative 0.05",
+      "passed": true,
+      "threshold": 0,
+      "value": 0
+    },
+    {
+      "condition_id": "A8",
+      "label": "Casablanca mean, independent block count, and within-backend block spread clear frozen floors",
+      "passed": true,
+      "threshold": [
+        -0.02,
+        10,
+        0.08
+      ],
+      "value": [
+        -0.003372165193721615,
+        12,
+        0.0060925088018477375
+      ]
+    },
+    {
+      "condition_id": "A9",
+      "label": "commitment, hidden rows, reveal, and transcript",
+      "passed": true,
+      "threshold": true,
+      "value": true
+    },
+    {
+      "condition_id": "A10",
+      "label": "forbidden claims and credit remain false",
+      "passed": true,
+      "threshold": 0,
+      "value": 0
+    }
+  ],
+  "challenge_secret_commitment_sha256": "b03e95bf77ae2b3f4bc68f792fbf91f375a162a16afbd86ccf7d6d68f90bcda5",
+  "contract_sha256": "99aae34034c9193cdc58a4aa62b68208c664098a2b44773ccf86c075850e46f7",
+  "global_acceptance": true,
+  "trial_rows_sha256": "716466cebd25638e82584b66d2f7893a84cdc529d4df258e5f80be3faaab725f"
+}

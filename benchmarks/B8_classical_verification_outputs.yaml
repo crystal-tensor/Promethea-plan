@@ -2560,6 +2560,30 @@ current_results:
     requirements_failed: 0
     result: ../results/B4_B8_R153_independent_seed_replication_protocol_v0.json
     markdown_report: ../research/B4_B8_R153_independent_seed_replication_protocol.md
+  b4_b8_r153_independent_seed_replication_holdout_v0:
+    status: independent_seed_replication_preregistered_acceptance
+    method: b4_b8_r153_independent_seed_replication_holdout_v0
+    source_target_id: T-B4-002bo/T-B8-003bs/T-B10-009bg
+    upstream_target_id: T-B4-002bn/T-B8-003br/T-B10-009bf
+    portfolio_group_count: 3
+    trial_row_count: 96
+    independent_block_count: 12
+    simulated_circuit_execution_count: 288
+    total_simulated_shots: 589824
+    groups_passing_negative_0_02: 3
+    blocks_passing_negative_0_03: 12
+    maximum_within_backend_block_mean_spread: 0.0060925088018477375
+    severe_regression_count: 0
+    acceptance_conditions_passed: 10
+    acceptance_conditions_failed: 0
+    global_acceptance: true
+    replay_caveat_open: true
+    protocol_soundness_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R153_independent_seed_replication_holdout_v0.json
+    markdown_report: ../research/B4_B8_R153_independent_seed_replication_holdout.md
 prototype_artifacts:
   output_invariant_verifier: ../tools/b8_output_invariant_verifier.py
   adaptive_leakage_spoofer: ../tools/b8_adaptive_spoofer_leakage.py

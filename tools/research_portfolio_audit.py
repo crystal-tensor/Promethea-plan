@@ -38492,6 +38492,8 @@ def audit(root: Path) -> dict:
     r153_protocol_path = results / "B4_B8_R153_independent_seed_replication_protocol_v0.json"
     r153_protocol_report_path = research / "B4_B8_R153_independent_seed_replication_protocol.md"
     r153_contract_path = benchmarks / "B4_B8_R153_independent_seed_replication_contract_v0.json"
+    r153_result_path = results / "B4_B8_R153_independent_seed_replication_holdout_v0.json"
+    r153_result_report_path = research / "B4_B8_R153_independent_seed_replication_holdout.md"
     r153_status = {
         "protocol_path": str(r153_protocol_path),
         "contract_path": str(r153_contract_path),
@@ -38561,6 +38563,108 @@ def audit(root: Path) -> dict:
             errors.append("R153 independent-seed contract target or unopened boundary mismatch")
         if r153_contract.get("source_bindings", {}).get("protocol_payload_hash") != protocol_ph or len(r153_contract.get("acceptance_conditions", [])) != 10:
             errors.append("R153 independent-seed contract binding or acceptance count mismatch")
+
+    r153_result_status = {
+        "result_path": str(r153_result_path),
+        "report_path": str(r153_result_report_path),
+        "result_exists": r153_result_path.exists(),
+        "report_exists": r153_result_report_path.exists(),
+    }
+    r153_result_manifest_rows = [
+        ("B4", b4_manifest.get("current_results", {}).get("b4_b8_r153_independent_seed_replication_holdout_v0")),
+        ("B8", b8_manifest.get("current_results", {}).get("b4_b8_r153_independent_seed_replication_holdout_v0")),
+        ("B10", b10_manifest.get("current_results", {}).get("b10_t2_b4_b8_r153_independent_seed_replication_holdout_v0")),
+    ]
+    for label, row in r153_result_manifest_rows:
+        if not row:
+            errors.append(f"{label} manifest missing R153 independent-seed result")
+            continue
+        for field in ["result", "markdown_report"]:
+            if not row.get(field) or not path_exists_from(benchmarks, row[field]):
+                errors.append(f"{label} R153 independent-seed result missing {field}")
+        if row.get("replay_caveat_open") is not True:
+            errors.append(f"{label} R153 independent-seed replay caveat must remain open")
+    if not r153_result_path.exists() or not r153_result_report_path.exists():
+        errors.append("R153 independent-seed result or report missing")
+    else:
+        if "first generation-to-replay comparison matched only `2/4` phase artifacts" not in read(r153_result_report_path):
+            errors.append("R153 independent-seed replay caveat missing from report")
+        r153_result = json.loads(read(r153_result_path))
+        r153_summary = r153_result.get("summary", {})
+        r153_result_status.update({
+            "status": r153_result.get("status"),
+            "method": r153_result.get("method"),
+            "requirements_passed": r153_result.get("requirements_passed"),
+            "requirements_failed": r153_result.get("requirements_failed"),
+            "global_acceptance": r153_summary.get("global_acceptance"),
+            "trial_row_count": r153_summary.get("trial_row_count"),
+            "independent_block_count": r153_summary.get("independent_block_count"),
+            "blocks_passing_negative_0_03": r153_summary.get("blocks_with_mean_repaired_minus_denominator_at_least_negative_0_03"),
+            "maximum_within_backend_block_mean_spread": r153_summary.get("maximum_within_backend_block_mean_spread"),
+            "phase_artifact_replay_match_count": r153_summary.get("phase_artifact_replay_match_count"),
+            "replay_caveat_open": True,
+        })
+        if r153_result.get("status") != "independent_seed_replication_preregistered_acceptance" or r153_result.get("method") != "b4_b8_r153_independent_seed_replication_holdout_v0":
+            errors.append("R153 independent-seed result status or method mismatch")
+        if r153_result.get("source_target_id") != "T-B4-002bo/T-B8-003bs/T-B10-009bg" or r153_result.get("upstream_target_id") != "T-B4-002bn/T-B8-003br/T-B10-009bf":
+            errors.append("R153 independent-seed result target chain mismatch")
+        if r153_result.get("requirements_passed") != 10 or r153_result.get("requirements_failed") != 0:
+            errors.append("R153 independent-seed result requirements must pass 10/10")
+        expected_summary = {
+            "portfolio_group_count": 3,
+            "trial_row_count": 96,
+            "simulated_circuit_execution_count": 288,
+            "total_simulated_shots": 589824,
+            "independent_block_count": 12,
+            "groups_with_mean_repaired_minus_denominator_at_least_negative_0_02": 3,
+            "blocks_with_mean_repaired_minus_denominator_at_least_negative_0_03": 12,
+            "severe_repaired_minus_denominator_regression_count_below_negative_0_05": 0,
+            "semantic_fidelity_pass_count": 6,
+            "phase_artifact_preexisting_count": 4,
+            "phase_artifact_replay_match_count": 4,
+            "acceptance_conditions_passed": 10,
+            "acceptance_conditions_failed": 0,
+            "global_acceptance": True,
+            "new_credit_delta": 0,
+        }
+        for field, value in expected_summary.items():
+            if r153_summary.get(field) != value:
+                errors.append(f"R153 independent-seed result {field} mismatch")
+        if r153_summary.get("maximum_within_backend_block_mean_spread") != 0.0060925088018477375:
+            errors.append("R153 independent-seed result block spread mismatch")
+        forbidden_claims = [
+            "causal_repair_claimed",
+            "temporal_transfer_claimed",
+            "real_device_transfer_claimed",
+            "hardware_execution_claimed",
+            "general_route_generation_advantage_claimed",
+            "quantum_advantage_claimed",
+            "bqp_separation_claimed",
+            "solved_frontier_claimed",
+        ]
+        if any(r153_summary.get(field) is not False for field in forbidden_claims) or r153_summary.get("r153_candidate_selection_performed") is not False:
+            errors.append("R153 independent-seed result claim or selection boundary mismatch")
+        conditions = r153_result.get("acceptance_conditions", [])
+        if [row.get("condition_id") for row in conditions] != [f"A{i}" for i in range(1, 11)] or not all(row.get("passed") is True for row in conditions):
+            errors.append("R153 independent-seed result must preserve A1-A10 acceptance")
+        if len(r153_result.get("group_rows", [])) != 3 or len(r153_result.get("block_rows", [])) != 12 or not all(row.get("row_count") == 8 for row in r153_result.get("block_rows", [])):
+            errors.append("R153 independent-seed group or block rows mismatch")
+        hp = dict(r153_result)
+        result_ph = hp.pop("payload_hash", None)
+        if result_ph != hashlib.sha256(json.dumps(hp, sort_keys=True, separators=(",", ":")).encode()).hexdigest():
+            errors.append("R153 independent-seed result payload hash mismatch")
+        if result_ph != "3f48a8ac304cd04bf7f6907f389fb94447a51cf0fe5098ff5a74332045077adb":
+            errors.append("R153 independent-seed final payload hash mismatch")
+        for phase_key in ["challenge_commitment", "three_arm_trial_rows", "challenge_reveal", "verifier_transcript"]:
+            rel = r153_result.get("artifacts", {}).get(phase_key)
+            if not rel or not (root / rel).exists():
+                errors.append(f"R153 independent-seed result phase missing: {phase_key}")
+        trials_path = root / r153_result.get("artifacts", {}).get("three_arm_trial_rows", "")
+        transcript_path = root / r153_result.get("artifacts", {}).get("verifier_transcript", "")
+        if trials_path.exists() and transcript_path.exists():
+            transcript = json.loads(read(transcript_path))
+            if transcript.get("trial_rows_sha256") != hashlib.sha256(trials_path.read_bytes()).hexdigest():
+                errors.append("R153 independent-seed trial row transcript hash mismatch")
 
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
@@ -39034,6 +39138,7 @@ def audit(root: Path) -> dict:
             "r152_edge_signature_expansion": r152_status,
             "r152_edge_signature_expansion_holdout": r152_result_status,
             "r153_independent_seed_replication": r153_status,
+            "r153_independent_seed_replication_holdout": r153_result_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -40511,6 +40616,7 @@ def audit(root: Path) -> dict:
             ),
             "b4_b8_r153_independent_seed_replication_protocol": str(r153_protocol_report_path),
             "b4_b8_r153_independent_seed_replication_contract": str(r153_contract_path),
+            "b4_b8_r153_independent_seed_replication_holdout": str(r153_result_report_path),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),
             "b8_challenge_refresh_repair": str(research / "B8_challenge_refresh_repair.md"),

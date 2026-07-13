@@ -9197,6 +9197,23 @@
       "status": "independent_seed_replication_protocol_frozen_before_challenge",
       "trial_row_count": 96
     },
+    "r153_independent_seed_replication_holdout": {
+      "blocks_passing_negative_0_03": 12,
+      "global_acceptance": true,
+      "independent_block_count": 12,
+      "maximum_within_backend_block_mean_spread": 0.0060925088018477375,
+      "method": "b4_b8_r153_independent_seed_replication_holdout_v0",
+      "phase_artifact_replay_match_count": 4,
+      "replay_caveat_open": true,
+      "report_exists": true,
+      "report_path": "research/B4_B8_R153_independent_seed_replication_holdout.md",
+      "requirements_failed": 0,
+      "requirements_passed": 10,
+      "result_exists": true,
+      "result_path": "results/B4_B8_R153_independent_seed_replication_holdout_v0.json",
+      "status": "independent_seed_replication_preregistered_acceptance",
+      "trial_row_count": 96
+    },
     "real_backend_packet_scout": {
       "backend_calibrated_aer_circuit_count": 5760,
       "backend_calibrated_noise_parameters_instantiated": true,
@@ -10236,6 +10253,7 @@
     "b4_b8_r152_edge_signature_expansion_holdout": "research/B4_B8_R152_edge_signature_expansion_holdout.md",
     "b4_b8_r152_edge_signature_expansion_protocol": "research/B4_B8_R152_edge_signature_expansion_protocol.md",
     "b4_b8_r153_independent_seed_replication_contract": "benchmarks/B4_B8_R153_independent_seed_replication_contract_v0.json",
+    "b4_b8_r153_independent_seed_replication_holdout": "research/B4_B8_R153_independent_seed_replication_holdout.md",
     "b4_b8_r153_independent_seed_replication_protocol": "research/B4_B8_R153_independent_seed_replication_protocol.md",
     "b4_b8_real_backend_packet_scout": "research/B4_B8_real_backend_packet_scout.md",
     "b4_b8_real_backend_provider_manifest_gate": "research/B4_B8_real_backend_provider_manifest_gate.md",

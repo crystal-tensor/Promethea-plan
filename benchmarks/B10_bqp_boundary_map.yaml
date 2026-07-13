@@ -2092,6 +2092,31 @@ current_results:
     requirements_failed: 0
     result: ../results/B4_B8_R153_independent_seed_replication_protocol_v0.json
     markdown_report: ../research/B4_B8_R153_independent_seed_replication_protocol.md
+  b10_t2_b4_b8_r153_independent_seed_replication_holdout_v0:
+    status: independent_seed_replication_acceptance_not_bqp_claim
+    method: b4_b8_r153_independent_seed_replication_holdout_v0
+    source_target_id: T-B4-002bo/T-B8-003bs/T-B10-009bg
+    upstream_target_id: T-B4-002bn/T-B8-003br/T-B10-009bf
+    portfolio_group_count: 3
+    trial_row_count: 96
+    independent_block_count: 12
+    simulated_circuit_execution_count: 288
+    total_simulated_shots: 589824
+    groups_passing_negative_0_02: 3
+    blocks_passing_negative_0_03: 12
+    maximum_within_backend_block_mean_spread: 0.0060925088018477375
+    severe_regression_count: 0
+    acceptance_conditions_passed: 10
+    acceptance_conditions_failed: 0
+    global_acceptance: true
+    replay_caveat_open: true
+    b10_t2_credit_allowed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R153_independent_seed_replication_holdout_v0.json
+    markdown_report: ../research/B4_B8_R153_independent_seed_replication_holdout.md
   b10_t3_b9_checked_transcript_acceptance_packet_gate_v0:
     status: checked_transcript_acceptance_packet_open_missing_artifact
     method: b9_checked_transcript_acceptance_packet_gate_v0
