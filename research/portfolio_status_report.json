@@ -8929,6 +8929,20 @@
       "requirements_passed": 10,
       "status": "successive_halving_lcb_preregistered_holdout_acceptance"
     },
+    "r144_live_runtime_benchmark": {
+      "exists": true,
+      "full_elapsed_seconds": 61.331845708,
+      "global_acceptance": true,
+      "halving_elapsed_seconds": 28.694974583,
+      "method": "b4_b8_r144_live_runtime_benchmark_v0",
+      "path": "results/B4_B8_R144_live_runtime_benchmark_v0.json",
+      "report_exists": true,
+      "report_path": "research/B4_B8_R144_live_runtime_benchmark.md",
+      "requirements_failed": 0,
+      "requirements_passed": 10,
+      "runtime_reduction_fraction": 0.532135805603889,
+      "status": "live_runtime_preregistered_acceptance"
+    },
     "r144_live_runtime_protocol": {
       "contract_exists": true,
       "contract_path": "benchmarks/B4_B8_R144_live_runtime_contract_v0.json",
@@ -9951,6 +9965,7 @@
     "b4_b8_r143_successive_halving_lcb_design": "research/B4_B8_R143_successive_halving_lcb_design.md",
     "b4_b8_r143_successive_halving_lcb_holdout": "research/B4_B8_R143_successive_halving_lcb_holdout.md",
     "b4_b8_r143_successive_halving_lcb_holdout_contract": "benchmarks/B4_B8_R143_successive_halving_lcb_holdout_contract_v0.json",
+    "b4_b8_r144_live_runtime_benchmark": "research/B4_B8_R144_live_runtime_benchmark.md",
     "b4_b8_r144_live_runtime_contract": "benchmarks/B4_B8_R144_live_runtime_contract_v0.json",
     "b4_b8_r144_live_runtime_protocol": "research/B4_B8_R144_live_runtime_protocol.md",
     "b4_b8_real_backend_packet_scout": "research/B4_B8_real_backend_packet_scout.md",

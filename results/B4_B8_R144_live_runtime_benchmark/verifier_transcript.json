@@ -1,0 +1,94 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition_id": "A1",
+      "label": "protocol and source bindings remain exact",
+      "passed": true,
+      "threshold": true,
+      "value": true
+    },
+    {
+      "condition_id": "A2",
+      "label": "full and halving execution counts",
+      "passed": true,
+      "threshold": [
+        1728,
+        816
+      ],
+      "value": [
+        1728,
+        816
+      ]
+    },
+    {
+      "condition_id": "A3",
+      "label": "full strategy reproduces R142 selections",
+      "passed": true,
+      "threshold": 12,
+      "value": 12
+    },
+    {
+      "condition_id": "A4",
+      "label": "halving strategy reproduces R143 selections",
+      "passed": true,
+      "threshold": 12,
+      "value": 12
+    },
+    {
+      "condition_id": "A5",
+      "label": "execution-loop runtime reduction",
+      "passed": true,
+      "threshold": ">= 0.30",
+      "value": 0.532135805603889
+    },
+    {
+      "condition_id": "A6",
+      "label": "halving/full per-execution runtime ratio",
+      "passed": true,
+      "threshold": "0.5 to 2.0",
+      "value": 0.9907712351917647
+    },
+    {
+      "condition_id": "A7",
+      "label": "strategy order follows secret",
+      "passed": true,
+      "threshold": [
+        "full",
+        "halving"
+      ],
+      "value": [
+        "full",
+        "halving"
+      ]
+    },
+    {
+      "condition_id": "A8",
+      "label": "identical circuits, seeds, shots, and snapshots",
+      "passed": true,
+      "threshold": true,
+      "value": true
+    },
+    {
+      "condition_id": "A9",
+      "label": "measurement transcript hashes verify",
+      "passed": true,
+      "threshold": "bound",
+      "value": "5b8f91e5f319e6250e1a0ceef2b1fb8c498c7ede89cf83546dc7fc29fdd0c459"
+    },
+    {
+      "condition_id": "A10",
+      "label": "calibration, hardware, billing, advantage, BQP, and credit claims false",
+      "passed": true,
+      "threshold": 0,
+      "value": 0
+    }
+  ],
+  "challenge_secret_commitment_sha256": "3514fc60a2a04f4809682f95e790c6e748f73cd34d662671031b0fde6336e4f3",
+  "contract_sha256": "4eacb0b36f7cebc52dcd8892430905975374e0038c8cf61cb4b9ead8d5a6beb5",
+  "global_acceptance": true,
+  "measurement_sha256": "5b8f91e5f319e6250e1a0ceef2b1fb8c498c7ede89cf83546dc7fc29fdd0c459",
+  "strategy_order": [
+    "full",
+    "halving"
+  ]
+}

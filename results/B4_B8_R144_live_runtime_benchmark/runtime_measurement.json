@@ -1,0 +1,1261 @@
+{
+  "contract_sha256": "4eacb0b36f7cebc52dcd8892430905975374e0038c8cf61cb4b9ead8d5a6beb5",
+  "machine": {
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "processor": "arm",
+    "python": "3.12.6"
+  },
+  "measured_at_unix": 1783912643,
+  "shared_setup_ns": 5875735750,
+  "strategies": {
+    "full": {
+      "automatic_execution_count": 192,
+      "candidate_execution_count": 1536,
+      "elapsed_ns": 61331845708,
+      "elapsed_seconds": 61.331845708,
+      "selection_rows": [
+        {
+          "mapping": [
+            3,
+            1,
+            5,
+            2,
+            0,
+            6
+          ],
+          "observed_seed_count": 16,
+          "policy_id": "selected_o3_default",
+          "realization_seed": 13610,
+          "snapshot": "FakeJakartaV2",
+          "task_id": "dense_validation_complete_ising_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 16,
+              "leader_identity": [
+                [
+                  3,
+                  1,
+                  5,
+                  2,
+                  0,
+                  6
+                ],
+                "selected_o3_default",
+                13610
+              ],
+              "leader_lcb": 0.007125796221965354,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            0,
+            2,
+            3,
+            5,
+            1,
+            6
+          ],
+          "observed_seed_count": 16,
+          "policy_id": "selected_o3_lookahead",
+          "realization_seed": 13601,
+          "snapshot": "FakeJakartaV2",
+          "task_id": "dense_validation_inverse_qft_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 16,
+              "leader_identity": [
+                [
+                  0,
+                  2,
+                  3,
+                  5,
+                  1,
+                  6
+                ],
+                "selected_o3_lookahead",
+                13601
+              ],
+              "leader_lcb": -0.00013972171004081638,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            5,
+            3,
+            1,
+            6,
+            2,
+            0
+          ],
+          "observed_seed_count": 16,
+          "policy_id": "selected_o3_default",
+          "realization_seed": 13601,
+          "snapshot": "FakeJakartaV2",
+          "task_id": "dense_validation_scrambled_qft_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 16,
+              "leader_identity": [
+                [
+                  5,
+                  3,
+                  1,
+                  6,
+                  2,
+                  0
+                ],
+                "selected_o3_default",
+                13601
+              ],
+              "leader_lcb": -0.0005449161161169085,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            0,
+            1,
+            3,
+            2,
+            5,
+            6
+          ],
+          "observed_seed_count": 16,
+          "policy_id": "selected_o3_default",
+          "realization_seed": 13601,
+          "snapshot": "FakeJakartaV2",
+          "task_id": "dense_validation_xy_network_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 16,
+              "leader_identity": [
+                [
+                  0,
+                  1,
+                  3,
+                  2,
+                  5,
+                  6
+                ],
+                "selected_o3_default",
+                13601
+              ],
+              "leader_lcb": 0.025665678430189347,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            5,
+            3,
+            6,
+            4,
+            1,
+            0
+          ],
+          "observed_seed_count": 16,
+          "policy_id": "selected_o3_default",
+          "realization_seed": 13601,
+          "snapshot": "FakeLagosV2",
+          "task_id": "dense_validation_complete_ising_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 16,
+              "leader_identity": [
+                [
+                  5,
+                  3,
+                  6,
+                  4,
+                  1,
+                  0
+                ],
+                "selected_o3_default",
+                13601
+              ],
+              "leader_lcb": 0.005234377251983724,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            4,
+            5,
+            0,
+            2,
+            3,
+            1
+          ],
+          "observed_seed_count": 16,
+          "policy_id": "selected_o3_default",
+          "realization_seed": 13603,
+          "snapshot": "FakeLagosV2",
+          "task_id": "dense_validation_inverse_qft_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 16,
+              "leader_identity": [
+                [
+                  4,
+                  5,
+                  0,
+                  2,
+                  3,
+                  1
+                ],
+                "selected_o3_default",
+                13603
+              ],
+              "leader_lcb": -0.0007060842962352772,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            5,
+            1,
+            0,
+            4,
+            3,
+            2
+          ],
+          "observed_seed_count": 16,
+          "policy_id": "selected_o3_default",
+          "realization_seed": 13601,
+          "snapshot": "FakeLagosV2",
+          "task_id": "dense_validation_scrambled_qft_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 16,
+              "leader_identity": [
+                [
+                  5,
+                  1,
+                  0,
+                  4,
+                  3,
+                  2
+                ],
+                "selected_o3_default",
+                13601
+              ],
+              "leader_lcb": 0.0004337132790942172,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            6,
+            4,
+            5,
+            3,
+            1,
+            0
+          ],
+          "observed_seed_count": 16,
+          "policy_id": "selected_o3_default",
+          "realization_seed": 13616,
+          "snapshot": "FakeLagosV2",
+          "task_id": "dense_validation_xy_network_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 16,
+              "leader_identity": [
+                [
+                  6,
+                  4,
+                  5,
+                  3,
+                  1,
+                  0
+                ],
+                "selected_o3_default",
+                13616
+              ],
+              "leader_lcb": 0.0025815930382307286,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            3,
+            1,
+            5,
+            0,
+            2,
+            4
+          ],
+          "observed_seed_count": 16,
+          "policy_id": "selected_o3_default",
+          "realization_seed": 13610,
+          "snapshot": "FakeOslo",
+          "task_id": "dense_validation_complete_ising_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 16,
+              "leader_identity": [
+                [
+                  3,
+                  1,
+                  5,
+                  0,
+                  2,
+                  4
+                ],
+                "selected_o3_default",
+                13610
+              ],
+              "leader_lcb": 0.0072264041577883974,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            2,
+            1,
+            4,
+            6,
+            3,
+            5
+          ],
+          "observed_seed_count": 16,
+          "policy_id": "selected_o3_default",
+          "realization_seed": 13610,
+          "snapshot": "FakeOslo",
+          "task_id": "dense_validation_inverse_qft_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 16,
+              "leader_identity": [
+                [
+                  2,
+                  1,
+                  4,
+                  6,
+                  3,
+                  5
+                ],
+                "selected_o3_default",
+                13610
+              ],
+              "leader_lcb": 1.8217605421487308e-05,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            5,
+            2,
+            1,
+            4,
+            0,
+            3
+          ],
+          "observed_seed_count": 16,
+          "policy_id": "selected_o3_default",
+          "realization_seed": 13601,
+          "snapshot": "FakeOslo",
+          "task_id": "dense_validation_scrambled_qft_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 16,
+              "leader_identity": [
+                [
+                  5,
+                  2,
+                  1,
+                  4,
+                  0,
+                  3
+                ],
+                "selected_o3_default",
+                13601
+              ],
+              "leader_lcb": -0.00021002306713095438,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            0,
+            2,
+            1,
+            3,
+            5,
+            4
+          ],
+          "observed_seed_count": 16,
+          "policy_id": "selected_o3_lookahead",
+          "realization_seed": 13601,
+          "snapshot": "FakeOslo",
+          "task_id": "dense_validation_xy_network_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 16,
+              "leader_identity": [
+                [
+                  0,
+                  2,
+                  1,
+                  3,
+                  5,
+                  4
+                ],
+                "selected_o3_lookahead",
+                13601
+              ],
+              "leader_lcb": 0.02592042311325037,
+              "survivor_count": 1
+            }
+          ]
+        }
+      ],
+      "strategy": "full",
+      "total_execution_count": 1728
+    },
+    "halving": {
+      "automatic_execution_count": 144,
+      "candidate_execution_count": 672,
+      "elapsed_ns": 28694974583,
+      "elapsed_seconds": 28.694974583,
+      "selection_rows": [
+        {
+          "mapping": [
+            3,
+            1,
+            5,
+            2,
+            0,
+            6
+          ],
+          "observed_seed_count": 12,
+          "policy_id": "selected_o3_default",
+          "realization_seed": 13610,
+          "snapshot": "FakeJakartaV2",
+          "task_id": "dense_validation_complete_ising_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 4,
+              "leader_identity": [
+                [
+                  3,
+                  1,
+                  5,
+                  2,
+                  0,
+                  6
+                ],
+                "selected_o3_default",
+                13610
+              ],
+              "leader_lcb": 0.01100101122565799,
+              "survivor_count": 4
+            },
+            {
+              "cumulative_seed_count": 8,
+              "leader_identity": [
+                [
+                  1,
+                  3,
+                  0,
+                  2,
+                  5,
+                  6
+                ],
+                "selected_o3_default",
+                13610
+              ],
+              "leader_lcb": 0.008141962496727238,
+              "survivor_count": 2
+            },
+            {
+              "cumulative_seed_count": 12,
+              "leader_identity": [
+                [
+                  3,
+                  1,
+                  5,
+                  2,
+                  0,
+                  6
+                ],
+                "selected_o3_default",
+                13610
+              ],
+              "leader_lcb": 0.006748803131653892,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            0,
+            2,
+            3,
+            5,
+            1,
+            6
+          ],
+          "observed_seed_count": 12,
+          "policy_id": "selected_o3_lookahead",
+          "realization_seed": 13601,
+          "snapshot": "FakeJakartaV2",
+          "task_id": "dense_validation_inverse_qft_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 4,
+              "leader_identity": [
+                [
+                  0,
+                  1,
+                  2,
+                  5,
+                  3,
+                  6
+                ],
+                "selected_o3_default",
+                13601
+              ],
+              "leader_lcb": -0.0003487261361121353,
+              "survivor_count": 4
+            },
+            {
+              "cumulative_seed_count": 8,
+              "leader_identity": [
+                [
+                  0,
+                  1,
+                  2,
+                  6,
+                  3,
+                  5
+                ],
+                "selected_o3_default",
+                13606
+              ],
+              "leader_lcb": -0.0005914182742770389,
+              "survivor_count": 2
+            },
+            {
+              "cumulative_seed_count": 12,
+              "leader_identity": [
+                [
+                  0,
+                  2,
+                  3,
+                  5,
+                  1,
+                  6
+                ],
+                "selected_o3_lookahead",
+                13601
+              ],
+              "leader_lcb": -0.00027066746013587725,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            5,
+            3,
+            1,
+            6,
+            2,
+            0
+          ],
+          "observed_seed_count": 12,
+          "policy_id": "selected_o3_default",
+          "realization_seed": 13601,
+          "snapshot": "FakeJakartaV2",
+          "task_id": "dense_validation_scrambled_qft_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 4,
+              "leader_identity": [
+                [
+                  5,
+                  0,
+                  3,
+                  6,
+                  2,
+                  1
+                ],
+                "selected_o3_lookahead",
+                13601
+              ],
+              "leader_lcb": -0.0007940013333980701,
+              "survivor_count": 4
+            },
+            {
+              "cumulative_seed_count": 8,
+              "leader_identity": [
+                [
+                  5,
+                  3,
+                  1,
+                  6,
+                  2,
+                  0
+                ],
+                "selected_o3_default",
+                13601
+              ],
+              "leader_lcb": -0.0007193668067603184,
+              "survivor_count": 2
+            },
+            {
+              "cumulative_seed_count": 12,
+              "leader_identity": [
+                [
+                  5,
+                  3,
+                  1,
+                  6,
+                  2,
+                  0
+                ],
+                "selected_o3_default",
+                13601
+              ],
+              "leader_lcb": -0.0005260996302932975,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            0,
+            1,
+            3,
+            2,
+            5,
+            6
+          ],
+          "observed_seed_count": 12,
+          "policy_id": "selected_o3_default",
+          "realization_seed": 13601,
+          "snapshot": "FakeJakartaV2",
+          "task_id": "dense_validation_xy_network_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 4,
+              "leader_identity": [
+                [
+                  0,
+                  1,
+                  3,
+                  2,
+                  5,
+                  6
+                ],
+                "selected_o3_default",
+                13601
+              ],
+              "leader_lcb": 0.02105266983258161,
+              "survivor_count": 4
+            },
+            {
+              "cumulative_seed_count": 8,
+              "leader_identity": [
+                [
+                  0,
+                  1,
+                  3,
+                  2,
+                  5,
+                  6
+                ],
+                "selected_o3_default",
+                13601
+              ],
+              "leader_lcb": 0.023681612249076896,
+              "survivor_count": 2
+            },
+            {
+              "cumulative_seed_count": 12,
+              "leader_identity": [
+                [
+                  0,
+                  1,
+                  3,
+                  2,
+                  5,
+                  6
+                ],
+                "selected_o3_default",
+                13601
+              ],
+              "leader_lcb": 0.025208237891101975,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            5,
+            3,
+            6,
+            4,
+            1,
+            0
+          ],
+          "observed_seed_count": 12,
+          "policy_id": "selected_o3_default",
+          "realization_seed": 13601,
+          "snapshot": "FakeLagosV2",
+          "task_id": "dense_validation_complete_ising_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 4,
+              "leader_identity": [
+                [
+                  5,
+                  3,
+                  6,
+                  4,
+                  1,
+                  0
+                ],
+                "selected_o3_default",
+                13601
+              ],
+              "leader_lcb": 0.0019158764537212276,
+              "survivor_count": 4
+            },
+            {
+              "cumulative_seed_count": 8,
+              "leader_identity": [
+                [
+                  5,
+                  3,
+                  6,
+                  4,
+                  1,
+                  0
+                ],
+                "selected_o3_default",
+                13601
+              ],
+              "leader_lcb": 0.003848028153032152,
+              "survivor_count": 2
+            },
+            {
+              "cumulative_seed_count": 12,
+              "leader_identity": [
+                [
+                  5,
+                  3,
+                  6,
+                  4,
+                  1,
+                  0
+                ],
+                "selected_o3_default",
+                13601
+              ],
+              "leader_lcb": 0.002917520758660164,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            4,
+            5,
+            0,
+            2,
+            3,
+            1
+          ],
+          "observed_seed_count": 12,
+          "policy_id": "selected_o3_default",
+          "realization_seed": 13603,
+          "snapshot": "FakeLagosV2",
+          "task_id": "dense_validation_inverse_qft_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 4,
+              "leader_identity": [
+                [
+                  4,
+                  5,
+                  2,
+                  0,
+                  3,
+                  1
+                ],
+                "selected_o3_default",
+                13610
+              ],
+              "leader_lcb": -0.0007443773548691493,
+              "survivor_count": 4
+            },
+            {
+              "cumulative_seed_count": 8,
+              "leader_identity": [
+                [
+                  4,
+                  5,
+                  0,
+                  2,
+                  3,
+                  1
+                ],
+                "selected_o3_default",
+                13603
+              ],
+              "leader_lcb": -0.0011277329533667102,
+              "survivor_count": 2
+            },
+            {
+              "cumulative_seed_count": 12,
+              "leader_identity": [
+                [
+                  4,
+                  5,
+                  0,
+                  2,
+                  3,
+                  1
+                ],
+                "selected_o3_default",
+                13603
+              ],
+              "leader_lcb": -0.0009674471302003973,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            5,
+            0,
+            1,
+            4,
+            2,
+            3
+          ],
+          "observed_seed_count": 12,
+          "policy_id": "selected_o3_default",
+          "realization_seed": 13601,
+          "snapshot": "FakeLagosV2",
+          "task_id": "dense_validation_scrambled_qft_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 4,
+              "leader_identity": [
+                [
+                  5,
+                  0,
+                  1,
+                  4,
+                  2,
+                  3
+                ],
+                "selected_o3_default",
+                13602
+              ],
+              "leader_lcb": 0.00041518345556224587,
+              "survivor_count": 4
+            },
+            {
+              "cumulative_seed_count": 8,
+              "leader_identity": [
+                [
+                  5,
+                  0,
+                  1,
+                  4,
+                  2,
+                  3
+                ],
+                "selected_o3_default",
+                13601
+              ],
+              "leader_lcb": 0.0002496678394586817,
+              "survivor_count": 2
+            },
+            {
+              "cumulative_seed_count": 12,
+              "leader_identity": [
+                [
+                  5,
+                  0,
+                  1,
+                  4,
+                  2,
+                  3
+                ],
+                "selected_o3_default",
+                13601
+              ],
+              "leader_lcb": 0.0004403531618318104,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            6,
+            4,
+            5,
+            3,
+            1,
+            0
+          ],
+          "observed_seed_count": 12,
+          "policy_id": "selected_o3_default",
+          "realization_seed": 13609,
+          "snapshot": "FakeLagosV2",
+          "task_id": "dense_validation_xy_network_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 4,
+              "leader_identity": [
+                [
+                  6,
+                  4,
+                  5,
+                  3,
+                  1,
+                  0
+                ],
+                "selected_o3_default",
+                13604
+              ],
+              "leader_lcb": -0.0016156734239773825,
+              "survivor_count": 4
+            },
+            {
+              "cumulative_seed_count": 8,
+              "leader_identity": [
+                [
+                  6,
+                  4,
+                  5,
+                  3,
+                  1,
+                  0
+                ],
+                "selected_o3_default",
+                13604
+              ],
+              "leader_lcb": -0.00020405255393803924,
+              "survivor_count": 2
+            },
+            {
+              "cumulative_seed_count": 12,
+              "leader_identity": [
+                [
+                  6,
+                  4,
+                  5,
+                  3,
+                  1,
+                  0
+                ],
+                "selected_o3_default",
+                13609
+              ],
+              "leader_lcb": 0.001881178692777318,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            3,
+            1,
+            5,
+            0,
+            2,
+            4
+          ],
+          "observed_seed_count": 12,
+          "policy_id": "selected_o3_default",
+          "realization_seed": 13610,
+          "snapshot": "FakeOslo",
+          "task_id": "dense_validation_complete_ising_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 4,
+              "leader_identity": [
+                [
+                  3,
+                  1,
+                  5,
+                  0,
+                  2,
+                  4
+                ],
+                "selected_o3_default",
+                13610
+              ],
+              "leader_lcb": 0.00787412800029165,
+              "survivor_count": 4
+            },
+            {
+              "cumulative_seed_count": 8,
+              "leader_identity": [
+                [
+                  3,
+                  1,
+                  5,
+                  0,
+                  2,
+                  4
+                ],
+                "selected_o3_default",
+                13610
+              ],
+              "leader_lcb": 0.00947977308063075,
+              "survivor_count": 2
+            },
+            {
+              "cumulative_seed_count": 12,
+              "leader_identity": [
+                [
+                  3,
+                  1,
+                  5,
+                  0,
+                  2,
+                  4
+                ],
+                "selected_o3_default",
+                13610
+              ],
+              "leader_lcb": 0.007367746734957601,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            2,
+            1,
+            4,
+            6,
+            3,
+            5
+          ],
+          "observed_seed_count": 12,
+          "policy_id": "selected_o3_default",
+          "realization_seed": 13610,
+          "snapshot": "FakeOslo",
+          "task_id": "dense_validation_inverse_qft_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 4,
+              "leader_identity": [
+                [
+                  6,
+                  5,
+                  0,
+                  2,
+                  3,
+                  1
+                ],
+                "selected_o3_default",
+                13605
+              ],
+              "leader_lcb": -0.0009577790561319796,
+              "survivor_count": 4
+            },
+            {
+              "cumulative_seed_count": 8,
+              "leader_identity": [
+                [
+                  2,
+                  1,
+                  4,
+                  6,
+                  3,
+                  5
+                ],
+                "selected_o3_default",
+                13610
+              ],
+              "leader_lcb": -0.0005757373958321395,
+              "survivor_count": 2
+            },
+            {
+              "cumulative_seed_count": 12,
+              "leader_identity": [
+                [
+                  2,
+                  1,
+                  4,
+                  6,
+                  3,
+                  5
+                ],
+                "selected_o3_default",
+                13610
+              ],
+              "leader_lcb": -0.00022137705992537595,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            5,
+            2,
+            1,
+            4,
+            0,
+            3
+          ],
+          "observed_seed_count": 12,
+          "policy_id": "selected_o3_default",
+          "realization_seed": 13601,
+          "snapshot": "FakeOslo",
+          "task_id": "dense_validation_scrambled_qft_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 4,
+              "leader_identity": [
+                [
+                  5,
+                  2,
+                  3,
+                  4,
+                  0,
+                  1
+                ],
+                "selected_o3_default",
+                13601
+              ],
+              "leader_lcb": -0.0005283561292360106,
+              "survivor_count": 4
+            },
+            {
+              "cumulative_seed_count": 8,
+              "leader_identity": [
+                [
+                  5,
+                  2,
+                  1,
+                  4,
+                  0,
+                  3
+                ],
+                "selected_o3_default",
+                13601
+              ],
+              "leader_lcb": -0.00040771703960604776,
+              "survivor_count": 2
+            },
+            {
+              "cumulative_seed_count": 12,
+              "leader_identity": [
+                [
+                  5,
+                  2,
+                  1,
+                  4,
+                  0,
+                  3
+                ],
+                "selected_o3_default",
+                13601
+              ],
+              "leader_lcb": -0.00022901855045449977,
+              "survivor_count": 1
+            }
+          ]
+        },
+        {
+          "mapping": [
+            0,
+            2,
+            1,
+            3,
+            5,
+            4
+          ],
+          "observed_seed_count": 12,
+          "policy_id": "selected_o3_lookahead",
+          "realization_seed": 13601,
+          "snapshot": "FakeOslo",
+          "task_id": "dense_validation_xy_network_n6",
+          "trace": [
+            {
+              "cumulative_seed_count": 4,
+              "leader_identity": [
+                [
+                  0,
+                  2,
+                  1,
+                  3,
+                  5,
+                  4
+                ],
+                "selected_o3_lookahead",
+                13601
+              ],
+              "leader_lcb": 0.023674075103530215,
+              "survivor_count": 4
+            },
+            {
+              "cumulative_seed_count": 8,
+              "leader_identity": [
+                [
+                  0,
+                  2,
+                  1,
+                  3,
+                  5,
+                  4
+                ],
+                "selected_o3_lookahead",
+                13601
+              ],
+              "leader_lcb": 0.026369093302613864,
+              "survivor_count": 2
+            },
+            {
+              "cumulative_seed_count": 12,
+              "leader_identity": [
+                [
+                  0,
+                  2,
+                  1,
+                  3,
+                  5,
+                  4
+                ],
+                "selected_o3_lookahead",
+                13601
+              ],
+              "leader_lcb": 0.025425996279022048,
+              "survivor_count": 1
+            }
+          ]
+        }
+      ],
+      "strategy": "halving",
+      "total_execution_count": 816
+    }
+  },
+  "strategy_order": [
+    "full",
+    "halving"
+  ],
+  "warmup_ns": 272216416
+}

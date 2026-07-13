@@ -1692,6 +1692,24 @@ current_results:
     result: ../results/B4_B8_R144_live_runtime_protocol_v0.json
     markdown_report: ../research/B4_B8_R144_live_runtime_protocol.md
     holdout_contract: B4_B8_R144_live_runtime_contract_v0.json
+  b10_t2_b4_b8_r144_live_runtime_benchmark_v0:
+    status: live_runtime_acceptance_not_bqp_claim
+    method: b4_b8_r144_live_runtime_benchmark_v0
+    source_b8_result: ../results/B4_B8_R144_live_runtime_benchmark_v0.json
+    source_target_id: T-B4-002ax/T-B8-003bb/T-B10-009ap
+    runtime_reduction_fraction: 0.532135805603889
+    full_selection_match_count: 12
+    halving_selection_match_count: 12
+    acceptance_conditions_passed: 10
+    acceptance_conditions_failed: 0
+    global_acceptance: true
+    b10_t2_credit_allowed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R144_live_runtime_benchmark_v0.json
+    markdown_report: ../research/B4_B8_R144_live_runtime_benchmark.md
   b10_t3_b9_checked_transcript_acceptance_packet_gate_v0:
     status: checked_transcript_acceptance_packet_open_missing_artifact
     method: b9_checked_transcript_acceptance_packet_gate_v0

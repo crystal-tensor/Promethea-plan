@@ -2595,6 +2595,20 @@ reproduction, and fair per-execution timing. Contract hash
 No timing measurement, cross-calibration, hardware, billing, advantage, BQP,
 or new-credit claim has yet opened.
 
+The R144 matched live-runtime benchmark at `T-B4-002ax` /
+`T-B8-003bb` / `T-B10-009ap` then passes A1-A10. The secret selects
+full-first order. The full execution loop takes `61.331846` seconds for 1,728
+executions; successive halving takes `28.694975` seconds for 816 executions,
+a measured reduction of `53.2136%`. The halving/full per-execution runtime
+ratio is `0.990771`, and both strategies reproduce their frozen selections
+`12/12`, so the saving tracks execution elimination rather than faster
+individual executions. Shared setup and warmup are reported separately as
+`5.875736` and `0.272216` seconds. Requirements pass `10/10`; the measurement
+hash replays without remeasurement. This supports one local matched
+execution-loop timing result, not repeated-order confidence, cross-machine or
+cross-calibration transfer, hardware or cloud billing savings, advantage, BQP,
+or new credit.
+
 `T-B4-002aj` / `T-B8-003an` / `T-B10-009ab` now adds the R135
 dense-interaction deterministic fallback boundary. For each new inverse-QFT,
 scrambled-QFT, complete-Ising, and dense-XY input, five temporal graph rules

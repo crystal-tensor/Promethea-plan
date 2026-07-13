@@ -2072,6 +2072,26 @@ current_results:
     result: ../results/B4_B8_R144_live_runtime_protocol_v0.json
     markdown_report: ../research/B4_B8_R144_live_runtime_protocol.md
     holdout_contract: B4_B8_R144_live_runtime_contract_v0.json
+  b4_b8_r144_live_runtime_benchmark_v0:
+    status: live_runtime_preregistered_acceptance
+    method: b4_b8_r144_live_runtime_benchmark_v0
+    source_target_id: T-B4-002ax/T-B8-003bb/T-B10-009ap
+    full_elapsed_seconds: 61.331845708
+    halving_elapsed_seconds: 28.694974583
+    runtime_reduction_fraction: 0.532135805603889
+    execution_reduction_fraction: 0.5277777777777778
+    per_execution_runtime_ratio: 0.9907712351917647
+    full_selection_match_count: 12
+    halving_selection_match_count: 12
+    acceptance_conditions_passed: 10
+    acceptance_conditions_failed: 0
+    global_acceptance: true
+    measurement_sha256: 5b8f91e5f319e6250e1a0ceef2b1fb8c498c7ede89cf83546dc7fc29fdd0c459
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R144_live_runtime_benchmark_v0.json
+    markdown_report: ../research/B4_B8_R144_live_runtime_benchmark.md
   toy_hidden_trap_protocol_sim_v0:
     status: toy_statistical_protocol
     model_status: toy_statistical_protocol_not_quantum_advantage_claim

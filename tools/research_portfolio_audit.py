@@ -37217,6 +37217,53 @@ def audit(root: Path) -> dict:
         if contract.get("source_bindings", {}).get("protocol_payload_hash") != ph or len(contract.get("acceptance_conditions", [])) != 10:
             errors.append("R144 contract binding or acceptance count mismatch")
 
+    r144_result_path = results / "B4_B8_R144_live_runtime_benchmark_v0.json"
+    r144_result_report_path = research / "B4_B8_R144_live_runtime_benchmark.md"
+    r144_result_status = {"path": str(r144_result_path), "report_path": str(r144_result_report_path), "exists": r144_result_path.exists(), "report_exists": r144_result_report_path.exists()}
+    r144_result_manifest_rows = [
+        ("B4", b4_manifest.get("current_results", {}).get("b4_b8_r144_live_runtime_benchmark_v0")),
+        ("B8", b8_manifest.get("current_results", {}).get("b4_b8_r144_live_runtime_benchmark_v0")),
+        ("B10", b10_manifest.get("current_results", {}).get("b10_t2_b4_b8_r144_live_runtime_benchmark_v0")),
+    ]
+    for label, row in r144_result_manifest_rows:
+        if not row:
+            errors.append(f"{label} manifest missing R144 runtime result")
+            continue
+        for field in ["result", "markdown_report"]:
+            if not row.get(field) or not path_exists_from(benchmarks, row[field]):
+                errors.append(f"{label} R144 runtime result missing {field}")
+    if not r144_result_path.exists() or not r144_result_report_path.exists():
+        errors.append("R144 runtime result or report missing")
+    else:
+        h = json.loads(read(r144_result_path)); s = h.get("summary", {})
+        r144_result_status.update({"status": h.get("status"), "method": h.get("method"), "requirements_passed": h.get("requirements_passed"), "requirements_failed": h.get("requirements_failed"), "global_acceptance": s.get("global_acceptance"), "runtime_reduction_fraction": s.get("runtime_reduction_fraction"), "full_elapsed_seconds": s.get("full_elapsed_seconds"), "halving_elapsed_seconds": s.get("halving_elapsed_seconds")})
+        expected = {
+            "strategy_order": ["full", "halving"], "full_elapsed_ns": 61331845708, "full_elapsed_seconds": 61.331845708,
+            "halving_elapsed_ns": 28694974583, "halving_elapsed_seconds": 28.694974583,
+            "runtime_reduction_fraction": 0.532135805603889, "execution_reduction_fraction": 0.5277777777777778,
+            "per_execution_runtime_ratio": 0.9907712351917647, "full_execution_count": 1728, "halving_execution_count": 816,
+            "full_selection_match_count": 12, "halving_selection_match_count": 12,
+            "shared_setup_seconds": 5.87573575, "warmup_seconds": 0.272216416,
+            "measurement_reused": True, "measurement_sha256": "5b8f91e5f319e6250e1a0ceef2b1fb8c498c7ede89cf83546dc7fc29fdd0c459",
+            "acceptance_conditions_passed": 10, "acceptance_conditions_failed": 0, "failed_acceptance_condition_ids": [], "global_acceptance": True, "new_credit_delta": 0,
+        }
+        if h.get("status") != "live_runtime_preregistered_acceptance" or h.get("method") != "b4_b8_r144_live_runtime_benchmark_v0":
+            errors.append("R144 runtime status or method mismatch")
+        if h.get("requirements_passed") != 10 or h.get("requirements_failed") != 0:
+            errors.append("R144 runtime requirements must pass 10/10")
+        for field, value in expected.items():
+            if s.get(field) != value:
+                errors.append(f"R144 runtime {field} mismatch")
+        if len(h.get("acceptance_conditions", [])) != 10 or any(not x.get("passed") for x in h.get("acceptance_conditions", [])):
+            errors.append("R144 runtime must pass A1-A10")
+        hp = dict(h); ph = hp.pop("payload_hash", None)
+        if ph != hashlib.sha256(json.dumps(hp, sort_keys=True, separators=(",", ":")).encode()).hexdigest():
+            errors.append("R144 runtime payload hash mismatch")
+        for phase_key in ["challenge_commitment", "runtime_measurement", "challenge_reveal", "verifier_transcript"]:
+            rel = h.get("artifacts", {}).get(phase_key)
+            if not rel or not (root / rel).exists():
+                errors.append(f"R144 runtime phase missing: {phase_key}")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -37672,6 +37719,7 @@ def audit(root: Path) -> dict:
             "r143_successive_halving_lcb_design": r143_status,
             "r143_successive_halving_lcb_holdout": r143_holdout_status,
             "r144_live_runtime_protocol": r144_status,
+            "r144_live_runtime_benchmark": r144_result_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -39077,6 +39125,9 @@ def audit(root: Path) -> dict:
                 research / "B4_B8_R144_live_runtime_protocol.md"
             ),
             "b4_b8_r144_live_runtime_contract": str(r144_contract_path),
+            "b4_b8_r144_live_runtime_benchmark": str(
+                research / "B4_B8_R144_live_runtime_benchmark.md"
+            ),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),
             "b8_challenge_refresh_repair": str(research / "B8_challenge_refresh_repair.md"),
