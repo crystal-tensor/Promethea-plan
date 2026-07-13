@@ -1787,6 +1787,40 @@ current_results:
     requirements_failed: 0
     result: ../results/B4_B8_R146_cross_snapshot_transfer_holdout_v0.json
     markdown_report: ../research/B4_B8_R146_cross_snapshot_transfer_holdout.md
+  b10_t2_b4_b8_r147_target_descriptor_adaptation_design_v0:
+    status: target_descriptor_adaptation_design_not_bqp_claim
+    method: b4_b8_r147_target_descriptor_adaptation_design_v0
+    source_b8_result: ../results/B4_B8_R147_target_descriptor_adaptation_design_v0.json
+    source_target_id: T-B4-002bc/T-B8-003bg/T-B10-009au
+    adaptation_group_count: 12
+    foreign_candidate_count: 24
+    target_specific_routes_in_selector_count: 0
+    r146_hidden_trial_rows_read_count: 0
+    challenge_executed: false
+    b10_t2_credit_allowed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R147_target_descriptor_adaptation_design_v0.json
+    markdown_report: ../research/B4_B8_R147_target_descriptor_adaptation_design.md
+  b10_t2_b4_b8_r147_target_descriptor_adaptation_protocol_v0:
+    status: target_descriptor_adaptation_protocol_not_bqp_claim
+    method: b4_b8_r147_target_descriptor_adaptation_protocol_v0
+    source_b8_result: ../results/B4_B8_R147_target_descriptor_adaptation_protocol_v0.json
+    source_target_id: T-B4-002bc/T-B8-003bg/T-B10-009au
+    adaptation_group_count: 12
+    trial_row_count: 96
+    challenge_executed: false
+    contract_sha256: 7dc1d668848ef18524979ff161f46031a8658ba15e91870cea0b6f2743e77394
+    b10_t2_credit_allowed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R147_target_descriptor_adaptation_protocol_v0.json
+    markdown_report: ../research/B4_B8_R147_target_descriptor_adaptation_protocol.md
+    holdout_contract: B4_B8_R147_target_descriptor_adaptation_contract_v0.json
   b10_t3_b9_checked_transcript_acceptance_packet_gate_v0:
     status: checked_transcript_acceptance_packet_open_missing_artifact
     method: b9_checked_transcript_acceptance_packet_gate_v0

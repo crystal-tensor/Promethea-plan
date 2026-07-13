@@ -37482,6 +37482,114 @@ def audit(root: Path) -> dict:
             if not rel or not (root / rel).exists():
                 errors.append(f"R146 cross-snapshot phase missing: {phase_key}")
 
+    r147_design_path = results / "B4_B8_R147_target_descriptor_adaptation_design_v0.json"
+    r147_design_report_path = research / "B4_B8_R147_target_descriptor_adaptation_design.md"
+    r147_protocol_path = results / "B4_B8_R147_target_descriptor_adaptation_protocol_v0.json"
+    r147_protocol_report_path = research / "B4_B8_R147_target_descriptor_adaptation_protocol.md"
+    r147_contract_path = benchmarks / "B4_B8_R147_target_descriptor_adaptation_contract_v0.json"
+    r147_contract_sha256 = hashlib.sha256(r147_contract_path.read_bytes()).hexdigest() if r147_contract_path.exists() else None
+    r147_status = {
+        "design_path": str(r147_design_path), "design_report_path": str(r147_design_report_path),
+        "protocol_path": str(r147_protocol_path), "protocol_report_path": str(r147_protocol_report_path),
+        "contract_path": str(r147_contract_path), "contract_sha256": r147_contract_sha256,
+        "design_exists": r147_design_path.exists(), "protocol_exists": r147_protocol_path.exists(),
+        "contract_exists": r147_contract_path.exists(),
+    }
+    r147_manifest_rows = [
+        ("B4", b4_manifest.get("current_results", {}), "b4_b8_r147_target_descriptor_adaptation_design_v0", "b4_b8_r147_target_descriptor_adaptation_protocol_v0"),
+        ("B8", b8_manifest.get("current_results", {}), "b4_b8_r147_target_descriptor_adaptation_design_v0", "b4_b8_r147_target_descriptor_adaptation_protocol_v0"),
+        ("B10", b10_manifest.get("current_results", {}), "b10_t2_b4_b8_r147_target_descriptor_adaptation_design_v0", "b10_t2_b4_b8_r147_target_descriptor_adaptation_protocol_v0"),
+    ]
+    for label, manifest, design_key, protocol_key in r147_manifest_rows:
+        design_row = manifest.get(design_key)
+        protocol_row = manifest.get(protocol_key)
+        if not design_row:
+            errors.append(f"{label} manifest missing R147 adaptation design")
+        else:
+            for field in ["result", "markdown_report"]:
+                if not design_row.get(field) or not path_exists_from(benchmarks, design_row[field]):
+                    errors.append(f"{label} R147 adaptation design missing {field}")
+        if not protocol_row:
+            errors.append(f"{label} manifest missing R147 adaptation protocol")
+        else:
+            for field in ["result", "markdown_report", "holdout_contract"]:
+                if not protocol_row.get(field) or not path_exists_from(benchmarks, protocol_row[field]):
+                    errors.append(f"{label} R147 adaptation protocol missing {field}")
+            if protocol_row.get("contract_sha256") != r147_contract_sha256:
+                errors.append(f"{label} R147 adaptation contract hash mismatch")
+    required_r147_paths = [r147_design_path, r147_design_report_path, r147_protocol_path, r147_protocol_report_path, r147_contract_path]
+    if not all(path.exists() for path in required_r147_paths):
+        errors.append("R147 adaptation design, protocol, report, or contract missing")
+    else:
+        design = json.loads(read(r147_design_path)); ds = design.get("summary", {})
+        protocol_payload = json.loads(read(r147_protocol_path)); protocol = protocol_payload.get("protocol", {})
+        contract = json.loads(read(r147_contract_path))
+        r147_status.update({
+            "design_status": design.get("status"), "protocol_status": protocol_payload.get("status"),
+            "design_requirements_passed": design.get("requirements_passed"),
+            "protocol_requirements_passed": protocol_payload.get("requirements_passed"),
+            "adaptation_group_count": ds.get("adaptation_group_count"),
+            "foreign_candidate_count": ds.get("foreign_candidate_count"),
+            "r146_hidden_trial_rows_read_count": ds.get("r146_hidden_trial_rows_read_count"),
+            "challenge_executed": protocol_payload.get("challenge_executed"),
+        })
+        if design.get("status") != "target_descriptor_adaptation_design_frozen_before_holdout" or design.get("method") != "b4_b8_r147_target_descriptor_adaptation_design_v0":
+            errors.append("R147 adaptation design status or method mismatch")
+        if design.get("requirements_passed") != 10 or design.get("requirements_failed") != 0:
+            errors.append("R147 adaptation design requirements must pass 10/10")
+        expected_design = {
+            "adaptation_group_count": 12, "foreign_candidate_count": 24,
+            "foreign_candidates_per_group": 2, "target_specific_routes_in_selector_count": 0,
+            "r146_hidden_trial_rows_read_count": 0, "semantic_fidelity_pass_count": 24,
+            "challenge_executed": False, "new_credit_delta": 0,
+        }
+        for field, value in expected_design.items():
+            if ds.get(field) != value:
+                errors.append(f"R147 adaptation design {field} mismatch")
+        if len(design.get("candidate_rows", [])) != 24 or len(design.get("selection_rows", [])) != 12:
+            errors.append("R147 adaptation design row counts mismatch")
+        if any(not row.get("target_specific_route_excluded_from_selector") for row in design.get("selection_rows", [])):
+            errors.append("R147 adaptation selector includes a target-specific route")
+        if any(row.get("source_snapshot") == row.get("target_snapshot") for row in design.get("candidate_rows", [])):
+            errors.append("R147 adaptation candidate pool contains a target-specific source")
+        for row in design.get("candidate_rows", []):
+            candidate_path = root / row.get("candidate_circuit_path", "")
+            if not candidate_path.exists() or hashlib.sha256(candidate_path.read_bytes()).hexdigest() != row.get("candidate_circuit_sha256"):
+                errors.append(f"R147 adaptation candidate hash mismatch: {row.get('candidate_circuit_path')}")
+        hp = dict(design); ph = hp.pop("payload_hash", None)
+        if ph != hashlib.sha256(json.dumps(hp, sort_keys=True, separators=(",", ":")).encode()).hexdigest():
+            errors.append("R147 adaptation design payload hash mismatch")
+        if protocol_payload.get("status") != "target_descriptor_adaptation_protocol_frozen_before_challenge" or protocol_payload.get("method") != "b4_b8_r147_target_descriptor_adaptation_protocol_v0":
+            errors.append("R147 adaptation protocol status or method mismatch")
+        if protocol_payload.get("requirements_passed") != 10 or protocol_payload.get("requirements_failed") != 0 or protocol_payload.get("challenge_executed") is not False:
+            errors.append("R147 adaptation protocol requirements or unopened boundary mismatch")
+        expected_protocol = {
+            "adaptation_group_count": 12, "hidden_trial_count_per_group": 8,
+            "trial_row_count": 96, "simulated_circuit_execution_count": 288,
+            "shots_per_execution": 2048, "total_simulated_shots": 589824,
+            "minimum_portfolio_adapted_minus_target_mean": -0.005,
+            "minimum_portfolio_adapted_minus_target_bootstrap_lower": -0.01,
+            "minimum_group_count_above_negative_0_02_vs_target": 11,
+            "maximum_severe_regression_count_below_negative_0_05_vs_target": 0,
+            "minimum_each_target_mean_adapted_minus_target": -0.01,
+            "minimum_lagos_dense_xy_mean_adapted_minus_target": -0.02,
+            "maximum_lagos_dense_xy_severe_regression_count": 0,
+        }
+        for field, value in expected_protocol.items():
+            if protocol.get(field) != value:
+                errors.append(f"R147 adaptation protocol {field} mismatch")
+        hp = dict(protocol_payload); ph = hp.pop("payload_hash", None)
+        if ph != hashlib.sha256(json.dumps(hp, sort_keys=True, separators=(",", ":")).encode()).hexdigest():
+            errors.append("R147 adaptation protocol payload hash mismatch")
+        if r147_contract_sha256 != "7dc1d668848ef18524979ff161f46031a8658ba15e91870cea0b6f2743e77394":
+            errors.append("R147 adaptation contract file hash mismatch")
+        if contract.get("contract_id") != "B4-B8-R147-target-descriptor-adaptation-contract-v0" or contract.get("contract_status") != "public_preregistration_challenge_unopened":
+            errors.append("R147 adaptation contract ID or status mismatch")
+        if contract.get("target_id") != "T-B4-002bd/T-B8-003bh/T-B10-009av" or "challenge_secret" in contract or "trial_rows" in contract:
+            errors.append("R147 adaptation contract target or unopened boundary mismatch")
+        if contract.get("source_bindings", {}).get("protocol_payload_hash") != ph or len(contract.get("acceptance_conditions", [])) != 10:
+            errors.append("R147 adaptation contract binding or acceptance count mismatch")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -37942,6 +38050,7 @@ def audit(root: Path) -> dict:
             "r145_counterbalanced_runtime_benchmark": r145_result_status,
             "r146_cross_snapshot_transfer_protocol": r146_status,
             "r146_cross_snapshot_transfer_holdout": r146_result_status,
+            "r147_target_descriptor_adaptation": r147_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),

@@ -1,0 +1,2790 @@
+{
+  "artifacts": {
+    "candidate_directory": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates",
+    "markdown_report": "research/B4_B8_R147_target_descriptor_adaptation_design.md",
+    "result": "results/B4_B8_R147_target_descriptor_adaptation_design_v0.json"
+  },
+  "candidate_rows": [
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_complete_ising_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeJakartaV2__dense_validation_complete_ising_n6__from_FakeLagosV2.qasm",
+      "candidate_circuit_sha256": "5fed098fc8eb6fdeb1fc52f7a3a79826609f40a071f4d3b13d76e19e06b5b465",
+      "candidate_qasm_stable_hash": "422611b3455115a74c686cb15aebda7619c1618783d04797bcf177053b6c2739",
+      "combined_any_error_proxy": 0.4552657333769212,
+      "cx_any_error_proxy": 0.33273373625123925,
+      "cx_occurrence_count": 44,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 0,
+          "readout_error": 0.020999999999999908
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 1,
+          "readout_error": 0.020499999999999963
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 6,
+          "readout_error": 0.02760000000000007
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 4,
+          "readout_error": 0.04899999999999993
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 3,
+          "readout_error": 0.02529999999999999
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 5,
+          "readout_error": 0.055499999999999994
+        }
+      ],
+      "readout_any_error_proxy": 0.1836328371185535,
+      "semantic_fidelity": 0.9999999999999998,
+      "source_mapping": [
+        5,
+        3,
+        6,
+        4,
+        1,
+        0
+      ],
+      "source_policy_id": "selected_o3_default",
+      "source_realization_seed": 13601,
+      "source_snapshot": "FakeLagosV2",
+      "target_snapshot": "FakeJakartaV2",
+      "task_id": "dense_validation_complete_ising_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_complete_ising_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeJakartaV2__dense_validation_complete_ising_n6__from_FakeOslo.qasm",
+      "candidate_circuit_sha256": "d52ecb9eed7199deeb16c37d3774f621434a499d07bc055076c9d749755d3277",
+      "candidate_qasm_stable_hash": "68416f1f20bcdd858fb404d00ec59c73c5759eb592c99da414e814be4c78d6d6",
+      "combined_any_error_proxy": 0.4617464511711864,
+      "cx_any_error_proxy": 0.3484447836701693,
+      "cx_occurrence_count": 46,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 4,
+          "readout_error": 0.04899999999999993
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 5,
+          "readout_error": 0.055499999999999994
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 0,
+          "readout_error": 0.020999999999999908
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 3,
+          "readout_error": 0.02529999999999999
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 2,
+          "readout_error": 0.016000000000000014
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 1,
+          "readout_error": 0.020499999999999963
+        }
+      ],
+      "readout_any_error_proxy": 0.17389419140750384,
+      "semantic_fidelity": 0.9999999999999993,
+      "source_mapping": [
+        3,
+        1,
+        5,
+        0,
+        2,
+        4
+      ],
+      "source_policy_id": "selected_o3_default",
+      "source_realization_seed": 13610,
+      "source_snapshot": "FakeOslo",
+      "target_snapshot": "FakeJakartaV2",
+      "task_id": "dense_validation_complete_ising_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_inverse_qft_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeJakartaV2__dense_validation_inverse_qft_n6__from_FakeLagosV2.qasm",
+      "candidate_circuit_sha256": "02ae7737fccb44edb418a0a51e24ac2b94c8e9614946b7eab723a308afb68382",
+      "candidate_qasm_stable_hash": "2d9a368f6003117503b3a13e2d9a91e15cbce6125232c7d6056784a48b5cffa2",
+      "combined_any_error_proxy": 0.45724676740036474,
+      "cx_any_error_proxy": 0.34299792235528737,
+      "cx_occurrence_count": 44,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 1,
+          "readout_error": 0.020499999999999963
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 3,
+          "readout_error": 0.02529999999999999
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 0,
+          "readout_error": 0.020999999999999908
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 2,
+          "readout_error": 0.016000000000000014
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 5,
+          "readout_error": 0.055499999999999994
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 4,
+          "readout_error": 0.04899999999999993
+        }
+      ],
+      "readout_any_error_proxy": 0.17389419140750384,
+      "semantic_fidelity": 1.0000000000000004,
+      "source_mapping": [
+        4,
+        5,
+        0,
+        2,
+        3,
+        1
+      ],
+      "source_policy_id": "selected_o3_default",
+      "source_realization_seed": 13603,
+      "source_snapshot": "FakeLagosV2",
+      "target_snapshot": "FakeJakartaV2",
+      "task_id": "dense_validation_inverse_qft_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_inverse_qft_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeJakartaV2__dense_validation_inverse_qft_n6__from_FakeOslo.qasm",
+      "candidate_circuit_sha256": "d89b75f913a2222d814e093cfcebe912ac8bc300970a2dc034970c128744c7e5",
+      "candidate_qasm_stable_hash": "38873bf299f077fcc6af24b03c8f394f00058531b1be7d65e8e94959d9006c15",
+      "combined_any_error_proxy": 0.42951684756928465,
+      "cx_any_error_proxy": 0.3047437700444514,
+      "cx_occurrence_count": 42,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 5,
+          "readout_error": 0.055499999999999994
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 6,
+          "readout_error": 0.02760000000000007
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 3,
+          "readout_error": 0.02529999999999999
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 4,
+          "readout_error": 0.04899999999999993
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 1,
+          "readout_error": 0.020499999999999963
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 2,
+          "readout_error": 0.016000000000000014
+        }
+      ],
+      "readout_any_error_proxy": 0.1794634440497005,
+      "semantic_fidelity": 1.0,
+      "source_mapping": [
+        2,
+        1,
+        4,
+        6,
+        3,
+        5
+      ],
+      "source_policy_id": "selected_o3_default",
+      "source_realization_seed": 13610,
+      "source_snapshot": "FakeOslo",
+      "target_snapshot": "FakeJakartaV2",
+      "task_id": "dense_validation_inverse_qft_n6",
+      "unique_cx_edges": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_scrambled_qft_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeJakartaV2__dense_validation_scrambled_qft_n6__from_FakeLagosV2.qasm",
+      "candidate_circuit_sha256": "f2fecfb19d43260314f97ffcf96aad3b9f7fcd97b8940844a3b802fb9b446709",
+      "candidate_qasm_stable_hash": "d13c6196dbc582a7c33f5d80a80937fdbb1c65005eccfe9e960b4d3fe8f30f96",
+      "combined_any_error_proxy": 0.4557553304940303,
+      "cx_any_error_proxy": 0.3411925399323318,
+      "cx_occurrence_count": 44,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 0,
+          "readout_error": 0.020999999999999908
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 2,
+          "readout_error": 0.016000000000000014
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 4,
+          "readout_error": 0.04899999999999993
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 1,
+          "readout_error": 0.020499999999999963
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 3,
+          "readout_error": 0.02529999999999999
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 5,
+          "readout_error": 0.055499999999999994
+        }
+      ],
+      "readout_any_error_proxy": 0.17389419140750384,
+      "semantic_fidelity": 0.9999999999999991,
+      "source_mapping": [
+        5,
+        0,
+        1,
+        4,
+        2,
+        3
+      ],
+      "source_policy_id": "selected_o3_default",
+      "source_realization_seed": 13601,
+      "source_snapshot": "FakeLagosV2",
+      "target_snapshot": "FakeJakartaV2",
+      "task_id": "dense_validation_scrambled_qft_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_scrambled_qft_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeJakartaV2__dense_validation_scrambled_qft_n6__from_FakeOslo.qasm",
+      "candidate_circuit_sha256": "9cb84e3394bed892910af0c306386645a71018e08f1417993735d01b81336311",
+      "candidate_qasm_stable_hash": "66f458c471e70e7a2ae77a6153b7caac216b38db9f79ec7bf71cf8149be4cf58",
+      "combined_any_error_proxy": 0.46091681581435684,
+      "cx_any_error_proxy": 0.3474405111566481,
+      "cx_occurrence_count": 44,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 2,
+          "readout_error": 0.016000000000000014
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 0,
+          "readout_error": 0.020999999999999908
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 4,
+          "readout_error": 0.04899999999999993
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 1,
+          "readout_error": 0.020499999999999963
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 3,
+          "readout_error": 0.02529999999999999
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 5,
+          "readout_error": 0.055499999999999994
+        }
+      ],
+      "readout_any_error_proxy": 0.17389419140750384,
+      "semantic_fidelity": 1.0,
+      "source_mapping": [
+        5,
+        2,
+        1,
+        4,
+        0,
+        3
+      ],
+      "source_policy_id": "selected_o3_default",
+      "source_realization_seed": 13601,
+      "source_snapshot": "FakeOslo",
+      "target_snapshot": "FakeJakartaV2",
+      "task_id": "dense_validation_scrambled_qft_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_xy_network_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeJakartaV2__dense_validation_xy_network_n6__from_FakeLagosV2.qasm",
+      "candidate_circuit_sha256": "64e28f1ac23c3e168abc630f6d66fcb4473a72948dd19b18cab5c206b1476ad1",
+      "candidate_qasm_stable_hash": "6124d975ca795433d4fc022e39c0819ea56dffa1e9654b480cff482e400fc6db",
+      "combined_any_error_proxy": 0.5181261934824152,
+      "cx_any_error_proxy": 0.4097339672301801,
+      "cx_occurrence_count": 59,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 5,
+          "readout_error": 0.055499999999999994
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 0,
+          "readout_error": 0.020999999999999908
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 1,
+          "readout_error": 0.020499999999999963
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 6,
+          "readout_error": 0.02760000000000007
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 4,
+          "readout_error": 0.04899999999999993
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 3,
+          "readout_error": 0.02529999999999999
+        }
+      ],
+      "readout_any_error_proxy": 0.1836328371185535,
+      "semantic_fidelity": 0.9999999999999982,
+      "source_mapping": [
+        6,
+        4,
+        5,
+        3,
+        1,
+        0
+      ],
+      "source_policy_id": "selected_o3_default",
+      "source_realization_seed": 13609,
+      "source_snapshot": "FakeLagosV2",
+      "target_snapshot": "FakeJakartaV2",
+      "task_id": "dense_validation_xy_network_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_xy_network_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeJakartaV2__dense_validation_xy_network_n6__from_FakeOslo.qasm",
+      "candidate_circuit_sha256": "d9a759ab578061f8a0883597dd9457841e1f7e04a4a4ff237a6e6ea1362bc992",
+      "candidate_qasm_stable_hash": "a1686fc15d22ca6692248390c156887030630fc1182eebff2fa8ee435dc71a9c",
+      "combined_any_error_proxy": 0.5222750565235477,
+      "cx_any_error_proxy": 0.4217145812224814,
+      "cx_occurrence_count": 57,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 4,
+          "readout_error": 0.04899999999999993
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 1,
+          "readout_error": 0.020499999999999963
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 3,
+          "readout_error": 0.02529999999999999
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 0,
+          "readout_error": 0.020999999999999908
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 2,
+          "readout_error": 0.016000000000000014
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 5,
+          "readout_error": 0.055499999999999994
+        }
+      ],
+      "readout_any_error_proxy": 0.17389419140750384,
+      "semantic_fidelity": 0.9999999999999978,
+      "source_mapping": [
+        0,
+        2,
+        1,
+        3,
+        5,
+        4
+      ],
+      "source_policy_id": "selected_o3_lookahead",
+      "source_realization_seed": 13601,
+      "source_snapshot": "FakeOslo",
+      "target_snapshot": "FakeJakartaV2",
+      "task_id": "dense_validation_xy_network_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_complete_ising_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeLagosV2__dense_validation_complete_ising_n6__from_FakeJakartaV2.qasm",
+      "candidate_circuit_sha256": "ea7b5815ba1ca4ffc1923d9b8816d2b38dea63bfdc1c1f12affcfaa53253b950",
+      "candidate_qasm_stable_hash": "bcd969a0fc99e2da0dc71c528cac0888de5de814cede85c508383269af9854e8",
+      "combined_any_error_proxy": 0.9089453010457242,
+      "cx_any_error_proxy": 0.5000662120437037,
+      "cx_occurrence_count": 46,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 6,
+          "readout_error": 0.348
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 5,
+          "readout_error": 0.2619
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 2,
+          "readout_error": 0.4638
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 3,
+          "readout_error": 0.016699999999999937
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 0,
+          "readout_error": 0.16900000000000004
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 1,
+          "readout_error": 0.1362
+        }
+      ],
+      "readout_any_error_proxy": 0.8178664832267035,
+      "semantic_fidelity": 0.9999999999999993,
+      "source_mapping": [
+        3,
+        1,
+        5,
+        2,
+        0,
+        6
+      ],
+      "source_policy_id": "selected_o3_default",
+      "source_realization_seed": 13610,
+      "source_snapshot": "FakeJakartaV2",
+      "target_snapshot": "FakeLagosV2",
+      "task_id": "dense_validation_complete_ising_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_complete_ising_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeLagosV2__dense_validation_complete_ising_n6__from_FakeOslo.qasm",
+      "candidate_circuit_sha256": "fedaa620136f15826832dde77a530d592823d9e8e01e4aaee7d5b303b9632823",
+      "candidate_qasm_stable_hash": "02f5e7c9e20eee1561cefb49ace4d2ac8f23fd08d6c9ccf41ad7e1ea2896fd4b",
+      "combined_any_error_proxy": 0.8595275163068752,
+      "cx_any_error_proxy": 0.48201257583690005,
+      "cx_occurrence_count": 46,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 4,
+          "readout_error": 0.029200000000000004
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 5,
+          "readout_error": 0.2619
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 0,
+          "readout_error": 0.16900000000000004
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 3,
+          "readout_error": 0.016699999999999937
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 2,
+          "readout_error": 0.4638
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 1,
+          "readout_error": 0.1362
+        }
+      ],
+      "readout_any_error_proxy": 0.7288110152093308,
+      "semantic_fidelity": 0.9999999999999991,
+      "source_mapping": [
+        3,
+        1,
+        5,
+        0,
+        2,
+        4
+      ],
+      "source_policy_id": "selected_o3_default",
+      "source_realization_seed": 13610,
+      "source_snapshot": "FakeOslo",
+      "target_snapshot": "FakeLagosV2",
+      "task_id": "dense_validation_complete_ising_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_inverse_qft_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeLagosV2__dense_validation_inverse_qft_n6__from_FakeJakartaV2.qasm",
+      "candidate_circuit_sha256": "839e315d47bdb32e58b5cc658e25ef3be9261659898f25d9d4abf2d93a31d3b0",
+      "candidate_qasm_stable_hash": "9423ac30a5b6c38c61ea71360644b87ae02884a8febc708b65814bb85c86bdec",
+      "combined_any_error_proxy": 0.9291096751612319,
+      "cx_any_error_proxy": 0.610778257101322,
+      "cx_occurrence_count": 50,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 5,
+          "readout_error": 0.2619
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 3,
+          "readout_error": 0.016699999999999937
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 6,
+          "readout_error": 0.348
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 1,
+          "readout_error": 0.1362
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 0,
+          "readout_error": 0.16900000000000004
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 2,
+          "readout_error": 0.4638
+        }
+      ],
+      "readout_any_error_proxy": 0.8178664832267034,
+      "semantic_fidelity": 1.0,
+      "source_mapping": [
+        0,
+        2,
+        3,
+        5,
+        1,
+        6
+      ],
+      "source_policy_id": "selected_o3_lookahead",
+      "source_realization_seed": 13601,
+      "source_snapshot": "FakeJakartaV2",
+      "target_snapshot": "FakeLagosV2",
+      "task_id": "dense_validation_inverse_qft_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_inverse_qft_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeLagosV2__dense_validation_inverse_qft_n6__from_FakeOslo.qasm",
+      "candidate_circuit_sha256": "73697daea797332c4196a9159a850c4a422ea8f74ea1a2ff2c17887c9dcfca58",
+      "candidate_qasm_stable_hash": "f459159480d8cf7cd33618be5e951d582cc415d6bebeffafbf3b2204750d1c64",
+      "combined_any_error_proxy": 0.9021913523409555,
+      "cx_any_error_proxy": 0.540316794642218,
+      "cx_occurrence_count": 42,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 5,
+          "readout_error": 0.2619
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 6,
+          "readout_error": 0.348
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 3,
+          "readout_error": 0.016699999999999937
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 4,
+          "readout_error": 0.029200000000000004
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 1,
+          "readout_error": 0.1362
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 2,
+          "readout_error": 0.4638
+        }
+      ],
+      "readout_any_error_proxy": 0.7872259710186327,
+      "semantic_fidelity": 0.9999999999999993,
+      "source_mapping": [
+        2,
+        1,
+        4,
+        6,
+        3,
+        5
+      ],
+      "source_policy_id": "selected_o3_default",
+      "source_realization_seed": 13610,
+      "source_snapshot": "FakeOslo",
+      "target_snapshot": "FakeLagosV2",
+      "task_id": "dense_validation_inverse_qft_n6",
+      "unique_cx_edges": [
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_scrambled_qft_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeLagosV2__dense_validation_scrambled_qft_n6__from_FakeJakartaV2.qasm",
+      "candidate_circuit_sha256": "a13d317c0801f24e5b20809afe00b26f4c8fd60daa9553580012734f3c0ccbf2",
+      "candidate_qasm_stable_hash": "22965b715c579b87435eb66e0e270e18f6a4dc5f55fae5586683bae329e3d2dd",
+      "combined_any_error_proxy": 0.9034296584597847,
+      "cx_any_error_proxy": 0.46978269979590126,
+      "cx_occurrence_count": 44,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 1,
+          "readout_error": 0.1362
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 2,
+          "readout_error": 0.4638
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 6,
+          "readout_error": 0.348
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 3,
+          "readout_error": 0.016699999999999937
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 5,
+          "readout_error": 0.2619
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 0,
+          "readout_error": 0.16900000000000004
+        }
+      ],
+      "readout_any_error_proxy": 0.8178664832267034,
+      "semantic_fidelity": 0.9999999999999991,
+      "source_mapping": [
+        5,
+        3,
+        1,
+        6,
+        2,
+        0
+      ],
+      "source_policy_id": "selected_o3_default",
+      "source_realization_seed": 13601,
+      "source_snapshot": "FakeJakartaV2",
+      "target_snapshot": "FakeLagosV2",
+      "task_id": "dense_validation_scrambled_qft_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_scrambled_qft_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeLagosV2__dense_validation_scrambled_qft_n6__from_FakeOslo.qasm",
+      "candidate_circuit_sha256": "c133188beb8c164c93a2f78f42aedc5cd849f4ec14e289f5ecf1ecefb5db51fa",
+      "candidate_qasm_stable_hash": "2bc26489d0e089274759a0b49e54ff2e1ecdc72b6b3b4fd37feb741357840184",
+      "combined_any_error_proxy": 0.8451453931169349,
+      "cx_any_error_proxy": 0.4289789941040658,
+      "cx_occurrence_count": 44,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 2,
+          "readout_error": 0.4638
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 0,
+          "readout_error": 0.16900000000000004
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 4,
+          "readout_error": 0.029200000000000004
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 1,
+          "readout_error": 0.1362
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 3,
+          "readout_error": 0.016699999999999937
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 5,
+          "readout_error": 0.2619
+        }
+      ],
+      "readout_any_error_proxy": 0.7288110152093308,
+      "semantic_fidelity": 0.9999999999999991,
+      "source_mapping": [
+        5,
+        2,
+        1,
+        4,
+        0,
+        3
+      ],
+      "source_policy_id": "selected_o3_default",
+      "source_realization_seed": 13601,
+      "source_snapshot": "FakeOslo",
+      "target_snapshot": "FakeLagosV2",
+      "task_id": "dense_validation_scrambled_qft_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_xy_network_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeLagosV2__dense_validation_xy_network_n6__from_FakeJakartaV2.qasm",
+      "candidate_circuit_sha256": "5a86654a131210775e63d23aabe697d87fb92b1201cedd9e7600edda73a21ea4",
+      "candidate_qasm_stable_hash": "58cb623b7e3c9de1e7b65c71dc5e30cfee4d2a581180913778a4f588d4f69536",
+      "combined_any_error_proxy": 0.927848661923186,
+      "cx_any_error_proxy": 0.6038546921233532,
+      "cx_occurrence_count": 59,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 2,
+          "readout_error": 0.4638
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 6,
+          "readout_error": 0.348
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 5,
+          "readout_error": 0.2619
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 3,
+          "readout_error": 0.016699999999999937
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 1,
+          "readout_error": 0.1362
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 0,
+          "readout_error": 0.16900000000000004
+        }
+      ],
+      "readout_any_error_proxy": 0.8178664832267034,
+      "semantic_fidelity": 0.9999999999999971,
+      "source_mapping": [
+        0,
+        1,
+        3,
+        2,
+        5,
+        6
+      ],
+      "source_policy_id": "selected_o3_default",
+      "source_realization_seed": 13601,
+      "source_snapshot": "FakeJakartaV2",
+      "target_snapshot": "FakeLagosV2",
+      "task_id": "dense_validation_xy_network_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_xy_network_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeLagosV2__dense_validation_xy_network_n6__from_FakeOslo.qasm",
+      "candidate_circuit_sha256": "005bac302b2981afe38fecf0fe99657132da4b3a01b455974e52d6e313737b9d",
+      "candidate_qasm_stable_hash": "5bac89c6ad1ac176b5dce6f78a3e733ca2d374cfce18e1575bd771dcf0a14e1e",
+      "combined_any_error_proxy": 0.8778853230647644,
+      "cx_any_error_proxy": 0.5497063531931581,
+      "cx_occurrence_count": 57,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 4,
+          "readout_error": 0.029200000000000004
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 1,
+          "readout_error": 0.1362
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 3,
+          "readout_error": 0.016699999999999937
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 0,
+          "readout_error": 0.16900000000000004
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 2,
+          "readout_error": 0.4638
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 5,
+          "readout_error": 0.2619
+        }
+      ],
+      "readout_any_error_proxy": 0.7288110152093308,
+      "semantic_fidelity": 0.9999999999999996,
+      "source_mapping": [
+        0,
+        2,
+        1,
+        3,
+        5,
+        4
+      ],
+      "source_policy_id": "selected_o3_lookahead",
+      "source_realization_seed": 13601,
+      "source_snapshot": "FakeOslo",
+      "target_snapshot": "FakeLagosV2",
+      "task_id": "dense_validation_xy_network_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeOslo::dense_validation_complete_ising_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeOslo__dense_validation_complete_ising_n6__from_FakeJakartaV2.qasm",
+      "candidate_circuit_sha256": "67dcb703349c5db53303eb12c6d7f487ca470b4d77472b1c7e4b18c1cbed99cc",
+      "candidate_qasm_stable_hash": "6467316444e2c1154abbec344bcf4cffd759271bd1e54f010825c412ef9aad42",
+      "combined_any_error_proxy": 0.36866917293794044,
+      "cx_any_error_proxy": 0.3110826108323439,
+      "cx_occurrence_count": 46,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 6,
+          "readout_error": 0.02939999999999998
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 5,
+          "readout_error": 0.00990000000000002
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 2,
+          "readout_error": 0.00770000000000004
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 3,
+          "readout_error": 0.01539999999999997
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 0,
+          "readout_error": 0.009800000000000031
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 1,
+          "readout_error": 0.01429999999999998
+        }
+      ],
+      "readout_any_error_proxy": 0.08358993837442841,
+      "semantic_fidelity": 0.9999999999999996,
+      "source_mapping": [
+        3,
+        1,
+        5,
+        2,
+        0,
+        6
+      ],
+      "source_policy_id": "selected_o3_default",
+      "source_realization_seed": 13610,
+      "source_snapshot": "FakeJakartaV2",
+      "target_snapshot": "FakeOslo",
+      "task_id": "dense_validation_complete_ising_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeOslo::dense_validation_complete_ising_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeOslo__dense_validation_complete_ising_n6__from_FakeLagosV2.qasm",
+      "candidate_circuit_sha256": "5fed098fc8eb6fdeb1fc52f7a3a79826609f40a071f4d3b13d76e19e06b5b465",
+      "candidate_qasm_stable_hash": "422611b3455115a74c686cb15aebda7619c1618783d04797bcf177053b6c2739",
+      "combined_any_error_proxy": 0.37758161525147693,
+      "cx_any_error_proxy": 0.30967712388315805,
+      "cx_occurrence_count": 44,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 0,
+          "readout_error": 0.009800000000000031
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 1,
+          "readout_error": 0.01429999999999998
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 6,
+          "readout_error": 0.02939999999999998
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 4,
+          "readout_error": 0.023700000000000054
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 3,
+          "readout_error": 0.01539999999999997
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 5,
+          "readout_error": 0.00990000000000002
+        }
+      ],
+      "readout_any_error_proxy": 0.09836627716915691,
+      "semantic_fidelity": 0.9999999999999998,
+      "source_mapping": [
+        5,
+        3,
+        6,
+        4,
+        1,
+        0
+      ],
+      "source_policy_id": "selected_o3_default",
+      "source_realization_seed": 13601,
+      "source_snapshot": "FakeLagosV2",
+      "target_snapshot": "FakeOslo",
+      "task_id": "dense_validation_complete_ising_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeOslo::dense_validation_inverse_qft_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeOslo__dense_validation_inverse_qft_n6__from_FakeJakartaV2.qasm",
+      "candidate_circuit_sha256": "661bbbfa1d7719186f2091d95cb535866744c3aa1efa6570c110f39e31b2d209",
+      "candidate_qasm_stable_hash": "5da69d402ff86712315406dbec502e1c2938b05db3f851ad59289d05bc968392",
+      "combined_any_error_proxy": 0.39097531812801267,
+      "cx_any_error_proxy": 0.3354234011882513,
+      "cx_occurrence_count": 50,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 5,
+          "readout_error": 0.00990000000000002
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 3,
+          "readout_error": 0.01539999999999997
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 6,
+          "readout_error": 0.02939999999999998
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 1,
+          "readout_error": 0.01429999999999998
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 0,
+          "readout_error": 0.009800000000000031
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 2,
+          "readout_error": 0.00770000000000004
+        }
+      ],
+      "readout_any_error_proxy": 0.08358993837442841,
+      "semantic_fidelity": 0.9999999999999996,
+      "source_mapping": [
+        0,
+        2,
+        3,
+        5,
+        1,
+        6
+      ],
+      "source_policy_id": "selected_o3_lookahead",
+      "source_realization_seed": 13601,
+      "source_snapshot": "FakeJakartaV2",
+      "target_snapshot": "FakeOslo",
+      "task_id": "dense_validation_inverse_qft_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeOslo::dense_validation_inverse_qft_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeOslo__dense_validation_inverse_qft_n6__from_FakeLagosV2.qasm",
+      "candidate_circuit_sha256": "5e760bb08a51df95295bf4d0eb7ba1d8d9d9c7568e2c1470d325e9716e171071",
+      "candidate_qasm_stable_hash": "4c050a64ef391e99b6974a47934c4ff05b0d4b7c51eba11acf6d78d69a478b2b",
+      "combined_any_error_proxy": 0.35615225275209983,
+      "cx_any_error_proxy": 0.3015258636984942,
+      "cx_occurrence_count": 44,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 1,
+          "readout_error": 0.01429999999999998
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 3,
+          "readout_error": 0.01539999999999997
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 0,
+          "readout_error": 0.009800000000000031
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 2,
+          "readout_error": 0.00770000000000004
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 5,
+          "readout_error": 0.00990000000000002
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 4,
+          "readout_error": 0.023700000000000054
+        }
+      ],
+      "readout_any_error_proxy": 0.07820817724598661,
+      "semantic_fidelity": 1.0,
+      "source_mapping": [
+        4,
+        5,
+        0,
+        2,
+        3,
+        1
+      ],
+      "source_policy_id": "selected_o3_default",
+      "source_realization_seed": 13603,
+      "source_snapshot": "FakeLagosV2",
+      "target_snapshot": "FakeOslo",
+      "task_id": "dense_validation_inverse_qft_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          3
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeOslo::dense_validation_scrambled_qft_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeOslo__dense_validation_scrambled_qft_n6__from_FakeJakartaV2.qasm",
+      "candidate_circuit_sha256": "0f848be0b718708c31609094a944c019af8a5deacbfedf7a70d7492cad863f8a",
+      "candidate_qasm_stable_hash": "386050d72d2d7aaaae4bb0be4ade8a77d612277c6f9aefdae77a0cf432274967",
+      "combined_any_error_proxy": 0.3601768009271312,
+      "cx_any_error_proxy": 0.30181561086538045,
+      "cx_occurrence_count": 44,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 1,
+          "readout_error": 0.01429999999999998
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 2,
+          "readout_error": 0.00770000000000004
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 6,
+          "readout_error": 0.02939999999999998
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 3,
+          "readout_error": 0.01539999999999997
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 5,
+          "readout_error": 0.00990000000000002
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 0,
+          "readout_error": 0.009800000000000031
+        }
+      ],
+      "readout_any_error_proxy": 0.08358993837442841,
+      "semantic_fidelity": 0.9999999999999987,
+      "source_mapping": [
+        5,
+        3,
+        1,
+        6,
+        2,
+        0
+      ],
+      "source_policy_id": "selected_o3_default",
+      "source_realization_seed": 13601,
+      "source_snapshot": "FakeJakartaV2",
+      "target_snapshot": "FakeOslo",
+      "task_id": "dense_validation_scrambled_qft_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeOslo::dense_validation_scrambled_qft_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeOslo__dense_validation_scrambled_qft_n6__from_FakeLagosV2.qasm",
+      "candidate_circuit_sha256": "057203b630da12519d47a68fd3a770150663e3c75e654d7e6843d97421f0308e",
+      "candidate_qasm_stable_hash": "eb4c14e2f4b10e5491035d6651f94876d7b40dc0221c898ea90c03d32856a36d",
+      "combined_any_error_proxy": 0.35755058314812405,
+      "cx_any_error_proxy": 0.3030428335408242,
+      "cx_occurrence_count": 44,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 0,
+          "readout_error": 0.009800000000000031
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 2,
+          "readout_error": 0.00770000000000004
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 4,
+          "readout_error": 0.023700000000000054
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 1,
+          "readout_error": 0.01429999999999998
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 3,
+          "readout_error": 0.01539999999999997
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 5,
+          "readout_error": 0.00990000000000002
+        }
+      ],
+      "readout_any_error_proxy": 0.07820817724598661,
+      "semantic_fidelity": 0.9999999999999996,
+      "source_mapping": [
+        5,
+        0,
+        1,
+        4,
+        2,
+        3
+      ],
+      "source_policy_id": "selected_o3_default",
+      "source_realization_seed": 13601,
+      "source_snapshot": "FakeLagosV2",
+      "target_snapshot": "FakeOslo",
+      "task_id": "dense_validation_scrambled_qft_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          3
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeOslo::dense_validation_xy_network_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeOslo__dense_validation_xy_network_n6__from_FakeJakartaV2.qasm",
+      "candidate_circuit_sha256": "6e2cfb6af8dd6a14987bd080cd44822e161532d622081d2fef7291ef42bd4e77",
+      "candidate_qasm_stable_hash": "270bfccea0ee083ec6c2a4f3c6660de51f044bd2e966f3e8ed79447a4ecedc45",
+      "combined_any_error_proxy": 0.4382565443328159,
+      "cx_any_error_proxy": 0.38701736352530114,
+      "cx_occurrence_count": 59,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 2,
+          "readout_error": 0.00770000000000004
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 6,
+          "readout_error": 0.02939999999999998
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 5,
+          "readout_error": 0.00990000000000002
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 3,
+          "readout_error": 0.01539999999999997
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 1,
+          "readout_error": 0.01429999999999998
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 0,
+          "readout_error": 0.009800000000000031
+        }
+      ],
+      "readout_any_error_proxy": 0.08358993837442841,
+      "semantic_fidelity": 0.9999999999999982,
+      "source_mapping": [
+        0,
+        1,
+        3,
+        2,
+        5,
+        6
+      ],
+      "source_policy_id": "selected_o3_default",
+      "source_realization_seed": 13601,
+      "source_snapshot": "FakeJakartaV2",
+      "target_snapshot": "FakeOslo",
+      "task_id": "dense_validation_xy_network_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "adaptation_group_id": "FakeOslo::dense_validation_xy_network_n6",
+      "candidate_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeOslo__dense_validation_xy_network_n6__from_FakeLagosV2.qasm",
+      "candidate_circuit_sha256": "5db893aa739f8d4bd6e4627dda97abe6b391b0f0a0f4ec32fdd473e649288211",
+      "candidate_qasm_stable_hash": "335eb98d66cb0d9255ba4c8681d9fa820e119c74df49abb872631d55af43a5eb",
+      "combined_any_error_proxy": 0.4558609108669317,
+      "cx_any_error_proxy": 0.39649652031132476,
+      "cx_occurrence_count": 59,
+      "measurement_map": [
+        {
+          "classical_bit": 0,
+          "physical_qubit": 5,
+          "readout_error": 0.00990000000000002
+        },
+        {
+          "classical_bit": 1,
+          "physical_qubit": 0,
+          "readout_error": 0.009800000000000031
+        },
+        {
+          "classical_bit": 2,
+          "physical_qubit": 1,
+          "readout_error": 0.01429999999999998
+        },
+        {
+          "classical_bit": 3,
+          "physical_qubit": 6,
+          "readout_error": 0.02939999999999998
+        },
+        {
+          "classical_bit": 4,
+          "physical_qubit": 4,
+          "readout_error": 0.023700000000000054
+        },
+        {
+          "classical_bit": 5,
+          "physical_qubit": 3,
+          "readout_error": 0.01539999999999997
+        }
+      ],
+      "readout_any_error_proxy": 0.09836627716915702,
+      "semantic_fidelity": 0.9999999999999973,
+      "source_mapping": [
+        6,
+        4,
+        5,
+        3,
+        1,
+        0
+      ],
+      "source_policy_id": "selected_o3_default",
+      "source_realization_seed": 13609,
+      "source_snapshot": "FakeLagosV2",
+      "target_snapshot": "FakeOslo",
+      "task_id": "dense_validation_xy_network_n6",
+      "unique_cx_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          5
+        ]
+      ]
+    }
+  ],
+  "claim_boundary": {
+    "what_is_not_supported": "holdout improvement, temporal transfer, cross-machine transfer, hardware execution, mitigation, soundness, quantum advantage, BQP separation, solved B4/B8/B10, or new credit",
+    "what_is_supported": "a deterministic foreign-route selector based only on public target calibration descriptors"
+  },
+  "failed_requirement_ids": [],
+  "generated_at_unix": 1783935790,
+  "method": "b4_b8_r147_target_descriptor_adaptation_design_v0",
+  "model_status": "public_target_calibration_descriptor_selector_without_r146_row_reuse",
+  "payload_hash": "07f220fb8ed1dac0a4571d36395c9155ccc08e931aa099aa85401f57bb12aead",
+  "requirement_count": 10,
+  "requirements": [
+    {
+      "label": "R143, R125, R146 provenance, and task-builder hashes are bound",
+      "passed": true,
+      "requirement_id": "R1"
+    },
+    {
+      "label": "three targets and four tasks produce 12 adaptation groups",
+      "passed": true,
+      "requirement_id": "R2"
+    },
+    {
+      "label": "exactly two foreign candidates are evaluated per group",
+      "passed": true,
+      "requirement_id": "R3"
+    },
+    {
+      "label": "target-specific routes are excluded from every selector pool",
+      "passed": true,
+      "requirement_id": "R4"
+    },
+    {
+      "label": "selection uses target-descriptor exposure with deterministic tie breaks",
+      "passed": true,
+      "requirement_id": "R5"
+    },
+    {
+      "label": "all 24 foreign candidates preserve semantic fidelity",
+      "passed": true,
+      "requirement_id": "R6"
+    },
+    {
+      "label": "R146 hidden trial rows are never read for selection or tuning",
+      "passed": true,
+      "requirement_id": "R7"
+    },
+    {
+      "label": "no R147 holdout is executed during design",
+      "passed": true,
+      "requirement_id": "R8"
+    },
+    {
+      "label": "all candidate QASM files and hashes are replayable",
+      "passed": true,
+      "requirement_id": "R9"
+    },
+    {
+      "label": "hardware, advantage, solved-frontier, and credit claims remain false",
+      "passed": true,
+      "requirement_id": "R10"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 10,
+  "selection_rows": [
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_complete_ising_n6",
+      "candidate_count": 2,
+      "candidate_source_snapshots": [
+        "FakeLagosV2",
+        "FakeOslo"
+      ],
+      "selected_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeJakartaV2__dense_validation_complete_ising_n6__from_FakeLagosV2.qasm",
+      "selected_circuit_sha256": "5fed098fc8eb6fdeb1fc52f7a3a79826609f40a071f4d3b13d76e19e06b5b465",
+      "selected_combined_any_error_proxy": 0.4552657333769212,
+      "selected_cx_any_error_proxy": 0.33273373625123925,
+      "selected_mapping": [
+        5,
+        3,
+        6,
+        4,
+        1,
+        0
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_stable_hash": "422611b3455115a74c686cb15aebda7619c1618783d04797bcf177053b6c2739",
+      "selected_readout_any_error_proxy": 0.1836328371185535,
+      "selected_realization_seed": 13601,
+      "selected_semantic_fidelity": 0.9999999999999998,
+      "selected_source_snapshot": "FakeLagosV2",
+      "selection_key": [
+        0.4552657333769212,
+        0.33273373625123925,
+        0.1836328371185535,
+        44,
+        "FakeLagosV2"
+      ],
+      "target_snapshot": "FakeJakartaV2",
+      "target_specific_route_excluded_from_selector": true,
+      "task_id": "dense_validation_complete_ising_n6"
+    },
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_inverse_qft_n6",
+      "candidate_count": 2,
+      "candidate_source_snapshots": [
+        "FakeLagosV2",
+        "FakeOslo"
+      ],
+      "selected_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeJakartaV2__dense_validation_inverse_qft_n6__from_FakeOslo.qasm",
+      "selected_circuit_sha256": "d89b75f913a2222d814e093cfcebe912ac8bc300970a2dc034970c128744c7e5",
+      "selected_combined_any_error_proxy": 0.42951684756928465,
+      "selected_cx_any_error_proxy": 0.3047437700444514,
+      "selected_mapping": [
+        2,
+        1,
+        4,
+        6,
+        3,
+        5
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_stable_hash": "38873bf299f077fcc6af24b03c8f394f00058531b1be7d65e8e94959d9006c15",
+      "selected_readout_any_error_proxy": 0.1794634440497005,
+      "selected_realization_seed": 13610,
+      "selected_semantic_fidelity": 1.0,
+      "selected_source_snapshot": "FakeOslo",
+      "selection_key": [
+        0.42951684756928465,
+        0.3047437700444514,
+        0.1794634440497005,
+        42,
+        "FakeOslo"
+      ],
+      "target_snapshot": "FakeJakartaV2",
+      "target_specific_route_excluded_from_selector": true,
+      "task_id": "dense_validation_inverse_qft_n6"
+    },
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_scrambled_qft_n6",
+      "candidate_count": 2,
+      "candidate_source_snapshots": [
+        "FakeLagosV2",
+        "FakeOslo"
+      ],
+      "selected_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeJakartaV2__dense_validation_scrambled_qft_n6__from_FakeLagosV2.qasm",
+      "selected_circuit_sha256": "f2fecfb19d43260314f97ffcf96aad3b9f7fcd97b8940844a3b802fb9b446709",
+      "selected_combined_any_error_proxy": 0.4557553304940303,
+      "selected_cx_any_error_proxy": 0.3411925399323318,
+      "selected_mapping": [
+        5,
+        0,
+        1,
+        4,
+        2,
+        3
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_stable_hash": "d13c6196dbc582a7c33f5d80a80937fdbb1c65005eccfe9e960b4d3fe8f30f96",
+      "selected_readout_any_error_proxy": 0.17389419140750384,
+      "selected_realization_seed": 13601,
+      "selected_semantic_fidelity": 0.9999999999999991,
+      "selected_source_snapshot": "FakeLagosV2",
+      "selection_key": [
+        0.4557553304940303,
+        0.3411925399323318,
+        0.17389419140750384,
+        44,
+        "FakeLagosV2"
+      ],
+      "target_snapshot": "FakeJakartaV2",
+      "target_specific_route_excluded_from_selector": true,
+      "task_id": "dense_validation_scrambled_qft_n6"
+    },
+    {
+      "adaptation_group_id": "FakeJakartaV2::dense_validation_xy_network_n6",
+      "candidate_count": 2,
+      "candidate_source_snapshots": [
+        "FakeLagosV2",
+        "FakeOslo"
+      ],
+      "selected_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeJakartaV2__dense_validation_xy_network_n6__from_FakeLagosV2.qasm",
+      "selected_circuit_sha256": "64e28f1ac23c3e168abc630f6d66fcb4473a72948dd19b18cab5c206b1476ad1",
+      "selected_combined_any_error_proxy": 0.5181261934824152,
+      "selected_cx_any_error_proxy": 0.4097339672301801,
+      "selected_mapping": [
+        6,
+        4,
+        5,
+        3,
+        1,
+        0
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_stable_hash": "6124d975ca795433d4fc022e39c0819ea56dffa1e9654b480cff482e400fc6db",
+      "selected_readout_any_error_proxy": 0.1836328371185535,
+      "selected_realization_seed": 13609,
+      "selected_semantic_fidelity": 0.9999999999999982,
+      "selected_source_snapshot": "FakeLagosV2",
+      "selection_key": [
+        0.5181261934824152,
+        0.4097339672301801,
+        0.1836328371185535,
+        59,
+        "FakeLagosV2"
+      ],
+      "target_snapshot": "FakeJakartaV2",
+      "target_specific_route_excluded_from_selector": true,
+      "task_id": "dense_validation_xy_network_n6"
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_complete_ising_n6",
+      "candidate_count": 2,
+      "candidate_source_snapshots": [
+        "FakeJakartaV2",
+        "FakeOslo"
+      ],
+      "selected_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeLagosV2__dense_validation_complete_ising_n6__from_FakeOslo.qasm",
+      "selected_circuit_sha256": "fedaa620136f15826832dde77a530d592823d9e8e01e4aaee7d5b303b9632823",
+      "selected_combined_any_error_proxy": 0.8595275163068752,
+      "selected_cx_any_error_proxy": 0.48201257583690005,
+      "selected_mapping": [
+        3,
+        1,
+        5,
+        0,
+        2,
+        4
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_stable_hash": "02f5e7c9e20eee1561cefb49ace4d2ac8f23fd08d6c9ccf41ad7e1ea2896fd4b",
+      "selected_readout_any_error_proxy": 0.7288110152093308,
+      "selected_realization_seed": 13610,
+      "selected_semantic_fidelity": 0.9999999999999991,
+      "selected_source_snapshot": "FakeOslo",
+      "selection_key": [
+        0.8595275163068752,
+        0.48201257583690005,
+        0.7288110152093308,
+        46,
+        "FakeOslo"
+      ],
+      "target_snapshot": "FakeLagosV2",
+      "target_specific_route_excluded_from_selector": true,
+      "task_id": "dense_validation_complete_ising_n6"
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_inverse_qft_n6",
+      "candidate_count": 2,
+      "candidate_source_snapshots": [
+        "FakeJakartaV2",
+        "FakeOslo"
+      ],
+      "selected_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeLagosV2__dense_validation_inverse_qft_n6__from_FakeOslo.qasm",
+      "selected_circuit_sha256": "73697daea797332c4196a9159a850c4a422ea8f74ea1a2ff2c17887c9dcfca58",
+      "selected_combined_any_error_proxy": 0.9021913523409555,
+      "selected_cx_any_error_proxy": 0.540316794642218,
+      "selected_mapping": [
+        2,
+        1,
+        4,
+        6,
+        3,
+        5
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_stable_hash": "f459159480d8cf7cd33618be5e951d582cc415d6bebeffafbf3b2204750d1c64",
+      "selected_readout_any_error_proxy": 0.7872259710186327,
+      "selected_realization_seed": 13610,
+      "selected_semantic_fidelity": 0.9999999999999993,
+      "selected_source_snapshot": "FakeOslo",
+      "selection_key": [
+        0.9021913523409555,
+        0.540316794642218,
+        0.7872259710186327,
+        42,
+        "FakeOslo"
+      ],
+      "target_snapshot": "FakeLagosV2",
+      "target_specific_route_excluded_from_selector": true,
+      "task_id": "dense_validation_inverse_qft_n6"
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_scrambled_qft_n6",
+      "candidate_count": 2,
+      "candidate_source_snapshots": [
+        "FakeJakartaV2",
+        "FakeOslo"
+      ],
+      "selected_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeLagosV2__dense_validation_scrambled_qft_n6__from_FakeOslo.qasm",
+      "selected_circuit_sha256": "c133188beb8c164c93a2f78f42aedc5cd849f4ec14e289f5ecf1ecefb5db51fa",
+      "selected_combined_any_error_proxy": 0.8451453931169349,
+      "selected_cx_any_error_proxy": 0.4289789941040658,
+      "selected_mapping": [
+        5,
+        2,
+        1,
+        4,
+        0,
+        3
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_stable_hash": "2bc26489d0e089274759a0b49e54ff2e1ecdc72b6b3b4fd37feb741357840184",
+      "selected_readout_any_error_proxy": 0.7288110152093308,
+      "selected_realization_seed": 13601,
+      "selected_semantic_fidelity": 0.9999999999999991,
+      "selected_source_snapshot": "FakeOslo",
+      "selection_key": [
+        0.8451453931169349,
+        0.4289789941040658,
+        0.7288110152093308,
+        44,
+        "FakeOslo"
+      ],
+      "target_snapshot": "FakeLagosV2",
+      "target_specific_route_excluded_from_selector": true,
+      "task_id": "dense_validation_scrambled_qft_n6"
+    },
+    {
+      "adaptation_group_id": "FakeLagosV2::dense_validation_xy_network_n6",
+      "candidate_count": 2,
+      "candidate_source_snapshots": [
+        "FakeJakartaV2",
+        "FakeOslo"
+      ],
+      "selected_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeLagosV2__dense_validation_xy_network_n6__from_FakeOslo.qasm",
+      "selected_circuit_sha256": "005bac302b2981afe38fecf0fe99657132da4b3a01b455974e52d6e313737b9d",
+      "selected_combined_any_error_proxy": 0.8778853230647644,
+      "selected_cx_any_error_proxy": 0.5497063531931581,
+      "selected_mapping": [
+        0,
+        2,
+        1,
+        3,
+        5,
+        4
+      ],
+      "selected_policy_id": "selected_o3_lookahead",
+      "selected_qasm_stable_hash": "5bac89c6ad1ac176b5dce6f78a3e733ca2d374cfce18e1575bd771dcf0a14e1e",
+      "selected_readout_any_error_proxy": 0.7288110152093308,
+      "selected_realization_seed": 13601,
+      "selected_semantic_fidelity": 0.9999999999999996,
+      "selected_source_snapshot": "FakeOslo",
+      "selection_key": [
+        0.8778853230647644,
+        0.5497063531931581,
+        0.7288110152093308,
+        57,
+        "FakeOslo"
+      ],
+      "target_snapshot": "FakeLagosV2",
+      "target_specific_route_excluded_from_selector": true,
+      "task_id": "dense_validation_xy_network_n6"
+    },
+    {
+      "adaptation_group_id": "FakeOslo::dense_validation_complete_ising_n6",
+      "candidate_count": 2,
+      "candidate_source_snapshots": [
+        "FakeJakartaV2",
+        "FakeLagosV2"
+      ],
+      "selected_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeOslo__dense_validation_complete_ising_n6__from_FakeJakartaV2.qasm",
+      "selected_circuit_sha256": "67dcb703349c5db53303eb12c6d7f487ca470b4d77472b1c7e4b18c1cbed99cc",
+      "selected_combined_any_error_proxy": 0.36866917293794044,
+      "selected_cx_any_error_proxy": 0.3110826108323439,
+      "selected_mapping": [
+        3,
+        1,
+        5,
+        2,
+        0,
+        6
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_stable_hash": "6467316444e2c1154abbec344bcf4cffd759271bd1e54f010825c412ef9aad42",
+      "selected_readout_any_error_proxy": 0.08358993837442841,
+      "selected_realization_seed": 13610,
+      "selected_semantic_fidelity": 0.9999999999999996,
+      "selected_source_snapshot": "FakeJakartaV2",
+      "selection_key": [
+        0.36866917293794044,
+        0.3110826108323439,
+        0.08358993837442841,
+        46,
+        "FakeJakartaV2"
+      ],
+      "target_snapshot": "FakeOslo",
+      "target_specific_route_excluded_from_selector": true,
+      "task_id": "dense_validation_complete_ising_n6"
+    },
+    {
+      "adaptation_group_id": "FakeOslo::dense_validation_inverse_qft_n6",
+      "candidate_count": 2,
+      "candidate_source_snapshots": [
+        "FakeJakartaV2",
+        "FakeLagosV2"
+      ],
+      "selected_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeOslo__dense_validation_inverse_qft_n6__from_FakeLagosV2.qasm",
+      "selected_circuit_sha256": "5e760bb08a51df95295bf4d0eb7ba1d8d9d9c7568e2c1470d325e9716e171071",
+      "selected_combined_any_error_proxy": 0.35615225275209983,
+      "selected_cx_any_error_proxy": 0.3015258636984942,
+      "selected_mapping": [
+        4,
+        5,
+        0,
+        2,
+        3,
+        1
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_stable_hash": "4c050a64ef391e99b6974a47934c4ff05b0d4b7c51eba11acf6d78d69a478b2b",
+      "selected_readout_any_error_proxy": 0.07820817724598661,
+      "selected_realization_seed": 13603,
+      "selected_semantic_fidelity": 1.0,
+      "selected_source_snapshot": "FakeLagosV2",
+      "selection_key": [
+        0.35615225275209983,
+        0.3015258636984942,
+        0.07820817724598661,
+        44,
+        "FakeLagosV2"
+      ],
+      "target_snapshot": "FakeOslo",
+      "target_specific_route_excluded_from_selector": true,
+      "task_id": "dense_validation_inverse_qft_n6"
+    },
+    {
+      "adaptation_group_id": "FakeOslo::dense_validation_scrambled_qft_n6",
+      "candidate_count": 2,
+      "candidate_source_snapshots": [
+        "FakeJakartaV2",
+        "FakeLagosV2"
+      ],
+      "selected_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeOslo__dense_validation_scrambled_qft_n6__from_FakeLagosV2.qasm",
+      "selected_circuit_sha256": "057203b630da12519d47a68fd3a770150663e3c75e654d7e6843d97421f0308e",
+      "selected_combined_any_error_proxy": 0.35755058314812405,
+      "selected_cx_any_error_proxy": 0.3030428335408242,
+      "selected_mapping": [
+        5,
+        0,
+        1,
+        4,
+        2,
+        3
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_stable_hash": "eb4c14e2f4b10e5491035d6651f94876d7b40dc0221c898ea90c03d32856a36d",
+      "selected_readout_any_error_proxy": 0.07820817724598661,
+      "selected_realization_seed": 13601,
+      "selected_semantic_fidelity": 0.9999999999999996,
+      "selected_source_snapshot": "FakeLagosV2",
+      "selection_key": [
+        0.35755058314812405,
+        0.3030428335408242,
+        0.07820817724598661,
+        44,
+        "FakeLagosV2"
+      ],
+      "target_snapshot": "FakeOslo",
+      "target_specific_route_excluded_from_selector": true,
+      "task_id": "dense_validation_scrambled_qft_n6"
+    },
+    {
+      "adaptation_group_id": "FakeOslo::dense_validation_xy_network_n6",
+      "candidate_count": 2,
+      "candidate_source_snapshots": [
+        "FakeJakartaV2",
+        "FakeLagosV2"
+      ],
+      "selected_circuit_path": "results/B4_B8_R147_target_descriptor_adaptation_design/candidates/FakeOslo__dense_validation_xy_network_n6__from_FakeJakartaV2.qasm",
+      "selected_circuit_sha256": "6e2cfb6af8dd6a14987bd080cd44822e161532d622081d2fef7291ef42bd4e77",
+      "selected_combined_any_error_proxy": 0.4382565443328159,
+      "selected_cx_any_error_proxy": 0.38701736352530114,
+      "selected_mapping": [
+        0,
+        1,
+        3,
+        2,
+        5,
+        6
+      ],
+      "selected_policy_id": "selected_o3_default",
+      "selected_qasm_stable_hash": "270bfccea0ee083ec6c2a4f3c6660de51f044bd2e966f3e8ed79447a4ecedc45",
+      "selected_readout_any_error_proxy": 0.08358993837442841,
+      "selected_realization_seed": 13601,
+      "selected_semantic_fidelity": 0.9999999999999982,
+      "selected_source_snapshot": "FakeJakartaV2",
+      "selection_key": [
+        0.4382565443328159,
+        0.38701736352530114,
+        0.08358993837442841,
+        59,
+        "FakeJakartaV2"
+      ],
+      "target_snapshot": "FakeOslo",
+      "target_specific_route_excluded_from_selector": true,
+      "task_id": "dense_validation_xy_network_n6"
+    }
+  ],
+  "selector": {
+    "candidate_pool": "the two foreign R143 routes for each target/task group",
+    "primary_score": "compiled combined_any_error_proxy on the target snapshot",
+    "r146_trial_rows_used_for_selection_or_tuning": false,
+    "target_descriptor_source": "R125 canonical target snapshot readout and CX calibration metadata",
+    "target_specific_route_used_for_selection": false,
+    "tie_breaks": [
+      "cx_any_error_proxy",
+      "readout_any_error_proxy",
+      "cx_occurrence_count",
+      "source_snapshot"
+    ]
+  },
+  "source_bindings": {
+    "r125_snapshot_path": "results/B4_B8_R125_historical_snapshot_replay_v0.json",
+    "r125_snapshot_payload_hash": "744c6eed788ba6815160064e81d352d167e6310787b45a8acd66a92c56b0b5c6",
+    "r125_snapshot_sha256": "65ad3bb4f9f09ce1f9d2069146421d9af4c19044bf603919627e07c139d804e3",
+    "r143_design_path": "results/B4_B8_R143_successive_halving_lcb_design_v0.json",
+    "r143_design_payload_hash": "1a7bac658ec807d22d2407545973de22d280aab530f3672a3ffdafa8b37ef754",
+    "r143_design_sha256": "61340c0b242925be77a391552af62927af0fd66855d337daf955e36ae8f4bf34",
+    "r146_result_path": "results/B4_B8_R146_cross_snapshot_transfer_holdout_v0.json",
+    "r146_result_sha256_provenance_only": "14252fdaf74955d2aa05ab11abbe478f824e7ef5d2bbf6d0379d7f4bcee2f340",
+    "r146_trial_rows_consumed": false,
+    "task_builder_path": "tools/b4_b8_r135_dense_interaction_fallback.py",
+    "task_builder_sha256": "7a83e0eb03967eeb3410f26cbc74e7a290d8fd5e42937fce9fad381b1aaa2247"
+  },
+  "source_target_id": "T-B4-002bc/T-B8-003bg/T-B10-009au",
+  "status": "target_descriptor_adaptation_design_frozen_before_holdout",
+  "summary": {
+    "adaptation_group_count": 12,
+    "challenge_executed": false,
+    "foreign_candidate_count": 24,
+    "foreign_candidates_per_group": 2,
+    "hardware_execution_claimed": false,
+    "lagos_selected_source_counts": {
+      "FakeJakartaV2": 0,
+      "FakeOslo": 4
+    },
+    "minimum_candidate_semantic_fidelity": 0.9999999999999971,
+    "new_credit_delta": 0,
+    "quantum_advantage_claimed": false,
+    "r146_hidden_trial_rows_read_count": 0,
+    "semantic_fidelity_pass_count": 24,
+    "snapshot_count": 3,
+    "solved_frontier_claimed": false,
+    "target_specific_routes_in_selector_count": 0,
+    "task_count": 4
+  },
+  "title": "B4/B8 R147 target-descriptor foreign-route adaptation design",
+  "upstream_target_id": "T-B4-002bb/T-B8-003bf/T-B10-009at",
+  "version": 0
+}

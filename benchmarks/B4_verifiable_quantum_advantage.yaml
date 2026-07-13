@@ -2171,6 +2171,37 @@ current_results:
     requirements_failed: 0
     result: ../results/B4_B8_R146_cross_snapshot_transfer_holdout_v0.json
     markdown_report: ../research/B4_B8_R146_cross_snapshot_transfer_holdout.md
+  b4_b8_r147_target_descriptor_adaptation_design_v0:
+    status: target_descriptor_adaptation_design_frozen_before_holdout
+    method: b4_b8_r147_target_descriptor_adaptation_design_v0
+    source_target_id: T-B4-002bc/T-B8-003bg/T-B10-009au
+    adaptation_group_count: 12
+    foreign_candidate_count: 24
+    target_specific_routes_in_selector_count: 0
+    r146_hidden_trial_rows_read_count: 0
+    semantic_fidelity_pass_count: 24
+    challenge_executed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R147_target_descriptor_adaptation_design_v0.json
+    markdown_report: ../research/B4_B8_R147_target_descriptor_adaptation_design.md
+  b4_b8_r147_target_descriptor_adaptation_protocol_v0:
+    status: target_descriptor_adaptation_protocol_frozen_before_challenge
+    method: b4_b8_r147_target_descriptor_adaptation_protocol_v0
+    source_target_id: T-B4-002bc/T-B8-003bg/T-B10-009au
+    adaptation_group_count: 12
+    trial_row_count: 96
+    simulated_circuit_execution_count: 288
+    shots_per_execution: 2048
+    challenge_executed: false
+    contract_sha256: 7dc1d668848ef18524979ff161f46031a8658ba15e91870cea0b6f2743e77394
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R147_target_descriptor_adaptation_protocol_v0.json
+    markdown_report: ../research/B4_B8_R147_target_descriptor_adaptation_protocol.md
+    holdout_contract: B4_B8_R147_target_descriptor_adaptation_contract_v0.json
   toy_hidden_trap_protocol_sim_v0:
     status: toy_statistical_protocol
     model_status: toy_statistical_protocol_not_quantum_advantage_claim

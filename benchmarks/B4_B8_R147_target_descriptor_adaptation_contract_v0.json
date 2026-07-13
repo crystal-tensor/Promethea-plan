@@ -1,0 +1,121 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition": "protocol, selector, route identities, and all source hashes remain exact",
+      "condition_id": "A1"
+    },
+    {
+      "condition": "12 adaptation groups produce 96 three-arm rows and 288 executions",
+      "condition_id": "A2"
+    },
+    {
+      "condition": "all adapted and target-specific compiled routes retain semantic fidelity at least 0.9999999999",
+      "condition_id": "A3"
+    },
+    {
+      "condition": "portfolio adapted-automatic mean is at least -0.005 and bootstrap lower is at least -0.01",
+      "condition_id": "A4"
+    },
+    {
+      "condition": "portfolio adapted-target mean is at least -0.005 and bootstrap lower is at least -0.01",
+      "condition_id": "A5"
+    },
+    {
+      "condition": "at least 11 of 12 groups have mean adapted-target delta at least -0.02",
+      "condition_id": "A6"
+    },
+    {
+      "condition": "zero rows have adapted-target regression below -0.05",
+      "condition_id": "A7"
+    },
+    {
+      "condition": "each target mean is at least -0.01 and Lagos dense-XY mean is at least -0.02 with zero severe rows",
+      "condition_id": "A8"
+    },
+    {
+      "condition": "challenge commitment, hidden seeds, row hashes, reveal, and transcript replay",
+      "condition_id": "A9"
+    },
+    {
+      "condition": "temporal, cross-machine, hardware, advantage, BQP, solved-frontier, and credit claims remain false",
+      "condition_id": "A10"
+    }
+  ],
+  "challenge_protocol": {
+    "adaptation_group_count": 12,
+    "adaptation_rule": "use the frozen R147 foreign route selected only by target readout/CX exposure descriptors and recompile on target",
+    "arms": [
+      "descriptor_adapted_foreign",
+      "target_specific",
+      "automatic"
+    ],
+    "automatic_rule": "fresh optimization-level-3 compile on target with a hidden transpiler seed",
+    "challenge_seed_derivation": "HMAC-SHA256 from post-preregistration secret",
+    "hidden_trial_count_per_group": 8,
+    "lagos_dense_xy_task_id": "dense_validation_xy_network_n6",
+    "maximum_lagos_dense_xy_severe_regression_count": 0,
+    "maximum_severe_regression_count_below_negative_0_05_vs_target": 0,
+    "minimum_each_target_mean_adapted_minus_target": -0.01,
+    "minimum_group_count_above_negative_0_02_vs_target": 11,
+    "minimum_lagos_dense_xy_mean_adapted_minus_target": -0.02,
+    "minimum_portfolio_adapted_minus_automatic_bootstrap_lower": -0.01,
+    "minimum_portfolio_adapted_minus_automatic_mean": -0.005,
+    "minimum_portfolio_adapted_minus_target_bootstrap_lower": -0.01,
+    "minimum_portfolio_adapted_minus_target_mean": -0.005,
+    "minimum_semantic_fidelity": 0.9999999999,
+    "selector_forbidden_inputs": [
+      "R146 hidden trial rows",
+      "R146 group deltas",
+      "R146 target deltas",
+      "target-specific R143 route identity"
+    ],
+    "shared_seed_rule": "all three arms in one row share one simulator seed",
+    "shots_per_execution": 2048,
+    "simulated_circuit_execution_count": 288,
+    "snapshot_names": [
+      "FakeJakartaV2",
+      "FakeLagosV2",
+      "FakeOslo"
+    ],
+    "target_rule": "recompile the target-specific R143 route on target only as a denominator",
+    "task_ids": [
+      "dense_validation_complete_ising_n6",
+      "dense_validation_inverse_qft_n6",
+      "dense_validation_scrambled_qft_n6",
+      "dense_validation_xy_network_n6"
+    ],
+    "total_simulated_shots": 589824,
+    "trial_row_count": 96
+  },
+  "claim_boundary": {
+    "positive_result_requires_all_conditions": true,
+    "what_is_not_supported_even_if_accepted": "temporal same-device transfer, cross-machine transfer, real hardware, mitigation, protocol soundness, quantum advantage, BQP separation, or solved B4/B8/B10"
+  },
+  "contract_id": "B4-B8-R147-target-descriptor-adaptation-contract-v0",
+  "contract_status": "public_preregistration_challenge_unopened",
+  "phase_protocol": [
+    "commit a fresh secret after public preregistration",
+    "derive hidden transpiler, simulator, and bootstrap seeds",
+    "replay frozen adapted and target-specific route identities on each target",
+    "execute all three arms with one shared simulator seed per row",
+    "write 96 rows before secret reveal",
+    "reveal and verify the acceptance transcript"
+  ],
+  "research_question": "Can a route selected only by target calibration descriptors repair R146 cross-snapshot failures without reading R146 trial rows or copying the target-specific route?",
+  "source_bindings": {
+    "protocol_path": "results/B4_B8_R147_target_descriptor_adaptation_protocol_v0.json",
+    "protocol_payload_hash": "1f2f526ceec04c7f358c878574e30ab9ca783e1b272d822753b77d9ae36805c3",
+    "protocol_sha256": "ac901c9b75a522e6a4804ff8951b9703a9567aea9bf64e4cb1a0483584e5fb79",
+    "r143_design_path": "results/B4_B8_R143_successive_halving_lcb_design_v0.json",
+    "r143_design_payload_hash": "1a7bac658ec807d22d2407545973de22d280aab530f3672a3ffdafa8b37ef754",
+    "r143_design_sha256": "61340c0b242925be77a391552af62927af0fd66855d337daf955e36ae8f4bf34",
+    "r146_result_path": "results/B4_B8_R146_cross_snapshot_transfer_holdout_v0.json",
+    "r146_result_sha256_provenance_only": "14252fdaf74955d2aa05ab11abbe478f824e7ef5d2bbf6d0379d7f4bcee2f340",
+    "r146_trial_rows_consumed": false,
+    "r147_design_path": "results/B4_B8_R147_target_descriptor_adaptation_design_v0.json",
+    "r147_design_payload_hash": "07f220fb8ed1dac0a4571d36395c9155ccc08e931aa099aa85401f57bb12aead",
+    "r147_design_sha256": "4dba951a48fa27a6eb6d2adb1b29a57b2e825c852e7bab149e35eb7eacc680b2"
+  },
+  "target_id": "T-B4-002bd/T-B8-003bh/T-B10-009av",
+  "upstream_target_id": "T-B4-002bc/T-B8-003bg/T-B10-009au"
+}

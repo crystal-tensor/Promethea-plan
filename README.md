@@ -2668,6 +2668,25 @@ target-calibration adaptation gate; temporal same-device transfer,
 cross-machine transfer, hardware, advantage, BQP, solved-frontier status, and
 new credit remain unclaimed.
 
+`T-B4-002bc` / `T-B8-003bg` / `T-B10-009au` now freezes the R147
+target-descriptor adaptation design and holdout protocol before challenge. For
+each of three target snapshots and four dense tasks, the selector recompiles
+only the two foreign R143 route identities and chooses the lower public target
+readout/CX combined-error proxy with deterministic tie breaks. The
+target-specific R143 route is excluded from all 12 selector pools and is
+reserved only as a blind denominator; R146 hidden rows and deltas are never
+read for selection or tuning. All `24/24` foreign candidate routes preserve
+semantics. The selector chooses FakeOslo for all four FakeLagosV2 tasks,
+including the R146 dense-XY failure locus, using calibration descriptors alone.
+The preregistered holdout fixes `96` three-arm rows, `288` executions, and
+`589,824` shots. Acceptance requires portfolio noninferiority, at least `11/12`
+groups above `-0.02` versus target-specific, zero regressions below `-0.05`,
+every target mean above `-0.01`, and a dedicated Lagos dense-XY mean/severe-row
+guard of `-0.02` / `0`. Contract hash
+`7dc1d668848ef18524979ff161f46031a8658ba15e91870cea0b6f2743e77394`.
+No R147 holdout result, temporal transfer, cross-machine transfer, hardware,
+advantage, BQP, solved-frontier status, or new credit is claimed.
+
 `T-B4-002aj` / `T-B8-003an` / `T-B10-009ab` now adds the R135
 dense-interaction deterministic fallback boundary. For each new inverse-QFT,
 scrambled-QFT, complete-Ising, and dense-XY input, five temporal graph rules
