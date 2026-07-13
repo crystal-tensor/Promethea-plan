@@ -9114,6 +9114,20 @@
       "requirements_passed": 10,
       "status": "jakarta_xy_candidate_generation_preregistered_acceptance"
     },
+    "r150_unseen_backend_candidate_generation": {
+      "challenge_executed": false,
+      "contract_exists": true,
+      "contract_path": "benchmarks/B4_B8_R150_unseen_backend_candidate_generation_contract_v0.json",
+      "design_exists": true,
+      "design_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design_v0.json",
+      "design_requirements_passed": 10,
+      "design_status": "unseen_backend_candidate_generation_design_frozen_before_holdout",
+      "protocol_exists": true,
+      "protocol_path": "results/B4_B8_R150_unseen_backend_candidate_generation_protocol_v0.json",
+      "protocol_requirements_passed": 10,
+      "protocol_status": "unseen_backend_candidate_generation_protocol_frozen_before_challenge",
+      "target_snapshot_count": 3
+    },
     "real_backend_packet_scout": {
       "backend_calibrated_aer_circuit_count": 5760,
       "backend_calibrated_noise_parameters_instantiated": true,
@@ -10143,6 +10157,9 @@
     "b4_b8_r149_jakarta_xy_candidate_generation_design": "research/B4_B8_R149_jakarta_xy_candidate_generation_design.md",
     "b4_b8_r149_jakarta_xy_candidate_generation_holdout": "research/B4_B8_R149_jakarta_xy_candidate_generation_holdout.md",
     "b4_b8_r149_jakarta_xy_candidate_generation_protocol": "research/B4_B8_R149_jakarta_xy_candidate_generation_protocol.md",
+    "b4_b8_r150_unseen_backend_candidate_generation_contract": "benchmarks/B4_B8_R150_unseen_backend_candidate_generation_contract_v0.json",
+    "b4_b8_r150_unseen_backend_candidate_generation_design": "research/B4_B8_R150_unseen_backend_candidate_generation_design.md",
+    "b4_b8_r150_unseen_backend_candidate_generation_protocol": "research/B4_B8_R150_unseen_backend_candidate_generation_protocol.md",
     "b4_b8_real_backend_packet_scout": "research/B4_B8_real_backend_packet_scout.md",
     "b4_b8_real_backend_provider_manifest_gate": "research/B4_B8_real_backend_provider_manifest_gate.md",
     "b4_b8_real_backend_transcript_contract_gate": "research/B4_B8_real_backend_transcript_contract_gate.md",

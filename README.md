@@ -2778,6 +2778,25 @@ does not establish general candidate-generation advantage, temporal or
 cross-machine transfer, hardware performance, quantum advantage, BQP
 separation, solved B4/B8/B10, or new credit.
 
+`T-B4-002bi` / `T-B8-003bm` / `T-B10-009ba` now freezes the R150
+unseen-backend candidate-generation design before challenge. The unchanged
+R149 recipe is applied independently to FakeCasablancaV2, FakeNairobiV2, and
+FakePerth, three seven-qubit backend classes absent from the R125-R149
+portfolio. It enumerates `15,120` mappings, shortlists `36`, compiles `144`
+generated candidates, and checks `240` strong denominator candidates from 80
+independent optimization-level-3 transpiler seeds per backend. All `384/384`
+circuits preserve semantics. Public post-selection diagnostic deltas against
+the strong denominators are `-0.02514781`, `+0.00966658`, and `+0.00345661`
+for Casablanca, Nairobi, and Perth. These diagnostics do not alter selection.
+The unopened contract fixes `24` hidden rows, `72` executions, and `147,456`
+shots. It requires all `3/3` backend means to clear `-0.02`, zero severe rows,
+and portfolio generated-denominator mean/bootstrap floors of `-0.005` and
+`-0.015`. Contract hash
+`b71c0e9e171fc9b3a221303e3b328595b18c2f186e4c2a3e52f5b088ead5332b`.
+No hidden result, temporal or real-device transfer, hardware performance,
+general route-generation advantage, quantum advantage, BQP separation,
+solved-frontier status, or new credit is claimed.
+
 `T-B4-002aj` / `T-B8-003an` / `T-B10-009ab` now adds the R135
 dense-interaction deterministic fallback boundary. For each new inverse-QFT,
 scrambled-QFT, complete-Ising, and dense-XY input, five temporal graph rules

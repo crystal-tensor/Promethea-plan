@@ -1,0 +1,113 @@
+{
+  "challenge_executed": false,
+  "claim_boundary": {
+    "what_is_not_supported": "a hidden result, temporal transfer, real-device transfer, hardware performance, general route-generation advantage, quantum advantage, BQP separation, solved B4/B8/B10, or new credit",
+    "what_is_supported": "an immutable three-backend dense-XY generated-route holdout protocol"
+  },
+  "failed_requirement_ids": [],
+  "generated_at_unix": 1783939130,
+  "method": "b4_b8_r150_unseen_backend_candidate_generation_protocol_v0",
+  "model_status": "three_unseen_fake_backends_with_strong_seeded_denominators",
+  "payload_hash": "a4503d7077882f0eb6c94944b5e674f450f696d7de69c0ed30789eaba35e343f",
+  "protocol": {
+    "arms": [
+      "generated_route",
+      "strong_seeded_denominator",
+      "fresh_automatic"
+    ],
+    "automatic_rule": "fresh optimization-level-3 compile with a hidden transpiler seed",
+    "challenge_seed_derivation": "HMAC-SHA256 from post-preregistration secret",
+    "denominator_rule": "replay the frozen minimum-calibration-exposure route from 80 independent optimization-level-3 transpiler seeds",
+    "generated_rule": "recompile each R150 selected mapping, policy, and realization seed",
+    "hidden_trial_count_per_group": 8,
+    "maximum_severe_regression_count_below_negative_0_05_vs_denominator": 0,
+    "minimum_each_target_mean_generated_minus_denominator": -0.02,
+    "minimum_group_count_above_negative_0_02_vs_denominator": 3,
+    "minimum_portfolio_generated_minus_automatic_bootstrap_lower": -0.01,
+    "minimum_portfolio_generated_minus_automatic_mean": -0.005,
+    "minimum_portfolio_generated_minus_denominator_bootstrap_lower": -0.015,
+    "minimum_portfolio_generated_minus_denominator_mean": -0.005,
+    "minimum_semantic_fidelity": 0.9999999999,
+    "portfolio_group_count": 3,
+    "shared_seed_rule": "all three arms in one row share one simulator seed",
+    "shots_per_execution": 2048,
+    "simulated_circuit_execution_count": 72,
+    "snapshot_names": [
+      "FakeCasablancaV2",
+      "FakeNairobiV2",
+      "FakePerth"
+    ],
+    "task_id": "dense_validation_xy_network_n6",
+    "total_simulated_shots": 147456,
+    "trial_row_count": 24
+  },
+  "requirement_count": 10,
+  "requirements": [
+    {
+      "label": "R150 design and R149 provenance hashes are bound",
+      "passed": true,
+      "requirement_id": "R1"
+    },
+    {
+      "label": "three previously unused backend classes remain the only targets",
+      "passed": true,
+      "requirement_id": "R2"
+    },
+    {
+      "label": "R149 hidden rows remain unused by R150 generation and selection",
+      "passed": true,
+      "requirement_id": "R3"
+    },
+    {
+      "label": "three generated and three strong denominator routes are frozen",
+      "passed": true,
+      "requirement_id": "R4"
+    },
+    {
+      "label": "eight hidden trials produce 24 rows and 72 executions",
+      "passed": true,
+      "requirement_id": "R5"
+    },
+    {
+      "label": "portfolio generated-automatic and generated-denominator floors are explicit",
+      "passed": true,
+      "requirement_id": "R6"
+    },
+    {
+      "label": "all three backend groups must clear -0.02",
+      "passed": true,
+      "requirement_id": "R7"
+    },
+    {
+      "label": "zero severe regressions are allowed",
+      "passed": true,
+      "requirement_id": "R8"
+    },
+    {
+      "label": "no R150 hidden holdout has run during protocol design",
+      "passed": true,
+      "requirement_id": "R9"
+    },
+    {
+      "label": "hardware, temporal, real-device transfer, general generation, advantage, BQP, solved-frontier, and credit claims remain false",
+      "passed": true,
+      "requirement_id": "R10"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 10,
+  "source_bindings": {
+    "r149_result_path": "results/B4_B8_R149_jakarta_xy_candidate_generation_holdout_v0.json",
+    "r149_result_payload_hash": "51164a47fe7dbfa656b3137c1efa28164f263c0cbf411ced6e23d94ad6f0fba2",
+    "r149_result_sha256_provenance_only": "cb5e4f9a861d4d9a710a68190dba76cbeca3a698f608cd8d6ffa07df73c9f037",
+    "r149_trial_rows_consumed": false,
+    "r150_design_path": "results/B4_B8_R150_unseen_backend_candidate_generation_design_v0.json",
+    "r150_design_payload_hash": "6b428750ab244ce574ade9821ea2f07684fc6bc4f321728ec46d751ac0744c14",
+    "r150_design_sha256": "d7b564c049804f71b732c9151cfd42ae2c1c88da6897339fff62118273c48394"
+  },
+  "source_target_id": "T-B4-002bi/T-B8-003bm/T-B10-009ba",
+  "status": "unseen_backend_candidate_generation_protocol_frozen_before_challenge",
+  "title": "B4/B8 R150 unseen-backend candidate-generation protocol",
+  "upstream_target_id": "T-B4-002bh/T-B8-003bl/T-B10-009az",
+  "version": 0
+}

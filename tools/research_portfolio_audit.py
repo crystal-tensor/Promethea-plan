@@ -38050,6 +38050,102 @@ def audit(root: Path) -> dict:
             if transcript.get("trial_rows_sha256") != hashlib.sha256(trials_path.read_bytes()).hexdigest():
                 errors.append("R149 candidate-generation trial row transcript hash mismatch")
 
+    r150_design_path = results / "B4_B8_R150_unseen_backend_candidate_generation_design_v0.json"
+    r150_design_report_path = research / "B4_B8_R150_unseen_backend_candidate_generation_design.md"
+    r150_protocol_path = results / "B4_B8_R150_unseen_backend_candidate_generation_protocol_v0.json"
+    r150_protocol_report_path = research / "B4_B8_R150_unseen_backend_candidate_generation_protocol.md"
+    r150_contract_path = benchmarks / "B4_B8_R150_unseen_backend_candidate_generation_contract_v0.json"
+    r150_status = {
+        "design_path": str(r150_design_path), "protocol_path": str(r150_protocol_path),
+        "contract_path": str(r150_contract_path),
+        "design_exists": r150_design_path.exists(), "protocol_exists": r150_protocol_path.exists(),
+        "contract_exists": r150_contract_path.exists(),
+    }
+    r150_contract_sha256 = hashlib.sha256(r150_contract_path.read_bytes()).hexdigest() if r150_contract_path.exists() else None
+    r150_manifest_rows = [
+        ("B4", b4_manifest.get("current_results", {}), "b4_b8_r150_unseen_backend_candidate_generation_design_v0", "b4_b8_r150_unseen_backend_candidate_generation_protocol_v0"),
+        ("B8", b8_manifest.get("current_results", {}), "b4_b8_r150_unseen_backend_candidate_generation_design_v0", "b4_b8_r150_unseen_backend_candidate_generation_protocol_v0"),
+        ("B10", b10_manifest.get("current_results", {}), "b10_t2_b4_b8_r150_unseen_backend_candidate_generation_design_v0", "b10_t2_b4_b8_r150_unseen_backend_candidate_generation_protocol_v0"),
+    ]
+    for label, manifest, design_key, protocol_key in r150_manifest_rows:
+        design_row = manifest.get(design_key); protocol_row = manifest.get(protocol_key)
+        if not design_row or not protocol_row:
+            errors.append(f"{label} manifest missing R150 unseen-backend preregistration")
+            continue
+        for row_name, row in [("design", design_row), ("protocol", protocol_row)]:
+            for field in ["result", "markdown_report"]:
+                if not row.get(field) or not path_exists_from(benchmarks, row[field]):
+                    errors.append(f"{label} R150 {row_name} missing {field}")
+        if protocol_row.get("contract_sha256") != r150_contract_sha256:
+            errors.append(f"{label} R150 contract hash mismatch")
+    required_r150_paths = [r150_design_path, r150_design_report_path, r150_protocol_path, r150_protocol_report_path, r150_contract_path]
+    if not all(path.exists() for path in required_r150_paths):
+        errors.append("R150 unseen-backend design, protocol, report, or contract missing")
+    else:
+        r150_design = json.loads(read(r150_design_path)); r150_summary = r150_design.get("summary", {})
+        r150_protocol_payload = json.loads(read(r150_protocol_path)); r150_protocol = r150_protocol_payload.get("protocol", {})
+        r150_contract = json.loads(read(r150_contract_path))
+        r150_status.update({
+            "design_status": r150_design.get("status"), "protocol_status": r150_protocol_payload.get("status"),
+            "design_requirements_passed": r150_design.get("requirements_passed"),
+            "protocol_requirements_passed": r150_protocol_payload.get("requirements_passed"),
+            "target_snapshot_count": r150_summary.get("target_snapshot_count"),
+            "challenge_executed": r150_protocol_payload.get("challenge_executed"),
+        })
+        if r150_design.get("status") != "unseen_backend_candidate_generation_design_frozen_before_holdout" or r150_design.get("method") != "b4_b8_r150_unseen_backend_candidate_generation_design_v0":
+            errors.append("R150 unseen-backend design status or method mismatch")
+        if r150_design.get("requirements_passed") != 10 or r150_design.get("requirements_failed") != 0:
+            errors.append("R150 unseen-backend design requirements must pass 10/10")
+        expected_design = {
+            "target_snapshot_count": 3, "enumerated_mapping_count": 15120,
+            "shortlist_mapping_count": 36, "compiled_candidate_count": 144,
+            "denominator_pool_count": 240, "charged_design_execution_count": 792,
+            "diagnostic_execution_count": 48, "total_design_execution_count": 840,
+            "semantic_fidelity_pass_count": 384, "semantic_fidelity_check_count": 384,
+            "prior_backend_identity_count": 0, "r149_hidden_trial_rows_read_count": 0,
+            "challenge_executed": False,
+        }
+        for field, value in expected_design.items():
+            if r150_summary.get(field) != value:
+                errors.append(f"R150 unseen-backend design {field} mismatch")
+        if [row.get("target_snapshot") for row in r150_design.get("target_rows", [])] != ["FakeCasablancaV2", "FakeNairobiV2", "FakePerth"]:
+            errors.append("R150 unseen-backend target rows mismatch")
+        for row in r150_design.get("candidate_rows", []) + r150_design.get("denominator_rows", []):
+            circuit_path = root / row.get("circuit_path", "")
+            if not circuit_path.is_file() or hashlib.sha256(circuit_path.read_bytes()).hexdigest() != row.get("circuit_sha256"):
+                errors.append(f"R150 circuit hash mismatch: {row.get('circuit_path')}")
+        hp = dict(r150_design); r150_design_ph = hp.pop("payload_hash", None)
+        if r150_design_ph != hashlib.sha256(json.dumps(hp, sort_keys=True, separators=(",", ":")).encode()).hexdigest():
+            errors.append("R150 unseen-backend design payload hash mismatch")
+        if r150_protocol_payload.get("status") != "unseen_backend_candidate_generation_protocol_frozen_before_challenge" or r150_protocol_payload.get("method") != "b4_b8_r150_unseen_backend_candidate_generation_protocol_v0":
+            errors.append("R150 unseen-backend protocol status or method mismatch")
+        if r150_protocol_payload.get("requirements_passed") != 10 or r150_protocol_payload.get("requirements_failed") != 0 or r150_protocol_payload.get("challenge_executed") is not False:
+            errors.append("R150 unseen-backend protocol requirements or unopened boundary mismatch")
+        expected_protocol = {
+            "portfolio_group_count": 3, "hidden_trial_count_per_group": 8,
+            "trial_row_count": 24, "simulated_circuit_execution_count": 72,
+            "shots_per_execution": 2048, "total_simulated_shots": 147456,
+            "minimum_portfolio_generated_minus_denominator_mean": -0.005,
+            "minimum_portfolio_generated_minus_denominator_bootstrap_lower": -0.015,
+            "minimum_group_count_above_negative_0_02_vs_denominator": 3,
+            "maximum_severe_regression_count_below_negative_0_05_vs_denominator": 0,
+            "minimum_each_target_mean_generated_minus_denominator": -0.02,
+        }
+        for field, value in expected_protocol.items():
+            if r150_protocol.get(field) != value:
+                errors.append(f"R150 unseen-backend protocol {field} mismatch")
+        hp = dict(r150_protocol_payload); r150_protocol_ph = hp.pop("payload_hash", None)
+        if r150_protocol_ph != hashlib.sha256(json.dumps(hp, sort_keys=True, separators=(",", ":")).encode()).hexdigest():
+            errors.append("R150 unseen-backend protocol payload hash mismatch")
+        if r150_contract_sha256 != "b71c0e9e171fc9b3a221303e3b328595b18c2f186e4c2a3e52f5b088ead5332b":
+            errors.append("R150 unseen-backend contract file hash mismatch")
+        if r150_contract.get("contract_id") != "B4-B8-R150-unseen-backend-candidate-generation-contract-v0" or r150_contract.get("contract_status") != "public_preregistration_challenge_unopened":
+            errors.append("R150 unseen-backend contract ID or status mismatch")
+        if r150_contract.get("target_id") != "T-B4-002bj/T-B8-003bn/T-B10-009bb" or "challenge_secret" in r150_contract or "trial_rows" in r150_contract:
+            errors.append("R150 unseen-backend contract target or unopened boundary mismatch")
+        if r150_contract.get("source_bindings", {}).get("protocol_payload_hash") != r150_protocol_ph or len(r150_contract.get("acceptance_conditions", [])) != 10:
+            errors.append("R150 unseen-backend contract binding or acceptance count mismatch")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -38516,6 +38612,7 @@ def audit(root: Path) -> dict:
             "r148_task_conditioned_channel_risk_holdout": r148_result_status,
             "r149_jakarta_xy_candidate_generation": r149_status,
             "r149_jakarta_xy_candidate_generation_holdout": r149_result_status,
+            "r150_unseen_backend_candidate_generation": r150_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -39968,6 +40065,13 @@ def audit(root: Path) -> dict:
             "b4_b8_r149_jakarta_xy_candidate_generation_holdout": str(
                 research / "B4_B8_R149_jakarta_xy_candidate_generation_holdout.md"
             ),
+            "b4_b8_r150_unseen_backend_candidate_generation_design": str(
+                research / "B4_B8_R150_unseen_backend_candidate_generation_design.md"
+            ),
+            "b4_b8_r150_unseen_backend_candidate_generation_protocol": str(
+                research / "B4_B8_R150_unseen_backend_candidate_generation_protocol.md"
+            ),
+            "b4_b8_r150_unseen_backend_candidate_generation_contract": str(r150_contract_path),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),
             "b8_challenge_refresh_repair": str(research / "B8_challenge_refresh_repair.md"),
