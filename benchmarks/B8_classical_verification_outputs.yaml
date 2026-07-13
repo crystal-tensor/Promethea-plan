@@ -2446,6 +2446,29 @@ current_results:
     result: ../results/B4_B8_R150_unseen_backend_candidate_generation_protocol_v0.json
     markdown_report: ../research/B4_B8_R150_unseen_backend_candidate_generation_protocol.md
     holdout_contract: B4_B8_R150_unseen_backend_candidate_generation_contract_v0.json
+  b4_b8_r150_unseen_backend_candidate_generation_holdout_v0:
+    status: unseen_backend_candidate_generation_preregistered_rejection
+    method: b4_b8_r150_unseen_backend_candidate_generation_holdout_v0
+    source_target_id: T-B4-002bj/T-B8-003bn/T-B10-009bb
+    portfolio_group_count: 3
+    trial_row_count: 24
+    simulated_circuit_execution_count: 72
+    portfolio_mean_generated_minus_automatic: 0.018586386307028763
+    portfolio_mean_generated_minus_denominator: -0.002406714433797613
+    portfolio_generated_minus_denominator_bootstrap_95_lower: -0.009659452970277791
+    groups_above_negative_0_02_vs_denominator: 2
+    severe_regression_count_below_negative_0_05: 0
+    minimum_target_mean_generated_minus_denominator: -0.02570230814978848
+    semantic_fidelity_pass_count: 6
+    acceptance_conditions_passed: 8
+    acceptance_conditions_failed: 2
+    global_acceptance: false
+    protocol_soundness_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R150_unseen_backend_candidate_generation_holdout_v0.json
+    markdown_report: ../research/B4_B8_R150_unseen_backend_candidate_generation_holdout.md
 prototype_artifacts:
   output_invariant_verifier: ../tools/b8_output_invariant_verifier.py
   adaptive_leakage_spoofer: ../tools/b8_adaptive_spoofer_leakage.py

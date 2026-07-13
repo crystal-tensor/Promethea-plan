@@ -1987,6 +1987,25 @@ current_results:
     result: ../results/B4_B8_R150_unseen_backend_candidate_generation_protocol_v0.json
     markdown_report: ../research/B4_B8_R150_unseen_backend_candidate_generation_protocol.md
     holdout_contract: B4_B8_R150_unseen_backend_candidate_generation_contract_v0.json
+  b10_t2_b4_b8_r150_unseen_backend_candidate_generation_holdout_v0:
+    status: unseen_backend_candidate_generation_rejection_not_bqp_claim
+    method: b4_b8_r150_unseen_backend_candidate_generation_holdout_v0
+    source_b8_result: ../results/B4_B8_R150_unseen_backend_candidate_generation_holdout_v0.json
+    source_target_id: T-B4-002bj/T-B8-003bn/T-B10-009bb
+    portfolio_mean_generated_minus_denominator: -0.002406714433797613
+    groups_above_negative_0_02_vs_denominator: 2
+    severe_regression_count_below_negative_0_05: 0
+    minimum_target_mean_generated_minus_denominator: -0.02570230814978848
+    acceptance_conditions_passed: 8
+    acceptance_conditions_failed: 2
+    global_acceptance: false
+    b10_t2_credit_allowed: false
+    bqp_separation_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R150_unseen_backend_candidate_generation_holdout_v0.json
+    markdown_report: ../research/B4_B8_R150_unseen_backend_candidate_generation_holdout.md
   b10_t3_b9_checked_transcript_acceptance_packet_gate_v0:
     status: checked_transcript_acceptance_packet_open_missing_artifact
     method: b9_checked_transcript_acceptance_packet_gate_v0

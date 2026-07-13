@@ -1,0 +1,299 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition_id": "A1",
+      "label": "contract, protocol, routes, denominators, and bindings remain exact",
+      "passed": true,
+      "threshold": true,
+      "value": true
+    },
+    {
+      "condition_id": "A2",
+      "label": "groups, rows, executions, and same-seed arms",
+      "passed": true,
+      "threshold": [
+        3,
+        24,
+        72
+      ],
+      "value": [
+        3,
+        24,
+        72
+      ]
+    },
+    {
+      "condition_id": "A3",
+      "label": "all generated and denominator routes retain semantics",
+      "passed": true,
+      "threshold": [
+        6,
+        0.9999999999
+      ],
+      "value": [
+        6,
+        0.9999999999999956
+      ]
+    },
+    {
+      "condition_id": "A4",
+      "label": "portfolio generated versus automatic noninferiority",
+      "passed": true,
+      "threshold": [
+        -0.005,
+        -0.01
+      ],
+      "value": [
+        0.018586386307028763,
+        0.010348594294917694
+      ]
+    },
+    {
+      "condition_id": "A5",
+      "label": "portfolio generated versus strong denominator noninferiority",
+      "passed": true,
+      "threshold": [
+        -0.005,
+        -0.015
+      ],
+      "value": [
+        -0.002406714433797613,
+        -0.009659452970277791
+      ]
+    },
+    {
+      "condition_id": "A6",
+      "label": "all groups above negative 0.02 versus denominator",
+      "passed": false,
+      "threshold": 3,
+      "value": 2
+    },
+    {
+      "condition_id": "A7",
+      "label": "severe row regressions below negative 0.05",
+      "passed": true,
+      "threshold": 0,
+      "value": 0
+    },
+    {
+      "condition_id": "A8",
+      "label": "each backend mean clears negative 0.02",
+      "passed": false,
+      "threshold": -0.02,
+      "value": -0.02570230814978848
+    },
+    {
+      "condition_id": "A9",
+      "label": "commitment, hidden rows, reveal, and transcript",
+      "passed": true,
+      "threshold": true,
+      "value": true
+    },
+    {
+      "condition_id": "A10",
+      "label": "forbidden claims and credit remain false",
+      "passed": true,
+      "threshold": 0,
+      "value": 0
+    }
+  ],
+  "artifacts": {
+    "challenge_commitment": "results/B4_B8_R150_unseen_backend_candidate_generation_holdout/challenge_commitment.json",
+    "challenge_reveal": "results/B4_B8_R150_unseen_backend_candidate_generation_holdout/challenge_reveal.json",
+    "contract": "benchmarks/B4_B8_R150_unseen_backend_candidate_generation_contract_v0.json",
+    "markdown_report": "research/B4_B8_R150_unseen_backend_candidate_generation_holdout.md",
+    "result": "results/B4_B8_R150_unseen_backend_candidate_generation_holdout_v0.json",
+    "three_arm_trial_rows": "results/B4_B8_R150_unseen_backend_candidate_generation_holdout/three_arm_trial_rows.json",
+    "verifier_transcript": "results/B4_B8_R150_unseen_backend_candidate_generation_holdout/verifier_transcript.json"
+  },
+  "claim_boundary": {
+    "what_is_not_supported": "temporal transfer, real-device transfer, hardware performance, general route-generation advantage, quantum advantage, BQP separation, solved B4/B8/B10, or new credit",
+    "what_is_supported": "one preregistered finite dense-XY simulated-noise verdict on three previously unused fake backend classes"
+  },
+  "compiled_route_rows": [
+    {
+      "denominator_qasm_stable_hash": "519af8b4b1a083ea6fcf69828e0fc3ac4139632ddd70a847babe14066f7f601d",
+      "denominator_semantic_fidelity": 0.9999999999999956,
+      "denominator_transpiler_seed": 150144,
+      "generated_mapping": [
+        1,
+        6,
+        3,
+        4,
+        5,
+        2
+      ],
+      "generated_policy_id": "selected_o3_default",
+      "generated_qasm_stable_hash": "708d28fc8fde4abe72399c777ea878644fd3a05a78fac5fcd1f1b28f272f51d9",
+      "generated_realization_seed": 15001,
+      "generated_semantic_fidelity": 0.999999999999998,
+      "target_snapshot": "FakeCasablancaV2"
+    },
+    {
+      "denominator_qasm_stable_hash": "e45592d461716c6aaf20866cb893631dfbdb19728c1d7d7a4824ceea8827f321",
+      "denominator_semantic_fidelity": 0.9999999999999956,
+      "denominator_transpiler_seed": 150144,
+      "generated_mapping": [
+        2,
+        1,
+        4,
+        3,
+        0,
+        5
+      ],
+      "generated_policy_id": "selected_o3_default",
+      "generated_qasm_stable_hash": "f66704a9e34397c926846d9eef840a424d2b09089a76a617e64108c43315e811",
+      "generated_realization_seed": 15001,
+      "generated_semantic_fidelity": 0.9999999999999982,
+      "target_snapshot": "FakeNairobiV2"
+    },
+    {
+      "denominator_qasm_stable_hash": "33faca4633a8332bc2ec8d88c2cda363d7f999330bdc36d8cebe5729ea6568fa",
+      "denominator_semantic_fidelity": 0.9999999999999956,
+      "denominator_transpiler_seed": 150144,
+      "generated_mapping": [
+        3,
+        0,
+        2,
+        1,
+        6,
+        5
+      ],
+      "generated_policy_id": "selected_o3_lookahead",
+      "generated_qasm_stable_hash": "3fd2e73ed74222d75f47bf4ab193269737ffed9f4c082880fc4b879aa94ab66d",
+      "generated_realization_seed": 15001,
+      "generated_semantic_fidelity": 0.9999999999999991,
+      "target_snapshot": "FakePerth"
+    }
+  ],
+  "failed_requirement_ids": [],
+  "generated_at_unix": 1783939364,
+  "group_rows": [
+    {
+      "generated_win_count_vs_denominator": 0,
+      "mean_generated_minus_automatic": -0.002423191799230076,
+      "mean_generated_minus_denominator": -0.02570230814978848,
+      "minimum_generated_minus_denominator": -0.03723048769259518,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeCasablancaV2"
+    },
+    {
+      "generated_win_count_vs_denominator": 8,
+      "mean_generated_minus_automatic": 0.038961110211035196,
+      "mean_generated_minus_denominator": 0.01164795088845512,
+      "minimum_generated_minus_denominator": 0.00548623092151268,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakeNairobiV2"
+    },
+    {
+      "generated_win_count_vs_denominator": 8,
+      "mean_generated_minus_automatic": 0.019221240509281173,
+      "mean_generated_minus_denominator": 0.006834213959940522,
+      "minimum_generated_minus_denominator": 0.00010214947831221899,
+      "row_count": 8,
+      "severe_regression_count": 0,
+      "target_snapshot": "FakePerth"
+    }
+  ],
+  "method": "b4_b8_r150_unseen_backend_candidate_generation_holdout_v0",
+  "model_status": "finite_dense_xy_three_unseen_fake_backend_holdout",
+  "payload_hash": "d259cbc3eae063e31764095e01a849f2e86526d08c92eec3c22958d1f5c641a4",
+  "requirement_count": 10,
+  "requirements": [
+    {
+      "label": "public preregistration precedes challenge",
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "label": "contract, protocol, and design hashes verify",
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "label": "three frozen backend groups execute",
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "label": "all three arms share one row seed",
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "label": "commitment matches revealed secret",
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "label": "trial rows are complete before reveal",
+      "passed": true,
+      "requirement_id": "P6"
+    },
+    {
+      "label": "six compiled route semantic checks pass",
+      "passed": true,
+      "requirement_id": "P7"
+    },
+    {
+      "label": "four phase artifacts replay",
+      "passed": true,
+      "requirement_id": "P8"
+    },
+    {
+      "label": "acceptance transcript contains A1-A10",
+      "passed": true,
+      "requirement_id": "P9"
+    },
+    {
+      "label": "R149 rows stay unused and claim boundary remains explicit",
+      "passed": true,
+      "requirement_id": "P10"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 10,
+  "source_target_id": "T-B4-002bj/T-B8-003bn/T-B10-009bb",
+  "status": "unseen_backend_candidate_generation_preregistered_rejection",
+  "summary": {
+    "acceptance_conditions_failed": 2,
+    "acceptance_conditions_passed": 8,
+    "bqp_separation_claimed": false,
+    "failed_acceptance_condition_ids": [
+      "A6",
+      "A8"
+    ],
+    "general_route_generation_advantage_claimed": false,
+    "global_acceptance": false,
+    "groups_with_mean_generated_minus_denominator_at_least_negative_0_02": 2,
+    "hardware_execution_claimed": false,
+    "minimum_semantic_fidelity": 0.9999999999999956,
+    "minimum_target_mean_generated_minus_denominator": -0.02570230814978848,
+    "new_credit_delta": 0,
+    "phase_artifact_count": 4,
+    "phase_artifact_preexisting_count": 4,
+    "phase_artifact_replay_match_count": 4,
+    "portfolio_generated_minus_automatic_bootstrap_95_lower": 0.010348594294917694,
+    "portfolio_generated_minus_automatic_bootstrap_95_upper": 0.027593374836756418,
+    "portfolio_generated_minus_denominator_bootstrap_95_lower": -0.009659452970277791,
+    "portfolio_generated_minus_denominator_bootstrap_95_upper": 0.004246773522973759,
+    "portfolio_group_count": 3,
+    "portfolio_mean_generated_minus_automatic": 0.018586386307028763,
+    "portfolio_mean_generated_minus_denominator": -0.002406714433797613,
+    "quantum_advantage_claimed": false,
+    "r149_hidden_trial_rows_read_count": 0,
+    "real_device_transfer_claimed": false,
+    "semantic_fidelity_pass_count": 6,
+    "severe_generated_minus_denominator_regression_count_below_negative_0_05": 0,
+    "simulated_circuit_execution_count": 72,
+    "solved_frontier_claimed": false,
+    "temporal_transfer_claimed": false,
+    "total_simulated_shots": 147456,
+    "trial_row_count": 24
+  },
+  "title": "B4/B8 R150 unseen-backend candidate-generation holdout",
+  "upstream_target_id": "T-B4-002bi/T-B8-003bm/T-B10-009ba",
+  "version": 0
+}

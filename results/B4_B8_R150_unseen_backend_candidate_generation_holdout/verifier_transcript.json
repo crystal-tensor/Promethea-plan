@@ -1,0 +1,104 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition_id": "A1",
+      "label": "contract, protocol, routes, denominators, and bindings remain exact",
+      "passed": true,
+      "threshold": true,
+      "value": true
+    },
+    {
+      "condition_id": "A2",
+      "label": "groups, rows, executions, and same-seed arms",
+      "passed": true,
+      "threshold": [
+        3,
+        24,
+        72
+      ],
+      "value": [
+        3,
+        24,
+        72
+      ]
+    },
+    {
+      "condition_id": "A3",
+      "label": "all generated and denominator routes retain semantics",
+      "passed": true,
+      "threshold": [
+        6,
+        0.9999999999
+      ],
+      "value": [
+        6,
+        0.9999999999999956
+      ]
+    },
+    {
+      "condition_id": "A4",
+      "label": "portfolio generated versus automatic noninferiority",
+      "passed": true,
+      "threshold": [
+        -0.005,
+        -0.01
+      ],
+      "value": [
+        0.018586386307028763,
+        0.010348594294917694
+      ]
+    },
+    {
+      "condition_id": "A5",
+      "label": "portfolio generated versus strong denominator noninferiority",
+      "passed": true,
+      "threshold": [
+        -0.005,
+        -0.015
+      ],
+      "value": [
+        -0.002406714433797613,
+        -0.009659452970277791
+      ]
+    },
+    {
+      "condition_id": "A6",
+      "label": "all groups above negative 0.02 versus denominator",
+      "passed": false,
+      "threshold": 3,
+      "value": 2
+    },
+    {
+      "condition_id": "A7",
+      "label": "severe row regressions below negative 0.05",
+      "passed": true,
+      "threshold": 0,
+      "value": 0
+    },
+    {
+      "condition_id": "A8",
+      "label": "each backend mean clears negative 0.02",
+      "passed": false,
+      "threshold": -0.02,
+      "value": -0.02570230814978848
+    },
+    {
+      "condition_id": "A9",
+      "label": "commitment, hidden rows, reveal, and transcript",
+      "passed": true,
+      "threshold": true,
+      "value": true
+    },
+    {
+      "condition_id": "A10",
+      "label": "forbidden claims and credit remain false",
+      "passed": true,
+      "threshold": 0,
+      "value": 0
+    }
+  ],
+  "challenge_secret_commitment_sha256": "aa1200718881ca2840b9bccd756bd02d5daaeed7cbb10fc818663bc9328d016e",
+  "contract_sha256": "b71c0e9e171fc9b3a221303e3b328595b18c2f186e4c2a3e52f5b088ead5332b",
+  "global_acceptance": false,
+  "trial_rows_sha256": "9243e8dfc308566722fb7abdcb797659d13fb375ec7fab4765bbe20221de55d8"
+}

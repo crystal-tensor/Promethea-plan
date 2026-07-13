@@ -2797,6 +2797,22 @@ No hidden result, temporal or real-device transfer, hardware performance,
 general route-generation advantage, quantum advantage, BQP separation,
 solved-frontier status, or new credit is claimed.
 
+The R150 holdout at `T-B4-002bj` / `T-B8-003bn` / `T-B10-009bb` is
+preregistered REJECT with A6 and A8 failed; A1-A5, A7, A9, and A10 pass.
+Requirements and phase replay pass `10/10` and `4/4`, and all `6/6` frozen
+generated/denominator routes preserve semantics. The generated portfolio beats
+fresh hidden-seed automatic compilation by mean `+0.01858639` with bootstrap
+lower `+0.01034859`. Against the strong 80-seed denominators, portfolio mean
+`-0.00240671` and bootstrap lower `-0.00965945` pass their fixed floors, and no
+row falls below `-0.05`. Nairobi and Perth win `8/8` rows with group means
+`+0.01164795` and `+0.00683421`. Casablanca loses `0/8` rows with mean
+`-0.02570231` and minimum `-0.03723049`, so only `2/3` backend groups clear
+the required `-0.02` floor. The unchanged R149 recipe therefore fails the
+strict three-backend generalization claim and opens a Casablanca-specific
+topology/calibration attribution gate. This is not temporal or real-device
+transfer, hardware performance, general route-generation advantage, quantum
+advantage, BQP separation, solved B4/B8/B10, or new credit.
+
 `T-B4-002aj` / `T-B8-003an` / `T-B10-009ab` now adds the R135
 dense-interaction deterministic fallback boundary. For each new inverse-QFT,
 scrambled-QFT, complete-Ising, and dense-XY input, five temporal graph rules

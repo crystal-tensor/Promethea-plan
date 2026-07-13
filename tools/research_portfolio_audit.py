@@ -38146,6 +38146,92 @@ def audit(root: Path) -> dict:
         if r150_contract.get("source_bindings", {}).get("protocol_payload_hash") != r150_protocol_ph or len(r150_contract.get("acceptance_conditions", [])) != 10:
             errors.append("R150 unseen-backend contract binding or acceptance count mismatch")
 
+    r150_result_path = results / "B4_B8_R150_unseen_backend_candidate_generation_holdout_v0.json"
+    r150_result_report_path = research / "B4_B8_R150_unseen_backend_candidate_generation_holdout.md"
+    r150_result_status = {
+        "path": str(r150_result_path), "report_path": str(r150_result_report_path),
+        "exists": r150_result_path.exists(), "report_exists": r150_result_report_path.exists(),
+    }
+    r150_result_manifest_rows = [
+        ("B4", b4_manifest.get("current_results", {}).get("b4_b8_r150_unseen_backend_candidate_generation_holdout_v0")),
+        ("B8", b8_manifest.get("current_results", {}).get("b4_b8_r150_unseen_backend_candidate_generation_holdout_v0")),
+        ("B10", b10_manifest.get("current_results", {}).get("b10_t2_b4_b8_r150_unseen_backend_candidate_generation_holdout_v0")),
+    ]
+    for label, row in r150_result_manifest_rows:
+        if not row:
+            errors.append(f"{label} manifest missing R150 unseen-backend result")
+            continue
+        for field in ["result", "markdown_report"]:
+            if not row.get(field) or not path_exists_from(benchmarks, row[field]):
+                errors.append(f"{label} R150 unseen-backend result missing {field}")
+    if not r150_result_path.exists() or not r150_result_report_path.exists():
+        errors.append("R150 unseen-backend result or report missing")
+    else:
+        r150_result = json.loads(read(r150_result_path)); r150_result_summary = r150_result.get("summary", {})
+        r150_result_status.update({
+            "status": r150_result.get("status"), "method": r150_result.get("method"),
+            "requirements_passed": r150_result.get("requirements_passed"),
+            "requirements_failed": r150_result.get("requirements_failed"),
+            "global_acceptance": r150_result_summary.get("global_acceptance"),
+            "portfolio_mean_generated_minus_denominator": r150_result_summary.get("portfolio_mean_generated_minus_denominator"),
+            "groups_above_negative_0_02": r150_result_summary.get("groups_with_mean_generated_minus_denominator_at_least_negative_0_02"),
+            "minimum_target_mean": r150_result_summary.get("minimum_target_mean_generated_minus_denominator"),
+        })
+        expected = {
+            "portfolio_group_count": 3, "trial_row_count": 24,
+            "simulated_circuit_execution_count": 72, "total_simulated_shots": 147456,
+            "portfolio_mean_generated_minus_automatic": 0.018586386307028763,
+            "portfolio_generated_minus_automatic_bootstrap_95_lower": 0.010348594294917694,
+            "portfolio_generated_minus_automatic_bootstrap_95_upper": 0.027593374836756418,
+            "portfolio_mean_generated_minus_denominator": -0.002406714433797613,
+            "portfolio_generated_minus_denominator_bootstrap_95_lower": -0.009659452970277791,
+            "portfolio_generated_minus_denominator_bootstrap_95_upper": 0.004246773522973759,
+            "groups_with_mean_generated_minus_denominator_at_least_negative_0_02": 2,
+            "severe_generated_minus_denominator_regression_count_below_negative_0_05": 0,
+            "minimum_target_mean_generated_minus_denominator": -0.02570230814978848,
+            "minimum_semantic_fidelity": 0.9999999999999956,
+            "semantic_fidelity_pass_count": 6,
+            "phase_artifact_count": 4, "phase_artifact_preexisting_count": 4,
+            "phase_artifact_replay_match_count": 4,
+            "r149_hidden_trial_rows_read_count": 0,
+            "acceptance_conditions_passed": 8, "acceptance_conditions_failed": 2,
+            "failed_acceptance_condition_ids": ["A6", "A8"],
+            "global_acceptance": False, "new_credit_delta": 0,
+        }
+        if r150_result.get("status") != "unseen_backend_candidate_generation_preregistered_rejection" or r150_result.get("method") != "b4_b8_r150_unseen_backend_candidate_generation_holdout_v0":
+            errors.append("R150 unseen-backend result status or method mismatch")
+        if r150_result.get("requirements_passed") != 10 or r150_result.get("requirements_failed") != 0:
+            errors.append("R150 unseen-backend result requirements must pass 10/10")
+        for field, value in expected.items():
+            if r150_result_summary.get(field) != value:
+                errors.append(f"R150 unseen-backend result {field} mismatch")
+        conditions = r150_result.get("acceptance_conditions", [])
+        if len(conditions) != 10 or [row.get("condition_id") for row in conditions if not row.get("passed", False)] != ["A6", "A8"]:
+            errors.append("R150 unseen-backend result must preserve A6/A8 rejection")
+        if len(r150_result.get("compiled_route_rows", [])) != 3 or len(r150_result.get("group_rows", [])) != 3:
+            errors.append("R150 unseen-backend result row counts mismatch")
+        expected_groups = {
+            "FakeCasablancaV2": (-0.02570230814978848, 0),
+            "FakeNairobiV2": (0.01164795088845512, 8),
+            "FakePerth": (0.006834213959940522, 8),
+        }
+        for row in r150_result.get("group_rows", []):
+            if expected_groups.get(row.get("target_snapshot")) != (row.get("mean_generated_minus_denominator"), row.get("generated_win_count_vs_denominator")):
+                errors.append(f"R150 unseen-backend group mismatch: {row.get('target_snapshot')}")
+        hp = dict(r150_result); ph = hp.pop("payload_hash", None)
+        if ph != hashlib.sha256(json.dumps(hp, sort_keys=True, separators=(",", ":")).encode()).hexdigest():
+            errors.append("R150 unseen-backend result payload hash mismatch")
+        for phase_key in ["challenge_commitment", "three_arm_trial_rows", "challenge_reveal", "verifier_transcript"]:
+            rel = r150_result.get("artifacts", {}).get(phase_key)
+            if not rel or not (root / rel).exists():
+                errors.append(f"R150 unseen-backend result phase missing: {phase_key}")
+        trials_path = root / r150_result.get("artifacts", {}).get("three_arm_trial_rows", "")
+        transcript_path = root / r150_result.get("artifacts", {}).get("verifier_transcript", "")
+        if trials_path.exists() and transcript_path.exists():
+            transcript = json.loads(read(transcript_path))
+            if transcript.get("trial_rows_sha256") != hashlib.sha256(trials_path.read_bytes()).hexdigest():
+                errors.append("R150 unseen-backend trial row transcript hash mismatch")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -38613,6 +38699,7 @@ def audit(root: Path) -> dict:
             "r149_jakarta_xy_candidate_generation": r149_status,
             "r149_jakarta_xy_candidate_generation_holdout": r149_result_status,
             "r150_unseen_backend_candidate_generation": r150_status,
+            "r150_unseen_backend_candidate_generation_holdout": r150_result_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -40072,6 +40159,9 @@ def audit(root: Path) -> dict:
                 research / "B4_B8_R150_unseen_backend_candidate_generation_protocol.md"
             ),
             "b4_b8_r150_unseen_backend_candidate_generation_contract": str(r150_contract_path),
+            "b4_b8_r150_unseen_backend_candidate_generation_holdout": str(
+                research / "B4_B8_R150_unseen_backend_candidate_generation_holdout.md"
+            ),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),
             "b8_challenge_refresh_repair": str(research / "B8_challenge_refresh_repair.md"),
