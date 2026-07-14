@@ -56,6 +56,15 @@ def validate_payload(payload: dict[str, Any], label: str) -> str:
     return str(observed)
 
 
+def validate_hash_field(payload: dict[str, Any], field: str, label: str) -> str:
+    body = dict(payload)
+    observed = body.pop(field, None)
+    expected = canonical_hash(body)
+    if observed != expected:
+        raise ValueError(f"R161 {label} {field} mismatch")
+    return str(observed)
+
+
 def bits_to_float(bits: int) -> float:
     return struct.unpack(">d", int(bits).to_bytes(8, "big"))[0]
 
@@ -212,7 +221,7 @@ def load_inputs(root: Path) -> tuple[dict, dict, dict, list[dict], Any]:
     manifests = []
     for path in workers:
         manifest = json.loads(path.read_text())
-        validate_payload(manifest, f"R160 worker {path.name}")
+        validate_hash_field(manifest, "manifest_payload_hash", f"R160 worker {path.name}")
         for row in manifest["replay_rows"]:
             body = dict(row)
             observed = body.pop("replay_payload_hash", None)
