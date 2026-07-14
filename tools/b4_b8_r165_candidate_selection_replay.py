@@ -181,15 +181,20 @@ def parse_leaves(encoded: str) -> list[tuple[str, float, Fraction]]:
     return result
 
 
-def parse_mapping_terms(terms: str, num_qubits: int) -> list[int]:
-    vector: list[int | None] = [None] * num_qubits
+def parse_mapping_terms(terms: str, _num_qubits: int) -> list[int]:
+    pairs: list[tuple[int, int]] = []
     for item in terms.split("|"):
         if not item:
             continue
         virtual, physical = item.split("->")
-        vector[int(virtual[1:])] = int(physical[1:])
+        pairs.append((int(virtual[1:]), int(physical[1:])))
+    if not pairs:
+        raise ValueError(f"R165 empty candidate mapping: {terms}")
+    vector: list[int | None] = [None] * (max(virtual for virtual, _ in pairs) + 1)
+    for virtual, physical in pairs:
+        vector[virtual] = physical
     if any(value is None for value in vector):
-        raise ValueError(f"R165 incomplete candidate mapping: {terms}")
+        raise ValueError(f"R165 non-contiguous candidate mapping: {terms}")
     return [int(value) for value in vector]
 
 

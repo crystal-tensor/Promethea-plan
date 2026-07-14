@@ -18,7 +18,7 @@
     {"condition_id": "A10", "label": "forbidden bug, hardware, advantage, BQP, solved-frontier, and credit claims remain false"}
   ],
   "source_bindings": {
-    "executor": {"path": "tools/b4_b8_r165_candidate_selection_replay.py", "sha256": "b02f450e399f987705d0eea9870d607a46feb2986618658c761974470b42829f"},
+    "executor": {"path": "tools/b4_b8_r165_candidate_selection_replay.py", "sha256": "13b0be69f0491245a8a569c293eb13c1aeb58cf209b88814d6712b581acf3718"},
     "protocol": {"path": "results/B4_B8_R165_candidate_selection_protocol_v0.json", "payload_hash": "10bad3ce12cfbd26d8ccd023c7805320c5c418b7ef9c67eba05157c7e021413a", "sha256": "08c783183480125a81656b926c03c779b559da14a6ac62f52cce8d3fbfd351ec"},
     "instrumentation_patch": {"path": "research/source_lineage/Qiskit_2_4_1_R165_candidate_selection.patch", "sha256": "bf0a27e812d173c15b9874294ed2809221fce18528f4524461cedfb4bc23fec5"},
     "build_manifest": {"path": "research/source_lineage/Qiskit_2_4_1_R165_candidate_selection_build_manifest.json", "payload_hash": "defd69aae44840537e63b4a317ab63a75dd0387d1970db512c0e6ec5284669af", "sha256": "7d18d4ee5ea006d8d33e280b573c4709e7e36d82e5e410f5689e7a0bd0a14c63"},
@@ -31,5 +31,5 @@
     "what_is_supported": "candidate-level replay over complete candidates yielded by the frozen VF2 iterator",
     "what_is_not_supported": "an alternate search path, a production remedy, a confirmed Qiskit bug, cross-platform determinism, hardware performance, route advantage, quantum advantage, BQP separation, solved B4/B8/B10, or new credit"
   },
-  "payload_hash": "7fee246b7fe4c26639efab4f70027d0e07bd16f4a72a39949a31cc2afd6c44af"
+  "payload_hash": "fa85b6d795327debed1a197026ad0da3c2dbd36d341aeee15d4f30f8944582f1"
 }
