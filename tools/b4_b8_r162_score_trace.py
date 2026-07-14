@@ -175,6 +175,24 @@ def normalize_events(raw_events: Any) -> list[dict[str, Any]]:
     return rows
 
 
+def normalize_error_trace(raw_trace: Any) -> list[dict[str, Any]]:
+    rows = []
+    for qargs, raw_steps, average_error_bits in raw_trace:
+        rows.append({
+            "qargs": [int(value) for value in qargs],
+            "steps": [
+                {
+                    "operation": str(operation),
+                    "error_bits": int(error_bits),
+                    "accumulated_error_bits": int(accumulated_error_bits),
+                }
+                for operation, error_bits, accumulated_error_bits in raw_steps
+            ],
+            "average_error_bits": int(average_error_bits),
+        })
+    return rows
+
+
 def candidate_shadow(events: list[dict[str, Any]]) -> dict[str, Any]:
     candidates = [row for row in events if row["kind"] == "candidate"]
     if not candidates:
@@ -261,6 +279,7 @@ def execute_worker(root: Path, protocol_payload: dict[str, Any], contract: dict[
             operation_order=profile["operation_order"],
         )
         score_events = normalize_events(raw_events)
+        error_trace = normalize_error_trace(raw_error_trace)
         shadow = candidate_shadow(score_events)
         mapping = mapping_vector(output.new_mapping(), circuit.num_qubits)
         row = {
@@ -277,8 +296,8 @@ def execute_worker(root: Path, protocol_payload: dict[str, Any], contract: dict[
             "candidate_event_count": sum(row["kind"] == "candidate" for row in score_events),
             "score_events": score_events,
             "score_events_hash": canonical_hash(score_events),
-            "error_trace_row_count": len(raw_error_trace),
-            "error_trace_hash": canonical_hash([[list(item) for item in row] for row in raw_error_trace]),
+            "error_trace_row_count": len(error_trace),
+            "error_trace_hash": canonical_hash(error_trace),
             "shadow": shadow,
             "elapsed_seconds": time.perf_counter() - started,
             "simulation_execution_count": 0,
