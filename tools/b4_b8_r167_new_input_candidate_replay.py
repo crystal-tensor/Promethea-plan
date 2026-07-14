@@ -90,6 +90,7 @@ def validate_bindings(root: Path, protocol_payload: dict[str, Any], contract: di
 
 
 def execute_worker(root: Path, protocol_payload: dict[str, Any], profile_id: str, preregistration: dict[str, str]) -> dict[str, Any]:
+    import qiskit
     from qiskit import qasm3
     from qiskit._accelerate import vf2_layout as vf2_module
     from qiskit._accelerate.vf2_layout import vf2_layout_pass_average_score_traced
@@ -100,7 +101,10 @@ def execute_worker(root: Path, protocol_payload: dict[str, Any], profile_id: str
     path = root / f"{OUT_DIR}/{profile_id}.json"
     if path.exists():
         raise ValueError(f"R167 worker evidence already exists: {profile_id}")
-    binary_path = Path(vf2_module.__file__).resolve()
+    binary_candidates = sorted(Path(qiskit.__file__).resolve().parent.glob("_accelerate*.so"))
+    if len(binary_candidates) != 1:
+        raise ValueError(f"R167 expected one Qiskit accelerator binary, found {len(binary_candidates)}")
+    binary_path = binary_candidates[0]
     if file_sha256(binary_path) != protocol["instrumented_binary_sha256"]:
         raise ValueError("R167 imported accelerator hash mismatch")
     started_at = int(time.time())

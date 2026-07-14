@@ -2994,11 +2994,12 @@ execution. The protocol explicitly disallows cross-input generality, alternate
 search-path, production-mapping, bug, hardware, advantage, BQP, solved-frontier,
 and credit claims.
 
-The first R167 dry execution stopped before producing a result because the
-executor read the top-level protocol as if it were nested under a `protocol`
-key. The correction was made before any worker artifact existed, the executor
-and contract hashes were rebound, and the failed dry execution is not treated
-as scientific evidence.
+R167 pre-execution dry checks stopped before producing a result on two
+implementation-only issues: the executor first read the top-level protocol as
+if it were nested under a `protocol` key, then its accelerator probe assumed a
+Rust module exposed `__file__`. Both corrections were made before any worker
+artifact existed, the executor and contract hashes were rebound, and neither
+failed dry check is treated as scientific evidence.
 
 The R149 holdout at `T-B4-002bh` / `T-B8-003bl` / `T-B10-009az` is
 then preregistered ACCEPT with A1-A10, requirements, and phase replay all

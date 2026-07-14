@@ -17,7 +17,7 @@
     {"condition_id": "A10", "label": "forbidden bug, advantage, BQP, solved-frontier, and credit claims remain false"}
   ],
   "source_bindings": {
-    "executor": {"path": "tools/b4_b8_r167_new_input_candidate_replay.py", "sha256": "2145de12209cec8f3ac9c5b042fa987b2e17857df6713c2a9775539e0b2c8884"},
+    "executor": {"path": "tools/b4_b8_r167_new_input_candidate_replay.py", "sha256": "7ab97e4759a662bc7ae7b5e48b0041c892eaf71b931366afc23c97e64ca5fb25"},
     "protocol": {"path": "results/B4_B8_R167_new_input_candidate_protocol_v0.json", "sha256": "f6d87ff70daab66b7b5719c3d402d7bdcd0528b0fdbba1fd0a3c9766b3db538f", "payload_hash": "7d7a12821f084e6786b3730747c8fc628533f854d22817606e8bc4c1ae77cf3b"},
     "input": {"path": "benchmarks/B4_B8_R167_new_input_candidate_v0.qasm", "sha256": "79fb76d5cfe1626a114704a3321672e78c136a51f76c2a6d9da1466cc366f7d0"},
     "r165_executor": {"path": "tools/b4_b8_r165_candidate_selection_replay.py", "sha256": "13b0be69f0491245a8a569c293eb13c1aeb58cf209b88814d6712b581acf3718"},
@@ -26,5 +26,5 @@
     "instrumented_binary": {"path": "research/source_lineage/Qiskit_2_4_1_R165_candidate_selection_accelerate.cpython-312-darwin.so", "sha256": "56101c7bedbaa157c341542d18b95e60b9d37acb9f29d6305fa2f7337cb8fd69"}
   },
   "claim_boundary": {"what_is_supported": "a newly frozen input candidate-level replay under declared profiles and policies", "what_is_not_supported": "cross-input generality, production mapping change, alternate search path, confirmed Qiskit bug, hardware relevance, route advantage, quantum advantage, BQP separation, solved B4/B8/B10, or new credit"},
-  "payload_hash": "01438478a44fa945f155dea1ade7b7a441a35057114d00cd4b84022b2e12c014"
+  "payload_hash": "6c2ebbdcc14a074b0a1f41a8ff59efd5aad6c21501e2ee8bc30e12b7b3fc88d6"
 }
