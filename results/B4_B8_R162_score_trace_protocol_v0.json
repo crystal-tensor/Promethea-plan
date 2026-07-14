@@ -1,0 +1,123 @@
+{
+  "method": "b4_b8_r162_score_trace_protocol_v0",
+  "status": "score_trace_protocol_frozen_before_execution",
+  "title": "B4/B8 R162 VF2 score-combination trace protocol",
+  "version": 0,
+  "payload_hash": "8bbdeb5ffeee443e36095e4c9cf89709ff823b79c6a0831d6355364306d76631",
+  "protocol": {
+    "qiskit_source_commit": "0fd015a22b84c9082173597a5d2304dc0aaec08c",
+    "input_path": "benchmarks/B4_B8_R157_vf2_post_layout_input_v0.qasm",
+    "input_qasm_sha256": "ce216610e995b4c8b4bd9de6547ac6069961e1eb8881997aa05e0068ea16ab98",
+    "snapshot_name": "FakeNairobiV2",
+    "target_descriptor_sha256": "702c8fd9dcf67a069e7af63e31a57c74c17aaa5e3c5b6d8c2e28ec0c049c0de7",
+    "source_manifest_path": "research/source_lineage/Qiskit_2_4_1_vf2_source_manifest.json",
+    "build_manifest_path": "research/source_lineage/Qiskit_2_4_1_R162_score_trace_build_manifest.json",
+    "build_manifest_payload_hash": "ad78a4522ff7e24f67f2801848cd46a9e7270167e1daf65350b7815e218e2067",
+    "instrumentation_patch_path": "research/source_lineage/Qiskit_2_4_1_R162_score_trace.patch",
+    "instrumentation_patch_sha256": "b6b2a028faab8d0809ff6d4514440568d84ec66798b3951913ae609cde05129f",
+    "patched_source_sha256": "b06f3cd17b73e2f862f7508fab3cbf6db7c602d090d576871033c6ee5f4142d7",
+    "instrumented_binary_sha256": "eb0c8fbb5b2103c997df721f049313903f7b0a50d2659b5c799b0272028a0ffe",
+    "instrumented_binary_size_bytes": 15575328,
+    "process_environment": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONHASHSEED": "0",
+      "QISKIT_PARALLEL": "FALSE",
+      "RAYON_NUM_THREADS": "1"
+    },
+    "frozen_software": {
+      "python": "3.12.6",
+      "qiskit": "2.4.1"
+    },
+    "vf2_configuration": {
+      "call_limit": 30000000,
+      "max_trials": 250000,
+      "score_initial_layout": true,
+      "shuffle_seed": -1,
+      "strict_direction": false,
+      "time_limit": null
+    },
+    "profiles": [
+      {
+        "profile_id": "native_hashset_order",
+        "operation_order": "native",
+        "process_count": 1,
+        "replay_count": 128,
+        "dag_reused": true,
+        "target_reused": true,
+        "config_reused": true
+      },
+      {
+        "profile_id": "ascending_sorted_order",
+        "operation_order": "ascending",
+        "process_count": 1,
+        "replay_count": 64,
+        "dag_reused": true,
+        "target_reused": true,
+        "config_reused": true
+      },
+      {
+        "profile_id": "descending_sorted_order",
+        "operation_order": "descending",
+        "process_count": 1,
+        "replay_count": 64,
+        "dag_reused": true,
+        "target_reused": true,
+        "config_reused": true
+      }
+    ],
+    "profile_count": 3,
+    "total_process_count": 3,
+    "total_trace_replay_count": 256,
+    "score_event_kinds": ["combine", "compare", "candidate"],
+    "retained_per_call_fields": [
+      "operation order and ErrorMap accumulation bits",
+      "score event kind, operand bits, result/order code, and source labels",
+      "source-order leaf score bits for compensated and exact-binary64 shadows",
+      "candidate mapping labels, returned score bits, and stop reason",
+      "replay payload hash and elapsed time"
+    ],
+    "shadow_definitions": {
+      "source_f64": "the Rust TraceScore left-to-right binary64 combine path",
+      "compensated_fsum": "math.fsum over the retained binary64 leaf values in source leaf order",
+      "exact_binary64_leaf_sum": "exact rational sum of the retained binary64 leaf values; this is an arithmetic shadow, not an exact real-valued Qiskit score"
+    },
+    "pre_registration_build_smoke": {
+      "frozen_r157_input_loaded": false,
+      "toy_backend": "GenericBackendV2(num_qubits=3, seed=162)",
+      "toy_circuit_operation_count": 3,
+      "score_trace_calls": 3,
+      "score_trace_orders": ["native", "ascending", "descending"],
+      "all_calls_returned_solution": true,
+      "all_calls_emitted_kinds": ["candidate", "combine", "compare"],
+      "error_trace_rows_per_call": 9
+    },
+    "execution_started": false,
+    "simulation_execution_count": 0,
+    "total_simulated_shots": 0,
+    "candidate_selection_performed": false,
+    "route_change_performed": false,
+    "sampling_performed": false,
+    "new_hidden_seed_count": 0,
+    "source_patch_performed": true,
+    "claim_boundary": {
+      "what_is_supported": "one source- and binary-bound score-combination trace over the frozen R157 input, with arithmetic shadows",
+      "what_is_not_supported": "a confirmed Qiskit bug, a numerical remedy, general compiler determinism, hardware relevance, route advantage, quantum advantage, BQP separation, solved B4/B8/B10, or new credit"
+    }
+  },
+  "requirements": [
+    {"requirement_id": "P1", "label": "exact source commit, input, target, patch, patched source, binary, and build manifest are hash-bound", "passed": true},
+    {"requirement_id": "P2", "label": "the release build emits the score-trace and retained ErrorMap trace APIs", "passed": true},
+    {"requirement_id": "P3", "label": "only an unrelated three-qubit toy is used before frozen-input execution", "passed": true},
+    {"requirement_id": "P4", "label": "native, ascending, and descending accumulation profiles are frozen", "passed": true},
+    {"requirement_id": "P5", "label": "three processes and 256 post-registration calls are fixed", "passed": true},
+    {"requirement_id": "P6", "label": "partial combines, strict comparisons, candidates, leaf bits, and hashes are retained", "passed": true},
+    {"requirement_id": "P7", "label": "compensated and exact-binary64 shadow definitions are fixed before execution", "passed": true},
+    {"requirement_id": "P8", "label": "all mapping and no-solution outcomes remain admissible before execution", "passed": true},
+    {"requirement_id": "P9", "label": "zero simulations, shots, sampling, candidate selection, and route changes are fixed", "passed": true},
+    {"requirement_id": "P10", "label": "forbidden bug, hardware, advantage, BQP, solved-frontier, and credit claims remain false", "passed": true}
+  ],
+  "requirements_passed": 10,
+  "requirements_failed": 0
+}

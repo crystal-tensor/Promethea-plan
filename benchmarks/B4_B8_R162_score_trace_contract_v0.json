@@ -1,0 +1,34 @@
+{
+  "contract_id": "B4-B8-R162-score-trace-contract-v0",
+  "contract_status": "public_preregistration_execution_unopened",
+  "execution_started": false,
+  "target_id": "T-B4-002cf/T-B8-003cj/T-B10-009bx",
+  "upstream_target_id": "T-B4-002ce/T-B8-003ci/T-B10-009bw",
+  "protocol_path": "results/B4_B8_R162_score_trace_protocol_v0.json",
+  "acceptance_conditions": [
+    {"condition_id": "A1", "label": "all source, patch, build, binary, input, target, and R161 bindings remain exact"},
+    {"condition_id": "A2", "label": "three post-registration process artifacts retain 256 score-traced calls"},
+    {"condition_id": "A3", "label": "all calls use the frozen instrumented binary and process environment"},
+    {"condition_id": "A4", "label": "native 128, ascending 64, and descending 64 calls complete without replacement"},
+    {"condition_id": "A5", "label": "every call retains combine, compare, candidate, leaf-shadow, ErrorMap, and row hashes"},
+    {"condition_id": "A6", "label": "the first divergence between source f64, compensated, and exact-binary64 shadows is classified"},
+    {"condition_id": "A7", "label": "all mapping and no-solution outcomes remain classified"},
+    {"condition_id": "A8", "label": "strict Decreasing comparisons are retained regardless of verdict"},
+    {"condition_id": "A9", "label": "the R157 input, target descriptor, and source-faithful R161 boundary remain bound"},
+    {"condition_id": "A10", "label": "forbidden bug, hardware, advantage, BQP, solved-frontier, and credit claims remain false"}
+  ],
+  "source_bindings": {
+    "executor": {"path": "tools/b4_b8_r162_score_trace.py", "sha256": "a284616718548bf88d6e4a56581708ba4a5a375974a84397fb5a102dd7503078"},
+    "protocol": {"path": "results/B4_B8_R162_score_trace_protocol_v0.json", "payload_hash": "8bbdeb5ffeee443e36095e4c9cf89709ff823b79c6a0831d6355364306d76631", "sha256": "607664f13f4ced3d606530aa517e1d954fd1c97cb945950f10676378fada0dc8"},
+    "instrumentation_patch": {"path": "research/source_lineage/Qiskit_2_4_1_R162_score_trace.patch", "sha256": "b6b2a028faab8d0809ff6d4514440568d84ec66798b3951913ae609cde05129f"},
+    "build_manifest": {"path": "research/source_lineage/Qiskit_2_4_1_R162_score_trace_build_manifest.json", "payload_hash": "ad78a4522ff7e24f67f2801848cd46a9e7270167e1daf65350b7815e218e2067", "sha256": "97c69e20961b33fcb35bdf3a9c5b7d68524dc79ca890c3f2577834823c3e58e2"},
+    "qiskit_source_manifest": {"path": "research/source_lineage/Qiskit_2_4_1_vf2_source_manifest.json", "payload_hash": "aa50b224ae244f25fbf0fcfa61ee844d7fca298efd7420bc6b70a838f08e2ed2", "sha256": "d57f7b039a232047aa1189a1594f8da4eff14c7688e55d77d27b81d625efd276"},
+    "r157_input": {"path": "benchmarks/B4_B8_R157_vf2_post_layout_input_v0.qasm", "sha256": "ce216610e995b4c8b4bd9de6547ac6069961e1eb8881997aa05e0068ea16ab98"},
+    "r161_result": {"path": "results/B4_B8_R161_source_faithful_score_audit_v0.json", "payload_hash": "3308aebe50b022110d24d59de00f92af91fa2e00df56266b427f9dd5a5b31fcc", "sha256": "7b6c012cf86d24f8fbeeaf6a136c0ce6b919fdb6ac3540b841d0fda1d225b414"}
+  },
+  "claim_boundary": {
+    "what_is_supported": "a source- and binary-bound score-combination trace over one frozen R157 input and its arithmetic shadows",
+    "what_is_not_supported": "a confirmed Qiskit bug, a numerical remedy, cross-platform determinism, hardware performance, route advantage, quantum advantage, BQP separation, solved B4/B8/B10, or new credit"
+  },
+  "payload_hash": "03a3af938c3abecafa888658bc07bd6eedfd0fabfe27525e20b3dafb9b2aaf8d"
+}

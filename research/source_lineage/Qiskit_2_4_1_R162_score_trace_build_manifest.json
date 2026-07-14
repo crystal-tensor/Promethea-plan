@@ -1,0 +1,42 @@
+{
+  "base_qiskit_commit": "0fd015a22b84c9082173597a5d2304dc0aaec08c",
+  "base_source": {
+    "path": "crates/transpiler/src/passes/vf2/vf2_layout.rs",
+    "sha256": "267810aaddb8ac9336f4404e7da34c31e07eec725eb1baa4ed6bf32ff7448ca4"
+  },
+  "build_checks": {
+    "cargo_fmt_check_passed": true,
+    "editable_release_build_passed": true,
+    "editable_wheel_install_completed": false,
+    "editable_wheel_install_note": "setuptools-rust 1.13.0 rejects Qiskit's 1.12.0-compatible install_extension monkey patch after the release binary is built; the release artifact was copied by hash for the isolated smoke and execution.",
+    "instrumented_score_entry_point_imported": true,
+    "instrumented_error_entry_point_imported": true,
+    "patch_applies_to_base_commit": true,
+    "pre_registration_smoke_used_unrelated_toy": true
+  },
+  "build_environment": {
+    "build_command": "RUSTUP_TOOLCHAIN=stable QISKIT_BUILD_PROFILE=release python -m pip install -e . --no-build-isolation --no-deps",
+    "cargo": "cargo 1.93.1 (083ac5135 2025-12-15)",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "python": "3.12.6",
+    "rustc": "rustc 1.93.1 (01f6ddf75 2026-02-11)",
+    "rustup_toolchain_override": "stable",
+    "setuptools_rust": "1.13.0"
+  },
+  "claim_boundary": "The pre-registration build and API smoke establish only that the exact score-trace source compiles and emits events on an unrelated toy. They disclose no R162 frozen-input outcome.",
+  "instrumentation_patch": {
+    "path": "research/source_lineage/Qiskit_2_4_1_R162_score_trace.patch",
+    "sha256": "b6b2a028faab8d0809ff6d4514440568d84ec66798b3951913ae609cde05129f"
+  },
+  "instrumented_binary": {
+    "build_relative_path": "qiskit/_accelerate.cpython-312-darwin.so",
+    "sha256": "eb0c8fbb5b2103c997df721f049313903f7b0a50d2659b5c799b0272028a0ffe",
+    "size_bytes": 15575328
+  },
+  "manifest_id": "Qiskit-2.4.1-R162-score-trace-build-v0",
+  "patched_source": {
+    "path": "crates/transpiler/src/passes/vf2/vf2_layout.rs",
+    "sha256": "b06f3cd17b73e2f862f7508fab3cbf6db7c602d090d576871033c6ee5f4142d7"
+  },
+  "payload_hash": "ad78a4522ff7e24f67f2801848cd46a9e7270167e1daf65350b7815e218e2067"
+}
