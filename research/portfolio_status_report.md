@@ -2298,6 +2298,16 @@ Overall audit: PASS
 - Requirements passed/failed: 10 / 0
 - Result/report exists: True / True
 
+### R157 VF2 Tie-Isolation Protocol
+
+- Status: vf2_tie_isolation_protocol_frozen_before_execution
+- Profiles / processes / direct replays: 5 / 98 / 160
+- Shared mapping score / exactly tied: 0.45894321220828727 / True
+- Simulation executions / shots: 0 / 0
+- Execution started: False
+- Requirements passed/failed: 10 / 0
+- Protocol/contract/input/report exists: True / True / True / True
+
 - Status: toy_invariant_property_test
 - Model status: toy_invariant_property_test_not_full_distribution_verification
 - Tasks: 3

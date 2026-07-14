@@ -1,0 +1,269 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition": "contract, protocol, R156 evidence, input QASM, target descriptor, and source hashes remain exact",
+      "condition_id": "A1"
+    },
+    {
+      "condition": "98 post-preregistration process artifacts contain exactly 160 direct replay rows",
+      "condition_id": "A2"
+    },
+    {
+      "condition": "every replay uses the frozen QASM, target descriptor, pass configuration, software, and process environment",
+      "condition_id": "A3"
+    },
+    {
+      "condition": "all five native/order/process-sharing profiles complete without post-hoc replacement",
+      "condition_id": "A4"
+    },
+    {
+      "condition": "every replay retains process identity, target-order identity, mapping vector, mapping class, stop reason, and elapsed time",
+      "condition_id": "A5"
+    },
+    {
+      "condition": "within-profile and cross-profile mapping distributions are complete",
+      "condition_id": "A6"
+    },
+    {
+      "condition": "new mappings and no-solution rows are retained rather than excluded",
+      "condition_id": "A7"
+    },
+    {
+      "condition": "native, ascending, descending, fresh-target same-process, and shared-target same-process contrasts are emitted",
+      "condition_id": "A8"
+    },
+    {
+      "condition": "both R156 mappings are independently rescored and their exact tie remains documented",
+      "condition_id": "A9"
+    },
+    {
+      "condition": "no hidden seed, selection, route change, sampling, mechanism, bug, hardware, transfer, advantage, BQP, solved-frontier, or credit claim occurs",
+      "condition_id": "A10"
+    }
+  ],
+  "claim_boundary": {
+    "what_is_not_supported": "a lower-level mechanism or confirmed Qiskit-bug claim, a general compiler determinism theorem, hidden statistical evidence, simulation or hardware performance, transfer, route advantage, quantum advantage, BQP separation, solved B4/B8/B10, or new credit",
+    "what_is_supported": "a preregistered direct-pass isolation of the two exactly tied public R156 mappings"
+  },
+  "contract_id": "B4-B8-R157-vf2-tie-isolation-contract-v0",
+  "contract_status": "public_preregistration_execution_unopened",
+  "execution_protocol": {
+    "candidate_selection_performed": false,
+    "classification_rule": {
+      "endpoint_4_to_0": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "endpoint_4_to_2": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "no_solution": "VF2PostLayout emits no post_layout mapping",
+      "other_mapping": "any solution mapping outside the two R156 mapping vectors",
+      "profile_collapse": "one mapping class covers every replay in a profile",
+      "profile_variation": "more than one mapping class occurs in a profile"
+    },
+    "diagnostic_completion_rule": "all 98 process artifacts and all 160 replay rows are retained; collapse, variation, new mappings, and no-solution rows are all admissible outcomes",
+    "expected_target_descriptor_sha256": "702c8fd9dcf67a069e7af63e31a57c74c17aaa5e3c5b6d8c2e28ec0c049c0de7",
+    "frozen_software": {
+      "python": "3.12.6",
+      "qiskit": "2.4.1",
+      "qiskit_aer": "0.17.2",
+      "qiskit_ibm_runtime": "0.46.1"
+    },
+    "input_path": "benchmarks/B4_B8_R157_vf2_post_layout_input_v0.qasm",
+    "input_qasm_sha256": "ce216610e995b4c8b4bd9de6547ac6069961e1eb8881997aa05e0068ea16ab98",
+    "input_source_callback_count": 16,
+    "input_source_pass": "CheckMap",
+    "new_hidden_seed_count": 0,
+    "process_environment": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONHASHSEED": "0",
+      "QISKIT_PARALLEL": "FALSE",
+      "RAYON_NUM_THREADS": "1"
+    },
+    "profile_count": 5,
+    "profiles": [
+      {
+        "process_count": 32,
+        "profile_id": "native_target_independent_process",
+        "replays_per_process": 1,
+        "shared_target_within_process": false,
+        "target_construction": "fresh FakeNairobiV2 target in each process",
+        "target_order": "native"
+      },
+      {
+        "process_count": 32,
+        "profile_id": "canonical_ascending_independent_process",
+        "replays_per_process": 1,
+        "shared_target_within_process": false,
+        "target_construction": "fresh target rebuilt with operation names and qargs ascending",
+        "target_order": "ascending"
+      },
+      {
+        "process_count": 32,
+        "profile_id": "canonical_descending_independent_process",
+        "replays_per_process": 1,
+        "shared_target_within_process": false,
+        "target_construction": "fresh target rebuilt with operation names and qargs descending",
+        "target_order": "descending"
+      },
+      {
+        "process_count": 1,
+        "profile_id": "fresh_target_same_process",
+        "replays_per_process": 32,
+        "shared_target_within_process": false,
+        "target_construction": "fresh native target for every replay in one process",
+        "target_order": "native"
+      },
+      {
+        "process_count": 1,
+        "profile_id": "shared_target_same_process",
+        "replays_per_process": 32,
+        "shared_target_within_process": true,
+        "target_construction": "one native target shared across all replays in one process",
+        "target_order": "native"
+      }
+    ],
+    "qiskit_source": {
+      "commit": "0fd015a22b84c9082173597a5d2304dc0aaec08c",
+      "path": "crates/transpiler/src/passes/vf2/vf2_layout.rs",
+      "release": "2.4.1",
+      "relevant_boundary": "shuffle_seed is None for seed -1; VF2 uses strictly decreasing score restriction and returns the last improvement",
+      "repository": "https://github.com/Qiskit/qiskit",
+      "sha256": "267810aaddb8ac9336f4404e7da34c31e07eec725eb1baa4ed6bf32ff7448ca4"
+    },
+    "research_question": "Do the two exactly tied R156 post_layout mappings arise from process-local or Target-order state when VF2PostLayout is replayed directly on one frozen input?",
+    "route_change_performed": false,
+    "sampling_performed": false,
+    "simulation_execution_count": 0,
+    "snapshot_name": "FakeNairobiV2",
+    "target_descriptor_sha256": "702c8fd9dcf67a069e7af63e31a57c74c17aaa5e3c5b6d8c2e28ec0c049c0de7",
+    "tie_score_evidence": {
+      "input_circuit_depth": 39,
+      "input_circuit_size": 77,
+      "mapping_rows": [
+        {
+          "mapping_id": "endpoint_4_to_0",
+          "mapping_vector": [
+            6,
+            5,
+            4,
+            3,
+            0,
+            1,
+            2
+          ],
+          "one_qubit_score": 0.13372220981820523,
+          "total_score": 0.45894321220828727,
+          "two_qubit_score": 0.325221002390082
+        },
+        {
+          "mapping_id": "endpoint_4_to_2",
+          "mapping_vector": [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "one_qubit_score": 0.13372220981820523,
+          "total_score": 0.45894321220828727,
+          "two_qubit_score": 0.325221002390082
+        }
+      ],
+      "one_qubit_operation_counts": {
+        "1": 6,
+        "2": 5,
+        "3": 6,
+        "4": 4,
+        "5": 11,
+        "6": 4
+      },
+      "scores_exactly_equal_in_python_recalculation": true,
+      "shared_total_score": 0.45894321220828727,
+      "two_qubit_operation_counts": {
+        "1->2": 7,
+        "2->1": 2,
+        "3->1": 5,
+        "3->5": 4,
+        "4->5": 2,
+        "5->3": 7,
+        "5->4": 6,
+        "5->6": 2,
+        "6->5": 6
+      }
+    },
+    "total_direct_replay_count": 160,
+    "total_process_count": 98,
+    "total_simulated_shots": 0,
+    "vf2_configuration": {
+      "call_limit": 30000000,
+      "max_trials": 250000,
+      "seed": -1,
+      "strict_direction": false,
+      "time_limit": null
+    },
+    "vf2_pass": "VF2PostLayout"
+  },
+  "research_question": "Do the two exactly tied R156 post_layout mappings arise from process-local or Target-order state when VF2PostLayout is replayed directly on one frozen input?",
+  "source_bindings": {
+    "direct_replay_input": {
+      "path": "benchmarks/B4_B8_R157_vf2_post_layout_input_v0.qasm",
+      "sha256": "ce216610e995b4c8b4bd9de6547ac6069961e1eb8881997aa05e0068ea16ab98"
+    },
+    "protocol_path": "results/B4_B8_R157_vf2_tie_isolation_protocol_v0.json",
+    "protocol_payload_hash": "4c56c1bc1e3c54d7f6ef186cfe41592a288f8c534441657afc58bbf9c7a3c82a",
+    "protocol_sha256": "e315f28be4eab9b2663e1eae29e8108f8a144554f35adfff786b2073a7a22417",
+    "r154_reference_manifest": {
+      "path": "results/B4_B8_R154_deterministic_automatic_replay/reference_manifest.json",
+      "sha256": "ddc74ce4aba47f70c179cfd1f8047812603790e9ecd2e7652142d9271805d164"
+    },
+    "r156_contract": {
+      "path": "benchmarks/B4_B8_R156_transpiler_variant_capture_contract_v0.json",
+      "sha256": "04911bf4f81e568b67380990f2a8b3e18fe6ed50930d258fa12cd99996bbaf76"
+    },
+    "r156_divergence": {
+      "path": "results/B4_B8_R156_transpiler_variant_capture/pass_divergence.json",
+      "sha256": "465a3724cf0a32357a9d9bdd4cd5b075b3e4819f5253482a40b936425de340ae"
+    },
+    "r156_protocol": {
+      "path": "results/B4_B8_R156_transpiler_variant_capture_protocol_v0.json",
+      "payload_hash": "e01668bdcb20dacf6cfb47e8c5cadfce16ccd7a19f2dea5f3ef0f1a9565d1aed",
+      "sha256": "18211b6c6d5bdf00b4b9a20c389f26d35ce44d75b5fa3e4efb9c26bac6aa16fb"
+    },
+    "r156_result": {
+      "path": "results/B4_B8_R156_transpiler_variant_capture_v0.json",
+      "payload_hash": "3cf4927f418c918a21d83991f73a3fd77683cd8f359ddb68de45765bef12457e",
+      "sha256": "f067a59a83c00c02bd921ac67a640bebc3b92e4a90c8047d2aaec293fa732507"
+    },
+    "r156_trace_a": {
+      "path": "results/B4_B8_R156_transpiler_variant_capture/process_00_trace.json",
+      "sha256": "fca24672bbcdc89361cbf06562ca17a14d5c0bcb3bfb18b8af0a68f7d1f0f6d6"
+    },
+    "r156_trace_b": {
+      "path": "results/B4_B8_R156_transpiler_variant_capture/process_01_trace.json",
+      "sha256": "f14091e7d5b93d005d285b69146a64a8a7fd37fc53414fd65d49f21715b5ad10"
+    },
+    "r156_variants": {
+      "path": "results/B4_B8_R156_transpiler_variant_capture/variant_summary.json",
+      "sha256": "e67462921c5a8d9bf878d8f25206693fa23a212aab41ea6ff8781d0989f84f21"
+    }
+  },
+  "target_id": "T-B4-002bv/T-B8-003bz/T-B10-009bn",
+  "upstream_target_id": "T-B4-002bu/T-B8-003by/T-B10-009bm"
+}

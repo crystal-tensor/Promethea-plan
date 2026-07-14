@@ -9328,6 +9328,27 @@
         12
       ]
     },
+    "r157_vf2_tie_isolation": {
+      "contract_exists": true,
+      "contract_path": "benchmarks/B4_B8_R157_vf2_tie_isolation_contract_v0.json",
+      "execution_started": false,
+      "input_exists": true,
+      "input_path": "benchmarks/B4_B8_R157_vf2_post_layout_input_v0.qasm",
+      "method": "b4_b8_r157_vf2_tie_isolation_protocol_v0",
+      "profile_count": 5,
+      "protocol_exists": true,
+      "protocol_path": "results/B4_B8_R157_vf2_tie_isolation_protocol_v0.json",
+      "report_exists": true,
+      "requirements_failed": 0,
+      "requirements_passed": 10,
+      "scores_exactly_equal": true,
+      "shared_total_score": 0.45894321220828727,
+      "simulation_execution_count": 0,
+      "status": "vf2_tie_isolation_protocol_frozen_before_execution",
+      "total_direct_replay_count": 160,
+      "total_process_count": 98,
+      "total_simulated_shots": 0
+    },
     "real_backend_packet_scout": {
       "backend_calibrated_aer_circuit_count": 5760,
       "backend_calibrated_noise_parameters_instantiated": true,
@@ -10378,6 +10399,9 @@
     "b4_b8_r156_transpiler_variant_capture": "research/B4_B8_R156_transpiler_variant_capture.md",
     "b4_b8_r156_transpiler_variant_capture_contract": "benchmarks/B4_B8_R156_transpiler_variant_capture_contract_v0.json",
     "b4_b8_r156_transpiler_variant_capture_protocol": "research/B4_B8_R156_transpiler_variant_capture_protocol.md",
+    "b4_b8_r157_vf2_tie_isolation_contract": "benchmarks/B4_B8_R157_vf2_tie_isolation_contract_v0.json",
+    "b4_b8_r157_vf2_tie_isolation_input": "benchmarks/B4_B8_R157_vf2_post_layout_input_v0.qasm",
+    "b4_b8_r157_vf2_tie_isolation_protocol": "research/B4_B8_R157_vf2_tie_isolation_protocol.md",
     "b4_b8_real_backend_packet_scout": "research/B4_B8_real_backend_packet_scout.md",
     "b4_b8_real_backend_provider_manifest_gate": "research/B4_B8_real_backend_provider_manifest_gate.md",
     "b4_b8_real_backend_transcript_contract_gate": "research/B4_B8_real_backend_transcript_contract_gate.md",

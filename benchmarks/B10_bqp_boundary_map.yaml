@@ -2274,6 +2274,34 @@ current_results:
     requirements_failed: 0
     result: ../results/B4_B8_R156_transpiler_variant_capture_v0.json
     markdown_report: ../research/B4_B8_R156_transpiler_variant_capture.md
+  b10_t2_b4_b8_r157_vf2_tie_isolation_protocol_v0:
+    status: vf2_tie_isolation_protocol_not_bqp_claim
+    method: b4_b8_r157_vf2_tie_isolation_protocol_v0
+    source_target_id: T-B4-002bv/T-B8-003bz/T-B10-009bn
+    upstream_target_id: T-B4-002bu/T-B8-003by/T-B10-009bm
+    input_qasm_sha256: ce216610e995b4c8b4bd9de6547ac6069961e1eb8881997aa05e0068ea16ab98
+    target_descriptor_sha256: 702c8fd9dcf67a069e7af63e31a57c74c17aaa5e3c5b6d8c2e28ec0c049c0de7
+    profile_count: 5
+    total_process_count: 98
+    total_direct_replay_count: 160
+    tied_mapping_count: 2
+    shared_mapping_score: 0.45894321220828727
+    scores_exactly_equal: true
+    simulation_execution_count: 0
+    total_simulated_shots: 0
+    contract: B4_B8_R157_vf2_tie_isolation_contract_v0.json
+    contract_sha256: f45f7e7fe285dc86307201063a3351a40293d888625f7bd790446f25a7d50dc4
+    execution_started: false
+    compiler_mechanism_claimed: false
+    qiskit_bug_claimed: false
+    b10_t2_credit_allowed: false
+    bqp_separation_claimed: false
+    quantum_advantage_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R157_vf2_tie_isolation_protocol_v0.json
+    markdown_report: ../research/B4_B8_R157_vf2_tie_isolation_protocol.md
   b10_t3_b9_checked_transcript_acceptance_packet_gate_v0:
     status: checked_transcript_acceptance_packet_open_missing_artifact
     method: b9_checked_transcript_acceptance_packet_gate_v0

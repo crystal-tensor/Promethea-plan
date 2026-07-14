@@ -2763,6 +2763,25 @@ No R149 holdout, general route-generation advantage, temporal or cross-machine
 transfer, hardware result, quantum advantage, BQP separation, solved-frontier
 status, or new credit is claimed.
 
+`T-B4-002bv` / `T-B8-003bz` / `T-B10-009bn` now preregisters R157 as
+a direct `VF2PostLayout` tie-isolation experiment. The input is the exact
+77-operation, depth-39 OpenQASM 3 circuit observed after R156 callback 16,
+hash `ce216610...`; this removes the first sixteen full-pipeline passes from
+the new execution surface. Independent recalculation shows that the two R156
+endpoint mappings have exactly the same average-error score,
+`0.45894321220828727`. Five frozen profiles require 98 post-registration
+operating-system processes and 160 direct pass replays: native target,
+ascending canonical target, descending canonical target, fresh target repeated
+inside one process, and one target shared inside one process. The exact Qiskit
+2.4.1 Rust source commit/path/hash and `seed=-1`, `strict_direction=false`,
+30,000,000 call limit, and 250,000 trial limit are bound. Mapping collapse,
+continued variation, new mappings, and no-solution rows are all admissible and
+must be retained. Requirements pass `10/10`; contract `f45f7e7f...`;
+execution remains unopened. This protocol does not claim a lower-level
+mechanism, confirmed Qiskit bug, general compiler determinism theorem,
+hardware or simulation performance, transfer, route advantage, quantum
+advantage, BQP separation, solved-frontier status, or new credit.
+
 The R149 holdout at `T-B4-002bh` / `T-B8-003bl` / `T-B10-009az` is
 then preregistered ACCEPT with A1-A10, requirements, and phase replay all
 passing `10/10`, `10/10`, and `4/4`. All `24/24` repaired and target-specific

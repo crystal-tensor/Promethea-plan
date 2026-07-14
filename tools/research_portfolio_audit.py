@@ -39647,6 +39647,197 @@ def audit(root: Path) -> dict:
         if "only bounded property-set key" not in report_text or "not proof of the lower-level source" not in report_text:
             errors.append("R156 variant-capture report localization boundary missing")
 
+    r157_protocol_path = results / "B4_B8_R157_vf2_tie_isolation_protocol_v0.json"
+    r157_protocol_report_path = research / "B4_B8_R157_vf2_tie_isolation_protocol.md"
+    r157_contract_path = benchmarks / "B4_B8_R157_vf2_tie_isolation_contract_v0.json"
+    r157_input_path = benchmarks / "B4_B8_R157_vf2_post_layout_input_v0.qasm"
+    r157_status = {
+        "protocol_path": str(r157_protocol_path),
+        "contract_path": str(r157_contract_path),
+        "input_path": str(r157_input_path),
+        "protocol_exists": r157_protocol_path.exists(),
+        "contract_exists": r157_contract_path.exists(),
+        "input_exists": r157_input_path.exists(),
+        "report_exists": r157_protocol_report_path.exists(),
+    }
+    r157_contract_sha256 = hashlib.sha256(r157_contract_path.read_bytes()).hexdigest() if r157_contract_path.exists() else None
+    r157_manifest_rows = [
+        (
+            "B4",
+            b4_manifest.get("current_results", {}).get("b4_b8_r157_vf2_tie_isolation_protocol_v0"),
+            "vf2_tie_isolation_protocol_frozen_before_execution",
+        ),
+        (
+            "B8",
+            b8_manifest.get("current_results", {}).get("b4_b8_r157_vf2_tie_isolation_protocol_v0"),
+            "vf2_tie_isolation_protocol_frozen_before_execution",
+        ),
+        (
+            "B10",
+            b10_manifest.get("current_results", {}).get("b10_t2_b4_b8_r157_vf2_tie_isolation_protocol_v0"),
+            "vf2_tie_isolation_protocol_not_bqp_claim",
+        ),
+    ]
+    for label, row, expected_status in r157_manifest_rows:
+        if not row:
+            errors.append(f"{label} manifest missing R157 VF2 tie-isolation preregistration")
+            continue
+        for field in ["result", "markdown_report", "contract"]:
+            if not row.get(field) or not path_exists_from(benchmarks, row[field]):
+                errors.append(f"{label} R157 VF2 tie-isolation protocol missing {field}")
+        if row.get("status") != expected_status or row.get("method") != "b4_b8_r157_vf2_tie_isolation_protocol_v0":
+            errors.append(f"{label} R157 VF2 tie-isolation status or method mismatch")
+        if row.get("source_target_id") != "T-B4-002bv/T-B8-003bz/T-B10-009bn" or row.get("upstream_target_id") != "T-B4-002bu/T-B8-003by/T-B10-009bm":
+            errors.append(f"{label} R157 VF2 tie-isolation target chain mismatch")
+        if row.get("contract_sha256") != r157_contract_sha256:
+            errors.append(f"{label} R157 VF2 tie-isolation contract hash mismatch")
+        expected_manifest_values = {
+            "input_qasm_sha256": "ce216610e995b4c8b4bd9de6547ac6069961e1eb8881997aa05e0068ea16ab98",
+            "target_descriptor_sha256": "702c8fd9dcf67a069e7af63e31a57c74c17aaa5e3c5b6d8c2e28ec0c049c0de7",
+            "profile_count": 5,
+            "total_process_count": 98,
+            "total_direct_replay_count": 160,
+            "tied_mapping_count": 2,
+            "shared_mapping_score": 0.45894321220828727,
+            "scores_exactly_equal": True,
+            "simulation_execution_count": 0,
+            "total_simulated_shots": 0,
+            "execution_started": False,
+            "compiler_mechanism_claimed": False,
+            "qiskit_bug_claimed": False,
+            "new_credit_delta": 0,
+            "requirements_passed": 10,
+            "requirements_failed": 0,
+        }
+        for field, value in expected_manifest_values.items():
+            if row.get(field) != value:
+                errors.append(f"{label} R157 VF2 tie-isolation manifest {field} mismatch")
+    if not all(path.exists() for path in [r157_protocol_path, r157_protocol_report_path, r157_contract_path, r157_input_path]):
+        errors.append("R157 VF2 tie-isolation protocol, report, contract, or input missing")
+    else:
+        r157_payload = json.loads(read(r157_protocol_path))
+        r157_protocol = r157_payload.get("protocol", {})
+        r157_contract = json.loads(read(r157_contract_path))
+        r157_tie = r157_protocol.get("tie_score_evidence", {})
+        r157_status.update({
+            "status": r157_payload.get("status"),
+            "method": r157_payload.get("method"),
+            "requirements_passed": r157_payload.get("requirements_passed"),
+            "requirements_failed": r157_payload.get("requirements_failed"),
+            "execution_started": r157_payload.get("execution_started"),
+            "profile_count": r157_protocol.get("profile_count"),
+            "total_process_count": r157_protocol.get("total_process_count"),
+            "total_direct_replay_count": r157_protocol.get("total_direct_replay_count"),
+            "shared_total_score": r157_tie.get("shared_total_score"),
+            "scores_exactly_equal": r157_tie.get("scores_exactly_equal_in_python_recalculation"),
+            "simulation_execution_count": r157_protocol.get("simulation_execution_count"),
+            "total_simulated_shots": r157_protocol.get("total_simulated_shots"),
+        })
+        if r157_payload.get("status") != "vf2_tie_isolation_protocol_frozen_before_execution" or r157_payload.get("method") != "b4_b8_r157_vf2_tie_isolation_protocol_v0":
+            errors.append("R157 VF2 tie-isolation protocol status or method mismatch")
+        if r157_payload.get("source_target_id") != "T-B4-002bv/T-B8-003bz/T-B10-009bn" or r157_payload.get("upstream_target_id") != "T-B4-002bu/T-B8-003by/T-B10-009bm":
+            errors.append("R157 VF2 tie-isolation protocol target chain mismatch")
+        if r157_payload.get("requirements_passed") != 10 or r157_payload.get("requirements_failed") != 0 or r157_payload.get("execution_started") is not False:
+            errors.append("R157 VF2 tie-isolation requirements or unopened boundary mismatch")
+        expected_r157_protocol = {
+            "snapshot_name": "FakeNairobiV2",
+            "vf2_pass": "VF2PostLayout",
+            "input_path": "benchmarks/B4_B8_R157_vf2_post_layout_input_v0.qasm",
+            "input_qasm_sha256": "ce216610e995b4c8b4bd9de6547ac6069961e1eb8881997aa05e0068ea16ab98",
+            "input_source_callback_count": 16,
+            "input_source_pass": "CheckMap",
+            "target_descriptor_sha256": "702c8fd9dcf67a069e7af63e31a57c74c17aaa5e3c5b6d8c2e28ec0c049c0de7",
+            "expected_target_descriptor_sha256": "702c8fd9dcf67a069e7af63e31a57c74c17aaa5e3c5b6d8c2e28ec0c049c0de7",
+            "profile_count": 5,
+            "total_process_count": 98,
+            "total_direct_replay_count": 160,
+            "simulation_execution_count": 0,
+            "total_simulated_shots": 0,
+            "new_hidden_seed_count": 0,
+            "candidate_selection_performed": False,
+            "route_change_performed": False,
+            "sampling_performed": False,
+        }
+        for field, value in expected_r157_protocol.items():
+            if r157_protocol.get(field) != value:
+                errors.append(f"R157 VF2 tie-isolation protocol {field} mismatch")
+        expected_profiles = [
+            ("native_target_independent_process", 32, 1, "native", False),
+            ("canonical_ascending_independent_process", 32, 1, "ascending", False),
+            ("canonical_descending_independent_process", 32, 1, "descending", False),
+            ("fresh_target_same_process", 1, 32, "native", False),
+            ("shared_target_same_process", 1, 32, "native", True),
+        ]
+        observed_profiles = [
+            (
+                row.get("profile_id"),
+                row.get("process_count"),
+                row.get("replays_per_process"),
+                row.get("target_order"),
+                row.get("shared_target_within_process"),
+            )
+            for row in r157_protocol.get("profiles", [])
+        ]
+        if observed_profiles != expected_profiles:
+            errors.append("R157 VF2 tie-isolation profile matrix mismatch")
+        expected_mappings = [
+            [6, 5, 4, 3, 0, 1, 2],
+            [6, 5, 4, 3, 2, 1, 0],
+        ]
+        mapping_rows = r157_tie.get("mapping_rows", [])
+        if [row.get("mapping_vector") for row in mapping_rows] != expected_mappings:
+            errors.append("R157 VF2 tie-isolation mapping vectors mismatch")
+        if r157_tie.get("input_circuit_size") != 77 or r157_tie.get("input_circuit_depth") != 39:
+            errors.append("R157 VF2 tie-isolation input shape mismatch")
+        if r157_tie.get("scores_exactly_equal_in_python_recalculation") is not True or r157_tie.get("shared_total_score") != 0.45894321220828727:
+            errors.append("R157 VF2 tie-isolation exact-score evidence mismatch")
+        if any(row.get("one_qubit_score") != 0.13372220981820523 or row.get("two_qubit_score") != 0.325221002390082 or row.get("total_score") != 0.45894321220828727 for row in mapping_rows):
+            errors.append("R157 VF2 tie-isolation component scores mismatch")
+        if r157_protocol.get("vf2_configuration") != {
+            "call_limit": 30000000,
+            "max_trials": 250000,
+            "seed": -1,
+            "strict_direction": False,
+            "time_limit": None,
+        }:
+            errors.append("R157 VF2 tie-isolation pass configuration mismatch")
+        qiskit_source = r157_protocol.get("qiskit_source", {})
+        if qiskit_source.get("commit") != "0fd015a22b84c9082173597a5d2304dc0aaec08c" or qiskit_source.get("path") != "crates/transpiler/src/passes/vf2/vf2_layout.rs" or qiskit_source.get("sha256") != "267810aaddb8ac9336f4404e7da34c31e07eec725eb1baa4ed6bf32ff7448ca4":
+            errors.append("R157 VF2 tie-isolation Qiskit source binding mismatch")
+        if r157_protocol.get("process_environment") != {
+            "PYTHONHASHSEED": "0",
+            "RAYON_NUM_THREADS": "1",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1",
+            "MKL_NUM_THREADS": "1",
+            "QISKIT_PARALLEL": "FALSE",
+        }:
+            errors.append("R157 VF2 tie-isolation process environment mismatch")
+        if hashlib.sha256(r157_input_path.read_bytes()).hexdigest() != "ce216610e995b4c8b4bd9de6547ac6069961e1eb8881997aa05e0068ea16ab98":
+            errors.append("R157 VF2 tie-isolation input file hash mismatch")
+        hp = dict(r157_payload)
+        protocol_ph = hp.pop("payload_hash", None)
+        if protocol_ph != hashlib.sha256(json.dumps(hp, sort_keys=True, separators=(",", ":")).encode()).hexdigest():
+            errors.append("R157 VF2 tie-isolation protocol payload hash mismatch")
+        if protocol_ph != "4c56c1bc1e3c54d7f6ef186cfe41592a288f8c534441657afc58bbf9c7a3c82a":
+            errors.append("R157 VF2 tie-isolation frozen payload hash mismatch")
+        if r157_contract_sha256 != "f45f7e7fe285dc86307201063a3351a40293d888625f7bd790446f25a7d50dc4":
+            errors.append("R157 VF2 tie-isolation contract file hash mismatch")
+        if r157_contract.get("contract_id") != "B4-B8-R157-vf2-tie-isolation-contract-v0" or r157_contract.get("contract_status") != "public_preregistration_execution_unopened":
+            errors.append("R157 VF2 tie-isolation contract ID or status mismatch")
+        if r157_contract.get("target_id") != "T-B4-002bv/T-B8-003bz/T-B10-009bn" or "process_artifacts" in r157_contract or "classification" in r157_contract:
+            errors.append("R157 VF2 tie-isolation contract target or unopened boundary mismatch")
+        bindings = r157_contract.get("source_bindings", {})
+        if bindings.get("protocol_payload_hash") != protocol_ph or bindings.get("protocol_sha256") != hashlib.sha256(r157_protocol_path.read_bytes()).hexdigest() or len(r157_contract.get("acceptance_conditions", [])) != 10:
+            errors.append("R157 VF2 tie-isolation contract binding or acceptance count mismatch")
+        for binding_id, binding in r157_payload.get("source_bindings", {}).items():
+            path = root / binding.get("path", "")
+            if not path.exists() or hashlib.sha256(path.read_bytes()).hexdigest() != binding.get("sha256"):
+                errors.append(f"R157 VF2 tie-isolation source binding mismatch: {binding_id}")
+        report_text = read(r157_protocol_report_path)
+        if "Scores exactly equal" not in report_text or "`5` / `98` / `160`" not in report_text or "does not establish the lower-level mechanism" not in report_text:
+            errors.append("R157 VF2 tie-isolation report boundary missing")
+
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
             errors.append(f"missing status artifact: {path}")
@@ -40126,6 +40317,7 @@ def audit(root: Path) -> dict:
             "r155_execution_mode_attribution_result": r155_result_status,
             "r156_transpiler_variant_capture": r156_status,
             "r156_transpiler_variant_capture_result": r156_result_status,
+            "r157_vf2_tie_isolation": r157_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -41613,6 +41805,9 @@ def audit(root: Path) -> dict:
             "b4_b8_r156_transpiler_variant_capture_protocol": str(r156_protocol_report_path),
             "b4_b8_r156_transpiler_variant_capture_contract": str(r156_contract_path),
             "b4_b8_r156_transpiler_variant_capture": str(r156_result_report_path),
+            "b4_b8_r157_vf2_tie_isolation_protocol": str(r157_protocol_report_path),
+            "b4_b8_r157_vf2_tie_isolation_contract": str(r157_contract_path),
+            "b4_b8_r157_vf2_tie_isolation_input": str(r157_input_path),
             "b8_generative_spoofer_refresh": str(research / "B8_generative_spoofer_refresh.md"),
             "b8_adaptive_leakage_spoofer": str(research / "B8_adaptive_leakage_spoofer.md"),
             "b8_challenge_refresh_repair": str(research / "B8_challenge_refresh_repair.md"),
@@ -43931,6 +44126,16 @@ def markdown_report(report: dict) -> str:
             f"- Simulation executions / shots: {report['b8']['r156_transpiler_variant_capture_result'].get('simulation_execution_count')} / {report['b8']['r156_transpiler_variant_capture_result'].get('total_simulated_shots')}",
             f"- Requirements passed/failed: {report['b8']['r156_transpiler_variant_capture_result'].get('requirements_passed')} / {report['b8']['r156_transpiler_variant_capture_result'].get('requirements_failed')}",
             f"- Result/report exists: {report['b8']['r156_transpiler_variant_capture_result'].get('result_exists')} / {report['b8']['r156_transpiler_variant_capture_result'].get('report_exists')}",
+            "",
+            "### R157 VF2 Tie-Isolation Protocol",
+            "",
+            f"- Status: {report['b8']['r157_vf2_tie_isolation'].get('status')}",
+            f"- Profiles / processes / direct replays: {report['b8']['r157_vf2_tie_isolation'].get('profile_count')} / {report['b8']['r157_vf2_tie_isolation'].get('total_process_count')} / {report['b8']['r157_vf2_tie_isolation'].get('total_direct_replay_count')}",
+            f"- Shared mapping score / exactly tied: {report['b8']['r157_vf2_tie_isolation'].get('shared_total_score')} / {report['b8']['r157_vf2_tie_isolation'].get('scores_exactly_equal')}",
+            f"- Simulation executions / shots: {report['b8']['r157_vf2_tie_isolation'].get('simulation_execution_count')} / {report['b8']['r157_vf2_tie_isolation'].get('total_simulated_shots')}",
+            f"- Execution started: {report['b8']['r157_vf2_tie_isolation'].get('execution_started')}",
+            f"- Requirements passed/failed: {report['b8']['r157_vf2_tie_isolation'].get('requirements_passed')} / {report['b8']['r157_vf2_tie_isolation'].get('requirements_failed')}",
+            f"- Protocol/contract/input/report exists: {report['b8']['r157_vf2_tie_isolation'].get('protocol_exists')} / {report['b8']['r157_vf2_tie_isolation'].get('contract_exists')} / {report['b8']['r157_vf2_tie_isolation'].get('input_exists')} / {report['b8']['r157_vf2_tie_isolation'].get('report_exists')}",
             "",
             f"- Status: {report['b8']['output_invariant_verifier'].get('status')}",
             f"- Model status: {report['b8']['output_invariant_verifier'].get('model_status')}",
