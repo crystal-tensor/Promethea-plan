@@ -39,7 +39,12 @@ jobs:
       - name: Check B9 Lean project scaffold
         run: |
           lake update
+          lake build B9
           lake env lean B9/ClusterStabilizer/WidthLocality.lean
+          lake env lean B9/ClusterStabilizer/PauliBasisAction.lean
+      - name: Check B9 computational-basis action gate
+        run: |
+          python tools/b9_pauli_basis_action_gate.py
       - name: Refresh B9 proof-environment gates
         run: |
           python tools/b9_proof_environment_readiness_gate.py \

@@ -1,0 +1,126 @@
+{
+  "benchmark_id": "B9",
+  "claim_boundary": {
+    "what_is_not_supported": "This is a computational-basis action model, not a complex matrix, linear operator, Hamiltonian sum, Hermiticity proof, spectral theorem, Quantum PCP/NLTS theorem, global impossibility result, or BQP separation.",
+    "what_is_supported": "Lean checks a total recursive action of Pauli-labelled terms on computational-basis bitstrings: X flips its site, Z preserves the bitstring while recording a sign phase, and the final state agrees with the input outside the finite factor site support."
+  },
+  "fresh_command_records": [
+    {
+      "command": [
+        "~/.elan/bin/lean",
+        "--version"
+      ],
+      "elapsed_seconds": 0.025809,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Lean (version 4.12.0, arm64-apple-darwin23.6.0, commit dc2533473114, Release)"
+    },
+    {
+      "command": [
+        "~/.elan/bin/lake",
+        "--version"
+      ],
+      "elapsed_seconds": 0.026413,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Lake version 5.0.0-dc25334 (Lean version 4.12.0)"
+    },
+    {
+      "command": [
+        "~/.elan/bin/lake",
+        "-c",
+        "mkdir -p .lake/build/lib/B9/ClusterStabilizer && lake env lean -o .lake/build/lib/B9/ClusterStabilizer/WidthLocality.olean B9/ClusterStabilizer/WidthLocality.lean && lake env lean B9/ClusterStabilizer/PauliBasisAction.lean"
+      ],
+      "elapsed_seconds": 4.5271,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "linked_benchmark_id": "B10",
+  "method": "b9_pauli_basis_action_gate_v0",
+  "model_status": "computational_basis_pauli_action_checked_under_pinned_lean_lake",
+  "requirements": [
+    {
+      "label": "Lean and Lake version probes return zero",
+      "passed": true,
+      "requirement_id": "R1"
+    },
+    {
+      "label": "WidthLocality and PauliBasisAction compile together",
+      "passed": true,
+      "requirement_id": "R2"
+    },
+    {
+      "label": "BasisState is a Fin n computational basis",
+      "passed": true,
+      "requirement_id": "R3"
+    },
+    {
+      "label": "Phase has plus/minus and bit interpretation",
+      "passed": true,
+      "requirement_id": "R4"
+    },
+    {
+      "label": "X flips one site",
+      "passed": true,
+      "requirement_id": "R5"
+    },
+    {
+      "label": "Z records a basis-bit phase and preserves the state",
+      "passed": true,
+      "requirement_id": "R6"
+    },
+    {
+      "label": "Pauli terms have recursive basis action",
+      "passed": true,
+      "requirement_id": "R7"
+    },
+    {
+      "label": "Single-factor action is local",
+      "passed": true,
+      "requirement_id": "R8"
+    },
+    {
+      "label": "Term action preserves basis bits outside its site support",
+      "passed": true,
+      "requirement_id": "R9"
+    },
+    {
+      "label": "Action is total and transcript is fresh",
+      "passed": true,
+      "requirement_id": "R10"
+    }
+  ],
+  "status": "pauli_basis_action_checked_not_matrix_or_spectral_proof",
+  "summary": {
+    "basis_domain": "Fin n -> Bool",
+    "bqp_separation_claimed": false,
+    "checked_pauli_basis_action": true,
+    "explicit_not_matrix_or_spectral_proof": true,
+    "factor_alphabet": [
+      "X",
+      "Z"
+    ],
+    "failed_requirement_ids": [],
+    "formal_theorem_proved": false,
+    "fresh_command_count": 3,
+    "fresh_no_warning": true,
+    "fresh_zero_returncode_count": 3,
+    "nlts_theorem_claimed": false,
+    "phase_alphabet": [
+      "plus",
+      "minus"
+    ],
+    "proof_assistant_checked": true,
+    "quantum_pcp_theorem_claimed": false,
+    "requirement_count": 10,
+    "requirements_failed": 0,
+    "requirements_passed": 10,
+    "source_sha256": "2109f0e916408e00c9d3d7916d8f2638cebaef4a31ae77b8d36b5afa4c23c1c0",
+    "transcript_sha256": "a05099ef02806991d9092a7a705dda9cadae6ddb845437368cc475afae182c9a",
+    "validation_error_count": 0,
+    "width_source_sha256": "0b93b31c11fd62dd44f30fe5de3aa9a27b40ee16befb0c6c1617d62e8ce26e9c"
+  },
+  "workload": "B9/ClusterStabilizer/PauliBasisAction.lean"
+}

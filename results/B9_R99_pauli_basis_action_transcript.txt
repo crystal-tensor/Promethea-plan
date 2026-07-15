@@ -1,0 +1,29 @@
+WIDTH_SOURCE_SHA256: 0b93b31c11fd62dd44f30fe5de3aa9a27b40ee16befb0c6c1617d62e8ce26e9c
+SOURCE_SHA256: 2109f0e916408e00c9d3d7916d8f2638cebaef4a31ae77b8d36b5afa4c23c1c0
+
+COMMAND: ~/.elan/bin/lean --version
+RETURNCODE: 0
+ELAPSED_SECONDS: 0.025809
+STDOUT:
+Lean (version 4.12.0, arm64-apple-darwin23.6.0, commit dc2533473114, Release)
+STDERR:
+
+END_COMMAND
+
+COMMAND: ~/.elan/bin/lake --version
+RETURNCODE: 0
+ELAPSED_SECONDS: 0.026413
+STDOUT:
+Lake version 5.0.0-dc25334 (Lean version 4.12.0)
+STDERR:
+
+END_COMMAND
+
+COMMAND: ~/.elan/bin/lake -c mkdir -p .lake/build/lib/B9/ClusterStabilizer && lake env lean -o .lake/build/lib/B9/ClusterStabilizer/WidthLocality.olean B9/ClusterStabilizer/WidthLocality.lean && lake env lean B9/ClusterStabilizer/PauliBasisAction.lean
+RETURNCODE: 0
+ELAPSED_SECONDS: 4.5271
+STDOUT:
+
+STDERR:
+
+END_COMMAND

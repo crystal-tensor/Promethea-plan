@@ -10996,6 +10996,33 @@
       "status": "named_family_width_locality_bound_skeleton_not_checked_theorem",
       "validation_error_count": 0
     },
+    "pauli_basis_action_gate": {
+      "basis_domain": "Fin n -> Bool",
+      "bqp_separation_claimed": false,
+      "explicit_not_matrix_or_spectral_proof": true,
+      "factor_alphabet": [
+        "X",
+        "Z"
+      ],
+      "formal_theorem_proved": false,
+      "fresh_no_warning": true,
+      "fresh_zero_returncode_count": 3,
+      "markdown_exists": true,
+      "markdown_report": "../research/B9_pauli_basis_action_gate.md",
+      "method": "b9_pauli_basis_action_gate_v0",
+      "model_status": "computational_basis_pauli_action_checked_under_pinned_lean_lake",
+      "phase_alphabet": [
+        "plus",
+        "minus"
+      ],
+      "proof_assistant_checked": true,
+      "requirements_failed": 0,
+      "requirements_passed": 10,
+      "result": "../results/B9_pauli_basis_action_gate_v0.json",
+      "result_exists": true,
+      "status": "pauli_basis_action_checked_not_matrix_or_spectral_proof",
+      "validation_error_count": 0
+    },
     "proof_environment_contract_gate": {
       "blocking_obligation_count": 5,
       "closed_contract_packet_count": 2,
@@ -11830,6 +11857,7 @@
     "b9_named_family_width_locality_bound_lean_skeleton": "research/proof_skeletons/B9_cluster_stabilizer_width_locality_bound.lean",
     "b9_named_family_width_locality_bounds": "research/B9_named_family_width_locality_bounds.md",
     "b9_offline_proof_artifact_bundle_gate": "research/B9_offline_proof_artifact_bundle_gate.md",
+    "b9_pauli_basis_action_gate": "research/B9_pauli_basis_action_gate.md",
     "b9_pauli_term_family_gate": "research/B9_pauli_term_family_gate.md",
     "b9_proof_environment_contract_gate": "research/B9_proof_environment_contract_gate.md",
     "b9_proof_environment_readiness_gate": "research/B9_proof_environment_readiness_gate.md",

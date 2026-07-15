@@ -4075,3 +4075,14 @@ Hamiltonian term family. The gate passes 10/10 requirements, with 3/3 fresh
 Lean/Lake commands returning zero and no warnings. These are descriptors, not
 matrices or an operator algebra; no Hamiltonian spectrum, Quantum PCP/NLTS
 theorem, global impossibility result, or BQP credit is claimed.
+
+## Latest Research Update: R99
+
+R99 gives the Pauli-labelled term family an executable computational-basis
+action. `X` flips its declared `Fin n` site; `Z` leaves the bitstring unchanged
+and records a sign phase. Lean checks recursive term composition, totality,
+single-factor locality, and that the final basis state agrees with the input
+outside the term's finite site support. The gate passes 10/10 requirements,
+with 3/3 fresh commands returning zero and no warnings. This is a basis-action
+model, not a complex matrix, linear-operator or Hamiltonian spectral proof; no
+Quantum PCP/NLTS, global impossibility, BQP, or quantum-advantage claim is made.
