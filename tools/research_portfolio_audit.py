@@ -33848,6 +33848,7 @@ def audit(root: Path) -> dict:
     b9_proof_project_scaffold = b9_results.get("proof_project_scaffold_gate_v0")
     b9_toolchain_ci_contract = b9_results.get("toolchain_ci_contract_gate_v0")
     b9_pauli_basis_action = b9_results.get("pauli_basis_action_gate_v0")
+    b9_pauli_action_composition = b9_results.get("pauli_action_composition_gate_v0")
     b9_status = {}
     if not b9_gap_lab:
         warnings.append("B9 manifest has no local-Hamiltonian gap-lab result")
@@ -34685,6 +34686,66 @@ def audit(root: Path) -> dict:
             errors.append("B9 Pauli basis-action should have three clean fresh commands")
         if summary.get("validation_error_count") != 0:
             errors.append("B9 Pauli basis-action validation errors must be zero")
+
+    b9_pauli_action_composition_status = {}
+    if not b9_pauli_action_composition:
+        warnings.append("B9 manifest has no Pauli action-composition gate")
+    else:
+        result_path = b9_pauli_action_composition.get("result")
+        markdown_path = b9_pauli_action_composition.get("markdown_report")
+        result_exists = bool(result_path and path_exists_from(benchmarks, result_path))
+        markdown_exists = bool(markdown_path and path_exists_from(benchmarks, markdown_path))
+        if not result_exists:
+            errors.append(f"B9 Pauli action-composition result path missing: {result_path}")
+        if not markdown_exists:
+            errors.append(f"B9 Pauli action-composition markdown missing: {markdown_path}")
+        payload = json.loads(read((benchmarks / result_path).resolve())) if result_exists else {}
+        summary = payload.get("summary", {})
+        b9_pauli_action_composition_status = {
+            "status": b9_pauli_action_composition.get("status"),
+            "method": b9_pauli_action_composition.get("method"),
+            "model_status": b9_pauli_action_composition.get("model_status"),
+            "requirements_passed": summary.get("requirements_passed"),
+            "requirements_failed": summary.get("requirements_failed"),
+            "fresh_zero_returncode_count": summary.get("fresh_zero_returncode_count"),
+            "fresh_no_warning": summary.get("fresh_no_warning"),
+            "checked_composition": summary.get("checked_composition"),
+            "proof_assistant_checked": summary.get("proof_assistant_checked"),
+            "formal_theorem_proved": summary.get("formal_theorem_proved"),
+            "explicit_not_linear_or_spectral_proof": summary.get("explicit_not_linear_or_spectral_proof"),
+            "bqp_separation_claimed": summary.get("bqp_separation_claimed"),
+            "validation_error_count": summary.get("validation_error_count"),
+            "result_exists": result_exists,
+            "markdown_exists": markdown_exists,
+            "result": result_path,
+            "markdown_report": markdown_path,
+        }
+        if payload.get("benchmark_id") != "B9":
+            errors.append("B9 Pauli action-composition benchmark_id mismatch")
+        if payload.get("method") != b9_pauli_action_composition.get("method"):
+            errors.append("B9 Pauli action-composition method mismatch")
+        if payload.get("status") != "pauli_action_composition_checked_not_linear_or_spectral_proof":
+            errors.append("B9 Pauli action-composition status mismatch")
+        for field in [
+            "requirements_passed",
+            "requirements_failed",
+            "fresh_zero_returncode_count",
+            "fresh_no_warning",
+            "checked_composition",
+            "proof_assistant_checked",
+            "formal_theorem_proved",
+            "explicit_not_linear_or_spectral_proof",
+            "bqp_separation_claimed",
+            "validation_error_count",
+        ]:
+            if summary.get(field) != b9_pauli_action_composition.get(field):
+                errors.append(f"B9 Pauli action-composition {field} mismatch")
+        if summary.get("requirements_passed") != 11 or summary.get("requirements_failed") != 0:
+            errors.append("B9 Pauli action-composition should pass all eleven requirements")
+        if summary.get("fresh_zero_returncode_count") != 3 or summary.get("fresh_no_warning") is not True:
+            errors.append("B9 Pauli action-composition should have three clean fresh commands")
+        if summary.get("validation_error_count") != 0:
+            errors.append("B9 Pauli action-composition validation errors must be zero")
 
     b10_manifest = yaml.safe_load(read(b10_manifest_path))
     b10_results = b10_manifest.get("current_results", {})
@@ -44263,6 +44324,7 @@ def audit(root: Path) -> dict:
             "proof_project_scaffold_gate": b9_proof_project_scaffold_status,
             "toolchain_ci_contract_gate": b9_toolchain_ci_contract_status,
             "pauli_basis_action_gate": b9_pauli_basis_action_status,
+            "pauli_action_composition_gate": b9_pauli_action_composition_status,
         },
         "b10": {
             "manifest": str(b10_manifest_path),
@@ -45474,6 +45536,7 @@ def audit(root: Path) -> dict:
             "b9_term_family_locality_gate": str(research / "B9_term_family_locality_gate.md"),
             "b9_pauli_term_family_gate": str(research / "B9_pauli_term_family_gate.md"),
             "b9_pauli_basis_action_gate": str(research / "B9_pauli_basis_action_gate.md"),
+            "b9_pauli_action_composition_gate": str(research / "B9_pauli_action_composition_gate.md"),
             "b7_dependency_schedule_bridge": str(research / "B7_b1_b2_dependency_schedule_bridge.md"),
             "b7_workload_dag_factory_schedule": str(research / "B7_workload_dag_factory_schedule.md"),
             "b7_logical_t_factory_schedule": str(research / "B7_logical_t_factory_schedule.md"),

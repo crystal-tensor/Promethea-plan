@@ -4086,3 +4086,14 @@ outside the term's finite site support. The gate passes 10/10 requirements,
 with 3/3 fresh commands returning zero and no warnings. This is a basis-action
 model, not a complex matrix, linear-operator or Hamiltonian spectral proof; no
 Quantum PCP/NLTS, global impossibility, BQP, or quantum-advantage claim is made.
+
+## Latest Research Update: R100
+
+R100 makes the computational-basis action compositional. A Pauli term split into
+two factor lists can be replayed as a left action followed by a right action,
+with the same accumulated phase and final basis state; the composition law is
+associative and the locality certificate extends to the concatenated support.
+The gate passes 11/11 requirements, with 3/3 fresh Lean/Lake commands returning
+zero and no warnings. This remains a computational-basis replay certificate,
+not a complex linear-operator, Hamiltonian, spectral, Quantum PCP/NLTS, BQP,
+or quantum-advantage result.
