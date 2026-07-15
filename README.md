@@ -203,6 +203,18 @@ mechanism. This closes only the declared two-frame family, not a global KAK
 lower bound, an exhaustive Clifford-word search, or a full-circuit rewrite.
 Occurrence removal, proxy-T reduction, and B7 credit remain 0.
 
+The next B1/B7 experiment changes the nonlocal word itself: three CX gates are
+allowed while five arbitrary angles are placed on target-side Euler slots, with
+the source `Rz(pi)` scaffold fixed. The bounded family retains at least four of
+the five source target-side slots and exhausts all eight CX direction sequences,
+giving 248 families per context. Across seven source-bound contexts, 3,472
+deterministic optimizer runs produce exact replays `0/7`; the best residual is
+`1.5310915690771965`. The experiment therefore does not show that one extra CX
+can replace the sixth arbitrary angle in this family. It spends one additional
+CX for a potential one-angle saving, but no rewrite, occurrence removal,
+proxy-T reduction, or B7 credit is accepted. This closes only the declared
+target-side family, not a global three-CX lower bound or a solved B1/B7 frontier.
+
 The current B5/B10 line has recently moved from small-cluster denominators to
 seeded MPS pressure, non-seeded one-site MPS/ALS pressure, and a two-site
 finite-DMRG-style pressure prototype. B5 now has a canonical-DMRG readiness

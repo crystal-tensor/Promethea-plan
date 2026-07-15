@@ -31257,6 +31257,7 @@ def audit(root: Path) -> dict:
     b7_w8_21_discrete_branch_enumeration = b7_results.get("w8_21_discrete_branch_enumeration_v0")
     b7_w8_21_control_frame_search = b7_results.get("w8_21_control_frame_search_v0")
     b7_w8_21_double_control_frame_search = b7_results.get("w8_21_double_control_frame_search_v0")
+    b7_w8_21_three_cnot_five_angle_search = b7_results.get("w8_21_three_cnot_five_angle_search_v0")
     b7_status = {}
     if not b7_codesign:
         warnings.append("B7 manifest has no fault-tolerance co-design resource result")
@@ -33283,6 +33284,82 @@ def audit(root: Path) -> dict:
         claims = payload.get("claim_boundary", {})
         if claims.get("resource_saving_claimed") is not False or claims.get("global_lower_bound_claimed") is not False:
             errors.append("B7 w8_21 double control-frame search must keep resource/lower-bound claims false")
+
+    b7_w8_21_three_cnot_five_angle_search_status = {}
+    if not b7_w8_21_three_cnot_five_angle_search:
+        warnings.append("B7 manifest missing w8_21 three-CX five-angle search")
+    else:
+        result_path = b7_w8_21_three_cnot_five_angle_search.get("result")
+        markdown_path = b7_w8_21_three_cnot_five_angle_search.get("markdown_report")
+        result_exists = bool(result_path and path_exists_from(benchmarks, result_path))
+        markdown_exists = bool(markdown_path and path_exists_from(benchmarks, markdown_path))
+        if not result_exists:
+            errors.append(f"B7 w8_21 three-CX five-angle search result missing: {result_path}")
+        if not markdown_exists:
+            errors.append(f"B7 w8_21 three-CX five-angle search markdown missing: {markdown_path}")
+        payload = json.loads(read((benchmarks / result_path).resolve())) if result_exists else {}
+        family = payload.get("candidate_family", {})
+        summary = payload.get("summary", {})
+        fit_configuration = payload.get("fit_configuration", {})
+        b7_w8_21_three_cnot_five_angle_search_status = {
+            "status": payload.get("status"),
+            "method": payload.get("method"),
+            "template_id": payload.get("template_id"),
+            "classification": payload.get("classification"),
+            "tested_context_count": summary.get("tested_context_count"),
+            "exact_context_count": summary.get("exact_context_count"),
+            "total_exact_family_count": summary.get("total_exact_family_count"),
+            "best_residual_norm": summary.get("best_residual_norm"),
+            "attempted_optimizer_runs": summary.get("attempted_optimizer_runs"),
+            "family_count": family.get("family_count"),
+            "accepted_occurrence_removal": summary.get("accepted_occurrence_removal"),
+            "accepted_proxy_t_reduction": summary.get("accepted_proxy_t_reduction"),
+            "b7_credit": summary.get("b7_credit"),
+            "validation_error_count": summary.get("validation_error_count"),
+            "result_exists": result_exists,
+            "markdown_exists": markdown_exists,
+            "result": result_path,
+            "markdown_report": markdown_path,
+        }
+        if payload.get("status") != "three_cnot_five_angle_search_complete_no_exact_context_replay":
+            errors.append("B7 w8_21 three-CX five-angle search status mismatch")
+        if payload.get("method") != "b7_w8_21_three_cnot_five_angle_search_v0" or payload.get("template_id") != "w8_21":
+            errors.append("B7 w8_21 three-CX five-angle search identity mismatch")
+        if payload.get("classification") != "bounded_three_cnot_five_angle_resource_frontier":
+            errors.append("B7 w8_21 three-CX five-angle search classification mismatch")
+        expected_summary = {
+            "tested_context_count": 7,
+            "exact_context_count": 0,
+            "total_exact_family_count": 0,
+            "attempted_optimizer_runs": 3472,
+            "baseline_cnot_count": 2,
+            "candidate_cnot_count": 3,
+            "baseline_arbitrary_parameter_count": 6,
+            "candidate_arbitrary_parameter_count": 5,
+            "potential_arbitrary_parameter_saving_if_exact": 1,
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "b7_credit": 0,
+            "rewrite_claimed": False,
+            "resource_saving_claimed": False,
+            "global_lower_bound_claimed": False,
+            "validation_error_count": 0,
+        }
+        for field, expected in expected_summary.items():
+            if summary.get(field) != expected:
+                errors.append(f"B7 w8_21 three-CX five-angle search {field} mismatch")
+        if (
+            family.get("family_count") != 248
+            or family.get("total_family_count") != 248
+            or family.get("seed_count_per_family") != 2
+            or family.get("min_source_slot_overlap") != 4
+        ):
+            errors.append("B7 w8_21 three-CX five-angle search family configuration mismatch")
+        if fit_configuration.get("seed_count") != 2 or fit_configuration.get("exact_tolerance") != 1e-10:
+            errors.append("B7 w8_21 three-CX five-angle search fit configuration mismatch")
+        claims = payload.get("claim_boundary", {})
+        if claims.get("resource_saving_claimed") is not False or claims.get("global_lower_bound_claimed") is not False:
+            errors.append("B7 w8_21 three-CX five-angle search must keep resource/lower-bound claims false")
 
     b8_manifest = yaml.safe_load(read(b8_manifest_path))
     b8_results = b8_manifest.get("current_results", {})
@@ -43941,6 +44018,7 @@ def audit(root: Path) -> dict:
             "w8_21_discrete_branch_enumeration": b7_w8_21_discrete_branch_enumeration_status,
             "w8_21_control_frame_search": b7_w8_21_control_frame_search_status,
             "w8_21_double_control_frame_search": b7_w8_21_double_control_frame_search_status,
+            "w8_21_three_cnot_five_angle_search": b7_w8_21_three_cnot_five_angle_search_status,
         },
         "b8": {
             "manifest": str(b8_manifest_path),
@@ -45302,6 +45380,9 @@ def audit(root: Path) -> dict:
             ),
             "b7_w8_21_double_control_frame_search": str(
                 research / "B7_w8_21_double_control_frame_search.md"
+            ),
+            "b7_w8_21_three_cnot_five_angle_search": str(
+                research / "B7_w8_21_three_cnot_five_angle_search.md"
             ),
             "b4_b8_circuit_refresh_task": str(research / "B4_B8_circuit_refresh_task.md"),
             "b4_b8_openqasm3_randomized_measurement_packet": str(
