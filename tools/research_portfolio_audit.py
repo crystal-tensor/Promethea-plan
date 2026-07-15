@@ -31252,6 +31252,7 @@ def audit(root: Path) -> dict:
     )
     b7_w8_21_neighborhood_transfer = b7_results.get("w8_21_neighborhood_transfer_v0")
     b7_w8_21_carrier_pricing = b7_results.get("w8_21_carrier_pricing_v0")
+    b7_w8_21_parameter_relocation = b7_results.get("w8_21_parameter_relocation_search_v0")
     b7_status = {}
     if not b7_codesign:
         warnings.append("B7 manifest has no fault-tolerance co-design resource result")
@@ -32934,6 +32935,74 @@ def audit(root: Path) -> dict:
         claims = payload.get("claim_boundary", {})
         if claims.get("rewrite_claimed") is not False or claims.get("resource_saving_claimed") is not False or claims.get("b7_ledger_improvement_claimed") is not False:
             errors.append("B7 w8_21 carrier pricing must keep claim boundary false")
+
+    b7_w8_21_parameter_relocation_status = {}
+    if not b7_w8_21_parameter_relocation:
+        warnings.append("B7 manifest missing w8_21 parameter relocation search")
+    else:
+        result_path = b7_w8_21_parameter_relocation.get("result")
+        markdown_path = b7_w8_21_parameter_relocation.get("markdown_report")
+        result_exists = bool(result_path and path_exists_from(benchmarks, result_path))
+        markdown_exists = bool(markdown_path and path_exists_from(benchmarks, markdown_path))
+        if not result_exists:
+            errors.append(f"B7 w8_21 parameter relocation result missing: {result_path}")
+        if not markdown_exists:
+            errors.append(f"B7 w8_21 parameter relocation markdown missing: {markdown_path}")
+        payload = json.loads(read((benchmarks / result_path).resolve())) if result_exists else {}
+        summary = payload.get("summary", {})
+        family = payload.get("candidate_family", {})
+        fit_configuration = payload.get("fit_configuration", {})
+        b7_w8_21_parameter_relocation_status = {
+            "status": payload.get("status"),
+            "method": payload.get("method"),
+            "template_id": payload.get("template_id"),
+            "classification": payload.get("classification"),
+            "tested_context_count": summary.get("tested_context_count"),
+            "exact_context_count": summary.get("exact_context_count"),
+            "best_residual_norm": summary.get("best_residual_norm"),
+            "attempted_optimizer_runs": summary.get("attempted_optimizer_runs"),
+            "family_count": family.get("family_count"),
+            "accepted_occurrence_removal": summary.get("accepted_occurrence_removal"),
+            "accepted_proxy_t_reduction": summary.get("accepted_proxy_t_reduction"),
+            "b7_credit": summary.get("b7_credit"),
+            "validation_error_count": summary.get("validation_error_count"),
+            "result_exists": result_exists,
+            "markdown_exists": markdown_exists,
+            "result": result_path,
+            "markdown_report": markdown_path,
+        }
+        if payload.get("status") != "parameter_relocation_search_complete_no_five_angle_context_replay":
+            errors.append("B7 w8_21 parameter relocation status mismatch")
+        if payload.get("method") != "b7_w8_21_parameter_relocation_search_v0" or payload.get("template_id") != "w8_21":
+            errors.append("B7 w8_21 parameter relocation identity mismatch")
+        if payload.get("classification") != "bounded_relocated_euler_family_context_boundary":
+            errors.append("B7 w8_21 parameter relocation classification mismatch")
+        expected_summary = {
+            "tested_context_count": 7,
+            "exact_context_count": 0,
+            "attempted_optimizer_runs": 3402,
+            "baseline_arbitrary_parameter_count": 6,
+            "candidate_arbitrary_parameter_count": 5,
+            "baseline_cnot_count": 2,
+            "candidate_cnot_count": 2,
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "b7_credit": 0,
+            "rewrite_claimed": False,
+            "resource_saving_claimed": False,
+            "b7_ledger_improvement_claimed": False,
+            "validation_error_count": 0,
+        }
+        for field, expected in expected_summary.items():
+            if summary.get(field) != expected:
+                errors.append(f"B7 w8_21 parameter relocation {field} mismatch")
+        if family.get("family_count") != 243 or family.get("total_family_count") != 243 or family.get("seed_count_per_family") != 2:
+            errors.append("B7 w8_21 parameter relocation family configuration mismatch")
+        if fit_configuration.get("seed_count") != 2 or fit_configuration.get("exact_tolerance") != 1e-10:
+            errors.append("B7 w8_21 parameter relocation fit configuration mismatch")
+        claims = payload.get("claim_boundary", {})
+        if claims.get("resource_saving_claimed") is not False or claims.get("full_circuit_rewrite_claimed") is not False:
+            errors.append("B7 w8_21 parameter relocation must keep resource/rewrite claims false")
 
     b8_manifest = yaml.safe_load(read(b8_manifest_path))
     b8_results = b8_manifest.get("current_results", {})
@@ -43587,6 +43656,7 @@ def audit(root: Path) -> dict:
             "w8_21_symbolic_certificate_ledger_retest": b7_w8_21_symbolic_certificate_ledger_retest_status,
             "w8_21_neighborhood_transfer": b7_w8_21_neighborhood_transfer_status,
             "w8_21_carrier_pricing": b7_w8_21_carrier_pricing_status,
+            "w8_21_parameter_relocation": b7_w8_21_parameter_relocation_status,
         },
         "b8": {
             "manifest": str(b8_manifest_path),
@@ -44933,6 +45003,9 @@ def audit(root: Path) -> dict:
             ),
             "b7_w8_21_carrier_pricing": str(
                 research / "B7_w8_21_carrier_pricing.md"
+            ),
+            "b7_w8_21_parameter_relocation_search": str(
+                research / "B7_w8_21_parameter_relocation_search.md"
             ),
             "b4_b8_circuit_refresh_task": str(research / "B4_B8_circuit_refresh_task.md"),
             "b4_b8_openqasm3_randomized_measurement_packet": str(

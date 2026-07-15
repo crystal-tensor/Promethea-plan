@@ -1,0 +1,455 @@
+{
+  "candidate_family": {
+    "description": "two CX gates, one fixed mid:q1:rz1=pi scaffold, five arbitrary Euler slots, with at least four of the five source arbitrary slots retained",
+    "family_count": 243,
+    "family_selection": "exhaustive",
+    "fixed_scaffold": "mid:q1:rz1=pi",
+    "free_slot_count": 5,
+    "max_nfev_per_seed": 300,
+    "seed_count_per_family": 2,
+    "slot_count": 18,
+    "source_arbitrary_slot_labels": [
+      "pre:q1:rz0",
+      "mid:q1:rz0",
+      "mid:q1:ry",
+      "post:q1:rz0",
+      "post:q1:ry"
+    ],
+    "total_family_count": 243
+  },
+  "claim_boundary": {
+    "all_clifford_scaffolds_claimed": false,
+    "ancilla_or_measurement_claimed": false,
+    "five_angle_relocated_family_found_exact_context": false,
+    "full_circuit_rewrite_claimed": false,
+    "global_two_qubit_lower_bound_claimed": false,
+    "resource_saving_claimed": false
+  },
+  "classification": "bounded_relocated_euler_family_context_boundary",
+  "fit_configuration": {
+    "exact_tolerance": 1e-10,
+    "max_nfev": 300,
+    "objective": "global-phase-aligned 4x4 unitary residual",
+    "seed_count": 2
+  },
+  "last_updated": "2026-07-15",
+  "method": "b7_w8_21_parameter_relocation_search_v0",
+  "payload_hash": "2f04d4e9dad441d2d58d653bfbcf396ae597b5d1c15f86c208b5095eec3cf28a",
+  "question": "Can five arbitrary Euler angles be relocated while retaining two CX gates and one pi scaffold, absorbing the seven external target-local Rz contexts without a sixth carrier?",
+  "results": [
+    {
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "b7_credit": 0,
+      "best_candidate": {
+        "arbitrary_rotation_count": 5,
+        "candidate_cnot_count": 2,
+        "cnot_directions": [
+          "01",
+          "01"
+        ],
+        "family_index": 52,
+        "family_label": "cx01-cx01|fixed[mid:q1:rz1=pi]|free[pre:q1:ry,mid:q1:rz0,mid:q1:ry,post:q1:rz0,post:q1:ry]",
+        "fit": {
+          "fitted_parameters": [
+            -0.6004381413890179,
+            2.0955954314049876,
+            0.039372412392616664,
+            4.187589875678033,
+            0.9388122578560031
+          ],
+          "max_abs_entry_error": 0.017332463390115856,
+          "optimizer_nfev": 8,
+          "optimizer_status": 2,
+          "optimizer_success": true,
+          "residual_norm": 0.03046391998887225,
+          "seed_index": 0
+        },
+        "free_slots": [
+          "pre:q1:ry",
+          "mid:q1:rz0",
+          "mid:q1:ry",
+          "post:q1:rz0",
+          "post:q1:ry"
+        ]
+      },
+      "context_index": 1,
+      "context_operation": {
+        "angle": 0.28861107553559073,
+        "gate": "rz",
+        "line": 63,
+        "qubits": [
+          13
+        ],
+        "text": "rz(0.28861107553559073) q[13];"
+      },
+      "direction": "after",
+      "line_span": [
+        55,
+        62
+      ],
+      "passing_family_count": 0,
+      "target": 13,
+      "tested_family_count": 243
+    },
+    {
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "b7_credit": 0,
+      "best_candidate": {
+        "arbitrary_rotation_count": 5,
+        "candidate_cnot_count": 2,
+        "cnot_directions": [
+          "01",
+          "01"
+        ],
+        "family_index": 52,
+        "family_label": "cx01-cx01|fixed[mid:q1:rz1=pi]|free[pre:q1:ry,mid:q1:rz0,mid:q1:ry,post:q1:rz0,post:q1:ry]",
+        "fit": {
+          "fitted_parameters": [
+            -0.6004381413890179,
+            2.0955954314049876,
+            0.039372412392616664,
+            4.187589875678033,
+            0.9388122578560031
+          ],
+          "max_abs_entry_error": 0.017332463390115856,
+          "optimizer_nfev": 8,
+          "optimizer_status": 2,
+          "optimizer_success": true,
+          "residual_norm": 0.03046391998887225,
+          "seed_index": 0
+        },
+        "free_slots": [
+          "pre:q1:ry",
+          "mid:q1:rz0",
+          "mid:q1:ry",
+          "post:q1:rz0",
+          "post:q1:ry"
+        ]
+      },
+      "context_index": 2,
+      "context_operation": {
+        "angle": 0.28861107553559073,
+        "gate": "rz",
+        "line": 221,
+        "qubits": [
+          2
+        ],
+        "text": "rz(0.28861107553559073) q[2];"
+      },
+      "direction": "after",
+      "line_span": [
+        213,
+        220
+      ],
+      "passing_family_count": 0,
+      "target": 2,
+      "tested_family_count": 243
+    },
+    {
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "b7_credit": 0,
+      "best_candidate": {
+        "arbitrary_rotation_count": 5,
+        "candidate_cnot_count": 2,
+        "cnot_directions": [
+          "01",
+          "01"
+        ],
+        "family_index": 52,
+        "family_label": "cx01-cx01|fixed[mid:q1:rz1=pi]|free[pre:q1:ry,mid:q1:rz0,mid:q1:ry,post:q1:rz0,post:q1:ry]",
+        "fit": {
+          "fitted_parameters": [
+            -0.6004381413890179,
+            2.0955954314049876,
+            0.039372412392616664,
+            4.187589875678033,
+            0.9388122578560031
+          ],
+          "max_abs_entry_error": 0.017332463390115856,
+          "optimizer_nfev": 8,
+          "optimizer_status": 2,
+          "optimizer_success": true,
+          "residual_norm": 0.03046391998887225,
+          "seed_index": 0
+        },
+        "free_slots": [
+          "pre:q1:ry",
+          "mid:q1:rz0",
+          "mid:q1:ry",
+          "post:q1:rz0",
+          "post:q1:ry"
+        ]
+      },
+      "context_index": 3,
+      "context_operation": {
+        "angle": 0.28861107553559073,
+        "gate": "rz",
+        "line": 314,
+        "qubits": [
+          10
+        ],
+        "text": "rz(0.28861107553559073) q[10];"
+      },
+      "direction": "after",
+      "line_span": [
+        306,
+        313
+      ],
+      "passing_family_count": 0,
+      "target": 10,
+      "tested_family_count": 243
+    },
+    {
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "b7_credit": 0,
+      "best_candidate": {
+        "arbitrary_rotation_count": 5,
+        "candidate_cnot_count": 2,
+        "cnot_directions": [
+          "01",
+          "01"
+        ],
+        "family_index": 52,
+        "family_label": "cx01-cx01|fixed[mid:q1:rz1=pi]|free[pre:q1:ry,mid:q1:rz0,mid:q1:ry,post:q1:rz0,post:q1:ry]",
+        "fit": {
+          "fitted_parameters": [
+            -0.6004381413890179,
+            2.0955954314049876,
+            0.039372412392616664,
+            4.187589875678033,
+            0.9388122578560031
+          ],
+          "max_abs_entry_error": 0.017332463390115856,
+          "optimizer_nfev": 8,
+          "optimizer_status": 2,
+          "optimizer_success": true,
+          "residual_norm": 0.03046391998887225,
+          "seed_index": 0
+        },
+        "free_slots": [
+          "pre:q1:ry",
+          "mid:q1:rz0",
+          "mid:q1:ry",
+          "post:q1:rz0",
+          "post:q1:ry"
+        ]
+      },
+      "context_index": 4,
+      "context_operation": {
+        "angle": 0.28861107553559073,
+        "gate": "rz",
+        "line": 898,
+        "qubits": [
+          2
+        ],
+        "text": "rz(0.28861107553559073) q[2];"
+      },
+      "direction": "after",
+      "line_span": [
+        890,
+        897
+      ],
+      "passing_family_count": 0,
+      "target": 2,
+      "tested_family_count": 243
+    },
+    {
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "b7_credit": 0,
+      "best_candidate": {
+        "arbitrary_rotation_count": 5,
+        "candidate_cnot_count": 2,
+        "cnot_directions": [
+          "01",
+          "01"
+        ],
+        "family_index": 52,
+        "family_label": "cx01-cx01|fixed[mid:q1:rz1=pi]|free[pre:q1:ry,mid:q1:rz0,mid:q1:ry,post:q1:rz0,post:q1:ry]",
+        "fit": {
+          "fitted_parameters": [
+            -0.6004381413890179,
+            2.0955954314049876,
+            0.039372412392616664,
+            4.187589875678033,
+            0.9388122578560031
+          ],
+          "max_abs_entry_error": 0.017332463390115856,
+          "optimizer_nfev": 8,
+          "optimizer_status": 2,
+          "optimizer_success": true,
+          "residual_norm": 0.03046391998887225,
+          "seed_index": 0
+        },
+        "free_slots": [
+          "pre:q1:ry",
+          "mid:q1:rz0",
+          "mid:q1:ry",
+          "post:q1:rz0",
+          "post:q1:ry"
+        ]
+      },
+      "context_index": 5,
+      "context_operation": {
+        "angle": 0.28861107553559073,
+        "gate": "rz",
+        "line": 984,
+        "qubits": [
+          10
+        ],
+        "text": "rz(0.28861107553559073) q[10];"
+      },
+      "direction": "after",
+      "line_span": [
+        976,
+        983
+      ],
+      "passing_family_count": 0,
+      "target": 10,
+      "tested_family_count": 243
+    },
+    {
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "b7_credit": 0,
+      "best_candidate": {
+        "arbitrary_rotation_count": 5,
+        "candidate_cnot_count": 2,
+        "cnot_directions": [
+          "01",
+          "01"
+        ],
+        "family_index": 52,
+        "family_label": "cx01-cx01|fixed[mid:q1:rz1=pi]|free[pre:q1:ry,mid:q1:rz0,mid:q1:ry,post:q1:rz0,post:q1:ry]",
+        "fit": {
+          "fitted_parameters": [
+            -0.6004381413890179,
+            2.0955954314049876,
+            0.039372412392616664,
+            4.187589875678033,
+            0.9388122578560031
+          ],
+          "max_abs_entry_error": 0.017332463390115856,
+          "optimizer_nfev": 8,
+          "optimizer_status": 2,
+          "optimizer_success": true,
+          "residual_norm": 0.03046391998887225,
+          "seed_index": 0
+        },
+        "free_slots": [
+          "pre:q1:ry",
+          "mid:q1:rz0",
+          "mid:q1:ry",
+          "post:q1:rz0",
+          "post:q1:ry"
+        ]
+      },
+      "context_index": 6,
+      "context_operation": {
+        "angle": 0.28861107553559073,
+        "gate": "rz",
+        "line": 1512,
+        "qubits": [
+          8
+        ],
+        "text": "rz(0.28861107553559073) q[8];"
+      },
+      "direction": "after",
+      "line_span": [
+        1504,
+        1511
+      ],
+      "passing_family_count": 0,
+      "target": 8,
+      "tested_family_count": 243
+    },
+    {
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "b7_credit": 0,
+      "best_candidate": {
+        "arbitrary_rotation_count": 5,
+        "candidate_cnot_count": 2,
+        "cnot_directions": [
+          "01",
+          "01"
+        ],
+        "family_index": 52,
+        "family_label": "cx01-cx01|fixed[mid:q1:rz1=pi]|free[pre:q1:ry,mid:q1:rz0,mid:q1:ry,post:q1:rz0,post:q1:ry]",
+        "fit": {
+          "fitted_parameters": [
+            -0.6004381413890179,
+            2.0955954314049876,
+            0.039372412392616664,
+            4.187589875678033,
+            0.9388122578560031
+          ],
+          "max_abs_entry_error": 0.017332463390115856,
+          "optimizer_nfev": 8,
+          "optimizer_status": 2,
+          "optimizer_success": true,
+          "residual_norm": 0.03046391998887225,
+          "seed_index": 0
+        },
+        "free_slots": [
+          "pre:q1:ry",
+          "mid:q1:rz0",
+          "mid:q1:ry",
+          "post:q1:rz0",
+          "post:q1:ry"
+        ]
+      },
+      "context_index": 7,
+      "context_operation": {
+        "angle": 0.28861107553559073,
+        "gate": "rz",
+        "line": 1681,
+        "qubits": [
+          14
+        ],
+        "text": "rz(0.28861107553559073) q[14];"
+      },
+      "direction": "after",
+      "line_span": [
+        1673,
+        1680
+      ],
+      "passing_family_count": 0,
+      "target": 14,
+      "tested_family_count": 243
+    }
+  ],
+  "source_bindings": {
+    "neighborhood_result": "results/B7_w8_21_neighborhood_transfer_v0.json",
+    "neighborhood_result_sha256": "9680c4bb43cdf68c4b22431344893e84754a44d13995222c653ed23cc687e38d",
+    "scan_report": "results/B7_nonlocal_template_block_scan_v0.json",
+    "scan_report_sha256": "935891545a932cb2a436dff6c1dcd10dcbcc771cfed779c4371eecd877d502c5",
+    "source_qasm": "results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+    "source_qasm_sha256": "b0788a68e501faa55d1627a8f98e9c8ce009eaba5bee2a8a921122a1af070e9e"
+  },
+  "status": "parameter_relocation_search_complete_no_five_angle_context_replay",
+  "summary": {
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "attempted_optimizer_runs": 3402,
+    "b7_credit": 0,
+    "b7_ledger_improvement_claimed": false,
+    "baseline_arbitrary_parameter_count": 6,
+    "baseline_cnot_count": 2,
+    "best_residual_norm": 0.03046391998887225,
+    "candidate_arbitrary_parameter_count": 5,
+    "candidate_cnot_count": 2,
+    "exact_context_count": 0,
+    "resource_saving_claimed": false,
+    "rewrite_claimed": false,
+    "tested_context_count": 7,
+    "validation_error_count": 0
+  },
+  "template_id": "w8_21",
+  "title": "B7 w8_21 parameter relocation search",
+  "validation_errors": []
+}

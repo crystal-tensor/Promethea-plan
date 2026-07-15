@@ -148,6 +148,17 @@ zero savings; commuting the carrier through a CX boundary in the declared
 construction costs 4 CNOTs and still 6 arbitrary parameters. This is a
 carrier-aware semantic control, not a global necessity theorem or B7 credit.
 
+The latest B1/B7 control searches a different route: it relocates the five
+arbitrary angles across the local Euler slots while retaining two CX gates and
+the exact `mid:q1:rz1=pi` scaffold. The exact source placement is excluded;
+243 relocated families are tested against the seven source-bound external-Rz
+contexts with 3,402 deterministic optimizer runs. No exact five-angle context
+replay is found; the best residual is `0.03046391998887225`. This closes only
+the declared relocated-Euler family. It does not prove that six parameters are
+globally necessary, and occurrence removal, proxy-T reduction, and B7 credit
+remain 0. The next high-value route is symbolic invariant analysis or a
+genuinely different Clifford scaffold.
+
 The current B5/B10 line has recently moved from small-cluster denominators to
 seeded MPS pressure, non-seeded one-site MPS/ALS pressure, and a two-site
 finite-DMRG-style pressure prototype. B5 now has a canonical-DMRG readiness

@@ -8900,6 +8900,25 @@
       "tested_context_count": 7,
       "validation_error_count": 0
     },
+    "w8_21_parameter_relocation": {
+      "accepted_occurrence_removal": 0,
+      "accepted_proxy_t_reduction": 0,
+      "attempted_optimizer_runs": 3402,
+      "b7_credit": 0,
+      "best_residual_norm": 0.03046391998887225,
+      "classification": "bounded_relocated_euler_family_context_boundary",
+      "exact_context_count": 0,
+      "family_count": 243,
+      "markdown_exists": true,
+      "markdown_report": "../research/B7_w8_21_parameter_relocation_search.md",
+      "method": "b7_w8_21_parameter_relocation_search_v0",
+      "result": "../results/B7_w8_21_parameter_relocation_search_v0.json",
+      "result_exists": true,
+      "status": "parameter_relocation_search_complete_no_five_angle_context_replay",
+      "template_id": "w8_21",
+      "tested_context_count": 7,
+      "validation_error_count": 0
+    },
     "w8_21_scoped_minimality_note": {
       "exact_rewrite_found": false,
       "global_two_qubit_lower_bound_claimed": false,
@@ -11653,6 +11672,7 @@
     "b7_w8_21_controlled_invariant_closure": "research/B7_w8_21_controlled_invariant_closure.md",
     "b7_w8_21_euler_local_search": "research/B7_w8_21_euler_local_search.md",
     "b7_w8_21_neighborhood_transfer": "research/B7_w8_21_neighborhood_transfer.md",
+    "b7_w8_21_parameter_relocation_search": "research/B7_w8_21_parameter_relocation_search.md",
     "b7_w8_21_scoped_minimality_note": "research/B7_w8_21_scoped_minimality_note.md",
     "b7_w8_21_small_block_synthesis": "research/B7_w8_21_small_block_synthesis.md",
     "b7_w8_21_symbolic_certificate": "research/B7_w8_21_symbolic_certificate.md",

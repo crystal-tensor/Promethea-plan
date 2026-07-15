@@ -5679,6 +5679,25 @@ current_results:
     caveat: carrier_pricing_control_not_global_necessity_theorem_or_full_circuit_rewrite
     result: ../results/B7_w8_21_carrier_pricing_v0.json
     markdown_report: ../research/B7_w8_21_carrier_pricing.md
+  w8_21_parameter_relocation_search_v0:
+    status: parameter_relocation_search_complete_no_five_angle_context_replay
+    method: b7_w8_21_parameter_relocation_search_v0
+    template_id: w8_21
+    classification: bounded_relocated_euler_family_context_boundary
+    tested_context_count: 7
+    exact_context_count: 0
+    best_residual_norm: 0.03046391998887225
+    attempted_optimizer_runs: 3402
+    family_count: 243
+    seed_count: 2
+    exact_tolerance: 1.0e-10
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_credit: 0
+    interpretation: no_exact_five_angle_relocated_family_replays_any_selected_external_rz_context
+    caveat: bounded_relocated_euler_family_not_global_minimality_or_full_circuit_claim
+    result: ../results/B7_w8_21_parameter_relocation_search_v0.json
+    markdown_report: ../research/B7_w8_21_parameter_relocation_search.md
 prototype_artifacts:
   resource_model: ../tools/b7_fault_tolerance_codesign.py
   dependency_schedule_bridge: ../tools/b7_dependency_schedule_bridge.py
@@ -5740,4 +5759,5 @@ prototype_artifacts:
   w8_21_symbolic_certificate_ledger_retest: ../tools/b7_w8_21_symbolic_certificate_ledger_retest.py
   w8_21_neighborhood_transfer: ../tools/b7_w8_21_neighborhood_transfer.py
   w8_21_carrier_pricing: ../tools/b7_w8_21_carrier_pricing.py
+  w8_21_parameter_relocation_search: ../tools/b7_w8_21_parameter_relocation_search.py
   prototype_notes: ../research/B7_prototype_notes.md
