@@ -1,0 +1,119 @@
+{
+  "method": "b4_b8_r170_near_tie_design_preflight_v0",
+  "version": 0,
+  "title": "B4/B8 R170 near-tie design preflight",
+  "status": "near_tie_design_preflight_complete",
+  "classification": "one_ulp_source_gap_observed",
+  "source_target_id": "T-B4-002cn/T-B8-003cr/T-B10-009cd-r170-design",
+  "input": "benchmarks/B4_B8_R170_near_tie_candidate_v0.qasm",
+  "input_sha256": "95a926719ef49ac7e49c727b8ca1f947f66dc61f01eee9374aff50848ce28ce1",
+  "target": {
+    "backend": "FakeNairobiV2",
+    "descriptor_sha256": "702c8fd9dcf67a069e7af63e31a57c74c17aaa5e3c5b6d8c2e28ec0c049c0de7"
+  },
+  "instrumented_binary_sha256": "56101c7bedbaa157c341542d18b95e60b9d37acb9f29d6305fa2f7337cb8fd69",
+  "graph": {
+    "active_qubit_count": 5,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "ordered_edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "unique_edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ]
+    ]
+  },
+  "candidates": [
+    {
+      "candidate_index": 2,
+      "mapping_terms": "v1->p5|v2->p3|v0->p4|v3->p1|v4->p2",
+      "source_score_bits": 4585716242646111997,
+      "source_score": 0.03854848114546703,
+      "exact_score_numerator": "88886745765081051",
+      "exact_score_denominator": "2305843009213693952"
+    },
+    {
+      "candidate_index": 1,
+      "mapping_terms": "v1->p1|v2->p3|v0->p2|v3->p5|v4->p4",
+      "source_score_bits": 4585716242646111998,
+      "source_score": 0.03854848114546704,
+      "exact_score_numerator": "88886745765081051",
+      "exact_score_denominator": "2305843009213693952"
+    },
+    {
+      "candidate_index": 0,
+      "mapping_terms": "v1->p1|v2->p3|v0->p0|v3->p5|v4->p4",
+      "source_score_bits": 4586969392788064522,
+      "source_score": 0.04724395702614188,
+      "exact_score_numerator": "54468574018160717",
+      "exact_score_denominator": "1152921504606846976"
+    }
+  ],
+  "summary": {
+    "qiskit_calls_performed": 1,
+    "candidate_event_count": 3,
+    "candidate_count": 3,
+    "best_two_source_score_gap": 6.938893903907228e-18,
+    "best_two_source_score_gap_ulp_ratio": 1.0,
+    "source_score_gap_is_one_ulp": true,
+    "simulation_execution_count": 0,
+    "total_simulated_shots": 0,
+    "route_change_performed": false
+  },
+  "claim_boundary": {
+    "what_is_supported": "a one-call design preflight exposing a near-tied source-score pair on the frozen input",
+    "what_is_not_supported": "a full replay, arithmetic-policy conclusion, production mapping change, confirmed Qiskit bug, hardware relevance, quantum advantage, BQP separation, solved B4/B8/B10, or new credit"
+  },
+  "payload_hash": "9212a841e77edaf4073aa0cf00ec40931b62fc5fd0504719230642ae8bc38658"
+}

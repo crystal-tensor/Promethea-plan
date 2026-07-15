@@ -1,0 +1,101 @@
+{
+  "method": "b4_b8_r170_near_tie_candidate_protocol_v0",
+  "status": "near_tie_candidate_protocol_frozen_before_execution",
+  "title": "B4/B8 R170 near-tie complete-candidate replay protocol",
+  "version": 0,
+  "input_path": "benchmarks/B4_B8_R170_near_tie_candidate_v0.qasm",
+  "input_sha256": "95a926719ef49ac7e49c727b8ca1f947f66dc61f01eee9374aff50848ce28ce1",
+  "input_description": "five-active-qubit target-compatible tree input selected by a one-call design preflight with a one-ULP source-score gap between the best two candidates",
+  "snapshot_name": "FakeNairobiV2",
+  "qiskit_source_commit": "0fd015a22b84c9082173597a5d2304dc0aaec08c",
+  "instrumented_binary_sha256": "56101c7bedbaa157c341542d18b95e60b9d37acb9f29d6305fa2f7337cb8fd69",
+  "process_environment": [
+    "MKL_NUM_THREADS",
+    "OMP_NUM_THREADS",
+    "OPENBLAS_NUM_THREADS",
+    "PYTHONHASHSEED",
+    "QISKIT_PARALLEL",
+    "RAYON_NUM_THREADS"
+  ],
+  "frozen_software": {
+    "python": "3.12.6",
+    "qiskit": "2.4.1"
+  },
+  "vf2_configuration": {
+    "call_limit": 30000000,
+    "max_trials": 250000,
+    "score_initial_layout": true,
+    "shuffle_seed": -1,
+    "strict_direction": false,
+    "time_limit": null
+  },
+  "profiles": [
+    {
+      "profile_id": "native_hashset_order",
+      "operation_order": "native",
+      "replay_count": 64
+    },
+    {
+      "profile_id": "ascending_sorted_order",
+      "operation_order": "ascending",
+      "replay_count": 64
+    },
+    {
+      "profile_id": "descending_sorted_order",
+      "operation_order": "descending",
+      "replay_count": 64
+    }
+  ],
+  "profile_count": 3,
+  "total_process_count": 3,
+  "total_replay_count": 192,
+  "candidate_event_schema": {
+    "yielded_candidate": "every complete mapping yielded by the VF2 iterator, retaining candidate index, mapping labels, source score bits, retained leaves, and enumeration order",
+    "returned_candidate": "the final mapping and score returned by minimize_vf2_with_score, retained separately for source replay validation",
+    "candidate_set_boundary": "only candidates yielded by the frozen source iterator are replayed; alternate search traversal is not claimed"
+  },
+  "selection_rule": {
+    "enumeration": "preserve observed candidate_index order",
+    "incumbent": "first yielded complete candidate",
+    "replace": "replace incumbent when the policy comparison is Less",
+    "tie": "retain first-seen incumbent",
+    "policies": [
+      "source_f64",
+      "compensated_fsum",
+      "exact_binary64_leaf",
+      "tie_aware_1ulp"
+    ]
+  },
+  "design_preflight": {
+    "method": "b4_b8_r170_near_tie_design_preflight_v0",
+    "result_path": "results/B4_B8_R170_near_tie_design_preflight_v0.json",
+    "report_path": "research/B4_B8_R170_near_tie_design_preflight.md",
+    "payload_hash": "9212a841e77edaf4073aa0cf00ec40931b62fc5fd0504719230642ae8bc38658",
+    "candidate_count": 3,
+    "best_two_source_score_gap": 6.938893903907228e-18,
+    "best_two_source_score_gap_ulp_ratio": 1.0
+  },
+  "execution_boundary": {
+    "qiskit_calls_performed": 192,
+    "candidate_selection_performed": true,
+    "route_change_performed": false,
+    "simulation_execution_count": 0,
+    "total_simulated_shots": 0,
+    "sampling_performed": false,
+    "new_hidden_seed_count": 0
+  },
+  "claim_boundary": {
+    "what_is_supported": "candidate-level replay over a near-tie target-compatible OpenQASM 3 input under three operation-order profiles and four declared arithmetic policies",
+    "what_is_not_supported": "cross-input generality, a production remedy, an alternate search path, a confirmed Qiskit bug, cross-platform determinism, hardware relevance, route advantage, quantum advantage, BQP separation, solved B4/B8/B10, or new credit"
+  },
+  "source_artifacts": {
+    "r169_result_path": "results/B4_B8_R169_target_compatible_candidate_replay_v0.json",
+    "r169_result_payload_hash": "038bd7d2ef843dc57b323f57c89a6a23a9c09d9c8c2e210540bb83db2286fea3",
+    "r168_result_path": "results/B4_B8_R168_input_target_candidate_feasibility_v0.json",
+    "r168_result_payload_hash": "1ac6f4a5f1265ba5718b35bd0f91714c7dafda6dc736cb2bc7dc5f13eecf8693",
+    "r165_executor_path": "tools/b4_b8_r165_candidate_selection_replay.py",
+    "source_manifest_path": "research/source_lineage/Qiskit_2_4_1_vf2_source_manifest.json",
+    "build_binary_path": "research/source_lineage/Qiskit_2_4_1_R165_candidate_selection_accelerate.cpython-312-darwin.so"
+  },
+  "payload_hash": "b19057e2f0cb849f6f45e5c0fa195c2c6834f981ee6c22c66974a182e26698db"
+}

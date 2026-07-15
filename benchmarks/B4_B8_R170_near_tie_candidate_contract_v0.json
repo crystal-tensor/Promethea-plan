@@ -1,0 +1,100 @@
+{
+  "contract_id": "B4-B8-R170-near-tie-candidate-contract-v0",
+  "contract_status": "public_preregistration_execution_unopened",
+  "execution_started": false,
+  "protocol_path": "results/B4_B8_R170_near_tie_candidate_protocol_v0.json",
+  "protocol_payload_hash": "b19057e2f0cb849f6f45e5c0fa195c2c6834f981ee6c22c66974a182e26698db",
+  "acceptance_conditions": [
+    {
+      "condition_id": "A1",
+      "label": "the near-tie input, protocol, contract, executor, design preflight, R165 helper, R169 result, R168 result, source manifest, and instrumented binary are hash-bound"
+    },
+    {
+      "condition_id": "A2",
+      "label": "three profiles and 192 post-registration candidate-traced calls are present"
+    },
+    {
+      "condition_id": "A3",
+      "label": "every complete candidate retains mapping, source score, leaves, and enumeration index"
+    },
+    {
+      "condition_id": "A4",
+      "label": "source selection reproduces the returned mapping and score on every call"
+    },
+    {
+      "condition_id": "A5",
+      "label": "all four declared arithmetic policies are replayed with first-seen tie handling"
+    },
+    {
+      "condition_id": "A6",
+      "label": "the one-call design preflight and input hash bind the near-tie control before full replay"
+    },
+    {
+      "condition_id": "A7",
+      "label": "zero simulation, shots, sampling, route changes, and hidden seeds are recorded"
+    },
+    {
+      "condition_id": "A8",
+      "label": "candidate-level replay does not claim an alternate search traversal"
+    },
+    {
+      "condition_id": "A9",
+      "label": "R169, R168, and R165 evidence are upstream context only and no cross-input generality is claimed"
+    },
+    {
+      "condition_id": "A10",
+      "label": "forbidden bug, advantage, BQP, solved-frontier, and credit claims remain false"
+    }
+  ],
+  "source_bindings": {
+    "executor": {
+      "path": "tools/b4_b8_r170_near_tie_candidate_replay.py",
+      "sha256": "3d96df166d4a5e0cc79c39a3a3b7facff4e7a5821cacf0395038d75672fb4040"
+    },
+    "protocol": {
+      "path": "results/B4_B8_R170_near_tie_candidate_protocol_v0.json",
+      "sha256": "c65cb120f5689cee9f270ce224d210cd0810055301c4bacfa1494a65cf8b16f0",
+      "payload_hash": "b19057e2f0cb849f6f45e5c0fa195c2c6834f981ee6c22c66974a182e26698db"
+    },
+    "input": {
+      "path": "benchmarks/B4_B8_R170_near_tie_candidate_v0.qasm",
+      "sha256": "95a926719ef49ac7e49c727b8ca1f947f66dc61f01eee9374aff50848ce28ce1"
+    },
+    "design_preflight_executor": {
+      "path": "tools/b4_b8_r170_near_tie_design_preflight.py",
+      "sha256": "3477aa596e4a9411f557cfc9a8ea8ff6505bc709010d1fea36be49811bbef72d"
+    },
+    "design_preflight_result": {
+      "path": "results/B4_B8_R170_near_tie_design_preflight_v0.json",
+      "sha256": "068f2d013c35caa6001e7b94cba1e51913e0bd604d16499a83b28455dbf304df",
+      "payload_hash": "9212a841e77edaf4073aa0cf00ec40931b62fc5fd0504719230642ae8bc38658"
+    },
+    "r169_result": {
+      "path": "results/B4_B8_R169_target_compatible_candidate_replay_v0.json",
+      "sha256": "36295f459fccddacced059b0a36d47484714c043cce259ea588b5fc67a759779",
+      "payload_hash": "038bd7d2ef843dc57b323f57c89a6a23a9c09d9c8c2e210540bb83db2286fea3"
+    },
+    "r168_result": {
+      "path": "results/B4_B8_R168_input_target_candidate_feasibility_v0.json",
+      "sha256": "d7fa92c4cfa1d231195e6b06ff612623b078f48845496e7d86ba0b12f6080a90",
+      "payload_hash": "1ac6f4a5f1265ba5718b35bd0f91714c7dafda6dc736cb2bc7dc5f13eecf8693"
+    },
+    "r165_executor": {
+      "path": "tools/b4_b8_r165_candidate_selection_replay.py",
+      "sha256": "13b0be69f0491245a8a569c293eb13c1aeb58cf209b88814d6712b581acf3718"
+    },
+    "source_manifest": {
+      "path": "research/source_lineage/Qiskit_2_4_1_vf2_source_manifest.json",
+      "sha256": "d57f7b039a232047aa1189a1594f8da4eff14c7688e55d77d27b81d625efd276"
+    },
+    "instrumented_binary": {
+      "path": "research/source_lineage/Qiskit_2_4_1_R165_candidate_selection_accelerate.cpython-312-darwin.so",
+      "sha256": "56101c7bedbaa157c341542d18b95e60b9d37acb9f29d6305fa2f7337cb8fd69"
+    }
+  },
+  "claim_boundary": {
+    "what_is_supported": "a preregistered near-tie target-compatible input candidate-level replay under declared profiles and policies",
+    "what_is_not_supported": "cross-input generality, a production mapping change, an alternate search path, a confirmed Qiskit bug, hardware relevance, route advantage, quantum advantage, BQP separation, solved B4/B8/B10, or new credit"
+  },
+  "payload_hash": "b49b6a94d7c467b8bd8290a4b6b9b8b000c1d6d408a137bc980d6cdf58710840"
+}

@@ -3050,6 +3050,18 @@ general property. No numerical remedy, production mapping change, confirmed
 Qiskit bug, hardware result, quantum advantage, BQP separation, solved B4/B8/B10,
 or new credit is claimed.
 
+`T-B4-002cn` / `T-B8-003cr` / `T-B10-009cd-r170` now freezes the next
+near-tie control before execution. R170 uses a five-active-qubit
+target-compatible tree with edges `(0,1),(1,2),(2,4),(3,4)`. A one-call
+ascending-order design preflight observes `3` candidates and a best-two
+source-score gap of exactly `1.0 ULP`; the preflight performs no mapping
+selection or simulation. The full replay keeps three operation-order profiles,
+`192` calls, and the four arithmetic policies. It is designed to test whether
+the zero policy-difference result from R169 survives deliberate near-tie
+pressure, not to claim a numerical remedy, production mapping change, confirmed
+Qiskit bug, hardware result, quantum advantage, BQP separation, solved B4/B8/B10,
+or new credit.
+
 The R149 holdout at `T-B4-002bh` / `T-B8-003bl` / `T-B10-009az` is
 then preregistered ACCEPT with A1-A10, requirements, and phase replay all
 passing `10/10`, `10/10`, and `4/4`. All `24/24` repaired and target-specific
