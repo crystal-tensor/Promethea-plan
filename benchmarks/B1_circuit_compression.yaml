@@ -7724,6 +7724,42 @@ current_results:
     caveat: r118_cross_type_finite_fingerprint_only_no_exact_arbitrary_unitary_proof_or_b7_credit
     report: ../results/B1_B7_cone01_R118_randomized_channel_fingerprint_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R118_randomized_channel_fingerprint_gate.md
+  b1_b7_cone01_r119_dual_engine_compositional_replay_gate_v0:
+    circuits: 1
+    status: cone01_r119_dual_engine_composition_accepted_finite_evidence
+    model_status: qiskit_numpy_cross_engine_and_prefix_suffix_composition_agree
+    method: b1_b7_cone01_r119_dual_engine_compositional_replay_gate_v0
+    source_target_id: T-B1-004hq/T-B7-016z
+    upstream_target_id: T-B1-004hp/T-B7-016y
+    source_qasm: ../benchmarks/qasmbench_medium_exact/gcm_h6.qasm
+    candidate_qasm: ../results/B1_B7_cone01_R116_measurement_detached_exact_2q_gate/measurement_detached_candidate.qasm
+    source_b1_r119_dual_engine_compositional_replay: ../results/B1_B7_cone01_R119_dual_engine_compositional_replay_gate_v0.json
+    source_two_qubit_gate_count: 762
+    candidate_two_qubit_gate_count: 528
+    two_qubit_gate_delta: -234
+    two_qubit_reduction_pct: 30.708661417322837
+    full_probe_count: 24
+    full_probe_passed: 24
+    composition_count: 48
+    composition_passed: 48
+    max_cross_engine_fidelity_deficit: 3.3306690738754696e-16
+    max_composition_fidelity_deficit: 2.220446049250313e-16
+    negative_control_count: 8
+    negative_control_failed: 8
+    measurement_map_preserved: true
+    dual_engine_finite_acceptance: true
+    arbitrary_input_unitary_proof_claimed: false
+    b7_resource_credit_allowed: false
+    b7_credit_delta: 0
+    counter_transition_accepted: false
+    counter_delta: 0
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r119_dual_engine_finite_composition_only_no_exact_arbitrary_unitary_proof_or_b7_credit
+    report: ../results/B1_B7_cone01_R119_dual_engine_compositional_replay_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R119_dual_engine_compositional_replay_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate
@@ -9401,4 +9437,5 @@ prototype_artifacts:
   b1_b7_cone01_r21_o3_f3_overclaim_sentinel_gate: ../tools/b1_b7_cone01_r21_o3_f3_overclaim_sentinel_gate.py
   b1_b7_cone01_r22_o3_f3_a6_claim_boundary_polarity_gate: ../tools/b1_b7_cone01_r22_o3_f3_a6_claim_boundary_polarity_gate.py
   b1_b7_cone01_r118_randomized_channel_fingerprint_gate: ../tools/b1_b7_cone01_r118_randomized_channel_fingerprint_gate.py
+  b1_b7_cone01_r119_dual_engine_compositional_replay_gate: ../tools/b1_b7_cone01_r119_dual_engine_compositional_replay_gate.py
   synthetic_noise_proxy: ../tools/b1_synthetic_noise_proxy.py

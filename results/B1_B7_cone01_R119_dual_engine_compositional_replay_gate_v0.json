@@ -1,0 +1,149 @@
+{
+  "artifacts": {
+    "composition": "results/B1_B7_cone01_R119_dual_engine_compositional_replay_gate/prefix_suffix_composition.json",
+    "full_replay": "results/B1_B7_cone01_R119_dual_engine_compositional_replay_gate/dual_engine_full_replay.json",
+    "negative_control": "results/B1_B7_cone01_R119_dual_engine_compositional_replay_gate/negative_control.json",
+    "r116_result": "results/B1_B7_cone01_R116_measurement_detached_exact_2q_gate_v0.json",
+    "r118_result": "results/B1_B7_cone01_R118_randomized_channel_fingerprint_gate_v0.json"
+  },
+  "candidate_path": "results/B1_B7_cone01_R116_measurement_detached_exact_2q_gate/measurement_detached_candidate.qasm",
+  "claim_boundary": {
+    "next_gate": "Obtain a genuinely independent compiler candidate or a symbolic local rewrite certificate before any B7 resource credit.",
+    "what_is_not_supported": "Formal arbitrary-input unitary equality, mid-circuit measurement semantics, hardware layout improvement, T-resource reduction, or B7 credit.",
+    "what_is_supported": "Dual-engine finite replay and prefix/suffix composition agree for the R116 source/candidate pair; an inserted-X negative control is detected."
+  },
+  "generated_at_unix": 1784128724,
+  "method": "b1_b7_cone01_r119_dual_engine_compositional_replay_gate_v0",
+  "model_status": "qiskit_numpy_cross_engine_and_prefix_suffix_composition_agree",
+  "payload_hash": "53f99115ee6e7e57c7b539b2849e6333364b1051c5d2609a8d4d3a649fa64a38",
+  "requirement_count": 10,
+  "requirements": [
+    {
+      "evidence": {
+        "r116": "cone01_r116_measurement_detached_exact_2q_accepted_finite_probe",
+        "r118": "cone01_r118_randomized_channel_fingerprint_160_probe_accepted"
+      },
+      "label": "accepted R116 and R118 artifacts are consumed",
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "evidence": {
+        "count": 24,
+        "seed": 119
+      },
+      "label": "same 24 probes are replayed by NumPy and Qiskit",
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "evidence": {
+        "failed": 0,
+        "passed": 24
+      },
+      "label": "source/candidate semantics agree in both engines",
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "evidence": {
+        "max_deficit": 3.3306690738754696e-16,
+        "tolerance": 1e-09
+      },
+      "label": "NumPy and Qiskit agree on full replay outputs",
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "evidence": {
+        "count": 48,
+        "passed": 48
+      },
+      "label": "prefix/suffix composition agrees at three frontiers",
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "evidence": {
+        "max_deficit": 2.220446049250313e-16,
+        "tolerance": 1e-09
+      },
+      "label": "composition and cross-engine deficits stay within tolerance",
+      "passed": true,
+      "requirement_id": "P6"
+    },
+    {
+      "evidence": {
+        "count": 8,
+        "failed": 8
+      },
+      "label": "inserted-X negative control is detected",
+      "passed": true,
+      "requirement_id": "P7"
+    },
+    {
+      "evidence": {
+        "cx": [
+          762,
+          528
+        ],
+        "measurement_map_preserved": true
+      },
+      "label": "source measurement map and CX reduction are preserved",
+      "passed": true,
+      "requirement_id": "P8"
+    },
+    {
+      "evidence": {
+        "composition": "results/B1_B7_cone01_R119_dual_engine_compositional_replay_gate/prefix_suffix_composition.json",
+        "full": "results/B1_B7_cone01_R119_dual_engine_compositional_replay_gate/dual_engine_full_replay.json",
+        "negative": "results/B1_B7_cone01_R119_dual_engine_compositional_replay_gate/negative_control.json"
+      },
+      "label": "replay and composition artifacts are materialized",
+      "passed": true,
+      "requirement_id": "P9"
+    },
+    {
+      "evidence": {
+        "b7_credit_delta": 0,
+        "formal_theorem_proved": false
+      },
+      "label": "formal arbitrary-input, hardware, and B7 claims remain excluded",
+      "passed": true,
+      "requirement_id": "P10"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 10,
+  "source_path": "benchmarks/qasmbench_medium_exact/gcm_h6.qasm",
+  "source_target_id": "T-B1-004hq/T-B7-016z",
+  "status": "cone01_r119_dual_engine_composition_accepted_finite_evidence",
+  "summary": {
+    "b7_credit_delta": 0,
+    "candidate_two_qubit_gate_count": 528,
+    "composition_count": 48,
+    "composition_failed": 0,
+    "composition_passed": 48,
+    "counter_delta": 0,
+    "full_probe_count": 24,
+    "full_probe_failed": 0,
+    "full_probe_passed": 24,
+    "max_composition_fidelity_deficit": 2.220446049250313e-16,
+    "max_cross_engine_fidelity_deficit": 3.3306690738754696e-16,
+    "measurement_map_preserved": true,
+    "method": "b1_b7_cone01_r119_dual_engine_compositional_replay_gate_v0",
+    "model_status": "qiskit_numpy_cross_engine_and_prefix_suffix_composition_agree",
+    "negative_control_count": 8,
+    "negative_control_failed": 8,
+    "new_credit_delta": 0,
+    "source_target_id": "T-B1-004hq/T-B7-016z",
+    "source_two_qubit_gate_count": 762,
+    "status": "cone01_r119_dual_engine_composition_accepted_finite_evidence",
+    "two_qubit_gate_delta": -234,
+    "two_qubit_reduction_pct": 30.708661417322837,
+    "upstream_target_id": "T-B1-004hp/T-B7-016y"
+  },
+  "title": "B1/B7 cone01 R119 dual-engine compositional replay gate",
+  "upstream_target_id": "T-B1-004hp/T-B7-016y",
+  "version": "0.1"
+}

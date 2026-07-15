@@ -4024,3 +4024,13 @@ a confirmed bug. Payload `3cf4927f...`; no hidden evidence, simulation or
 hardware performance, temporal or real-device transfer, general route-
 generation advantage, quantum advantage, BQP separation, solved-frontier
 status, or new credit is claimed.
+
+`T-B1-004hq` / `T-B7-016z` now adds the R119 dual-engine compositional replay
+gate. The R116 source/candidate pair is sent through Qiskit Statevector and the
+independent NumPy engine on 24 structured inputs; all `24/24` source/candidate
+rows and both-engine cross-checks pass. Each circuit is split at one-third,
+one-half, and two-thirds of its gate stream, producing `48/48` prefix/suffix
+composition passes that reconstruct the unsplit output. An inserted `X`
+negative control fails `8/8`. CX remains `762 -> 528`, while formal
+arbitrary-input equivalence, hardware layout, T-resource reduction, and B7
+credit remain outside the claim boundary. Requirements pass `10/10`.

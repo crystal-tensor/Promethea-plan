@@ -4741,6 +4741,39 @@ current_results:
     caveat: r118_cross_type_finite_fingerprint_only_no_exact_arbitrary_unitary_proof_or_b7_credit
     report: ../results/B1_B7_cone01_R118_randomized_channel_fingerprint_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R118_randomized_channel_fingerprint_gate.md
+  b1_b7_cone01_r119_dual_engine_compositional_replay_gate_v0:
+    method: b1_b7_cone01_r119_dual_engine_compositional_replay_gate_v0
+    source_b1_r119_dual_engine_compositional_replay: ../results/B1_B7_cone01_R119_dual_engine_compositional_replay_gate_v0.json
+    source_qasm: ../benchmarks/qasmbench_medium_exact/gcm_h6.qasm
+    candidate_qasm: ../results/B1_B7_cone01_R116_measurement_detached_exact_2q_gate/measurement_detached_candidate.qasm
+    source_target_id: T-B1-004hq/T-B7-016z
+    upstream_target_id: T-B1-004hp/T-B7-016y
+    source_two_qubit_gate_count: 762
+    candidate_two_qubit_gate_count: 528
+    two_qubit_gate_delta: -234
+    two_qubit_reduction_pct: 30.708661417322837
+    full_probe_count: 24
+    full_probe_passed: 24
+    composition_count: 48
+    composition_passed: 48
+    max_cross_engine_fidelity_deficit: 3.3306690738754696e-16
+    max_composition_fidelity_deficit: 2.220446049250313e-16
+    negative_control_count: 8
+    negative_control_failed: 8
+    measurement_map_preserved: true
+    b7_dependency_credit_allowed: false
+    b7_resource_credit_allowed: false
+    b7_ft_ledger_credit_allowed: false
+    b7_credit_delta: 0
+    counter_transition_accepted: false
+    counter_delta: 0
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    validation_error_count: 0
+    caveat: r119_dual_engine_finite_composition_only_no_exact_arbitrary_unitary_proof_or_b7_credit
+    report: ../results/B1_B7_cone01_R119_dual_engine_compositional_replay_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R119_dual_engine_compositional_replay_gate.md
   b2_calibrated_dependency_credit_gate_v0:
     status: b2_calibrated_dependency_credit_rejected_missing_hardware_evidence
     method: b7_b2_calibrated_dependency_credit_gate_v0
@@ -5938,4 +5971,5 @@ prototype_artifacts:
   w8_21_control_frame_search: ../tools/b7_w8_21_control_frame_search.py
   w8_21_double_control_frame_search: ../tools/b7_w8_21_double_control_frame_search.py
   b1_b7_cone01_r118_randomized_channel_fingerprint_gate: ../tools/b1_b7_cone01_r118_randomized_channel_fingerprint_gate.py
+  b1_b7_cone01_r119_dual_engine_compositional_replay_gate: ../tools/b1_b7_cone01_r119_dual_engine_compositional_replay_gate.py
   prototype_notes: ../research/B7_prototype_notes.md
