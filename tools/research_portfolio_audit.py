@@ -31245,6 +31245,7 @@ def audit(root: Path) -> dict:
         "w8_21_controlled_invariant_closure_v0"
     )
     b7_w8_21_constructive_dressing = b7_results.get("w8_21_constructive_dressing_v0")
+    b7_w8_21_context_absorption = b7_results.get("w8_21_context_absorption_v0")
     b7_status = {}
     if not b7_codesign:
         warnings.append("B7 manifest has no fault-tolerance co-design resource result")
@@ -32642,6 +32643,73 @@ def audit(root: Path) -> dict:
             errors.append("B7 w8_21 constructive dressing must keep B7 credit at zero")
         if claims.get("what_is_supported") is None or claims.get("what_is_not_supported") is None:
             errors.append("B7 w8_21 constructive dressing must include a claim boundary")
+
+    b7_w8_21_context_absorption_status = {}
+    if not b7_w8_21_context_absorption:
+        warnings.append("B7 manifest missing w8_21 context absorption")
+    else:
+        result_path = b7_w8_21_context_absorption.get("result")
+        markdown_path = b7_w8_21_context_absorption.get("markdown_report")
+        result_exists = bool(result_path and path_exists_from(benchmarks, result_path))
+        markdown_exists = bool(markdown_path and path_exists_from(benchmarks, markdown_path))
+        if not result_exists:
+            errors.append(f"B7 w8_21 context absorption result path missing: {result_path}")
+        if not markdown_exists:
+            errors.append(f"B7 w8_21 context absorption markdown missing: {markdown_path}")
+        payload = json.loads(read((benchmarks / result_path).resolve())) if result_exists else {}
+        replay = payload.get("context_replay", {})
+        boundary = payload.get("boundary_accounting", {})
+        resources = payload.get("resource_accounting", {})
+        claims = payload.get("claim_boundary", {})
+        b7_w8_21_context_absorption_status = {
+            "status": b7_w8_21_context_absorption.get("status"),
+            "method": b7_w8_21_context_absorption.get("method"),
+            "template_id": payload.get("template_id"),
+            "classification": payload.get("classification"),
+            "selected_occurrence_count": payload.get("selected_occurrence_count"),
+            "raw_template_occurrence_count": payload.get("raw_template_occurrence_count"),
+            "context_replay_passed": replay.get("context_replay_passed"),
+            "context_replay_total": replay.get("context_replay_total"),
+            "max_context_residual": replay.get("max_context_residual"),
+            "preceding_same_target_rz_merge_count": boundary.get("preceding_same_target_rz_merge_count"),
+            "following_same_target_rz_after_normal_form_ry_count": boundary.get(
+                "following_same_target_rz_after_normal_form_ry_count"
+            ),
+            "direct_rz_merge_count": boundary.get("direct_rz_merge_count"),
+            "requirements_passed": payload.get("requirements_passed"),
+            "requirements_failed": payload.get("requirements_failed"),
+            "accepted_occurrence_removal": resources.get("accepted_occurrence_removal"),
+            "accepted_proxy_t_reduction": resources.get("accepted_proxy_t_reduction"),
+            "b7_credit": resources.get("b7_credit"),
+            "result_exists": result_exists,
+            "markdown_exists": markdown_exists,
+            "result": result_path,
+            "markdown_report": markdown_path,
+        }
+        if payload.get("status") != "context_replay_complete_no_resource_reduction_claim":
+            errors.append("B7 w8_21 context absorption status mismatch")
+        if payload.get("method") != b7_w8_21_context_absorption.get("method"):
+            errors.append("B7 w8_21 context absorption method mismatch")
+        if payload.get("template_id") != "w8_21":
+            errors.append("B7 w8_21 context absorption template mismatch")
+        if payload.get("requirements_passed") != 10 or payload.get("requirements_failed") != 0:
+            errors.append("B7 w8_21 context absorption must pass 10/10 requirements")
+        if payload.get("selected_occurrence_count") != 16 or payload.get("raw_template_occurrence_count") != 20:
+            errors.append("B7 w8_21 context absorption occurrence scope mismatch")
+        if replay.get("context_replay_passed") != replay.get("context_replay_total"):
+            errors.append("B7 w8_21 context absorption context replay is incomplete")
+        if replay.get("max_context_residual", 1.0) >= 1e-12:
+            errors.append("B7 w8_21 context absorption residual exceeds tolerance")
+        if boundary.get("direct_rz_merge_count") != 0:
+            errors.append("B7 w8_21 context absorption must keep direct Rz merge count at zero")
+        if resources.get("accepted_occurrence_removal") != 0:
+            errors.append("B7 w8_21 context absorption must keep occurrence removal at zero")
+        if resources.get("accepted_proxy_t_reduction") != 0:
+            errors.append("B7 w8_21 context absorption must keep proxy-T reduction at zero")
+        if resources.get("b7_credit") != 0:
+            errors.append("B7 w8_21 context absorption must keep B7 credit at zero")
+        if claims.get("what_is_supported") is None or claims.get("what_is_not_supported") is None:
+            errors.append("B7 w8_21 context absorption must include a claim boundary")
 
     b8_manifest = yaml.safe_load(read(b8_manifest_path))
     b8_results = b8_manifest.get("current_results", {})
@@ -43290,6 +43358,7 @@ def audit(root: Path) -> dict:
             "w8_21_claim_boundary_fragment": b7_w8_21_claim_boundary_status,
             "w8_21_controlled_invariant_closure": b7_w8_21_controlled_invariant_status,
             "w8_21_constructive_dressing": b7_w8_21_constructive_dressing_status,
+            "w8_21_context_absorption": b7_w8_21_context_absorption_status,
         },
         "b8": {
             "manifest": str(b8_manifest_path),
@@ -44621,6 +44690,9 @@ def audit(root: Path) -> dict:
             ),
             "b7_w8_21_constructive_dressing": str(
                 research / "B7_w8_21_constructive_dressing.md"
+            ),
+            "b7_w8_21_context_absorption": str(
+                research / "B7_w8_21_context_absorption.md"
             ),
             "b4_b8_circuit_refresh_task": str(research / "B4_B8_circuit_refresh_task.md"),
             "b4_b8_openqasm3_randomized_measurement_packet": str(

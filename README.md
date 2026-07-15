@@ -110,6 +110,15 @@ parameters. It is a reusable synthesis scaffold, but it does not remove an
 occurrence, lower arbitrary-rotation count, reduce proxy-T cost, or add B7
 credit.
 
+The next B1/B7 gate replays the constructive normal form in the real `gcm_h6`
+source context. The upstream scan records 20 raw `w8_21` occurrences and
+selects 16 non-overlapping spans; all 16 context replays pass with maximum
+residual `1.63e-16`. Seven occurrences are followed by a target-local `Rz`,
+but the normal form ends in `Ry(e)`, so the direct `Rz` merge count remains 0.
+The exact rewrite still preserves 2 CNOTs and 5 arbitrary parameters; accepted
+occurrence removal, proxy-T reduction, and B7 credit remain 0. This is a
+real-circuit context boundary, not a full-circuit rewrite or a B7 solution.
+
 The current B5/B10 line has recently moved from small-cluster denominators to
 seeded MPS pressure, non-seeded one-site MPS/ALS pressure, and a two-site
 finite-DMRG-style pressure prototype. B5 now has a canonical-DMRG readiness

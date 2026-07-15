@@ -5568,6 +5568,34 @@ current_results:
     caveat: constructive_identity_and_family_replay_only_not_resource_reduction_or_minimality_theorem
     result: ../results/B7_w8_21_constructive_dressing_v0.json
     markdown_report: ../research/B7_w8_21_constructive_dressing.md
+  w8_21_context_absorption_v0:
+    status: context_replay_complete_no_resource_reduction_claim
+    method: b7_w8_21_context_absorption_v0
+    source_qasm: ../results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/gcm_h6.qasm
+    source_template_scan: ../results/B7_nonlocal_template_block_scan_v0.json
+    template_id: w8_21
+    classification: exact_context_replay_with_boundary_no_go
+    selected_occurrence_count: 16
+    raw_template_occurrence_count: 20
+    context_replay_passed: 16
+    context_replay_total: 16
+    max_context_residual: 1.6302709355362946e-16
+    preceding_same_target_rz_merge_count: 0
+    following_same_target_rz_after_normal_form_ry_count: 7
+    direct_rz_merge_count: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    baseline_cnot_count: 2
+    normal_form_cnot_count: 2
+    baseline_arbitrary_parameter_count: 5
+    normal_form_arbitrary_parameter_count: 5
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_credit: 0
+    interpretation: exact_real_circuit_context_replay_with_zero_direct_boundary_merge
+    caveat: selected_context_boundary_only_not_full_circuit_rewrite_or_physical_layout_claim
+    result: ../results/B7_w8_21_context_absorption_v0.json
+    markdown_report: ../research/B7_w8_21_context_absorption.md
 prototype_artifacts:
   resource_model: ../tools/b7_fault_tolerance_codesign.py
   dependency_schedule_bridge: ../tools/b7_dependency_schedule_bridge.py

@@ -1,0 +1,677 @@
+{
+  "artifacts": {
+    "markdown_report": "research/B7_w8_21_context_absorption.md",
+    "result": "results/B7_w8_21_context_absorption_v0.json",
+    "source_bindings": [
+      "results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+      "results/B7_nonlocal_template_block_scan_v0.json"
+    ]
+  },
+  "boundary_accounting": {
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "b7_credit": 0,
+    "direct_rz_merge_count": 0,
+    "following_same_target_rz_after_normal_form_ry_count": 7,
+    "preceding_same_target_rz_merge_count": 0
+  },
+  "claim_boundary": {
+    "what_is_not_supported": "a direct boundary Rz merge, occurrence removal, proxy-T reduction, full-circuit rewrite, physical-layout reduction, lower bound, B7 credit, or solved B1/B7 frontier",
+    "what_is_supported": "all 20 selected real gcm_h6 w8_21 occurrences replay exactly under the constructive normal form, including immediately adjacent target-local context where present"
+  },
+  "classification": "exact_context_replay_with_boundary_no_go",
+  "context_replay": {
+    "context_replay_passed": 16,
+    "context_replay_total": 16,
+    "max_context_residual": 1.6302709355362946e-16,
+    "rows": [
+      {
+        "context_replay_passed": true,
+        "context_replay_residual": 1.6302709355362946e-16,
+        "control": 14,
+        "following_angle_on_pi_over_4_grid": false,
+        "following_operation": {
+          "angle": 0.28861107553559073,
+          "angle_text": "0.28861107553559073",
+          "gate": "rz",
+          "line": 63,
+          "qubits": [
+            13
+          ],
+          "text": "rz(0.28861107553559073) q[13];"
+        },
+        "following_rz_blocker": "normal_form_ends_with_ry_e_before_following_rz",
+        "following_rz_is_direct_merge": false,
+        "following_same_target_rz_after_normal_form_ry": true,
+        "line_span": [
+          55,
+          62
+        ],
+        "preceding_operation": {
+          "angle": 0.7853981633974483,
+          "angle_text": "pi/4",
+          "gate": "ry",
+          "line": 54,
+          "qubits": [
+            1
+          ],
+          "text": "ry(pi/4) q[1];"
+        },
+        "preceding_same_target_rz_merge": false,
+        "target": 13
+      },
+      {
+        "context_replay_passed": true,
+        "context_replay_residual": 1.6302709355362946e-16,
+        "control": 14,
+        "following_angle_on_pi_over_4_grid": false,
+        "following_operation": {
+          "angle": 0.28861107553559073,
+          "angle_text": "0.28861107553559073",
+          "gate": "rz",
+          "line": 221,
+          "qubits": [
+            2
+          ],
+          "text": "rz(0.28861107553559073) q[2];"
+        },
+        "following_rz_blocker": "normal_form_ends_with_ry_e_before_following_rz",
+        "following_rz_is_direct_merge": false,
+        "following_same_target_rz_after_normal_form_ry": true,
+        "line_span": [
+          213,
+          220
+        ],
+        "preceding_operation": {
+          "angle": 0.7853981633974483,
+          "angle_text": "pi/4",
+          "gate": "ry",
+          "line": 212,
+          "qubits": [
+            13
+          ],
+          "text": "ry(pi/4) q[13];"
+        },
+        "preceding_same_target_rz_merge": false,
+        "target": 2
+      },
+      {
+        "context_replay_passed": true,
+        "context_replay_residual": 1.6302709355362946e-16,
+        "control": 14,
+        "following_angle_on_pi_over_4_grid": false,
+        "following_operation": {
+          "angle": 0.28861107553559073,
+          "angle_text": "0.28861107553559073",
+          "gate": "rz",
+          "line": 314,
+          "qubits": [
+            10
+          ],
+          "text": "rz(0.28861107553559073) q[10];"
+        },
+        "following_rz_blocker": "normal_form_ends_with_ry_e_before_following_rz",
+        "following_rz_is_direct_merge": false,
+        "following_same_target_rz_after_normal_form_ry": true,
+        "line_span": [
+          306,
+          313
+        ],
+        "preceding_operation": {
+          "angle": 0.7853981633974483,
+          "angle_text": "pi/4",
+          "gate": "ry",
+          "line": 305,
+          "qubits": [
+            2
+          ],
+          "text": "ry(pi/4) q[2];"
+        },
+        "preceding_same_target_rz_merge": false,
+        "target": 10
+      },
+      {
+        "context_replay_passed": true,
+        "context_replay_residual": 1.6302709355362946e-16,
+        "control": 16,
+        "following_angle_on_pi_over_4_grid": false,
+        "following_operation": {
+          "angle": 2.356194490192345,
+          "angle_text": "3*pi/4",
+          "gate": "rz",
+          "line": 540,
+          "qubits": [
+            14
+          ],
+          "text": "rz(3*pi/4) q[14];"
+        },
+        "following_rz_blocker": null,
+        "following_rz_is_direct_merge": false,
+        "following_same_target_rz_after_normal_form_ry": false,
+        "line_span": [
+          532,
+          539
+        ],
+        "preceding_operation": {
+          "angle": null,
+          "angle_text": null,
+          "gate": "cx",
+          "line": 531,
+          "qubits": [
+            16,
+            14
+          ],
+          "text": "cx q[16],q[14];"
+        },
+        "preceding_same_target_rz_merge": false,
+        "target": 10
+      },
+      {
+        "context_replay_passed": true,
+        "context_replay_residual": 1.6302709355362946e-16,
+        "control": 16,
+        "following_angle_on_pi_over_4_grid": false,
+        "following_operation": {
+          "angle": 2.356194490192345,
+          "angle_text": "3*pi/4",
+          "gate": "rz",
+          "line": 596,
+          "qubits": [
+            10
+          ],
+          "text": "rz(3*pi/4) q[10];"
+        },
+        "following_rz_blocker": null,
+        "following_rz_is_direct_merge": false,
+        "following_same_target_rz_after_normal_form_ry": false,
+        "line_span": [
+          588,
+          595
+        ],
+        "preceding_operation": {
+          "angle": null,
+          "angle_text": null,
+          "gate": "cx",
+          "line": 587,
+          "qubits": [
+            16,
+            10
+          ],
+          "text": "cx q[16],q[10];"
+        },
+        "preceding_same_target_rz_merge": false,
+        "target": 2
+      },
+      {
+        "context_replay_passed": true,
+        "context_replay_residual": 1.6302709355362946e-16,
+        "control": 16,
+        "following_angle_on_pi_over_4_grid": false,
+        "following_operation": {
+          "angle": 2.356194490192345,
+          "angle_text": "3*pi/4",
+          "gate": "rz",
+          "line": 652,
+          "qubits": [
+            2
+          ],
+          "text": "rz(3*pi/4) q[2];"
+        },
+        "following_rz_blocker": null,
+        "following_rz_is_direct_merge": false,
+        "following_same_target_rz_after_normal_form_ry": false,
+        "line_span": [
+          644,
+          651
+        ],
+        "preceding_operation": {
+          "angle": null,
+          "angle_text": null,
+          "gate": "cx",
+          "line": 643,
+          "qubits": [
+            16,
+            2
+          ],
+          "text": "cx q[16],q[2];"
+        },
+        "preceding_same_target_rz_merge": false,
+        "target": 13
+      },
+      {
+        "context_replay_passed": true,
+        "context_replay_residual": 1.6302709355362946e-16,
+        "control": 13,
+        "following_angle_on_pi_over_4_grid": false,
+        "following_operation": {
+          "angle": 2.356194490192345,
+          "angle_text": "3*pi/4",
+          "gate": "rz",
+          "line": 719,
+          "qubits": [
+            16
+          ],
+          "text": "rz(3*pi/4) q[16];"
+        },
+        "following_rz_blocker": null,
+        "following_rz_is_direct_merge": false,
+        "following_same_target_rz_after_normal_form_ry": false,
+        "line_span": [
+          711,
+          718
+        ],
+        "preceding_operation": {
+          "angle": null,
+          "angle_text": null,
+          "gate": "cx",
+          "line": 710,
+          "qubits": [
+            13,
+            16
+          ],
+          "text": "cx q[13],q[16];"
+        },
+        "preceding_same_target_rz_merge": false,
+        "target": 1
+      },
+      {
+        "context_replay_passed": true,
+        "context_replay_residual": 1.6302709355362946e-16,
+        "control": 16,
+        "following_angle_on_pi_over_4_grid": false,
+        "following_operation": {
+          "angle": 0.28861107553559073,
+          "angle_text": "0.28861107553559073",
+          "gate": "rz",
+          "line": 898,
+          "qubits": [
+            2
+          ],
+          "text": "rz(0.28861107553559073) q[2];"
+        },
+        "following_rz_blocker": "normal_form_ends_with_ry_e_before_following_rz",
+        "following_rz_is_direct_merge": false,
+        "following_same_target_rz_after_normal_form_ry": true,
+        "line_span": [
+          890,
+          897
+        ],
+        "preceding_operation": {
+          "angle": 0.7853981633974483,
+          "angle_text": "pi/4",
+          "gate": "ry",
+          "line": 889,
+          "qubits": [
+            13
+          ],
+          "text": "ry(pi/4) q[13];"
+        },
+        "preceding_same_target_rz_merge": false,
+        "target": 2
+      },
+      {
+        "context_replay_passed": true,
+        "context_replay_residual": 1.6302709355362946e-16,
+        "control": 16,
+        "following_angle_on_pi_over_4_grid": false,
+        "following_operation": {
+          "angle": 0.28861107553559073,
+          "angle_text": "0.28861107553559073",
+          "gate": "rz",
+          "line": 984,
+          "qubits": [
+            10
+          ],
+          "text": "rz(0.28861107553559073) q[10];"
+        },
+        "following_rz_blocker": "normal_form_ends_with_ry_e_before_following_rz",
+        "following_rz_is_direct_merge": false,
+        "following_same_target_rz_after_normal_form_ry": true,
+        "line_span": [
+          976,
+          983
+        ],
+        "preceding_operation": {
+          "angle": 0.7853981633974483,
+          "angle_text": "pi/4",
+          "gate": "ry",
+          "line": 975,
+          "qubits": [
+            2
+          ],
+          "text": "ry(pi/4) q[2];"
+        },
+        "preceding_same_target_rz_merge": false,
+        "target": 10
+      },
+      {
+        "context_replay_passed": true,
+        "context_replay_residual": 1.6302709355362946e-16,
+        "control": 14,
+        "following_angle_on_pi_over_4_grid": false,
+        "following_operation": {
+          "angle": 2.356194490192345,
+          "angle_text": "3*pi/4",
+          "gate": "rz",
+          "line": 1231,
+          "qubits": [
+            16
+          ],
+          "text": "rz(3*pi/4) q[16];"
+        },
+        "following_rz_blocker": null,
+        "following_rz_is_direct_merge": false,
+        "following_same_target_rz_after_normal_form_ry": false,
+        "line_span": [
+          1223,
+          1230
+        ],
+        "preceding_operation": {
+          "angle": null,
+          "angle_text": null,
+          "gate": "cx",
+          "line": 1222,
+          "qubits": [
+            14,
+            16
+          ],
+          "text": "cx q[14],q[16];"
+        },
+        "preceding_same_target_rz_merge": false,
+        "target": 10
+      },
+      {
+        "context_replay_passed": true,
+        "context_replay_residual": 1.6302709355362946e-16,
+        "control": 14,
+        "following_angle_on_pi_over_4_grid": false,
+        "following_operation": {
+          "angle": 2.356194490192345,
+          "angle_text": "3*pi/4",
+          "gate": "rz",
+          "line": 1287,
+          "qubits": [
+            10
+          ],
+          "text": "rz(3*pi/4) q[10];"
+        },
+        "following_rz_blocker": null,
+        "following_rz_is_direct_merge": false,
+        "following_same_target_rz_after_normal_form_ry": false,
+        "line_span": [
+          1279,
+          1286
+        ],
+        "preceding_operation": {
+          "angle": null,
+          "angle_text": null,
+          "gate": "cx",
+          "line": 1278,
+          "qubits": [
+            14,
+            10
+          ],
+          "text": "cx q[14],q[10];"
+        },
+        "preceding_same_target_rz_merge": false,
+        "target": 2
+      },
+      {
+        "context_replay_passed": true,
+        "context_replay_residual": 1.6302709355362946e-16,
+        "control": 14,
+        "following_angle_on_pi_over_4_grid": false,
+        "following_operation": {
+          "angle": 2.356194490192345,
+          "angle_text": "3*pi/4",
+          "gate": "rz",
+          "line": 1343,
+          "qubits": [
+            2
+          ],
+          "text": "rz(3*pi/4) q[2];"
+        },
+        "following_rz_blocker": null,
+        "following_rz_is_direct_merge": false,
+        "following_same_target_rz_after_normal_form_ry": false,
+        "line_span": [
+          1335,
+          1342
+        ],
+        "preceding_operation": {
+          "angle": null,
+          "angle_text": null,
+          "gate": "cx",
+          "line": 1334,
+          "qubits": [
+            14,
+            2
+          ],
+          "text": "cx q[14],q[2];"
+        },
+        "preceding_same_target_rz_merge": false,
+        "target": 13
+      },
+      {
+        "context_replay_passed": true,
+        "context_replay_residual": 1.6302709355362946e-16,
+        "control": 14,
+        "following_angle_on_pi_over_4_grid": false,
+        "following_operation": {
+          "angle": 2.356194490192345,
+          "angle_text": "3*pi/4",
+          "gate": "rz",
+          "line": 1399,
+          "qubits": [
+            13
+          ],
+          "text": "rz(3*pi/4) q[13];"
+        },
+        "following_rz_blocker": null,
+        "following_rz_is_direct_merge": false,
+        "following_same_target_rz_after_normal_form_ry": false,
+        "line_span": [
+          1391,
+          1398
+        ],
+        "preceding_operation": {
+          "angle": null,
+          "angle_text": null,
+          "gate": "cx",
+          "line": 1390,
+          "qubits": [
+            14,
+            13
+          ],
+          "text": "cx q[14],q[13];"
+        },
+        "preceding_same_target_rz_merge": false,
+        "target": 1
+      },
+      {
+        "context_replay_passed": true,
+        "context_replay_residual": 1.6302709355362946e-16,
+        "control": 14,
+        "following_angle_on_pi_over_4_grid": false,
+        "following_operation": {
+          "angle": 0.28861107553559073,
+          "angle_text": "0.28861107553559073",
+          "gate": "rz",
+          "line": 1512,
+          "qubits": [
+            8
+          ],
+          "text": "rz(0.28861107553559073) q[8];"
+        },
+        "following_rz_blocker": "normal_form_ends_with_ry_e_before_following_rz",
+        "following_rz_is_direct_merge": false,
+        "following_same_target_rz_after_normal_form_ry": true,
+        "line_span": [
+          1504,
+          1511
+        ],
+        "preceding_operation": {
+          "angle": 0.7853981633974483,
+          "angle_text": "pi/4",
+          "gate": "ry",
+          "line": 1503,
+          "qubits": [
+            12
+          ],
+          "text": "ry(pi/4) q[12];"
+        },
+        "preceding_same_target_rz_merge": false,
+        "target": 8
+      },
+      {
+        "context_replay_passed": true,
+        "context_replay_residual": 1.6302709355362946e-16,
+        "control": 4,
+        "following_angle_on_pi_over_4_grid": false,
+        "following_operation": {
+          "angle": 0.28861107553559073,
+          "angle_text": "0.28861107553559073",
+          "gate": "rz",
+          "line": 1681,
+          "qubits": [
+            14
+          ],
+          "text": "rz(0.28861107553559073) q[14];"
+        },
+        "following_rz_blocker": "normal_form_ends_with_ry_e_before_following_rz",
+        "following_rz_is_direct_merge": false,
+        "following_same_target_rz_after_normal_form_ry": true,
+        "line_span": [
+          1673,
+          1680
+        ],
+        "preceding_operation": {
+          "angle": 0.7853981633974483,
+          "angle_text": "pi/4",
+          "gate": "ry",
+          "line": 1672,
+          "qubits": [
+            8
+          ],
+          "text": "ry(pi/4) q[8];"
+        },
+        "preceding_same_target_rz_merge": false,
+        "target": 14
+      },
+      {
+        "context_replay_passed": true,
+        "context_replay_residual": 1.6302709355362946e-16,
+        "control": 4,
+        "following_angle_on_pi_over_4_grid": false,
+        "following_operation": {
+          "angle": 0.7853981633974483,
+          "angle_text": "pi/4",
+          "gate": "ry",
+          "line": 1773,
+          "qubits": [
+            14
+          ],
+          "text": "ry(pi/4) q[14];"
+        },
+        "following_rz_blocker": null,
+        "following_rz_is_direct_merge": false,
+        "following_same_target_rz_after_normal_form_ry": false,
+        "line_span": [
+          1765,
+          1772
+        ],
+        "preceding_operation": {
+          "angle": null,
+          "angle_text": null,
+          "gate": "cx",
+          "line": 1764,
+          "qubits": [
+            4,
+            14
+          ],
+          "text": "cx q[4],q[14];"
+        },
+        "preceding_same_target_rz_merge": false,
+        "target": 15
+      }
+    ]
+  },
+  "method": "b7_w8_21_context_absorption_v0",
+  "payload_hash": "e7660b7b541959df43319fb7fdf6345d6177bd69b915389a898946f3674568fb",
+  "raw_template_occurrence_count": 20,
+  "requirements": [
+    {
+      "condition_id": "C1",
+      "passed": true
+    },
+    {
+      "condition_id": "C2",
+      "passed": true
+    },
+    {
+      "condition_id": "C3",
+      "passed": true
+    },
+    {
+      "condition_id": "C4",
+      "passed": true
+    },
+    {
+      "condition_id": "C5",
+      "passed": true
+    },
+    {
+      "condition_id": "C6",
+      "passed": true
+    },
+    {
+      "condition_id": "C7",
+      "passed": true
+    },
+    {
+      "condition_id": "C8",
+      "passed": true
+    },
+    {
+      "condition_id": "C9",
+      "passed": true
+    },
+    {
+      "condition_id": "C10",
+      "passed": true
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 10,
+  "resource_accounting": {
+    "accepted_occurrence_removal": 0,
+    "accepted_proxy_t_reduction": 0,
+    "b7_credit": 0,
+    "baseline_arbitrary_parameter_count": 5,
+    "baseline_cnot_count": 2,
+    "normal_form_arbitrary_parameter_count": 5,
+    "normal_form_cnot_count": 2
+  },
+  "selected_occurrence_count": 16,
+  "source_bindings": {
+    "results/B7_nonlocal_template_block_scan_v0.json": {
+      "path": "results/B7_nonlocal_template_block_scan_v0.json",
+      "sha256": "935891545a932cb2a436dff6c1dcd10dcbcc771cfed779c4371eecd877d502c5"
+    },
+    "results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/gcm_h6.qasm": {
+      "path": "results/b1_u3_phase_factored_optimizer/qasmbench_medium_exact/gcm_h6.qasm",
+      "sha256": "b0788a68e501faa55d1627a8f98e9c8ce009eaba5bee2a8a921122a1af070e9e"
+    }
+  },
+  "source_parameters": {
+    "a": 1.4922506383856682,
+    "b": 2.18700743192748,
+    "c": 0.5253852471287274,
+    "d": 2.538142068316358,
+    "e": 1.1254377896453873
+  },
+  "status": "context_replay_complete_no_resource_reduction_claim",
+  "template_id": "w8_21",
+  "title": "B7 w8_21 real-circuit context absorption",
+  "version": 0
+}
