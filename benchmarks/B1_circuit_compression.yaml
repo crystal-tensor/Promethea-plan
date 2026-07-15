@@ -6114,6 +6114,33 @@ current_results:
     caveat: r71_separates_structural_cnot_gain_from_full_circuit_ft_resource_improvement
     report: ../results/B1_B7_cone01_R71_resource_delta_ledger_gate_v0.json
     markdown_report: ../research/B1_B7_cone01_R71_resource_delta_ledger_gate.md
+  b1_b7_cone01_r72_cost_aware_packet_synthesis_gate_v0:
+    circuits: 3
+    status: cone01_r72_exact_packet_scaffolds_cost_dominated_boundary
+    model_status: fixed_direction_exact_synthesis_has_no_ft_rotation_cost_improvement
+    method: b1_b7_cone01_r72_cost_aware_packet_synthesis_gate_v0
+    source_semantic_packet: ../results/B1_B7_cone01_semantic_replay_packet_gate_v0.json
+    source_r71_result: ../results/B1_B7_cone01_R71_resource_delta_ledger_gate_v0.json
+    target_id: T-B1-004fv/T-B7-015e
+    upstream_target_id: T-B1-004fu/T-B7-015d
+    seed_count_per_scaffold: 16
+    max_nfev: 2200
+    total_attempt_count: 192
+    exact_solution_count: 112
+    cnot_reducing_packet_count: 3
+    cost_improving_packet_count: 0
+    source_minus_best_exact_rotation_cost: [-195, -255, -273]
+    accepted_exit_route_count: 0
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_credit_delta: 0
+    resource_saving_claimed: false
+    b7_ledger_improvement_claimed: false
+    requirements_passed: 8
+    requirements_failed: 0
+    caveat: r72_exact_reduced_cnot_solutions_are_rotation_cost_dominated
+    report: ../results/B1_B7_cone01_R72_cost_aware_packet_synthesis_gate_v0.json
+    markdown_report: ../research/B1_B7_cone01_R72_cost_aware_packet_synthesis_gate.md
   b1_b7_cone01_full_statevector_replay_probe_gate_v0:
     circuits: 1
     status: cone01_default_input_statevector_replay_probe_passed_not_symbolic_certificate

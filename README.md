@@ -1985,3 +1985,12 @@ not a B7 resource improvement. Accepted exit routes, occurrence removal,
 proxy-T reduction, and B7 credit remain `0`. The next algorithmic PR must
 reduce the full-circuit FT ledger or provide an exact certificate that absorbs
 the added rotation burden.
+
+`T-B1-004fv` / `T-B7-015e` turns the next packet-synthesis search into a
+cost-aware experiment. Across 3 semantic packets, 16 seeds, and 192 optimizer
+attempts, it finds 112 strict-residual exact local solutions and reduced-CNOT
+solutions for all 3 packets. None improves the pinned FT rotation cost: the
+source-minus-best-exact cost deltas are `-195`, `-255`, and `-273`. This is a
+scoped negative boundary, not a global synthesis theorem. The next positive PR
+must change the scaffold or remove the rotation burden rather than optimize
+residual alone.
