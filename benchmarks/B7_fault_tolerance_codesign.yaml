@@ -5717,6 +5717,27 @@ current_results:
     caveat: scoped_same_branch_obstruction_not_global_six_parameter_lower_bound
     result: ../results/B7_w8_21_context_symbolic_obstruction_v0.json
     markdown_report: ../research/B7_w8_21_context_symbolic_obstruction.md
+  w8_21_discrete_branch_enumeration_v0:
+    status: discrete_branch_enumeration_complete_no_absorption_route
+    method: b7_w8_21_discrete_branch_enumeration_v0
+    template_id: w8_21
+    classification: finite_discrete_relative_branch_closure
+    branch_count: 4
+    tested_context_count: 7
+    context_branch_pairs: 28
+    exact_checks_passed: 12
+    exact_checks_total: 12
+    absorbing_context_branch_pair_count: 0
+    generic_source_left_dressing_count: 7
+    minimum_exp_2_i_theta_distance_from_one: 0.5692420427088251
+    maximum_exp_2_i_theta_distance_from_one: 0.5692420427088251
+    accepted_occurrence_removal: 0
+    accepted_proxy_t_reduction: 0
+    b7_credit: 0
+    interpretation: all_four_representative_discrete_relative_branches_retain_phase_ratio_obstruction
+    caveat: finite_discrete_branch_closure_not_global_continuous_kak_lower_bound
+    result: ../results/B7_w8_21_discrete_branch_enumeration_v0.json
+    markdown_report: ../research/B7_w8_21_discrete_branch_enumeration.md
 prototype_artifacts:
   resource_model: ../tools/b7_fault_tolerance_codesign.py
   dependency_schedule_bridge: ../tools/b7_dependency_schedule_bridge.py
@@ -5780,4 +5801,5 @@ prototype_artifacts:
   w8_21_carrier_pricing: ../tools/b7_w8_21_carrier_pricing.py
   w8_21_parameter_relocation_search: ../tools/b7_w8_21_parameter_relocation_search.py
   w8_21_context_symbolic_obstruction: ../tools/b7_w8_21_context_symbolic_obstruction.py
+  w8_21_discrete_branch_enumeration: ../tools/b7_w8_21_discrete_branch_enumeration.py
   prototype_notes: ../research/B7_prototype_notes.md

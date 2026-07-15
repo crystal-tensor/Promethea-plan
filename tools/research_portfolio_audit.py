@@ -31254,6 +31254,7 @@ def audit(root: Path) -> dict:
     b7_w8_21_carrier_pricing = b7_results.get("w8_21_carrier_pricing_v0")
     b7_w8_21_parameter_relocation = b7_results.get("w8_21_parameter_relocation_search_v0")
     b7_w8_21_context_symbolic_obstruction = b7_results.get("w8_21_context_symbolic_obstruction_v0")
+    b7_w8_21_discrete_branch_enumeration = b7_results.get("w8_21_discrete_branch_enumeration_v0")
     b7_status = {}
     if not b7_codesign:
         warnings.append("B7 manifest has no fault-tolerance co-design resource result")
@@ -33069,6 +33070,77 @@ def audit(root: Path) -> dict:
         claims = payload.get("claim_boundary", {})
         if claims.get("same_relative_branch_only") is not True or claims.get("global_lower_bound_claimed") is not False:
             errors.append("B7 w8_21 context symbolic obstruction claim boundary mismatch")
+
+    b7_w8_21_discrete_branch_enumeration_status = {}
+    if not b7_w8_21_discrete_branch_enumeration:
+        warnings.append("B7 manifest missing w8_21 discrete branch enumeration")
+    else:
+        result_path = b7_w8_21_discrete_branch_enumeration.get("result")
+        markdown_path = b7_w8_21_discrete_branch_enumeration.get("markdown_report")
+        result_exists = bool(result_path and path_exists_from(benchmarks, result_path))
+        markdown_exists = bool(markdown_path and path_exists_from(benchmarks, markdown_path))
+        if not result_exists:
+            errors.append(f"B7 w8_21 discrete branch enumeration result missing: {result_path}")
+        if not markdown_exists:
+            errors.append(f"B7 w8_21 discrete branch enumeration markdown missing: {markdown_path}")
+        payload = json.loads(read((benchmarks / result_path).resolve())) if result_exists else {}
+        theorem = payload.get("theorem", {})
+        summary = payload.get("summary", {})
+        b7_w8_21_discrete_branch_enumeration_status = {
+            "status": payload.get("status"),
+            "method": payload.get("method"),
+            "template_id": payload.get("template_id"),
+            "classification": payload.get("classification"),
+            "branch_count": summary.get("branch_count"),
+            "tested_context_count": summary.get("tested_context_count"),
+            "context_branch_pairs": summary.get("context_branch_pairs"),
+            "exact_checks_passed": summary.get("exact_checks_passed"),
+            "exact_checks_total": summary.get("exact_checks_total"),
+            "absorbing_context_branch_pair_count": summary.get("absorbing_context_branch_pair_count"),
+            "generic_source_left_dressing_count": summary.get("generic_source_left_dressing_count"),
+            "minimum_exp_2_i_theta_distance_from_one": summary.get("minimum_exp_2_i_theta_distance_from_one"),
+            "maximum_exp_2_i_theta_distance_from_one": summary.get("maximum_exp_2_i_theta_distance_from_one"),
+            "accepted_occurrence_removal": summary.get("accepted_occurrence_removal"),
+            "accepted_proxy_t_reduction": summary.get("accepted_proxy_t_reduction"),
+            "b7_credit": summary.get("b7_credit"),
+            "validation_error_count": summary.get("validation_error_count"),
+            "result_exists": result_exists,
+            "markdown_exists": markdown_exists,
+            "result": result_path,
+            "markdown_report": markdown_path,
+        }
+        if payload.get("status") != "discrete_branch_enumeration_complete_no_absorption_route":
+            errors.append("B7 w8_21 discrete branch enumeration status mismatch")
+        if payload.get("method") != "b7_w8_21_discrete_branch_enumeration_v0" or payload.get("template_id") != "w8_21":
+            errors.append("B7 w8_21 discrete branch enumeration identity mismatch")
+        if payload.get("classification") != "finite_discrete_relative_branch_closure":
+            errors.append("B7 w8_21 discrete branch enumeration classification mismatch")
+        expected_summary = {
+            "branch_count": 4,
+            "tested_context_count": 7,
+            "context_branch_pairs": 28,
+            "exact_checks_passed": 12,
+            "exact_checks_total": 12,
+            "absorbing_context_branch_pair_count": 0,
+            "generic_source_left_dressing_count": 7,
+            "accepted_occurrence_removal": 0,
+            "accepted_proxy_t_reduction": 0,
+            "b7_credit": 0,
+            "validation_error_count": 0,
+            "rewrite_claimed": False,
+            "resource_saving_claimed": False,
+            "global_lower_bound_claimed": False,
+        }
+        for field, expected in expected_summary.items():
+            if summary.get(field) != expected:
+                errors.append(f"B7 w8_21 discrete branch enumeration {field} mismatch")
+        if theorem.get("branch_count") != 4 or theorem.get("exact_checks_passed") != 12 or theorem.get("exact_checks_total") != 12:
+            errors.append("B7 w8_21 discrete branch enumeration theorem count mismatch")
+        if theorem.get("forced_condition") != "exp(2*i*theta) = 1":
+            errors.append("B7 w8_21 discrete branch enumeration forced condition mismatch")
+        claims = payload.get("claim_boundary", {})
+        if claims.get("finite_discrete_branch_set_only") is not True or claims.get("global_lower_bound_claimed") is not False:
+            errors.append("B7 w8_21 discrete branch enumeration claim boundary mismatch")
 
     b8_manifest = yaml.safe_load(read(b8_manifest_path))
     b8_results = b8_manifest.get("current_results", {})
@@ -43724,6 +43796,7 @@ def audit(root: Path) -> dict:
             "w8_21_carrier_pricing": b7_w8_21_carrier_pricing_status,
             "w8_21_parameter_relocation": b7_w8_21_parameter_relocation_status,
             "w8_21_context_symbolic_obstruction": b7_w8_21_context_symbolic_obstruction_status,
+            "w8_21_discrete_branch_enumeration": b7_w8_21_discrete_branch_enumeration_status,
         },
         "b8": {
             "manifest": str(b8_manifest_path),
@@ -45076,6 +45149,9 @@ def audit(root: Path) -> dict:
             ),
             "b7_w8_21_context_symbolic_obstruction": str(
                 research / "B7_w8_21_context_symbolic_obstruction.md"
+            ),
+            "b7_w8_21_discrete_branch_enumeration": str(
+                research / "B7_w8_21_discrete_branch_enumeration.md"
             ),
             "b4_b8_circuit_refresh_task": str(research / "B4_B8_circuit_refresh_task.md"),
             "b4_b8_openqasm3_randomized_measurement_packet": str(
