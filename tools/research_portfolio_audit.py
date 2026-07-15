@@ -1079,6 +1079,97 @@ def audit_r167_candidate_free(
     return status
 
 
+def audit_r168_candidate_feasibility(
+    root: Path,
+    b4_manifest: dict,
+    b8_manifest: dict,
+    b10_manifest: dict,
+    errors: list[str],
+) -> dict:
+    """Validate the R168 structural input-target feasibility diagnostic."""
+    benchmarks = root / "benchmarks"
+    results = root / "results"
+    research = root / "research"
+    result_path = results / "B4_B8_R168_input_target_candidate_feasibility_v0.json"
+    report_path = research / "B4_B8_R168_input_target_candidate_feasibility.md"
+    executor_path = root / "tools/b4_b8_r168_input_target_candidate_feasibility.py"
+    status = {
+        "result_path": str(result_path),
+        "report_path": str(report_path),
+        "executor_path": str(executor_path),
+        "result_exists": result_path.exists(),
+        "report_exists": report_path.exists(),
+        "executor_exists": executor_path.exists(),
+    }
+    required = [result_path, report_path, executor_path]
+    if not all(path.exists() for path in required):
+        errors.append("R168 input-target feasibility artifact missing")
+        return status
+
+    def payload_ok(payload: dict) -> bool:
+        body = dict(payload)
+        observed = body.pop("payload_hash", None)
+        expected = hashlib.sha256(json.dumps(body, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+        return observed == expected
+
+    result = json.loads(read(result_path))
+    if not payload_ok(result):
+        errors.append("R168 result payload mismatch")
+    if result.get("method") != "b4_b8_r168_input_target_candidate_feasibility_v0" or result.get("status") != "candidate_feasibility_diagnostic_complete":
+        errors.append("R168 result identity or status mismatch")
+    if result.get("classification") != "candidate_free_due_to_target_topology_cycle_mismatch":
+        errors.append("R168 classification mismatch")
+    summary = result.get("summary", {})
+    expected_summary = {
+        "logical_active_qubit_count": 6,
+        "logical_interaction_edge_count": 6,
+        "logical_cycle_rank": 1,
+        "target_qubit_count": 7,
+        "target_unique_edge_count": 6,
+        "target_cycle_rank": 0,
+        "complete_embedding_count": 0,
+        "path_without_chord_embedding_count": 0,
+        "target_compatible_template_embedding_count": 8,
+        "r167_replay_count": 192,
+        "r167_candidate_event_count": 0,
+        "r167_yielded_candidate_count": 0,
+    }
+    for field, value in expected_summary.items():
+        if summary.get(field) != value:
+            errors.append(f"R168 summary {field} mismatch")
+    if result.get("requirements_passed") != 10 or result.get("requirements_failed") != 0 or len(result.get("requirements", [])) != 10:
+        errors.append("R168 requirement ledger mismatch")
+    for binding_id, binding in result.get("source_bindings", {}).items():
+        path = root / binding.get("path", "")
+        if not path.exists():
+            errors.append(f"R168 source binding missing: {binding_id}")
+        elif binding.get("sha256") and hashlib.sha256(path.read_bytes()).hexdigest() != binding.get("sha256"):
+            errors.append(f"R168 source binding mismatch: {binding_id}")
+    report_text = read(report_path)
+    for marker in ["Cycle rank", "0` complete embeddings", "target-derived six-vertex tree template", "not evidence of a Qiskit bug", "Next gate"]:
+        if marker not in report_text:
+            errors.append(f"R168 report boundary missing: {marker}")
+    manifest_rows = [
+        ("B4", b4_manifest.get("current_results", {}).get("b4_b8_r168_input_target_candidate_feasibility_v0")),
+        ("B8", b8_manifest.get("current_results", {}).get("b4_b8_r168_input_target_candidate_feasibility_v0")),
+        ("B10", b10_manifest.get("current_results", {}).get("b10_t2_b4_b8_r168_input_target_candidate_feasibility_v0")),
+    ]
+    for label, row in manifest_rows:
+        if not row:
+            errors.append(f"{label} manifest missing R168 input-target feasibility")
+            continue
+        for field in ["result", "markdown_report", "protocol", "input", "r167_result", "r167_adjudication", "executor"]:
+            if not row.get(field) or not path_exists_from(benchmarks, row[field]):
+                errors.append(f"{label} R168 manifest missing {field}")
+        if row.get("status") != "candidate_feasibility_diagnostic_complete" or row.get("method") not in {"b4_b8_r168_input_target_candidate_feasibility_v0", "b10_t2_b4_b8_r168_input_target_candidate_feasibility_v0"}:
+            errors.append(f"{label} R168 manifest status or method mismatch")
+        for field, value in {"logical_cycle_rank": 1, "target_cycle_rank": 0, "complete_embedding_count": 0, "target_compatible_template_embedding_count": 8, "r167_replay_count": 192, "r167_candidate_event_count": 0, "requirements_passed": 10, "requirements_failed": 0}.items():
+            if row.get(field) != value:
+                errors.append(f"{label} R168 manifest {field} mismatch")
+    status.update({"status": result.get("status"), "classification": result.get("classification"), "complete_embedding_count": summary.get("complete_embedding_count"), "target_compatible_template_embedding_count": summary.get("target_compatible_template_embedding_count"), "requirements_passed": result.get("requirements_passed"), "requirements_failed": result.get("requirements_failed")})
+    return status
+
+
 def audit(root: Path) -> dict:
     research = root / "research"
     benchmarks = root / "benchmarks"
@@ -42175,6 +42266,7 @@ def audit(root: Path) -> dict:
     r165_status = audit_r165(root, b4_manifest, b8_manifest, b10_manifest, errors)
     r166_status = audit_r166(root, b4_manifest, b8_manifest, b10_manifest, errors)
     r167_candidate_free_status = audit_r167_candidate_free(root, b4_manifest, b8_manifest, b10_manifest, errors)
+    r168_candidate_feasibility_status = audit_r168_candidate_feasibility(root, b4_manifest, b8_manifest, b10_manifest, errors)
 
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
@@ -42533,6 +42625,7 @@ def audit(root: Path) -> dict:
             "r165_candidate_selection_replay": r165_status,
             "r166_independent_candidate_verifier": r166_status,
             "r167_candidate_free_boundary": r167_candidate_free_status,
+            "r168_input_target_candidate_feasibility": r168_candidate_feasibility_status,
         },
         "b5": {
             "manifest": str(b5_manifest_path),
@@ -42677,6 +42770,7 @@ def audit(root: Path) -> dict:
             "r165_candidate_selection_replay": r165_status,
             "r166_independent_candidate_verifier": r166_status,
             "r167_candidate_free_boundary": r167_candidate_free_status,
+            "r168_input_target_candidate_feasibility": r168_candidate_feasibility_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -42712,6 +42806,7 @@ def audit(root: Path) -> dict:
             "r165_candidate_selection_replay": r165_status,
             "r166_independent_candidate_verifier": r166_status,
             "r167_candidate_free_boundary": r167_candidate_free_status,
+            "r168_input_target_candidate_feasibility": r168_candidate_feasibility_status,
             "t1_d5_observable_denominator_table": b10_t1_d5_table_status,
             "t1_d5_b3_molecular_observable_table": b10_t1_d5_b3_table_status,
             "t1_d5_b3_reaction_observable_table": b10_t1_d5_b3_reaction_table_status,

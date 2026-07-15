@@ -2736,6 +2736,33 @@ current_results:
     contract: B4_B8_R167_new_input_candidate_contract_v0.json
     executor: ../tools/b4_b8_r167_new_input_candidate_replay.py
     adjudication: ../results/B4_B8_R167_candidate_free_boundary_adjudication_v0.json
+  b10_t2_b4_b8_r168_input_target_candidate_feasibility_v0:
+    status: candidate_feasibility_diagnostic_complete
+    method: b10_t2_b4_b8_r168_input_target_candidate_feasibility_v0
+    source_target_id: T-B4-002cl/T-B8-003cp/T-B10-009cb-r168
+    upstream_target_id: T-B4-002ck/T-B8-003co/T-B10-009ca-r167
+    logical_cycle_rank: 1
+    target_cycle_rank: 0
+    complete_embedding_count: 0
+    path_without_chord_embedding_count: 0
+    target_compatible_template_embedding_count: 8
+    r167_replay_count: 192
+    r167_candidate_event_count: 0
+    r167_yielded_candidate_count: 0
+    qiskit_bug_claimed: false
+    numerical_remedy_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    solved_frontier_claimed: false
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R168_input_target_candidate_feasibility_v0.json
+    markdown_report: ../research/B4_B8_R168_input_target_candidate_feasibility.md
+    protocol: ../results/B4_B8_R167_new_input_candidate_protocol_v0.json
+    input: ../benchmarks/B4_B8_R167_new_input_candidate_v0.qasm
+    r167_result: ../results/B4_B8_R167_new_input_candidate_replay_v0.json
+    r167_adjudication: ../results/B4_B8_R167_candidate_free_boundary_adjudication_v0.json
+    executor: ../tools/b4_b8_r168_input_target_candidate_feasibility.py
   b10_t3_b9_checked_transcript_acceptance_packet_gate_v0:
     status: checked_transcript_acceptance_packet_open_missing_artifact
     method: b9_checked_transcript_acceptance_packet_gate_v0

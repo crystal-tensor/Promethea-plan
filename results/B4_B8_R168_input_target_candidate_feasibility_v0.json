@@ -1,0 +1,325 @@
+{
+  "claim_boundary": {
+    "what_is_not_supported": "A general topology theorem, an alternate VF2 search path, a production compiler fix, cross-backend generality, hardware evidence, quantum advantage, BQP separation, solved B4/B8/B10, or new credit.",
+    "what_is_supported": "A hash-bound, exhaustive small-graph feasibility explanation for the R167 candidate-free input under the declared undirected matching boundary."
+  },
+  "classification": "candidate_free_due_to_target_topology_cycle_mismatch",
+  "complete_embedding_examples": [],
+  "input": "benchmarks/B4_B8_R167_new_input_candidate_v0.qasm",
+  "interpretation": {
+    "control": "Removing only the q[2]-q[4] chord still produces zero embeddings because the six-vertex path exceeds the target diameter. A target-derived six-vertex tree template produces nonzero embeddings, localizing the boundary to topology compatibility rather than the register size alone.",
+    "primary": "The frozen R167 interaction graph contains a cycle, while the frozen FakeNairobiV2 target graph is acyclic; exhaustive injective edge-preserving enumeration therefore finds zero complete embeddings.",
+    "scope": "This is a structural input-target feasibility diagnostic; it does not claim a Qiskit bug, a numerical remedy, a production mapping change, hardware relevance, quantum advantage, BQP separation, or a solved frontier."
+  },
+  "logical_graph": {
+    "components": [
+      [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    ],
+    "nodes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "ordered_edges": [
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "unique_edges": [
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        6
+      ]
+    ]
+  },
+  "method": "b4_b8_r168_input_target_candidate_feasibility_v0",
+  "path_without_chord_embedding_examples": [],
+  "payload_hash": "1ac6f4a5f1265ba5718b35bd0f91714c7dafda6dc736cb2bc7dc5f13eecf8693",
+  "protocol": "results/B4_B8_R167_new_input_candidate_protocol_v0.json",
+  "r167_adjudication": "results/B4_B8_R167_candidate_free_boundary_adjudication_v0.json",
+  "r167_result": "results/B4_B8_R167_new_input_candidate_replay_v0.json",
+  "requirements": [
+    {
+      "passed": true,
+      "requirement_id": "A1"
+    },
+    {
+      "passed": true,
+      "requirement_id": "A2"
+    },
+    {
+      "passed": true,
+      "requirement_id": "A3"
+    },
+    {
+      "passed": true,
+      "requirement_id": "A4"
+    },
+    {
+      "passed": true,
+      "requirement_id": "A5"
+    },
+    {
+      "passed": true,
+      "requirement_id": "A6"
+    },
+    {
+      "passed": true,
+      "requirement_id": "A7"
+    },
+    {
+      "passed": true,
+      "requirement_id": "A8"
+    },
+    {
+      "passed": true,
+      "requirement_id": "A9"
+    },
+    {
+      "passed": true,
+      "requirement_id": "A10"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 10,
+  "source_bindings": {
+    "executor": {
+      "path": "tools/b4_b8_r168_input_target_candidate_feasibility.py",
+      "sha256": "b2f07f9e209e37ebd6d14396fd5c73abd7282a9d9ff71f2cdd1c80a3303a6ca5"
+    },
+    "input": {
+      "path": "benchmarks/B4_B8_R167_new_input_candidate_v0.qasm",
+      "sha256": "79fb76d5cfe1626a114704a3321672e78c136a51f76c2a6d9da1466cc366f7d0"
+    },
+    "protocol": {
+      "path": "results/B4_B8_R167_new_input_candidate_protocol_v0.json",
+      "payload_hash": "7d7a12821f084e6786b3730747c8fc628533f854d22817606e8bc4c1ae77cf3b",
+      "sha256": "f6d87ff70daab66b7b5719c3d402d7bdcd0528b0fdbba1fd0a3c9766b3db538f"
+    },
+    "r167_adjudication": {
+      "path": "results/B4_B8_R167_candidate_free_boundary_adjudication_v0.json",
+      "payload_hash": "07d7f64151b3b5e4366654f5ff94a93f014d15bbfafa6e7ef8b2b9061acbd878",
+      "sha256": "c7f8e8f6901d54710c15b462d1e7678484d6d179aa28a8f52f8edc72e5d69c08"
+    },
+    "r167_result": {
+      "path": "results/B4_B8_R167_new_input_candidate_replay_v0.json",
+      "payload_hash": "4feb927bcbd51807faa07e161e58b53b970e5944eaee784bbca6e0af24931164",
+      "sha256": "1ec0517e7d4a1fa869b25bd8e02e689a9f99a2b1f99a7deebf1775f6685b7de5"
+    }
+  },
+  "source_target_id": "T-B4-002cl/T-B8-003cp/T-B10-009cb-r168",
+  "status": "candidate_feasibility_diagnostic_complete",
+  "summary": {
+    "complete_embedding_count": 0,
+    "logical_active_qubit_count": 6,
+    "logical_component_count": 1,
+    "logical_cycle_rank": 1,
+    "logical_interaction_edge_count": 6,
+    "path_without_chord_embedding_count": 0,
+    "r167_candidate_event_count": 0,
+    "r167_replay_count": 192,
+    "r167_yielded_candidate_count": 0,
+    "target_compatible_template_embedding_count": 8,
+    "target_component_count": 1,
+    "target_cycle_rank": 0,
+    "target_qubit_count": 7,
+    "target_unique_edge_count": 6
+  },
+  "target_compatible_template": {
+    "embedding_examples": [
+      {
+        "1": 0,
+        "2": 1,
+        "3": 2,
+        "4": 3,
+        "5": 5,
+        "6": 4
+      },
+      {
+        "1": 0,
+        "2": 1,
+        "3": 2,
+        "4": 3,
+        "5": 5,
+        "6": 6
+      },
+      {
+        "1": 2,
+        "2": 1,
+        "3": 0,
+        "4": 3,
+        "5": 5,
+        "6": 4
+      },
+      {
+        "1": 2,
+        "2": 1,
+        "3": 0,
+        "4": 3,
+        "5": 5,
+        "6": 6
+      },
+      {
+        "1": 4,
+        "2": 5,
+        "3": 6,
+        "4": 3,
+        "5": 1,
+        "6": 0
+      }
+    ],
+    "nodes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "unique_edges": [
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        6
+      ]
+    ]
+  },
+  "target_graph": {
+    "backend": "FakeNairobiV2",
+    "components": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    ],
+    "nodes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "unique_edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        6
+      ]
+    ]
+  },
+  "title": "B4/B8/B10 R168 input-target candidate feasibility diagnostic",
+  "upstream_target_id": "T-B4-002ck/T-B8-003co/T-B10-009ca-r167",
+  "version": 0
+}

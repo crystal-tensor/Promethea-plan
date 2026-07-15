@@ -3011,6 +3011,23 @@ relevance, quantum advantage, BQP separation, solved B4/B8/B10, or new credit.
 The next gate is an input/target compatibility design that can exercise the
 candidate path, or an explicitly preregistered no-candidate branch.
 
+`T-B4-002cl` / `T-B8-003cp` / `T-B10-009cb-r168` resolves that next gate for
+the R167 input-target pair at the structural-diagnostic level. R168 exhaustively
+enumerates all injective assignments of the six active logical vertices into
+the seven `FakeNairobiV2` target vertices under the same undirected
+`strict_direction=false` boundary. The R167 interaction graph has six unique
+edges and cycle rank `1`; the target graph has six unique edges and cycle rank
+`0`; complete edge-preserving embeddings are `0`. Removing only the chord still
+gives `0` embeddings because the six-vertex path exceeds the target diameter.
+A target-derived six-vertex tree template gives `8` embeddings.
+
+R168 therefore explains the R167 candidate-free boundary for this specific
+input-target pair without upgrading it into a Qiskit bug, numerical remedy,
+production mapping change, hardware result, quantum advantage, BQP separation,
+solved B4/B8/B10, or new credit. The next experiment must freeze a new
+target-compatible OpenQASM 3 input with a nonzero embedding count, then rerun
+the candidate-level arithmetic-policy replay.
+
 The R149 holdout at `T-B4-002bh` / `T-B8-003bl` / `T-B10-009az` is
 then preregistered ACCEPT with A1-A10, requirements, and phase replay all
 passing `10/10`, `10/10`, and `4/4`. All `24/24` repaired and target-specific
