@@ -1,0 +1,116 @@
+{
+  "claim_boundary": {
+    "what_is_not_supported": "Why the input is candidate-free, cross-input generality, a Qiskit bug, a numerical remedy, hardware relevance, quantum advantage, BQP separation, solved B4/B8/B10, or new credit.",
+    "what_is_supported": "A reproducible candidate-free feasibility boundary over three profiles and 192 calls."
+  },
+  "classification": "candidate_free_input_diagnostic",
+  "contract_payload_hash": "abec754ca0ab38d9f28da2b8fce41038d298dafcff2b0108334d682ddfef33cd",
+  "interpretation": {
+    "next_gate": "Design an input/target compatibility gate that yields a candidate, or explicitly preregister a no-candidate branch before another policy replay.",
+    "not_evidence_of": "The source-return match field is false by construction when no candidate exists; it is not evidence of a wrong winner.",
+    "policy_estimability": "Arithmetic-policy correctness is not estimable on this input because there is no candidate set to compare.",
+    "supported": "The frozen input produced no complete candidate event under any declared operation order on the fixed target."
+  },
+  "method": "b4_b8_r167_candidate_free_boundary_adjudication_v0",
+  "payload_hash": "07d7f64151b3b5e4366654f5ff94a93f014d15bbfafa6e7ef8b2b9061acbd878",
+  "protocol_payload_hash": "7d7a12821f084e6786b3730747c8fc628533f854d22817606e8bc4c1ae77cf3b",
+  "raw_result": "results/B4_B8_R167_new_input_candidate_replay_v0.json",
+  "raw_result_payload_hash": "4feb927bcbd51807faa07e161e58b53b970e5944eaee784bbca6e0af24931164",
+  "raw_result_status_preserved": true,
+  "requirements": [
+    {
+      "passed": true,
+      "requirement_id": "A1"
+    },
+    {
+      "passed": true,
+      "requirement_id": "A2"
+    },
+    {
+      "passed": true,
+      "requirement_id": "A3"
+    },
+    {
+      "passed": true,
+      "requirement_id": "A4"
+    },
+    {
+      "passed": true,
+      "requirement_id": "A5"
+    },
+    {
+      "passed": true,
+      "requirement_id": "A6"
+    },
+    {
+      "passed": true,
+      "requirement_id": "A7"
+    },
+    {
+      "passed": true,
+      "requirement_id": "A8"
+    },
+    {
+      "passed": true,
+      "requirement_id": "A9"
+    },
+    {
+      "passed": true,
+      "requirement_id": "A10"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 10,
+  "source_bindings": {
+    "contract": {
+      "path": "benchmarks/B4_B8_R167_new_input_candidate_contract_v0.json",
+      "payload_hash": "abec754ca0ab38d9f28da2b8fce41038d298dafcff2b0108334d682ddfef33cd",
+      "sha256": "d86e6146c5a6f2036897781fd4843f32bdac391b26de309dfc30e6a7f457e138"
+    },
+    "executor": {
+      "path": "tools/b4_b8_r167_new_input_candidate_replay.py",
+      "sha256": "e30a9775ffe641d1650d42557cf3529cb596a8d2e406ad2bb79622ea3f440405"
+    },
+    "protocol": {
+      "path": "results/B4_B8_R167_new_input_candidate_protocol_v0.json",
+      "payload_hash": "7d7a12821f084e6786b3730747c8fc628533f854d22817606e8bc4c1ae77cf3b",
+      "sha256": "f6d87ff70daab66b7b5719c3d402d7bdcd0528b0fdbba1fd0a3c9766b3db538f"
+    },
+    "raw_report": {
+      "path": "research/B4_B8_R167_new_input_candidate_replay.md",
+      "sha256": "6a5fa94e78358e58c8759e75c581727327ca493973f6d829bd4b83320e7097b6"
+    },
+    "raw_result": {
+      "path": "results/B4_B8_R167_new_input_candidate_replay_v0.json",
+      "sha256": "1ec0517e7d4a1fa869b25bd8e02e689a9f99a2b1f99a7deebf1775f6685b7de5"
+    },
+    "workers": {
+      "manifest_sha256": {
+        "ascending_sorted_order": "d436528f09c3ba90503921172287e83c4607b939c69014859316d67647442a4c",
+        "descending_sorted_order": "7b683617c8e5e6474fb06a422b99b4eeaba839e298a166a2019b6dc8edbc257f",
+        "native_hashset_order": "7d5e008f354d6523006a4209c8b961efd5b2d97512ed367bef85c5700042685c"
+      },
+      "path": "results/B4_B8_R167_new_input_candidate_replay"
+    }
+  },
+  "source_target_id": "T-B4-002ck/T-B8-003co/T-B10-009ca-r167",
+  "status": "candidate_free_input_boundary_complete",
+  "summary": {
+    "candidate_event_count": 0,
+    "policy_changed_mapping_count": {
+      "compensated_fsum": 0,
+      "exact_binary64_leaf": 0,
+      "source_f64": 0,
+      "tie_aware_1ulp": 0
+    },
+    "profile_count": 3,
+    "replay_count": 192,
+    "returned_candidate_present_count": 0,
+    "simulation_execution_count": 0,
+    "source_return_match_count": 0,
+    "total_simulated_shots": 0,
+    "yielded_candidate_count": 0
+  },
+  "title": "B4/B8/B10 R167 candidate-free input boundary adjudication",
+  "version": 0
+}

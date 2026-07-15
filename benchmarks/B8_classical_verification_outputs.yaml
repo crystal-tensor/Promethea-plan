@@ -3144,6 +3144,36 @@ current_results:
     protocol: ../results/B4_B8_R166_independent_candidate_verifier_protocol_v0.json
     contract: B4_B8_R166_independent_candidate_verifier_contract_v0.json
     executor: ../tools/b4_b8_r166_independent_candidate_verifier.py
+  b4_b8_r167_candidate_free_boundary_adjudication_v0:
+    status: candidate_free_input_boundary_complete
+    method: b4_b8_r167_candidate_free_boundary_adjudication_v0
+    source_target_id: T-B4-002ck/T-B8-003co/T-B10-009ca-r167
+    upstream_target_id: T-B4-002cj/T-B8-003cn/T-B10-009ca-r166
+    profile_count: 3
+    replay_count: 192
+    candidate_count: 0
+    candidate_free_replay_count: 192
+    source_return_match_count: 0
+    source_return_mismatch_count: 192
+    qiskit_calls_performed: 192
+    simulation_execution_count: 0
+    total_simulated_shots: 0
+    new_credit_delta: 0
+    policy_changed_mapping_count: {compensated_fsum: 0, exact_binary64_leaf: 0, source_f64: 0, tie_aware_1ulp: 0}
+    qiskit_bug_claimed: false
+    numerical_remedy_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    solved_frontier_claimed: false
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R167_candidate_free_boundary_adjudication_v0.json
+    markdown_report: ../research/B4_B8_R167_candidate_free_boundary_adjudication.md
+    raw_result: ../results/B4_B8_R167_new_input_candidate_replay_v0.json
+    protocol: ../results/B4_B8_R167_new_input_candidate_protocol_v0.json
+    contract: B4_B8_R167_new_input_candidate_contract_v0.json
+    executor: ../tools/b4_b8_r167_new_input_candidate_replay.py
+    adjudication: ../results/B4_B8_R167_candidate_free_boundary_adjudication_v0.json
   prototype_artifacts:
   output_invariant_verifier: ../tools/b8_output_invariant_verifier.py
   adaptive_leakage_spoofer: ../tools/b8_adaptive_spoofer_leakage.py

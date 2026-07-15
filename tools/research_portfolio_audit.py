@@ -932,6 +932,153 @@ def audit_r166(
     return status
 
 
+def audit_r167_candidate_free(
+    root: Path,
+    b4_manifest: dict,
+    b8_manifest: dict,
+    b10_manifest: dict,
+    errors: list[str],
+) -> dict:
+    """Validate the R167 candidate-free boundary without upgrading the raw run."""
+    benchmarks = root / "benchmarks"
+    results = root / "results"
+    research = root / "research"
+    protocol_path = results / "B4_B8_R167_new_input_candidate_protocol_v0.json"
+    contract_path = benchmarks / "B4_B8_R167_new_input_candidate_contract_v0.json"
+    executor_path = root / "tools/b4_b8_r167_new_input_candidate_replay.py"
+    raw_result_path = results / "B4_B8_R167_new_input_candidate_replay_v0.json"
+    adjudication_path = results / "B4_B8_R167_candidate_free_boundary_adjudication_v0.json"
+    raw_report_path = research / "B4_B8_R167_new_input_candidate_replay.md"
+    adjudication_report_path = research / "B4_B8_R167_candidate_free_boundary_adjudication.md"
+    worker_dir = results / "B4_B8_R167_new_input_candidate_replay"
+    required = [protocol_path, contract_path, executor_path, raw_result_path, adjudication_path, raw_report_path, adjudication_report_path]
+    status = {
+        "protocol_path": str(protocol_path),
+        "contract_path": str(contract_path),
+        "executor_path": str(executor_path),
+        "raw_result_path": str(raw_result_path),
+        "adjudication_path": str(adjudication_path),
+        "raw_report_path": str(raw_report_path),
+        "adjudication_report_path": str(adjudication_report_path),
+        "worker_directory": str(worker_dir),
+        "artifacts_exist": all(path.exists() for path in required),
+    }
+    if not all(path.exists() for path in required):
+        errors.append("R167 candidate-free adjudication artifact missing")
+        return status
+
+    def payload_ok(payload: dict, key: str = "payload_hash") -> bool:
+        body = dict(payload)
+        observed = body.pop(key, None)
+        expected = hashlib.sha256(json.dumps(body, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+        return observed == expected
+
+    protocol = json.loads(read(protocol_path))
+    contract = json.loads(read(contract_path))
+    raw = json.loads(read(raw_result_path))
+    adjudication = json.loads(read(adjudication_path))
+    for payload, label in [(protocol, "protocol"), (contract, "contract"), (raw, "raw result"), (adjudication, "adjudication")]:
+        if not payload_ok(payload):
+            errors.append(f"R167 {label} payload mismatch")
+    if protocol.get("method") != "b4_b8_r167_new_input_candidate_protocol_v0" or protocol.get("status") != "new_input_candidate_protocol_frozen_before_execution":
+        errors.append("R167 protocol identity or status mismatch")
+    if contract.get("contract_id") != "B4-B8-R167-new-input-candidate-contract-v0" or contract.get("execution_started") is not False:
+        errors.append("R167 contract identity or unopened-boundary mismatch")
+    if contract.get("protocol_payload_hash") != protocol.get("payload_hash"):
+        errors.append("R167 contract protocol binding mismatch")
+    if raw.get("method") != "b4_b8_r167_new_input_candidate_replay_v0" or raw.get("status") != "new_input_candidate_replay_incomplete":
+        errors.append("R167 raw result identity or preserved incomplete status mismatch")
+    summary = raw.get("summary", {})
+    expected_summary = {
+        "profile_count": 3,
+        "replay_count": 192,
+        "yielded_candidate_count": 0,
+        "candidate_count_distribution": {"0": 192},
+        "source_return_match_count": 0,
+        "source_return_mismatch_count": 192,
+        "qiskit_calls_performed": 192,
+        "simulation_execution_count": 0,
+        "total_simulated_shots": 0,
+        "new_credit_delta": 0,
+    }
+    for field, value in expected_summary.items():
+        if summary.get(field) != value:
+            errors.append(f"R167 raw summary {field} mismatch")
+    if summary.get("policy_changed_mapping_count") != {"compensated_fsum": 0, "exact_binary64_leaf": 0, "source_f64": 0, "tie_aware_1ulp": 0}:
+        errors.append("R167 raw policy mapping-difference counts mismatch")
+    if raw.get("requirements_passed") != 6 or raw.get("requirements_failed") != 4:
+        errors.append("R167 raw acceptance ledger mismatch")
+
+    for binding_id, binding in contract.get("source_bindings", {}).items():
+        path = root / binding.get("path", "")
+        if not path.exists():
+            errors.append(f"R167 source binding missing: {binding_id}")
+        elif binding.get("sha256") and hashlib.sha256(path.read_bytes()).hexdigest() != binding.get("sha256"):
+            errors.append(f"R167 source binding mismatch: {binding_id}")
+
+    profiles = ["native_hashset_order", "ascending_sorted_order", "descending_sorted_order"]
+    for profile in profiles:
+        path = worker_dir / f"{profile}.json"
+        if not path.exists():
+            errors.append(f"R167 worker manifest missing: {profile}")
+            continue
+        manifest = json.loads(read(path))
+        if not payload_ok(manifest, "manifest_payload_hash"):
+            errors.append(f"R167 worker manifest payload mismatch: {profile}")
+        rows = manifest.get("replay_rows", [])
+        if len(rows) != 64 or manifest.get("replay_count") != 64:
+            errors.append(f"R167 worker replay count mismatch: {profile}")
+        for row in rows:
+            if row.get("candidate_event_count") != 0 or row.get("replay", {}).get("yielded_candidate_count") != 0:
+                errors.append(f"R167 worker candidate-free invariant failed: {profile}")
+            if row.get("replay", {}).get("returned_candidate_present") is not False or row.get("mapping_vector") is not None:
+                errors.append(f"R167 worker returned-candidate invariant failed: {profile}")
+            if row.get("simulation_execution_count") != 0 or row.get("total_simulated_shots") != 0:
+                errors.append(f"R167 worker simulation invariant failed: {profile}")
+
+    if adjudication.get("method") != "b4_b8_r167_candidate_free_boundary_adjudication_v0" or adjudication.get("status") != "candidate_free_input_boundary_complete" or adjudication.get("classification") != "candidate_free_input_diagnostic":
+        errors.append("R167 adjudication identity or classification mismatch")
+    if adjudication.get("requirements_passed") != 10 or adjudication.get("requirements_failed") != 0 or len(adjudication.get("requirements", [])) != 10:
+        errors.append("R167 adjudication requirement ledger mismatch")
+    adjudication_summary = adjudication.get("summary", {})
+    for field, value in {
+        "profile_count": 3,
+        "replay_count": 192,
+        "candidate_event_count": 0,
+        "yielded_candidate_count": 0,
+        "returned_candidate_present_count": 0,
+        "source_return_match_count": 0,
+        "simulation_execution_count": 0,
+        "total_simulated_shots": 0,
+    }.items():
+        if adjudication_summary.get(field) != value:
+            errors.append(f"R167 adjudication summary {field} mismatch")
+    report_text = read(adjudication_report_path)
+    for marker in ["candidate-free feasibility boundary", "not evidence of a wrong winner", "does not establish why", "policy correctness is not estimable", "new credit"]:
+        if marker not in report_text:
+            errors.append(f"R167 adjudication report boundary missing: {marker}")
+
+    manifest_rows = [
+        ("B4", b4_manifest.get("current_results", {}).get("b4_b8_r167_candidate_free_boundary_adjudication_v0")),
+        ("B8", b8_manifest.get("current_results", {}).get("b4_b8_r167_candidate_free_boundary_adjudication_v0")),
+        ("B10", b10_manifest.get("current_results", {}).get("b10_t2_b4_b8_r167_candidate_free_boundary_adjudication_v0")),
+    ]
+    for label, row in manifest_rows:
+        if not row:
+            errors.append(f"{label} manifest missing R167 candidate-free adjudication")
+            continue
+        for field in ["result", "markdown_report", "raw_result", "protocol", "contract", "executor", "adjudication"]:
+            if not row.get(field) or not path_exists_from(benchmarks, row[field]):
+                errors.append(f"{label} R167 manifest missing {field}")
+        if row.get("status") != "candidate_free_input_boundary_complete" or row.get("method") not in {"b4_b8_r167_candidate_free_boundary_adjudication_v0", "b10_t2_b4_b8_r167_candidate_free_boundary_adjudication_v0"}:
+            errors.append(f"{label} R167 manifest status or method mismatch")
+        for field, value in {"profile_count": 3, "replay_count": 192, "candidate_count": 0, "candidate_free_replay_count": 192, "source_return_match_count": 0, "simulation_execution_count": 0, "total_simulated_shots": 0, "new_credit_delta": 0, "requirements_passed": 10, "requirements_failed": 0}.items():
+            if row.get(field) != value:
+                errors.append(f"{label} R167 manifest {field} mismatch")
+    status.update({"status": adjudication.get("status"), "classification": adjudication.get("classification"), "profile_count": adjudication_summary.get("profile_count"), "replay_count": adjudication_summary.get("replay_count"), "candidate_event_count": adjudication_summary.get("candidate_event_count"), "requirements_passed": adjudication.get("requirements_passed"), "requirements_failed": adjudication.get("requirements_failed")})
+    return status
+
+
 def audit(root: Path) -> dict:
     research = root / "research"
     benchmarks = root / "benchmarks"
@@ -42027,6 +42174,7 @@ def audit(root: Path) -> dict:
     r164_status = audit_r164(root, b4_manifest, b8_manifest, b10_manifest, errors)
     r165_status = audit_r165(root, b4_manifest, b8_manifest, b10_manifest, errors)
     r166_status = audit_r166(root, b4_manifest, b8_manifest, b10_manifest, errors)
+    r167_candidate_free_status = audit_r167_candidate_free(root, b4_manifest, b8_manifest, b10_manifest, errors)
 
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
@@ -42384,6 +42532,7 @@ def audit(root: Path) -> dict:
             "r164_combine_bound_comparison": r164_status,
             "r165_candidate_selection_replay": r165_status,
             "r166_independent_candidate_verifier": r166_status,
+            "r167_candidate_free_boundary": r167_candidate_free_status,
         },
         "b5": {
             "manifest": str(b5_manifest_path),
@@ -42527,6 +42676,7 @@ def audit(root: Path) -> dict:
             "r164_combine_bound_comparison": r164_status,
             "r165_candidate_selection_replay": r165_status,
             "r166_independent_candidate_verifier": r166_status,
+            "r167_candidate_free_boundary": r167_candidate_free_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -42561,6 +42711,7 @@ def audit(root: Path) -> dict:
             "r164_combine_bound_comparison": r164_status,
             "r165_candidate_selection_replay": r165_status,
             "r166_independent_candidate_verifier": r166_status,
+            "r167_candidate_free_boundary": r167_candidate_free_status,
             "t1_d5_observable_denominator_table": b10_t1_d5_table_status,
             "t1_d5_b3_molecular_observable_table": b10_t1_d5_b3_table_status,
             "t1_d5_b3_reaction_observable_table": b10_t1_d5_b3_reaction_table_status,

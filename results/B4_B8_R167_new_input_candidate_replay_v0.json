@@ -1,0 +1,178 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition_id": "A1",
+      "passed": true
+    },
+    {
+      "condition_id": "A2",
+      "passed": true
+    },
+    {
+      "condition_id": "A3",
+      "passed": false
+    },
+    {
+      "condition_id": "A4",
+      "passed": false
+    },
+    {
+      "condition_id": "A5",
+      "passed": false
+    },
+    {
+      "condition_id": "A6",
+      "passed": true
+    },
+    {
+      "condition_id": "A7",
+      "passed": false
+    },
+    {
+      "condition_id": "A8",
+      "passed": true
+    },
+    {
+      "condition_id": "A9",
+      "passed": true
+    },
+    {
+      "condition_id": "A10",
+      "passed": true
+    }
+  ],
+  "artifacts": {
+    "contract": "benchmarks/B4_B8_R167_new_input_candidate_contract_v0.json",
+    "markdown_report": "research/B4_B8_R167_new_input_candidate_replay.md",
+    "protocol": "results/B4_B8_R167_new_input_candidate_protocol_v0.json",
+    "result": "results/B4_B8_R167_new_input_candidate_replay_v0.json",
+    "worker_directory": "results/B4_B8_R167_new_input_candidate_replay"
+  },
+  "claim_boundary": {
+    "what_is_not_supported": "an alternate search path, a production remedy, a confirmed Qiskit bug, cross-input generality, cross-platform determinism, hardware relevance, route advantage, quantum advantage, BQP separation, solved B4/B8/B10, or new credit",
+    "what_is_supported": "candidate-level replay over a newly frozen OpenQASM 3 input under the declared profiles and policies"
+  },
+  "classification": "new_input_candidate_replay_incomplete",
+  "method": "b4_b8_r167_new_input_candidate_replay_v0",
+  "payload_hash": "4feb927bcbd51807faa07e161e58b53b970e5944eaee784bbca6e0af24931164",
+  "preregistration": {
+    "commit": "f30c077040900c21c9bfecd11e61b95da4c71135",
+    "created_at": "2026-07-14T02:45:00Z",
+    "discussion": "https://github.com/crystal-tensor/Prometheus-plan/discussions/197"
+  },
+  "profile_summary": [
+    {
+      "policy_changed_mapping": {
+        "compensated_fsum": 0,
+        "exact_binary64_leaf": 0,
+        "source_f64": 0,
+        "tie_aware_1ulp": 0
+      },
+      "profile_id": "native_hashset_order",
+      "replay_count": 64,
+      "source_return_match_count": 0,
+      "yielded_candidate_count": 0
+    },
+    {
+      "policy_changed_mapping": {
+        "compensated_fsum": 0,
+        "exact_binary64_leaf": 0,
+        "source_f64": 0,
+        "tie_aware_1ulp": 0
+      },
+      "profile_id": "ascending_sorted_order",
+      "replay_count": 64,
+      "source_return_match_count": 0,
+      "yielded_candidate_count": 0
+    },
+    {
+      "policy_changed_mapping": {
+        "compensated_fsum": 0,
+        "exact_binary64_leaf": 0,
+        "source_f64": 0,
+        "tie_aware_1ulp": 0
+      },
+      "profile_id": "descending_sorted_order",
+      "replay_count": 64,
+      "source_return_match_count": 0,
+      "yielded_candidate_count": 0
+    }
+  ],
+  "requirements": [
+    {
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "passed": false,
+      "requirement_id": "P3"
+    },
+    {
+      "passed": false,
+      "requirement_id": "P4"
+    },
+    {
+      "passed": false,
+      "requirement_id": "P5"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P6"
+    },
+    {
+      "passed": false,
+      "requirement_id": "P7"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P8"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P9"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P10"
+    }
+  ],
+  "requirements_failed": 4,
+  "requirements_passed": 6,
+  "source_target_id": "T-B4-002cj/T-B8-003cn/T-B10-009ca-r167",
+  "status": "new_input_candidate_replay_incomplete",
+  "summary": {
+    "bqp_separation_claimed": false,
+    "candidate_count_distribution": {
+      "0": 192
+    },
+    "candidate_selection_performed": true,
+    "confirmed_qiskit_bug_claimed": false,
+    "mapping_changed_claimed": false,
+    "new_credit_delta": 0,
+    "numerical_remedy_claimed": false,
+    "policy_changed_mapping_count": {
+      "compensated_fsum": 0,
+      "exact_binary64_leaf": 0,
+      "source_f64": 0,
+      "tie_aware_1ulp": 0
+    },
+    "profile_count": 3,
+    "qiskit_calls_performed": 192,
+    "quantum_advantage_claimed": false,
+    "replay_count": 192,
+    "route_change_performed": false,
+    "simulation_execution_count": 0,
+    "solved_frontier_claimed": false,
+    "source_return_match_count": 0,
+    "source_return_mismatch_count": 192,
+    "total_simulated_shots": 0,
+    "yielded_candidate_count": 0
+  },
+  "title": "B4/B8 R167 new-input complete-candidate replay",
+  "upstream_target_id": "T-B4-002cj/T-B8-003cn/T-B10-009ca-r166",
+  "version": 0
+}

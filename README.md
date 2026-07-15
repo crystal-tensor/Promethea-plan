@@ -2984,22 +2984,32 @@ establish a production mapping change, alternate search path, confirmed bug,
 hardware relevance, quantum advantage, BQP separation, solved B4/B8/B10, or
 new credit. Requirements pass `10/10`.
 
-`T-B4-002ck` / `T-B8-003co` / `T-B10-009ca-r167` preregisters the next
-candidate-level test on a new input. R167 uses a hash-bound six-active-qubit
-path-with-chord OpenQASM 3 interaction graph rather than the R157 input, with
-three operation-order profiles and `192` fixed calls. It retains complete VF2
-candidates and replays the same four arithmetic policies, while leaving the
-candidate count, source-return matches, and policy-change counts open until
-execution. The protocol explicitly disallows cross-input generality, alternate
-search-path, production-mapping, bug, hardware, advantage, BQP, solved-frontier,
-and credit claims.
+`T-B4-002ck` / `T-B8-003co` / `T-B10-009ca-r167` preregistered and then executed
+the next candidate-level test on a new input. R167 uses a hash-bound
+six-active-qubit path-with-chord OpenQASM 3 interaction graph rather than the
+R157 input, with three operation-order profiles and `192` fixed calls. The
+source-instrumented Qiskit path completed all calls, but the input produced
+`0/192` candidate events, `0/192` yielded complete candidates, and `0/192`
+returned candidates. Every arithmetic-policy mapping-difference count is zero,
+and simulation and shots remain zero.
 
-R167 pre-execution dry checks stopped before producing a result on two
-implementation-only issues: the executor first read the top-level protocol as
-if it were nested under a `protocol` key, then its accelerator probe assumed a
-Rust module exposed `__file__`. Both corrections were made before any worker
-artifact existed, the executor and contract hashes were rebound, and neither
-failed dry check is treated as scientific evidence.
+R167 had three implementation-only corrections. Two pre-execution dry checks
+stopped before any worker artifact existed: the executor first read the
+top-level protocol as if it were nested under a `protocol` key, then its
+accelerator probe assumed a Rust module exposed `__file__`. After the workers
+completed, aggregation exposed a third schema mismatch: source-return
+validation was nested under `replay`, while the aggregator read a top-level
+field. The third correction was committed in `f30c077` before the result file
+was written. The executor and contract hashes were rebound after each fix.
+
+The raw complete-candidate protocol remains honestly incomplete at `6/10`:
+there is no candidate set on which source-return or arithmetic-policy
+correctness can be estimated. A separate `10/10` candidate-free adjudication
+records this as a reproducible feasibility boundary, not as evidence of a
+wrong winner, a confirmed Qiskit bug, cross-input generality, hardware
+relevance, quantum advantage, BQP separation, solved B4/B8/B10, or new credit.
+The next gate is an input/target compatibility design that can exercise the
+candidate path, or an explicitly preregistered no-candidate branch.
 
 The R149 holdout at `T-B4-002bh` / `T-B8-003bl` / `T-B10-009az` is
 then preregistered ACCEPT with A1-A10, requirements, and phase replay all
