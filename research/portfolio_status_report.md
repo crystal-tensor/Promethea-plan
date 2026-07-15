@@ -2603,6 +2603,11 @@ Overall audit: PASS
 - Disjoint Pauli action-commutation checked/proof-assistant/fresh zero commands: True / True / 3
 - Disjoint Pauli action-commutation validation errors: 0
 - Disjoint Pauli action-commutation result/markdown exists: True / True
+- Term-level disjoint Pauli action-commutation status: pauli_action_term_disjoint_commutation_checked_not_linear_or_spectral_proof
+- Term-level disjoint Pauli action-commutation requirements passed/failed: 12 / 0
+- Term-level disjoint Pauli action-commutation checked/proof-assistant/fresh zero commands: True / True / 3
+- Term-level disjoint Pauli action-commutation validation errors: 0
+- Term-level disjoint Pauli action-commutation result/markdown exists: True / True
 
 ## B10 BQP Boundary Graph Status
 

@@ -4112,3 +4112,17 @@ checked local packets, but it remains a factor-level computational-basis
 guardrail. It is not a complex linear-operator theorem, Hamiltonian spectral
 result, Quantum PCP/NLTS theorem, global impossibility result, BQP separation,
 or quantum-advantage claim.
+
+## Latest Research Update: R102
+
+R102 lifts the R101 disjoint-support checkpoint from individual Pauli factors
+to whole Pauli terms. Lean now defines cross-support disjointness, proves that
+one factor commutes with an entire disjoint term, and proves that two Pauli
+terms with disjoint supports produce the same computational-basis replay in
+either order, including the accumulated phase and final state.
+
+The R102 gate passes `12/12` requirements, with `3/3` fresh Lean/Lake commands
+returning zero and no warnings. This is a term-level replay certificate, not a
+complex linear-operator theorem, Hamiltonian spectral result, Quantum PCP/NLTS
+theorem, global impossibility result, BQP separation, or quantum-advantage
+claim.

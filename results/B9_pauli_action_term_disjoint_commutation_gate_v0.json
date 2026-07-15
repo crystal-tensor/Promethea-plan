@@ -1,0 +1,131 @@
+{
+  "benchmark_id": "B9",
+  "claim_boundary": {
+    "what_is_not_supported": "This is still a finite computational-basis action model, not a complex linear operator, Hamiltonian sum, Hermiticity proof, spectral theorem, Quantum PCP/NLTS theorem, global impossibility result, BQP separation, or quantum-advantage claim.",
+    "what_is_supported": "Lean checks that two Pauli terms with disjoint site supports commute under the restricted computational-basis replay, including final basis state and accumulated phase."
+  },
+  "fresh_command_records": [
+    {
+      "command": [
+        "~/.elan/bin/lean",
+        "--version"
+      ],
+      "elapsed_seconds": 0.02808,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Lean (version 4.12.0, arm64-apple-darwin23.6.0, commit dc2533473114, Release)"
+    },
+    {
+      "command": [
+        "~/.elan/bin/lake",
+        "--version"
+      ],
+      "elapsed_seconds": 0.030025,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Lake version 5.0.0-dc25334 (Lean version 4.12.0)"
+    },
+    {
+      "command": [
+        "sh",
+        "-c",
+        "mkdir -p .lake/build/lib/B9/ClusterStabilizer && lake env lean -o .lake/build/lib/B9/ClusterStabilizer/WidthLocality.olean B9/ClusterStabilizer/WidthLocality.lean && lake env lean -o .lake/build/lib/B9/ClusterStabilizer/PauliBasisAction.olean B9/ClusterStabilizer/PauliBasisAction.lean && lake env lean -o .lake/build/lib/B9/ClusterStabilizer/PauliActionComposition.olean B9/ClusterStabilizer/PauliActionComposition.lean && lake env lean -o .lake/build/lib/B9/ClusterStabilizer/PauliActionCommutation.olean B9/ClusterStabilizer/PauliActionCommutation.lean && lake env lean B9/ClusterStabilizer/PauliActionTermCommutation.lean"
+      ],
+      "elapsed_seconds": 10.452106,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "linked_benchmark_id": "B10",
+  "method": "b9_pauli_action_term_disjoint_commutation_gate_v0",
+  "model_status": "computational_basis_term_disjoint_pauli_replay_commutation_checked_under_pinned_lean_lake",
+  "requirements": [
+    {
+      "label": "Lean and Lake version probes return zero",
+      "passed": true,
+      "requirement_id": "R1"
+    },
+    {
+      "label": "All five B9 modules compile together",
+      "passed": true,
+      "requirement_id": "R2"
+    },
+    {
+      "label": "The source defines a factor-to-term disjointness predicate",
+      "passed": true,
+      "requirement_id": "R3"
+    },
+    {
+      "label": "A factor commutes with an entire disjoint term",
+      "passed": true,
+      "requirement_id": "R4"
+    },
+    {
+      "label": "The theorem reuses the prior factor-level commutation proof",
+      "passed": true,
+      "requirement_id": "R5"
+    },
+    {
+      "label": "The theorem reuses compositional replay associativity",
+      "passed": true,
+      "requirement_id": "R6"
+    },
+    {
+      "label": "The source proves whole-term disjoint replay commutation",
+      "passed": true,
+      "requirement_id": "R7"
+    },
+    {
+      "label": "The term theorem quantifies over both site supports",
+      "passed": true,
+      "requirement_id": "R8"
+    },
+    {
+      "label": "The checked module contains no matrix or complex-amplitude machinery",
+      "passed": true,
+      "requirement_id": "R9"
+    },
+    {
+      "label": "Fresh transcript binds every source and project hash",
+      "passed": true,
+      "requirement_id": "R10"
+    },
+    {
+      "label": "The proof is finite replay semantics rather than a spectral theorem",
+      "passed": true,
+      "requirement_id": "R11"
+    },
+    {
+      "label": "The source does not claim BQP or Quantum PCP resolution",
+      "passed": true,
+      "requirement_id": "R12"
+    }
+  ],
+  "status": "pauli_action_term_disjoint_commutation_checked_not_linear_or_spectral_proof",
+  "summary": {
+    "basis_source_sha256": "2109f0e916408e00c9d3d7916d8f2638cebaef4a31ae77b8d36b5afa4c23c1c0",
+    "bqp_separation_claimed": false,
+    "checked_term_disjoint_commutation": true,
+    "commutation_source_sha256": "2d669fd4689944ef7c8cf4f88887c946d0f326c8b026883c956816ffc7ea8469",
+    "composition_source_sha256": "28776e0088a0461045d953c1f66012029dd550bfbad147fb10916deb7b919418",
+    "explicit_not_linear_or_spectral_proof": true,
+    "failed_requirement_ids": [],
+    "formal_theorem_proved": false,
+    "fresh_command_count": 3,
+    "fresh_no_warning": true,
+    "fresh_zero_returncode_count": 3,
+    "lakefile_sha256": "65a3d37fc60fd086b7a1c7005d62ac3b5d578baf8842d26cb17ec403f84b61f8",
+    "nlts_theorem_claimed": false,
+    "proof_assistant_checked": true,
+    "quantum_pcp_theorem_claimed": false,
+    "requirement_count": 12,
+    "requirements_failed": 0,
+    "requirements_passed": 12,
+    "source_sha256": "131c96bf6f204bd861f52cacd1574cab8a6f0c0920e06905e0592aaee00bf1f6",
+    "transcript_sha256": "3377ac96cee163a86c1a8c20f9427746723c1ce8130305426024a59bab00c567",
+    "validation_error_count": 0,
+    "width_source_sha256": "0b93b31c11fd62dd44f30fe5de3aa9a27b40ee16befb0c6c1617d62e8ce26e9c"
+  },
+  "workload": "B9/ClusterStabilizer/PauliActionTermCommutation.lean"
+}

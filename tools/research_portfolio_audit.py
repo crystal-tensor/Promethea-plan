@@ -33850,6 +33850,7 @@ def audit(root: Path) -> dict:
     b9_pauli_basis_action = b9_results.get("pauli_basis_action_gate_v0")
     b9_pauli_action_composition = b9_results.get("pauli_action_composition_gate_v0")
     b9_pauli_action_disjoint_commutation = b9_results.get("pauli_action_disjoint_commutation_gate_v0")
+    b9_pauli_action_term_disjoint_commutation = b9_results.get("pauli_action_term_disjoint_commutation_gate_v0")
     b9_status = {}
     if not b9_gap_lab:
         warnings.append("B9 manifest has no local-Hamiltonian gap-lab result")
@@ -34807,6 +34808,66 @@ def audit(root: Path) -> dict:
             errors.append("B9 disjoint Pauli action-commutation should have three clean fresh commands")
         if summary.get("validation_error_count") != 0:
             errors.append("B9 disjoint Pauli action-commutation validation errors must be zero")
+
+    b9_pauli_action_term_disjoint_commutation_status = {}
+    if not b9_pauli_action_term_disjoint_commutation:
+        warnings.append("B9 manifest has no term-level disjoint Pauli action-commutation gate")
+    else:
+        result_path = b9_pauli_action_term_disjoint_commutation.get("result")
+        markdown_path = b9_pauli_action_term_disjoint_commutation.get("markdown_report")
+        result_exists = bool(result_path and path_exists_from(benchmarks, result_path))
+        markdown_exists = bool(markdown_path and path_exists_from(benchmarks, markdown_path))
+        if not result_exists:
+            errors.append(f"B9 term-level disjoint Pauli action-commutation result path missing: {result_path}")
+        if not markdown_exists:
+            errors.append(f"B9 term-level disjoint Pauli action-commutation markdown missing: {markdown_path}")
+        payload = json.loads(read((benchmarks / result_path).resolve())) if result_exists else {}
+        summary = payload.get("summary", {})
+        b9_pauli_action_term_disjoint_commutation_status = {
+            "status": b9_pauli_action_term_disjoint_commutation.get("status"),
+            "method": b9_pauli_action_term_disjoint_commutation.get("method"),
+            "model_status": b9_pauli_action_term_disjoint_commutation.get("model_status"),
+            "requirements_passed": summary.get("requirements_passed"),
+            "requirements_failed": summary.get("requirements_failed"),
+            "fresh_zero_returncode_count": summary.get("fresh_zero_returncode_count"),
+            "fresh_no_warning": summary.get("fresh_no_warning"),
+            "checked_term_disjoint_commutation": summary.get("checked_term_disjoint_commutation"),
+            "proof_assistant_checked": summary.get("proof_assistant_checked"),
+            "formal_theorem_proved": summary.get("formal_theorem_proved"),
+            "explicit_not_linear_or_spectral_proof": summary.get("explicit_not_linear_or_spectral_proof"),
+            "bqp_separation_claimed": summary.get("bqp_separation_claimed"),
+            "validation_error_count": summary.get("validation_error_count"),
+            "result_exists": result_exists,
+            "markdown_exists": markdown_exists,
+            "result": result_path,
+            "markdown_report": markdown_path,
+        }
+        if payload.get("benchmark_id") != "B9":
+            errors.append("B9 term-level disjoint Pauli action-commutation benchmark_id mismatch")
+        if payload.get("method") != b9_pauli_action_term_disjoint_commutation.get("method"):
+            errors.append("B9 term-level disjoint Pauli action-commutation method mismatch")
+        if payload.get("status") != "pauli_action_term_disjoint_commutation_checked_not_linear_or_spectral_proof":
+            errors.append("B9 term-level disjoint Pauli action-commutation status mismatch")
+        for field in [
+            "requirements_passed",
+            "requirements_failed",
+            "fresh_zero_returncode_count",
+            "fresh_no_warning",
+            "checked_term_disjoint_commutation",
+            "proof_assistant_checked",
+            "formal_theorem_proved",
+            "explicit_not_linear_or_spectral_proof",
+            "bqp_separation_claimed",
+            "validation_error_count",
+        ]:
+            if summary.get(field) != b9_pauli_action_term_disjoint_commutation.get(field):
+                errors.append(f"B9 term-level disjoint Pauli action-commutation {field} mismatch")
+        if summary.get("requirements_passed") != 12 or summary.get("requirements_failed") != 0:
+            errors.append("B9 term-level disjoint Pauli action-commutation should pass all twelve requirements")
+        if summary.get("fresh_zero_returncode_count") != 3 or summary.get("fresh_no_warning") is not True:
+            errors.append("B9 term-level disjoint Pauli action-commutation should have three clean fresh commands")
+        if summary.get("validation_error_count") != 0:
+            errors.append("B9 term-level disjoint Pauli action-commutation validation errors must be zero")
 
     b10_manifest = yaml.safe_load(read(b10_manifest_path))
     b10_results = b10_manifest.get("current_results", {})
@@ -44387,6 +44448,7 @@ def audit(root: Path) -> dict:
             "pauli_basis_action_gate": b9_pauli_basis_action_status,
             "pauli_action_composition_gate": b9_pauli_action_composition_status,
             "pauli_action_disjoint_commutation_gate": b9_pauli_action_disjoint_commutation_status,
+            "pauli_action_term_disjoint_commutation_gate": b9_pauli_action_term_disjoint_commutation_status,
         },
         "b10": {
             "manifest": str(b10_manifest_path),
@@ -45600,6 +45662,7 @@ def audit(root: Path) -> dict:
             "b9_pauli_basis_action_gate": str(research / "B9_pauli_basis_action_gate.md"),
             "b9_pauli_action_composition_gate": str(research / "B9_pauli_action_composition_gate.md"),
             "b9_pauli_action_disjoint_commutation_gate": str(research / "B9_pauli_action_disjoint_commutation_gate.md"),
+            "b9_pauli_action_term_disjoint_commutation_gate": str(research / "B9_pauli_action_term_disjoint_commutation_gate.md"),
             "b7_dependency_schedule_bridge": str(research / "B7_b1_b2_dependency_schedule_bridge.md"),
             "b7_workload_dag_factory_schedule": str(research / "B7_workload_dag_factory_schedule.md"),
             "b7_logical_t_factory_schedule": str(research / "B7_logical_t_factory_schedule.md"),
@@ -48573,6 +48636,11 @@ def markdown_report(report: dict) -> str:
             f"- Disjoint Pauli action-commutation checked/proof-assistant/fresh zero commands: {report['b9']['pauli_action_disjoint_commutation_gate'].get('checked_disjoint_commutation')} / {report['b9']['pauli_action_disjoint_commutation_gate'].get('proof_assistant_checked')} / {report['b9']['pauli_action_disjoint_commutation_gate'].get('fresh_zero_returncode_count')}",
             f"- Disjoint Pauli action-commutation validation errors: {report['b9']['pauli_action_disjoint_commutation_gate'].get('validation_error_count')}",
             f"- Disjoint Pauli action-commutation result/markdown exists: {report['b9']['pauli_action_disjoint_commutation_gate'].get('result_exists')} / {report['b9']['pauli_action_disjoint_commutation_gate'].get('markdown_exists')}",
+            f"- Term-level disjoint Pauli action-commutation status: {report['b9']['pauli_action_term_disjoint_commutation_gate'].get('status')}",
+            f"- Term-level disjoint Pauli action-commutation requirements passed/failed: {report['b9']['pauli_action_term_disjoint_commutation_gate'].get('requirements_passed')} / {report['b9']['pauli_action_term_disjoint_commutation_gate'].get('requirements_failed')}",
+            f"- Term-level disjoint Pauli action-commutation checked/proof-assistant/fresh zero commands: {report['b9']['pauli_action_term_disjoint_commutation_gate'].get('checked_term_disjoint_commutation')} / {report['b9']['pauli_action_term_disjoint_commutation_gate'].get('proof_assistant_checked')} / {report['b9']['pauli_action_term_disjoint_commutation_gate'].get('fresh_zero_returncode_count')}",
+            f"- Term-level disjoint Pauli action-commutation validation errors: {report['b9']['pauli_action_term_disjoint_commutation_gate'].get('validation_error_count')}",
+            f"- Term-level disjoint Pauli action-commutation result/markdown exists: {report['b9']['pauli_action_term_disjoint_commutation_gate'].get('result_exists')} / {report['b9']['pauli_action_term_disjoint_commutation_gate'].get('markdown_exists')}",
             "",
             "## B10 BQP Boundary Graph Status",
             "",
