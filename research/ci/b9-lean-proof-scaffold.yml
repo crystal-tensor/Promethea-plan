@@ -43,12 +43,16 @@ jobs:
           lake env lean B9/ClusterStabilizer/WidthLocality.lean
           lake env lean B9/ClusterStabilizer/PauliBasisAction.lean
           lake env lean B9/ClusterStabilizer/PauliActionComposition.lean
+          lake env lean B9/ClusterStabilizer/PauliActionCommutation.lean
       - name: Check B9 computational-basis action gate
         run: |
           python tools/b9_pauli_basis_action_gate.py
       - name: Check B9 action composition gate
         run: |
           python tools/b9_pauli_action_composition_gate.py
+      - name: Check B9 disjoint action commutation gate
+        run: |
+          python tools/b9_pauli_action_disjoint_commutation_gate.py
       - name: Refresh B9 proof-environment gates
         run: |
           python tools/b9_proof_environment_readiness_gate.py \

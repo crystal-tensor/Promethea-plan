@@ -1,0 +1,32 @@
+LAKEFILE_SHA256: f5d3fe95343bb2aa83dffedf14e423bd73269c43fbf84610d262fb87f235a93c
+WIDTH_SOURCE_SHA256: 0b93b31c11fd62dd44f30fe5de3aa9a27b40ee16befb0c6c1617d62e8ce26e9c
+BASIS_SOURCE_SHA256: 2109f0e916408e00c9d3d7916d8f2638cebaef4a31ae77b8d36b5afa4c23c1c0
+COMPOSITION_SOURCE_SHA256: 28776e0088a0461045d953c1f66012029dd550bfbad147fb10916deb7b919418
+SOURCE_SHA256: 2d669fd4689944ef7c8cf4f88887c946d0f326c8b026883c956816ffc7ea8469
+
+COMMAND: ~/.elan/bin/lean --version
+RETURNCODE: 0
+ELAPSED_SECONDS: 0.023437
+STDOUT:
+Lean (version 4.12.0, arm64-apple-darwin23.6.0, commit dc2533473114, Release)
+STDERR:
+
+END_COMMAND
+
+COMMAND: ~/.elan/bin/lake --version
+RETURNCODE: 0
+ELAPSED_SECONDS: 0.026529
+STDOUT:
+Lake version 5.0.0-dc25334 (Lean version 4.12.0)
+STDERR:
+
+END_COMMAND
+
+COMMAND: ~/.elan/bin/lake -c mkdir -p .lake/build/lib/B9/ClusterStabilizer && lake env lean -o .lake/build/lib/B9/ClusterStabilizer/WidthLocality.olean B9/ClusterStabilizer/WidthLocality.lean && lake env lean -o .lake/build/lib/B9/ClusterStabilizer/PauliBasisAction.olean B9/ClusterStabilizer/PauliBasisAction.lean && lake env lean -o .lake/build/lib/B9/ClusterStabilizer/PauliActionComposition.olean B9/ClusterStabilizer/PauliActionComposition.lean && lake env lean B9/ClusterStabilizer/PauliActionCommutation.lean
+RETURNCODE: 0
+ELAPSED_SECONDS: 7.950737
+STDOUT:
+
+STDERR:
+
+END_COMMAND

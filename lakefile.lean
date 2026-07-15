@@ -13,5 +13,6 @@ lean_lib B9 where
   roots := #[
     `B9.ClusterStabilizer.WidthLocality,
     `B9.ClusterStabilizer.PauliBasisAction,
-    `B9.ClusterStabilizer.PauliActionComposition
+    `B9.ClusterStabilizer.PauliActionComposition,
+    `B9.ClusterStabilizer.PauliActionCommutation
   ]

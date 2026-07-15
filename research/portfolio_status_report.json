@@ -11015,6 +11015,25 @@
       "status": "pauli_action_composition_checked_not_linear_or_spectral_proof",
       "validation_error_count": 0
     },
+    "pauli_action_disjoint_commutation_gate": {
+      "bqp_separation_claimed": false,
+      "checked_disjoint_commutation": true,
+      "explicit_not_linear_or_spectral_proof": true,
+      "formal_theorem_proved": false,
+      "fresh_no_warning": true,
+      "fresh_zero_returncode_count": 3,
+      "markdown_exists": true,
+      "markdown_report": "../research/B9_pauli_action_disjoint_commutation_gate.md",
+      "method": "b9_pauli_action_disjoint_commutation_gate_v0",
+      "model_status": "computational_basis_disjoint_pauli_action_commutation_checked_under_pinned_lean_lake",
+      "proof_assistant_checked": true,
+      "requirements_failed": 0,
+      "requirements_passed": 11,
+      "result": "../results/B9_pauli_action_disjoint_commutation_gate_v0.json",
+      "result_exists": true,
+      "status": "pauli_action_disjoint_commutation_checked_not_linear_or_spectral_proof",
+      "validation_error_count": 0
+    },
     "pauli_basis_action_gate": {
       "basis_domain": "Fin n -> Bool",
       "bqp_separation_claimed": false,
@@ -11877,6 +11896,7 @@
     "b9_named_family_width_locality_bounds": "research/B9_named_family_width_locality_bounds.md",
     "b9_offline_proof_artifact_bundle_gate": "research/B9_offline_proof_artifact_bundle_gate.md",
     "b9_pauli_action_composition_gate": "research/B9_pauli_action_composition_gate.md",
+    "b9_pauli_action_disjoint_commutation_gate": "research/B9_pauli_action_disjoint_commutation_gate.md",
     "b9_pauli_basis_action_gate": "research/B9_pauli_basis_action_gate.md",
     "b9_pauli_term_family_gate": "research/B9_pauli_term_family_gate.md",
     "b9_proof_environment_contract_gate": "research/B9_proof_environment_contract_gate.md",

@@ -4980,6 +4980,20 @@ current_results:
     b10_credit_allowed: false
     validation_error_count: 0
     caveat: linked_basis_action_composition_guardrail_only_no_linear_operator_or_bqp_boundary_theorem
+  b9_pauli_action_disjoint_commutation_gate_v0:
+    status: linked_b9_pauli_action_disjoint_commutation_checked_zero_bqp_credit
+    method: b9_pauli_action_disjoint_commutation_gate_v0
+    source_benchmark: B9
+    source_result: ../results/B9_pauli_action_disjoint_commutation_gate_v0.json
+    source_markdown_report: ../research/B9_pauli_action_disjoint_commutation_gate.md
+    checked_disjoint_commutation: true
+    proof_assistant_checked: true
+    formal_theorem_proved: false
+    bqp_separation_claimed: false
+    quantum_advantage_claimed: false
+    b10_credit_allowed: false
+    validation_error_count: 0
+    caveat: linked_factor_level_basis_action_guardrail_only_no_linear_operator_or_bqp_boundary_theorem
 prototype_artifacts:
   boundary_graph_builder: ../tools/b10_bqp_boundary_graph.py
   formal_theorem_target_builder: ../tools/b10_formal_theorem_targets.py

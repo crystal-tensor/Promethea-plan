@@ -624,6 +624,32 @@ current_results:
     result: ../results/B9_pauli_action_composition_gate_v0.json
     transcript: ../results/B9_R100_pauli_action_composition_transcript.txt
     markdown_report: ../research/B9_pauli_action_composition_gate.md
+  pauli_action_disjoint_commutation_gate_v0:
+    status: pauli_action_disjoint_commutation_checked_not_linear_or_spectral_proof
+    method: b9_pauli_action_disjoint_commutation_gate_v0
+    model_status: computational_basis_disjoint_pauli_action_commutation_checked_under_pinned_lean_lake
+    source: B9/ClusterStabilizer/PauliActionCommutation.lean
+    composition_source: B9/ClusterStabilizer/PauliActionComposition.lean
+    basis_source: B9/ClusterStabilizer/PauliBasisAction.lean
+    width_source: B9/ClusterStabilizer/WidthLocality.lean
+    fresh_command_count: 3
+    fresh_zero_returncode_count: 3
+    fresh_no_warning: true
+    requirement_count: 11
+    requirements_passed: 11
+    requirements_failed: 0
+    checked_disjoint_commutation: true
+    proof_assistant_checked: true
+    formal_theorem_proved: false
+    explicit_not_linear_or_spectral_proof: true
+    quantum_pcp_theorem_claimed: false
+    nlts_theorem_claimed: false
+    bqp_separation_claimed: false
+    validation_error_count: 0
+    caveat: factor_level_computational_basis_commutation_only_not_complex_linear_operator_hamiltonian_or_spectral_theorem
+    result: ../results/B9_pauli_action_disjoint_commutation_gate_v0.json
+    transcript: ../results/B9_R101_pauli_action_disjoint_commutation_transcript.txt
+    markdown_report: ../research/B9_pauli_action_disjoint_commutation_gate.md
 prototype_artifacts:
   local_hamiltonian_gap_lab: ../tools/b9_local_hamiltonian_gap_lab.py
   failed_gap_amplification_lemma_builder: ../tools/b9_failed_gap_amplification_lemma.py
@@ -648,4 +674,5 @@ prototype_artifacts:
   pauli_term_family_gate: ../tools/b9_pauli_term_family_gate.py
   pauli_basis_action_gate: ../tools/b9_pauli_basis_action_gate.py
   pauli_action_composition_gate: ../tools/b9_pauli_action_composition_gate.py
+  pauli_action_disjoint_commutation_gate: ../tools/b9_pauli_action_disjoint_commutation_gate.py
   prototype_notes: ../research/B9_prototype_notes.md

@@ -2598,6 +2598,11 @@ Overall audit: PASS
 - Toolchain CI contract failed IDs: ['C2', 'C3', 'C10']
 - Toolchain CI run artifact / formal theorem: False / False
 - Toolchain CI template/result/markdown exists: True / True / True
+- Disjoint Pauli action-commutation status: pauli_action_disjoint_commutation_checked_not_linear_or_spectral_proof
+- Disjoint Pauli action-commutation requirements passed/failed: 11 / 0
+- Disjoint Pauli action-commutation checked/proof-assistant/fresh zero commands: True / True / 3
+- Disjoint Pauli action-commutation validation errors: 0
+- Disjoint Pauli action-commutation result/markdown exists: True / True
 
 ## B10 BQP Boundary Graph Status
 

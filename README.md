@@ -4097,3 +4097,18 @@ The gate passes 11/11 requirements, with 3/3 fresh Lean/Lake commands returning
 zero and no warnings. This remains a computational-basis replay certificate,
 not a complex linear-operator, Hamiltonian, spectral, Quantum PCP/NLTS, BQP,
 or quantum-advantage result.
+
+## Latest Research Update: R101
+
+R101 adds a disjoint-support commutation checkpoint to the computational-basis
+replay route. For two Pauli factors on distinct `Fin n` sites, Lean checks that
+replaying them in either order produces the same composed action. Separate
+theorems expose equality of the final basis state and equality of the
+accumulated phase across all four X/X, X/Z, Z/X, and Z/Z axis pairs.
+
+The R101 gate passes `11/11` requirements, with `3/3` fresh Lean/Lake commands
+returning zero and no warnings. This is useful for reordering independently
+checked local packets, but it remains a factor-level computational-basis
+guardrail. It is not a complex linear-operator theorem, Hamiltonian spectral
+result, Quantum PCP/NLTS theorem, global impossibility result, BQP separation,
+or quantum-advantage claim.
