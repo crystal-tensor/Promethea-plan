@@ -3315,6 +3315,24 @@ The next gate is a separately preregistered Rust-level comparator integration
 with unchanged candidate generation, source-return replay, runtime and memory
 ledgers, and a third graph carrying a small genuinely nonzero exact gap.
 
+`T-B4-002cw` / `T-B8-003da` / `T-B10-009cm-r175-protocol` now freezes that
+compiled integration before formal execution. The source-bound patch adds an
+experimental exact retained-binary64 score type and entry point to Qiskit
+2.4.1 commit `0fd015a2`, while retaining the same coupling graph, VF2 search,
+candidate restriction, mapping completion, and source f64 entry point. The
+matrix fixes 26 isolated workers, 416 warmups, and 1,600 recorded calls: 192
+R169 ordinary non-ties, 192 R170 and 192 R172 true-tie rows per policy, plus
+224 R157/R160 rows per policy whose unique exact gaps span 0.03125 to 0.5 ULP.
+Acceptance requires all 800 source outcomes to reproduce, all 800 exact
+outcomes to match their frozen oracle, every exact/source cell median-time
+ratio to remain at most 3.0, the aggregate ratio at most 2.5, and peak process
+RSS ratio at most 1.25. A separate standard-library audit must import neither
+Qiskit nor the R175 executor. Protocol hash `da6c45dc...`; contract hash
+`f3d3bb02...`; formal execution is unopened. This is an experimental compiled
+entry point, not an upstream-accepted or production Qiskit patch, confirmed
+bug, broad route-quality result, hardware evidence, quantum advantage, BQP
+separation, solved B4/B8/B10, or new credit.
+
 The R149 holdout at `T-B4-002bh` / `T-B8-003bl` / `T-B10-009az` is
 then preregistered ACCEPT with A1-A10, requirements, and phase replay all
 passing `10/10`, `10/10`, and `4/4`. All `24/24` repaired and target-specific

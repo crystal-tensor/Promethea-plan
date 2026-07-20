@@ -1,0 +1,122 @@
+{
+  "acceptance_requirements": [
+    "all 26 isolated workers start after public preregistration and import the bound R175 accelerator",
+    "all 1600 recorded calls and 416 warmups complete without simulation, shots, or route mutation",
+    "source f64 reproduces all 800 committed source outcomes",
+    "exact preserves all 192 R169 ordinary non-ties",
+    "exact repairs all 192 R170 and all 192 R172 true-tie false winners",
+    "exact repairs all 224 R160 sub-ULP unique-minimum rows while source reproduces all 224 prior wrong winners",
+    "every row, worker, result, and source binding hash validates",
+    "all frozen timing and peak-RSS thresholds pass",
+    "an independent standard-library oracle imports neither Qiskit nor the R175 comparator and reproduces every expected outcome",
+    "all forbidden claims and credit remain false or zero"
+  ],
+  "datasets": [
+    {
+      "dataset_id": "r169_non_tie",
+      "expected_relation": "exact_preserves_source_non_tie",
+      "input_path": "benchmarks/B4_B8_R169_target_compatible_candidate_v0.qasm",
+      "protocol_path": "results/B4_B8_R169_target_compatible_candidate_protocol_v0.json",
+      "result_path": "results/B4_B8_R169_target_compatible_candidate_replay_v0.json",
+      "worker_directory": "results/B4_B8_R169_target_compatible_candidate_replay"
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "expected_relation": "exact_repairs_source_one_ulp_false_winner",
+      "input_path": "benchmarks/B4_B8_R170_near_tie_candidate_v0.qasm",
+      "protocol_path": "results/B4_B8_R170_near_tie_candidate_protocol_v0.json",
+      "result_path": "results/B4_B8_R170_near_tie_candidate_replay_v0.json",
+      "worker_directory": "results/B4_B8_R170_near_tie_candidate_replay"
+    },
+    {
+      "dataset_id": "r172_t_tree_true_tie",
+      "expected_relation": "exact_repairs_source_one_ulp_false_winner",
+      "input_path": "benchmarks/B4_B8_R172_second_near_tie_candidate_v0.qasm",
+      "protocol_path": "results/B4_B8_R172_second_near_tie_candidate_protocol_v0.json",
+      "result_path": "results/B4_B8_R172_second_near_tie_candidate_replay_v0.json",
+      "worker_directory": "results/B4_B8_R172_second_near_tie_candidate_replay"
+    }
+  ],
+  "exact_leaf_semantics": "decode each rounded binary64 value of neg_log_fidelity(error) * integer interaction count onto the exact 2^-1074 grid, then add arbitrary-precision integers",
+  "forbidden_claims": [
+    "upstream_accepted_patch",
+    "production_qiskit_remedy",
+    "confirmed_qiskit_bug",
+    "route_quality_improvement",
+    "hardware_result",
+    "quantum_advantage",
+    "bqp_separation",
+    "solved_frontier",
+    "new_credit"
+  ],
+  "method": "b4_b8_r175_rust_exact_score_protocol_v0",
+  "payload_hash": "da6c45dcf78242c55d8580baaa4d090b69dedec8cc0a5d623084f0585d5183b2",
+  "performance_thresholds": {
+    "maximum_aggregate_median_time_ratio": 2.5,
+    "maximum_cell_median_time_ratio": 3.0,
+    "maximum_worker_peak_rss_ratio": 1.25
+  },
+  "planned_artifacts": {
+    "build_manifest": "research/source_lineage/Qiskit_2_4_1_R175_rust_exact_score_build_manifest.json",
+    "contract": "benchmarks/B4_B8_R175_rust_exact_score_contract_v0.json",
+    "independent_oracle": "results/B4_B8_R175_independent_rust_exact_oracle_v0.json",
+    "independent_oracle_report": "research/B4_B8_R175_independent_rust_exact_oracle.md",
+    "result": "results/B4_B8_R175_rust_exact_score_v0.json",
+    "result_report": "research/B4_B8_R175_rust_exact_score.md",
+    "worker_directory": "results/B4_B8_R175_rust_exact_score"
+  },
+  "policies": [
+    "source_f64",
+    "rust_exact_retained_binary64"
+  ],
+  "process_environment": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONHASHSEED": "0",
+    "QISKIT_PARALLEL": "FALSE",
+    "RAYON_NUM_THREADS": "1"
+  },
+  "recorded_calls_per_policy": 800,
+  "research_question": "Can an exact retained-binary64 accumulator inside Qiskit's compiled Rust VF2 path repair true ties and sub-ULP non-ties while preserving ordinary mappings at bounded runtime and memory cost?",
+  "small_gap_cases": [
+    "edge_0_1_m008ulp",
+    "edge_0_1_m001ulp",
+    "edge_1_0_p001ulp",
+    "edge_1_0_p008ulp",
+    "edge_1_2_m001ulp",
+    "edge_2_1_p001ulp",
+    "edge_2_1_p008ulp"
+  ],
+  "small_gap_modes": [
+    "ascending_f64",
+    "descending_f64",
+    "math_fsum",
+    "exact_binary_fraction"
+  ],
+  "small_gap_replays_per_case": 8,
+  "source_target_id": "T-B4-002cw/T-B8-003da/T-B10-009cm-r175-protocol",
+  "standard_profiles": [
+    "native_hashset_order",
+    "ascending_sorted_order",
+    "descending_sorted_order"
+  ],
+  "standard_replays_per_worker": 64,
+  "status": "preregistered_unopened",
+  "tie_policy": "strict decreasing comparison preserves the first exact minimizer seen",
+  "title": "B4/B8/B10 R175 integrated Rust exact-score protocol",
+  "total_qiskit_calls_including_warmup": 2016,
+  "total_recorded_calls": 1600,
+  "upstream_target_id": "T-B4-002cv/T-B8-003cz/T-B10-009cl-r174",
+  "version": 0,
+  "vf2_configuration": {
+    "call_limit": 30000000,
+    "max_trials": 250000,
+    "score_initial_layout": true,
+    "shuffle_seed": -1,
+    "strict_direction": false,
+    "time_limit": null
+  },
+  "warmup_calls_per_worker": 16,
+  "worker_count": 26
+}

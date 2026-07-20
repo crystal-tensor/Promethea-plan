@@ -1,0 +1,748 @@
+diff --git a/crates/transpiler/Cargo.toml b/crates/transpiler/Cargo.toml
+index e8639fc..6e5398b 100644
+--- a/crates/transpiler/Cargo.toml
++++ b/crates/transpiler/Cargo.toml
+@@ -22,6 +22,7 @@ nalgebra.workspace = true
+ rand.workspace = true
+ rand_pcg.workspace = true
+ num-complex.workspace = true
++num-bigint.workspace = true
+ rustworkx-core.workspace = true
+ qiskit-circuit.workspace = true
+ qiskit-synthesis.workspace = true
+diff --git a/crates/transpiler/src/passes/vf2/vf2_layout.rs b/crates/transpiler/src/passes/vf2/vf2_layout.rs
+index 52acd91..b3fee72 100644
+--- a/crates/transpiler/src/passes/vf2/vf2_layout.rs
++++ b/crates/transpiler/src/passes/vf2/vf2_layout.rs
+@@ -10,17 +10,21 @@
+ // copyright notice, and modified files need to carry a notice indicating
+ // that they have been altered from the originals.
+
++use std::cell::RefCell;
+ use std::convert::Infallible;
++use std::rc::Rc;
+ use std::time::Instant;
+
+ use hashbrown::HashMap;
+ use indexmap::{IndexMap, IndexSet};
++use num_bigint::BigUint;
+ use rand::prelude::*;
+ use rand_pcg::Pcg64Mcg;
+ use rayon::prelude::*;
+ use rustworkx_core::petgraph::data::Create;
+ use rustworkx_core::petgraph::prelude::*;
+
++use pyo3::exceptions::PyValueError;
+ use pyo3::prelude::*;
+ use pyo3::{IntoPyObjectExt, create_exception, wrap_pyfunction};
+
+@@ -28,6 +32,7 @@ use qiskit_circuit::dag_circuit::DAGCircuit;
+ use qiskit_circuit::interner::{Interned, Interner};
+ use qiskit_circuit::operations::{ControlFlowView, Operation};
+ use qiskit_circuit::packed_instruction::PackedInstruction;
++use qiskit_circuit::vf2::Vf2Score;
+ use qiskit_circuit::{PhysicalQubit, VirtualQubit, vf2};
+
+ use super::error_map::ErrorMap;
+@@ -35,6 +40,164 @@ use crate::target::{Qargs, QargsRef, Target, TargetOperation};
+
+ create_exception!(qiskit, MultiQEncountered, pyo3::exceptions::PyException);
+
++#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
++enum ExactF64Score {
++    Finite(BigUint),
++    PositiveInfinity,
++}
++
++impl ExactF64Score {
++    fn from_f64(value: f64) -> Self {
++        assert!(!value.is_nan(), "exact VF2 scores must not be NaN");
++        assert!(value >= 0.0, "exact VF2 scores must not be negative");
++        if value.is_infinite() {
++            return Self::PositiveInfinity;
++        }
++        if value == 0.0 {
++            return Self::Finite(BigUint::from(0u8));
++        }
++        let bits = value.to_bits();
++        let exponent = ((bits >> 52) & 0x7ff) as usize;
++        let fraction = bits & ((1u64 << 52) - 1);
++        let coefficient = if exponent == 0 {
++            BigUint::from(fraction)
++        } else {
++            BigUint::from((1u64 << 52) | fraction) << (exponent - 1)
++        };
++        Self::Finite(coefficient)
++    }
++}
++
++impl vf2::Vf2Score for ExactF64Score {
++    fn combine(left: &Self, right: &Self) -> Self {
++        match (left, right) {
++            (Self::Finite(left), Self::Finite(right)) => Self::Finite(left + right),
++            _ => Self::PositiveInfinity,
++        }
++    }
++
++    fn id() -> Self {
++        Self::Finite(BigUint::from(0u8))
++    }
++
++    fn cmp(left: &Self, right: &Self) -> std::cmp::Ordering {
++        left.cmp(right)
++    }
++}
++
++// R162 keeps a compact, source-local witness of score formation.  The labels
++// are carried by the graph weights so the trace can reconstruct partial
++// candidate mappings without changing the production f64 path.
++type ScoreTraceEvent = (String, u64, u64, u64, String, String, String);
++
++#[derive(Clone)]
++struct TraceScore {
++    value: f64,
++    terms: String,
++    leaves: Vec<(String, u64)>,
++    events: Option<Rc<RefCell<Vec<ScoreTraceEvent>>>>,
++}
++
++fn encode_score_leaves(leaves: &[(String, u64)]) -> String {
++    leaves
++        .iter()
++        .map(|(label, bits)| format!("{}={}", label, bits))
++        .collect::<Vec<_>>()
++        .join(";")
++}
++
++impl TraceScore {
++    fn leaf(value: f64, terms: String, events: Rc<RefCell<Vec<ScoreTraceEvent>>>) -> Self {
++        let leaves = vec![(terms.clone(), value.to_bits())];
++        Self {
++            value,
++            terms,
++            leaves,
++            events: Some(events),
++        }
++    }
++
++    fn zero(events: Rc<RefCell<Vec<ScoreTraceEvent>>>) -> Self {
++        Self {
++            value: 0.0,
++            terms: String::new(),
++            leaves: Vec::new(),
++            events: Some(events),
++        }
++    }
++}
++
++impl vf2::Vf2Score for TraceScore {
++    fn combine(left: &Self, right: &Self) -> Self {
++        let value = left.value + right.value;
++        let terms = match (left.terms.is_empty(), right.terms.is_empty()) {
++            (true, true) => String::new(),
++            (true, false) => right.terms.clone(),
++            (false, true) => left.terms.clone(),
++            (false, false) => format!("{}|{}", left.terms, right.terms),
++        };
++        let mut leaves = left.leaves.clone();
++        leaves.extend(right.leaves.iter().cloned());
++        let events = left.events.clone().or_else(|| right.events.clone());
++        if let Some(events_ref) = &events {
++            events_ref.borrow_mut().push((
++                "combine".to_string(),
++                left.value.to_bits(),
++                right.value.to_bits(),
++                value.to_bits(),
++                left.terms.clone(),
++                right.terms.clone(),
++                encode_score_leaves(&leaves),
++            ));
++        }
++        Self {
++            value,
++            terms,
++            leaves,
++            events,
++        }
++    }
++
++    fn id() -> Self {
++        Self {
++            value: 0.0,
++            terms: String::new(),
++            leaves: Vec::new(),
++            events: None,
++        }
++    }
++
++    fn cmp(left: &Self, right: &Self) -> std::cmp::Ordering {
++        let ordering = left
++            .value
++            .partial_cmp(&right.value)
++            .expect("trace scores must not return nan");
++        if let Some(events_ref) = left.events.as_ref().or(right.events.as_ref()) {
++            let code = match ordering {
++                std::cmp::Ordering::Less => 0,
++                std::cmp::Ordering::Equal => 1,
++                std::cmp::Ordering::Greater => 2,
++            };
++            events_ref.borrow_mut().push((
++                "compare".to_string(),
++                left.value.to_bits(),
++                right.value.to_bits(),
++                code,
++                left.terms.clone(),
++                right.terms.clone(),
++                String::new(),
++            ));
++        }
++        ordering
++    }
++}
++
++#[derive(Clone)]
++struct TraceWeight {
++    value: f64,
++    label: String,
++}
++
+ #[pyclass(name = "VF2PassConfiguration", skip_from_py_object)]
+ #[derive(Clone, Debug)]
+ pub struct Vf2PassConfiguration {
+@@ -208,17 +371,32 @@ impl VF2PassReturn {
+     }
+ }
+
+-/// Build an average error map for a given target.
++#[derive(Clone, Copy)]
++enum ErrorMapOperationOrder {
++    Native,
++    Ascending,
++    Descending,
++}
++
++type ErrorMapTraceStep = (String, u64, u64);
++type ErrorMapTraceRow = (Vec<u32>, Vec<ErrorMapTraceStep>, u64);
++
++/// Build an average error map for a given target and optionally retain the
++/// exact operation order and floating-point accumulation bits.
+ ///
+ /// Returns `None` if there is a global 2q operation to avoid attempting to construct a meaningless
+ /// all-to-all connectivity graph.
+-fn build_average_error_map(target: &Target) -> Option<ErrorMap> {
++fn build_average_error_map_traced(
++    target: &Target,
++    operation_order: ErrorMapOperationOrder,
++) -> Option<(ErrorMap, Vec<ErrorMapTraceRow>)> {
+     if let Ok(mut globals) = target.operations_for_qargs(QargsRef::Global) {
+         if globals.any(|op| op.operation.num_qubits() == 2) {
+             return None;
+         }
+     }
+     let mut error_map = ErrorMap::new(Some(target.num_qargs()));
++    let mut trace_rows = Vec::with_capacity(target.num_qargs());
+     let mut target_without_errors = true;
+     for qargs in target.qargs()? {
+         let Qargs::Concrete(qargs) = qargs else {
+@@ -228,17 +406,28 @@ fn build_average_error_map(target: &Target) -> Option<ErrorMap> {
+             continue;
+         };
+         let mut qarg_error: f64 = 0.;
+-        let mut count: usize = 0;
+-        for op in target
++        let mut operation_names = target
+             .operation_names_for_qargs(QargsRef::Concrete(qargs))
+             .expect("these qargs came from `target.qargs()`")
+-        {
+-            count += 1;
++            .into_iter()
++            .collect::<Vec<_>>();
++        match operation_order {
++            ErrorMapOperationOrder::Native => (),
++            ErrorMapOperationOrder::Ascending => operation_names.sort_unstable(),
++            ErrorMapOperationOrder::Descending => {
++                operation_names.sort_unstable_by(|left, right| right.cmp(left))
++            }
++        }
++        let count = operation_names.len();
++        let mut trace_steps = Vec::with_capacity(count);
++        for op in operation_names {
+             // If the `target` has no error recorded for an operation, we treat it as errorless.
+-            qarg_error += target
++            let error = target
+                 .get_error(op, qargs)
+                 .inspect(|_| target_without_errors = false)
+                 .unwrap_or(0.);
++            qarg_error += error;
++            trace_steps.push((op.to_owned(), error.to_bits(), qarg_error.to_bits()));
+         }
+         if count > 0 {
+             let out_qargs = if qargs.len() == 1 {
+@@ -246,9 +435,13 @@ fn build_average_error_map(target: &Target) -> Option<ErrorMap> {
+             } else {
+                 [qargs[0], qargs[1]]
+             };
+-            error_map
+-                .error_map
+-                .insert(out_qargs, qarg_error / count as f64);
++            let average_error = qarg_error / count as f64;
++            error_map.error_map.insert(out_qargs, average_error);
++            trace_rows.push((
++                qargs.iter().map(|qubit| qubit.index() as u32).collect(),
++                trace_steps,
++                average_error.to_bits(),
++            ));
+         }
+     }
+     if target_without_errors {
+@@ -293,7 +486,12 @@ fn build_average_error_map(target: &Target) -> Option<ErrorMap> {
+             error_map.error_map.entry([left, right]).insert(avg);
+         }
+     }
+-    Some(error_map)
++    Some((error_map, trace_rows))
++}
++
++fn build_average_error_map(target: &Target) -> Option<ErrorMap> {
++    build_average_error_map_traced(target, ErrorMapOperationOrder::Native)
++        .map(|(error_map, _)| error_map)
+ }
+
+ /// A full set of a virtual interaction graph, and any loose 1q qubits.
+@@ -618,10 +816,13 @@ fn map_free_qubits(
+     Some(partial_layout)
+ }
+
+-fn minimize_vf2<N, H, NG, HG, NO, HO, NS, ES>(
++fn minimize_vf2_with_score<N, H, NG, HG, NO, HO, NS, ES>(
+     vf2: vf2::Vf2<N, H, NG, HG, NO, HO, NS, ES>,
+     config: &Vf2PassConfiguration,
+-) -> Option<IndexMap<N::NodeId, H::NodeId, ::ahash::RandomState>>
++) -> Option<(
++    IndexMap<N::NodeId, H::NodeId, ::ahash::RandomState>,
++    NS::Score,
++)>
+ where
+     N: vf2::alias::IntoVf2Graph,
+     H: vf2::alias::IntoVf2Graph<EdgeType = N::EdgeType>,
+@@ -658,18 +859,46 @@ where
+         max_trials == 0 || trials <= max_trials
+     };
+     let mut vf2 = vf2.with_call_limit(config.call_limit.0).into_iter();
+-    let (mut mapping, _score) = vf2.next()?.expect("error is infallible");
++    let (mut mapping, mut score) = vf2.next()?.expect("error is infallible");
+     if can_continue() {
+         vf2.call_limit = config.call_limit.1;
+-        if let Some((new_mapping, _score)) = vf2
++        if let Some((new_mapping, new_score)) = vf2
+             .take_while(|_| can_continue())
+             .last()
+             .map(|v| v.expect("error is infallible"))
+         {
+             mapping = new_mapping;
++            score = new_score;
+         }
+     }
+-    Some(mapping)
++    Some((mapping, score))
++}
++
++fn minimize_vf2<N, H, NG, HG, NO, HO, NS, ES>(
++    vf2: vf2::Vf2<N, H, NG, HG, NO, HO, NS, ES>,
++    config: &Vf2PassConfiguration,
++) -> Option<IndexMap<N::NodeId, H::NodeId, ::ahash::RandomState>>
++where
++    N: vf2::alias::IntoVf2Graph,
++    H: vf2::alias::IntoVf2Graph<EdgeType = N::EdgeType>,
++    NG: for<'a> vf2::alias::Vf2Graph<
++            'a,
++            NodeWeight = N::NodeWeight,
++            EdgeWeight = N::EdgeWeight,
++            EdgeType = N::EdgeType,
++        > + Create,
++    HG: for<'a> vf2::alias::Vf2Graph<
++            'a,
++            NodeWeight = H::NodeWeight,
++            EdgeWeight = H::EdgeWeight,
++            EdgeType = H::EdgeType,
++        > + Create,
++    NO: vf2::NodeSorter<N>,
++    HO: vf2::NodeSorter<H>,
++    NS: vf2::Semantics<N::NodeWeight, H::NodeWeight, Error = Infallible>,
++    ES: vf2::Semantics<N::EdgeWeight, H::EdgeWeight, Score = NS::Score, Error = Infallible>,
++{
++    minimize_vf2_with_score(vf2, config).map(|(mapping, _)| mapping)
+ }
+
+ /// Produce an initial score for the identity mapping of the interaction graph onto the coupling
+@@ -726,6 +955,254 @@ where
+     Some(score)
+ }
+
++fn trace_graph_from_interactions(graph: &Graph<usize, usize>) -> Graph<TraceWeight, TraceWeight> {
++    let mut out = Graph::with_capacity(graph.node_count(), graph.edge_count());
++    for node in graph.node_indices() {
++        out.add_node(TraceWeight {
++            value: *graph.node_weight(node).expect("interaction node exists") as f64,
++            label: format!("v{}", node.index()),
++        });
++    }
++    for edge in graph.edge_references() {
++        out.add_edge(
++            edge.source(),
++            edge.target(),
++            TraceWeight {
++                value: *edge.weight() as f64,
++                label: format!("v{}->v{}", edge.source().index(), edge.target().index()),
++            },
++        );
++    }
++    out
++}
++
++fn trace_graph_from_coupling(graph: &Graph<f64, f64>) -> Graph<TraceWeight, TraceWeight> {
++    let mut out = Graph::with_capacity(graph.node_count(), graph.edge_count());
++    for node in graph.node_indices() {
++        out.add_node(TraceWeight {
++            value: *graph.node_weight(node).expect("coupling node exists"),
++            label: format!("p{}", node.index()),
++        });
++    }
++    for edge in graph.edge_references() {
++        out.add_edge(
++            edge.source(),
++            edge.target(),
++            TraceWeight {
++                value: *edge.weight(),
++                label: format!("p{}->p{}", edge.source().index(), edge.target().index()),
++            },
++        );
++    }
++    out
++}
++
++fn trace_score_identity_layout(
++    interactions: &Graph<TraceWeight, TraceWeight>,
++    coupling: &Graph<TraceWeight, TraceWeight>,
++    events: Rc<RefCell<Vec<ScoreTraceEvent>>>,
++) -> Option<TraceScore> {
++    let mut score = TraceScore::zero(events.clone());
++    for node in interactions.node_indices() {
++        let needle = interactions.node_weight(node)?;
++        let haystack = coupling.node_weight(node)?;
++        score = TraceScore::combine(
++            &score,
++            &TraceScore::leaf(
++                needle.value * haystack.value,
++                format!("node:{}=>{}", needle.label, haystack.label),
++                events.clone(),
++            ),
++        );
++    }
++    for edge in interactions.edge_references() {
++        let haystack = coupling
++            .edges_connecting(edge.source(), edge.target())
++            .next()?;
++        score = TraceScore::combine(
++            &score,
++            &TraceScore::leaf(
++                edge.weight().value * haystack.weight().value,
++                format!("edge:{}=>{}", edge.weight().label, haystack.weight().label),
++                events.clone(),
++            ),
++        );
++    }
++    Some(score)
++}
++
++#[pyfunction]
++#[pyo3(signature = (dag, target, config, *, strict_direction=false, operation_order="native"))]
++pub fn vf2_layout_pass_average_score_traced(
++    dag: &DAGCircuit,
++    target: &Target,
++    config: &Vf2PassConfiguration,
++    strict_direction: bool,
++    operation_order: &str,
++) -> PyResult<(Vf2PassReturn, Vec<ScoreTraceEvent>, Vec<ErrorMapTraceRow>)> {
++    let add_interaction = |count: &mut usize, _: &PackedInstruction, repeats: usize| {
++        *count += repeats;
++        true
++    };
++    let interactions = VirtualInteractions::from_dag(dag, add_interaction)?
++        .expect("weighting function is infallible");
++    let Some((error_map, error_map_trace)) = build_average_error_map_traced(
++        target,
++        match operation_order {
++            "native" => ErrorMapOperationOrder::Native,
++            "ascending" => ErrorMapOperationOrder::Ascending,
++            "descending" => ErrorMapOperationOrder::Descending,
++            value => {
++                return Err(pyo3::exceptions::PyValueError::new_err(format!(
++                    "invalid ErrorMap operation order: {value}"
++                )));
++            }
++        },
++    ) else {
++        return Ok((Vf2PassReturn::NoSolution, Vec::new(), Vec::new()));
++    };
++    let Some(mut coupling_graph) = build_average_coupling_map(target, &error_map) else {
++        return Ok((Vf2PassReturn::NoSolution, Vec::new(), error_map_trace));
++    };
++    if !strict_direction {
++        loosen_directionality(&mut coupling_graph);
++    }
++
++    let events = Rc::new(RefCell::new(Vec::new()));
++    let trace_interactions = trace_graph_from_interactions(&interactions.graph);
++    let trace_coupling = trace_graph_from_coupling(&coupling_graph);
++    let node_score_events = events.clone();
++    let node_score = move |count: &TraceWeight, err: &TraceWeight| {
++        Ok::<TraceScore, Infallible>(TraceScore::leaf(
++            count.value * err.value,
++            format!("node:{}=>{}", count.label, err.label),
++            node_score_events.clone(),
++        ))
++    };
++    let edge_score_events = events.clone();
++    let edge_score = move |count: &TraceWeight, err: &TraceWeight| {
++        Ok::<TraceScore, Infallible>(TraceScore::leaf(
++            count.value * err.value,
++            format!("edge:{}=>{}", count.label, err.label),
++            edge_score_events.clone(),
++        ))
++    };
++    let best_score = if config.score_initial_layout {
++        trace_score_identity_layout(&trace_interactions, &trace_coupling, events.clone())
++    } else {
++        None
++    };
++    let num_physical_qubits = coupling_graph.node_count();
++    let mut coupling_qubits = (0..num_physical_qubits)
++        .map(|k| PhysicalQubit::new(k as u32))
++        .collect::<Vec<_>>();
++    if let Some(seed) = config.shuffle_seed {
++        coupling_qubits.shuffle(&mut Pcg64Mcg::seed_from_u64(seed));
++        let order = coupling_qubits
++            .iter()
++            .map(|qubit| NodeIndex::new(qubit.index()))
++            .collect::<Vec<_>>();
++        coupling_graph = vf2::reorder_nodes(&coupling_graph, &order);
++    }
++    let trace_coupling = trace_graph_from_coupling(&coupling_graph);
++    let vf2 = vf2::Vf2::new(&trace_interactions, &trace_coupling, vf2::Problem::Subgraph)
++        .with_scoring(node_score, edge_score)
++        .with_restriction(vf2::Restriction::Decreasing(best_score))
++        .with_vf2pp_ordering();
++    let start_time = Instant::now();
++    let mut times_up = false;
++    let mut trials: usize = 0;
++    let max_trials = config
++        .max_trials
++        .unwrap_or_else(|| 15 + vf2.needle().edge_count().max(vf2.haystack().edge_count()));
++    let time_limit = config.time_limit.unwrap_or(f64::INFINITY);
++    let mut can_continue = || {
++        if times_up {
++            return false;
++        }
++        times_up = start_time.elapsed().as_secs_f64() >= time_limit;
++        trials += 1;
++        max_trials == 0 || trials <= max_trials
++    };
++    let mut vf2 = vf2.with_call_limit(config.call_limit.0).into_iter();
++    let Some(first) = vf2.next() else {
++        let output = if config.score_initial_layout {
++            Vf2PassReturn::NoImprovement
++        } else {
++            Vf2PassReturn::NoSolution
++        };
++        return Ok((output, events.borrow().clone(), error_map_trace));
++    };
++    let (mut mapping, mut score) = first.expect("error is infallible");
++    let mut candidate_index = 0usize;
++    let mut record_candidate =
++        |candidate_mapping: &IndexMap<NodeIndex, NodeIndex, ::ahash::RandomState>,
++         candidate_score: &TraceScore| {
++            let mapping_terms = candidate_mapping
++                .iter()
++                .map(|(virtual_qubit, physical_qubit)| {
++                    format!("v{}->p{}", virtual_qubit.index(), physical_qubit.index())
++                })
++                .collect::<Vec<_>>()
++                .join("|");
++            events.borrow_mut().push((
++                "candidate".to_string(),
++                candidate_score.value.to_bits(),
++                0,
++                0,
++                mapping_terms,
++                candidate_score.terms.clone(),
++                format!(
++                    "yielded_by_vf2;candidate_index={};leaves={}",
++                    candidate_index,
++                    encode_score_leaves(&candidate_score.leaves)
++                ),
++            ));
++            candidate_index += 1;
++        };
++    record_candidate(&mapping, &score);
++    if can_continue() {
++        vf2.call_limit = config.call_limit.1;
++        while can_continue() {
++            let Some(next) = vf2.next() else {
++                break;
++            };
++            let (new_mapping, new_score) = next.expect("error is infallible");
++            record_candidate(&new_mapping, &new_score);
++            mapping = new_mapping;
++            score = new_score;
++        }
++    }
++    let mapping_terms = mapping
++        .iter()
++        .map(|(virtual_qubit, physical_qubit)| {
++            format!("v{}->p{}", virtual_qubit.index(), physical_qubit.index())
++        })
++        .collect::<Vec<_>>()
++        .join("|");
++    events.borrow_mut().push((
++        "candidate".to_string(),
++        score.value.to_bits(),
++        0,
++        0,
++        mapping_terms,
++        score.terms.clone(),
++        format!(
++            "returned_by_minimize_vf2;leaves={}",
++            encode_score_leaves(&score.leaves)
++        ),
++    ));
++    let mapping = mapping
++        .iter()
++        .map(|(k, v)| (interactions.nodes[k.index()], coupling_qubits[v.index()]))
++        .collect();
++    let output = match map_free_qubits(num_physical_qubits, interactions, mapping, &error_map) {
++        Some(mapping) => Vf2PassReturn::Solution(mapping),
++        None => Vf2PassReturn::NoSolution,
++    };
++    Ok((output, events.borrow().clone(), error_map_trace))
++}
++
+ #[pyfunction]
+ #[pyo3(signature = (dag, target, config, *, strict_direction=false, avg_error_map=None))]
+ pub fn vf2_layout_pass_average(
+@@ -797,6 +1274,105 @@ pub fn vf2_layout_pass_average(
+     }
+ }
+
++#[pyfunction]
++#[pyo3(signature = (dag, target, config, *, strict_direction=false, avg_error_map=None))]
++pub fn vf2_layout_pass_average_exact_score(
++    dag: &DAGCircuit,
++    target: &Target,
++    config: &Vf2PassConfiguration,
++    strict_direction: bool,
++    avg_error_map: Option<&ErrorMap>,
++) -> PyResult<Vf2PassReturn> {
++    let add_interaction = |count: &mut usize, _: &PackedInstruction, repeats: usize| {
++        *count += repeats;
++        true
++    };
++    let interactions = VirtualInteractions::from_dag(dag, add_interaction)?
++        .expect("weighting function is infallible");
++
++    let score = |count: &usize, err: &f64| -> Result<ExactF64Score, Infallible> {
++        Ok(ExactF64Score::from_f64(*err * (*count as f64)))
++    };
++    let target_error_map = avg_error_map
++        .is_none()
++        .then(|| build_average_error_map(target))
++        .flatten();
++    let Some(avg_error_map) = avg_error_map.or(target_error_map.as_ref()) else {
++        return Ok(Vf2PassReturn::NoSolution);
++    };
++    let Some(mut coupling_graph) = build_average_coupling_map(target, avg_error_map) else {
++        return Ok(Vf2PassReturn::NoSolution);
++    };
++    if !strict_direction {
++        loosen_directionality(&mut coupling_graph);
++    }
++    let best_score = if config.score_initial_layout {
++        score_identity_layout(&interactions, &coupling_graph, vf2::Scorer(score))
++    } else {
++        None
++    };
++    let had_best_score = best_score.is_some();
++    let num_physical_qubits = coupling_graph.node_count();
++    let mut coupling_qubits = (0..num_physical_qubits)
++        .map(|k| PhysicalQubit::new(k as u32))
++        .collect::<Vec<_>>();
++    if let Some(seed) = config.shuffle_seed {
++        coupling_qubits.shuffle(&mut Pcg64Mcg::seed_from_u64(seed));
++        let order = coupling_qubits
++            .iter()
++            .map(|qubit| NodeIndex::new(qubit.index()))
++            .collect::<Vec<_>>();
++        coupling_graph = vf2::reorder_nodes(&coupling_graph, &order);
++    }
++
++    let vf2 = vf2::Vf2::new(&interactions.graph, &coupling_graph, vf2::Problem::Subgraph)
++        .with_scoring(score, score)
++        .with_restriction(vf2::Restriction::Decreasing(best_score))
++        .with_vf2pp_ordering();
++    let Some(mapping) = minimize_vf2(vf2, config) else {
++        if had_best_score {
++            return Ok(Vf2PassReturn::NoImprovement);
++        } else {
++            return Ok(Vf2PassReturn::NoSolution);
++        }
++    };
++    let mapping = mapping
++        .iter()
++        .map(|(k, v)| (interactions.nodes[k.index()], coupling_qubits[v.index()]))
++        .collect();
++    match map_free_qubits(num_physical_qubits, interactions, mapping, avg_error_map) {
++        Some(mapping) => Ok(Vf2PassReturn::Solution(mapping)),
++        None => Ok(Vf2PassReturn::NoSolution),
++    }
++}
++
++#[pyfunction]
++#[pyo3(signature = (dag, target, config, *, strict_direction=false, operation_order="native"))]
++pub fn vf2_layout_pass_average_traced(
++    dag: &DAGCircuit,
++    target: &Target,
++    config: &Vf2PassConfiguration,
++    strict_direction: bool,
++    operation_order: &str,
++) -> PyResult<(Vf2PassReturn, Vec<ErrorMapTraceRow>)> {
++    let operation_order = match operation_order {
++        "native" => ErrorMapOperationOrder::Native,
++        "ascending" => ErrorMapOperationOrder::Ascending,
++        "descending" => ErrorMapOperationOrder::Descending,
++        value => {
++            return Err(PyValueError::new_err(format!(
++                "invalid ErrorMap operation order: {value}"
++            )));
++        }
++    };
++    let Some((error_map, trace_rows)) = build_average_error_map_traced(target, operation_order)
++    else {
++        return Ok((Vf2PassReturn::NoSolution, Vec::new()));
++    };
++    let result = vf2_layout_pass_average(dag, target, config, strict_direction, Some(&error_map))?;
++    Ok((result, trace_rows))
++}
++
+ #[pyfunction]
+ #[pyo3(signature = (dag, target, config))]
+ pub fn vf2_layout_pass_exact(
+@@ -893,6 +1469,9 @@ pub fn vf2_layout_pass_exact(
+
+ pub fn vf2_layout_mod(m: &Bound<PyModule>) -> PyResult<()> {
+     m.add_wrapped(wrap_pyfunction!(vf2_layout_pass_average))?;
++    m.add_wrapped(wrap_pyfunction!(vf2_layout_pass_average_exact_score))?;
++    m.add_wrapped(wrap_pyfunction!(vf2_layout_pass_average_traced))?;
++    m.add_wrapped(wrap_pyfunction!(vf2_layout_pass_average_score_traced))?;
+     m.add_wrapped(wrap_pyfunction!(vf2_layout_pass_exact))?;
+     m.add("MultiQEncountered", m.py().get_type::<MultiQEncountered>())?;
+     m.add(

@@ -1,0 +1,177 @@
+{
+  "contract_id": "B4-B8-R175-rust-exact-score-contract-v0",
+  "execution_started": false,
+  "expected_counts": {
+    "recorded_calls_per_policy": 800,
+    "small_gap_rows_per_policy": 224,
+    "small_gap_worker_count": 8,
+    "standard_rows_per_policy": 576,
+    "standard_worker_count": 18,
+    "total_qiskit_calls": 2016,
+    "total_recorded_calls": 1600,
+    "warmup_call_count": 416,
+    "worker_count": 26
+  },
+  "payload_hash": "f3d3bb02d3ebeb8afc354b7091ce4e262df108fdd0fd136d4fc23a44023e8230",
+  "protocol_path": "results/B4_B8_R175_rust_exact_score_protocol_v0.json",
+  "protocol_payload_hash": "da6c45dcf78242c55d8580baaa4d090b69dedec8cc0a5d623084f0585d5183b2",
+  "result_paths_must_be_absent": [
+    "results/B4_B8_R175_rust_exact_score_v0.json",
+    "research/B4_B8_R175_rust_exact_score.md",
+    "results/B4_B8_R175_independent_rust_exact_oracle_v0.json",
+    "research/B4_B8_R175_independent_rust_exact_oracle.md",
+    "results/B4_B8_R175_rust_exact_score"
+  ],
+  "source_bindings": {
+    "source_01": {
+      "path": "research/source_lineage/Qiskit_2_4_1_R175_rust_exact_score_build_manifest.json",
+      "payload_hash": "fbac9d2aafc2f45a931ac3218dcf044c0d1051a9620cca0887d63d045535b430",
+      "sha256": "57a9922aebd80b9c46ed17d54431d0863b24151ce4a043b9e9fe6246676fc00f"
+    },
+    "source_02": {
+      "path": "results/B4_B8_R174_exact_score_comparator_v0.json",
+      "payload_hash": "4bc8c0902d8a5f3a41efd61ab9b308765adc0bbbc193687d3fedb070e7bdf7fc",
+      "sha256": "70a5b360c64a40604b46ffde138b0ba40f1aa3ec5494dba63d238f0adedd6732"
+    },
+    "source_03": {
+      "manifest_payload_hash": "f424d6e7e80a05ed9b4da80e53495ec67515b284969824859827e10132a84762",
+      "path": "results/B4_B8_R159_error_map_accumulation_trace/native_hashset_order.json",
+      "sha256": "0039eaff1ec28dcb32e7a7eea492e5e8bbfecc8894bee635ad530aca0c19d8c5"
+    },
+    "source_04": {
+      "manifest_payload_hash": "dcb15eab87e3c49fccbf711cf6b6f2aa5cfc7fa4c9b9c83479f6d37b155dec2c",
+      "path": "results/B4_B8_R159_error_map_accumulation_trace/ascending_sorted_order.json",
+      "sha256": "a95aa7512780f0f8e697a113b46c36daa28d596836b73ad657ccd8267db83917"
+    },
+    "source_05": {
+      "manifest_payload_hash": "0faa7ab508ee5feb432063e30d83daba2e346bff1808b13af23d16f047fc70fc",
+      "path": "results/B4_B8_R159_error_map_accumulation_trace/descending_sorted_order.json",
+      "sha256": "97cb21721932cefdd027d2fd6f89ad2c8eadc3dfdc1a5d8ae54a9067798ee540"
+    },
+    "source_06": {
+      "path": "results/B4_B8_R160_deterministic_error_map_remediation_protocol_v0.json",
+      "payload_hash": "ac6831519b4e977c67bb8ed0b7be9a1557d97db46454b9422f5cfa0e820e47b5",
+      "sha256": "0cfaca4cc84fc7a2526262e7b85f19abe1b0e4a809ff54fb59abab1c069a63a7"
+    },
+    "source_07": {
+      "path": "results/B4_B8_R160_deterministic_error_map_remediation_v0.json",
+      "payload_hash": "950c426711df1fcc9d744febadec21ad06b81e3884412c391f61d2a994f18c50",
+      "sha256": "d0199785655f6f2a23c29f80597a83593fd91bb7eaaa03c3bbb742654e7f6b87"
+    },
+    "source_08": {
+      "case_analysis_payload_hash": "1cd2c353e5545c1a2a84c8ef1ac41a2eff4783696f4ee5a372df5a8c92a9dcb7",
+      "path": "results/B4_B8_R160_deterministic_error_map_remediation/case_analysis.json",
+      "sha256": "dfe6f9efc7f8b8acb237521720ab424000152ebb85430ff1ae58925b9b3fed9b"
+    },
+    "source_09": {
+      "path": "results/B4_B8_R161_source_faithful_score_audit_v0.json",
+      "payload_hash": "3308aebe50b022110d24d59de00f92af91fa2e00df56266b427f9dd5a5b31fcc",
+      "sha256": "7b6c012cf86d24f8fbeeaf6a136c0ce6b919fdb6ac3540b841d0fda1d225b414"
+    },
+    "source_10": {
+      "path": "benchmarks/B4_B8_R157_vf2_post_layout_input_v0.qasm",
+      "sha256": "ce216610e995b4c8b4bd9de6547ac6069961e1eb8881997aa05e0068ea16ab98"
+    },
+    "source_11": {
+      "path": "benchmarks/B4_B8_R169_target_compatible_candidate_v0.qasm",
+      "sha256": "d6895b30e27cc9f75e93edffef348d1701526c077ba1121094c394b38fb68fb7"
+    },
+    "source_12": {
+      "path": "results/B4_B8_R169_target_compatible_candidate_protocol_v0.json",
+      "payload_hash": "857b8ef38f788415764bd6e8321899c2593deece2fae1c293e40ce6dd73c94da",
+      "sha256": "c484e61355017027bea60f3e668e50d536960e3da98a150be0c23a6600356049"
+    },
+    "source_13": {
+      "path": "results/B4_B8_R169_target_compatible_candidate_replay_v0.json",
+      "payload_hash": "038bd7d2ef843dc57b323f57c89a6a23a9c09d9c8c2e210540bb83db2286fea3",
+      "sha256": "36295f459fccddacced059b0a36d47484714c043cce259ea588b5fc67a759779"
+    },
+    "source_14": {
+      "manifest_payload_hash": "effd4805b003b53782a78812295d37765f0e3d95beb02906f5d5cc75f1734379",
+      "path": "results/B4_B8_R169_target_compatible_candidate_replay/ascending_sorted_order.json",
+      "sha256": "a07f053a1a0ab4b537a490858f402fc061529c88d0e32030fdf914fe1f9ce8c9"
+    },
+    "source_15": {
+      "manifest_payload_hash": "4ef323909bfa968b4605ed7dc720ac04175d6e80144d7839fe9dc3716fec7e97",
+      "path": "results/B4_B8_R169_target_compatible_candidate_replay/descending_sorted_order.json",
+      "sha256": "dff52754d8c4e9dc021cf3ba2fa46bcc4b97516382089b95eeccfb3845806070"
+    },
+    "source_16": {
+      "manifest_payload_hash": "03de4e025de16b884696e28dc5bafed898c1e4c5631d23ec76026ebdc25647ab",
+      "path": "results/B4_B8_R169_target_compatible_candidate_replay/native_hashset_order.json",
+      "sha256": "b1f9535774320d837b2ed96288be0ee0aa7b5ed81ae0bc004674b54d15142859"
+    },
+    "source_17": {
+      "path": "benchmarks/B4_B8_R170_near_tie_candidate_v0.qasm",
+      "sha256": "95a926719ef49ac7e49c727b8ca1f947f66dc61f01eee9374aff50848ce28ce1"
+    },
+    "source_18": {
+      "path": "results/B4_B8_R170_near_tie_candidate_protocol_v0.json",
+      "payload_hash": "b19057e2f0cb849f6f45e5c0fa195c2c6834f981ee6c22c66974a182e26698db",
+      "sha256": "c65cb120f5689cee9f270ce224d210cd0810055301c4bacfa1494a65cf8b16f0"
+    },
+    "source_19": {
+      "path": "results/B4_B8_R170_near_tie_candidate_replay_v0.json",
+      "payload_hash": "1af733839bbd9e0617256f11781c4721582531ddd92a96535a7a5dc46c2fff51",
+      "sha256": "86508141e8ac38371275b18597e55960b6c08dcb1e781a4148ec0ab9f9fc50c6"
+    },
+    "source_20": {
+      "manifest_payload_hash": "e0c07ab4317e61b3bb6198cbfa43a0fa658e8b64ce66dd29fdb175524eb66291",
+      "path": "results/B4_B8_R170_near_tie_candidate_replay/ascending_sorted_order.json",
+      "sha256": "38acc6542886dd396c62730330d989caeca48bb02c7dabf5afb9af52e2a09c77"
+    },
+    "source_21": {
+      "manifest_payload_hash": "9d5ce2225b6a01e4d2c756a7cfcb8d9c2b045791bdd7096197d7a86a03d79266",
+      "path": "results/B4_B8_R170_near_tie_candidate_replay/descending_sorted_order.json",
+      "sha256": "6abc8adf57f73b7874cbdf9614352eccaf122aecadc5748d9cfbf72f5fbcbec3"
+    },
+    "source_22": {
+      "manifest_payload_hash": "f41ab8be2cb2eacf8ef578696f754cae9aa7d4d6b239bc3c7ba088492b36a3eb",
+      "path": "results/B4_B8_R170_near_tie_candidate_replay/native_hashset_order.json",
+      "sha256": "ff3e2deaf5c269f382c6e88a9498c0bcc54c49faea7a3900e8c8db71bc7e4b7f"
+    },
+    "source_23": {
+      "path": "benchmarks/B4_B8_R172_second_near_tie_candidate_v0.qasm",
+      "sha256": "f2dd4684d3de77fd3904d9a3c8ce29c16f5315e78ce2eb6ac632a90f4018acc9"
+    },
+    "source_24": {
+      "path": "results/B4_B8_R172_second_near_tie_candidate_protocol_v0.json",
+      "payload_hash": "26239dda043bfd697424a8466154995911b5290312801cdda7c9afc804839bed",
+      "sha256": "dab995fcf53c80a599aba1910ebb93bf536ec6b2c142dd2a801554b1d792ad08"
+    },
+    "source_25": {
+      "path": "results/B4_B8_R172_second_near_tie_candidate_replay_v0.json",
+      "payload_hash": "4c3fa5782a467b3e4eea94c2897a6a52a7257e512704fdc4876cfb18578bd99e",
+      "sha256": "08f7decf871a04608805b5a56a0fc97e572272f834fe2940086c2473dd2c6410"
+    },
+    "source_26": {
+      "manifest_payload_hash": "362dc0c84c16c2c9152e580587bf3ee94883d8d90b792ae86df213e2dd60649c",
+      "path": "results/B4_B8_R172_second_near_tie_candidate_replay/ascending_sorted_order.json",
+      "sha256": "16c3c281b1a776eba84f989f5e1b5f9c73e8126fcf1dca04d1b52f0f238c4270"
+    },
+    "source_27": {
+      "manifest_payload_hash": "d034e346fb53e46cbd62e78a2a63f7960dff10991b56588efc5da16350005e89",
+      "path": "results/B4_B8_R172_second_near_tie_candidate_replay/descending_sorted_order.json",
+      "sha256": "d6957f8a74475a8ba0112d220d554155a89a6189db5424603e8f839b700a045d"
+    },
+    "source_28": {
+      "manifest_payload_hash": "22618b352188bb05f1615c40785543871c68995baccc76c0d59cbd939c2723cc",
+      "path": "results/B4_B8_R172_second_near_tie_candidate_replay/native_hashset_order.json",
+      "sha256": "21c0b051b9915b5121d338d738cf00a2f4b0119a3c74646ea6ca2a182358a5ca"
+    }
+  },
+  "tool_bindings": {
+    "b4_b8_r175_independent_rust_exact_oracle": {
+      "path": "tools/b4_b8_r175_independent_rust_exact_oracle.py",
+      "sha256": "9990e647e2f0a64931fb5fa0dccd704197ff40840c36b345eafa7a52cb926a63"
+    },
+    "b4_b8_r175_rust_exact_score_preregister": {
+      "path": "tools/b4_b8_r175_rust_exact_score_preregister.py",
+      "sha256": "8129bf1a84c3fe0ee6d7b683285626a9253d1ecd9482dfde52d1e6713c644a5c"
+    },
+    "b4_b8_r175_rust_exact_score_replay": {
+      "path": "tools/b4_b8_r175_rust_exact_score_replay.py",
+      "sha256": "bab850e31dd500f0f7569d7b97f01c3cfe31e61868032c4c36ecf819bf98f0ef"
+    }
+  }
+}

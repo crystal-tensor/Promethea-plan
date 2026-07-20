@@ -1,0 +1,53 @@
+{
+  "accelerator": {
+    "path": "research/source_lineage/Qiskit_2_4_1_R175_rust_exact_score_accelerate.cpython-312-darwin.so",
+    "platform": "macOS arm64 / CPython 3.12 extension-module build",
+    "sha256": "c4ec6bdd01f633a50c739bb47c17700706f2be6d5baa3e10ad695c3001d050c7",
+    "size_bytes": 15977696
+  },
+  "build_checks": [
+    {
+      "command": "cargo fmt --all -- --check",
+      "returncode": 0
+    },
+    {
+      "command": "cargo check -p qiskit-transpiler --lib",
+      "returncode": 0
+    },
+    {
+      "command": "git diff --check",
+      "returncode": 0
+    },
+    {
+      "command": "cargo rustc --lib --manifest-path crates/pyext/Cargo.toml --release --features cache_pygates,pyo3/extension-module --crate-type cdylib",
+      "returncode": 0
+    }
+  ],
+  "official_source": {
+    "commit": "0fd015a22b84c9082173597a5d2304dc0aaec08c",
+    "release": "2.4.1",
+    "repository": "https://github.com/Qiskit/qiskit"
+  },
+  "packaging_note": "setup.py build_rust produced the release artifact but its setuptools-rust install adapter raised a post-build signature TypeError; the recorded binary comes from the successful direct cargo rustc link.",
+  "patch": {
+    "path": "research/source_lineage/Qiskit_2_4_1_R175_rust_exact_score.patch",
+    "sha256": "5182f348ba02daf8e89b6b4ed3ec3f6650fc752ec5e5e3fab55c0a0b4eeb5b2a"
+  },
+  "patched_source_hashes": {
+    "crates/transpiler/Cargo.toml": "0e04369fa263fc8f12495bb091c16858c077b216bf3dad7324a59a95b7a7fa26",
+    "crates/transpiler/src/passes/vf2/vf2_layout.rs": "9aaeab2673a602ac1a74643a4bb6f8743131d16499bfc8a7729516bf73f191cd"
+  },
+  "payload_hash": "fbac9d2aafc2f45a931ac3218dcf044c0d1051a9620cca0887d63d045535b430",
+  "pre_registration_smoke": {
+    "formal_matrix_executed": false,
+    "formal_performance_evidence_collected": false,
+    "new_entry_point_imported": true,
+    "r160_single_small_gap_source_differs_from_exact": true,
+    "r169_source_equals_exact": true,
+    "r170_source_differs_from_exact": true,
+    "r172_source_differs_from_exact": true
+  },
+  "status": "compiled_pre_registration_build",
+  "title": "Qiskit 2.4.1 R175 Rust exact-score build manifest",
+  "version": 0
+}
