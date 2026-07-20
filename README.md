@@ -79,6 +79,21 @@ Current evidence includes:
 - an audit report in `research/portfolio_status_report.md`;
 - a current status page in `research/current_stage_brief.html`.
 
+The current B4/B8/B10 step is the preregistered R186 full VF2 workflow
+translation test. R184 and R185 measured the complete patched Rust search and
+score entry point, but not Qiskit's Python `VF2Layout.run`, `Layout`
+construction, property-set writes, or `PassManager` scheduling. R186 freezes
+both surfaces across the same 13-cell exact-mapping workload on Linux x86-64
+and macOS arm64. Each platform will execute 468 six-call rows, 2,808 measured
+calls, and 936 warmup calls. All six outputs must preserve the frozen mapping;
+the window arm must remain no slower than BigUint through both surfaces; and at
+least 10% of the direct-entrypoint fractional saving must survive the Python
+workflow boundary. Protocol `7e462929...`; design contract `3e4c2425...`.
+Execution remains unopened. The harness is an external source-faithful
+monkeypatch around Qiskit 2.4.1, not an upstream integration, full transpilation
+benchmark, hardware result, quantum advantage, BQP separation, solved frontier,
+or new credit.
+
 The latest completed B4/B8/B10 step is the independently audited R185 macOS
 arm64 replication. A clean public-main Apple Silicon runner rebuilt the same
 Qiskit 2.4.1 source commit with the unchanged R184 patch, then executed the

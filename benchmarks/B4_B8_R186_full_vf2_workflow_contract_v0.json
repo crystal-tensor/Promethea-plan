@@ -1,0 +1,97 @@
+{
+  "claim_boundary": {
+    "bqp_separation_claimed": false,
+    "external_monkeypatch_harness": true,
+    "full_transpilation_pipeline_benchmarked": false,
+    "full_workflow_gain_claimed_before_execution": false,
+    "hardware_result_claimed": false,
+    "new_credit_delta": 0,
+    "production_qiskit_remedy_claimed": false,
+    "quantum_advantage_claimed": false,
+    "solved_frontier_claimed": false,
+    "upstream_patch_accepted": false
+  },
+  "contract_id": "B4-B8-R186-full-vf2-workflow-design-contract-v0",
+  "design_tool_binding": {
+    "path": "tools/b4_b8_r186_full_vf2_workflow_preregister.py",
+    "sha256": "714316eacf9b052f07da753a98961ac83194f4fd12601a67421fd329ad870180"
+  },
+  "execution_started": false,
+  "execution_tooling_bound": false,
+  "payload_hash": "3e4c24252f9e340ae221a9ae76e88eb10e3d488f4e79ce2513df1e5a0ef76dc6",
+  "protocol_path": "results/B4_B8_R186_full_vf2_workflow_protocol_v0.json",
+  "protocol_payload_hash": "7e4629295f6a0ecc986a6812f38c839f5da8b65b98cf91c248ef1d2ae747a8ac",
+  "required_before_execution": [
+    "tools/b4_b8_r186_full_vf2_workflow_replay.py",
+    "tools/b4_b8_r186_independent_oracle.py",
+    "tools/b4_b8_r186_execution_contract.py",
+    "tools/b4_b8_r186_evidence_bundle.py",
+    ".github/workflows/r186-full-vf2-workflow-linux-x86-64.yml"
+  ],
+  "result_paths_must_be_absent": [
+    "results/B4_B8_R186_full_vf2_workflow_linux_x86_64_v0.json",
+    "results/B4_B8_R186_full_vf2_workflow_macos_arm64_v0.json",
+    "results/B4_B8_R186_independent_oracle_v0.json",
+    "results/B4_B8_R186_full_vf2_workflow_bundle_v0.json"
+  ],
+  "source_bindings": {
+    "source_01": {
+      "path": "results/B4_B8_R184_window_exact_score_v0.json",
+      "payload_hash": "5b9d5e7f21ffaefb681a2115268242fcecb2d488411817083d278c8fa1f53022",
+      "sha256": "621d3e796f9a2741159e4e09c1f785ce47a3e50290b7c6da7975ffe4fcea7484",
+      "size_bytes": 22983
+    },
+    "source_02": {
+      "path": "results/B4_B8_R184_independent_oracle_v0.json",
+      "payload_hash": "88996be1d3c5889088bfc0528c0fde06f3e6571b3875f9bf1e1a8e60b8874bb2",
+      "sha256": "fe40a78b2cca9dd814d45f56ff046109aecb47a62a17b07c6e94d079692fac2b",
+      "size_bytes": 3882
+    },
+    "source_03": {
+      "path": "results/B4_B8_R184_window_exact_score_bundle_v0.json",
+      "payload_hash": "378f1e1b4b2ea96d2dae5b667a7b311fafa36fc67dfb69c180a6c084047cadf0",
+      "sha256": "555c69dab6fd7327ef1308dccf842a181bda68d8972b2a34771e30425ad654a8",
+      "size_bytes": 12144
+    },
+    "source_04": {
+      "path": "results/B4_B8_R185_macos_arm64_replication_v0.json",
+      "payload_hash": "09e3f16f0920b7e854d18274cd7f5f8a569859172132627d69584c5100ddd0a3",
+      "sha256": "bcfdd8028fd198fbfb728b9b453cf283d0738c67e22420ad282f155340391cee",
+      "size_bytes": 23660
+    },
+    "source_05": {
+      "path": "results/B4_B8_R185_independent_oracle_v0.json",
+      "payload_hash": "b0e818eb3986a3b0e0fe1c9146537a12794f7d77c6c89c808a22a607b8cdb278",
+      "sha256": "0035d10bf5fd78a220601d10746aa873ae2a3f584cf00b04c6f4f7281f87429d",
+      "size_bytes": 4515
+    },
+    "source_06": {
+      "path": "results/B4_B8_R185_macos_arm64_replication_bundle_v0.json",
+      "payload_hash": "0c164aa051ca1eb5c0302f08f8c445d7a2800a74fb9dbd08199a3974e5fa6a18",
+      "sha256": "e585877370f44814dfc118dcaeefd575a365132ffb2c781336e684d6f72154a3",
+      "size_bytes": 13741
+    },
+    "source_07": {
+      "path": "research/source_lineage/Qiskit_2_4_1_R184_window_exact_score.patch",
+      "sha256": "a3a3f02bd52948f7f38ca8932e3484cf535bc045407522a4b3a9ab675e4b2fa6",
+      "size_bytes": 172014
+    },
+    "source_08": {
+      "path": "research/source_lineage/Qiskit_2_4_1_R184_window_exact_pyext.x86_64-linux-gnu.so",
+      "sha256": "85b89b99de5622799a0bdabac5b7b936c440a0e80afd6af9d5b8d5cf3673bde7",
+      "size_bytes": 23067944
+    },
+    "source_09": {
+      "path": "research/source_lineage/Qiskit_2_4_1_R185_window_exact_pyext.arm64-darwin.so",
+      "sha256": "d0fdc1cec9ed20e2fe8662e063ee633708a1682f2137fbd66da945eb4c7876e2",
+      "size_bytes": 17336688
+    },
+    "source_10": {
+      "path": "research/source_lineage/Qiskit_2_4_1_vf2_source_manifest.json",
+      "payload_hash": "aa50b224ae244f25fbf0fcfa61ee844d7fca298efd7420bc6b70a838f08e2ed2",
+      "sha256": "d57f7b039a232047aa1189a1594f8da4eff14c7688e55d77d27b81d625efd276",
+      "size_bytes": 3324
+    }
+  },
+  "status": "design_frozen_execution_tooling_unbound"
+}

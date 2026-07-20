@@ -1,0 +1,147 @@
+{
+  "acceptance_requirements": [
+    "P1 all R184/R185 sources, payloads, binaries, and Qiskit lineage bindings validate",
+    "P2 public design commit and Discussion predate both platform executions",
+    "P3 a second-stage execution contract binds runner, replay, oracle, bundle, workflow, and landing update",
+    "P4 the imported extension and Python VF2Layout source match their platform and frozen hashes",
+    "P5 all six mappings equal the expected mapping in every measured row",
+    "P6 all 13 cells contain 36 rows and each of 12 schedules occurs three times",
+    "P7 each platform records 2,808 measured calls and 936 warmup calls",
+    "P8 H1 through H5 follow the frozen thresholds without relaxation",
+    "P9 a standard-library oracle validates all row/worker hashes, counts, ratios, and classifications",
+    "P10 Linux and macOS results remain separately auditable before cross-platform aggregation",
+    "P11 simulation execution count, quantum shot count, and real-backend row count remain zero",
+    "P12 upstream-integration, full-transpilation, production-remedy, hardware, advantage, BQP, solved-frontier, and new-credit fields remain false or zero"
+  ],
+  "claim_boundary": {
+    "bqp_separation_claimed": false,
+    "external_monkeypatch_harness": true,
+    "full_transpilation_pipeline_benchmarked": false,
+    "full_workflow_gain_claimed_before_execution": false,
+    "hardware_result_claimed": false,
+    "new_credit_delta": 0,
+    "production_qiskit_remedy_claimed": false,
+    "quantum_advantage_claimed": false,
+    "solved_frontier_claimed": false,
+    "upstream_patch_accepted": false
+  },
+  "design_preflight_non_evidence": {
+    "accepted_as_scientific_evidence": false,
+    "exploratory_direct_window_to_biguint_ratio": 0.472527015107329,
+    "exploratory_passmanager_window_to_biguint_ratio": 0.8898142614205968,
+    "exploratory_retained_fraction": 0.20889361490583921,
+    "integrity_calls": 111,
+    "integrity_failures": 0,
+    "integrity_scope": "All 13 cells, 37 subcells, and three exact arms through PassManager once per subcell.",
+    "purpose": "Validate harness feasibility and choose a falsifiable retention threshold before public freezing.",
+    "timing_scope": "One standard cell only, 120 exploratory rows, BigUint and window arms, both surfaces."
+  },
+  "frozen_arms": {
+    "baseline": {
+      "entrypoint": "vf2_layout_pass_average_exact_score",
+      "policy": "rust_biguint_exact_retained_binary64"
+    },
+    "candidate": {
+      "entrypoint": "vf2_layout_pass_average_window_exact_score",
+      "policy": "rust_windowed_4_limb_exact_with_biguint_fallback"
+    },
+    "reference": {
+      "entrypoint": "vf2_layout_pass_average_prefix_initialized_exact_score",
+      "policy": "rust_prefix_initialized_34_limb_exact"
+    }
+  },
+  "frozen_hypotheses": [
+    {
+      "hypothesis_id": "H1-full-boundary-integrity",
+      "statement": "Every arm on both timing surfaces equals the frozen expected mapping in every measured row on both architectures."
+    },
+    {
+      "hypothesis_id": "H2-direct-window-competitiveness",
+      "maximum_ratio": 1.0,
+      "statement": "Window/BigUint aggregate paired median is at most 1.00 on the direct accelerator surface on each architecture."
+    },
+    {
+      "hypothesis_id": "H3-passmanager-window-competitiveness",
+      "maximum_ratio": 1.0,
+      "statement": "Window/BigUint aggregate paired median is at most 1.00 through Python VF2Layout plus PassManager on each architecture."
+    },
+    {
+      "formula": "(1 - passmanager_window_biguint_ratio) / (1 - direct_window_biguint_ratio)",
+      "hypothesis_id": "H4-relative-saving-retention",
+      "minimum_retained_fraction": 0.1,
+      "statement": "At least 10% of the positive direct-surface fractional window saving survives through the PassManager surface on each architecture."
+    },
+    {
+      "hypothesis_id": "H5-cross-architecture-workflow-transfer",
+      "statement": "H1 through H4 pass independently on both Linux x86-64 and macOS arm64 under the same source patch, workload, schedules, and thresholds."
+    }
+  ],
+  "frozen_surfaces": {
+    "accelerator_entrypoint": "Direct patched Rust entry point with the same VF2PassConfiguration values used by VF2Layout.run.",
+    "python_passmanager": "Fresh ErrorMap injection pass, VF2Layout pass, and PassManager per call, including target/configuration handling, pass execution, Layout construction, property-set writes, and mapping extraction."
+  },
+  "frozen_workload": {
+    "arm_count": 3,
+    "measured_row_count": 468,
+    "measured_rows_per_cell": 36,
+    "measured_timing_call_count_per_platform": 2808,
+    "repetitions_per_schedule_per_cell": 3,
+    "schedule_count": 12,
+    "small_gap_policy_cells": 4,
+    "standard_dataset_profile_cells": 9,
+    "subcell_count": 37,
+    "surface_count": 2,
+    "timing_calls_per_row": 6,
+    "total_qiskit_call_count_both_platforms": 7488,
+    "total_qiskit_call_count_per_platform": 3744,
+    "warmup_call_count_per_platform": 936,
+    "warmup_calls_per_cell": 72,
+    "warmup_schedules_per_cell": 12,
+    "workload_cell_count": 13
+  },
+  "method": "b4_b8_r186_full_vf2_workflow_protocol_v0",
+  "payload_hash": "7e4629295f6a0ecc986a6812f38c839f5da8b65b98cf91c248ef1d2ae747a8ac",
+  "platforms": [
+    {
+      "binary_path": "research/source_lineage/Qiskit_2_4_1_R184_window_exact_pyext.x86_64-linux-gnu.so",
+      "platform_id": "linux_x86_64",
+      "python": "3.12",
+      "runner": "github_hosted_ubuntu_24_04"
+    },
+    {
+      "binary_path": "research/source_lineage/Qiskit_2_4_1_R185_window_exact_pyext.arm64-darwin.so",
+      "platform_id": "macos_arm64",
+      "python": "3.12",
+      "runner": "clean_public_main_local_runner"
+    }
+  ],
+  "qiskit_boundary": {
+    "call_limit": 30000000,
+    "entrypoint_patch": "research/source_lineage/Qiskit_2_4_1_R184_window_exact_score.patch",
+    "external_error_map_injection": true,
+    "max_trials": 250000,
+    "python_vf2_layout_relative_path": "qiskit/transpiler/passes/layout/vf2_layout.py",
+    "python_vf2_layout_sha256": "0a8fdcaf18c9356e8f701f6438f95608684d13626c1dc2d3e86189d31049f6aa",
+    "score_initial_layout": false,
+    "shuffle_seed": -1,
+    "source_commit": "0fd015a22b84c9082173597a5d2304dc0aaec08c",
+    "strict_direction": false,
+    "time_limit": null,
+    "version": "2.4.1"
+  },
+  "research_question": "R184/R185 made exact VF2 scoring faster inside the Rust search entry point. Does that advantage survive the actual Python VF2Layout plus PassManager boundary on both Linux x86-64 and macOS arm64, or does orchestration overhead erase it?",
+  "source_result_payload_hashes": {
+    "research/source_lineage/Qiskit_2_4_1_vf2_source_manifest.json": "aa50b224ae244f25fbf0fcfa61ee844d7fca298efd7420bc6b70a838f08e2ed2",
+    "results/B4_B8_R184_independent_oracle_v0.json": "88996be1d3c5889088bfc0528c0fde06f3e6571b3875f9bf1e1a8e60b8874bb2",
+    "results/B4_B8_R184_window_exact_score_bundle_v0.json": "378f1e1b4b2ea96d2dae5b667a7b311fafa36fc67dfb69c180a6c084047cadf0",
+    "results/B4_B8_R184_window_exact_score_v0.json": "5b9d5e7f21ffaefb681a2115268242fcecb2d488411817083d278c8fa1f53022",
+    "results/B4_B8_R185_independent_oracle_v0.json": "b0e818eb3986a3b0e0fe1c9146537a12794f7d77c6c89c808a22a607b8cdb278",
+    "results/B4_B8_R185_macos_arm64_replication_bundle_v0.json": "0c164aa051ca1eb5c0302f08f8c445d7a2800a74fb9dbd08199a3974e5fa6a18",
+    "results/B4_B8_R185_macos_arm64_replication_v0.json": "09e3f16f0920b7e854d18274cd7f5f8a569859172132627d69584c5100ddd0a3"
+  },
+  "source_target_id": "T-B4-002ef/T-B8-003ej/T-B10-009dv-r186-full-vf2-workflow-protocol",
+  "status": "preregistered_design_unopened",
+  "title": "B4/B8/B10 R186 full VF2 workflow translation protocol",
+  "upstream_target_id": "T-B4-002ee/T-B8-003ei/T-B10-009du-r185-result",
+  "version": 0
+}
