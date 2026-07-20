@@ -9,6 +9,8 @@ import hmac
 import json
 import math
 import re
+import struct
+from fractions import Fraction
 from pathlib import Path
 
 import yaml
@@ -1828,6 +1830,246 @@ def audit_r172_second_near_tie_replay(
         "oracle_candidate_record_count": oracle_summary.get("candidate_record_count"),
         "new_credit_delta": replay_summary.get("new_credit_delta"),
     })
+    return status
+
+
+def audit_r173_first_divergent_combine(
+    root: Path,
+    b4_manifest: dict,
+    b8_manifest: dict,
+    b10_manifest: dict,
+    errors: list[str],
+) -> dict:
+    """Validate R173's source-level rounding localization and independent oracle."""
+    paths = {
+        "protocol": root / "results/B4_B8_R173_first_divergent_combine_protocol_v0.json",
+        "contract": root / "benchmarks/B4_B8_R173_first_divergent_combine_contract_v0.json",
+        "trace_result": root / "results/B4_B8_R173_first_divergent_combine_trace_v0.json",
+        "trace_report": root / "research/B4_B8_R173_first_divergent_combine_trace.md",
+        "oracle_result": root / "results/B4_B8_R173_independent_divergence_oracle_v0.json",
+        "oracle_report": root / "research/B4_B8_R173_independent_divergence_oracle.md",
+        "trace_executor": root / "tools/b4_b8_r173_first_divergent_combine_trace.py",
+        "oracle_executor": root / "tools/b4_b8_r173_independent_divergence_oracle.py",
+    }
+    trace_dir = root / "results/B4_B8_R173_first_divergent_combine_trace"
+    status = {f"{key}_path": str(path) for key, path in paths.items()}
+    status.update({f"{key}_exists": path.exists() for key, path in paths.items()})
+    status["trace_directory"] = str(trace_dir)
+    status["trace_directory_exists"] = trace_dir.exists()
+    if not all(path.exists() for path in paths.values()) or not trace_dir.exists():
+        errors.append("R173 first-divergent-combine artifact missing")
+        return status
+
+    def canonical(value: dict) -> str:
+        return hashlib.sha256(
+            json.dumps(value, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest()
+
+    def payload_ok(payload: dict, field: str = "payload_hash") -> bool:
+        body = dict(payload)
+        observed = body.pop(field, None)
+        return observed == canonical(body)
+
+    def bits_to_float(bits: int) -> float:
+        return struct.unpack("!d", int(bits).to_bytes(8, "big"))[0]
+
+    def float_bits(value: float) -> int:
+        return struct.unpack("!Q", struct.pack("!d", value))[0]
+
+    protocol = json.loads(read(paths["protocol"]))
+    contract = json.loads(read(paths["contract"]))
+    trace_result = json.loads(read(paths["trace_result"]))
+    oracle_result = json.loads(read(paths["oracle_result"]))
+    identities = [
+        (protocol, "b4_b8_r173_first_divergent_combine_protocol_v0", "protocol"),
+        (trace_result, "b4_b8_r173_first_divergent_combine_trace_v0", "trace result"),
+        (oracle_result, "b4_b8_r173_independent_divergence_oracle_v0", "oracle result"),
+    ]
+    for payload, expected_method, label in identities:
+        if not payload_ok(payload) or payload.get("method") != expected_method:
+            errors.append(f"R173 {label} identity or payload mismatch")
+    if (
+        not payload_ok(contract)
+        or contract.get("contract_id") != "B4-B8-R173-first-divergent-combine-contract-v0"
+        or contract.get("execution_started") is not False
+        or contract.get("protocol_payload_hash") != protocol.get("payload_hash")
+    ):
+        errors.append("R173 contract identity, payload, or unopened-boundary mismatch")
+    for binding_id, binding in contract.get("source_bindings", {}).items():
+        path = root / binding.get("path", "")
+        if not path.exists() or hashlib.sha256(path.read_bytes()).hexdigest() != binding.get("sha256"):
+            errors.append(f"R173 source binding mismatch: {binding_id}")
+        if binding.get("payload_hash") and path.exists():
+            payload = json.loads(read(path))
+            if payload.get("payload_hash") != binding.get("payload_hash"):
+                errors.append(f"R173 source payload binding mismatch: {binding_id}")
+
+    expected_preregistration = {
+        "commit": "b28cff80",
+        "discussion": "https://github.com/crystal-tensor/Prometheus-plan/discussions/258",
+        "created_at": "2026-07-20T20:39:26+08:00",
+    }
+    if trace_result.get("preregistration") != expected_preregistration or oracle_result.get("preregistration") != expected_preregistration:
+        errors.append("R173 public preregistration binding mismatch")
+    trace_summary = trace_result.get("summary", {})
+    trace_expected = {
+        "input_count": 2,
+        "profile_count": 3,
+        "trace_count": 6,
+        "candidate_branch_count": 12,
+        "localized_branch_count": 12,
+        "native_addition_verified_trace_count": 6,
+        "exact_tie_trace_count": 6,
+        "one_ulp_source_split_count": 6,
+        "exact_first_seen_policy_pass_count": 6,
+        "r160_tie_controls_passed": 4,
+        "r160_tie_control_count": 4,
+        "r160_non_tie_controls_passed": 28,
+        "r160_non_tie_control_count": 28,
+        "qiskit_calls_performed": 6,
+        "simulation_execution_count": 0,
+        "total_simulated_shots": 0,
+        "source_patch_performed": False,
+        "production_policy_changed": False,
+        "confirmed_qiskit_bug_claimed": False,
+        "new_credit_delta": 0,
+    }
+    if (
+        trace_result.get("status") != "first_divergent_combine_localized"
+        or trace_result.get("classification") != "two_graph_rounding_path_localized_with_exact_guardrail"
+        or trace_result.get("requirements_passed") != 10
+        or trace_result.get("requirements_failed") != 0
+    ):
+        errors.append("R173 trace result status or requirement ledger mismatch")
+    for field, value in trace_expected.items():
+        if trace_summary.get(field) != value:
+            errors.append(f"R173 trace summary {field} mismatch")
+
+    trace_count = 0
+    branch_count = 0
+    for item in trace_result.get("trace_artifacts", []):
+        path = root / item.get("path", "")
+        if not path.exists() or hashlib.sha256(path.read_bytes()).hexdigest() != item.get("sha256"):
+            errors.append(f"R173 trace file missing or hash mismatch: {item.get('path')}")
+            continue
+        trace = json.loads(read(path))
+        if not payload_ok(trace, "trace_payload_hash") or trace.get("trace_payload_hash") != item.get("trace_payload_hash"):
+            errors.append(f"R173 trace payload mismatch: {item.get('path')}")
+        events = trace.get("score_events", [])
+        if canonical(events) != trace.get("score_events_hash"):
+            errors.append(f"R173 score-event hash mismatch: {item.get('path')}")
+        for event in events:
+            if event.get("kind") != "combine":
+                continue
+            native_bits = float_bits(bits_to_float(event["left_bits"]) + bits_to_float(event["right_bits"]))
+            if native_bits != event.get("result_bits"):
+                errors.append(f"R173 native addition mismatch: {item.get('path')}")
+                break
+        replay = trace.get("candidate_replay", {})
+        analysis = trace.get("analysis", {})
+        source_index = replay.get("selected_candidate_index", {}).get("source_f64")
+        exact_index = replay.get("selected_candidate_index", {}).get("exact_binary64_leaf")
+        candidates = replay.get("candidates", [])
+        if not isinstance(source_index, int) or not isinstance(exact_index, int) or max(source_index, exact_index) >= len(candidates):
+            errors.append(f"R173 candidate selection index mismatch: {item.get('path')}")
+        else:
+            source = candidates[source_index]
+            exact = candidates[exact_index]
+            source_total = Fraction(int(source["exact_score_numerator"]), int(source["exact_score_denominator"]))
+            exact_total = Fraction(int(exact["exact_score_numerator"]), int(exact["exact_score_denominator"]))
+            if source_total != exact_total or abs(int(source["source_score_bits"]) - int(exact["source_score_bits"])) != 1:
+                errors.append(f"R173 exact-tie or one-ULP invariant mismatch: {item.get('path')}")
+        if (
+            not trace.get("source_return_match")
+            or not analysis.get("all_combine_native_additions_verified")
+            or not analysis.get("exact_totals_equal")
+            or analysis.get("source_score_bit_gap") != 1
+            or not analysis.get("exact_policy_preserves_first_seen_tie")
+        ):
+            errors.append(f"R173 trace analysis invariant mismatch: {item.get('path')}")
+        for branch in analysis.get("branches", []):
+            chain = branch.get("chain", [])
+            first = next((row for row in chain if row.get("signed_ulp_delta_from_correctly_rounded_exact") != 0), None)
+            final = branch.get("final_combine")
+            if first != branch.get("first_divergence") or not final or not branch.get("all_chain_native_additions_verified"):
+                errors.append(f"R173 branch localization mismatch: {item.get('path')}")
+            branch_count += 1
+        trace_count += 1
+    if trace_count != 6 or branch_count != 12:
+        errors.append("R173 trace or candidate-branch aggregate mismatch")
+
+    oracle_summary = oracle_result.get("summary", {})
+    oracle_expected = {
+        "trace_count": 6,
+        "trace_payload_hash_match_count": 6,
+        "score_event_hash_match_count": 6,
+        "source_return_match_count": 6,
+        "localized_branch_count": 12,
+        "native_addition_verified_trace_count": 6,
+        "r160_tie_control_count": 4,
+        "r160_tie_controls_passed": 4,
+        "r160_non_tie_control_count": 28,
+        "r160_non_tie_controls_passed": 28,
+        "qiskit_calls_performed": 0,
+        "simulation_execution_count": 0,
+        "total_simulated_shots": 0,
+        "source_patch_performed": False,
+        "production_policy_changed": False,
+        "confirmed_qiskit_bug_claimed": False,
+        "new_credit_delta": 0,
+    }
+    if (
+        oracle_result.get("status") != "independent_divergence_oracle_complete"
+        or oracle_result.get("classification") != "independent_rounding_path_reproduction"
+        or oracle_result.get("source_result_payload_hash") != trace_result.get("payload_hash")
+        or oracle_result.get("requirements_passed") != 10
+        or oracle_result.get("requirements_failed") != 0
+    ):
+        errors.append("R173 independent oracle status or requirement ledger mismatch")
+    for field, value in oracle_expected.items():
+        if oracle_summary.get(field) != value:
+            errors.append(f"R173 oracle summary {field} mismatch")
+
+    for path, markers, label in [
+        (paths["trace_report"], ["12/12", "0 / -1", "2 / 1", "Policy Guardrail", "Claim Boundary"], "trace"),
+        (paths["oracle_report"], ["standard-library", "12", "28", "Claim Boundary"], "oracle"),
+    ]:
+        text = read(path)
+        for marker in markers:
+            if marker not in text:
+                errors.append(f"R173 {label} report boundary missing: {marker}")
+
+    trace_rows = [
+        ("B4", b4_manifest.get("current_results", {}).get("b4_b8_r173_first_divergent_combine_trace_v0")),
+        ("B8", b8_manifest.get("current_results", {}).get("b4_b8_r173_first_divergent_combine_trace_v0")),
+        ("B10", b10_manifest.get("current_results", {}).get("b10_t2_b4_b8_r173_first_divergent_combine_trace_v0")),
+    ]
+    oracle_rows = [
+        ("B4", b4_manifest.get("current_results", {}).get("b4_b8_r173_independent_divergence_oracle_v0")),
+        ("B8", b8_manifest.get("current_results", {}).get("b4_b8_r173_independent_divergence_oracle_v0")),
+        ("B10", b10_manifest.get("current_results", {}).get("b10_t2_b4_b8_r173_independent_divergence_oracle_v0")),
+    ]
+    for label, row in trace_rows:
+        if not row or row.get("status") != "first_divergent_combine_localized" or row.get("trace_count") != 6 or row.get("localized_branch_count") != 12:
+            errors.append(f"{label} manifest missing or invalid R173 trace")
+    for label, row in oracle_rows:
+        if not row or row.get("status") != "independent_divergence_oracle_complete" or row.get("trace_payload_hash_match_count") != 6 or row.get("localized_branch_count") != 12:
+            errors.append(f"{label} manifest missing or invalid R173 oracle")
+    status.update(
+        {
+            "status": trace_result.get("status"),
+            "classification": trace_result.get("classification"),
+            "trace_count": trace_summary.get("trace_count"),
+            "localized_branch_count": trace_summary.get("localized_branch_count"),
+            "native_addition_verified_trace_count": trace_summary.get("native_addition_verified_trace_count"),
+            "exact_first_seen_policy_pass_count": trace_summary.get("exact_first_seen_policy_pass_count"),
+            "r160_tie_controls_passed": trace_summary.get("r160_tie_controls_passed"),
+            "r160_non_tie_controls_passed": trace_summary.get("r160_non_tie_controls_passed"),
+            "oracle_status": oracle_result.get("status"),
+            "oracle_trace_payload_hash_match_count": oracle_summary.get("trace_payload_hash_match_count"),
+            "new_credit_delta": trace_summary.get("new_credit_delta"),
+        }
+    )
     return status
 
 
@@ -43859,6 +44101,7 @@ def audit(root: Path) -> dict:
     r170_near_tie_candidate_status = audit_r170_near_tie_candidate_replay(root, b4_manifest, b8_manifest, b10_manifest, errors)
     r171_independent_oracle_status = audit_r171_independent_near_tie_oracle(root, b4_manifest, b8_manifest, b10_manifest, errors)
     r172_second_near_tie_status = audit_r172_second_near_tie_replay(root, b4_manifest, b8_manifest, b10_manifest, errors)
+    r173_first_divergent_combine_status = audit_r173_first_divergent_combine(root, b4_manifest, b8_manifest, b10_manifest, errors)
 
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
@@ -44222,6 +44465,7 @@ def audit(root: Path) -> dict:
             "r170_near_tie_candidate_replay": r170_near_tie_candidate_status,
             "r171_independent_near_tie_oracle": r171_independent_oracle_status,
             "r172_second_near_tie_replay": r172_second_near_tie_status,
+            "r173_first_divergent_combine": r173_first_divergent_combine_status,
         },
         "b5": {
             "manifest": str(b5_manifest_path),
@@ -44385,6 +44629,7 @@ def audit(root: Path) -> dict:
             "r170_near_tie_candidate_replay": r170_near_tie_candidate_status,
             "r171_independent_near_tie_oracle": r171_independent_oracle_status,
             "r172_second_near_tie_replay": r172_second_near_tie_status,
+            "r173_first_divergent_combine": r173_first_divergent_combine_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -44425,6 +44670,7 @@ def audit(root: Path) -> dict:
             "r170_near_tie_candidate_replay": r170_near_tie_candidate_status,
             "r171_independent_near_tie_oracle": r171_independent_oracle_status,
             "r172_second_near_tie_replay": r172_second_near_tie_status,
+            "r173_first_divergent_combine": r173_first_divergent_combine_status,
             "t1_d5_observable_denominator_table": b10_t1_d5_table_status,
             "t1_d5_b3_molecular_observable_table": b10_t1_d5_b3_table_status,
             "t1_d5_b3_reaction_observable_table": b10_t1_d5_b3_reaction_table_status,

@@ -1,0 +1,285 @@
+{
+  "artifacts": {
+    "markdown_report": "research/B4_B8_R173_independent_divergence_oracle.md",
+    "result": "results/B4_B8_R173_independent_divergence_oracle_v0.json",
+    "source_result": "results/B4_B8_R173_first_divergent_combine_trace_v0.json"
+  },
+  "claim_boundary": {
+    "what_is_not_supported": "a source patch, production compiler remedy, confirmed Qiskit bug, hardware result, quantum advantage, BQP separation, solved B4/B8/B10, or new credit",
+    "what_is_supported": "independent standard-library reproduction of the R173 arithmetic localization and exact tie/non-tie score guardrail"
+  },
+  "classification": "independent_rounding_path_reproduction",
+  "method": "b4_b8_r173_independent_divergence_oracle_v0",
+  "payload_hash": "1caeab355e303410d4c5b5131afdea5c5d80f7250ee0117ddb461861b34284b9",
+  "preregistration": {
+    "commit": "b28cff80",
+    "created_at": "2026-07-20T20:39:26+08:00",
+    "discussion": "https://github.com/crystal-tensor/Prometheus-plan/discussions/258"
+  },
+  "requirements": [
+    {
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P6"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P7"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P8"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P9"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P10"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 10,
+  "source_result_payload_hash": "22ba7693a4ffe43d61c365d875be4a4c82b267a25eb78bb07fd25013f592f5a8",
+  "source_target_id": "T-B4-002cr/T-B8-003cv/T-B10-009ch-r173-oracle",
+  "status": "independent_divergence_oracle_complete",
+  "summary": {
+    "bqp_separation_claimed": false,
+    "confirmed_qiskit_bug_claimed": false,
+    "localized_branch_count": 12,
+    "native_addition_verified_trace_count": 6,
+    "new_credit_delta": 0,
+    "production_policy_changed": false,
+    "qiskit_calls_performed": 0,
+    "quantum_advantage_claimed": false,
+    "r160_non_tie_control_count": 28,
+    "r160_non_tie_controls_passed": 28,
+    "r160_tie_control_count": 4,
+    "r160_tie_controls_passed": 4,
+    "score_event_hash_match_count": 6,
+    "simulation_execution_count": 0,
+    "solved_frontier_claimed": false,
+    "source_patch_performed": false,
+    "source_return_match_count": 6,
+    "total_simulated_shots": 0,
+    "trace_count": 6,
+    "trace_payload_hash_match_count": 6
+  },
+  "title": "B4/B8/B10 R173 independent divergence oracle",
+  "trace_rows": [
+    {
+      "all_combine_native_additions_verified": true,
+      "branches": [
+        {
+          "all_chain_native_additions_verified": true,
+          "candidate_index": 1,
+          "final_event_index": 52,
+          "final_signed_ulp_delta": 0,
+          "first_event_index": 13,
+          "first_leaf_count": 4,
+          "first_signed_ulp_delta": -1
+        },
+        {
+          "all_chain_native_additions_verified": true,
+          "candidate_index": 2,
+          "final_event_index": 185,
+          "final_signed_ulp_delta": -1,
+          "first_event_index": 166,
+          "first_leaf_count": 5,
+          "first_signed_ulp_delta": -1
+        }
+      ],
+      "exact_policy_preserves_first_seen_tie": true,
+      "exact_selected_candidate_index": 1,
+      "exact_totals_equal": true,
+      "input_id": "r170_path",
+      "profile_id": "native_hashset_order",
+      "score_events_hash_match": true,
+      "source_return_match": true,
+      "source_score_bit_gap": 1,
+      "source_selected_candidate_index": 2
+    },
+    {
+      "all_combine_native_additions_verified": true,
+      "branches": [
+        {
+          "all_chain_native_additions_verified": true,
+          "candidate_index": 1,
+          "final_event_index": 52,
+          "final_signed_ulp_delta": 0,
+          "first_event_index": 46,
+          "first_leaf_count": 10,
+          "first_signed_ulp_delta": -1
+        },
+        {
+          "all_chain_native_additions_verified": true,
+          "candidate_index": 2,
+          "final_event_index": 185,
+          "final_signed_ulp_delta": -1,
+          "first_event_index": 166,
+          "first_leaf_count": 5,
+          "first_signed_ulp_delta": -1
+        }
+      ],
+      "exact_policy_preserves_first_seen_tie": true,
+      "exact_selected_candidate_index": 1,
+      "exact_totals_equal": true,
+      "input_id": "r170_path",
+      "profile_id": "ascending_sorted_order",
+      "score_events_hash_match": true,
+      "source_return_match": true,
+      "source_score_bit_gap": 1,
+      "source_selected_candidate_index": 2
+    },
+    {
+      "all_combine_native_additions_verified": true,
+      "branches": [
+        {
+          "all_chain_native_additions_verified": true,
+          "candidate_index": 1,
+          "final_event_index": 52,
+          "final_signed_ulp_delta": 0,
+          "first_event_index": 45,
+          "first_leaf_count": 8,
+          "first_signed_ulp_delta": -1
+        },
+        {
+          "all_chain_native_additions_verified": true,
+          "candidate_index": 2,
+          "final_event_index": 185,
+          "final_signed_ulp_delta": -1,
+          "first_event_index": 161,
+          "first_leaf_count": 4,
+          "first_signed_ulp_delta": -1
+        }
+      ],
+      "exact_policy_preserves_first_seen_tie": true,
+      "exact_selected_candidate_index": 1,
+      "exact_totals_equal": true,
+      "input_id": "r170_path",
+      "profile_id": "descending_sorted_order",
+      "score_events_hash_match": true,
+      "source_return_match": true,
+      "source_score_bit_gap": 1,
+      "source_selected_candidate_index": 2
+    },
+    {
+      "all_combine_native_additions_verified": true,
+      "branches": [
+        {
+          "all_chain_native_additions_verified": true,
+          "candidate_index": 1,
+          "final_event_index": 94,
+          "final_signed_ulp_delta": 2,
+          "first_event_index": 87,
+          "first_leaf_count": 8,
+          "first_signed_ulp_delta": 1
+        },
+        {
+          "all_chain_native_additions_verified": true,
+          "candidate_index": 2,
+          "final_event_index": 113,
+          "final_signed_ulp_delta": 1,
+          "first_event_index": 113,
+          "first_leaf_count": 13,
+          "first_signed_ulp_delta": 1
+        }
+      ],
+      "exact_policy_preserves_first_seen_tie": true,
+      "exact_selected_candidate_index": 1,
+      "exact_totals_equal": true,
+      "input_id": "r172_t_tree",
+      "profile_id": "native_hashset_order",
+      "score_events_hash_match": true,
+      "source_return_match": true,
+      "source_score_bit_gap": 1,
+      "source_selected_candidate_index": 2
+    },
+    {
+      "all_combine_native_additions_verified": true,
+      "branches": [
+        {
+          "all_chain_native_additions_verified": true,
+          "candidate_index": 1,
+          "final_event_index": 94,
+          "final_signed_ulp_delta": 2,
+          "first_event_index": 82,
+          "first_leaf_count": 7,
+          "first_signed_ulp_delta": 1
+        },
+        {
+          "all_chain_native_additions_verified": true,
+          "candidate_index": 2,
+          "final_event_index": 113,
+          "final_signed_ulp_delta": 1,
+          "first_event_index": 112,
+          "first_leaf_count": 11,
+          "first_signed_ulp_delta": 1
+        }
+      ],
+      "exact_policy_preserves_first_seen_tie": true,
+      "exact_selected_candidate_index": 1,
+      "exact_totals_equal": true,
+      "input_id": "r172_t_tree",
+      "profile_id": "ascending_sorted_order",
+      "score_events_hash_match": true,
+      "source_return_match": true,
+      "source_score_bit_gap": 1,
+      "source_selected_candidate_index": 2
+    },
+    {
+      "all_combine_native_additions_verified": true,
+      "branches": [
+        {
+          "all_chain_native_additions_verified": true,
+          "candidate_index": 1,
+          "final_event_index": 94,
+          "final_signed_ulp_delta": 2,
+          "first_event_index": 87,
+          "first_leaf_count": 8,
+          "first_signed_ulp_delta": 1
+        },
+        {
+          "all_chain_native_additions_verified": true,
+          "candidate_index": 2,
+          "final_event_index": 113,
+          "final_signed_ulp_delta": 1,
+          "first_event_index": 113,
+          "first_leaf_count": 13,
+          "first_signed_ulp_delta": 1
+        }
+      ],
+      "exact_policy_preserves_first_seen_tie": true,
+      "exact_selected_candidate_index": 1,
+      "exact_totals_equal": true,
+      "input_id": "r172_t_tree",
+      "profile_id": "descending_sorted_order",
+      "score_events_hash_match": true,
+      "source_return_match": true,
+      "source_score_bit_gap": 1,
+      "source_selected_candidate_index": 2
+    }
+  ],
+  "upstream_target_id": "T-B4-002cq/T-B8-003cu/T-B10-009cg-r173",
+  "version": 0
+}

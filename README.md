@@ -3269,6 +3269,22 @@ execution is unopened. This does not claim a Qiskit bug, source patch,
 production remedy, route improvement, hardware result, quantum advantage,
 BQP separation, solved B4/B8/B10, or new credit.
 
+R173 then completes all six frozen source traces and localizes all `12/12`
+selected candidate branches. On R170, the exact-first branch finishes with
+zero ULP debt while the source-selected branch finishes at `-1 ULP`; on R172,
+the corresponding final debts are `+2 ULP` and `+1 ULP`. The first divergent
+prefix changes with operation order, but every recorded combine still equals
+native binary64 `left + right`, every candidate pair has exactly equal retained-
+leaf Fraction totals, and every source score gap is one ULP. The exact-total,
+first-seen rule passes `6/6` trace ties, `4/4` R160 tie rows, and `28/28` R160
+non-tie rows. A standard-library oracle imports no Qiskit, verifies all six
+trace payloads and score-event hashes, and independently reproduces all 12
+localizations. Both gates pass `10/10`. This localizes accumulation-order
+mechanics; it is not a confirmed Qiskit bug, source patch, production remedy,
+route improvement, hardware result, quantum advantage, BQP separation, solved
+B4/B8/B10, or new credit. The next gate is an isolated exact-score comparator
+patch with a preregistered regression matrix over R160/R169/R170/R172.
+
 The R149 holdout at `T-B4-002bh` / `T-B8-003bl` / `T-B10-009az` is
 then preregistered ACCEPT with A1-A10, requirements, and phase replay all
 passing `10/10`, `10/10`, and `4/4`. All `24/24` repaired and target-specific

@@ -3371,6 +3371,73 @@ current_results:
     executor: ../tools/b4_b8_r172_independent_second_near_tie_oracle.py
     source_result: ../results/B4_B8_R172_second_near_tie_candidate_replay_v0.json
     source_worker_directory: ../results/B4_B8_R172_second_near_tie_candidate_replay
+  b4_b8_r173_first_divergent_combine_trace_v0:
+    status: first_divergent_combine_localized
+    method: b4_b8_r173_first_divergent_combine_trace_v0
+    source_target_id: T-B4-002cq/T-B8-003cu/T-B10-009cg-r173
+    upstream_target_id: T-B4-002cp/T-B8-003ct/T-B10-009cf-r172
+    input_count: 2
+    profile_count: 3
+    trace_count: 6
+    candidate_branch_count: 12
+    localized_branch_count: 12
+    native_addition_verified_trace_count: 6
+    exact_tie_trace_count: 6
+    one_ulp_source_split_count: 6
+    exact_first_seen_policy_pass_count: 6
+    r160_tie_controls_passed: 4
+    r160_tie_control_count: 4
+    r160_non_tie_controls_passed: 28
+    r160_non_tie_control_count: 28
+    qiskit_calls_performed: 6
+    simulation_execution_count: 0
+    total_simulated_shots: 0
+    source_patch_performed: false
+    production_policy_changed: false
+    qiskit_bug_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    solved_frontier_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R173_first_divergent_combine_trace_v0.json
+    markdown_report: ../research/B4_B8_R173_first_divergent_combine_trace.md
+    protocol: ../results/B4_B8_R173_first_divergent_combine_protocol_v0.json
+    contract: B4_B8_R173_first_divergent_combine_contract_v0.json
+    executor: ../tools/b4_b8_r173_first_divergent_combine_trace.py
+    trace_directory: ../results/B4_B8_R173_first_divergent_combine_trace
+  b4_b8_r173_independent_divergence_oracle_v0:
+    status: independent_divergence_oracle_complete
+    method: b4_b8_r173_independent_divergence_oracle_v0
+    source_target_id: T-B4-002cr/T-B8-003cv/T-B10-009ch-r173-oracle
+    upstream_target_id: T-B4-002cq/T-B8-003cu/T-B10-009cg-r173
+    trace_count: 6
+    trace_payload_hash_match_count: 6
+    score_event_hash_match_count: 6
+    source_return_match_count: 6
+    localized_branch_count: 12
+    native_addition_verified_trace_count: 6
+    r160_tie_controls_passed: 4
+    r160_tie_control_count: 4
+    r160_non_tie_controls_passed: 28
+    r160_non_tie_control_count: 28
+    qiskit_calls_performed: 0
+    simulation_execution_count: 0
+    total_simulated_shots: 0
+    source_patch_performed: false
+    production_policy_changed: false
+    qiskit_bug_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    solved_frontier_claimed: false
+    new_credit_delta: 0
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R173_independent_divergence_oracle_v0.json
+    markdown_report: ../research/B4_B8_R173_independent_divergence_oracle.md
+    executor: ../tools/b4_b8_r173_independent_divergence_oracle.py
+    source_result: ../results/B4_B8_R173_first_divergent_combine_trace_v0.json
   prototype_artifacts:
   output_invariant_verifier: ../tools/b8_output_invariant_verifier.py
   adaptive_leakage_spoofer: ../tools/b8_adaptive_spoofer_leakage.py
