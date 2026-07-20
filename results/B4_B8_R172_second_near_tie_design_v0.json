@@ -1,0 +1,113 @@
+{
+  "best_candidates": [
+    {
+      "candidate_index": 2,
+      "mapping_terms": "v0->p5|v1->p3|v2->p6|v3->p4|v4->p1",
+      "retained_leaf_count": 13,
+      "source_score": 0.04802752219938464,
+      "source_score_bits": 4587082316430376092
+    },
+    {
+      "candidate_index": 1,
+      "mapping_terms": "v0->p5|v1->p3|v2->p4|v3->p6|v4->p1",
+      "retained_leaf_count": 13,
+      "source_score": 0.048027522199384644,
+      "source_score_bits": 4587082316430376093
+    },
+    {
+      "candidate_index": 0,
+      "mapping_terms": "v0->p1|v1->p3|v2->p0|v3->p2|v4->p5",
+      "retained_leaf_count": 13,
+      "source_score": 0.05063319991125036,
+      "source_score_bits": 4587457834163886686
+    }
+  ],
+  "claim_boundary": {
+    "what_is_not_supported": "a full replay, a universal arithmetic instability result, a numerical remedy, a confirmed Qiskit bug, hardware relevance, quantum advantage, BQP separation, solved B4/B8/B10, or new credit",
+    "what_is_supported": "an exhaustive bounded multiplicity scan selected a one-ULP weighted T-tree control whose degree sequence differs from R170"
+  },
+  "classification": "nonisomorphic_one_ulp_control_selected",
+  "graph": {
+    "degree_sequence": [
+      3,
+      2,
+      1,
+      1,
+      1
+    ],
+    "edge_multiplicities": [
+      2,
+      1,
+      1,
+      1
+    ],
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        4
+      ]
+    ]
+  },
+  "input": "benchmarks/B4_B8_R172_second_near_tie_candidate_v0.qasm",
+  "input_sha256": "f2dd4684d3de77fd3904d9a3c8ce29c16f5315e78ce2eb6ac632a90f4018acc9",
+  "instrumented_binary_sha256": "56101c7bedbaa157c341542d18b95e60b9d37acb9f29d6305fa2f7337cb8fd69",
+  "method": "b4_b8_r172_second_near_tie_design_v0",
+  "payload_hash": "d927e1b3cc3a86fffc4b0384238517a1066545ae92bd21242b08e38d79b610cb",
+  "source_target_id": "T-B4-002cp/T-B8-003ct/T-B10-009cf-r172-design",
+  "status": "second_near_tie_design_complete",
+  "summary": {
+    "best_two_source_score_gap": 6.938893903907228e-18,
+    "best_two_source_score_gap_ulp_ratio": 1.0,
+    "candidate_observable_variant_count": 524,
+    "degree_sequence_proves_nonisomorphism": true,
+    "new_credit_delta": 0,
+    "one_ulp_variant_count": 21,
+    "qiskit_calls_performed": 626,
+    "r170_degree_sequence": [
+      2,
+      2,
+      2,
+      1,
+      1
+    ],
+    "r172_degree_sequence": [
+      3,
+      2,
+      1,
+      1,
+      1
+    ],
+    "route_change_performed": false,
+    "selected_candidate_count": 3,
+    "selected_multiplicities": [
+      2,
+      1,
+      1,
+      1
+    ],
+    "selected_two_qubit_operation_count": 10,
+    "selection_matches_input": true,
+    "simulation_execution_count": 0,
+    "source_score_gap_is_one_ulp": true,
+    "total_simulated_shots": 0,
+    "weighted_variants_scanned": 625
+  },
+  "target": {
+    "backend": "FakeNairobiV2",
+    "descriptor_sha256": "702c8fd9dcf67a069e7af63e31a57c74c17aaa5e3c5b6d8c2e28ec0c049c0de7"
+  },
+  "title": "B4/B8 R172 second near-tie graph design",
+  "version": 0
+}

@@ -1,0 +1,106 @@
+{
+  "candidate_event_schema": {
+    "candidate_set_boundary": "only frozen-source iterator candidates are replayed; no alternate traversal is claimed",
+    "returned_candidate": "the final source mapping and score retained separately for source replay validation",
+    "yielded_candidate": "every complete mapping yielded by the frozen VF2 iterator, retaining index, mapping, source-score bits, leaves, and order"
+  },
+  "claim_boundary": {
+    "what_is_not_supported": "broad cross-input generality, a numerical remedy, a production mapping change, an alternate search path, a confirmed Qiskit bug, cross-platform determinism, hardware relevance, quantum advantage, BQP separation, solved B4/B8/B10, or new credit",
+    "what_is_supported": "a preregistered candidate replay and independent arithmetic oracle on a graph nonisomorphic to R170"
+  },
+  "design_preflight": {
+    "best_two_source_score_gap_ulp_ratio": 1.0,
+    "candidate_count": 3,
+    "degree_sequence_proves_nonisomorphism": true,
+    "method": "b4_b8_r172_second_near_tie_design_v0",
+    "one_ulp_variant_count": 21,
+    "payload_hash": "d927e1b3cc3a86fffc4b0384238517a1066545ae92bd21242b08e38d79b610cb",
+    "result_path": "results/B4_B8_R172_second_near_tie_design_v0.json",
+    "selected_multiplicities": [
+      2,
+      1,
+      1,
+      1
+    ],
+    "weighted_variants_scanned": 625
+  },
+  "execution_boundary": {
+    "candidate_selection_performed": true,
+    "new_hidden_seed_count": 0,
+    "qiskit_calls_performed": 192,
+    "route_change_performed": false,
+    "sampling_performed": false,
+    "simulation_execution_count": 0,
+    "total_simulated_shots": 0
+  },
+  "frozen_software": {
+    "python": "3.12.6",
+    "qiskit": "2.4.1"
+  },
+  "independent_oracle": {
+    "checks": "row hashes, retained leaf scores, exact rational sums, four policies, source-return mapping, aggregate split",
+    "executor_path": "tools/b4_b8_r172_independent_second_near_tie_oracle.py",
+    "imports_qiskit": false,
+    "inputs": "committed R172 worker manifests and aggregate result only"
+  },
+  "input_description": "five-active-qubit weighted T-tree with degree sequence (3,2,1,1,1), nonisomorphic to the R170 path, selected by a bounded 625-variant scan",
+  "input_path": "benchmarks/B4_B8_R172_second_near_tie_candidate_v0.qasm",
+  "input_sha256": "f2dd4684d3de77fd3904d9a3c8ce29c16f5315e78ce2eb6ac632a90f4018acc9",
+  "instrumented_binary_sha256": "56101c7bedbaa157c341542d18b95e60b9d37acb9f29d6305fa2f7337cb8fd69",
+  "method": "b4_b8_r172_second_near_tie_candidate_protocol_v0",
+  "payload_hash": "26239dda043bfd697424a8466154995911b5290312801cdda7c9afc804839bed",
+  "process_environment": [
+    "MKL_NUM_THREADS",
+    "OMP_NUM_THREADS",
+    "OPENBLAS_NUM_THREADS",
+    "PYTHONHASHSEED",
+    "QISKIT_PARALLEL",
+    "RAYON_NUM_THREADS"
+  ],
+  "profile_count": 3,
+  "profiles": [
+    {
+      "operation_order": "native",
+      "profile_id": "native_hashset_order",
+      "replay_count": 64
+    },
+    {
+      "operation_order": "ascending",
+      "profile_id": "ascending_sorted_order",
+      "replay_count": 64
+    },
+    {
+      "operation_order": "descending",
+      "profile_id": "descending_sorted_order",
+      "replay_count": 64
+    }
+  ],
+  "qiskit_source_commit": "0fd015a22b84c9082173597a5d2304dc0aaec08c",
+  "selection_rule": {
+    "enumeration": "preserve observed candidate_index order",
+    "incumbent": "first yielded complete candidate",
+    "policies": [
+      "source_f64",
+      "compensated_fsum",
+      "exact_binary64_leaf",
+      "tie_aware_1ulp"
+    ],
+    "replace": "replace incumbent only when the policy comparison is Less",
+    "tie": "retain first-seen incumbent"
+  },
+  "snapshot_name": "FakeNairobiV2",
+  "status": "second_near_tie_protocol_frozen_before_execution",
+  "target_descriptor_sha256": "702c8fd9dcf67a069e7af63e31a57c74c17aaa5e3c5b6d8c2e28ec0c049c0de7",
+  "title": "B4/B8 R172 nonisomorphic second near-tie replay protocol",
+  "total_process_count": 3,
+  "total_replay_count": 192,
+  "version": 0,
+  "vf2_configuration": {
+    "call_limit": 30000000,
+    "max_trials": 250000,
+    "score_initial_layout": true,
+    "shuffle_seed": -1,
+    "strict_direction": false,
+    "time_limit": null
+  }
+}

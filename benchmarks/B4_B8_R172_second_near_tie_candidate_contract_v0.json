@@ -1,0 +1,104 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition_id": "A1",
+      "label": "input, design, protocol, replay executor, independent oracle, source manifest, and instrumented binary are hash-bound"
+    },
+    {
+      "condition_id": "A2",
+      "label": "R172 graph degree sequence differs from R170 and the bounded scan selects a one-ULP control"
+    },
+    {
+      "condition_id": "A3",
+      "label": "three operation-order profiles and 192 post-registration traced calls are present"
+    },
+    {
+      "condition_id": "A4",
+      "label": "every complete candidate retains mapping, source score, leaves, and enumeration index"
+    },
+    {
+      "condition_id": "A5",
+      "label": "source selection reproduces the returned mapping and score on every call"
+    },
+    {
+      "condition_id": "A6",
+      "label": "all four arithmetic policies use first-seen tie handling"
+    },
+    {
+      "condition_id": "A7",
+      "label": "the independent standard-library oracle reproduces every row and aggregate selection"
+    },
+    {
+      "condition_id": "A8",
+      "label": "zero simulation, shots, sampling, route changes, and hidden seeds are recorded"
+    },
+    {
+      "condition_id": "A9",
+      "label": "candidate replay does not claim an alternate search traversal or production policy"
+    },
+    {
+      "condition_id": "A10",
+      "label": "forbidden bug, hardware, advantage, BQP, solved-frontier, and credit claims remain false"
+    }
+  ],
+  "claim_boundary": {
+    "what_is_not_supported": "broad cross-input generality, a numerical remedy, a production mapping change, an alternate search path, a confirmed Qiskit bug, cross-platform determinism, hardware relevance, quantum advantage, BQP separation, solved B4/B8/B10, or new credit",
+    "what_is_supported": "a preregistered candidate replay and independent arithmetic oracle on a graph nonisomorphic to R170"
+  },
+  "contract_id": "B4-B8-R172-second-near-tie-candidate-contract-v0",
+  "contract_status": "public_preregistration_execution_unopened",
+  "execution_started": false,
+  "payload_hash": "2476341391b3641a218cb6dcd0788a89da688cad7bf4e23c27798e0ee41b2882",
+  "protocol_path": "results/B4_B8_R172_second_near_tie_candidate_protocol_v0.json",
+  "protocol_payload_hash": "26239dda043bfd697424a8466154995911b5290312801cdda7c9afc804839bed",
+  "source_bindings": {
+    "design_executor": {
+      "path": "tools/b4_b8_r172_second_near_tie_design.py",
+      "sha256": "9cea8287d5248f76b6251cd70eee8cc6f687a516433fd6a94b04acd8126ed623"
+    },
+    "design_result": {
+      "path": "results/B4_B8_R172_second_near_tie_design_v0.json",
+      "payload_hash": "d927e1b3cc3a86fffc4b0384238517a1066545ae92bd21242b08e38d79b610cb",
+      "sha256": "c18eaae909f4078c5b6b8e0560c9feed06411c6c4ed639d390ea37da944119d9"
+    },
+    "independent_oracle": {
+      "path": "tools/b4_b8_r172_independent_second_near_tie_oracle.py",
+      "sha256": "ed5fa1b619ead8782755bb1f58b76d38b4bf8a98ff1947a3393537bd49bb1266"
+    },
+    "input": {
+      "path": "benchmarks/B4_B8_R172_second_near_tie_candidate_v0.qasm",
+      "sha256": "f2dd4684d3de77fd3904d9a3c8ce29c16f5315e78ce2eb6ac632a90f4018acc9"
+    },
+    "instrumented_binary": {
+      "path": "research/source_lineage/Qiskit_2_4_1_R165_candidate_selection_accelerate.cpython-312-darwin.so",
+      "sha256": "56101c7bedbaa157c341542d18b95e60b9d37acb9f29d6305fa2f7337cb8fd69"
+    },
+    "protocol": {
+      "path": "results/B4_B8_R172_second_near_tie_candidate_protocol_v0.json",
+      "payload_hash": "26239dda043bfd697424a8466154995911b5290312801cdda7c9afc804839bed",
+      "sha256": "dab995fcf53c80a599aba1910ebb93bf536ec6b2c142dd2a801554b1d792ad08"
+    },
+    "r165_executor": {
+      "path": "tools/b4_b8_r165_candidate_selection_replay.py",
+      "sha256": "13b0be69f0491245a8a569c293eb13c1aeb58cf209b88814d6712b581acf3718"
+    },
+    "r170_result": {
+      "path": "results/B4_B8_R170_near_tie_candidate_replay_v0.json",
+      "payload_hash": "1af733839bbd9e0617256f11781c4721582531ddd92a96535a7a5dc46c2fff51",
+      "sha256": "86508141e8ac38371275b18597e55960b6c08dcb1e781a4148ec0ab9f9fc50c6"
+    },
+    "r171_result": {
+      "path": "results/B4_B8_R171_independent_near_tie_oracle_v0.json",
+      "payload_hash": "e18d1a9206a1ee794fcab5cfd688cb5e643ae4a3e5d65c68ea64c7903e7ecd55",
+      "sha256": "7994dc7aa5a3243954bcae0d914a738b744b9782320af273a0afbaf8097024a9"
+    },
+    "replay_executor": {
+      "path": "tools/b4_b8_r172_second_near_tie_candidate_replay.py",
+      "sha256": "06d693b700daf055e39ed9aa8b2ddcf6967fbf70a0409f8437b8edf34c9031b4"
+    },
+    "source_manifest": {
+      "path": "research/source_lineage/Qiskit_2_4_1_vf2_source_manifest.json",
+      "sha256": "d57f7b039a232047aa1189a1594f8da4eff14c7688e55d77d27b81d625efd276"
+    }
+  }
+}
