@@ -1,0 +1,4294 @@
+{
+  "accelerator_path": "/tmp/prometheus-r181-overlay-fd52a3aea4cc8cc1/qiskit/_accelerate.abi3.so",
+  "accelerator_sha256": "fd52a3aea4cc8cc199a2d3d07c1080cdd5718369e8528736e77fe1f5984d2f73",
+  "case_summaries": [
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "case_summary_hash": "0844878e929f4a1d3796534eb452aaf84257fada31248aa48d1e0c6356627218",
+      "elapsed_ns_median": 20042.5,
+      "elapsed_ns_p95_nearest_rank": 29495,
+      "error_map_descriptor": {
+        "case_id": "edge_0_1_m008ulp",
+        "construction": "R159 operation-error bits, declared accumulation, optional declared ULP shift",
+        "mode": "ascending_f64",
+        "payload_hash": "51f5abc238150c7eda076c83373974e57db466fc39014e8b7b029114174214bc",
+        "rows": [
+          {
+            "base_bits": 4573474103581024861,
+            "key": [
+              0,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4573474103581024861
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              0,
+              1
+            ],
+            "perturbed": true,
+            "value_bits": 4567100593048839608
+          },
+          {
+            "base_bits": 4566947158837165288,
+            "key": [
+              1,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4566947158837165288
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              1,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4567100593048839616
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              1,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              1,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4566736071831264125,
+            "key": [
+              2,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4566736071831264125
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              2,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4567570890438721934,
+            "key": [
+              3,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4567570890438721934
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              3,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              3,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4566733819296185530,
+            "key": [
+              4,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4566733819296185530
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              4,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4567912515276044964,
+            "key": [
+              5,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4567912515276044964
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              5,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              5,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              5,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          },
+          {
+            "base_bits": 4568277749028269718,
+            "key": [
+              6,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568277749028269718
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              6,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          }
+        ]
+      },
+      "exact_leaf_oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3877787807814457e-17,
+        "minimum_gap_fraction": "1/72057594037927936",
+        "minimum_gap_ulp_ratio": 0.5,
+        "minimum_score_fraction": "25240825545996491/144115188075855872",
+        "second_distinct_score_fraction": "25240825545996493/144115188075855872"
+      },
+      "matches_expected": 8,
+      "recorded_call_count": 8
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "case_summary_hash": "e325a21ce8f6cf185652dfc616c945b617efe848041329c90f5ef1d55b209896",
+      "elapsed_ns_median": 17768.0,
+      "elapsed_ns_p95_nearest_rank": 22452,
+      "error_map_descriptor": {
+        "case_id": "edge_0_1_m001ulp",
+        "construction": "R159 operation-error bits, declared accumulation, optional declared ULP shift",
+        "mode": "ascending_f64",
+        "payload_hash": "1f5cd1840239c4bd5b2a43ddb7a25d0ce7c60681e6f4f81f434189048fbe4147",
+        "rows": [
+          {
+            "base_bits": 4573474103581024861,
+            "key": [
+              0,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4573474103581024861
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              0,
+              1
+            ],
+            "perturbed": true,
+            "value_bits": 4567100593048839615
+          },
+          {
+            "base_bits": 4566947158837165288,
+            "key": [
+              1,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4566947158837165288
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              1,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4567100593048839616
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              1,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              1,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4566736071831264125,
+            "key": [
+              2,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4566736071831264125
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              2,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4567570890438721934,
+            "key": [
+              3,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4567570890438721934
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              3,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              3,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4566733819296185530,
+            "key": [
+              4,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4566733819296185530
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              4,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4567912515276044964,
+            "key": [
+              5,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4567912515276044964
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              5,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              5,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              5,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          },
+          {
+            "base_bits": 4568277749028269718,
+            "key": [
+              6,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568277749028269718
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              6,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          }
+        ]
+      },
+      "exact_leaf_oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 8.673617379884035e-19,
+        "minimum_gap_fraction": "1/1152921504606846976",
+        "minimum_gap_ulp_ratio": 0.03125,
+        "minimum_score_fraction": "100963302183985975/576460752303423488",
+        "second_distinct_score_fraction": "201926604367971951/1152921504606846976"
+      },
+      "matches_expected": 8,
+      "recorded_call_count": 8
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "case_summary_hash": "207683ec5d1936ae8cd340d00d8133c1b79f74239cd649870d5922f95148d72c",
+      "elapsed_ns_median": 18158.5,
+      "elapsed_ns_p95_nearest_rank": 22321,
+      "error_map_descriptor": {
+        "case_id": "edge_1_0_p001ulp",
+        "construction": "R159 operation-error bits, declared accumulation, optional declared ULP shift",
+        "mode": "ascending_f64",
+        "payload_hash": "513a99c84edfc18c0062dfec3dd7ffa2a1efb9a50ec62d7107c104b11643f093",
+        "rows": [
+          {
+            "base_bits": 4573474103581024861,
+            "key": [
+              0,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4573474103581024861
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              0,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4567100593048839616
+          },
+          {
+            "base_bits": 4566947158837165288,
+            "key": [
+              1,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4566947158837165288
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              1,
+              0
+            ],
+            "perturbed": true,
+            "value_bits": 4567100593048839617
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              1,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              1,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4566736071831264125,
+            "key": [
+              2,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4566736071831264125
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              2,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4567570890438721934,
+            "key": [
+              3,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4567570890438721934
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              3,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              3,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4566733819296185530,
+            "key": [
+              4,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4566733819296185530
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              4,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4567912515276044964,
+            "key": [
+              5,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4567912515276044964
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              5,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              5,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              5,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          },
+          {
+            "base_bits": 4568277749028269718,
+            "key": [
+              6,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568277749028269718
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              6,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          }
+        ]
+      },
+      "exact_leaf_oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 2.6020852139652106e-18,
+        "minimum_gap_fraction": "3/1152921504606846976",
+        "minimum_gap_ulp_ratio": 0.09375,
+        "minimum_score_fraction": "201926604367971953/1152921504606846976",
+        "second_distinct_score_fraction": "50481651091992989/288230376151711744"
+      },
+      "matches_expected": 8,
+      "recorded_call_count": 8
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "case_summary_hash": "ec9a4296bfb0a95bafbf9ea72dac024b926691df5763add49156d47e3cea8759",
+      "elapsed_ns_median": 18289.0,
+      "elapsed_ns_p95_nearest_rank": 38191,
+      "error_map_descriptor": {
+        "case_id": "edge_1_0_p008ulp",
+        "construction": "R159 operation-error bits, declared accumulation, optional declared ULP shift",
+        "mode": "ascending_f64",
+        "payload_hash": "922b352b3d578b74cb3e8809341938c349fdc255c5b463e382917115a1ee1375",
+        "rows": [
+          {
+            "base_bits": 4573474103581024861,
+            "key": [
+              0,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4573474103581024861
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              0,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4567100593048839616
+          },
+          {
+            "base_bits": 4566947158837165288,
+            "key": [
+              1,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4566947158837165288
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              1,
+              0
+            ],
+            "perturbed": true,
+            "value_bits": 4567100593048839624
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              1,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              1,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4566736071831264125,
+            "key": [
+              2,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4566736071831264125
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              2,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4567570890438721934,
+            "key": [
+              3,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4567570890438721934
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              3,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              3,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4566733819296185530,
+            "key": [
+              4,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4566733819296185530
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              4,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4567912515276044964,
+            "key": [
+              5,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4567912515276044964
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              5,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              5,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              5,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          },
+          {
+            "base_bits": 4568277749028269718,
+            "key": [
+              6,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568277749028269718
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              6,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          }
+        ]
+      },
+      "exact_leaf_oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3877787807814457e-17,
+        "minimum_gap_fraction": "1/72057594037927936",
+        "minimum_gap_ulp_ratio": 0.5,
+        "minimum_score_fraction": "25240825545996495/144115188075855872",
+        "second_distinct_score_fraction": "25240825545996497/144115188075855872"
+      },
+      "matches_expected": 8,
+      "recorded_call_count": 8
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "case_summary_hash": "7935d7d07881af6519c73917d319d4713ebd197a7fa3299aac5504b011fe099a",
+      "elapsed_ns_median": 17973.0,
+      "elapsed_ns_p95_nearest_rank": 22873,
+      "error_map_descriptor": {
+        "case_id": "edge_1_2_m001ulp",
+        "construction": "R159 operation-error bits, declared accumulation, optional declared ULP shift",
+        "mode": "ascending_f64",
+        "payload_hash": "58dd9a79ded12b9985cf2d3208c8e1de8d30465958931f3de72d0521b91c000a",
+        "rows": [
+          {
+            "base_bits": 4573474103581024861,
+            "key": [
+              0,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4573474103581024861
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              0,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4567100593048839616
+          },
+          {
+            "base_bits": 4566947158837165288,
+            "key": [
+              1,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4566947158837165288
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              1,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4567100593048839616
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              1,
+              2
+            ],
+            "perturbed": true,
+            "value_bits": 4565693368545587071
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              1,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4566736071831264125,
+            "key": [
+              2,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4566736071831264125
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              2,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4567570890438721934,
+            "key": [
+              3,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4567570890438721934
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              3,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              3,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4566733819296185530,
+            "key": [
+              4,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4566733819296185530
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              4,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4567912515276044964,
+            "key": [
+              5,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4567912515276044964
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              5,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              5,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              5,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          },
+          {
+            "base_bits": 4568277749028269718,
+            "key": [
+              6,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568277749028269718
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              6,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          }
+        ]
+      },
+      "exact_leaf_oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3010426069826053e-18,
+        "minimum_gap_fraction": "3/2305843009213693952",
+        "minimum_gap_ulp_ratio": 0.046875,
+        "minimum_score_fraction": "100963302183985975/576460752303423488",
+        "second_distinct_score_fraction": "403853208735943903/2305843009213693952"
+      },
+      "matches_expected": 8,
+      "recorded_call_count": 8
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "case_summary_hash": "175474c53a0877a3a67599a9959c6e5b3948083188d85e1fef2c689a789b6722",
+      "elapsed_ns_median": 17507.5,
+      "elapsed_ns_p95_nearest_rank": 19937,
+      "error_map_descriptor": {
+        "case_id": "edge_2_1_p001ulp",
+        "construction": "R159 operation-error bits, declared accumulation, optional declared ULP shift",
+        "mode": "ascending_f64",
+        "payload_hash": "7bb7bfcb63d5fe5a0bb6bdd7533126ee27c29ac901e624fe2323d4e77f93afd1",
+        "rows": [
+          {
+            "base_bits": 4573474103581024861,
+            "key": [
+              0,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4573474103581024861
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              0,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4567100593048839616
+          },
+          {
+            "base_bits": 4566947158837165288,
+            "key": [
+              1,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4566947158837165288
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              1,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4567100593048839616
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              1,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              1,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4566736071831264125,
+            "key": [
+              2,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4566736071831264125
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              2,
+              1
+            ],
+            "perturbed": true,
+            "value_bits": 4565693368545587073
+          },
+          {
+            "base_bits": 4567570890438721934,
+            "key": [
+              3,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4567570890438721934
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              3,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              3,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4566733819296185530,
+            "key": [
+              4,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4566733819296185530
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              4,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4567912515276044964,
+            "key": [
+              5,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4567912515276044964
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              5,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              5,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              5,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          },
+          {
+            "base_bits": 4568277749028269718,
+            "key": [
+              6,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568277749028269718
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              6,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          }
+        ]
+      },
+      "exact_leaf_oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3010426069826053e-18,
+        "minimum_gap_fraction": "3/2305843009213693952",
+        "minimum_gap_ulp_ratio": 0.046875,
+        "minimum_score_fraction": "403853208735943905/2305843009213693952",
+        "second_distinct_score_fraction": "100963302183985977/576460752303423488"
+      },
+      "matches_expected": 8,
+      "recorded_call_count": 8
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "case_summary_hash": "2256bbbdd555c419fe03e6bb77a639eec3a4347794bb2413352755b1e77675c6",
+      "elapsed_ns_median": 19381.5,
+      "elapsed_ns_p95_nearest_rank": 38962,
+      "error_map_descriptor": {
+        "case_id": "edge_2_1_p008ulp",
+        "construction": "R159 operation-error bits, declared accumulation, optional declared ULP shift",
+        "mode": "ascending_f64",
+        "payload_hash": "d29079744a5c7e09707e28b0a967139ad8404a9ba1d778283c3e2388ee1aef80",
+        "rows": [
+          {
+            "base_bits": 4573474103581024861,
+            "key": [
+              0,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4573474103581024861
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              0,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4567100593048839616
+          },
+          {
+            "base_bits": 4566947158837165288,
+            "key": [
+              1,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4566947158837165288
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              1,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4567100593048839616
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              1,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              1,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4566736071831264125,
+            "key": [
+              2,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4566736071831264125
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              2,
+              1
+            ],
+            "perturbed": true,
+            "value_bits": 4565693368545587080
+          },
+          {
+            "base_bits": 4567570890438721934,
+            "key": [
+              3,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4567570890438721934
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              3,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              3,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4566733819296185530,
+            "key": [
+              4,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4566733819296185530
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              4,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4567912515276044964,
+            "key": [
+              5,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4567912515276044964
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              5,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              5,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              5,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          },
+          {
+            "base_bits": 4568277749028269718,
+            "key": [
+              6,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568277749028269718
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              6,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          }
+        ]
+      },
+      "exact_leaf_oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 6.938893903907228e-18,
+        "minimum_gap_fraction": "1/144115188075855872",
+        "minimum_gap_ulp_ratio": 0.25,
+        "minimum_score_fraction": "50481651091992989/288230376151711744",
+        "second_distinct_score_fraction": "50481651091992991/288230376151711744"
+      },
+      "matches_expected": 8,
+      "recorded_call_count": 8
+    }
+  ],
+  "contract_payload_hash": "c85d13b72418b37f53dcf6bb64352df128389299ac66587489899811a8e72b85",
+  "elapsed_ns_median": 18103.5,
+  "elapsed_ns_p95_nearest_rank": 29495,
+  "environment": {
+    "machine": "x86_64",
+    "platform": "Linux-6.17.0-1020-azure-x86_64-with-glibc2.39",
+    "python": "3.12.13",
+    "pythonpath_head": "/home/runner/work/Prometheus-plan/Prometheus-plan/tools",
+    "qiskit": "2.4.1",
+    "qiskit_aer": "0.17.2",
+    "qiskit_ibm_runtime": "0.46.1",
+    "system": "Linux"
+  },
+  "identity": "ascending_f64",
+  "input_qasm_sha256": "ce216610e995b4c8b4bd9de6547ac6069961e1eb8881997aa05e0068ea16ab98",
+  "kind": "small-gap",
+  "manifest_hash": "77efb910dca9d963a44774d9319dfcead463614d347f9ddbf6acdd39f3ea9677",
+  "mode": "ascending_f64",
+  "peak_rss": 218708,
+  "peak_rss_unit": "kibibytes",
+  "policy": "source_f64",
+  "preregistration": {
+    "commit": "487b62cd588c05bfb824b70afad16e8cf8a3e283",
+    "created_at": "2026-07-20T17:15:02Z",
+    "discussion": "https://github.com/crystal-tensor/Prometheus-plan/discussions/271"
+  },
+  "process_id": 10246,
+  "process_instance_uuid": "4acccd92-ca92-46cc-8756-a13851867cf4",
+  "protocol_payload_hash": "8393f0403e9644b06daa08935ede3c1b57c9c25dc36026a1509c4fb280c4bf5c",
+  "recorded_call_count": 56,
+  "recorded_matches_expected": 56,
+  "replay_rows": [
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "elapsed_ns": 17513,
+      "error_map_descriptor_hash": "51f5abc238150c7eda076c83373974e57db466fc39014e8b7b029114174214bc",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 0,
+      "row_hash": "04e0360f72f797d92062dbc6ee89af9e962acae43beba7091a52013eabd5d9fb",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "elapsed_ns": 21680,
+      "error_map_descriptor_hash": "51f5abc238150c7eda076c83373974e57db466fc39014e8b7b029114174214bc",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 1,
+      "row_hash": "b4e3709525c1101e33d204fbb4cee8a058cdbe7fe5ff9083c57e714845f7cac0",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "elapsed_ns": 20428,
+      "error_map_descriptor_hash": "51f5abc238150c7eda076c83373974e57db466fc39014e8b7b029114174214bc",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 2,
+      "row_hash": "52a0717bb457d4ac26225ee1e019a18f6b3f51871f05680191dff9ca9285abb5",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "elapsed_ns": 29495,
+      "error_map_descriptor_hash": "51f5abc238150c7eda076c83373974e57db466fc39014e8b7b029114174214bc",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 3,
+      "row_hash": "08b20dcab4d1361b7dbe35f573c3cec2c63236d447116b54d5f2313192bebc9b",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "elapsed_ns": 23995,
+      "error_map_descriptor_hash": "51f5abc238150c7eda076c83373974e57db466fc39014e8b7b029114174214bc",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 4,
+      "row_hash": "dbb965cf81dfc8f04daa87404dc42f1cbc0745d1d886024c9982286047b1ee70",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "elapsed_ns": 19657,
+      "error_map_descriptor_hash": "51f5abc238150c7eda076c83373974e57db466fc39014e8b7b029114174214bc",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 5,
+      "row_hash": "3b4d55f226f9d620c72df303afbe2a8f231d9e5ef8c0965c7f5aa4f7f0801383",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "elapsed_ns": 18274,
+      "error_map_descriptor_hash": "51f5abc238150c7eda076c83373974e57db466fc39014e8b7b029114174214bc",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 6,
+      "row_hash": "6ab81f63aca6e50c802b4a39af53dadb3a3ce5c404f85c283342ffc927b359d8",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "elapsed_ns": 18033,
+      "error_map_descriptor_hash": "51f5abc238150c7eda076c83373974e57db466fc39014e8b7b029114174214bc",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 7,
+      "row_hash": "d3f4a3f0068d39b97a222474b77e1614fa7376ce93dee1975f3981a2ba0c012b",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "elapsed_ns": 22452,
+      "error_map_descriptor_hash": "1f5cd1840239c4bd5b2a43ddb7a25d0ce7c60681e6f4f81f434189048fbe4147",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.03125,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 0,
+      "row_hash": "9f6cc532f9593d1062014484f3e28db976406832f82406c235b01b113dbace92",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "elapsed_ns": 19016,
+      "error_map_descriptor_hash": "1f5cd1840239c4bd5b2a43ddb7a25d0ce7c60681e6f4f81f434189048fbe4147",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.03125,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 1,
+      "row_hash": "bfdf656903293ba6465c9e8a3f4ac7c2325a651b126bfff3c6a4b1b6da5712d4",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "elapsed_ns": 18865,
+      "error_map_descriptor_hash": "1f5cd1840239c4bd5b2a43ddb7a25d0ce7c60681e6f4f81f434189048fbe4147",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.03125,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 2,
+      "row_hash": "4f58de271bd94a0417969e73230dd2e5f9ca89363a1b1440b8926ab8b26a5355",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "elapsed_ns": 17933,
+      "error_map_descriptor_hash": "1f5cd1840239c4bd5b2a43ddb7a25d0ce7c60681e6f4f81f434189048fbe4147",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.03125,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 3,
+      "row_hash": "4fd9c9ce662c9a2d7457cc642e1569fdb3f0fae7a9fbe662647dfe16e88f1e47",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "elapsed_ns": 17553,
+      "error_map_descriptor_hash": "1f5cd1840239c4bd5b2a43ddb7a25d0ce7c60681e6f4f81f434189048fbe4147",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.03125,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 4,
+      "row_hash": "3403156af2f4ec0af252ecc482ced30905d49780c71928706921792627bf31e1",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "elapsed_ns": 17603,
+      "error_map_descriptor_hash": "1f5cd1840239c4bd5b2a43ddb7a25d0ce7c60681e6f4f81f434189048fbe4147",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.03125,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 5,
+      "row_hash": "48b2209b43c32782a3fa7ee6c2652afc28b21d807a778d9427bd14bc70ddbe65",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "elapsed_ns": 17593,
+      "error_map_descriptor_hash": "1f5cd1840239c4bd5b2a43ddb7a25d0ce7c60681e6f4f81f434189048fbe4147",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.03125,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 6,
+      "row_hash": "24e716ef78d0f478399fc7962e0d4e34da8577c40e2fc36c17c8af65d1e7890d",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "elapsed_ns": 17443,
+      "error_map_descriptor_hash": "1f5cd1840239c4bd5b2a43ddb7a25d0ce7c60681e6f4f81f434189048fbe4147",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.03125,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 7,
+      "row_hash": "d9e99b3c2f4e5c68899688406081c14083b35be023262ae24e6449c13a1c2018",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "elapsed_ns": 22321,
+      "error_map_descriptor_hash": "513a99c84edfc18c0062dfec3dd7ffa2a1efb9a50ec62d7107c104b11643f093",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.09375,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 0,
+      "row_hash": "54ef5668eab26d8d6ceb8445af5eb7a2abc4fae820bc4674174890cd56937c3e",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "elapsed_ns": 19657,
+      "error_map_descriptor_hash": "513a99c84edfc18c0062dfec3dd7ffa2a1efb9a50ec62d7107c104b11643f093",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.09375,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 1,
+      "row_hash": "0970983e8d65a9e2209521f41b63d1a528fd4e05c6a08fa141c6b71e05e2fe45",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "elapsed_ns": 18414,
+      "error_map_descriptor_hash": "513a99c84edfc18c0062dfec3dd7ffa2a1efb9a50ec62d7107c104b11643f093",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.09375,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 2,
+      "row_hash": "0a88678643322dc75493892817fb439383aff3e9a167c44ec5c62a4f59e0cf54",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "elapsed_ns": 18063,
+      "error_map_descriptor_hash": "513a99c84edfc18c0062dfec3dd7ffa2a1efb9a50ec62d7107c104b11643f093",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.09375,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 3,
+      "row_hash": "93fba9e458b82dcc1c3e95e011c47951d6bc3e967dd783022c19eeeb68570090",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "elapsed_ns": 17493,
+      "error_map_descriptor_hash": "513a99c84edfc18c0062dfec3dd7ffa2a1efb9a50ec62d7107c104b11643f093",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.09375,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 4,
+      "row_hash": "b2b4fb462e9562f7d6344bd10e680313dbdfc8a54a117f6462415525b2a7c678",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "elapsed_ns": 17402,
+      "error_map_descriptor_hash": "513a99c84edfc18c0062dfec3dd7ffa2a1efb9a50ec62d7107c104b11643f093",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.09375,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 5,
+      "row_hash": "a0276e2510cf7e0055740a30b28693acee6a1e967828535508c0b26e297ea088",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "elapsed_ns": 17452,
+      "error_map_descriptor_hash": "513a99c84edfc18c0062dfec3dd7ffa2a1efb9a50ec62d7107c104b11643f093",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.09375,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 6,
+      "row_hash": "02c08ed225a78c9a40ef12de570ee7ba1161b18da20f415ad18534b8d0359e22",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "elapsed_ns": 18254,
+      "error_map_descriptor_hash": "513a99c84edfc18c0062dfec3dd7ffa2a1efb9a50ec62d7107c104b11643f093",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.09375,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 7,
+      "row_hash": "83c21b7e48cd8ec38a108541550ff40af64dbf220a23ba14a6fbfaede337fed5",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "elapsed_ns": 20569,
+      "error_map_descriptor_hash": "922b352b3d578b74cb3e8809341938c349fdc255c5b463e382917115a1ee1375",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 0,
+      "row_hash": "2cf92d7b6e487e7bc45e18730007ced27e687eb146ec77e69f4e292a1a29a744",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "elapsed_ns": 18144,
+      "error_map_descriptor_hash": "922b352b3d578b74cb3e8809341938c349fdc255c5b463e382917115a1ee1375",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 1,
+      "row_hash": "0b8d9e644675854d641c90b08656ba6341e6778e2986c17dbcc36ee818130472",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "elapsed_ns": 18054,
+      "error_map_descriptor_hash": "922b352b3d578b74cb3e8809341938c349fdc255c5b463e382917115a1ee1375",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 2,
+      "row_hash": "dc1331093d0b68bb3ace26c70d158d2cd45284d60d69a5f5065de337672e8683",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "elapsed_ns": 38191,
+      "error_map_descriptor_hash": "922b352b3d578b74cb3e8809341938c349fdc255c5b463e382917115a1ee1375",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 3,
+      "row_hash": "879180576e16f802265e60807d8423596712f1425df5af9313d9dfe48a6eed15",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "elapsed_ns": 20418,
+      "error_map_descriptor_hash": "922b352b3d578b74cb3e8809341938c349fdc255c5b463e382917115a1ee1375",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 4,
+      "row_hash": "04e1a407c47246fb45bbe511eb162a85b5582e92bf3713aef0f8faf05f43c838",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "elapsed_ns": 18434,
+      "error_map_descriptor_hash": "922b352b3d578b74cb3e8809341938c349fdc255c5b463e382917115a1ee1375",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 5,
+      "row_hash": "a34f960edf412b91c9dd76b1a3deb9d2d6393ff4b7894445b66c31e336acd7b1",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "elapsed_ns": 17974,
+      "error_map_descriptor_hash": "922b352b3d578b74cb3e8809341938c349fdc255c5b463e382917115a1ee1375",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 6,
+      "row_hash": "a6bb742406dcd003ceb977e29bca6017c8989cfae2a799f29a29d9f1be03f105",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "elapsed_ns": 17583,
+      "error_map_descriptor_hash": "922b352b3d578b74cb3e8809341938c349fdc255c5b463e382917115a1ee1375",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 7,
+      "row_hash": "51b835489487a95d7f54bebf96228463b53ae4cc15a5b21db470ba9fd3061613",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "elapsed_ns": 20378,
+      "error_map_descriptor_hash": "58dd9a79ded12b9985cf2d3208c8e1de8d30465958931f3de72d0521b91c000a",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 0,
+      "row_hash": "9bfdb8b4f9d8dded4172392b70688df1ccd68fabafaa5b8fad915f156d1de44e",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "elapsed_ns": 18615,
+      "error_map_descriptor_hash": "58dd9a79ded12b9985cf2d3208c8e1de8d30465958931f3de72d0521b91c000a",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 1,
+      "row_hash": "14ee60412ffb5a38e2a6fa699538d2bfd360d977d1e250e6b12b60ebfb6d1141",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "elapsed_ns": 17863,
+      "error_map_descriptor_hash": "58dd9a79ded12b9985cf2d3208c8e1de8d30465958931f3de72d0521b91c000a",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 2,
+      "row_hash": "d89480323cc3c9529b8e96bfa07901365d88453a6caa3037daf284f467dfd8f9",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "elapsed_ns": 17663,
+      "error_map_descriptor_hash": "58dd9a79ded12b9985cf2d3208c8e1de8d30465958931f3de72d0521b91c000a",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 3,
+      "row_hash": "2cc73276b3fffc65b34834fdc6815bcb519207aa98ba3107d7f2fb449db01240",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "elapsed_ns": 22873,
+      "error_map_descriptor_hash": "58dd9a79ded12b9985cf2d3208c8e1de8d30465958931f3de72d0521b91c000a",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 4,
+      "row_hash": "bc18896a62471f6bdc49b0dca8e85cd2f140b6831f377200321b93e67ba818cf",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "elapsed_ns": 17983,
+      "error_map_descriptor_hash": "58dd9a79ded12b9985cf2d3208c8e1de8d30465958931f3de72d0521b91c000a",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 5,
+      "row_hash": "eea19aa218437c28a4c1ad533224292bc3516afd7f86391be368349d2b6f2ae9",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "elapsed_ns": 17963,
+      "error_map_descriptor_hash": "58dd9a79ded12b9985cf2d3208c8e1de8d30465958931f3de72d0521b91c000a",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 6,
+      "row_hash": "140694c554b9e508bdae7d3c84ec64b43a9653da32b72e65f5ca198ac5c521d4",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "elapsed_ns": 17562,
+      "error_map_descriptor_hash": "58dd9a79ded12b9985cf2d3208c8e1de8d30465958931f3de72d0521b91c000a",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 7,
+      "row_hash": "24e4947e5b4fdb76b5cfc8367f0f25b57aa9386fe436f26b02bff8b1c2e32d3b",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "elapsed_ns": 19937,
+      "error_map_descriptor_hash": "7bb7bfcb63d5fe5a0bb6bdd7533126ee27c29ac901e624fe2323d4e77f93afd1",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 0,
+      "row_hash": "47c94c7d613b9795992a8e0ed363500fae20a8e4a3b4baa800d528689151aaf6",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "elapsed_ns": 18895,
+      "error_map_descriptor_hash": "7bb7bfcb63d5fe5a0bb6bdd7533126ee27c29ac901e624fe2323d4e77f93afd1",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 1,
+      "row_hash": "73748e3d92e3d29d6162154f3e7b00a8228c2b3c47c15f30c503cebbb0fa0dea",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "elapsed_ns": 17562,
+      "error_map_descriptor_hash": "7bb7bfcb63d5fe5a0bb6bdd7533126ee27c29ac901e624fe2323d4e77f93afd1",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 2,
+      "row_hash": "1e9840b14e2eeb87999cc1984cbffb2589c653c8a965b491814b8d171f191c2b",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "elapsed_ns": 17292,
+      "error_map_descriptor_hash": "7bb7bfcb63d5fe5a0bb6bdd7533126ee27c29ac901e624fe2323d4e77f93afd1",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 3,
+      "row_hash": "67b453cac4988a70848c4f441479c2c9fd395802eba77c0884d8fde5cfe4b313",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "elapsed_ns": 17453,
+      "error_map_descriptor_hash": "7bb7bfcb63d5fe5a0bb6bdd7533126ee27c29ac901e624fe2323d4e77f93afd1",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 4,
+      "row_hash": "f0d28a65708a99ac0cc5e7dec105a435b2aa33f7e853a1efd974d99d5e428dcd",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "elapsed_ns": 17633,
+      "error_map_descriptor_hash": "7bb7bfcb63d5fe5a0bb6bdd7533126ee27c29ac901e624fe2323d4e77f93afd1",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 5,
+      "row_hash": "a24f0306ed7ea30b5ffa0d25d4ee47763019b9b37a3cebc48a4bf42a12c4ab8f",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "elapsed_ns": 17412,
+      "error_map_descriptor_hash": "7bb7bfcb63d5fe5a0bb6bdd7533126ee27c29ac901e624fe2323d4e77f93afd1",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 6,
+      "row_hash": "80597d87e9d67156b5f4fd3d60758e778c11e148f992aef416e8dcd986e9a8c3",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "elapsed_ns": 17452,
+      "error_map_descriptor_hash": "7bb7bfcb63d5fe5a0bb6bdd7533126ee27c29ac901e624fe2323d4e77f93afd1",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 7,
+      "row_hash": "19a05fdd178866bb2789637574dec85ad493728ed764c13408f44ad5d8c5618b",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "elapsed_ns": 20479,
+      "error_map_descriptor_hash": "d29079744a5c7e09707e28b0a967139ad8404a9ba1d778283c3e2388ee1aef80",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.25,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 0,
+      "row_hash": "b02c84de84237352e288a336e0c93141150b2fab0964d82733ad6841edfeec13",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "elapsed_ns": 17934,
+      "error_map_descriptor_hash": "d29079744a5c7e09707e28b0a967139ad8404a9ba1d778283c3e2388ee1aef80",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.25,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 1,
+      "row_hash": "baa2df23b640ef0fb2231b134decf823651692cb23586e3d0f115a71badfa1d9",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "elapsed_ns": 17413,
+      "error_map_descriptor_hash": "d29079744a5c7e09707e28b0a967139ad8404a9ba1d778283c3e2388ee1aef80",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.25,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 2,
+      "row_hash": "53610c0a4af6d8dcfb5619759ffc8dc1d80740eb80753e29f5168ff782120189",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "elapsed_ns": 24336,
+      "error_map_descriptor_hash": "d29079744a5c7e09707e28b0a967139ad8404a9ba1d778283c3e2388ee1aef80",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.25,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 3,
+      "row_hash": "f7699ddc8c2a16fbdb20c167884f24a82e18529ab459233584e90e64b1e9acd0",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "elapsed_ns": 38962,
+      "error_map_descriptor_hash": "d29079744a5c7e09707e28b0a967139ad8404a9ba1d778283c3e2388ee1aef80",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.25,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 4,
+      "row_hash": "da1c463a0b92f99a93e46e293e165e7aa15d9c5c3525cd08f51dd195a6ad0596",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "elapsed_ns": 20298,
+      "error_map_descriptor_hash": "d29079744a5c7e09707e28b0a967139ad8404a9ba1d778283c3e2388ee1aef80",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.25,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 5,
+      "row_hash": "5c645bc67aea7239ded47bffbca04dcf7e09688b37a0a0c671acf8dca59c2c48",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "elapsed_ns": 18465,
+      "error_map_descriptor_hash": "d29079744a5c7e09707e28b0a967139ad8404a9ba1d778283c3e2388ee1aef80",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.25,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 6,
+      "row_hash": "bd634d386c977a7eaeb61afeb8a7be20607b682d4724221406779bc37e238ee7",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "elapsed_ns": 18054,
+      "error_map_descriptor_hash": "d29079744a5c7e09707e28b0a967139ad8404a9ba1d778283c3e2388ee1aef80",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.25,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "ascending_f64",
+      "policy": "source_f64",
+      "replay_index": 7,
+      "row_hash": "501dba0444b4dac9d5ac6cefb4c0859c13fbf3a3cd1cda92aa4f2ef6329bb41a",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    }
+  ],
+  "simulation_execution_count": 0,
+  "started_at_unix": 1784568439,
+  "target_descriptor_sha256": "702c8fd9dcf67a069e7af63e31a57c74c17aaa5e3c5b6d8c2e28ec0c049c0de7",
+  "total_simulated_shots": 0,
+  "warmup_call_count": 16,
+  "warmup_matches_expected": 16
+}

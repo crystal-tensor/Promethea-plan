@@ -1,0 +1,4294 @@
+{
+  "accelerator_path": "/tmp/prometheus-r181-overlay-fd52a3aea4cc8cc1/qiskit/_accelerate.abi3.so",
+  "accelerator_sha256": "fd52a3aea4cc8cc199a2d3d07c1080cdd5718369e8528736e77fe1f5984d2f73",
+  "case_summaries": [
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "case_summary_hash": "057009dfb134a8699db2a9fec547590d6ce9c60c3012317c0990a5a3a4884164",
+      "elapsed_ns_median": 19166.0,
+      "elapsed_ns_p95_nearest_rank": 30016,
+      "error_map_descriptor": {
+        "case_id": "edge_0_1_m008ulp",
+        "construction": "R159 operation-error bits, declared accumulation, optional declared ULP shift",
+        "mode": "descending_f64",
+        "payload_hash": "431325a579fd6d28f4bdf2e3a06a572b3cc393de8d4aec3bf9f1d1bcf4a0435e",
+        "rows": [
+          {
+            "base_bits": 4573474103581024862,
+            "key": [
+              0,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4573474103581024862
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              0,
+              1
+            ],
+            "perturbed": true,
+            "value_bits": 4567100593048839608
+          },
+          {
+            "base_bits": 4566947158837165289,
+            "key": [
+              1,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4566947158837165289
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              1,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4567100593048839616
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              1,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              1,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4566736071831264124,
+            "key": [
+              2,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4566736071831264124
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              2,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4567570890438721935,
+            "key": [
+              3,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4567570890438721935
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              3,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              3,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4566733819296185530,
+            "key": [
+              4,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4566733819296185530
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              4,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4567912515276044964,
+            "key": [
+              5,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4567912515276044964
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              5,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              5,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              5,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          },
+          {
+            "base_bits": 4568277749028269718,
+            "key": [
+              6,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568277749028269718
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              6,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          }
+        ]
+      },
+      "exact_leaf_oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3877787807814457e-17,
+        "minimum_gap_fraction": "1/72057594037927936",
+        "minimum_gap_ulp_ratio": 0.5,
+        "minimum_score_fraction": "100963302183985969/576460752303423488",
+        "second_distinct_score_fraction": "100963302183985977/576460752303423488"
+      },
+      "matches_expected": 8,
+      "recorded_call_count": 8
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "case_summary_hash": "e766e0d55d74781d8e6fa7dc591ee1983c0e4024933530b4ce4935e464c7b648",
+      "elapsed_ns_median": 17748.5,
+      "elapsed_ns_p95_nearest_rank": 24535,
+      "error_map_descriptor": {
+        "case_id": "edge_0_1_m001ulp",
+        "construction": "R159 operation-error bits, declared accumulation, optional declared ULP shift",
+        "mode": "descending_f64",
+        "payload_hash": "ac9f702a3c9a3903de6dc3c397e2ea2e5bf6fc3675b0aaf45d09a71545a5fd7e",
+        "rows": [
+          {
+            "base_bits": 4573474103581024862,
+            "key": [
+              0,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4573474103581024862
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              0,
+              1
+            ],
+            "perturbed": true,
+            "value_bits": 4567100593048839615
+          },
+          {
+            "base_bits": 4566947158837165289,
+            "key": [
+              1,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4566947158837165289
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              1,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4567100593048839616
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              1,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              1,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4566736071831264124,
+            "key": [
+              2,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4566736071831264124
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              2,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4567570890438721935,
+            "key": [
+              3,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4567570890438721935
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              3,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              3,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4566733819296185530,
+            "key": [
+              4,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4566733819296185530
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              4,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4567912515276044964,
+            "key": [
+              5,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4567912515276044964
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              5,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              5,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              5,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          },
+          {
+            "base_bits": 4568277749028269718,
+            "key": [
+              6,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568277749028269718
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              6,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          }
+        ]
+      },
+      "exact_leaf_oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 8.673617379884035e-19,
+        "minimum_gap_fraction": "1/1152921504606846976",
+        "minimum_gap_ulp_ratio": 0.03125,
+        "minimum_score_fraction": "25240825545996495/144115188075855872",
+        "second_distinct_score_fraction": "201926604367971961/1152921504606846976"
+      },
+      "matches_expected": 8,
+      "recorded_call_count": 8
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "case_summary_hash": "2d490f87b3fef74b46c39071e50d036ff33e45e29eb2c3d40e8cc73dfa8c1dfa",
+      "elapsed_ns_median": 19100.5,
+      "elapsed_ns_p95_nearest_rank": 37660,
+      "error_map_descriptor": {
+        "case_id": "edge_1_0_p001ulp",
+        "construction": "R159 operation-error bits, declared accumulation, optional declared ULP shift",
+        "mode": "descending_f64",
+        "payload_hash": "7b3a90b7a114099c47dabbfdfa4b46f88d656257bedf36b6f49dd82b823f7a1f",
+        "rows": [
+          {
+            "base_bits": 4573474103581024862,
+            "key": [
+              0,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4573474103581024862
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              0,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4567100593048839616
+          },
+          {
+            "base_bits": 4566947158837165289,
+            "key": [
+              1,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4566947158837165289
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              1,
+              0
+            ],
+            "perturbed": true,
+            "value_bits": 4567100593048839617
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              1,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              1,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4566736071831264124,
+            "key": [
+              2,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4566736071831264124
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              2,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4567570890438721935,
+            "key": [
+              3,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4567570890438721935
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              3,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              3,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4566733819296185530,
+            "key": [
+              4,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4566733819296185530
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              4,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4567912515276044964,
+            "key": [
+              5,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4567912515276044964
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              5,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              5,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              5,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          },
+          {
+            "base_bits": 4568277749028269718,
+            "key": [
+              6,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568277749028269718
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              6,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          }
+        ]
+      },
+      "exact_leaf_oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 2.6020852139652106e-18,
+        "minimum_gap_fraction": "3/1152921504606846976",
+        "minimum_gap_ulp_ratio": 0.09375,
+        "minimum_score_fraction": "201926604367971963/1152921504606846976",
+        "second_distinct_score_fraction": "100963302183985983/576460752303423488"
+      },
+      "matches_expected": 8,
+      "recorded_call_count": 8
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "case_summary_hash": "c9ad57cbcca108fd99cfc81334d344803fb7796a90f7e406a28617c3524d264a",
+      "elapsed_ns_median": 17597.5,
+      "elapsed_ns_p95_nearest_rank": 20689,
+      "error_map_descriptor": {
+        "case_id": "edge_1_0_p008ulp",
+        "construction": "R159 operation-error bits, declared accumulation, optional declared ULP shift",
+        "mode": "descending_f64",
+        "payload_hash": "441dfa7ece0f3d62c95806c5b4909107f3561aada3f54d2bb9a0a40c0f4f013b",
+        "rows": [
+          {
+            "base_bits": 4573474103581024862,
+            "key": [
+              0,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4573474103581024862
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              0,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4567100593048839616
+          },
+          {
+            "base_bits": 4566947158837165289,
+            "key": [
+              1,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4566947158837165289
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              1,
+              0
+            ],
+            "perturbed": true,
+            "value_bits": 4567100593048839624
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              1,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              1,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4566736071831264124,
+            "key": [
+              2,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4566736071831264124
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              2,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4567570890438721935,
+            "key": [
+              3,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4567570890438721935
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              3,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              3,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4566733819296185530,
+            "key": [
+              4,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4566733819296185530
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              4,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4567912515276044964,
+            "key": [
+              5,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4567912515276044964
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              5,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              5,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              5,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          },
+          {
+            "base_bits": 4568277749028269718,
+            "key": [
+              6,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568277749028269718
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              6,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          }
+        ]
+      },
+      "exact_leaf_oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3877787807814457e-17,
+        "minimum_gap_fraction": "1/72057594037927936",
+        "minimum_gap_ulp_ratio": 0.5,
+        "minimum_score_fraction": "100963302183985985/576460752303423488",
+        "second_distinct_score_fraction": "100963302183985993/576460752303423488"
+      },
+      "matches_expected": 8,
+      "recorded_call_count": 8
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "case_summary_hash": "e3a6074a54fd52a1734cd6b985fce466951ba032ca41f31d599d3c1edfc82089",
+      "elapsed_ns_median": 17543.0,
+      "elapsed_ns_p95_nearest_rank": 21430,
+      "error_map_descriptor": {
+        "case_id": "edge_1_2_m001ulp",
+        "construction": "R159 operation-error bits, declared accumulation, optional declared ULP shift",
+        "mode": "descending_f64",
+        "payload_hash": "4da96593d8d5f960413c4d60ddc9753e7e54024d523f5f69f2758a6360d33f5e",
+        "rows": [
+          {
+            "base_bits": 4573474103581024862,
+            "key": [
+              0,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4573474103581024862
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              0,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4567100593048839616
+          },
+          {
+            "base_bits": 4566947158837165289,
+            "key": [
+              1,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4566947158837165289
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              1,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4567100593048839616
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              1,
+              2
+            ],
+            "perturbed": true,
+            "value_bits": 4565693368545587071
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              1,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4566736071831264124,
+            "key": [
+              2,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4566736071831264124
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              2,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4567570890438721935,
+            "key": [
+              3,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4567570890438721935
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              3,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              3,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4566733819296185530,
+            "key": [
+              4,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4566733819296185530
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              4,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4567912515276044964,
+            "key": [
+              5,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4567912515276044964
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              5,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              5,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              5,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          },
+          {
+            "base_bits": 4568277749028269718,
+            "key": [
+              6,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568277749028269718
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              6,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          }
+        ]
+      },
+      "exact_leaf_oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3010426069826053e-18,
+        "minimum_gap_fraction": "3/2305843009213693952",
+        "minimum_gap_ulp_ratio": 0.046875,
+        "minimum_score_fraction": "25240825545996495/144115188075855872",
+        "second_distinct_score_fraction": "403853208735943923/2305843009213693952"
+      },
+      "matches_expected": 8,
+      "recorded_call_count": 8
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "case_summary_hash": "f8e4567d8718e1b502266da1a1b3b29abacc822f7b2d31b09a2a8c4003ab9187",
+      "elapsed_ns_median": 18354.0,
+      "elapsed_ns_p95_nearest_rank": 39333,
+      "error_map_descriptor": {
+        "case_id": "edge_2_1_p001ulp",
+        "construction": "R159 operation-error bits, declared accumulation, optional declared ULP shift",
+        "mode": "descending_f64",
+        "payload_hash": "6f857c86da7e8c5cf82806f3361aa4a9b2467bc8982ef8f97d61178ee46bf13d",
+        "rows": [
+          {
+            "base_bits": 4573474103581024862,
+            "key": [
+              0,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4573474103581024862
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              0,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4567100593048839616
+          },
+          {
+            "base_bits": 4566947158837165289,
+            "key": [
+              1,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4566947158837165289
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              1,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4567100593048839616
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              1,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              1,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4566736071831264124,
+            "key": [
+              2,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4566736071831264124
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              2,
+              1
+            ],
+            "perturbed": true,
+            "value_bits": 4565693368545587073
+          },
+          {
+            "base_bits": 4567570890438721935,
+            "key": [
+              3,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4567570890438721935
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              3,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              3,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4566733819296185530,
+            "key": [
+              4,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4566733819296185530
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              4,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4567912515276044964,
+            "key": [
+              5,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4567912515276044964
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              5,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              5,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              5,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          },
+          {
+            "base_bits": 4568277749028269718,
+            "key": [
+              6,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568277749028269718
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              6,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          }
+        ]
+      },
+      "exact_leaf_oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3010426069826053e-18,
+        "minimum_gap_fraction": "3/2305843009213693952",
+        "minimum_gap_ulp_ratio": 0.046875,
+        "minimum_score_fraction": "403853208735943925/2305843009213693952",
+        "second_distinct_score_fraction": "50481651091992991/288230376151711744"
+      },
+      "matches_expected": 8,
+      "recorded_call_count": 8
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "case_summary_hash": "c1590545dfd679d047d76aa9f66b000850b08b1114c3efe9b1f24ed881163a0d",
+      "elapsed_ns_median": 18113.5,
+      "elapsed_ns_p95_nearest_rank": 21360,
+      "error_map_descriptor": {
+        "case_id": "edge_2_1_p008ulp",
+        "construction": "R159 operation-error bits, declared accumulation, optional declared ULP shift",
+        "mode": "descending_f64",
+        "payload_hash": "0ba8e42c6e27d10c2ced128b6018016803d09ba9ad7221062d5a24f504e85cd1",
+        "rows": [
+          {
+            "base_bits": 4573474103581024862,
+            "key": [
+              0,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4573474103581024862
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              0,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4567100593048839616
+          },
+          {
+            "base_bits": 4566947158837165289,
+            "key": [
+              1,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4566947158837165289
+          },
+          {
+            "base_bits": 4567100593048839616,
+            "key": [
+              1,
+              0
+            ],
+            "perturbed": false,
+            "value_bits": 4567100593048839616
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              1,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4565693368545587072
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              1,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4566736071831264124,
+            "key": [
+              2,
+              2
+            ],
+            "perturbed": false,
+            "value_bits": 4566736071831264124
+          },
+          {
+            "base_bits": 4565693368545587072,
+            "key": [
+              2,
+              1
+            ],
+            "perturbed": true,
+            "value_bits": 4565693368545587080
+          },
+          {
+            "base_bits": 4567570890438721935,
+            "key": [
+              3,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4567570890438721935
+          },
+          {
+            "base_bits": 4565472299965932064,
+            "key": [
+              3,
+              1
+            ],
+            "perturbed": false,
+            "value_bits": 4565472299965932064
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              3,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4566733819296185530,
+            "key": [
+              4,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4566733819296185530
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              4,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4567912515276044964,
+            "key": [
+              5,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4567912515276044964
+          },
+          {
+            "base_bits": 4569393841727551520,
+            "key": [
+              5,
+              3
+            ],
+            "perturbed": false,
+            "value_bits": 4569393841727551520
+          },
+          {
+            "base_bits": 4565718906690324480,
+            "key": [
+              5,
+              4
+            ],
+            "perturbed": false,
+            "value_bits": 4565718906690324480
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              5,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          },
+          {
+            "base_bits": 4568277749028269718,
+            "key": [
+              6,
+              6
+            ],
+            "perturbed": false,
+            "value_bits": 4568277749028269718
+          },
+          {
+            "base_bits": 4568291497957912992,
+            "key": [
+              6,
+              5
+            ],
+            "perturbed": false,
+            "value_bits": 4568291497957912992
+          }
+        ]
+      },
+      "exact_leaf_oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 6.938893903907228e-18,
+        "minimum_gap_fraction": "1/144115188075855872",
+        "minimum_gap_ulp_ratio": 0.25,
+        "minimum_score_fraction": "100963302183985983/576460752303423488",
+        "second_distinct_score_fraction": "100963302183985987/576460752303423488"
+      },
+      "matches_expected": 8,
+      "recorded_call_count": 8
+    }
+  ],
+  "contract_payload_hash": "c85d13b72418b37f53dcf6bb64352df128389299ac66587489899811a8e72b85",
+  "elapsed_ns_median": 18094.0,
+  "elapsed_ns_p95_nearest_rank": 30016,
+  "environment": {
+    "machine": "x86_64",
+    "platform": "Linux-6.17.0-1020-azure-x86_64-with-glibc2.39",
+    "python": "3.12.13",
+    "pythonpath_head": "/home/runner/work/Prometheus-plan/Prometheus-plan/tools",
+    "qiskit": "2.4.1",
+    "qiskit_aer": "0.17.2",
+    "qiskit_ibm_runtime": "0.46.1",
+    "system": "Linux"
+  },
+  "identity": "descending_f64",
+  "input_qasm_sha256": "ce216610e995b4c8b4bd9de6547ac6069961e1eb8881997aa05e0068ea16ab98",
+  "kind": "small-gap",
+  "manifest_hash": "4857cfdc652873b5a04b17ba1f3211ba646422bce2c990cbd07a0c30cae48a74",
+  "mode": "descending_f64",
+  "peak_rss": 218928,
+  "peak_rss_unit": "kibibytes",
+  "policy": "source_f64",
+  "preregistration": {
+    "commit": "487b62cd588c05bfb824b70afad16e8cf8a3e283",
+    "created_at": "2026-07-20T17:15:02Z",
+    "discussion": "https://github.com/crystal-tensor/Prometheus-plan/discussions/271"
+  },
+  "process_id": 10256,
+  "process_instance_uuid": "8642b3d9-35e2-4b4c-8b53-43a6f246962f",
+  "protocol_payload_hash": "8393f0403e9644b06daa08935ede3c1b57c9c25dc36026a1509c4fb280c4bf5c",
+  "recorded_call_count": 56,
+  "recorded_matches_expected": 56,
+  "replay_rows": [
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "elapsed_ns": 17783,
+      "error_map_descriptor_hash": "431325a579fd6d28f4bdf2e3a06a572b3cc393de8d4aec3bf9f1d1bcf4a0435e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 0,
+      "row_hash": "945dbba9a2f4cdec2ee447fe6bc9cdc780cbb361e3442b7355ac36a21db9c846",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "elapsed_ns": 22421,
+      "error_map_descriptor_hash": "431325a579fd6d28f4bdf2e3a06a572b3cc393de8d4aec3bf9f1d1bcf4a0435e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 1,
+      "row_hash": "0bdff4c7f354dac046e9c01f7cca605ee5711ff160a66a9e40468d7410eaa721",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "elapsed_ns": 19737,
+      "error_map_descriptor_hash": "431325a579fd6d28f4bdf2e3a06a572b3cc393de8d4aec3bf9f1d1bcf4a0435e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 2,
+      "row_hash": "f105b334fc193010b7cae43dc9eae11511007b70eff8f989632d4fa6f9b8340d",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "elapsed_ns": 30016,
+      "error_map_descriptor_hash": "431325a579fd6d28f4bdf2e3a06a572b3cc393de8d4aec3bf9f1d1bcf4a0435e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 3,
+      "row_hash": "339dfae876a9763ad6fca31d77304c5da131f357b69cecf825ac2902c5b21b10",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "elapsed_ns": 19877,
+      "error_map_descriptor_hash": "431325a579fd6d28f4bdf2e3a06a572b3cc393de8d4aec3bf9f1d1bcf4a0435e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 4,
+      "row_hash": "09f884d4aa91afd6cd0daedc80cae725bad9e67683f668121ecca5e3fe49db39",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "elapsed_ns": 18595,
+      "error_map_descriptor_hash": "431325a579fd6d28f4bdf2e3a06a572b3cc393de8d4aec3bf9f1d1bcf4a0435e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 5,
+      "row_hash": "384cad8ed1c1aea17b3a6b121348ea78834b0784476e89038a52448c49ea2fac",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "elapsed_ns": 18294,
+      "error_map_descriptor_hash": "431325a579fd6d28f4bdf2e3a06a572b3cc393de8d4aec3bf9f1d1bcf4a0435e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 6,
+      "row_hash": "a7a5c020443663f34a54bb745f09c3cda75aa0e0d014784db6ff9d44b6b3cda5",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "elapsed_ns": 18024,
+      "error_map_descriptor_hash": "431325a579fd6d28f4bdf2e3a06a572b3cc393de8d4aec3bf9f1d1bcf4a0435e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 7,
+      "row_hash": "f57f00bb10d07b5c4b9589b347f64edfb8f620ce5b132c96b027cf31a65ed2b2",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "elapsed_ns": 24535,
+      "error_map_descriptor_hash": "ac9f702a3c9a3903de6dc3c397e2ea2e5bf6fc3675b0aaf45d09a71545a5fd7e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.03125,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 0,
+      "row_hash": "ffaa400249655f2d9fbfc2dd446e6653020094f6212fa2cfd73ca2003812a1ac",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "elapsed_ns": 19746,
+      "error_map_descriptor_hash": "ac9f702a3c9a3903de6dc3c397e2ea2e5bf6fc3675b0aaf45d09a71545a5fd7e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.03125,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 1,
+      "row_hash": "663338041916a4280e0b7aed30c10b79569698fbc4c22e43096ce5f38b8f5ba1",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "elapsed_ns": 19386,
+      "error_map_descriptor_hash": "ac9f702a3c9a3903de6dc3c397e2ea2e5bf6fc3675b0aaf45d09a71545a5fd7e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.03125,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 2,
+      "row_hash": "5c43b81513cdf87c6659ce5780f54f01bc508b7ce013df83d21d298c7482cf6f",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "elapsed_ns": 17944,
+      "error_map_descriptor_hash": "ac9f702a3c9a3903de6dc3c397e2ea2e5bf6fc3675b0aaf45d09a71545a5fd7e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.03125,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 3,
+      "row_hash": "88e631296b5f37816068f9cc3ddf066c4217a322f8cdca569307031443c20cff",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "elapsed_ns": 17182,
+      "error_map_descriptor_hash": "ac9f702a3c9a3903de6dc3c397e2ea2e5bf6fc3675b0aaf45d09a71545a5fd7e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.03125,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 4,
+      "row_hash": "40099d8f2411ebc3aaa569dfa0e27e78fe83000fd914548f86fd94cba6940152",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "elapsed_ns": 17282,
+      "error_map_descriptor_hash": "ac9f702a3c9a3903de6dc3c397e2ea2e5bf6fc3675b0aaf45d09a71545a5fd7e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.03125,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 5,
+      "row_hash": "149c366b0ae57e33edd4a7f58d901f25e1ccf704f93d416b66327fff8b0a84d6",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "elapsed_ns": 17553,
+      "error_map_descriptor_hash": "ac9f702a3c9a3903de6dc3c397e2ea2e5bf6fc3675b0aaf45d09a71545a5fd7e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.03125,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 6,
+      "row_hash": "d02559a7f7f866e6171ffe682bb7f2fb9043075043b4b44e660feda095d79631",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "elapsed_ns": 17473,
+      "error_map_descriptor_hash": "ac9f702a3c9a3903de6dc3c397e2ea2e5bf6fc3675b0aaf45d09a71545a5fd7e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.03125,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 7,
+      "row_hash": "65e49374cd0484e432a1af8e09d4c8a20b757c54fb82939c50b78c59f1535fe9",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "elapsed_ns": 21089,
+      "error_map_descriptor_hash": "7b3a90b7a114099c47dabbfdfa4b46f88d656257bedf36b6f49dd82b823f7a1f",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.09375,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 0,
+      "row_hash": "0d771dae2ff30bbe6ec44e8de9c6b8f48c48aabd7e481ebf4a8f6f00cba06e70",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "elapsed_ns": 37660,
+      "error_map_descriptor_hash": "7b3a90b7a114099c47dabbfdfa4b46f88d656257bedf36b6f49dd82b823f7a1f",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.09375,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 1,
+      "row_hash": "84dbbe217cfa980d39dcfe636c89fa20e5431777e983ac6bcd58235dd6c11ac2",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "elapsed_ns": 21800,
+      "error_map_descriptor_hash": "7b3a90b7a114099c47dabbfdfa4b46f88d656257bedf36b6f49dd82b823f7a1f",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.09375,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 2,
+      "row_hash": "ed8feab5c5c793387fb9bef71e43a19d5df0bd2e2fee1f0590c4a76958fb7fae",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "elapsed_ns": 18775,
+      "error_map_descriptor_hash": "7b3a90b7a114099c47dabbfdfa4b46f88d656257bedf36b6f49dd82b823f7a1f",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.09375,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 3,
+      "row_hash": "f5ec731042a85ba873dd0f28679daa2bb2dae609d21841c8eabfc89eac079375",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "elapsed_ns": 18084,
+      "error_map_descriptor_hash": "7b3a90b7a114099c47dabbfdfa4b46f88d656257bedf36b6f49dd82b823f7a1f",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.09375,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 4,
+      "row_hash": "4adefe8b46d9c212e2c22084fcb9234c2ea1dd989ce14dc8be0dd9f4e72be397",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "elapsed_ns": 17593,
+      "error_map_descriptor_hash": "7b3a90b7a114099c47dabbfdfa4b46f88d656257bedf36b6f49dd82b823f7a1f",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.09375,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 5,
+      "row_hash": "b48c51fa355ef71193cd9080a04ac7ddc5765252c4d0aefab487605e70c688ba",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "elapsed_ns": 18915,
+      "error_map_descriptor_hash": "7b3a90b7a114099c47dabbfdfa4b46f88d656257bedf36b6f49dd82b823f7a1f",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.09375,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 6,
+      "row_hash": "246b86bed15020e523eadb064d922f8f125719c885c4545a714f0f757805f145",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "elapsed_ns": 19286,
+      "error_map_descriptor_hash": "7b3a90b7a114099c47dabbfdfa4b46f88d656257bedf36b6f49dd82b823f7a1f",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.09375,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 7,
+      "row_hash": "b686df55c9f9d2a822a29b2b495714b168ffb9ae1d715d674cfaaa58af5bf3fb",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "elapsed_ns": 20689,
+      "error_map_descriptor_hash": "441dfa7ece0f3d62c95806c5b4909107f3561aada3f54d2bb9a0a40c0f4f013b",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 0,
+      "row_hash": "1bf219a9b58d81212dfd1bb3b71bb3a173385f490fa0195c8e4cf9e7122f845d",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "elapsed_ns": 18474,
+      "error_map_descriptor_hash": "441dfa7ece0f3d62c95806c5b4909107f3561aada3f54d2bb9a0a40c0f4f013b",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 1,
+      "row_hash": "f5ba4781800227fec4b4c07419f968f3b6c35f870f6808ed0f0ee3fae5f28192",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "elapsed_ns": 17863,
+      "error_map_descriptor_hash": "441dfa7ece0f3d62c95806c5b4909107f3561aada3f54d2bb9a0a40c0f4f013b",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 2,
+      "row_hash": "9b45c90842796bd1423834e54ea6dd7e39a927a51cab3cb3c487d15a34809ad6",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "elapsed_ns": 17723,
+      "error_map_descriptor_hash": "441dfa7ece0f3d62c95806c5b4909107f3561aada3f54d2bb9a0a40c0f4f013b",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 3,
+      "row_hash": "20d1dd55482334bab51d4418de250857e7e232b771220dc7d4148acc6c54442f",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "elapsed_ns": 17472,
+      "error_map_descriptor_hash": "441dfa7ece0f3d62c95806c5b4909107f3561aada3f54d2bb9a0a40c0f4f013b",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 4,
+      "row_hash": "4121deb6d78cbb01cdb1be4a70d0f254444a805135c001531fdb8cc5c2939cbc",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "elapsed_ns": 17072,
+      "error_map_descriptor_hash": "441dfa7ece0f3d62c95806c5b4909107f3561aada3f54d2bb9a0a40c0f4f013b",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 5,
+      "row_hash": "3b7be992664ae51257f6aff941c39a782d80bb77e5f1961d12b92b63e5034655",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "elapsed_ns": 17012,
+      "error_map_descriptor_hash": "441dfa7ece0f3d62c95806c5b4909107f3561aada3f54d2bb9a0a40c0f4f013b",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 6,
+      "row_hash": "eeadad31bbc5a214791acb3b25b49fcc1f6609a69c02041e1ad6e91eaaf69c81",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "elapsed_ns": 16882,
+      "error_map_descriptor_hash": "441dfa7ece0f3d62c95806c5b4909107f3561aada3f54d2bb9a0a40c0f4f013b",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.5,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 7,
+      "row_hash": "f3b3597c161f8084500d70675c83011e93457d5cd0fe1cd113b58b588f3aaee8",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "elapsed_ns": 20518,
+      "error_map_descriptor_hash": "4da96593d8d5f960413c4d60ddc9753e7e54024d523f5f69f2758a6360d33f5e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 0,
+      "row_hash": "427b03a153933bc0bd9ed460d19af977d5d57b85691c918f24685b7d72b72e46",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "elapsed_ns": 17813,
+      "error_map_descriptor_hash": "4da96593d8d5f960413c4d60ddc9753e7e54024d523f5f69f2758a6360d33f5e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 1,
+      "row_hash": "f7f36e0bbbca0c8bb973f0a85d68b9732aaf63851b6ab8bba6939b691c6b6740",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "elapsed_ns": 17613,
+      "error_map_descriptor_hash": "4da96593d8d5f960413c4d60ddc9753e7e54024d523f5f69f2758a6360d33f5e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 2,
+      "row_hash": "e0479e77124482ccffba2f4891d48482a42dbff73742f902e7791164bfc09ab2",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "elapsed_ns": 16982,
+      "error_map_descriptor_hash": "4da96593d8d5f960413c4d60ddc9753e7e54024d523f5f69f2758a6360d33f5e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 3,
+      "row_hash": "64be0761b466eaf41a4edc69701a0082c9d411de3b99f39c66ed776274dafffa",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "elapsed_ns": 21430,
+      "error_map_descriptor_hash": "4da96593d8d5f960413c4d60ddc9753e7e54024d523f5f69f2758a6360d33f5e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 4,
+      "row_hash": "66852adf98d56d81b369b406ccfd639597343625cad319460abf452a1d199906",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "elapsed_ns": 17473,
+      "error_map_descriptor_hash": "4da96593d8d5f960413c4d60ddc9753e7e54024d523f5f69f2758a6360d33f5e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 5,
+      "row_hash": "ef04b2062f1b634af1b89be6e3995bc3675ec25d5d9668651576bce353d7b3f9",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "elapsed_ns": 17282,
+      "error_map_descriptor_hash": "4da96593d8d5f960413c4d60ddc9753e7e54024d523f5f69f2758a6360d33f5e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 6,
+      "row_hash": "55a27f29326d986b85d00dbde3ab90b6d4fa80b69aef6c300498628bc4aa210a",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "elapsed_ns": 17062,
+      "error_map_descriptor_hash": "4da96593d8d5f960413c4d60ddc9753e7e54024d523f5f69f2758a6360d33f5e",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 7,
+      "row_hash": "755b51fc9c8b2cf388e7bc28fb6b896c867f9187e2eacf64ffde9dbf48b71e45",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "elapsed_ns": 19676,
+      "error_map_descriptor_hash": "6f857c86da7e8c5cf82806f3361aa4a9b2467bc8982ef8f97d61178ee46bf13d",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 0,
+      "row_hash": "deaa455d80cdfdd2376a16c192097a4fa0d4c9805fa0247477a8e615b76109c1",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "elapsed_ns": 18604,
+      "error_map_descriptor_hash": "6f857c86da7e8c5cf82806f3361aa4a9b2467bc8982ef8f97d61178ee46bf13d",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 1,
+      "row_hash": "0ae9fd284f1edae1c8aeb34b654c591510befe2a0e070d5b050419ba02e8e041",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "elapsed_ns": 17733,
+      "error_map_descriptor_hash": "6f857c86da7e8c5cf82806f3361aa4a9b2467bc8982ef8f97d61178ee46bf13d",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 2,
+      "row_hash": "e82c9739d067ac5f5072849d19f95bdd8ea1ebf605a51409801aabc850b629da",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "elapsed_ns": 39333,
+      "error_map_descriptor_hash": "6f857c86da7e8c5cf82806f3361aa4a9b2467bc8982ef8f97d61178ee46bf13d",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 3,
+      "row_hash": "004637dfe10162ab9b2cbe8ef08e3fdf7bb9395d7cd82b88b76991030354db02",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "elapsed_ns": 20007,
+      "error_map_descriptor_hash": "6f857c86da7e8c5cf82806f3361aa4a9b2467bc8982ef8f97d61178ee46bf13d",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 4,
+      "row_hash": "a758714b4eb441a862f0f64094e2c4851957e6a5ba89f4cdd49e1addc39bf09d",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "elapsed_ns": 18104,
+      "error_map_descriptor_hash": "6f857c86da7e8c5cf82806f3361aa4a9b2467bc8982ef8f97d61178ee46bf13d",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 5,
+      "row_hash": "8e5a76c3616a574feafd75c9c42d5a69f56565bdfbfa43cd2ae285b1e8a2f32d",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "elapsed_ns": 17372,
+      "error_map_descriptor_hash": "6f857c86da7e8c5cf82806f3361aa4a9b2467bc8982ef8f97d61178ee46bf13d",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 6,
+      "row_hash": "ad6ac10081c77fd8f0519cd711831bd7662e456041ae095e70d34b40ca91f28a",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "elapsed_ns": 17123,
+      "error_map_descriptor_hash": "6f857c86da7e8c5cf82806f3361aa4a9b2467bc8982ef8f97d61178ee46bf13d",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.046875,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 7,
+      "row_hash": "4766d8f7af731bfd2f005961655c2d229c0a493ee8008d3b97d8397f39ccffe9",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "elapsed_ns": 21360,
+      "error_map_descriptor_hash": "0ba8e42c6e27d10c2ced128b6018016803d09ba9ad7221062d5a24f504e85cd1",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.25,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 0,
+      "row_hash": "cc4ad54ede992efbe008994e6880d46a9ecefe16adf116632c265c7f67f6e71f",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "elapsed_ns": 18655,
+      "error_map_descriptor_hash": "0ba8e42c6e27d10c2ced128b6018016803d09ba9ad7221062d5a24f504e85cd1",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.25,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 1,
+      "row_hash": "7a02163577976af300b3bd361cc3b611083a88a5a9672dc71a9853f83caac2cd",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "elapsed_ns": 18454,
+      "error_map_descriptor_hash": "0ba8e42c6e27d10c2ced128b6018016803d09ba9ad7221062d5a24f504e85cd1",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.25,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 2,
+      "row_hash": "b93324dfa6defce8d2b99f1a3e75a04cdc582acb7b0c0f82d8b665962a5d9dff",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "elapsed_ns": 17403,
+      "error_map_descriptor_hash": "0ba8e42c6e27d10c2ced128b6018016803d09ba9ad7221062d5a24f504e85cd1",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.25,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 3,
+      "row_hash": "cc617bd7f87e11cc16f1161102dc40d5e221e920151f4b197aea7afab715ca1d",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "elapsed_ns": 18705,
+      "error_map_descriptor_hash": "0ba8e42c6e27d10c2ced128b6018016803d09ba9ad7221062d5a24f504e85cd1",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.25,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 4,
+      "row_hash": "6ce5a2726422fd6f1a656708befa6c6e33c161f07cffc2a01f4866ee2facb8b4",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "elapsed_ns": 17773,
+      "error_map_descriptor_hash": "0ba8e42c6e27d10c2ced128b6018016803d09ba9ad7221062d5a24f504e85cd1",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.25,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 5,
+      "row_hash": "f071b8f2d6e6f57032ac4cd7066fc6bb9a9a09c1c613f44688600b280b2b3d28",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "elapsed_ns": 17102,
+      "error_map_descriptor_hash": "0ba8e42c6e27d10c2ced128b6018016803d09ba9ad7221062d5a24f504e85cd1",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.25,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 6,
+      "row_hash": "fa25fe10af0fdf45748ccf8535fa6f4699e0cc061a92b59d3bb4cd4cca721698",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "elapsed_ns": 17122,
+      "error_map_descriptor_hash": "0ba8e42c6e27d10c2ced128b6018016803d09ba9ad7221062d5a24f504e85cd1",
+      "exact_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "exact_minimum_gap_ulp_ratio": 0.25,
+      "expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "kind": "small-gap",
+      "mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "matches_expected": true,
+      "mode": "descending_f64",
+      "policy": "source_f64",
+      "replay_index": 7,
+      "row_hash": "023d307bde7bc803e938ed623d9ea40252fd4c50f7e5d7e131c9b9a8ce187f89",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        6,
+        5,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "total_simulated_shots": 0
+    }
+  ],
+  "simulation_execution_count": 0,
+  "started_at_unix": 1784568450,
+  "target_descriptor_sha256": "702c8fd9dcf67a069e7af63e31a57c74c17aaa5e3c5b6d8c2e28ec0c049c0de7",
+  "total_simulated_shots": 0,
+  "warmup_call_count": 16,
+  "warmup_matches_expected": 16
+}

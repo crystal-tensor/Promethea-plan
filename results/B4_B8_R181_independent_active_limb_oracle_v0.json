@@ -1,0 +1,777 @@
+{
+  "artifacts": {
+    "markdown_report": "research/B4_B8_R181_independent_active_limb_oracle.md",
+    "result": "results/B4_B8_R181_independent_active_limb_oracle_v0.json",
+    "source_result": "results/B4_B8_R181_active_limb_replay_v0.json"
+  },
+  "claim_boundary": {
+    "what_is_not_supported": "an upstream-accepted or production Qiskit remedy, confirmed Qiskit bug, broad route-quality improvement, cross-platform overhead, hardware relevance, quantum advantage, BQP separation, solved B4/B8/B10, or new credit",
+    "what_is_supported": "a Qiskit-free standard-library reproduction of every frozen R181 mapping expectation, sub-ULP exact oracle, hash, timing ratio, and peak-RSS ratio"
+  },
+  "classification": "standard_library_reproduction_of_active_limb_linux_matrix",
+  "method": "b4_b8_r181_independent_active_limb_oracle_v0",
+  "oracle_cells": [
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "mode": "ascending_f64",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 8.673617379884035e-19,
+        "minimum_gap_fraction": "1/1152921504606846976",
+        "minimum_gap_ulp_ratio": 0.03125,
+        "minimum_score_fraction": "100963302183985975/576460752303423488",
+        "second_distinct_score_fraction": "201926604367971951/1152921504606846976"
+      }
+    },
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "mode": "ascending_f64",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3877787807814457e-17,
+        "minimum_gap_fraction": "1/72057594037927936",
+        "minimum_gap_ulp_ratio": 0.5,
+        "minimum_score_fraction": "25240825545996491/144115188075855872",
+        "second_distinct_score_fraction": "25240825545996493/144115188075855872"
+      }
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "mode": "ascending_f64",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 2.6020852139652106e-18,
+        "minimum_gap_fraction": "3/1152921504606846976",
+        "minimum_gap_ulp_ratio": 0.09375,
+        "minimum_score_fraction": "201926604367971953/1152921504606846976",
+        "second_distinct_score_fraction": "50481651091992989/288230376151711744"
+      }
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "mode": "ascending_f64",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3877787807814457e-17,
+        "minimum_gap_fraction": "1/72057594037927936",
+        "minimum_gap_ulp_ratio": 0.5,
+        "minimum_score_fraction": "25240825545996495/144115188075855872",
+        "second_distinct_score_fraction": "25240825545996497/144115188075855872"
+      }
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "mode": "ascending_f64",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3010426069826053e-18,
+        "minimum_gap_fraction": "3/2305843009213693952",
+        "minimum_gap_ulp_ratio": 0.046875,
+        "minimum_score_fraction": "100963302183985975/576460752303423488",
+        "second_distinct_score_fraction": "403853208735943903/2305843009213693952"
+      }
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "mode": "ascending_f64",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3010426069826053e-18,
+        "minimum_gap_fraction": "3/2305843009213693952",
+        "minimum_gap_ulp_ratio": 0.046875,
+        "minimum_score_fraction": "403853208735943905/2305843009213693952",
+        "second_distinct_score_fraction": "100963302183985977/576460752303423488"
+      }
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "mode": "ascending_f64",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 6.938893903907228e-18,
+        "minimum_gap_fraction": "1/144115188075855872",
+        "minimum_gap_ulp_ratio": 0.25,
+        "minimum_score_fraction": "50481651091992989/288230376151711744",
+        "second_distinct_score_fraction": "50481651091992991/288230376151711744"
+      }
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "mode": "descending_f64",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 8.673617379884035e-19,
+        "minimum_gap_fraction": "1/1152921504606846976",
+        "minimum_gap_ulp_ratio": 0.03125,
+        "minimum_score_fraction": "25240825545996495/144115188075855872",
+        "second_distinct_score_fraction": "201926604367971961/1152921504606846976"
+      }
+    },
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "mode": "descending_f64",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3877787807814457e-17,
+        "minimum_gap_fraction": "1/72057594037927936",
+        "minimum_gap_ulp_ratio": 0.5,
+        "minimum_score_fraction": "100963302183985969/576460752303423488",
+        "second_distinct_score_fraction": "100963302183985977/576460752303423488"
+      }
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "mode": "descending_f64",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 2.6020852139652106e-18,
+        "minimum_gap_fraction": "3/1152921504606846976",
+        "minimum_gap_ulp_ratio": 0.09375,
+        "minimum_score_fraction": "201926604367971963/1152921504606846976",
+        "second_distinct_score_fraction": "100963302183985983/576460752303423488"
+      }
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "mode": "descending_f64",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3877787807814457e-17,
+        "minimum_gap_fraction": "1/72057594037927936",
+        "minimum_gap_ulp_ratio": 0.5,
+        "minimum_score_fraction": "100963302183985985/576460752303423488",
+        "second_distinct_score_fraction": "100963302183985993/576460752303423488"
+      }
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "mode": "descending_f64",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3010426069826053e-18,
+        "minimum_gap_fraction": "3/2305843009213693952",
+        "minimum_gap_ulp_ratio": 0.046875,
+        "minimum_score_fraction": "25240825545996495/144115188075855872",
+        "second_distinct_score_fraction": "403853208735943923/2305843009213693952"
+      }
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "mode": "descending_f64",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3010426069826053e-18,
+        "minimum_gap_fraction": "3/2305843009213693952",
+        "minimum_gap_ulp_ratio": 0.046875,
+        "minimum_score_fraction": "403853208735943925/2305843009213693952",
+        "second_distinct_score_fraction": "50481651091992991/288230376151711744"
+      }
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "mode": "descending_f64",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 6.938893903907228e-18,
+        "minimum_gap_fraction": "1/144115188075855872",
+        "minimum_gap_ulp_ratio": 0.25,
+        "minimum_score_fraction": "100963302183985983/576460752303423488",
+        "second_distinct_score_fraction": "100963302183985987/576460752303423488"
+      }
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "mode": "exact_binary_fraction",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 8.673617379884035e-19,
+        "minimum_gap_fraction": "1/1152921504606846976",
+        "minimum_gap_ulp_ratio": 0.03125,
+        "minimum_score_fraction": "25240825545996495/144115188075855872",
+        "second_distinct_score_fraction": "201926604367971961/1152921504606846976"
+      }
+    },
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "mode": "exact_binary_fraction",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3877787807814457e-17,
+        "minimum_gap_fraction": "1/72057594037927936",
+        "minimum_gap_ulp_ratio": 0.5,
+        "minimum_score_fraction": "100963302183985969/576460752303423488",
+        "second_distinct_score_fraction": "100963302183985977/576460752303423488"
+      }
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "mode": "exact_binary_fraction",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 2.6020852139652106e-18,
+        "minimum_gap_fraction": "3/1152921504606846976",
+        "minimum_gap_ulp_ratio": 0.09375,
+        "minimum_score_fraction": "201926604367971963/1152921504606846976",
+        "second_distinct_score_fraction": "100963302183985983/576460752303423488"
+      }
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "mode": "exact_binary_fraction",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3877787807814457e-17,
+        "minimum_gap_fraction": "1/72057594037927936",
+        "minimum_gap_ulp_ratio": 0.5,
+        "minimum_score_fraction": "100963302183985985/576460752303423488",
+        "second_distinct_score_fraction": "100963302183985993/576460752303423488"
+      }
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "mode": "exact_binary_fraction",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3010426069826053e-18,
+        "minimum_gap_fraction": "3/2305843009213693952",
+        "minimum_gap_ulp_ratio": 0.046875,
+        "minimum_score_fraction": "25240825545996495/144115188075855872",
+        "second_distinct_score_fraction": "403853208735943923/2305843009213693952"
+      }
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "mode": "exact_binary_fraction",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3010426069826053e-18,
+        "minimum_gap_fraction": "3/2305843009213693952",
+        "minimum_gap_ulp_ratio": 0.046875,
+        "minimum_score_fraction": "403853208735943925/2305843009213693952",
+        "second_distinct_score_fraction": "50481651091992991/288230376151711744"
+      }
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "mode": "exact_binary_fraction",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 6.938893903907228e-18,
+        "minimum_gap_fraction": "1/144115188075855872",
+        "minimum_gap_ulp_ratio": 0.25,
+        "minimum_score_fraction": "100963302183985983/576460752303423488",
+        "second_distinct_score_fraction": "100963302183985987/576460752303423488"
+      }
+    },
+    {
+      "case_id": "edge_0_1_m001ulp",
+      "mode": "math_fsum",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 8.673617379884035e-19,
+        "minimum_gap_fraction": "1/1152921504606846976",
+        "minimum_gap_ulp_ratio": 0.03125,
+        "minimum_score_fraction": "25240825545996495/144115188075855872",
+        "second_distinct_score_fraction": "201926604367971961/1152921504606846976"
+      }
+    },
+    {
+      "case_id": "edge_0_1_m008ulp",
+      "mode": "math_fsum",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3877787807814457e-17,
+        "minimum_gap_fraction": "1/72057594037927936",
+        "minimum_gap_ulp_ratio": 0.5,
+        "minimum_score_fraction": "100963302183985969/576460752303423488",
+        "second_distinct_score_fraction": "100963302183985977/576460752303423488"
+      }
+    },
+    {
+      "case_id": "edge_1_0_p001ulp",
+      "mode": "math_fsum",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 2.6020852139652106e-18,
+        "minimum_gap_fraction": "3/1152921504606846976",
+        "minimum_gap_ulp_ratio": 0.09375,
+        "minimum_score_fraction": "201926604367971963/1152921504606846976",
+        "second_distinct_score_fraction": "100963302183985983/576460752303423488"
+      }
+    },
+    {
+      "case_id": "edge_1_0_p008ulp",
+      "mode": "math_fsum",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3877787807814457e-17,
+        "minimum_gap_fraction": "1/72057594037927936",
+        "minimum_gap_ulp_ratio": 0.5,
+        "minimum_score_fraction": "100963302183985985/576460752303423488",
+        "second_distinct_score_fraction": "100963302183985993/576460752303423488"
+      }
+    },
+    {
+      "case_id": "edge_1_2_m001ulp",
+      "mode": "math_fsum",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3010426069826053e-18,
+        "minimum_gap_fraction": "3/2305843009213693952",
+        "minimum_gap_ulp_ratio": 0.046875,
+        "minimum_score_fraction": "25240825545996495/144115188075855872",
+        "second_distinct_score_fraction": "403853208735943923/2305843009213693952"
+      }
+    },
+    {
+      "case_id": "edge_2_1_p001ulp",
+      "mode": "math_fsum",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 1.3010426069826053e-18,
+        "minimum_gap_fraction": "3/2305843009213693952",
+        "minimum_gap_ulp_ratio": 0.046875,
+        "minimum_score_fraction": "403853208735943925/2305843009213693952",
+        "second_distinct_score_fraction": "50481651091992991/288230376151711744"
+      }
+    },
+    {
+      "case_id": "edge_2_1_p008ulp",
+      "mode": "math_fsum",
+      "oracle": {
+        "feasible_mapping_count": 8,
+        "minimizer_count": 1,
+        "minimizer_vectors": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "minimum_gap_float": 6.938893903907228e-18,
+        "minimum_gap_fraction": "1/144115188075855872",
+        "minimum_gap_ulp_ratio": 0.25,
+        "minimum_score_fraction": "100963302183985983/576460752303423488",
+        "second_distinct_score_fraction": "100963302183985987/576460752303423488"
+      }
+    }
+  ],
+  "payload_hash": "a1de6b1b1eb57353bbf3968a2c8232ae6c41d8ee8ca4b398b7992a6b24d9d388",
+  "preregistration": {
+    "commit": "487b62cd588c05bfb824b70afad16e8cf8a3e283",
+    "created_at": "2026-07-20T17:15:02Z",
+    "discussion": "https://github.com/crystal-tensor/Prometheus-plan/discussions/271"
+  },
+  "requirements": [
+    {
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P6"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P7"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P8"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P9"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P10"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P11"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P12"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 12,
+  "source_result_payload_hash": "7a5f055dae4184e01e5c8bb8a18de7b9d09cde8db6b2415b24cb6c1ab9a0b38f",
+  "source_target_id": "T-B4-002dp/T-B8-003dt/T-B10-009df-r181-oracle",
+  "status": "independent_active_limb_oracle_complete",
+  "summary": {
+    "bqp_separation_claimed": false,
+    "case_hashes_valid": 112,
+    "confirmed_qiskit_bug_claimed": false,
+    "hardware_result_claimed": false,
+    "memory_pair_count": 13,
+    "new_credit_delta": 0,
+    "performance_cell_count": 37,
+    "production_qiskit_remedy_claimed": false,
+    "qiskit_calls_performed": 0,
+    "qiskit_imported": false,
+    "quantum_advantage_claimed": false,
+    "r181_executor_imported": false,
+    "row_hashes_valid": 3200,
+    "simulation_execution_count": 0,
+    "small_gap_oracle_count": 28,
+    "small_gap_oracle_payload_matches": 112,
+    "small_gap_outcomes_reproduced": 896,
+    "solved_frontier_claimed": false,
+    "standard_outcomes_reproduced": 2304,
+    "summary_matches": true,
+    "total_simulated_shots": 0,
+    "upstream_patch_accepted": false,
+    "worker_artifacts_match": 52,
+    "worker_hashes_valid": 52
+  },
+  "title": "B4/B8/B10 R181 independent active-limb superaccumulator oracle",
+  "upstream_target_id": "T-B4-002do/T-B8-003ds/T-B10-009de-r181-result",
+  "version": 0
+}

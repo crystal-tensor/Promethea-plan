@@ -3479,6 +3479,36 @@ separation, solved B4/B8/B10, and new credit remain false or zero. Result hash
 `7fec1de6...`; oracle hash `006d1c69...`; adjudication hash `46e6fc71...`;
 accelerator hash `0469ab07...`.
 
+`T-B4-002dm` / `T-B8-003dq` / `T-B10-009dc-r180-execution-boundary-failure`
+records the first active-limb Linux attempt without promoting a workflow error
+into scientific evidence. Public Actions run `29761452207` completed all 12
+source-bound build steps, four Rust tests, the optimized x86-64 release build,
+ELF validation, and isolated import smoke. The replay then stopped before its
+first worker because the frozen contract placed both build outputs and
+scientific outputs in one absence list: the newly built accelerator was
+therefore rejected as pre-existing evidence. The adjudication binds the
+21,647,560-byte binary and 24 logs and records 0/52 workers, 0/832 warmups,
+0/3,200 recorded calls, no oracle, and `new_credit_delta=0`. This is a
+workflow-state negative result, not evidence for or against active-limb
+correctness or speed.
+
+`T-B4-002do` / `T-B8-003ds` / `T-B10-009de-r181-result` repairs only that
+state boundary and executes the unchanged experiment after public
+preregistration in Discussion #271. Actions run `29762985534` completes 52
+isolated Linux x86-64 workers, 832 warmups, and 3,200 recorded calls. Source
+f64, BigUint exact, fixed-34 exact, and active-limb exact each match all
+`800/800` frozen outcomes; active-limb preserves R169 `192/192`, repairs R170
+and R172 `192/192` each, and repairs all `224/224` R160 sub-ULP cases. It is
+slightly faster than fixed-34 at `0.971310x`, but fails the frozen `0.90x`
+gate, and it remains slower than BigUint at `1.093070x`, failing the `1.00x`
+gate. The result is therefore `16/18`, REJECT, with P14 and P15 failed. The
+Qiskit-free oracle passes `12/12`, validates 52 worker hashes, 3,200 row
+hashes, and 112 case hashes, and independently reproduces 2,304 standard plus
+896 small-gap outcomes. Result hash `7a5f055d...`; oracle hash `a1de6b1b...`;
+bundle hash `34fc5330...`; accelerator hash `fd52a3ae...`. This narrows the
+cost diagnosis but establishes no production remedy, hardware result,
+quantum advantage, BQP separation, solved B4/B8/B10 frontier, or new credit.
+
 The R149 holdout at `T-B4-002bh` / `T-B8-003bl` / `T-B10-009az` is
 then preregistered ACCEPT with A1-A10, requirements, and phase replay all
 passing `10/10`, `10/10`, and `4/4`. All `24/24` repaired and target-specific

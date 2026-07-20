@@ -1,0 +1,3118 @@
+{
+  "accelerator_path": "/tmp/prometheus-r181-overlay-fd52a3aea4cc8cc1/qiskit/_accelerate.abi3.so",
+  "accelerator_sha256": "fd52a3aea4cc8cc199a2d3d07c1080cdd5718369e8528736e77fe1f5984d2f73",
+  "contract_payload_hash": "c85d13b72418b37f53dcf6bb64352df128389299ac66587489899811a8e72b85",
+  "dataset_id": "r170_path_true_tie",
+  "elapsed_ns_median": 16150.5,
+  "elapsed_ns_p95_nearest_rank": 19336,
+  "environment": {
+    "machine": "x86_64",
+    "platform": "Linux-6.17.0-1020-azure-x86_64-with-glibc2.39",
+    "python": "3.12.13",
+    "pythonpath_head": "/home/runner/work/Prometheus-plan/Prometheus-plan/tools",
+    "qiskit": "2.4.1",
+    "qiskit_aer": "0.17.2",
+    "qiskit_ibm_runtime": "0.46.1",
+    "system": "Linux"
+  },
+  "identity": "r170_path_true_tie__native_hashset_order",
+  "input_qasm_sha256": "95a926719ef49ac7e49c727b8ca1f947f66dc61f01eee9374aff50848ce28ce1",
+  "kind": "standard",
+  "manifest_hash": "44238002393cd864ea8c4a25be28119f49fee1d4487c1a228dce873467f07158",
+  "peak_rss": 218432,
+  "peak_rss_unit": "kibibytes",
+  "policy": "source_f64",
+  "preregistration": {
+    "commit": "487b62cd588c05bfb824b70afad16e8cf8a3e283",
+    "created_at": "2026-07-20T17:15:02Z",
+    "discussion": "https://github.com/crystal-tensor/Prometheus-plan/discussions/271"
+  },
+  "process_id": 10190,
+  "process_instance_uuid": "8c87c992-1078-4fa9-9edc-0fdec44b0277",
+  "profile_id": "native_hashset_order",
+  "protocol_payload_hash": "8393f0403e9644b06daa08935ede3c1b57c9c25dc36026a1509c4fb280c4bf5c",
+  "recorded_call_count": 64,
+  "recorded_matches_expected": 64,
+  "replay_rows": [
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16582,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 0,
+      "row_hash": "7b0bf07b07c7194bbb47454660faba06fee944abd5f218fbe1171872c11d474d",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 19967,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 1,
+      "row_hash": "79ff83551969d27a8092f8a63361338e6fd4e8afb7a6b48127e323bf4aa9fa3b",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 19336,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 2,
+      "row_hash": "375b84b78d7043514b931ef04bf8c31723a269d9b80ddc492f585f5701f61152",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 17322,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 3,
+      "row_hash": "b4a1a1476eef9ffb46990da47cf5ada6b2f752c82b082217b03778e4ce36314d",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16671,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 4,
+      "row_hash": "6018fd17602fd85f13e7290745af6ff41f5a8908581f5e0a976ff5cdfc2b734d",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16491,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 5,
+      "row_hash": "3cbece079544054bf5962237a1abfecfe3ff6bca07209b9215d1612b16e66155",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16220,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 6,
+      "row_hash": "d0eae27f086a57f7b8ed29621d77b704d51ddd20046875c75ab37323d7b4c758",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16370,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 7,
+      "row_hash": "91d046b27096d7b96999e2e70cc11efeb39d25ef4170644f298ccf2d6cf3c245",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 17272,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 8,
+      "row_hash": "cc7ab2f2e15285b3fff2399ad65c3d3ad60c953ca235a2db0fbda30ff3d7c784",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16771,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 9,
+      "row_hash": "6d48c3f15b5ba72b64fed5459611cb67f02a877c4f3b2f61c71ef38ad52c75c4",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16992,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 10,
+      "row_hash": "4ead140e0a9f927abcc61b7077a7f250c6ba8fd0364249753f049974d01ce539",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16571,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 11,
+      "row_hash": "9f7e16b26830a7676fc3e074f82ef7833592e045e0657a8864c5a4c06cadc5bc",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16792,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 12,
+      "row_hash": "54f678444dc83406327b16268552cbf73a28b88b939e42d4bd903ee8a8d369fa",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16361,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 13,
+      "row_hash": "9060e7af24334df23fbd19b52d2054f9d42b412c05df77f96dd8dac3c9be3a73",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15960,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 14,
+      "row_hash": "52c0db7633a34d25ee4cba59c98fdda98554e9b016a3e382d3e1f648dc856047",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15869,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 15,
+      "row_hash": "2b929ebfb4fceca4c1ceb4acb25c43df06775b65a6a76e701393b06967299ea6",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15929,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 16,
+      "row_hash": "93145eb3d1cf12a45a42467a3a0524454bebca0a02fb6db6835c6ea11af06f75",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16390,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 17,
+      "row_hash": "27fb4a40bcb60249c6a63a672d36ef7b47a94cdfea5fe491544a0fc9fa17686c",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16370,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 18,
+      "row_hash": "e21c52269739d079f1f444ee86df57a267117fe2132c348bb59542229516b4ad",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16801,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 19,
+      "row_hash": "5d03efe5e057ec1a2e3ea209a396b2f6ef8557574be4e284623aba505c851eeb",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16871,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 20,
+      "row_hash": "78001696386263a8396c1a92c27a8ea7850d9913184b36c3f4005cfa057dd3ae",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16050,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 21,
+      "row_hash": "a6c36447fc96397e9727746bf6f28d65ec11f4111d298dc443be13e2c566535a",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 17012,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 22,
+      "row_hash": "1f40958ab93f65dcb9b24b5ec39265083ed2f929fdeafd5d2fb00d1906863e8d",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16170,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 23,
+      "row_hash": "8468ec2d9c190884a1a344bc549b1937fd0e8bc0b1c37a231a11e065c9c70c2a",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15950,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 24,
+      "row_hash": "342293cc91928af8ac70c9924cbc263cd7d60b65a7e1f3d6a66b21b0670c183d",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 22252,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 25,
+      "row_hash": "09dc6443b0d51972657f94aa7531edb086c9aed85a6b69e59f2984eb7cbde655",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 18104,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 26,
+      "row_hash": "82a80521a9a8a47f8037f998be886dae81fd4adf3fe9abcc3fde8e56d38b6d46",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16891,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 27,
+      "row_hash": "c4e7dde760bfcb8ec2c50cd7daa3161853c2effb49e9593395d43fb19753f787",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16401,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 28,
+      "row_hash": "770609eda5c94fd1ac93e5e4d1b01a0bbce95f02f3b6520973c6a1144d2084ad",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16351,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 29,
+      "row_hash": "02c18f040e3499f46b1bea700e49fa1a9d543e8157ccbe98236178cf25cd95ae",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16010,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 30,
+      "row_hash": "efcaaf124b70c9283062b033807611e8556d5acd1d8444de12ad5569fa77e886",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16141,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 31,
+      "row_hash": "2fd62230fbe4078bcd252e226063ed7ae2704caf1346e7d8379d463fe119f200",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15960,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 32,
+      "row_hash": "a8825a5b62145de9cf749918aeff64838c99673a45fd935f1b2cf4214f9d1843",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16160,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 33,
+      "row_hash": "d31951583077a103a6433c53a75e7ba69975a660d01345cd8110fe867e0f0abd",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16211,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 34,
+      "row_hash": "eb2dcbaa73c208dedb773bc98a17479018d0c22499739da8c91d24f81ab48432",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16020,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 35,
+      "row_hash": "53f7c016ca6f8fc66911b5488a177d9c6db1c34227a7ed3e7d4c2e7ab0a9b1ac",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 17082,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 36,
+      "row_hash": "5ecefc29cc12a2970438f6fb9bbc787d1dc159ddb311fb0ade24e80ebe7a10a2",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16070,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 37,
+      "row_hash": "e41d1a1955b103a61e6a8fe0a9f4941148e42cca6ee1f132be01ce633eb68072",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16029,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 38,
+      "row_hash": "7a8500a486148c927f6ed5e3921925b93b045fcf9d3109d11c2fa70abb848961",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15830,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 39,
+      "row_hash": "1c434221a1c345654c87bc287865b9cb40765c505632453133d77018ba092a93",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15790,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 40,
+      "row_hash": "dec16604541979ef25b8f835524ba7912026a4fb448b5ff2aef57ec9b1397182",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16581,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 41,
+      "row_hash": "3093a9f7b0ff9a16c6b5313212b1a93dc693bb4e2221937bccf9404c12b33ffe",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15940,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 42,
+      "row_hash": "67ec1dfc5ca14d667bf2df70df761ca30ef91838e38d44a16e8e5984df416e2f",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16030,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 43,
+      "row_hash": "a875d021398f15033950f157d2b76d2801d00853e50a2e1c6656deb929c83fb0",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16100,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 44,
+      "row_hash": "81a2aebdda967742c7cffcaaa8579d2d47542318bf453d18625ec6687196a2e5",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15950,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 45,
+      "row_hash": "81bfdf56dbdd7bc1d44b8614b70e38db8d556ba6f0f65b8c0eb6a8dab9295214",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15970,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 46,
+      "row_hash": "6d373c77691b23ad20904b0a2a6ff7b1f7976ed64bdd6d215c920f554eff2f95",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15959,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 47,
+      "row_hash": "931e69024052799486ae99e2d793045c54bec5cf3ccc30c538975275bf4a5c16",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15900,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 48,
+      "row_hash": "b96f7eb9c622322fd9d177d65e8f06dc2baef370fbab42a70ae55e9e6e21d835",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15669,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 49,
+      "row_hash": "5b15170903d919294240f21efa61cb58b3324a382de47c3035e2cb1f28a62123",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15559,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 50,
+      "row_hash": "307c05c723265ec954f43e638e207fe83f81656c09549bf1df4a4e7495b8def1",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15830,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 51,
+      "row_hash": "19c49f8152580824e595689ab69bd02c9a23398d05aa39e5863e04f4b70f5888",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15879,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 52,
+      "row_hash": "f819ba22c02a06cf2159cc695ec81fc026e240d5fe7bff7dd16d4edabb379b4c",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15649,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 53,
+      "row_hash": "c745a62b962172c047b62d066ad92164218b47ecec189f91c2279ca5a663a1b3",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15720,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 54,
+      "row_hash": "4dd75b757ac1f7911bbe4b8409bda228deed95236fe555ab5eb89564f737375d",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15769,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 55,
+      "row_hash": "d9b820bfaef17c4162c2d5670d1b4dbb17a15d458a0ffc984b6e060d60d020c9",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15890,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 56,
+      "row_hash": "52564c61bfa3489b3bbb50a17f580c67ebde41008267edbb54517db3bbd81a00",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15819,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 57,
+      "row_hash": "184268359bc736c8b31d648bf5e2dbec00e749d5f0c4b5aa5b6a4cf2a3b5d5e6",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15920,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 58,
+      "row_hash": "6cdd33ad4f4c92752577b01f228419ea223b550cd6a4f26a590c223bec98ea26",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15780,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 59,
+      "row_hash": "2f393815a9a0e45bfa8f390be2606ad53a54272fb180350c68e2fbf078690a37",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 35796,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 60,
+      "row_hash": "1ac832c4455fbb15407b88e5622a695f1048ef57e933ae2fbed223a2611d3772",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 18765,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 61,
+      "row_hash": "7940385e2f67151942b371757808d46e3b9124e6b6f63acf435d649e604ecd8f",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 16191,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 62,
+      "row_hash": "773af76602b21a0e2bf1392fb21b1266b9ed53fed46e606d000e0013b71e2584",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "elapsed_ns": 15830,
+      "exact_expected_mapping_vector": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "kind": "standard",
+      "mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "matches_expected": true,
+      "policy": "source_f64",
+      "profile_id": "native_hashset_order",
+      "replay_index": 63,
+      "row_hash": "ea36899f977a8666d4b90ba3fd5f328244da4d5ae71755113b83500114d61241",
+      "simulation_execution_count": 0,
+      "source_expected_mapping_vector": [
+        4,
+        5,
+        3,
+        2,
+        1,
+        6,
+        0
+      ],
+      "total_simulated_shots": 0
+    }
+  ],
+  "simulation_execution_count": 0,
+  "source_worker_path": "results/B4_B8_R170_near_tie_candidate_replay/native_hashset_order.json",
+  "source_worker_sha256": "ff3e2deaf5c269f382c6e88a9498c0bcc54c49faea7a3900e8c8db71bc7e4b7f",
+  "started_at_unix": 1784568389,
+  "target_descriptor_sha256": "702c8fd9dcf67a069e7af63e31a57c74c17aaa5e3c5b6d8c2e28ec0c049c0de7",
+  "total_simulated_shots": 0,
+  "warmup_call_count": 16,
+  "warmup_matches_expected": 16
+}

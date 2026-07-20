@@ -3473,6 +3473,347 @@ def audit_r177_r178_linux_transition(root: Path, errors: list[str]) -> dict:
     return status
 
 
+def audit_r180_r181_active_limb_transition(root: Path, errors: list[str]) -> dict:
+    """Validate the R180 state-boundary failure and R181 Linux rejection."""
+    paths = {
+        "r180_failure": root / "results/B4_B8_R180_execution_boundary_failure_v0.json",
+        "r180_report": root / "research/B4_B8_R180_execution_boundary_failure.md",
+        "r180_build": root
+        / "research/source_lineage/Qiskit_2_4_1_R180_active_limb_linux_x86_64_build_manifest.json",
+        "r180_binary": root
+        / "research/source_lineage/Qiskit_2_4_1_R180_active_limb_pyext.x86_64-linux-gnu.so",
+        "r181_protocol": root / "results/B4_B8_R181_active_limb_protocol_v0.json",
+        "r181_contract": root / "benchmarks/B4_B8_R181_active_limb_contract_v0.json",
+        "r181_protocol_report": root / "research/B4_B8_R181_active_limb_protocol.md",
+        "r181_result": root / "results/B4_B8_R181_active_limb_replay_v0.json",
+        "r181_result_report": root / "research/B4_B8_R181_active_limb_replay.md",
+        "r181_build": root
+        / "research/source_lineage/Qiskit_2_4_1_R181_active_limb_linux_x86_64_build_manifest.json",
+        "r181_binary": root
+        / "research/source_lineage/Qiskit_2_4_1_R181_active_limb_pyext.x86_64-linux-gnu.so",
+        "r181_workers": root / "results/B4_B8_R181_active_limb_replay",
+        "r181_oracle": root
+        / "results/B4_B8_R181_independent_active_limb_oracle_v0.json",
+        "r181_oracle_report": root
+        / "research/B4_B8_R181_independent_active_limb_oracle.md",
+        "r181_bundle": root / "results/B4_B8_R181_active_limb_bundle_manifest_v0.json",
+    }
+    status = {f"{key}_exists": path.exists() for key, path in paths.items()}
+    if not all(status.values()):
+        errors.append("R180/R181 active-limb transition artifact missing")
+        return status
+
+    def canonical(value: object) -> str:
+        return hashlib.sha256(
+            json.dumps(value, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest()
+
+    def payload_ok(payload: dict) -> bool:
+        body = dict(payload)
+        return body.pop("payload_hash", None) == canonical(body)
+
+    def validate_build(build: dict, binary_path: Path, label: str) -> None:
+        accelerator = build.get("accelerator", {})
+        binary_hash = hashlib.sha256(binary_path.read_bytes()).hexdigest()
+        if (
+            not payload_ok(build)
+            or build.get("status")
+            != "linux_x86_64_pyext_built_and_imported_after_preregistration"
+            or accelerator.get("sha256") != binary_hash
+            or accelerator.get("size_bytes") != binary_path.stat().st_size
+        ):
+            errors.append(f"{label} build manifest or accelerator mismatch")
+        steps = build.get("build_steps", [])
+        for step in steps:
+            for stream in ("stdout", "stderr"):
+                path = root / step.get(f"{stream}_path", "")
+                if not path.is_file() or hashlib.sha256(
+                    path.read_bytes()
+                ).hexdigest() != step.get(f"{stream}_sha256"):
+                    errors.append(
+                        f"{label} build log mismatch: {step.get('step_id')} {stream}"
+                    )
+        if len(steps) != 12 or any(step.get("returncode") != 0 for step in steps):
+            errors.append(f"{label} build-step count or return code mismatch")
+
+    r180_failure = json.loads(read(paths["r180_failure"]))
+    r180_build = json.loads(read(paths["r180_build"]))
+    validate_build(r180_build, paths["r180_binary"], "R180")
+    r180_boundary = r180_failure.get("failure", {})
+    if (
+        not payload_ok(r180_failure)
+        or r180_failure.get("method")
+        != "b4_b8_r180_execution_boundary_failure_adjudication_v0"
+        or r180_failure.get("status") != "build_accepted_scientific_replay_unopened"
+        or r180_failure.get("payload_hash")
+        != "83b6bb7fa9666fad5395024604a98497384fab80f2de838e238edbc6ea628ca3"
+        or r180_failure.get("build_evidence", {}).get("build_manifest_payload_hash")
+        != r180_build.get("payload_hash")
+        or r180_boundary.get("scientific_matrix_started") is not False
+        or r180_boundary.get("worker_count_started") != 0
+        or r180_boundary.get("recorded_call_count") != 0
+        or r180_boundary.get("warmup_call_count") != 0
+        or r180_boundary.get("independent_oracle_started") is not False
+        or r180_failure.get("new_credit_delta") != 0
+    ):
+        errors.append("R180 execution-boundary adjudication mismatch")
+    if any(
+        r180_failure.get(field) is not False
+        for field in (
+            "hardware_result_claimed",
+            "quantum_advantage_claimed",
+            "bqp_separation_claimed",
+            "solved_frontier_claimed",
+        )
+    ):
+        errors.append("R180 execution-boundary failure makes a forbidden claim")
+    if not all(
+        marker in read(paths["r180_report"])
+        for marker in (
+            "0/52",
+            "0/3200",
+            "orchestration-contract failure",
+            "Claim Boundary",
+        )
+    ):
+        errors.append("R180 execution-boundary report is incomplete")
+
+    protocol = json.loads(read(paths["r181_protocol"]))
+    contract = json.loads(read(paths["r181_contract"]))
+    result = json.loads(read(paths["r181_result"]))
+    build = json.loads(read(paths["r181_build"]))
+    oracle = json.loads(read(paths["r181_oracle"]))
+    bundle = json.loads(read(paths["r181_bundle"]))
+    validate_build(build, paths["r181_binary"], "R181")
+
+    if (
+        not payload_ok(protocol)
+        or protocol.get("method") != "b4_b8_r181_active_limb_protocol_v0"
+        or protocol.get("status") != "preregistered_unopened"
+        or protocol.get("payload_hash")
+        != "8393f0403e9644b06daa08935ede3c1b57c9c25dc36026a1509c4fb280c4bf5c"
+        or protocol.get("upstream_target_id") != r180_failure.get("source_target_id")
+    ):
+        errors.append("R181 protocol identity, payload, or upstream binding mismatch")
+    if (
+        not payload_ok(contract)
+        or contract.get("contract_id") != "B4-B8-R181-active-limb-contract-v0"
+        or contract.get("execution_started") is not False
+        or contract.get("protocol_payload_hash") != protocol.get("payload_hash")
+        or contract.get("payload_hash")
+        != "c85d13b72418b37f53dcf6bb64352df128389299ac66587489899811a8e72b85"
+        or len(contract.get("build_output_paths_created_before_replay", [])) != 3
+        or len(contract.get("result_paths_must_be_absent", [])) != 6
+        or set(contract.get("build_output_paths_created_before_replay", []))
+        & set(contract.get("result_paths_must_be_absent", []))
+    ):
+        errors.append("R181 contract identity or stage separation mismatch")
+    for section in ("source_bindings", "tool_bindings"):
+        for binding_id, binding in contract.get(section, {}).items():
+            path = root / binding.get("path", "")
+            if not path.is_file() or hashlib.sha256(
+                path.read_bytes()
+            ).hexdigest() != binding.get("sha256"):
+                errors.append(f"R181 {section} mismatch: {binding_id}")
+
+    failed_requirements = [
+        row.get("requirement_id")
+        for row in result.get("requirements", [])
+        if row.get("passed") is not True
+    ]
+    summary = result.get("summary", {})
+    if (
+        not payload_ok(result)
+        or result.get("method") != "b4_b8_r181_active_limb_replay_v0"
+        or result.get("status")
+        != "active_limb_superaccumulator_rejected_on_linux_matrix"
+        or result.get("classification") != "active_limb_cost_attribution_failed"
+        or result.get("payload_hash")
+        != "7a5f055dae4184e01e5c8bb8a18de7b9d09cde8db6b2415b24cb6c1ab9a0b38f"
+        or result.get("requirements_passed") != 16
+        or result.get("requirements_failed") != 2
+        or failed_requirements != ["P14", "P15"]
+        or result.get("protocol_payload_hash") != protocol.get("payload_hash")
+        or result.get("contract_payload_hash") != contract.get("payload_hash")
+        or result.get("build_manifest_payload_hash") != build.get("payload_hash")
+    ):
+        errors.append("R181 result identity or frozen P14/P15 rejection mismatch")
+    expected_counts = {
+        "worker_count": 52,
+        "workers_started_after_preregistration": 52,
+        "qiskit_calls_performed": 4032,
+        "recorded_call_count": 3200,
+        "warmup_call_count": 832,
+        "source_expected_match_count": 800,
+        "biguint_expected_match_count": 800,
+        "fixed_expected_match_count": 800,
+        "active_expected_match_count": 800,
+        "biguint_active_mapping_agreement_count": 800,
+        "r169_active_preservation_count": 192,
+        "r170_active_repair_count": 192,
+        "r172_active_repair_count": 192,
+        "small_gap_active_repair_count": 224,
+        "simulation_execution_count": 0,
+        "total_simulated_shots": 0,
+        "new_credit_delta": 0,
+    }
+    if any(summary.get(key) != value for key, value in expected_counts.items()):
+        errors.append("R181 replay counts, outcomes, or zero-credit boundary mismatch")
+    expected_ratios = {
+        "aggregate_active_to_source_median_time_ratio": 2.0742544320315734,
+        "aggregate_active_to_biguint_median_time_ratio": 1.0930696722686257,
+        "aggregate_active_to_fixed_median_time_ratio": 0.9713097651126744,
+        "aggregate_fixed_to_biguint_median_time_ratio": 1.1253564120626613,
+        "maximum_cell_active_to_source_median_time_ratio": 2.396897344228805,
+        "maximum_worker_active_to_source_peak_rss_ratio": 1.0016890951276103,
+    }
+    if any(
+        not math.isclose(summary.get(key, math.inf), value, rel_tol=0, abs_tol=1e-12)
+        for key, value in expected_ratios.items()
+    ):
+        errors.append("R181 performance ledger mismatch")
+    thresholds = protocol.get("performance_thresholds", {})
+    if (
+        summary.get("aggregate_active_to_fixed_median_time_ratio", 0)
+        <= thresholds.get("maximum_active_to_fixed_aggregate_median_time_ratio", 0)
+        or summary.get("aggregate_active_to_biguint_median_time_ratio", 0)
+        <= thresholds.get("maximum_active_to_biguint_aggregate_median_time_ratio", 0)
+        or summary.get("aggregate_active_to_source_median_time_ratio", math.inf)
+        > thresholds.get("maximum_active_to_source_aggregate_median_time_ratio", 0)
+        or summary.get("maximum_cell_active_to_source_median_time_ratio", math.inf)
+        > thresholds.get("maximum_active_to_source_cell_median_time_ratio", 0)
+        or summary.get("maximum_worker_active_to_source_peak_rss_ratio", math.inf)
+        > thresholds.get("maximum_active_to_source_worker_peak_rss_ratio", 0)
+    ):
+        errors.append("R181 rejection does not isolate the P14/P15 speed gates")
+    forbidden_summary_claims = (
+        "upstream_patch_accepted",
+        "production_qiskit_remedy_claimed",
+        "confirmed_qiskit_bug_claimed",
+        "route_quality_improvement_claimed",
+        "hardware_result_claimed",
+        "quantum_advantage_claimed",
+        "bqp_separation_claimed",
+        "solved_frontier_claimed",
+    )
+    if any(summary.get(field) is not False for field in forbidden_summary_claims):
+        errors.append("R181 rejected matrix makes a forbidden positive claim")
+
+    worker_rows = result.get("worker_artifacts", [])
+    for row in worker_rows:
+        path = root / row.get("path", "")
+        if not path.is_file():
+            errors.append(f"R181 worker artifact missing: {row.get('path')}")
+            continue
+        payload = json.loads(read(path))
+        body = dict(payload)
+        observed_hash = body.pop("manifest_hash", None)
+        if (
+            hashlib.sha256(path.read_bytes()).hexdigest() != row.get("sha256")
+            or observed_hash != row.get("manifest_hash")
+            or observed_hash != canonical(body)
+            or payload.get("environment", {}).get("system") != "Linux"
+            or payload.get("environment", {}).get("machine") not in {"x86_64", "amd64"}
+        ):
+            errors.append(f"R181 worker hash or platform mismatch: {row.get('path')}")
+    if len(worker_rows) != 52:
+        errors.append("R181 worker artifact count mismatch")
+
+    oracle_summary = oracle.get("summary", {})
+    expected_oracle_counts = {
+        "worker_hashes_valid": 52,
+        "worker_artifacts_match": 52,
+        "row_hashes_valid": 3200,
+        "case_hashes_valid": 112,
+        "standard_outcomes_reproduced": 2304,
+        "small_gap_outcomes_reproduced": 896,
+        "small_gap_oracle_payload_matches": 112,
+        "qiskit_calls_performed": 0,
+        "simulation_execution_count": 0,
+        "total_simulated_shots": 0,
+        "new_credit_delta": 0,
+    }
+    if (
+        not payload_ok(oracle)
+        or oracle.get("method") != "b4_b8_r181_independent_active_limb_oracle_v0"
+        or oracle.get("status") != "independent_active_limb_oracle_complete"
+        or oracle.get("payload_hash")
+        != "a1de6b1b1eb57353bbf3968a2c8232ae6c41d8ee8ca4b398b7992a6b24d9d388"
+        or oracle.get("requirements_passed") != 12
+        or oracle.get("requirements_failed") != 0
+        or any(
+            oracle_summary.get(key) != value
+            for key, value in expected_oracle_counts.items()
+        )
+        or oracle_summary.get("summary_matches") is not True
+        or oracle_summary.get("qiskit_imported") is not False
+        or oracle_summary.get("r181_executor_imported") is not False
+    ):
+        errors.append("R181 independent oracle integrity mismatch")
+
+    if (
+        not payload_ok(bundle)
+        or bundle.get("status") != "linux_x86_64_bundle_complete"
+        or bundle.get("payload_hash")
+        != "34fc5330e263950dfd5ed1401c2a3ea532389014d555ad578d85feb5081e7fcf"
+        or bundle.get("artifact_count") != 82
+        or bundle.get("worker_artifact_count") != 52
+        or bundle.get("source_build_payload_hash") != build.get("payload_hash")
+        or bundle.get("source_result_payload_hash") != result.get("payload_hash")
+        or bundle.get("source_oracle_payload_hash") != oracle.get("payload_hash")
+    ):
+        errors.append("R181 bundle identity or source binding mismatch")
+    for row in bundle.get("artifacts", []):
+        path = root / row.get("path", "")
+        if not path.is_file() or hashlib.sha256(
+            path.read_bytes()
+        ).hexdigest() != row.get("sha256"):
+            errors.append(f"R181 bundle artifact mismatch: {row.get('path')}")
+    if not all(
+        marker in read(paths["r181_result_report"])
+        for marker in ("16/18", "800/800", "1.093070", "0.971310", "Claim Boundary")
+    ):
+        errors.append("R181 result report boundary missing")
+    if not all(
+        marker in read(paths["r181_oracle_report"])
+        for marker in ("12/12", "52/52", "3200/3200", "Claim Boundary")
+    ):
+        errors.append("R181 independent oracle report boundary missing")
+    if not all(
+        marker in read(paths["r181_protocol_report"])
+        for marker in ("preregistered_unopened", "52", "3200", "Claim Boundary")
+    ):
+        errors.append("R181 protocol report boundary missing")
+
+    status.update(
+        {
+            "r180_status": r180_failure.get("status"),
+            "r180_build_payload_hash": r180_build.get("payload_hash"),
+            "r180_scientific_matrix_started": r180_boundary.get(
+                "scientific_matrix_started"
+            ),
+            "r181_status": result.get("status"),
+            "r181_failed_requirements": failed_requirements,
+            "r181_worker_count": summary.get("worker_count"),
+            "r181_recorded_call_count": summary.get("recorded_call_count"),
+            "r181_active_expected_match_count": summary.get(
+                "active_expected_match_count"
+            ),
+            "r181_active_to_fixed_median_ratio": summary.get(
+                "aggregate_active_to_fixed_median_time_ratio"
+            ),
+            "r181_active_to_biguint_median_ratio": summary.get(
+                "aggregate_active_to_biguint_median_time_ratio"
+            ),
+            "r181_oracle_status": oracle.get("status"),
+            "r181_oracle_payload_hash": oracle.get("payload_hash"),
+            "r181_bundle_payload_hash": bundle.get("payload_hash"),
+            "new_credit_delta": 0,
+        }
+    )
+    return status
+
+
 def audit(root: Path) -> dict:
     research = root / "research"
     benchmarks = root / "benchmarks"
@@ -45508,6 +45849,7 @@ def audit(root: Path) -> dict:
         root, b4_manifest, b8_manifest, b10_manifest, errors
     )
     r177_r178_linux_transition_status = audit_r177_r178_linux_transition(root, errors)
+    r180_r181_active_limb_status = audit_r180_r181_active_limb_transition(root, errors)
 
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
@@ -45876,6 +46218,7 @@ def audit(root: Path) -> dict:
             "r175_rust_exact_score": r175_rust_exact_score_status,
             "r176_fixed_superaccumulator": r176_fixed_superaccumulator_status,
             "r177_r178_linux_transition": r177_r178_linux_transition_status,
+            "r180_r181_active_limb_transition": r180_r181_active_limb_status,
         },
         "b5": {
             "manifest": str(b5_manifest_path),
@@ -46044,6 +46387,7 @@ def audit(root: Path) -> dict:
             "r175_rust_exact_score": r175_rust_exact_score_status,
             "r176_fixed_superaccumulator": r176_fixed_superaccumulator_status,
             "r177_r178_linux_transition": r177_r178_linux_transition_status,
+            "r180_r181_active_limb_transition": r180_r181_active_limb_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -46089,6 +46433,7 @@ def audit(root: Path) -> dict:
             "r175_rust_exact_score": r175_rust_exact_score_status,
             "r176_fixed_superaccumulator": r176_fixed_superaccumulator_status,
             "r177_r178_linux_transition": r177_r178_linux_transition_status,
+            "r180_r181_active_limb_transition": r180_r181_active_limb_status,
             "t1_d5_observable_denominator_table": b10_t1_d5_table_status,
             "t1_d5_b3_molecular_observable_table": b10_t1_d5_b3_table_status,
             "t1_d5_b3_reaction_observable_table": b10_t1_d5_b3_reaction_table_status,
