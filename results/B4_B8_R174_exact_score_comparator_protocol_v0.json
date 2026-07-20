@@ -1,0 +1,74 @@
+{
+  "acceptance_requirements": [
+    "576/576 replay rows and 1728/1728 candidate payloads validate",
+    "all exact-grid totals equal the committed exact retained-leaf totals",
+    "R169 source selection remains unchanged on 192/192 rows",
+    "R170 selects the first exact minimizer on 192/192 rows",
+    "R172 selects the first exact minimizer on 192/192 rows",
+    "all 3456 candidate-permutation checks select the first exact minimizer",
+    "R160 passes 4/4 tie and 28/28 non-tie controls",
+    "an independent standard-library Fraction oracle reproduces every row"
+  ],
+  "algorithm": {
+    "candidate_generation_changed": false,
+    "comparison": "strict integer less-than",
+    "input": "finite IEEE-754 binary64 leaf bit patterns retained by the source trace",
+    "qiskit_source_changed": false,
+    "representation": "signed arbitrary-precision integer multiples of 2^-1074",
+    "tie_policy": "preserve the first candidate seen on exact equality"
+  },
+  "datasets": [
+    {
+      "dataset_id": "r169_non_tie",
+      "expected_relation": "source_and_exact_agree",
+      "expected_rows": 192,
+      "result_path": "results/B4_B8_R169_target_compatible_candidate_replay_v0.json",
+      "worker_directory": "results/B4_B8_R169_target_compatible_candidate_replay"
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "expected_relation": "source_one_ulp_split_exact_first_seen_tie",
+      "expected_rows": 192,
+      "result_path": "results/B4_B8_R170_near_tie_candidate_replay_v0.json",
+      "worker_directory": "results/B4_B8_R170_near_tie_candidate_replay"
+    },
+    {
+      "dataset_id": "r172_t_tree_true_tie",
+      "expected_relation": "source_one_ulp_split_exact_first_seen_tie",
+      "expected_rows": 192,
+      "result_path": "results/B4_B8_R172_second_near_tie_candidate_replay_v0.json",
+      "worker_directory": "results/B4_B8_R172_second_near_tie_candidate_replay"
+    }
+  ],
+  "forbidden_claims": [
+    "qiskit_bug",
+    "source_patch",
+    "production_remedy",
+    "performance_improvement",
+    "hardware_result",
+    "quantum_advantage",
+    "bqp_separation",
+    "solved_frontier",
+    "new_credit"
+  ],
+  "method": "b4_b8_r174_exact_score_comparator_protocol_v0",
+  "payload_hash": "7edc13ee94b1bd568061253685dd3977042106211d728dc60f3616fe7e822aa9",
+  "permutation_rule": "all six permutations of every three-candidate replay must select the first exact minimizer in that permutation",
+  "planned_artifacts": {
+    "contract": "benchmarks/B4_B8_R174_exact_score_comparator_contract_v0.json",
+    "independent_oracle": "results/B4_B8_R174_independent_exact_score_oracle_v0.json",
+    "oracle_report": "research/B4_B8_R174_independent_exact_score_oracle.md",
+    "report": "research/B4_B8_R174_exact_score_comparator.md",
+    "result": "results/B4_B8_R174_exact_score_comparator_v0.json"
+  },
+  "r160_controls": {
+    "exact_non_tie_rows": 28,
+    "exact_tie_rows": 4
+  },
+  "research_question": "Can exact fixed-grid score comparison remove two cross-graph one-ULP false winners without changing declared non-ties or first-seen exact ties?",
+  "source_target_id": "T-B4-002cs/T-B8-003cw/T-B10-009ci-r174-protocol",
+  "status": "preregistered_unopened",
+  "title": "B4/B8/B10 R174 fixed-grid exact-score comparator protocol",
+  "upstream_target_id": "T-B4-002cq/T-B8-003cu/T-B10-009cg-r173",
+  "version": 0
+}

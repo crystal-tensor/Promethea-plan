@@ -1,0 +1,101 @@
+{
+  "contract_id": "B4-B8-R174-exact-score-comparator-contract-v0",
+  "execution_started": false,
+  "expected_counts": {
+    "candidate_count": 1728,
+    "candidate_permutation_count": 3456,
+    "dataset_count": 3,
+    "r160_non_tie_controls": 28,
+    "r160_tie_controls": 4,
+    "replay_row_count": 576,
+    "worker_file_count": 9
+  },
+  "payload_hash": "16187c545a7000102b7e7ef836055bb16b3c2e4a01d1d804ea61807521a9fb24",
+  "protocol_path": "results/B4_B8_R174_exact_score_comparator_protocol_v0.json",
+  "protocol_payload_hash": "7edc13ee94b1bd568061253685dd3977042106211d728dc60f3616fe7e822aa9",
+  "result_paths_must_be_absent": [
+    "results/B4_B8_R174_exact_score_comparator_v0.json",
+    "results/B4_B8_R174_independent_exact_score_oracle_v0.json"
+  ],
+  "source_bindings": {
+    "source_01": {
+      "case_analysis_payload_hash": "1cd2c353e5545c1a2a84c8ef1ac41a2eff4783696f4ee5a372df5a8c92a9dcb7",
+      "path": "results/B4_B8_R160_deterministic_error_map_remediation/case_analysis.json",
+      "sha256": "dfe6f9efc7f8b8acb237521720ab424000152ebb85430ff1ae58925b9b3fed9b"
+    },
+    "source_02": {
+      "path": "results/B4_B8_R173_first_divergent_combine_trace_v0.json",
+      "payload_hash": "22ba7693a4ffe43d61c365d875be4a4c82b267a25eb78bb07fd25013f592f5a8",
+      "sha256": "cefcdaf750335c6490205de01c87b331fe1d3016d456077532089b51ea3f90ab"
+    },
+    "source_03": {
+      "path": "results/B4_B8_R169_target_compatible_candidate_replay_v0.json",
+      "payload_hash": "038bd7d2ef843dc57b323f57c89a6a23a9c09d9c8c2e210540bb83db2286fea3",
+      "sha256": "36295f459fccddacced059b0a36d47484714c043cce259ea588b5fc67a759779"
+    },
+    "source_04": {
+      "path": "results/B4_B8_R169_target_compatible_candidate_replay/ascending_sorted_order.json",
+      "sha256": "a07f053a1a0ab4b537a490858f402fc061529c88d0e32030fdf914fe1f9ce8c9"
+    },
+    "source_05": {
+      "path": "results/B4_B8_R169_target_compatible_candidate_replay/descending_sorted_order.json",
+      "sha256": "dff52754d8c4e9dc021cf3ba2fa46bcc4b97516382089b95eeccfb3845806070"
+    },
+    "source_06": {
+      "path": "results/B4_B8_R169_target_compatible_candidate_replay/native_hashset_order.json",
+      "sha256": "b1f9535774320d837b2ed96288be0ee0aa7b5ed81ae0bc004674b54d15142859"
+    },
+    "source_07": {
+      "path": "results/B4_B8_R170_near_tie_candidate_replay_v0.json",
+      "payload_hash": "1af733839bbd9e0617256f11781c4721582531ddd92a96535a7a5dc46c2fff51",
+      "sha256": "86508141e8ac38371275b18597e55960b6c08dcb1e781a4148ec0ab9f9fc50c6"
+    },
+    "source_08": {
+      "path": "results/B4_B8_R170_near_tie_candidate_replay/ascending_sorted_order.json",
+      "sha256": "38acc6542886dd396c62730330d989caeca48bb02c7dabf5afb9af52e2a09c77"
+    },
+    "source_09": {
+      "path": "results/B4_B8_R170_near_tie_candidate_replay/descending_sorted_order.json",
+      "sha256": "6abc8adf57f73b7874cbdf9614352eccaf122aecadc5748d9cfbf72f5fbcbec3"
+    },
+    "source_10": {
+      "path": "results/B4_B8_R170_near_tie_candidate_replay/native_hashset_order.json",
+      "sha256": "ff3e2deaf5c269f382c6e88a9498c0bcc54c49faea7a3900e8c8db71bc7e4b7f"
+    },
+    "source_11": {
+      "path": "results/B4_B8_R172_second_near_tie_candidate_replay_v0.json",
+      "payload_hash": "4c3fa5782a467b3e4eea94c2897a6a52a7257e512704fdc4876cfb18578bd99e",
+      "sha256": "08f7decf871a04608805b5a56a0fc97e572272f834fe2940086c2473dd2c6410"
+    },
+    "source_12": {
+      "path": "results/B4_B8_R172_second_near_tie_candidate_replay/ascending_sorted_order.json",
+      "sha256": "16c3c281b1a776eba84f989f5e1b5f9c73e8126fcf1dca04d1b52f0f238c4270"
+    },
+    "source_13": {
+      "path": "results/B4_B8_R172_second_near_tie_candidate_replay/descending_sorted_order.json",
+      "sha256": "d6957f8a74475a8ba0112d220d554155a89a6189db5424603e8f839b700a045d"
+    },
+    "source_14": {
+      "path": "results/B4_B8_R172_second_near_tie_candidate_replay/native_hashset_order.json",
+      "sha256": "21c0b051b9915b5121d338d738cf00a2f4b0119a3c74646ea6ca2a182358a5ca"
+    }
+  },
+  "tool_bindings": {
+    "b4_b8_r174_exact_score_comparator": {
+      "path": "tools/b4_b8_r174_exact_score_comparator.py",
+      "sha256": "0be64d69c138552c1dba861d17170261d137b4dca199b0793a3a69c21685a4ae"
+    },
+    "b4_b8_r174_exact_score_comparator_preregister": {
+      "path": "tools/b4_b8_r174_exact_score_comparator_preregister.py",
+      "sha256": "8ddaaeba2a92318625d900685dd5dc0446cc7e9e58fa68c09be8f24aa45c6faa"
+    },
+    "b4_b8_r174_exact_score_comparator_replay": {
+      "path": "tools/b4_b8_r174_exact_score_comparator_replay.py",
+      "sha256": "584b8786d073c56e00c9e508a86c5babed1dd37e3317b7357abfee272aaaeb2e"
+    },
+    "b4_b8_r174_independent_exact_score_oracle": {
+      "path": "tools/b4_b8_r174_independent_exact_score_oracle.py",
+      "sha256": "c38aac5be10e25de62b573adf80362f7dcf54068a88229fb234d660bd2a17b6d"
+    }
+  }
+}

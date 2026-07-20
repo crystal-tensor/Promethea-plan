@@ -3285,6 +3285,19 @@ route improvement, hardware result, quantum advantage, BQP separation, solved
 B4/B8/B10, or new credit. The next gate is an isolated exact-score comparator
 patch with a preregistered regression matrix over R160/R169/R170/R172.
 
+`T-B4-002cs` / `T-B8-003cw` / `T-B10-009ci-r174-protocol` now freezes that
+regression matrix before execution. R174 decodes every finite binary64 score
+leaf into an exact integer coefficient on the `2^-1074` grid, compares
+candidate totals with strict integer less-than, and preserves the first
+candidate seen only on exact equality. The frozen matrix contains `192` R169
+non-tie replays, `192` R170 path-graph exact ties, `192` R172 nonisomorphic
+T-tree exact ties, all `3,456` permutations of the three-candidate streams,
+and the R160 `4` tie plus `28` non-tie controls. Protocol hash
+`7edc13ee...`; contract hash `16187c54...`; execution is unopened. This is a
+shadow-comparator protocol, not an integrated Qiskit source patch, production
+remedy, performance result, confirmed bug, hardware result, quantum advantage,
+BQP separation, solved B4/B8/B10, or new credit.
+
 The R149 holdout at `T-B4-002bh` / `T-B8-003bl` / `T-B10-009az` is
 then preregistered ACCEPT with A1-A10, requirements, and phase replay all
 passing `10/10`, `10/10`, and `4/4`. All `24/24` repaired and target-specific
