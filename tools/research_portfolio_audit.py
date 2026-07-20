@@ -1637,6 +1637,200 @@ def audit_r171_independent_near_tie_oracle(
     return status
 
 
+def audit_r172_second_near_tie_replay(
+    root: Path,
+    b4_manifest: dict,
+    b8_manifest: dict,
+    b10_manifest: dict,
+    errors: list[str],
+) -> dict:
+    """Validate R172's nonisomorphic replay and standard-library oracle."""
+    benchmarks = root / "benchmarks"
+    results = root / "results"
+    research = root / "research"
+    paths = {
+        "input": benchmarks / "B4_B8_R172_second_near_tie_candidate_v0.qasm",
+        "contract": benchmarks / "B4_B8_R172_second_near_tie_candidate_contract_v0.json",
+        "protocol": results / "B4_B8_R172_second_near_tie_candidate_protocol_v0.json",
+        "design": results / "B4_B8_R172_second_near_tie_design_v0.json",
+        "design_report": research / "B4_B8_R172_second_near_tie_design.md",
+        "replay": results / "B4_B8_R172_second_near_tie_candidate_replay_v0.json",
+        "replay_report": research / "B4_B8_R172_second_near_tie_candidate_replay.md",
+        "oracle": results / "B4_B8_R172_independent_second_near_tie_oracle_v0.json",
+        "oracle_report": research / "B4_B8_R172_independent_second_near_tie_oracle.md",
+        "replay_executor": root / "tools/b4_b8_r172_second_near_tie_candidate_replay.py",
+        "oracle_executor": root / "tools/b4_b8_r172_independent_second_near_tie_oracle.py",
+    }
+    worker_dir = results / "B4_B8_R172_second_near_tie_candidate_replay"
+    status = {f"{key}_path": str(path) for key, path in paths.items()}
+    status.update({f"{key}_exists": path.exists() for key, path in paths.items()})
+    status["worker_directory"] = str(worker_dir)
+    status["worker_directory_exists"] = worker_dir.exists()
+    if not all(path.exists() for path in paths.values()) or not worker_dir.exists():
+        errors.append("R172 second near-tie replay artifact missing")
+        return status
+
+    def payload_ok(payload: dict) -> bool:
+        body = dict(payload)
+        observed = body.pop("payload_hash", None)
+        expected = hashlib.sha256(json.dumps(body, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+        return observed == expected
+
+    protocol = json.loads(read(paths["protocol"]))
+    contract = json.loads(read(paths["contract"]))
+    design = json.loads(read(paths["design"]))
+    replay = json.loads(read(paths["replay"]))
+    oracle = json.loads(read(paths["oracle"]))
+    identities = [
+        (protocol, "b4_b8_r172_second_near_tie_candidate_protocol_v0", "method", "protocol"),
+        (design, "b4_b8_r172_second_near_tie_design_v0", "method", "design"),
+        (replay, "b4_b8_r172_second_near_tie_candidate_replay_v0", "method", "replay"),
+        (oracle, "b4_b8_r172_independent_second_near_tie_oracle_v0", "method", "oracle"),
+    ]
+    for payload, expected, field, label in identities:
+        if not payload_ok(payload) or payload.get(field) != expected:
+            errors.append(f"R172 {label} identity or payload mismatch")
+    if not payload_ok(contract) or contract.get("contract_id") != "B4-B8-R172-second-near-tie-candidate-contract-v0" or contract.get("execution_started") is not False:
+        errors.append("R172 contract identity, payload, or unopened-boundary mismatch")
+    if contract.get("protocol_payload_hash") != protocol.get("payload_hash"):
+        errors.append("R172 contract protocol binding mismatch")
+    for binding_id, binding in contract.get("source_bindings", {}).items():
+        path = root / binding.get("path", "")
+        if not path.exists() or hashlib.sha256(path.read_bytes()).hexdigest() != binding.get("sha256"):
+            errors.append(f"R172 source binding mismatch: {binding_id}")
+        if binding.get("payload_hash") and path.exists():
+            payload = json.loads(read(path))
+            if payload.get("payload_hash") != binding.get("payload_hash"):
+                errors.append(f"R172 source payload binding mismatch: {binding_id}")
+
+    design_summary = design.get("summary", {})
+    design_expected = {
+        "weighted_variants_scanned": 625,
+        "candidate_observable_variant_count": 524,
+        "one_ulp_variant_count": 21,
+        "selected_multiplicities": [2, 1, 1, 1],
+        "selected_candidate_count": 3,
+        "best_two_source_score_gap_ulp_ratio": 1.0,
+        "source_score_gap_is_one_ulp": True,
+        "degree_sequence_proves_nonisomorphism": True,
+        "r170_degree_sequence": [2, 2, 2, 1, 1],
+        "r172_degree_sequence": [3, 2, 1, 1, 1],
+        "simulation_execution_count": 0,
+        "total_simulated_shots": 0,
+    }
+    for field, value in design_expected.items():
+        if design_summary.get(field) != value:
+            errors.append(f"R172 design summary {field} mismatch")
+
+    replay_summary = replay.get("summary", {})
+    replay_expected = {
+        "profile_count": 3,
+        "replay_count": 192,
+        "yielded_candidate_count": 576,
+        "source_return_match_count": 192,
+        "source_return_mismatch_count": 0,
+        "policy_changed_mapping_count": {"source_f64": 0, "compensated_fsum": 192, "exact_binary64_leaf": 192, "tie_aware_1ulp": 192},
+        "qiskit_calls_performed": 192,
+        "simulation_execution_count": 0,
+        "total_simulated_shots": 0,
+        "new_credit_delta": 0,
+    }
+    if replay.get("status") != "new_input_candidate_replay_complete" or replay.get("requirements_passed") != 10 or replay.get("requirements_failed") != 0:
+        errors.append("R172 replay status or requirement ledger mismatch")
+    if replay.get("preregistration", {}).get("commit") != "c88e3529" or replay.get("preregistration", {}).get("discussion") != "https://github.com/crystal-tensor/Prometheus-plan/discussions/256":
+        errors.append("R172 public preregistration binding mismatch")
+    for field, value in replay_expected.items():
+        if replay_summary.get(field) != value:
+            errors.append(f"R172 replay summary {field} mismatch")
+
+    oracle_summary = oracle.get("summary", {})
+    oracle_expected = {
+        "profile_count": 3,
+        "replay_count": 192,
+        "row_payload_hash_match_count": 192,
+        "candidate_record_count": 576,
+        "returned_candidate_record_count": 192,
+        "source_return_match_count": 192,
+        "source_return_mismatch_count": 0,
+        "policy_changed_mapping_count": replay_expected["policy_changed_mapping_count"],
+        "r172_result_aggregate_match": True,
+        "candidate_order_profiles_recomputed": 3,
+        "qiskit_calls_performed": 0,
+        "simulation_execution_count": 0,
+        "total_simulated_shots": 0,
+        "new_credit_delta": 0,
+    }
+    if oracle.get("status") != "independent_near_tie_oracle_complete" or oracle.get("classification") != "independent_reproduction_confirmed_policy_split" or oracle.get("requirements_passed") != 10 or oracle.get("requirements_failed") != 0:
+        errors.append("R172 oracle status or requirement ledger mismatch")
+    for field, value in oracle_expected.items():
+        if oracle_summary.get(field) != value:
+            errors.append(f"R172 oracle summary {field} mismatch")
+
+    row_count = 0
+    for profile in protocol.get("profiles", []):
+        manifest_path = worker_dir / f"{profile['profile_id']}.json"
+        if not manifest_path.exists():
+            errors.append(f"R172 worker manifest missing: {profile['profile_id']}")
+            continue
+        manifest = json.loads(read(manifest_path))
+        manifest_body = dict(manifest)
+        observed = manifest_body.pop("manifest_payload_hash", None)
+        expected = hashlib.sha256(json.dumps(manifest_body, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+        if observed != expected or manifest.get("replay_count") != profile.get("replay_count"):
+            errors.append(f"R172 worker manifest integrity mismatch: {profile['profile_id']}")
+        for row in manifest.get("replay_rows", []):
+            row_body = dict(row)
+            row_hash = row_body.pop("replay_payload_hash", None)
+            expected_row_hash = hashlib.sha256(json.dumps(row_body, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+            if row_hash != expected_row_hash or row.get("replay", {}).get("yielded_candidate_count") != 3 or not row.get("replay", {}).get("source_return_match"):
+                errors.append(f"R172 worker row invariant failed: {profile['profile_id']}")
+            row_count += 1
+    if row_count != 192:
+        errors.append("R172 worker aggregate replay count mismatch")
+
+    for path, markers, label in [
+        (paths["design_report"], ["625", "nonisomorphic", "one-ULP", "Claim boundary"], "design"),
+        (paths["replay_report"], ["nonisomorphic", "576", "192` / `192", "Claim Boundary"], "replay"),
+        (paths["oracle_report"], ["standard-library", "576", "192` / `192", "Claim boundary"], "oracle"),
+    ]:
+        text = read(path)
+        for marker in markers:
+            if marker not in text:
+                errors.append(f"R172 {label} report boundary missing: {marker}")
+
+    replay_rows = [
+        ("B4", b4_manifest.get("current_results", {}).get("b4_b8_r172_second_near_tie_candidate_replay_v0")),
+        ("B8", b8_manifest.get("current_results", {}).get("b4_b8_r172_second_near_tie_candidate_replay_v0")),
+        ("B10", b10_manifest.get("current_results", {}).get("b10_t2_b4_b8_r172_second_near_tie_candidate_replay_v0")),
+    ]
+    oracle_rows = [
+        ("B4", b4_manifest.get("current_results", {}).get("b4_b8_r172_independent_second_near_tie_oracle_v0")),
+        ("B8", b8_manifest.get("current_results", {}).get("b4_b8_r172_independent_second_near_tie_oracle_v0")),
+        ("B10", b10_manifest.get("current_results", {}).get("b10_t2_b4_b8_r172_independent_second_near_tie_oracle_v0")),
+    ]
+    for label, row in replay_rows:
+        if not row or row.get("status") != "new_input_candidate_replay_complete" or row.get("replay_count") != 192 or row.get("yielded_candidate_count") != 576:
+            errors.append(f"{label} manifest missing or invalid R172 replay")
+    for label, row in oracle_rows:
+        if not row or row.get("status") != "independent_near_tie_oracle_complete" or row.get("row_payload_hash_match_count") != 192 or row.get("candidate_record_count") != 576:
+            errors.append(f"{label} manifest missing or invalid R172 oracle")
+    status.update({
+        "status": replay.get("status"),
+        "classification": replay.get("classification"),
+        "degree_sequence_proves_nonisomorphism": design_summary.get("degree_sequence_proves_nonisomorphism"),
+        "weighted_variants_scanned": design_summary.get("weighted_variants_scanned"),
+        "one_ulp_variant_count": design_summary.get("one_ulp_variant_count"),
+        "replay_count": replay_summary.get("replay_count"),
+        "yielded_candidate_count": replay_summary.get("yielded_candidate_count"),
+        "policy_changed_mapping_count": replay_summary.get("policy_changed_mapping_count"),
+        "oracle_status": oracle.get("status"),
+        "oracle_row_payload_hash_match_count": oracle_summary.get("row_payload_hash_match_count"),
+        "oracle_candidate_record_count": oracle_summary.get("candidate_record_count"),
+        "new_credit_delta": replay_summary.get("new_credit_delta"),
+    })
+    return status
+
+
 def audit(root: Path) -> dict:
     research = root / "research"
     benchmarks = root / "benchmarks"
@@ -43664,6 +43858,7 @@ def audit(root: Path) -> dict:
     r169_target_compatible_candidate_status = audit_r169_target_compatible_candidate_replay(root, b4_manifest, b8_manifest, b10_manifest, errors)
     r170_near_tie_candidate_status = audit_r170_near_tie_candidate_replay(root, b4_manifest, b8_manifest, b10_manifest, errors)
     r171_independent_oracle_status = audit_r171_independent_near_tie_oracle(root, b4_manifest, b8_manifest, b10_manifest, errors)
+    r172_second_near_tie_status = audit_r172_second_near_tie_replay(root, b4_manifest, b8_manifest, b10_manifest, errors)
 
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
@@ -44026,6 +44221,7 @@ def audit(root: Path) -> dict:
             "r169_target_compatible_candidate_replay": r169_target_compatible_candidate_status,
             "r170_near_tie_candidate_replay": r170_near_tie_candidate_status,
             "r171_independent_near_tie_oracle": r171_independent_oracle_status,
+            "r172_second_near_tie_replay": r172_second_near_tie_status,
         },
         "b5": {
             "manifest": str(b5_manifest_path),
@@ -44188,6 +44384,7 @@ def audit(root: Path) -> dict:
             "r169_target_compatible_candidate_replay": r169_target_compatible_candidate_status,
             "r170_near_tie_candidate_replay": r170_near_tie_candidate_status,
             "r171_independent_near_tie_oracle": r171_independent_oracle_status,
+            "r172_second_near_tie_replay": r172_second_near_tie_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -44227,6 +44424,7 @@ def audit(root: Path) -> dict:
             "r169_target_compatible_candidate_replay": r169_target_compatible_candidate_status,
             "r170_near_tie_candidate_replay": r170_near_tie_candidate_status,
             "r171_independent_near_tie_oracle": r171_independent_oracle_status,
+            "r172_second_near_tie_replay": r172_second_near_tie_status,
             "t1_d5_observable_denominator_table": b10_t1_d5_table_status,
             "t1_d5_b3_molecular_observable_table": b10_t1_d5_b3_table_status,
             "t1_d5_b3_reaction_observable_table": b10_t1_d5_b3_reaction_table_status,

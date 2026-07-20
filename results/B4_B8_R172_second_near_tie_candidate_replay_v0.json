@@ -1,0 +1,178 @@
+{
+  "acceptance_conditions": [
+    {
+      "condition_id": "A1",
+      "passed": true
+    },
+    {
+      "condition_id": "A2",
+      "passed": true
+    },
+    {
+      "condition_id": "A3",
+      "passed": true
+    },
+    {
+      "condition_id": "A4",
+      "passed": true
+    },
+    {
+      "condition_id": "A5",
+      "passed": true
+    },
+    {
+      "condition_id": "A6",
+      "passed": true
+    },
+    {
+      "condition_id": "A7",
+      "passed": true
+    },
+    {
+      "condition_id": "A8",
+      "passed": true
+    },
+    {
+      "condition_id": "A9",
+      "passed": true
+    },
+    {
+      "condition_id": "A10",
+      "passed": true
+    }
+  ],
+  "artifacts": {
+    "contract": "benchmarks/B4_B8_R172_second_near_tie_candidate_contract_v0.json",
+    "markdown_report": "research/B4_B8_R172_second_near_tie_candidate_replay.md",
+    "protocol": "results/B4_B8_R172_second_near_tie_candidate_protocol_v0.json",
+    "result": "results/B4_B8_R172_second_near_tie_candidate_replay_v0.json",
+    "worker_directory": "results/B4_B8_R172_second_near_tie_candidate_replay"
+  },
+  "claim_boundary": {
+    "what_is_not_supported": "an alternate search path, a production remedy, a confirmed Qiskit bug, broad cross-input generality, cross-platform determinism, hardware relevance, route advantage, quantum advantage, BQP separation, solved B4/B8/B10, or new credit",
+    "what_is_supported": "candidate-level replay over a nonisomorphic weighted T-tree OpenQASM 3 input under the declared profiles and policies"
+  },
+  "classification": "new_input_candidate_replay_complete",
+  "method": "b4_b8_r172_second_near_tie_candidate_replay_v0",
+  "payload_hash": "4c3fa5782a467b3e4eea94c2897a6a52a7257e512704fdc4876cfb18578bd99e",
+  "preregistration": {
+    "commit": "c88e3529",
+    "created_at": "2026-07-20T20:04:36+08:00",
+    "discussion": "https://github.com/crystal-tensor/Prometheus-plan/discussions/256"
+  },
+  "profile_summary": [
+    {
+      "policy_changed_mapping": {
+        "compensated_fsum": 64,
+        "exact_binary64_leaf": 64,
+        "source_f64": 0,
+        "tie_aware_1ulp": 64
+      },
+      "profile_id": "native_hashset_order",
+      "replay_count": 64,
+      "source_return_match_count": 64,
+      "yielded_candidate_count": 192
+    },
+    {
+      "policy_changed_mapping": {
+        "compensated_fsum": 64,
+        "exact_binary64_leaf": 64,
+        "source_f64": 0,
+        "tie_aware_1ulp": 64
+      },
+      "profile_id": "ascending_sorted_order",
+      "replay_count": 64,
+      "source_return_match_count": 64,
+      "yielded_candidate_count": 192
+    },
+    {
+      "policy_changed_mapping": {
+        "compensated_fsum": 64,
+        "exact_binary64_leaf": 64,
+        "source_f64": 0,
+        "tie_aware_1ulp": 64
+      },
+      "profile_id": "descending_sorted_order",
+      "replay_count": 64,
+      "source_return_match_count": 64,
+      "yielded_candidate_count": 192
+    }
+  ],
+  "requirements": [
+    {
+      "passed": true,
+      "requirement_id": "P1"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P2"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P3"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P4"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P5"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P6"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P7"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P8"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P9"
+    },
+    {
+      "passed": true,
+      "requirement_id": "P10"
+    }
+  ],
+  "requirements_failed": 0,
+  "requirements_passed": 10,
+  "source_target_id": "T-B4-002cp/T-B8-003ct/T-B10-009cf-r172",
+  "status": "new_input_candidate_replay_complete",
+  "summary": {
+    "bqp_separation_claimed": false,
+    "candidate_count_distribution": {
+      "3": 192
+    },
+    "candidate_selection_performed": true,
+    "confirmed_qiskit_bug_claimed": false,
+    "mapping_changed_claimed": false,
+    "new_credit_delta": 0,
+    "numerical_remedy_claimed": false,
+    "policy_changed_mapping_count": {
+      "compensated_fsum": 192,
+      "exact_binary64_leaf": 192,
+      "source_f64": 0,
+      "tie_aware_1ulp": 192
+    },
+    "profile_count": 3,
+    "qiskit_calls_performed": 192,
+    "quantum_advantage_claimed": false,
+    "replay_count": 192,
+    "route_change_performed": false,
+    "simulation_execution_count": 0,
+    "solved_frontier_claimed": false,
+    "source_return_match_count": 192,
+    "source_return_mismatch_count": 0,
+    "total_simulated_shots": 0,
+    "yielded_candidate_count": 576
+  },
+  "title": "B4/B8 R172 second-graph near-tie complete-candidate replay",
+  "upstream_target_id": "T-B4-002co/T-B8-003cs/T-B10-009ce-r171",
+  "version": 0
+}

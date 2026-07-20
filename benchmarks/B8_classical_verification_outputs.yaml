@@ -3303,6 +3303,74 @@ current_results:
     executor: ../tools/b4_b8_r171_independent_near_tie_oracle.py
     source_result: ../results/B4_B8_R170_near_tie_candidate_replay_v0.json
     source_worker_directory: ../results/B4_B8_R170_near_tie_candidate_replay
+  b4_b8_r172_second_near_tie_candidate_replay_v0:
+    status: new_input_candidate_replay_complete
+    method: b4_b8_r172_second_near_tie_candidate_replay_v0
+    source_target_id: T-B4-002cp/T-B8-003ct/T-B10-009cf-r172
+    upstream_target_id: T-B4-002co/T-B8-003cs/T-B10-009ce-r171
+    r170_degree_sequence: [2, 2, 2, 1, 1]
+    r172_degree_sequence: [3, 2, 1, 1, 1]
+    degree_sequence_proves_nonisomorphism: true
+    weighted_variants_scanned: 625
+    one_ulp_variant_count: 21
+    profile_count: 3
+    replay_count: 192
+    yielded_candidate_count: 576
+    source_return_match_count: 192
+    source_return_mismatch_count: 0
+    policy_changed_mapping_count: {source_f64: 0, compensated_fsum: 192, exact_binary64_leaf: 192, tie_aware_1ulp: 192}
+    qiskit_calls_performed: 192
+    simulation_execution_count: 0
+    total_simulated_shots: 0
+    new_credit_delta: 0
+    qiskit_bug_claimed: false
+    numerical_remedy_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    solved_frontier_claimed: false
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R172_second_near_tie_candidate_replay_v0.json
+    markdown_report: ../research/B4_B8_R172_second_near_tie_candidate_replay.md
+    protocol: ../results/B4_B8_R172_second_near_tie_candidate_protocol_v0.json
+    contract: B4_B8_R172_second_near_tie_candidate_contract_v0.json
+    input: B4_B8_R172_second_near_tie_candidate_v0.qasm
+    executor: ../tools/b4_b8_r172_second_near_tie_candidate_replay.py
+    worker_directory: ../results/B4_B8_R172_second_near_tie_candidate_replay
+    design_result: ../results/B4_B8_R172_second_near_tie_design_v0.json
+    design_report: ../research/B4_B8_R172_second_near_tie_design.md
+  b4_b8_r172_independent_second_near_tie_oracle_v0:
+    status: independent_near_tie_oracle_complete
+    method: b4_b8_r172_independent_second_near_tie_oracle_v0
+    source_target_id: T-B4-002cp/T-B8-003ct/T-B10-009cf-r172
+    profile_count: 3
+    replay_count: 192
+    row_payload_hash_match_count: 192
+    candidate_record_count: 576
+    returned_candidate_record_count: 192
+    source_return_match_count: 192
+    source_return_mismatch_count: 0
+    policy_changed_mapping_count: {source_f64: 0, compensated_fsum: 192, exact_binary64_leaf: 192, tie_aware_1ulp: 192}
+    r172_result_aggregate_match: true
+    candidate_order_profiles_recomputed: 3
+    qiskit_calls_performed: 0
+    simulation_execution_count: 0
+    total_simulated_shots: 0
+    new_credit_delta: 0
+    qiskit_bug_claimed: false
+    numerical_remedy_claimed: false
+    quantum_advantage_claimed: false
+    bqp_separation_claimed: false
+    solved_frontier_claimed: false
+    requirements_passed: 10
+    requirements_failed: 0
+    result: ../results/B4_B8_R172_independent_second_near_tie_oracle_v0.json
+    markdown_report: ../research/B4_B8_R172_independent_second_near_tie_oracle.md
+    protocol: ../results/B4_B8_R172_second_near_tie_candidate_protocol_v0.json
+    contract: B4_B8_R172_second_near_tie_candidate_contract_v0.json
+    executor: ../tools/b4_b8_r172_independent_second_near_tie_oracle.py
+    source_result: ../results/B4_B8_R172_second_near_tie_candidate_replay_v0.json
+    source_worker_directory: ../results/B4_B8_R172_second_near_tie_candidate_replay
   prototype_artifacts:
   output_invariant_verifier: ../tools/b8_output_invariant_verifier.py
   adaptive_leakage_spoofer: ../tools/b8_adaptive_spoofer_leakage.py

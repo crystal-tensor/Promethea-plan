@@ -3241,6 +3241,20 @@ production mapping change, numerical remedy, confirmed bug, hardware result,
 quantum advantage, BQP separation, solved B4/B8/B10, or new credit. The next
 gate is a second near-tie graph with an independent oracle.
 
+`T-B4-002cp` / `T-B8-003ct` / `T-B10-009cf-r172` completes that second-graph
+gate. A bounded design scan checks `625` weighted T-tree variants, finds `21`
+one-ULP controls, and freezes the lowest-two-qubit-cost vector `[2,1,1,1]`.
+Its degree sequence `(3,2,1,1,1)` differs from R170's path sequence
+`(2,2,2,1,1)`, proving graph nonisomorphism. After public preregistration at
+commit `c88e3529` and Discussion #256, all `192/192` traced calls yield three
+candidates and reproduce the policy split: source `0`, compensated `192`,
+exact leaf `192`, and tie-aware `192`. A separate standard-library oracle
+verifies all `192` row hashes and `576` candidate records without importing
+Qiskit. Both gates pass `10/10`. This is reproducible two-graph diagnostic
+evidence, not a production remedy, confirmed Qiskit bug, hardware result,
+quantum advantage, BQP separation, solved B4/B8/B10, or new credit. The next
+gate is source-level localization of the first divergent arithmetic operation.
+
 The R149 holdout at `T-B4-002bh` / `T-B8-003bl` / `T-B10-009az` is
 then preregistered ACCEPT with A1-A10, requirements, and phase replay all
 passing `10/10`, `10/10`, and `4/4`. All `24/24` repaired and target-specific
