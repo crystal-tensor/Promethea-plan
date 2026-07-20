@@ -1,0 +1,145 @@
+{
+  "acceptance_requirements": [
+    "the Linux build and every worker start after a public preregistration Discussion",
+    "the official Qiskit source commit and R176 patch reproduce the frozen patched-source hashes",
+    "cargo fmt, check, three fixed-accumulator tests, diff check, and release build return zero",
+    "the release artifact name is derived from crates/pyext/Cargo.toml and the copied binary passes a hash-bound Python import smoke test whose current directory is outside the source checkout",
+    "all 39 isolated workers identify Linux x86-64 and bind one recorded accelerator hash",
+    "all 2400 recorded calls and 624 warmups complete without simulation or shots",
+    "source f64, BigUint, and fixed exact each match all 800 frozen outcomes",
+    "fixed exact preserves R169 and repairs every R170, R172, and R160 frozen case",
+    "every row, worker, build, result, source, and workflow binding hash validates",
+    "the unchanged R176 fixed/source timing and peak-RSS thresholds pass",
+    "fixed remains at least 10 percent faster than BigUint on the aggregate median",
+    "a standard-library oracle imports neither Qiskit nor the R179 executor and reproduces every outcome",
+    "all forbidden claims and credit remain false or zero"
+  ],
+  "datasets": [
+    {
+      "dataset_id": "r169_non_tie",
+      "expected_relation": "exact_preserves_source_non_tie",
+      "input_path": "benchmarks/B4_B8_R169_target_compatible_candidate_v0.qasm",
+      "protocol_path": "results/B4_B8_R169_target_compatible_candidate_protocol_v0.json",
+      "result_path": "results/B4_B8_R169_target_compatible_candidate_replay_v0.json",
+      "worker_directory": "results/B4_B8_R169_target_compatible_candidate_replay"
+    },
+    {
+      "dataset_id": "r170_path_true_tie",
+      "expected_relation": "exact_repairs_source_one_ulp_false_winner",
+      "input_path": "benchmarks/B4_B8_R170_near_tie_candidate_v0.qasm",
+      "protocol_path": "results/B4_B8_R170_near_tie_candidate_protocol_v0.json",
+      "result_path": "results/B4_B8_R170_near_tie_candidate_replay_v0.json",
+      "worker_directory": "results/B4_B8_R170_near_tie_candidate_replay"
+    },
+    {
+      "dataset_id": "r172_t_tree_true_tie",
+      "expected_relation": "exact_repairs_source_one_ulp_false_winner",
+      "input_path": "benchmarks/B4_B8_R172_second_near_tie_candidate_v0.qasm",
+      "protocol_path": "results/B4_B8_R172_second_near_tie_candidate_protocol_v0.json",
+      "result_path": "results/B4_B8_R172_second_near_tie_candidate_replay_v0.json",
+      "worker_directory": "results/B4_B8_R172_second_near_tie_candidate_replay"
+    }
+  ],
+  "exact_leaf_semantics": "decode each rounded binary64 value of neg_log_fidelity(error) * integer interaction count onto the exact 2^-1074 grid; compare the R175 BigUint sum with a 34-limb little-endian fixed sum that covers every <=64-bit addressable leaf count",
+  "fixed_width_proof": {
+    "available_bits": 2176,
+    "limb_count": 34,
+    "maximum_addressable_leaf_count_bits": 64,
+    "maximum_finite_leaf_high_bit": 2097,
+    "required_sum_bits": 2162
+  },
+  "forbidden_claims": [
+    "upstream_accepted_patch",
+    "production_qiskit_remedy",
+    "confirmed_qiskit_bug",
+    "route_quality_improvement",
+    "hardware_result",
+    "quantum_advantage",
+    "bqp_separation",
+    "solved_frontier",
+    "new_credit"
+  ],
+  "method": "b4_b8_r179_linux_x86_64_protocol_v0",
+  "payload_hash": "4c4899bb0e65de1387585ae034b884bb5508b5d01bf7775d670b65a7360b536d",
+  "performance_thresholds": {
+    "maximum_aggregate_fixed_to_biguint_median_time_ratio": 0.9,
+    "maximum_aggregate_median_time_ratio": 2.5,
+    "maximum_cell_median_time_ratio": 3.0,
+    "maximum_worker_peak_rss_ratio": 1.25
+  },
+  "planned_artifacts": {
+    "accelerator": "research/source_lineage/Qiskit_2_4_1_R179_fixed_superaccumulator_pyext.x86_64-linux-gnu.so",
+    "build_manifest": "research/source_lineage/Qiskit_2_4_1_R179_linux_x86_64_build_manifest.json",
+    "bundle_manifest": "results/B4_B8_R179_linux_x86_64_bundle_manifest_v0.json",
+    "independent_oracle": "results/B4_B8_R179_independent_linux_x86_64_oracle_v0.json",
+    "independent_oracle_report": "research/B4_B8_R179_independent_linux_x86_64_oracle.md",
+    "result": "results/B4_B8_R179_linux_x86_64_replay_v0.json",
+    "result_report": "research/B4_B8_R179_linux_x86_64_replay.md",
+    "worker_directory": "results/B4_B8_R179_linux_x86_64_replay"
+  },
+  "platform_contract": {
+    "machine": "x86_64",
+    "python": "3.12",
+    "qiskit": "2.4.1",
+    "requires_public_discussion_before_dispatch": true,
+    "runner": "github_hosted_ubuntu_24_04",
+    "source_commit": "0fd015a22b84c9082173597a5d2304dc0aaec08c",
+    "system": "Linux",
+    "workflow_dispatch_only": true
+  },
+  "policies": [
+    "source_f64",
+    "rust_biguint_exact_retained_binary64",
+    "rust_fixed_exact_retained_binary64"
+  ],
+  "process_environment": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONHASHSEED": "0",
+    "QISKIT_PARALLEL": "FALSE",
+    "RAYON_NUM_THREADS": "1"
+  },
+  "recorded_calls_per_policy": 800,
+  "research_question": "After R178 built and identified the correct Linux binary but let the source checkout shadow its isolated import overlay, can a cwd-isolated Ubuntu x86-64 import pass and reproduce the full R176 exact-selection result inside the same frozen local performance gates?",
+  "small_gap_cases": [
+    "edge_0_1_m008ulp",
+    "edge_0_1_m001ulp",
+    "edge_1_0_p001ulp",
+    "edge_1_0_p008ulp",
+    "edge_1_2_m001ulp",
+    "edge_2_1_p001ulp",
+    "edge_2_1_p008ulp"
+  ],
+  "small_gap_modes": [
+    "ascending_f64",
+    "descending_f64",
+    "math_fsum",
+    "exact_binary_fraction"
+  ],
+  "small_gap_replays_per_case": 8,
+  "source_target_id": "T-B4-002di/T-B8-003dm/T-B10-009cy-r179-protocol",
+  "standard_profiles": [
+    "native_hashset_order",
+    "ascending_sorted_order",
+    "descending_sorted_order"
+  ],
+  "standard_replays_per_worker": 64,
+  "status": "preregistered_unopened",
+  "tie_policy": "strict decreasing comparison preserves the first exact minimizer seen",
+  "title": "B4/B8/B10 R179 Linux x86-64 independent replay protocol",
+  "total_qiskit_calls_including_warmup": 3024,
+  "total_recorded_calls": 2400,
+  "upstream_target_id": "T-B4-002dh/T-B8-003dl/T-B10-009cx-r178-import-failure",
+  "version": 0,
+  "vf2_configuration": {
+    "call_limit": 30000000,
+    "max_trials": 250000,
+    "score_initial_layout": true,
+    "shuffle_seed": -1,
+    "strict_direction": false,
+    "time_limit": null
+  },
+  "warmup_calls_per_worker": 16,
+  "worker_count": 39
+}

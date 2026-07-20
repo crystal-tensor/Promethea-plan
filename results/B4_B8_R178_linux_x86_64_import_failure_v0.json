@@ -1,0 +1,180 @@
+{
+  "bqp_separation_claimed": false,
+  "built_accelerator": {
+    "path": "research/source_lineage/Qiskit_2_4_1_R178_fixed_superaccumulator_pyext.x86_64-linux-gnu.so",
+    "sha256": "848401f5c3df966effb43cece9c3f3cc43896d8985c14f043a406072603c60f7",
+    "size_bytes": 21621400
+  },
+  "completed_build_gates": [
+    "official Qiskit source checkout",
+    "R176 patch applicability and application",
+    "patched-source hash verification",
+    "cargo fmt --check",
+    "cargo check for qiskit-transpiler",
+    "three R176 fixed-accumulator unit tests",
+    "git diff --check",
+    "release build of qiskit-pyext",
+    "source-metadata resolution of target/release/libqiskit_pyext.so",
+    "x86-64 ELF shared-object validation"
+  ],
+  "downloaded_log_count": 24,
+  "downloaded_logs": [
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/01_git_init.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/01_git_init.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/02_git_remote.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/02_git_remote.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/03_git_fetch.stderr.txt",
+      "sha256": "5acf1fcab256f9405291fc2d411862735ab33a9f3cfba68c7498052a0901d049",
+      "size_bytes": 114
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/03_git_fetch.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/04_git_checkout.stderr.txt",
+      "sha256": "085c143830a014b460856eec73837e5c0df6e0e60ba5eef1457c8711c876a446",
+      "size_bytes": 46
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/04_git_checkout.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/05_patch_check.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/05_patch_check.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/06_patch_apply.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/06_patch_apply.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/07_cargo_fmt.stderr.txt",
+      "sha256": "7a272daf7c467824556f92050aedcb074355e58752f6a875e8e8bc90c748cf2b",
+      "size_bytes": 171
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/07_cargo_fmt.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/08_cargo_check.stderr.txt",
+      "sha256": "de04666060c7096b6469f1dc2de5b5664ffafb53bddd43847163c2c20d218819",
+      "size_bytes": 13302
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/08_cargo_check.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/09_cargo_test.stderr.txt",
+      "sha256": "6c0e03eb9beba268120ed3391e24f2381c5274bc59063aa06df92353d090a650",
+      "size_bytes": 5785
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/09_cargo_test.stdout.txt",
+      "sha256": "f6bfb4a94d20ae6e2084efc35fbc0791f1b8af09c0bd6320686e87a3abb66734",
+      "size_bytes": 435
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/10_git_diff_check.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/10_git_diff_check.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/11_cargo_release.stderr.txt",
+      "sha256": "a9159d049a89091d1dd9dd8e90e899fdde0d2f232595d3c23fe76b62c89eea50",
+      "size_bytes": 10434
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/11_cargo_release.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/12_python_import_smoke.stderr.txt",
+      "sha256": "857b25474b7398dd8b54640b0f382184468669262ea68fea99208235e972ba14",
+      "size_bytes": 373
+    },
+    {
+      "path": "research/source_lineage/R178_linux_x86_64_build_logs/12_python_import_smoke.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    }
+  ],
+  "failure": {
+    "observed_exception": "ImportError: cannot import name '_accelerate' from partially initialized module 'qiskit'",
+    "oracle_started": false,
+    "recorded_call_count": 0,
+    "root_cause": "the smoke subprocess ran with the Qiskit source checkout as its current directory, so Python sys.path[0] shadowed the isolated overlay and imported the unbuilt source package",
+    "scientific_matrix_started": false,
+    "stage": "post_build_isolated_python_import_smoke",
+    "warmup_call_count": 0,
+    "worker_count_started": 0
+  },
+  "github_actions": {
+    "artifact_id": 8466710742,
+    "artifact_sha256": "cb7c5c8cc7339bb6d69db1528787f546b2ed2882be0b7bf66382b1b71f8023de",
+    "conclusion": "failure",
+    "job_id": 88396030273,
+    "run_id": 29755312637,
+    "run_url": "https://github.com/crystal-tensor/Prometheus-plan/actions/runs/29755312637"
+  },
+  "hardware_result_claimed": false,
+  "method": "b4_b8_r178_import_failure_adjudication_v0",
+  "new_credit_delta": 0,
+  "next_gate": "freeze a new protocol that runs the same hash-bound import smoke from the isolated overlay rather than the Qiskit source checkout",
+  "payload_hash": "339d31526b6a0adcbc9a9db4fcfe47af9f4d592b7dff74ffe17a712571282dc7",
+  "public_preregistration": {
+    "commit": "478f9277a8c8d524c709249e34afd1a8952fbbe3",
+    "contract_payload_hash": "8b821aff5fe196a123e8b143252593b3001a3321968dff04fa3d841b9196d208",
+    "created_at": "2026-07-20T15:27:43Z",
+    "discussion": "https://github.com/crystal-tensor/Prometheus-plan/discussions/267",
+    "protocol_payload_hash": "b278733c9a6a68fb18bf75629f4b2c93ba5cca3d9753205f344596c479e89f70"
+  },
+  "quantum_advantage_claimed": false,
+  "solved_frontier_claimed": false,
+  "source_target_id": "T-B4-002dh/T-B8-003dl/T-B10-009cx-r178-import-failure",
+  "status": "isolated_import_failed_before_scientific_replay",
+  "title": "B4/B8/B10 R178 Linux x86-64 import failure adjudication",
+  "upstream_target_id": "T-B4-002de/T-B8-003di/T-B10-009cu-r178-protocol",
+  "version": 0
+}

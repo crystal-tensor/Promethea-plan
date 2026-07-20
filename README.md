@@ -3432,6 +3432,29 @@ component on a second architecture. It cannot replace quantum hardware,
 device noise evidence, or a hardware-level experiment, and grants no new
 credit before execution.
 
+`T-B4-002dh` / `T-B8-003dl` / `T-B10-009cx-r178-import-failure` now seals
+the second public Linux attempt as another explicit pre-science failure.
+GitHub Actions run `29755312637` resolved the source-declared
+`libqiskit_pyext.so`, completed the optimized release build, preserved the
+21,621,400-byte x86-64 ELF binary, and passed the source and Rust test gates.
+The required isolated Python import then failed because its subprocess ran
+from the Qiskit source checkout: Python resolved the unbuilt source package
+through `sys.path[0]` before the intended overlay. The adjudication binds the
+binary and 24 logs and records 0 workers, 0 warmups, 0 recorded calls, no
+oracle, and `new_credit_delta=0`. R178 is not scientific evidence for or
+against the frozen matrix; it is a reproducible import-environment failure.
+
+`T-B4-002di` / `T-B8-003dm` / `T-B10-009cy-r179-protocol` freezes the next
+correction before execution. R179 changes only the import-smoke working
+directory from the Qiskit source checkout to the isolated overlay. The source
+commit, R176 patch, source hashes, declared library name, ELF check, binary
+hash check, 39-worker matrix, 624 warmups, 2,400 recorded calls, correctness
+expectations, timing/RSS limits, and Qiskit-free oracle remain unchanged.
+Protocol hash `4c4899bb...`; contract hash `1612b514...`; execution is
+unopened. This remains a classical compiler reproducibility experiment, not
+quantum-hardware evidence, a production patch, quantum advantage, BQP
+separation, solved B4/B8/B10, or new credit.
+
 The R149 holdout at `T-B4-002bh` / `T-B8-003bl` / `T-B10-009az` is
 then preregistered ACCEPT with A1-A10, requirements, and phase replay all
 passing `10/10`, `10/10`, and `4/4`. All `24/24` repaired and target-specific

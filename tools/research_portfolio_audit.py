@@ -3020,7 +3020,7 @@ def audit_r176_fixed_superaccumulator(
 
 
 def audit_r177_r178_linux_transition(root: Path, errors: list[str]) -> dict:
-    """Validate the sealed R177 failure and unopened corrected R178 protocol."""
+    """Validate the R177/R178 failures and unopened R179 correction."""
     paths = {
         "r177_result": root / "results/B4_B8_R177_linux_x86_64_build_failure_v0.json",
         "r177_report": root / "research/B4_B8_R177_linux_x86_64_build_failure.md",
@@ -3028,6 +3028,13 @@ def audit_r177_r178_linux_transition(root: Path, errors: list[str]) -> dict:
         "r178_protocol": root / "results/B4_B8_R178_linux_x86_64_protocol_v0.json",
         "r178_contract": root / "benchmarks/B4_B8_R178_linux_x86_64_contract_v0.json",
         "r178_report": root / "research/B4_B8_R178_linux_x86_64_protocol.md",
+        "r178_failure": root / "results/B4_B8_R178_linux_x86_64_import_failure_v0.json",
+        "r178_failure_report": root / "research/B4_B8_R178_linux_x86_64_import_failure.md",
+        "r178_logs": root / "research/source_lineage/R178_linux_x86_64_build_logs",
+        "r178_binary": root / "research/source_lineage/Qiskit_2_4_1_R178_fixed_superaccumulator_pyext.x86_64-linux-gnu.so",
+        "r179_protocol": root / "results/B4_B8_R179_linux_x86_64_protocol_v0.json",
+        "r179_contract": root / "benchmarks/B4_B8_R179_linux_x86_64_contract_v0.json",
+        "r179_report": root / "research/B4_B8_R179_linux_x86_64_protocol.md",
     }
     status = {f"{key}_exists": path.exists() for key, path in paths.items()}
     if not all(status.values()):
@@ -3044,6 +3051,9 @@ def audit_r177_r178_linux_transition(root: Path, errors: list[str]) -> dict:
     r177 = json.loads(read(paths["r177_result"]))
     protocol = json.loads(read(paths["r178_protocol"]))
     contract = json.loads(read(paths["r178_contract"]))
+    r178_adjudication = json.loads(read(paths["r178_failure"]))
+    r179_protocol = json.loads(read(paths["r179_protocol"]))
+    r179_contract = json.loads(read(paths["r179_contract"]))
     if (
         not payload_ok(r177)
         or r177.get("method") != "b4_b8_r177_build_failure_adjudication_v0"
@@ -3051,17 +3061,17 @@ def audit_r177_r178_linux_transition(root: Path, errors: list[str]) -> dict:
         or r177.get("payload_hash") != "815b1af1756f23fc9280c411de37543fcaeed73fc31c0d0552284460c09a7222"
     ):
         errors.append("R177 build-failure identity or payload mismatch")
-    failure = r177.get("failure", {})
+    r177_failure = r177.get("failure", {})
     forbidden_claim = any(r177.get(field) is not False for field in (
         "hardware_result_claimed", "quantum_advantage_claimed",
         "bqp_separation_claimed", "solved_frontier_claimed",
     ))
     if (
-        failure.get("scientific_matrix_started") is not False
-        or failure.get("worker_count_started") != 0
-        or failure.get("warmup_call_count") != 0
-        or failure.get("recorded_call_count") != 0
-        or failure.get("oracle_started") is not False
+        r177_failure.get("scientific_matrix_started") is not False
+        or r177_failure.get("worker_count_started") != 0
+        or r177_failure.get("warmup_call_count") != 0
+        or r177_failure.get("recorded_call_count") != 0
+        or r177_failure.get("oracle_started") is not False
         or r177.get("downloaded_log_count") != 22
         or r177.get("new_credit_delta") != 0
         or forbidden_claim
@@ -3100,20 +3110,127 @@ def audit_r177_r178_linux_transition(root: Path, errors: list[str]) -> dict:
             path = root / binding.get("path", "")
             if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != binding.get("sha256"):
                 errors.append(f"R178 {section} mismatch: {binding_id}")
-    result_present = any((root / path).exists() for path in contract["result_paths_must_be_absent"])
-    if result_present:
-        errors.append("R178 result evidence exists before registered execution")
     report_text = read(paths["r178_report"])
     if not all(marker in report_text for marker in ("preregistered_unopened", "39", "2400", "Claim Boundary")):
         errors.append("R178 protocol report boundary missing")
+    if (
+        not payload_ok(r178_adjudication)
+        or r178_adjudication.get("method")
+        != "b4_b8_r178_import_failure_adjudication_v0"
+        or r178_adjudication.get("status")
+        != "isolated_import_failed_before_scientific_replay"
+        or r178_adjudication.get("payload_hash")
+        != "339d31526b6a0adcbc9a9db4fcfe47af9f4d592b7dff74ffe17a712571282dc7"
+        or r178_adjudication.get("upstream_target_id")
+        != protocol.get("source_target_id")
+    ):
+        errors.append("R178 import-failure identity or payload mismatch")
+    r178_failure = r178_adjudication.get("failure", {})
+    if (
+        r178_failure.get("scientific_matrix_started") is not False
+        or r178_failure.get("worker_count_started") != 0
+        or r178_failure.get("warmup_call_count") != 0
+        or r178_failure.get("recorded_call_count") != 0
+        or r178_failure.get("oracle_started") is not False
+        or r178_adjudication.get("downloaded_log_count") != 24
+        or r178_adjudication.get("new_credit_delta") != 0
+    ):
+        errors.append("R178 pre-science failure or zero-credit boundary mismatch")
+    r178_log_rows = r178_adjudication.get("downloaded_logs", [])
+    for row in r178_log_rows:
+        path = root / row.get("path", "")
+        if (
+            not path.is_file()
+            or hashlib.sha256(path.read_bytes()).hexdigest() != row.get("sha256")
+            or path.stat().st_size != row.get("size_bytes")
+        ):
+            errors.append(f"R178 build log binding mismatch: {row.get('path')}")
+    accelerator = r178_adjudication.get("built_accelerator", {})
+    if (
+        hashlib.sha256(paths["r178_binary"].read_bytes()).hexdigest()
+        != accelerator.get("sha256")
+        or paths["r178_binary"].stat().st_size != accelerator.get("size_bytes")
+    ):
+        errors.append("R178 built accelerator binding mismatch")
+    forbidden_claim = any(
+        r178_adjudication.get(field) is not False
+        for field in (
+            "hardware_result_claimed",
+            "quantum_advantage_claimed",
+            "bqp_separation_claimed",
+            "solved_frontier_claimed",
+        )
+    )
+    if forbidden_claim:
+        errors.append("R178 failure makes a forbidden claim")
+    r178_scientific_paths = [
+        "research/source_lineage/Qiskit_2_4_1_R178_linux_x86_64_build_manifest.json",
+        "research/B4_B8_R178_linux_x86_64_replay.md",
+        "research/B4_B8_R178_independent_linux_x86_64_oracle.md",
+        "results/B4_B8_R178_linux_x86_64_replay",
+        "results/B4_B8_R178_linux_x86_64_replay_v0.json",
+        "results/B4_B8_R178_independent_linux_x86_64_oracle_v0.json",
+        "results/B4_B8_R178_linux_x86_64_bundle_manifest_v0.json",
+    ]
+    if any((root / path).exists() for path in r178_scientific_paths):
+        errors.append("R178 scientific evidence exists despite pre-science failure")
+
+    if (
+        not payload_ok(r179_protocol)
+        or r179_protocol.get("method") != "b4_b8_r179_linux_x86_64_protocol_v0"
+        or r179_protocol.get("status") != "preregistered_unopened"
+        or r179_protocol.get("payload_hash")
+        != "4c4899bb0e65de1387585ae034b884bb5508b5d01bf7775d670b65a7360b536d"
+        or r179_protocol.get("upstream_target_id")
+        != r178_adjudication.get("source_target_id")
+    ):
+        errors.append("R179 protocol identity, payload, or upstream binding mismatch")
+    if (
+        not payload_ok(r179_contract)
+        or r179_contract.get("contract_id")
+        != "B4-B8-R179-linux-x86-64-contract-v0"
+        or r179_contract.get("execution_started") is not False
+        or r179_contract.get("protocol_payload_hash")
+        != r179_protocol.get("payload_hash")
+        or r179_contract.get("payload_hash")
+        != "1612b5140aecb82024f8db34a12df87fcdcc9e4989f013a82eac3b4cae6cd96e"
+    ):
+        errors.append("R179 contract identity, payload, or unopened boundary mismatch")
+    for section in ("source_bindings", "tool_bindings"):
+        for binding_id, binding in r179_contract.get(section, {}).items():
+            path = root / binding.get("path", "")
+            if (
+                not path.is_file()
+                or hashlib.sha256(path.read_bytes()).hexdigest()
+                != binding.get("sha256")
+            ):
+                errors.append(f"R179 {section} mismatch: {binding_id}")
+    r179_result_present = any(
+        (root / path).exists()
+        for path in r179_contract["result_paths_must_be_absent"]
+    )
+    if r179_result_present:
+        errors.append("R179 result evidence exists before registered execution")
+    r179_report_text = read(paths["r179_report"])
+    if not all(
+        marker in r179_report_text
+        for marker in ("preregistered_unopened", "39", "2400", "Claim Boundary")
+    ):
+        errors.append("R179 protocol report boundary missing")
     status.update({
         "r177_status": r177.get("status"),
         "r177_log_count": len(log_rows),
-        "r177_scientific_matrix_started": failure.get("scientific_matrix_started"),
+        "r177_scientific_matrix_started": r177_failure.get("scientific_matrix_started"),
         "r178_status": protocol.get("status"),
         "r178_protocol_payload_hash": protocol.get("payload_hash"),
         "r178_contract_payload_hash": contract.get("payload_hash"),
-        "r178_result_evidence_present": result_present,
+        "r178_failure_status": r178_adjudication.get("status"),
+        "r178_log_count": len(r178_log_rows),
+        "r178_scientific_matrix_started": r178_failure.get("scientific_matrix_started"),
+        "r179_status": r179_protocol.get("status"),
+        "r179_protocol_payload_hash": r179_protocol.get("payload_hash"),
+        "r179_contract_payload_hash": r179_contract.get("payload_hash"),
+        "r179_result_evidence_present": r179_result_present,
         "new_credit_delta": 0,
     })
     return status
