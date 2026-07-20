@@ -1,0 +1,98 @@
+name: R179 independent Linux oracle recovery
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-oracle:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out committed R179 evidence
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Recompute the rejected matrix without Qiskit
+        id: oracle
+        shell: bash
+        run: |
+          set +e
+          PYTHONPATH=tools python tools/b4_b8_r179_independent_linux_x86_64_oracle.py \
+            --preregistration-commit "f4e99da05d9e1211fcb3a239144d6355f5cd8055" \
+            --preregistration-discussion "https://github.com/crystal-tensor/Prometheus-plan/discussions/268"
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Verify the expected source-rejection boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("results/B4_B8_R179_independent_linux_x86_64_oracle_v0.json")
+          result = json.loads(path.read_text())
+          failed = [
+              row["requirement_id"]
+              for row in result["requirements"]
+              if not row["passed"]
+          ]
+          assert result["status"] == "independent_linux_x86_64_oracle_failed"
+          assert result["requirements_passed"] == 11
+          assert result["requirements_failed"] == 1
+          assert failed == ["P10"]
+          assert result["platform_audit"]["requirements_failed"] == 0
+          assert result["summary"]["worker_hashes_valid"] == 39
+          assert result["summary"]["row_hashes_valid"] == 2400
+          assert result["summary"]["case_hashes_valid"] == 84
+          assert result["summary"]["standard_outcomes_reproduced"] == 1728
+          assert result["summary"]["small_gap_outcomes_reproduced"] == 672
+          assert result["summary"]["r179_executor_imported"] is False
+          assert result["summary"]["qiskit_imported"] is False
+          print(json.dumps({
+              "status": result["status"],
+              "failed_requirements": failed,
+              "payload_hash": result["payload_hash"],
+          }, indent=2, sort_keys=True))
+          PY
+
+      - name: Write job summary
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("results/B4_B8_R179_independent_linux_x86_64_oracle_v0.json")
+          lines = ["# R179 independent Linux oracle recovery"]
+          if path.exists():
+              result = json.loads(path.read_text())
+              failed = [row["requirement_id"] for row in result["requirements"] if not row["passed"]]
+              lines.extend([
+                  "",
+                  f"- Status: {result['status']}",
+                  f"- Requirements: {result['requirements_passed']}/12",
+                  f"- Expected failed source gate: {','.join(failed)}",
+                  f"- Payload: {result['payload_hash']}",
+              ])
+          Path("/tmp/r179-oracle-summary.md").write_text("\n".join(lines) + "\n")
+          PY
+          cat /tmp/r179-oracle-summary.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload independent oracle evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: r179-independent-linux-oracle
+          if-no-files-found: error
+          retention-days: 30
+          path: |
+            research/B4_B8_R179_independent_linux_x86_64_oracle.md
+            results/B4_B8_R179_independent_linux_x86_64_oracle_v0.json
