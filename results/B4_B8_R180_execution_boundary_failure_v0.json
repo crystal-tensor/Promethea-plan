@@ -1,0 +1,53 @@
+{
+  "bqp_separation_claimed": false,
+  "build_evidence": {
+    "accelerator_path": "research/source_lineage/Qiskit_2_4_1_R180_active_limb_pyext.x86_64-linux-gnu.so",
+    "accelerator_sha256": "985f7e9b02f4c663d16f122cc25cee363470d8b3d7beae1863e46664f1c66aa8",
+    "accelerator_size_bytes": 21647560,
+    "build_manifest_path": "research/source_lineage/Qiskit_2_4_1_R180_active_limb_linux_x86_64_build_manifest.json",
+    "build_manifest_payload_hash": "435deddf0354eafc432a44d2daab5d9f208ee0e4bddeb7b489cf8797e7e4f72d",
+    "build_step_count": 12,
+    "build_steps_returned_zero": 12,
+    "cargo_test_count": 4,
+    "import_smoke_passed": true,
+    "log_file_count": 24
+  },
+  "failure": {
+    "independent_oracle_started": false,
+    "observed_exception": "ValueError: R180 evidence existed before execution: research/source_lineage/Qiskit_2_4_1_R180_active_limb_pyext.x86_64-linux-gnu.so",
+    "recorded_call_count": 0,
+    "root_cause": "the preregistration contract placed both build outputs and scientific outputs in result_paths_must_be_absent; the build correctly created the accelerator before the replay guard evaluated that same list",
+    "scientific_matrix_started": false,
+    "stage": "post_build_pre_worker_contract_validation",
+    "warmup_call_count": 0,
+    "worker_count_started": 0
+  },
+  "github_actions": {
+    "artifact_id": 8469214223,
+    "artifact_sha256": "323df24fd3f095cbbd3e0c89b840462ddbb678a2ecc2face2cee67432b1bca79",
+    "conclusion": "failure",
+    "first_launch_guard_run_id": 29761034165,
+    "job_id": 88416815364,
+    "run_id": 29761452207,
+    "run_url": "https://github.com/crystal-tensor/Prometheus-plan/actions/runs/29761452207"
+  },
+  "hardware_result_claimed": false,
+  "method": "b4_b8_r180_execution_boundary_failure_adjudication_v0",
+  "new_credit_delta": 0,
+  "next_gate": "freeze R181 with build outputs separated from scientific result_paths_must_be_absent, then rerun the unchanged active-limb matrix and independent oracle",
+  "payload_hash": "83b6bb7fa9666fad5395024604a98497384fab80f2de838e238edbc6ea628ca3",
+  "public_preregistration": {
+    "commit": "989247b3fde36bd1bc3dc10dc6d4080fae66df22",
+    "contract_payload_hash": "95176ab2f84b6e32fcaaad74ca4c3205dc82131edfe85f59f926264e97375d7b",
+    "created_at": "2026-07-20T16:45:51Z",
+    "discussion": "https://github.com/crystal-tensor/Prometheus-plan/discussions/270",
+    "protocol_payload_hash": "a10ab4cb90c5e9b9fe5b0d6ef78209ea268a9939581fcfdd76cfd1dc9112a80c"
+  },
+  "quantum_advantage_claimed": false,
+  "solved_frontier_claimed": false,
+  "source_target_id": "T-B4-002dm/T-B8-003dq/T-B10-009dc-r180-execution-boundary-failure",
+  "status": "build_accepted_scientific_replay_unopened",
+  "title": "B4/B8/B10 R180 execution-boundary failure adjudication",
+  "upstream_target_id": "T-B4-002dl/T-B8-003dp/T-B10-009db-r180-protocol",
+  "version": 0
+}

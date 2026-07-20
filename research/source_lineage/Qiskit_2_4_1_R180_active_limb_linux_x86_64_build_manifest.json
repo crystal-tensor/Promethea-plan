@@ -1,0 +1,263 @@
+{
+  "accelerator": {
+    "file_description": "/home/runner/work/Prometheus-plan/Prometheus-plan/research/source_lineage/Qiskit_2_4_1_R180_active_limb_pyext.x86_64-linux-gnu.so: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, BuildID[sha1]=7404d26d670472d4e74fc1ff7ed69eedc6d307dd, not stripped",
+    "path": "research/source_lineage/Qiskit_2_4_1_R180_active_limb_pyext.x86_64-linux-gnu.so",
+    "sha256": "985f7e9b02f4c663d16f122cc25cee363470d8b3d7beae1863e46664f1c66aa8",
+    "size_bytes": 21647560
+  },
+  "bqp_separation_claimed": false,
+  "build_steps": [
+    {
+      "command": [
+        "git",
+        "init",
+        "--quiet"
+      ],
+      "elapsed_seconds": 0.003627777099609375,
+      "returncode": 0,
+      "stderr_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/01_git_init.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/01_git_init.stdout.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "step_id": "01_git_init"
+    },
+    {
+      "command": [
+        "git",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/Qiskit/qiskit.git"
+      ],
+      "elapsed_seconds": 0.0021209716796875,
+      "returncode": 0,
+      "stderr_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/02_git_remote.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/02_git_remote.stdout.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "step_id": "02_git_remote"
+    },
+    {
+      "command": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "0fd015a22b84c9082173597a5d2304dc0aaec08c"
+      ],
+      "elapsed_seconds": 1.317354679107666,
+      "returncode": 0,
+      "stderr_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/03_git_fetch.stderr.txt",
+      "stderr_sha256": "5acf1fcab256f9405291fc2d411862735ab33a9f3cfba68c7498052a0901d049",
+      "stdout_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/03_git_fetch.stdout.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "step_id": "03_git_fetch"
+    },
+    {
+      "command": [
+        "git",
+        "checkout",
+        "--detach",
+        "FETCH_HEAD"
+      ],
+      "elapsed_seconds": 0.23912572860717773,
+      "returncode": 0,
+      "stderr_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/04_git_checkout.stderr.txt",
+      "stderr_sha256": "085c143830a014b460856eec73837e5c0df6e0e60ba5eef1457c8711c876a446",
+      "stdout_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/04_git_checkout.stdout.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "step_id": "04_git_checkout"
+    },
+    {
+      "command": [
+        "git",
+        "apply",
+        "--check",
+        "/home/runner/work/Prometheus-plan/Prometheus-plan/research/source_lineage/Qiskit_2_4_1_R180_active_limb_superaccumulator.patch"
+      ],
+      "elapsed_seconds": 0.0029387474060058594,
+      "returncode": 0,
+      "stderr_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/05_patch_check.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/05_patch_check.stdout.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "step_id": "05_patch_check"
+    },
+    {
+      "command": [
+        "git",
+        "apply",
+        "/home/runner/work/Prometheus-plan/Prometheus-plan/research/source_lineage/Qiskit_2_4_1_R180_active_limb_superaccumulator.patch"
+      ],
+      "elapsed_seconds": 0.002802610397338867,
+      "returncode": 0,
+      "stderr_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/06_patch_apply.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/06_patch_apply.stdout.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "step_id": "06_patch_apply"
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "elapsed_seconds": 10.216048955917358,
+      "returncode": 0,
+      "stderr_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/07_cargo_fmt.stderr.txt",
+      "stderr_sha256": "7a272daf7c467824556f92050aedcb074355e58752f6a875e8e8bc90c748cf2b",
+      "stdout_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/07_cargo_fmt.stdout.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "step_id": "07_cargo_fmt"
+    },
+    {
+      "command": [
+        "cargo",
+        "check",
+        "-p",
+        "qiskit-transpiler",
+        "--lib"
+      ],
+      "elapsed_seconds": 82.08365225791931,
+      "returncode": 0,
+      "stderr_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/08_cargo_check.stderr.txt",
+      "stderr_sha256": "1b03c822a6d2568431dccc6a8a51a372378bd9084de683ddad98fd2317ef6eaa",
+      "stdout_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/08_cargo_check.stdout.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "step_id": "08_cargo_check"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "qiskit-transpiler",
+        "--lib",
+        "r180_active_fixed_exact_score_tests"
+      ],
+      "elapsed_seconds": 104.78200173377991,
+      "returncode": 0,
+      "stderr_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/09_cargo_test.stderr.txt",
+      "stderr_sha256": "01b0c6761871ce3b5c36343b136257e8eecdc59c1c0c284431d372d75bea7257",
+      "stdout_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/09_cargo_test.stdout.txt",
+      "stdout_sha256": "3acdd1ffc5f275decf3bc96e40a5092d67a9cb8f68ce5705e453391200bd7ba1",
+      "step_id": "09_cargo_test"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "elapsed_seconds": 0.1316676139831543,
+      "returncode": 0,
+      "stderr_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/10_git_diff_check.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/10_git_diff_check.stdout.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "step_id": "10_git_diff_check"
+    },
+    {
+      "command": [
+        "cargo",
+        "rustc",
+        "--lib",
+        "--manifest-path",
+        "crates/pyext/Cargo.toml",
+        "--release",
+        "--features",
+        "cache_pygates,pyo3/extension-module",
+        "--crate-type",
+        "cdylib"
+      ],
+      "elapsed_seconds": 358.7072584629059,
+      "returncode": 0,
+      "stderr_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/11_cargo_release.stderr.txt",
+      "stderr_sha256": "fe2094344d70116db9a7461644e3478627aa3e0bce8f74f1d82a4e2e9c2679df",
+      "stdout_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/11_cargo_release.stdout.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "step_id": "11_cargo_release"
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python",
+        "-c",
+        "import hashlib, json\nfrom pathlib import Path\nimport qiskit._accelerate as accelerator\nfrom qiskit._accelerate.vf2_layout import VF2PassConfiguration\npath = Path(accelerator.__file__).resolve()\nentry = getattr(accelerator.vf2_layout, 'vf2_layout_pass_average_active_fixed_exact_score', None)\nprint(json.dumps({'accelerator_path': str(path), 'accelerator_sha256': hashlib.sha256(path.read_bytes()).hexdigest(), 'configuration_type': VF2PassConfiguration.__name__, 'active_limb_entry_point': callable(entry)}, sort_keys=True))"
+      ],
+      "elapsed_seconds": 0.46660804748535156,
+      "returncode": 0,
+      "stderr_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/12_python_import_smoke.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "research/source_lineage/R180_active_limb_linux_x86_64_build_logs/12_python_import_smoke.stdout.txt",
+      "stdout_sha256": "c7c3961a8d8867d4afde922e64573c40de9423633b46c49a0762d32a19fadbc5",
+      "step_id": "12_python_import_smoke"
+    }
+  ],
+  "github_actions": {
+    "job": "active-limb-linux-x86-64",
+    "ref": "refs/heads/main",
+    "run_attempt": "1",
+    "run_id": "29761452207",
+    "run_url": "https://github.com/crystal-tensor/Prometheus-plan/actions/runs/29761452207",
+    "sha": "989247b3fde36bd1bc3dc10dc6d4080fae66df22",
+    "workflow": "R180 active-limb Linux x86-64 replay"
+  },
+  "hardware_result_claimed": false,
+  "method": "b4_b8_r180_active_limb_linux_x86_64_build_v0",
+  "new_credit_delta": 0,
+  "official_source": {
+    "commit": "0fd015a22b84c9082173597a5d2304dc0aaec08c",
+    "release": "2.4.1",
+    "repository": "https://github.com/Qiskit/qiskit.git"
+  },
+  "patch": {
+    "path": "research/source_lineage/Qiskit_2_4_1_R180_active_limb_superaccumulator.patch",
+    "sha256": "b06afaaad7ce6259e0b86aa919b7ea82d7194c0a011b323b36d9e682a250a0a6"
+  },
+  "patched_source_hashes": {
+    "crates/pyext/Cargo.toml": "996c72ed40ce2a1cd379df98b3e7f99c4eb5c937bb743a29383141bc0c8a5db5",
+    "crates/transpiler/Cargo.toml": "0e04369fa263fc8f12495bb091c16858c077b216bf3dad7324a59a95b7a7fa26",
+    "crates/transpiler/src/passes/vf2/vf2_layout.rs": "d883ed30f5693a080272146245004981508004f2f9e86dba1b433c00a3eb8725"
+  },
+  "payload_hash": "435deddf0354eafc432a44d2daab5d9f208ee0e4bddeb7b489cf8797e7e4f72d",
+  "platform": {
+    "cargo": "cargo 1.97.1 (c980f4866 2026-06-30)",
+    "machine": "x86_64",
+    "platform": "Linux-6.17.0-1020-azure-x86_64-with-glibc2.39",
+    "python": "3.12.13",
+    "python_extension_suffix": ".cpython-312-x86_64-linux-gnu.so",
+    "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+    "system": "Linux",
+    "uname": "Linux runnervm3jd5f 6.17.0-1020-azure #20~24.04.1-Ubuntu SMP Fri Jun 19 20:09:14 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux"
+  },
+  "preregistration": {
+    "commit": "989247b3fde36bd1bc3dc10dc6d4080fae66df22",
+    "created_at": "2026-07-20T16:45:51Z",
+    "discussion": "https://github.com/crystal-tensor/Prometheus-plan/discussions/270"
+  },
+  "python_import_smoke": {
+    "accelerator_path": "/tmp/prometheus-r180-import-smoke/qiskit/_accelerate.abi3.so",
+    "accelerator_sha256": "985f7e9b02f4c663d16f122cc25cee363470d8b3d7beae1863e46664f1c66aa8",
+    "active_limb_entry_point": true,
+    "configuration_type": "VF2PassConfiguration"
+  },
+  "quantum_advantage_claimed": false,
+  "simulation_execution_count": 0,
+  "solved_frontier_claimed": false,
+  "source_declared_library": {
+    "crate_types": [
+      "cdylib"
+    ],
+    "metadata_path": "crates/pyext/Cargo.toml",
+    "name": "qiskit_pyext",
+    "release_artifact": "target/release/libqiskit_pyext.so"
+  },
+  "status": "linux_x86_64_pyext_built_and_imported_after_preregistration",
+  "title": "Qiskit 2.4.1 R180 active-limb Linux x86-64 build manifest",
+  "total_simulated_shots": 0,
+  "version": 0
+}
