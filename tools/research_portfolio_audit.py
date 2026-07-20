@@ -3830,6 +3830,12 @@ def audit_r182_score_cost_attribution_preregistration(
         "amendment_report": root
         / "research/B4_B8_R182_score_cost_attribution_protocol_amendment.md",
         "amendment_tool": root / "tools/b4_b8_r182_protocol_amendment.py",
+        "execution_contract": root
+        / "benchmarks/B4_B8_R182_score_cost_attribution_execution_contract_v0.json",
+        "execution_report": root
+        / "research/B4_B8_R182_score_cost_attribution_execution_contract.md",
+        "execution_tool": root
+        / "tools/b4_b8_r182_execution_preregister.py",
     }
     status = {f"{key}_exists": path.exists() for key, path in paths.items()}
     if not all(status.values()):
@@ -3848,6 +3854,7 @@ def audit_r182_score_cost_attribution_preregistration(
     protocol = json.loads(read(paths["protocol"]))
     contract = json.loads(read(paths["contract"]))
     amendment = json.loads(read(paths["amendment"]))
+    execution = json.loads(read(paths["execution_contract"]))
     expected_sources = {
         "result": "7a5f055dae4184e01e5c8bb8a18de7b9d09cde8db6b2415b24cb6c1ab9a0b38f",
         "oracle": "a1de6b1b1eb57353bbf3968a2c8232ae6c41d8ee8ca4b398b7992a6b24d9d388",
@@ -3991,6 +3998,118 @@ def audit_r182_score_cost_attribution_preregistration(
         )
     ):
         errors.append("R182 protocol report boundary missing")
+
+    measurement = execution.get("measurement_pair_contract", {})
+    public = execution.get("public_preregistration", {})
+    allocation = execution.get("allocator_instrumentation_boundary", {})
+    execution_claims = execution.get("claim_boundary", {})
+    expected_tool_paths = {
+        "research/source_lineage/Qiskit_2_4_1_R182_score_cost_attribution.patch",
+        "tools/b4_b8_r182_score_cost_attribution_replay.py",
+        "tools/b4_b8_r182_independent_cost_oracle.py",
+        "tools/b4_b8_r182_linux_x86_64_build.py",
+        "tools/b4_b8_r182_linux_x86_64_bundle.py",
+        ".github/workflows/r182-score-cost-attribution-linux-x86-64.yml",
+    }
+    observed_tool_paths = {
+        binding.get("path") for binding in execution.get("tool_bindings", {}).values()
+    }
+    if (
+        not payload_ok(execution)
+        or execution.get("payload_hash")
+        != "67cdd1e157f5d5d1b0f2cd612ecef7711a0bed659b7bb9b6f3ae98410ab52eeb"
+        or execution.get("contract_id")
+        != "B4-B8-R182-score-cost-attribution-execution-contract-v0"
+        or execution.get("status")
+        != "execution_tooling_bound_measurement_unopened"
+        or execution.get("execution_tooling_bound") is not True
+        or execution.get("execution_started") is not False
+        or execution.get("protocol_payload_hash") != protocol.get("payload_hash")
+        or execution.get("amendment_payload_hash") != amendment.get("payload_hash")
+        or execution.get("design_contract_payload_hash")
+        != contract.get("payload_hash")
+        or public.get("discussion")
+        != "https://github.com/crystal-tensor/Prometheus-plan/discussions/272"
+        or public.get("created_at") != "2026-07-20T18:00:03Z"
+        or public.get("correction_comment_created_at")
+        != "2026-07-20T18:17:13Z"
+        or public.get("amendment_public_commit")
+        != "8ec24b221e2e2690ffb8c80fe73ce0e31a019a7a"
+        or execution.get("workload_matrix", {}).get("cell_count") != 13
+        or len(execution.get("workload_matrix", {}).get("cells", [])) != 13
+        or measurement.get("pair_order")
+        != ["uninstrumented_timing", "counter_probe"]
+        or measurement.get("probe_elapsed_excluded_from_timing") is not True
+        or measurement.get("mapping_equality_required_within_pair") is not True
+        or measurement.get("cells_per_policy") != 13
+        or measurement.get("exact_policy_count") != 3
+        or measurement.get("measured_pairs_per_cell_policy") != 32
+        or measurement.get("warmups_per_cell_policy") != 8
+        or measurement.get("measured_pairs_per_policy") != 416
+        or measurement.get("warmups_per_policy") != 104
+        or measurement.get("measured_pairs_all_policies") != 1248
+        or measurement.get("warmups_all_policies") != 312
+        or measurement.get("timing_calls_all_policies") != 1248
+        or measurement.get("counter_probe_calls_all_policies") != 1248
+        or measurement.get("expected_worker_count") != 39
+        or measurement.get("total_qiskit_function_calls") != 2808
+        or len(execution.get("counter_definitions", {})) != 9
+        or allocation.get("allocator") != "std::alloc::System"
+        or allocation.get("timing_call_tracking_enabled") is not False
+        or allocation.get("wrapper_branch_overhead_separately_estimated")
+        is not False
+        or allocation.get("causal_production_claim_allowed") is not False
+        or len(execution.get("source_bindings", {})) != 52
+        or len(execution.get("tool_bindings", {})) != 6
+        or observed_tool_paths != expected_tool_paths
+        or any(
+            execution_claims.get(field) is not False
+            for field in (
+                "cost_attribution_claimed_before_execution",
+                "causal_bottleneck_claimed",
+                "production_qiskit_remedy_claimed",
+                "hardware_result_claimed",
+                "quantum_advantage_claimed",
+                "bqp_separation_claimed",
+                "solved_frontier_claimed",
+            )
+        )
+        or execution_claims.get("new_credit_delta") != 0
+    ):
+        errors.append("R182 execution contract or unopened measurement boundary mismatch")
+    for section in ("source_bindings", "tool_bindings"):
+        for binding_id, binding in execution.get(section, {}).items():
+            path = root / binding.get("path", "")
+            if not path.is_file() or hashlib.sha256(
+                path.read_bytes()
+            ).hexdigest() != binding.get("sha256"):
+                errors.append(f"R182 execution {section} mismatch: {binding_id}")
+    generator_binding = execution.get("contract_generator_binding", {})
+    if (
+        generator_binding.get("path")
+        != "tools/b4_b8_r182_execution_preregister.py"
+        or hashlib.sha256(paths["execution_tool"].read_bytes()).hexdigest()
+        != generator_binding.get("sha256")
+    ):
+        errors.append("R182 execution-contract generator binding mismatch")
+    for relative in execution.get("result_paths_must_be_absent", []):
+        if (root / relative).exists():
+            errors.append(f"R182 result exists before execution: {relative}")
+    for relative in execution.get("build_output_paths_created_before_replay", []):
+        if (root / relative).exists():
+            errors.append(f"R182 build output exists before execution: {relative}")
+    execution_report = read(paths["execution_report"])
+    if not all(
+        marker in execution_report
+        for marker in (
+            "execution_tooling_bound_measurement_unopened",
+            "`1248` frozen measurements",
+            "`39` isolated workers",
+            "`2808` total Qiskit function calls",
+            "No build or measurement has started",
+        )
+    ):
+        errors.append("R182 execution-contract report boundary missing")
     status.update(
         {
             "protocol_status": protocol.get("status"),
@@ -4013,8 +4132,14 @@ def audit_r182_score_cost_attribution_preregistration(
             ),
             "amendment_status": amendment.get("status"),
             "amendment_payload_hash": amendment.get("payload_hash"),
-            "execution_tooling_bound": contract.get("execution_tooling_bound"),
-            "execution_started": contract.get("execution_started"),
+            "execution_contract_status": execution.get("status"),
+            "execution_contract_payload_hash": execution.get("payload_hash"),
+            "execution_tooling_bound": execution.get("execution_tooling_bound"),
+            "execution_started": execution.get("execution_started"),
+            "expected_worker_count": measurement.get("expected_worker_count"),
+            "total_qiskit_function_calls": measurement.get(
+                "total_qiskit_function_calls"
+            ),
             "new_credit_delta": 0,
         }
     )

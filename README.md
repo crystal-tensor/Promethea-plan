@@ -3529,6 +3529,26 @@ oracle, Linux build tool, bundle tool, and public workflow. No cost
 attribution, causal bottleneck, production remedy, hardware result, quantum
 advantage, BQP separation, solved frontier, or new credit is claimed.
 
+`T-B4-002dr` / `T-B8-003dv` / `T-B10-009dh-r182-execution-contract`
+now binds the complete R182 instrument chain while keeping measurement
+unopened. Contract `67cdd1e1...` seals 52 source artifacts and six execution
+artifacts: the cumulative Qiskit 2.4.1 Rust patch, replay runner, independent
+standard-library oracle, Linux x86-64 builder, evidence bundler, and public
+Actions workflow. The matrix contains 13 cells for each of three exact
+policies, 39 isolated workers, 1,248 paired measurements, 312 warmups, and
+2,808 total Qiskit calls. Every measured pair runs an uninstrumented timing
+call followed by a separate counter probe and requires identical mappings;
+probe time is excluded. BigUint allocation channels count successful System
+allocator events only while a thread-local construction/addition guard is
+active. Because the allocator wrapper remains compiled into the timing
+binary, the experiment can classify source-bound pressure but cannot by
+itself establish production causality. The portfolio audit passes with zero
+errors and zero warnings; build outputs, worker rows, results, and oracle
+artifacts remain absent. Next: run the exact public Linux workflow and retain
+the frozen outcome whether it supports or rejects H1/H2/H3. No production
+remedy, hardware result, quantum advantage, BQP separation, solved frontier,
+or new credit is claimed.
+
 The R149 holdout at `T-B4-002bh` / `T-B8-003bl` / `T-B10-009az` is
 then preregistered ACCEPT with A1-A10, requirements, and phase replay all
 passing `10/10`, `10/10`, and `4/4`. All `24/24` repaired and target-specific
