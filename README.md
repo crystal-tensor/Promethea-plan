@@ -79,6 +79,20 @@ Current evidence includes:
 - an audit report in `research/portfolio_status_report.md`;
 - a current status page in `research/current_stage_brief.html`.
 
+The next B4/B8/B10 step is the frozen, unopened R185 macOS arm64
+cross-architecture replication. It repeats the exact R184 patch, 13 workload
+cells, 468 order-balanced BigUint/prefix/window triplets, 1,404 timing calls,
+468 probes, 351 warmups, and 2,223 total Qiskit calls while changing only the
+execution architecture from Linux x86-64 to Darwin arm64. H1-H4 retain the
+R184 integrity, compactness, `0.90x` window/prefix, and `1.00x`
+window/BigUint thresholds. New H5 accepts transfer only if both the committed
+Linux result and the future macOS result support H1-H4 under the identical
+patch, workload, and thresholds. Protocol `bd2f5c9a...`; design contract
+`c8f8b7e8...`. Scientific execution, build, worker rows, performance
+classification, cross-architecture transfer, and new credit remain unopened
+or zero. The design is not a universal platform theorem, production remedy,
+hardware result, quantum advantage, BQP separation, or solved frontier.
+
 The latest completed B4/B8/B10 step is the independently audited R184
 windowed exact-score experiment. Public Actions run `29778806963` executed 13
 isolated Linux x86-64 workers, 468 order-balanced three-arm triplets, 1,404
@@ -3692,6 +3706,18 @@ does not establish full-domain performance, an upstream Qiskit remedy, hardware
 behavior, quantum advantage, BQP separation, solved B4/B8/B10, or new credit.
 Next: cross-architecture replication and a complete VF2 workflow benchmark with
 the same exact-mapping and independent-oracle discipline.
+
+`T-B4-002ec` / `T-B8-003eg` /
+`T-B10-009ds-r185-macos-arm64-replication-protocol` freezes the R185
+cross-architecture replication before any build or measurement. It reuses the
+unchanged R184 exact-window patch and the same 13-cell, 468-triplet,
+six-order-balanced workload on a clean public-main Darwin arm64 runner. H1-H4
+retain every R184 decision rule; H5 requires both Linux x86-64 and macOS arm64
+to support those four hypotheses under the same patch, inputs, and thresholds.
+The design audit passes with protocol hash `bd2f5c9a...` and design-contract
+hash `c8f8b7e8...`. Execution tooling is not yet bound, scientific execution is
+unopened, measured triplets remain 0, and no cross-platform, production,
+hardware, advantage, BQP, solved-frontier, or new-credit claim is made.
 
 The R149 holdout at `T-B4-002bh` / `T-B8-003bl` / `T-B10-009az` is
 then preregistered ACCEPT with A1-A10, requirements, and phase replay all

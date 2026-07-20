@@ -5082,6 +5082,175 @@ def audit_r184_window_exact_score(root: Path, errors: list[str]) -> dict:
     return status
 
 
+def audit_r185_macos_arm64_replication(root: Path, errors: list[str]) -> dict:
+    """Validate the staged R185 macOS arm64 replication evidence chain."""
+    paths = {
+        "protocol": root / "results/B4_B8_R185_macos_arm64_replication_protocol_v0.json",
+        "design_contract": root / "benchmarks/B4_B8_R185_macos_arm64_replication_contract_v0.json",
+        "protocol_report": root / "research/B4_B8_R185_macos_arm64_replication_protocol.md",
+        "design_tool": root / "tools/b4_b8_r185_macos_arm64_preregister.py",
+        "execution_contract": root / "benchmarks/B4_B8_R185_macos_arm64_replication_execution_contract_v0.json",
+        "execution_report": root / "research/B4_B8_R185_macos_arm64_replication_execution_contract.md",
+        "result": root / "results/B4_B8_R185_macos_arm64_replication_v0.json",
+        "result_report": root / "research/B4_B8_R185_macos_arm64_replication.md",
+        "oracle": root / "results/B4_B8_R185_independent_oracle_v0.json",
+        "oracle_report": root / "research/B4_B8_R185_independent_oracle.md",
+        "bundle": root / "results/B4_B8_R185_macos_arm64_replication_bundle_v0.json",
+        "build": root / "research/source_lineage/Qiskit_2_4_1_R185_window_exact_macos_arm64_build_manifest.json",
+        "binary": root / "research/source_lineage/Qiskit_2_4_1_R185_window_exact_pyext.arm64-darwin.so",
+        "worker_dir": root / "results/B4_B8_R185_macos_arm64_replication_replay",
+    }
+    status = {f"{key}_exists": path.exists() for key, path in paths.items()}
+    required_design = ("protocol", "design_contract", "protocol_report", "design_tool")
+    if not all(status[f"{key}_exists"] for key in required_design):
+        errors.append("R185 macOS arm64 replication design artifact missing")
+        return status
+
+    def canonical(value: object) -> str:
+        return hashlib.sha256(
+            json.dumps(value, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest()
+
+    def payload_ok(payload: dict) -> bool:
+        body = dict(payload)
+        return body.pop("payload_hash", None) == canonical(body)
+
+    def file_hash(path: Path) -> str:
+        return hashlib.sha256(path.read_bytes()).hexdigest()
+
+    protocol = json.loads(read(paths["protocol"]))
+    design = json.loads(read(paths["design_contract"]))
+    workload = protocol.get("frozen_workload", {})
+    platform = protocol.get("platform_contract", {})
+    hypothesis_ids = [
+        row.get("hypothesis_id") for row in protocol.get("frozen_hypotheses", [])
+    ]
+    expected_tools = {
+        "research/source_lineage/Qiskit_2_4_1_R184_window_exact_score.patch",
+        "tools/b4_b8_r185_macos_arm64_replay.py",
+        "tools/b4_b8_r185_independent_oracle.py",
+        "tools/b4_b8_r185_macos_arm64_build.py",
+        "tools/b4_b8_r185_macos_arm64_bundle.py",
+    }
+    forbidden_claims = (
+        "representation_speedup_claimed_before_execution",
+        "cross_architecture_transfer_claimed_before_execution",
+        "universal_architecture_performance_claimed",
+        "full_domain_compactness_claimed",
+        "causal_bottleneck_claimed",
+        "upstream_patch_accepted",
+        "production_qiskit_remedy_claimed",
+        "hardware_result_claimed",
+        "quantum_advantage_claimed",
+        "bqp_separation_claimed",
+        "solved_frontier_claimed",
+    )
+    if (
+        not payload_ok(protocol)
+        or protocol.get("method")
+        != "b4_b8_r185_macos_arm64_replication_protocol_v0"
+        or protocol.get("status") != "preregistered_design_unopened"
+        or workload.get("workload_cell_count") != 13
+        or workload.get("worker_count") != 13
+        or workload.get("measured_triplet_count") != 468
+        or workload.get("timing_call_count") != 1404
+        or workload.get("counter_probe_call_count") != 468
+        or workload.get("warmup_call_count") != 351
+        or workload.get("total_qiskit_function_call_count") != 2223
+        or platform.get("runner") != "clean_public_main_local_runner"
+        or platform.get("system") != "Darwin"
+        or platform.get("machine") != "arm64"
+        or platform.get("qiskit") != "2.4.1"
+        or platform.get("requires_remote_main_equal_runner_commit") is not True
+        or platform.get("requires_public_discussion_before_execution") is not True
+        or hypothesis_ids
+        != [
+            "H1-exact-integrity",
+            "H2-compact-common-path",
+            "H3-representation-speedup",
+            "H4-biguint-competitiveness",
+            "H5-cross-architecture-transfer",
+        ]
+        or any(
+            protocol.get("claim_boundary", {}).get(field) is not False
+            for field in forbidden_claims
+        )
+        or protocol.get("claim_boundary", {}).get("new_credit_delta") != 0
+    ):
+        errors.append(
+            "R185 macOS arm64 protocol identity, matrix, platform, hypothesis, or claim boundary mismatch"
+        )
+    if (
+        not payload_ok(design)
+        or design.get("contract_id")
+        != "B4-B8-R185-macos-arm64-replication-design-contract-v0"
+        or design.get("status") != "design_frozen_execution_tooling_unbound"
+        or design.get("protocol_payload_hash") != protocol.get("payload_hash")
+        or design.get("execution_started") is not False
+        or design.get("execution_tooling_bound") is not False
+        or set(design.get("required_before_execution", [])) != expected_tools
+        or design.get("required_before_execution_count") != len(expected_tools)
+    ):
+        errors.append("R185 macOS arm64 design contract or unopened boundary mismatch")
+    for binding in design.get("source_bindings", {}).values():
+        path = root / binding.get("path", "")
+        if not path.is_file() or file_hash(path) != binding.get("sha256"):
+            errors.append(f"R185 source binding mismatch: {binding.get('path')}")
+    design_tool_binding = design.get("design_tool_binding", {})
+    if (
+        design_tool_binding.get("path")
+        != "tools/b4_b8_r185_macos_arm64_preregister.py"
+        or file_hash(paths["design_tool"]) != design_tool_binding.get("sha256")
+    ):
+        errors.append("R185 design-tool binding mismatch")
+    protocol_report = read(paths["protocol_report"])
+    if not all(
+        marker in protocol_report
+        for marker in (
+            "`468` same-process BigUint/prefix/window triplets",
+            "same 0.90 window/prefix and 1.00 window/BigUint ceilings",
+            "Cross-architecture transfer is accepted only if",
+            "Scientific execution: unopened",
+        )
+    ):
+        errors.append("R185 macOS arm64 protocol report boundary missing")
+
+    execution_presence = paths["execution_contract"].exists()
+    if execution_presence != paths["execution_report"].exists():
+        errors.append("R185 execution contract and report presence mismatch")
+    final_keys = (
+        "result",
+        "result_report",
+        "oracle",
+        "oracle_report",
+        "bundle",
+        "build",
+        "binary",
+        "worker_dir",
+    )
+    final_presence = [paths[key].exists() for key in final_keys]
+    if any(final_presence) and not all(final_presence):
+        errors.append("R185 final evidence chain is incomplete")
+
+    status.update(
+        {
+            "protocol_status": protocol.get("status"),
+            "protocol_payload_hash": protocol.get("payload_hash"),
+            "design_contract_status": design.get("status"),
+            "design_contract_payload_hash": design.get("payload_hash"),
+            "execution_contract_status": "submitted"
+            if execution_presence
+            else "not_submitted",
+            "scientific_execution_started": all(final_presence),
+            "result_status": "submitted" if paths["result"].exists() else "not_submitted",
+            "oracle_status": "submitted" if paths["oracle"].exists() else "not_submitted",
+            "measured_triplet_count": 0,
+            "new_credit_delta": 0,
+        }
+    )
+    return status
+
+
 def audit(root: Path) -> dict:
     research = root / "research"
     benchmarks = root / "benchmarks"
@@ -47123,6 +47292,9 @@ def audit(root: Path) -> dict:
     )
     r183_prefix_initialization_status = audit_r183_prefix_initialization_ablation(root, errors)
     r184_window_exact_score_status = audit_r184_window_exact_score(root, errors)
+    r185_macos_arm64_replication_status = audit_r185_macos_arm64_replication(
+        root, errors
+    )
 
     for path in [roadmap_path, status_html_path]:
         if not path.exists():
@@ -47495,6 +47667,7 @@ def audit(root: Path) -> dict:
             "r182_score_cost_attribution": r182_score_cost_attribution_status,
             "r183_prefix_initialization_ablation": r183_prefix_initialization_status,
             "r184_window_exact_score": r184_window_exact_score_status,
+            "r185_macos_arm64_replication": r185_macos_arm64_replication_status,
         },
         "b5": {
             "manifest": str(b5_manifest_path),
@@ -47667,6 +47840,7 @@ def audit(root: Path) -> dict:
             "r182_score_cost_attribution": r182_score_cost_attribution_status,
             "r183_prefix_initialization_ablation": r183_prefix_initialization_status,
             "r184_window_exact_score": r184_window_exact_score_status,
+            "r185_macos_arm64_replication": r185_macos_arm64_replication_status,
         },
         "b9": {
             "manifest": str(b9_manifest_path),
@@ -47716,6 +47890,7 @@ def audit(root: Path) -> dict:
             "r182_score_cost_attribution": r182_score_cost_attribution_status,
             "r183_prefix_initialization_ablation": r183_prefix_initialization_status,
             "r184_window_exact_score": r184_window_exact_score_status,
+            "r185_macos_arm64_replication": r185_macos_arm64_replication_status,
             "t1_d5_observable_denominator_table": b10_t1_d5_table_status,
             "t1_d5_b3_molecular_observable_table": b10_t1_d5_b3_table_status,
             "t1_d5_b3_reaction_observable_table": b10_t1_d5_b3_reaction_table_status,
