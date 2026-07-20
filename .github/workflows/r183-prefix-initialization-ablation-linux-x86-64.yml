@@ -1,0 +1,146 @@
+name: R183 prefix-initialization ablation Linux x86-64 replay
+
+on:
+  workflow_dispatch:
+    inputs:
+      preregistration_commit:
+        description: Public preregistration commit
+        required: true
+        type: string
+      preregistration_discussion:
+        description: Public GitHub Discussion URL
+        required: true
+        type: string
+      preregistration_created_at:
+        description: GitHub Discussion creation time in UTC
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  prefix-initialization-ablation-linux-x86-64:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    env:
+      MKL_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      PYTHONHASHSEED: "0"
+      QISKIT_PARALLEL: "FALSE"
+      RAYON_NUM_THREADS: "1"
+    steps:
+      - name: Check out the preregistered commit
+        uses: actions/checkout@v4
+        with:
+          # The ancestry gate must see the public design commit.
+          fetch-depth: 0
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+
+      - name: Install pinned quantum dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install \
+            "PyYAML>=6.0" \
+            "numpy>=1.26" \
+            "scipy>=1.11" \
+            "qiskit==2.4.1" \
+            "qiskit-aer>=0.17" \
+            "qiskit-ibm-runtime==0.46.1" \
+            "qiskit-qasm3-import>=0.6"
+
+      - name: Build source-bound prefix-initialization accelerator
+        run: |
+          PYTHONPATH=tools python tools/b4_b8_r183_linux_x86_64_build.py \
+            --preregistration-commit "${{ inputs.preregistration_commit }}" \
+            --preregistration-discussion "${{ inputs.preregistration_discussion }}" \
+            --preregistration-created-at "${{ inputs.preregistration_created_at }}"
+
+      - name: Execute frozen 13-worker AB/BA paired matrix
+        run: |
+          PYTHONPATH=tools python tools/b4_b8_r183_prefix_init_replay.py \
+            --preregistration-commit "${{ inputs.preregistration_commit }}" \
+            --preregistration-discussion "${{ inputs.preregistration_discussion }}" \
+            --preregistration-created-at "${{ inputs.preregistration_created_at }}"
+
+      - name: Run independent standard-library oracle
+        run: |
+          PYTHONPATH=tools python tools/b4_b8_r183_independent_oracle.py \
+            --preregistration-commit "${{ inputs.preregistration_commit }}" \
+            --preregistration-discussion "${{ inputs.preregistration_discussion }}"
+
+      - name: Seal downloadable evidence bundle
+        run: PYTHONPATH=tools python tools/b4_b8_r183_linux_x86_64_bundle.py
+
+      - name: Enforce evidence completeness
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path("results/B4_B8_R183_prefix_initialization_ablation_v0.json").read_text())
+          oracle = json.loads(Path("results/B4_B8_R183_independent_oracle_v0.json").read_text())
+          bundle = json.loads(Path("results/B4_B8_R183_prefix_initialization_bundle_v0.json").read_text())
+          if oracle["requirements_failed"] or bundle["worker_artifact_count"] != 13:
+              raise SystemExit("R183 evidence integrity gate failed")
+          print(json.dumps({
+              "experimental_status": result["status"],
+              "experimental_requirements": [result["requirements_passed"], result["requirements_failed"]],
+              "oracle_status": oracle["status"],
+              "bundle_hash": bundle["payload_hash"],
+          }, indent=2, sort_keys=True))
+          PY
+
+      - name: Write job summary
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          lines = ["# R183 prefix-initialization ablation Linux x86-64 replay"]
+          for path in [
+              Path("results/B4_B8_R183_prefix_initialization_ablation_v0.json"),
+              Path("results/B4_B8_R183_independent_oracle_v0.json"),
+              Path("results/B4_B8_R183_prefix_initialization_bundle_v0.json"),
+          ]:
+              if path.exists():
+                  payload = json.loads(path.read_text())
+                  lines.extend([
+                      "",
+                      f"## {path.name}",
+                      f"- Status: `{payload.get('status')}`",
+                      f"- Payload: `{payload.get('payload_hash')}`",
+                  ])
+          Path("/tmp/r183-summary.md").write_text("\n".join(lines) + "\n")
+          PY
+          cat /tmp/r183-summary.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload R183 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: r183-prefix-initialization-linux-x86-64-${{ github.run_id }}
+          if-no-files-found: warn
+          retention-days: 30
+          path: |
+            research/source_lineage/Qiskit_2_4_1_R183_prefix_init_pyext.x86_64-linux-gnu.so
+            research/source_lineage/Qiskit_2_4_1_R183_prefix_init_linux_x86_64_build_manifest.json
+            research/source_lineage/R183_prefix_init_linux_x86_64_build_logs
+            research/B4_B8_R183_prefix_initialization_ablation.md
+            research/B4_B8_R183_independent_oracle.md
+            results/B4_B8_R183_prefix_initialization_replay
+            results/B4_B8_R183_prefix_initialization_ablation_v0.json
+            results/B4_B8_R183_independent_oracle_v0.json
+            results/B4_B8_R183_prefix_initialization_bundle_v0.json
