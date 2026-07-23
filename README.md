@@ -587,6 +587,15 @@ unconditional spectral-scaling lemmas still need to be formalized. It is not a
 Quantum PCP proof, not an NLTS theorem, and not a global gap-amplification
 no-go theorem.
 
+R93 now reconciles the checked interface across its evidence packets. Three
+fresh Lean/Lake commands return zero, all 12 closure requirements pass, and the
+current source files, transcript, provenance manifest, replay-validation
+manifest, and acceptance packet are SHA256-bound. The accepted scope is still
+only the indexed interface: no all-n theorem, Quantum PCP proof, NLTS theorem,
+or global impossibility result is claimed. The next gate is formalization of
+the open-boundary construction and support/spectral lemmas without injecting
+the desired conclusion as a hypothesis.
+
 B1/B7 now has a template-priority gate for the current `gcm_h6` bottleneck.
 The gate evaluates the 12 retained nonlocal templates from the B7 scan and
 finds 0 single-template one-angle routes that clear the one-sided 1.20x

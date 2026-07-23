@@ -415,6 +415,34 @@ current_results:
     caveat: acceptance_packet_only_no_checked_transcript_or_quantum_pcp_claim
     result: ../results/B9_checked_transcript_acceptance_packet_gate_v0.json
     markdown_report: ../research/B9_checked_transcript_acceptance_packet_gate.md
+  checked_transcript_closure_reconciliation_gate_v0:
+    status: checked_transcript_interface_closure_reconciled_not_formal_theorem
+    method: b9_checked_transcript_closure_reconciliation_gate_v0
+    model_status: lean_lake_interface_replay_and_three_packet_hash_binding_passed
+    source_acquisition_gate: ../results/B9_checked_run_acquisition_gate_v0.json
+    source_priority_packet_gate: ../results/B9_checked_transcript_priority_packet_gate_v0.json
+    fresh_command_count: 3
+    fresh_zero_returncode_count: 3
+    closure_requirement_count: 12
+    closure_requirements_passed: 12
+    closure_requirements_failed: 0
+    source_hashes:
+      lean_toolchain_sha256: e6930c662006db4d6dc76c651d60a608e4f6a18bcfd53e6b0167d70a125285d5
+      lakefile_sha256: 4d24f18967fce6e70b985da8aa6d9501297625642bfc945d629780d85b0993bd
+      lean_module_sha256: 64702f0be9ba7fddd8981329c4b1bef685036c04cdc7006d6fac2b6b290aebe8
+    transcript_sha256: 71e18675b5cb8a42239817ee1fdb1d16d137b90be3bfa28ecf3398dcbf67221b
+    provenance_manifest_hash: 2cd1710a41bf7586645209937fa0831d11abbc8e8b603d2a35ef21d4a78ea70f
+    replay_validation_manifest_hash: fd8a4e2942f0f74025067a6a881ffcd0379f7afd46c57a030644483e93bd7199
+    acceptance_packet_hash: fc84db4c238b897e510382d1c38531397b41a880a9422867059a4fcd4b3fb775
+    checked_interface_accepted: true
+    proof_assistant_checked: true
+    formal_theorem_proved: false
+    explicit_not_quantum_pcp_proof: true
+    nlts_theorem_claimed: false
+    global_gap_amplification_impossibility_claimed: false
+    validation_error_count: 0
+    result: ../results/B9_checked_transcript_closure_reconciliation_gate_v0.json
+    markdown_report: ../research/B9_checked_transcript_closure_reconciliation_gate.md
 prototype_artifacts:
   local_hamiltonian_gap_lab: ../tools/b9_local_hamiltonian_gap_lab.py
   failed_gap_amplification_lemma_builder: ../tools/b9_failed_gap_amplification_lemma.py
@@ -431,4 +459,5 @@ prototype_artifacts:
   checked_transcript_provenance_manifest_gate: ../tools/b9_checked_transcript_provenance_manifest_gate.py
   checked_transcript_replay_validation_manifest_gate: ../tools/b9_checked_transcript_replay_validation_manifest_gate.py
   checked_transcript_acceptance_packet_gate: ../tools/b9_checked_transcript_acceptance_packet_gate.py
+  checked_transcript_closure_reconciliation_gate: ../tools/b9_checked_transcript_closure_reconciliation_gate.py
   prototype_notes: ../research/B9_prototype_notes.md

@@ -1,0 +1,143 @@
+{
+  "benchmark_id": "B9",
+  "claim_boundary": {
+    "explicit_not_quantum_pcp_proof": true,
+    "formal_theorem_proved": false,
+    "global_gap_amplification_impossibility_claimed": false,
+    "nlts_theorem_claimed": false,
+    "proof_assistant_checked": true,
+    "what_is_not_supported": "This does not prove the open-boundary Hamiltonian construction for all n, a Quantum PCP theorem, an NLTS theorem, or a global gap-amplification impossibility theorem.",
+    "what_is_supported": "Lean 4.12.0 and Lake check the indexed B9 theorem interface in the named module."
+  },
+  "fresh_command_records": [
+    {
+      "command": [
+        "~/.elan/bin/lean",
+        "--version"
+      ],
+      "elapsed_seconds": 0.027157,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Lean (version 4.12.0, arm64-apple-darwin23.6.0, commit dc2533473114, Release)"
+    },
+    {
+      "command": [
+        "~/.elan/bin/lake",
+        "--version"
+      ],
+      "elapsed_seconds": 0.027906,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Lake version 5.0.0-dc25334 (Lean version 4.12.0)"
+    },
+    {
+      "command": [
+        "~/.elan/bin/lake",
+        "env",
+        "lean",
+        "B9/ClusterStabilizer/WidthLocality.lean"
+      ],
+      "elapsed_seconds": 1.079711,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "B9/ClusterStabilizer/WidthLocality.lean:25:5: warning: unused variable `hRaw`\nnote: this linter can be disabled with `set_option linter.unusedVariables false`\nB9/ClusterStabilizer/WidthLocality.lean:34:5: warning: unused variable `hN`\nnote: this linter can be disabled with `set_option linter.unusedVariables false`"
+    }
+  ],
+  "linked_benchmark_id": "B10",
+  "method": "b9_checked_transcript_closure_reconciliation_gate_v0",
+  "model_status": "lean_lake_interface_replay_and_three_packet_hash_binding_passed",
+  "problem_id": 17,
+  "requirements": [
+    {
+      "label": "Acquisition gate is 7/7 with no failures",
+      "passed": true,
+      "requirement_id": "R1"
+    },
+    {
+      "label": "Priority transcript packet is 9/9 with no failures",
+      "passed": true,
+      "requirement_id": "R2"
+    },
+    {
+      "label": "Pinned source hashes are present",
+      "passed": true,
+      "requirement_id": "R3"
+    },
+    {
+      "label": "Fresh Lean/Lake replay returns zero for all three commands",
+      "passed": true,
+      "requirement_id": "R4"
+    },
+    {
+      "label": "Fresh transcript is hashable and contains all three command records",
+      "passed": true,
+      "requirement_id": "R5"
+    },
+    {
+      "label": "Provenance schema is complete",
+      "passed": true,
+      "requirement_id": "R6"
+    },
+    {
+      "label": "Provenance packet binds current hashes and transcript",
+      "passed": true,
+      "requirement_id": "R7"
+    },
+    {
+      "label": "Replay-validation schema is complete",
+      "passed": true,
+      "requirement_id": "R8"
+    },
+    {
+      "label": "Replay packet binds provenance and current source hashes",
+      "passed": true,
+      "requirement_id": "R9"
+    },
+    {
+      "label": "Acceptance packet schema is complete",
+      "passed": true,
+      "requirement_id": "R10"
+    },
+    {
+      "label": "Acceptance packet binds both manifests and the checked run",
+      "passed": true,
+      "requirement_id": "R11"
+    },
+    {
+      "label": "Forbidden theorem claims remain false",
+      "passed": true,
+      "requirement_id": "R12"
+    }
+  ],
+  "status": "checked_transcript_interface_closure_reconciled_not_formal_theorem",
+  "submissions": {
+    "acceptance": "research/submissions/B9-checked-width-locality-transcript-acceptance-packet.json",
+    "provenance": "results/B9_checked_transcript_provenance_manifest_submissions/B9-checked-width-locality-transcript-provenance-manifest.json",
+    "replay_validation": "results/B9_checked_transcript_replay_validation_manifest_submissions/B9-checked-width-locality-transcript-replay-validation-manifest.json"
+  },
+  "summary": {
+    "acceptance_packet_hash": "fc84db4c238b897e510382d1c38531397b41a880a9422867059a4fcd4b3fb775",
+    "checked_interface_accepted": true,
+    "closure_requirement_count": 12,
+    "closure_requirements_failed": 0,
+    "closure_requirements_passed": 12,
+    "explicit_not_quantum_pcp_proof": true,
+    "failed_requirement_ids": [],
+    "formal_theorem_proved": false,
+    "fresh_command_count": 3,
+    "fresh_zero_returncode_count": 3,
+    "global_gap_amplification_impossibility_claimed": false,
+    "nlts_theorem_claimed": false,
+    "proof_assistant_checked": true,
+    "provenance_manifest_hash": "2cd1710a41bf7586645209937fa0831d11abbc8e8b603d2a35ef21d4a78ea70f",
+    "replay_validation_manifest_hash": "fd8a4e2942f0f74025067a6a881ffcd0379f7afd46c57a030644483e93bd7199",
+    "source_hashes": {
+      "lakefile_sha256": "4d24f18967fce6e70b985da8aa6d9501297625642bfc945d629780d85b0993bd",
+      "lean_module_sha256": "64702f0be9ba7fddd8981329c4b1bef685036c04cdc7006d6fac2b6b290aebe8",
+      "lean_toolchain_sha256": "e6930c662006db4d6dc76c651d60a608e4f6a18bcfd53e6b0167d70a125285d5"
+    },
+    "transcript_sha256": "71e18675b5cb8a42239817ee1fdb1d16d137b90be3bfa28ecf3398dcbf67221b",
+    "validation_error_count": 0
+  },
+  "workload": "B9/ClusterStabilizer/WidthLocality.lean"
+}
