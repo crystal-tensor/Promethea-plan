@@ -1,0 +1,28 @@
+SOURCE_SHA256: 662897b37c77726bcac0810f071449b3683a7b2aa4968221f9ff1057d88ff85c
+
+COMMAND: ~/.elan/bin/lean --version
+RETURNCODE: 0
+ELAPSED_SECONDS: 0.028599
+STDOUT:
+Lean (version 4.12.0, arm64-apple-darwin23.6.0, commit dc2533473114, Release)
+STDERR:
+
+END_COMMAND
+
+COMMAND: ~/.elan/bin/lake --version
+RETURNCODE: 0
+ELAPSED_SECONDS: 0.028843
+STDOUT:
+Lake version 5.0.0-dc25334 (Lean version 4.12.0)
+STDERR:
+
+END_COMMAND
+
+COMMAND: ~/.elan/bin/lake env lean B9/ClusterStabilizer/WidthLocality.lean
+RETURNCODE: 0
+ELAPSED_SECONDS: 1.240548
+STDOUT:
+
+STDERR:
+
+END_COMMAND

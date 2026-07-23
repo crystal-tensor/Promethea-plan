@@ -1,5 +1,7 @@
 {
   "checked_transcript_sha256": "71e18675b5cb8a42239817ee1fdb1d16d137b90be3bfa28ecf3398dcbf67221b",
+  "checked_transcript_stderr_sha256": "75a11da44c802486bc6f65640aa48a730f0f684c5c07a42ba3cd1735eb3fb070",
+  "checked_transcript_stdout_sha256": "71e18675b5cb8a42239817ee1fdb1d16d137b90be3bfa28ecf3398dcbf67221b",
   "claim_boundary": {
     "explicit_not_quantum_pcp_proof": true,
     "formal_theorem_proved": false,
@@ -9,29 +11,27 @@
     "what_is_not_supported": "This does not prove the open-boundary Hamiltonian construction for all n, a Quantum PCP theorem, an NLTS theorem, or a global gap-amplification impossibility theorem.",
     "what_is_supported": "Lean 4.12.0 and Lake check the indexed B9 theorem interface in the named module."
   },
+  "elapsed_seconds": 1.134774,
   "lake_env_lean_command_hash": "f22d2edc83cd80b66d484226cd9a8a2954bc2363e49088d8c93f9009bf647cec",
-  "lake_version_stdout_sha256": "c4c0db98375fa46dbda9eaac1efc5bf546aade4bbc77d79471f6bfc7ebffc331",
-  "lakefile_sha256": "4d24f18967fce6e70b985da8aa6d9501297625642bfc945d629780d85b0993bd",
-  "lean_module_sha256": "64702f0be9ba7fddd8981329c4b1bef685036c04cdc7006d6fac2b6b290aebe8",
-  "lean_toolchain_sha256": "e6930c662006db4d6dc76c651d60a608e4f6a18bcfd53e6b0167d70a125285d5",
-  "lean_version_stdout_sha256": "7954fc29c77233ed225ee1dd1371feebc39de23c4af49055e5ebb787fb9c3c72",
-  "manifest_hash": "2cd1710a41bf7586645209937fa0831d11abbc8e8b603d2a35ef21d4a78ea70f",
-  "manifest_id": "B9-checked-width-locality-transcript-provenance-manifest",
+  "lake_version_stdout_replay_hash": "c4c0db98375fa46dbda9eaac1efc5bf546aade4bbc77d79471f6bfc7ebffc331",
+  "lakefile_replay_hash": "4d24f18967fce6e70b985da8aa6d9501297625642bfc945d629780d85b0993bd",
+  "lean_module_replay_hash": "64702f0be9ba7fddd8981329c4b1bef685036c04cdc7006d6fac2b6b290aebe8",
+  "lean_toolchain_replay_hash": "e6930c662006db4d6dc76c651d60a608e4f6a18bcfd53e6b0167d70a125285d5",
+  "lean_version_stdout_replay_hash": "7954fc29c77233ed225ee1dd1371feebc39de23c4af49055e5ebb787fb9c3c72",
+  "manifest_hash": "fd8a4e2942f0f74025067a6a881ffcd0379f7afd46c57a030644483e93bd7199",
+  "manifest_id": "B9-checked-width-locality-transcript-replay-validation-manifest",
   "offline_bundle_hash_manifest": "a06204258abc9e5b0e8620f542865f504f6997578c039ebb9f106f508cc7bc1f",
   "packet_id": "B9-checked-width-locality-transcript",
   "priority_packet_hash": "948afb38dab74a9612316173024f06228bda70fce37dd1a957b9d95536a07969",
+  "provenance_manifest_hash": "2cd1710a41bf7586645209937fa0831d11abbc8e8b603d2a35ef21d4a78ea70f",
+  "provenance_manifest_id": "B9-checked-width-locality-transcript-provenance-manifest",
   "replay_hashes": {
     "lakefile_sha256": "4d24f18967fce6e70b985da8aa6d9501297625642bfc945d629780d85b0993bd",
     "lean_module_sha256": "64702f0be9ba7fddd8981329c4b1bef685036c04cdc7006d6fac2b6b290aebe8",
     "lean_toolchain_sha256": "e6930c662006db4d6dc76c651d60a608e4f6a18bcfd53e6b0167d70a125285d5",
-    "priority_packet_hash": "948afb38dab74a9612316173024f06228bda70fce37dd1a957b9d95536a07969"
+    "priority_packet_hash": "948afb38dab74a9612316173024f06228bda70fce37dd1a957b9d95536a07969",
+    "provenance_manifest_hash": "2cd1710a41bf7586645209937fa0831d11abbc8e8b603d2a35ef21d4a78ea70f"
   },
   "returncode": 0,
-  "source_evidence_files": [
-    "lean-toolchain",
-    "lakefile.lean",
-    "B9/ClusterStabilizer/WidthLocality.lean",
-    "results/B9_R93_checked_interface_replay_transcript.txt"
-  ],
   "source_evidence_files_present": true
 }

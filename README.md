@@ -587,6 +587,15 @@ unconditional spectral-scaling lemmas still need to be formalized. It is not a
 Quantum PCP proof, not an NLTS theorem, and not a global gap-amplification
 no-go theorem.
 
+R93 now reconciles the checked interface across its evidence packets. Three
+fresh Lean/Lake commands return zero, all 12 closure requirements pass, and the
+current source files, transcript, provenance manifest, replay-validation
+manifest, and acceptance packet are SHA256-bound. The accepted scope is still
+only the indexed interface: no all-n theorem, Quantum PCP proof, NLTS theorem,
+or global impossibility result is claimed. The next gate is formalization of
+the open-boundary construction and support/spectral lemmas without injecting
+the desired conclusion as a hypothesis.
+
 B1/B7 now has a template-priority gate for the current `gcm_h6` bottleneck.
 The gate evaluates the 12 retained nonlocal templates from the B7 scan and
 finds 0 single-template one-angle routes that clear the one-sided 1.20x
@@ -4551,3 +4560,24 @@ a confirmed bug. Payload `3cf4927f...`; no hidden evidence, simulation or
 hardware performance, temporal or real-device transfer, general route-
 generation advantage, quantum advantage, BQP separation, solved-frontier
 status, or new credit is claimed.
+
+## Latest Research Update: R94
+
+R94 tightens the B9 formalization boundary. The pinned Lean/Lake environment
+checks normalized-gap cancellation from an explicit nonzero uniform scale and
+checks the project scale 27/20 as nonzero. The gate passes 10/10 requirements,
+3/3 fresh Lean/Lake commands return zero, and the replay emits no warnings.
+This is a checked scalar lemma, not an all-n Hamiltonian theorem, Quantum PCP
+proof, NLTS theorem, global gap-amplification impossibility result, or BQP
+separation. The next formal gate must prove locality and spectral statements
+for the indexed construction without injecting those conclusions as premises.
+
+## Latest Research Update: R95
+
+R95 removes a second assumption-injection point in the B9 formal interface.
+Lean now checks spectral-width ratio cancellation from an explicit nonzero
+uniform scale, and checks the concrete `UniformScaleFactor` wrapper. The gate
+passes 10/10 requirements, 3/3 fresh Lean/Lake commands return zero, and the
+transcript has no warnings. This remains a scalar formal guardrail, not an
+all-n Hamiltonian theorem, Quantum PCP proof, NLTS theorem, global
+gap-amplification impossibility result, or BQP separation.

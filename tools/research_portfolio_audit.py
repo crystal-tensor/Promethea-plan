@@ -49684,6 +49684,15 @@ def audit(root: Path) -> dict:
             "b9_checked_transcript_acceptance_packet_gate": str(
                 research / "B9_checked_transcript_acceptance_packet_gate.md"
             ),
+            "b9_checked_transcript_closure_reconciliation_gate": str(
+                research / "B9_checked_transcript_closure_reconciliation_gate.md"
+            ),
+            "b9_scale_cancellation_formalization_gate": str(
+                research / "B9_scale_cancellation_formalization_gate.md"
+            ),
+            "b9_spectral_width_formalization_gate": str(
+                research / "B9_spectral_width_formalization_gate.md"
+            ),
             "b7_dependency_schedule_bridge": str(research / "B7_b1_b2_dependency_schedule_bridge.md"),
             "b7_workload_dag_factory_schedule": str(research / "B7_workload_dag_factory_schedule.md"),
             "b7_logical_t_factory_schedule": str(research / "B7_logical_t_factory_schedule.md"),

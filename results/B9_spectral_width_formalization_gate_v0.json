@@ -1,0 +1,117 @@
+{
+  "benchmark_id": "B9",
+  "claim_boundary": {
+    "what_is_not_supported": "This does not prove the all-n Hamiltonian construction, locality, a Quantum PCP theorem, an NLTS theorem, a global gap-amplification impossibility theorem, or a BQP separation.",
+    "what_is_supported": "Lean checks spectral-width ratio cancellation for a nonzero uniform real scale and checks a concrete UniformScaleFactor wrapper."
+  },
+  "fresh_command_records": [
+    {
+      "command": [
+        "~/.elan/bin/lean",
+        "--version"
+      ],
+      "elapsed_seconds": 0.028599,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Lean (version 4.12.0, arm64-apple-darwin23.6.0, commit dc2533473114, Release)"
+    },
+    {
+      "command": [
+        "~/.elan/bin/lake",
+        "--version"
+      ],
+      "elapsed_seconds": 0.028843,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Lake version 5.0.0-dc25334 (Lean version 4.12.0)"
+    },
+    {
+      "command": [
+        "~/.elan/bin/lake",
+        "env",
+        "lean",
+        "B9/ClusterStabilizer/WidthLocality.lean"
+      ],
+      "elapsed_seconds": 1.240548,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "linked_benchmark_id": "B10",
+  "method": "b9_spectral_width_formalization_gate_v0",
+  "model_status": "formal_spectral_ratio_lemma_checked_under_pinned_lean_lake",
+  "requirements": [
+    {
+      "label": "Lean/Lake probes return zero",
+      "passed": true,
+      "requirement_id": "R1"
+    },
+    {
+      "label": "The B9 module returns zero",
+      "passed": true,
+      "requirement_id": "R2"
+    },
+    {
+      "label": "The spectral-width cancellation theorem exists",
+      "passed": true,
+      "requirement_id": "R3"
+    },
+    {
+      "label": "The theorem requires a nonzero scale",
+      "passed": true,
+      "requirement_id": "R4"
+    },
+    {
+      "label": "The theorem delegates to normalized-gap cancellation",
+      "passed": true,
+      "requirement_id": "R5"
+    },
+    {
+      "label": "The new interface has no injected hRatio",
+      "passed": true,
+      "requirement_id": "R6"
+    },
+    {
+      "label": "The generic uniform-scale spectral-width interface exists",
+      "passed": true,
+      "requirement_id": "R7"
+    },
+    {
+      "label": "The concrete 27/20 wrapper exists",
+      "passed": true,
+      "requirement_id": "R8"
+    },
+    {
+      "label": "Transcript has three records, no warnings, and binds source hash",
+      "passed": true,
+      "requirement_id": "R9"
+    },
+    {
+      "label": "Formal-complexity claims remain explicitly out of scope",
+      "passed": true,
+      "requirement_id": "R10"
+    }
+  ],
+  "status": "spectral_width_formalization_checked_not_quantum_pcp_proof",
+  "summary": {
+    "bqp_separation_claimed": false,
+    "checked_spectral_width_ratio_lemma": true,
+    "explicit_not_quantum_pcp_proof": true,
+    "failed_requirement_ids": [],
+    "formal_theorem_proved": false,
+    "fresh_command_count": 3,
+    "fresh_no_warning": true,
+    "fresh_zero_returncode_count": 3,
+    "global_gap_amplification_impossibility_claimed": false,
+    "nlts_theorem_claimed": false,
+    "proof_assistant_checked": true,
+    "requirement_count": 10,
+    "requirements_failed": 0,
+    "requirements_passed": 10,
+    "source_sha256": "662897b37c77726bcac0810f071449b3683a7b2aa4968221f9ff1057d88ff85c",
+    "transcript_sha256": "fcea4574a65c527dae71b1974ee8f3999a5e1a08369590d5a9b791a40649db5a",
+    "validation_error_count": 0
+  },
+  "workload": "B9/ClusterStabilizer/WidthLocality.lean"
+}

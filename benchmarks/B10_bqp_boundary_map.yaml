@@ -5232,6 +5232,34 @@ current_results:
     caveat: unified_positive_route_boundary_only_no_b3_or_b5_accepted_rows_no_bqp_claim
     result: ../results/B10_T1_positive_route_acceptance_boundary_v0.json
     markdown_report: ../research/B10_T1_positive_route_acceptance_boundary.md
+  b9_scale_cancellation_formalization_gate_v0:
+    status: linked_b9_scalar_lemma_checked_zero_bqp_credit
+    method: b9_scale_cancellation_formalization_gate_v0
+    source_benchmark: B9
+    source_result: ../results/B9_scale_cancellation_formalization_gate_v0.json
+    source_markdown_report: ../research/B9_scale_cancellation_formalization_gate.md
+    checked_scale_cancellation_lemma: true
+    proof_assistant_checked: true
+    formal_theorem_proved: false
+    bqp_separation_claimed: false
+    quantum_advantage_claimed: false
+    b10_credit_allowed: false
+    validation_error_count: 0
+    caveat: linked_scalar_guardrail_only_no_bqp_boundary_theorem
+  b9_spectral_width_formalization_gate_v0:
+    status: linked_b9_spectral_ratio_lemma_checked_zero_bqp_credit
+    method: b9_spectral_width_formalization_gate_v0
+    source_benchmark: B9
+    source_result: ../results/B9_spectral_width_formalization_gate_v0.json
+    source_markdown_report: ../research/B9_spectral_width_formalization_gate.md
+    checked_spectral_width_ratio_lemma: true
+    proof_assistant_checked: true
+    formal_theorem_proved: false
+    bqp_separation_claimed: false
+    quantum_advantage_claimed: false
+    b10_credit_allowed: false
+    validation_error_count: 0
+    caveat: linked_spectral_guardrail_only_no_bqp_boundary_theorem
 prototype_artifacts:
   boundary_graph_builder: ../tools/b10_bqp_boundary_graph.py
   formal_theorem_target_builder: ../tools/b10_formal_theorem_targets.py
