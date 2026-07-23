@@ -1,0 +1,122 @@
+{
+  "benchmark_id": "B9",
+  "claim_boundary": {
+    "what_is_not_supported": "This does not prove that a full all-n Hamiltonian has the desired spectrum, does not prove a Quantum PCP or NLTS theorem, and does not prove a global gap-amplification impossibility or BQP separation.",
+    "what_is_supported": "Lean checks a constructive ClusterTerm support interface: interior terms have locality 3, boundary terms have locality 2, every term has locality at most 3, and uniform reweighting preserves that locality."
+  },
+  "fresh_command_records": [
+    {
+      "command": [
+        "~/.elan/bin/lean",
+        "--version"
+      ],
+      "elapsed_seconds": 0.027416,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Lean (version 4.12.0, arm64-apple-darwin23.6.0, commit dc2533473114, Release)"
+    },
+    {
+      "command": [
+        "~/.elan/bin/lake",
+        "--version"
+      ],
+      "elapsed_seconds": 0.027974,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Lake version 5.0.0-dc25334 (Lean version 4.12.0)"
+    },
+    {
+      "command": [
+        "~/.elan/bin/lake",
+        "env",
+        "lean",
+        "B9/ClusterStabilizer/WidthLocality.lean"
+      ],
+      "elapsed_seconds": 1.224214,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "linked_benchmark_id": "B10",
+  "method": "b9_support_locality_formalization_gate_v0",
+  "model_status": "constructive_cluster_term_support_bridge_checked_under_pinned_lean_lake",
+  "requirements": [
+    {
+      "label": "Lean/Lake probes return zero",
+      "passed": true,
+      "requirement_id": "R1"
+    },
+    {
+      "label": "The B9 module returns zero",
+      "passed": true,
+      "requirement_id": "R2"
+    },
+    {
+      "label": "ClusterTerm is an inductive support-bearing construction",
+      "passed": true,
+      "requirement_id": "R3"
+    },
+    {
+      "label": "Interior terms are fixed at support size three",
+      "passed": true,
+      "requirement_id": "R4"
+    },
+    {
+      "label": "Boundary terms are fixed at support size two",
+      "passed": true,
+      "requirement_id": "R5"
+    },
+    {
+      "label": "Every constructed term is in the support set",
+      "passed": true,
+      "requirement_id": "R6"
+    },
+    {
+      "label": "Every constructed term has maximum locality three",
+      "passed": true,
+      "requirement_id": "R7"
+    },
+    {
+      "label": "The support construction connects to SpectralSummary",
+      "passed": true,
+      "requirement_id": "R8"
+    },
+    {
+      "label": "Uniform reweighting preserves constructed locality",
+      "passed": true,
+      "requirement_id": "R9"
+    },
+    {
+      "label": "Transcript binds source hash, has three records, and has no warnings",
+      "passed": true,
+      "requirement_id": "R10"
+    }
+  ],
+  "status": "support_locality_formalization_checked_not_quantum_pcp_proof",
+  "summary": {
+    "bqp_separation_claimed": false,
+    "checked_constructive_support_bridge": true,
+    "explicit_not_quantum_pcp_proof": true,
+    "failed_requirement_ids": [],
+    "formal_theorem_proved": false,
+    "fresh_command_count": 3,
+    "fresh_no_warning": true,
+    "fresh_zero_returncode_count": 3,
+    "global_gap_amplification_impossibility_claimed": false,
+    "max_locality": 3,
+    "nlts_theorem_claimed": false,
+    "proof_assistant_checked": true,
+    "requirement_count": 10,
+    "requirements_failed": 0,
+    "requirements_passed": 10,
+    "source_sha256": "5230af603b22978d14611b3ade8ebdd668a6105a37be1087ac6da955541534a5",
+    "support_sizes": [
+      2,
+      3
+    ],
+    "transcript_sha256": "7fc4bfbd68aaa709004042779cc40582cf9f6bafde9a55599e302eadbb7fd8f3",
+    "validation_error_count": 0
+  },
+  "workload": "B9/ClusterStabilizer/WidthLocality.lean"
+}

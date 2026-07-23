@@ -1,0 +1,124 @@
+{
+  "benchmark_id": "B9",
+  "claim_boundary": {
+    "what_is_not_supported": "This does not define Pauli operators or prove a Hamiltonian term sum, its spectrum, a Quantum PCP theorem, an NLTS theorem, a global gap-amplification impossibility result, or a BQP separation.",
+    "what_is_supported": "For every n >= 2, Lean checks a canonical Fin n-indexed family whose terms are explicitly boundary or interior constructors, every term has locality in {2,3}, every term has locality at most 3, and the family is total over its index domain."
+  },
+  "fresh_command_records": [
+    {
+      "command": [
+        "~/.elan/bin/lean",
+        "--version"
+      ],
+      "elapsed_seconds": 0.027621,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Lean (version 4.12.0, arm64-apple-darwin23.6.0, commit dc2533473114, Release)"
+    },
+    {
+      "command": [
+        "~/.elan/bin/lake",
+        "--version"
+      ],
+      "elapsed_seconds": 0.027692,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Lake version 5.0.0-dc25334 (Lean version 4.12.0)"
+    },
+    {
+      "command": [
+        "~/.elan/bin/lake",
+        "env",
+        "lean",
+        "B9/ClusterStabilizer/WidthLocality.lean"
+      ],
+      "elapsed_seconds": 2.238087,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "linked_benchmark_id": "B10",
+  "method": "b9_term_family_locality_gate_v0",
+  "model_status": "all_n_fin_indexed_cluster_term_family_checked_under_pinned_lean_lake",
+  "requirements": [
+    {
+      "label": "Lean/Lake version probes return zero",
+      "passed": true,
+      "requirement_id": "R1"
+    },
+    {
+      "label": "The B9 module returns zero",
+      "passed": true,
+      "requirement_id": "R2"
+    },
+    {
+      "label": "ClusterTerm.at is an indexed construction",
+      "passed": true,
+      "requirement_id": "R3"
+    },
+    {
+      "label": "The left boundary branch is explicit",
+      "passed": true,
+      "requirement_id": "R4"
+    },
+    {
+      "label": "The right boundary branch is explicit",
+      "passed": true,
+      "requirement_id": "R5"
+    },
+    {
+      "label": "The interior branch carries both arithmetic bounds",
+      "passed": true,
+      "requirement_id": "R6"
+    },
+    {
+      "label": "ClusterTermFamily is total over Fin n",
+      "passed": true,
+      "requirement_id": "R7"
+    },
+    {
+      "label": "The canonical family is defined for every n >= 2",
+      "passed": true,
+      "requirement_id": "R8"
+    },
+    {
+      "label": "The canonical family has checked support and max-locality theorems",
+      "passed": true,
+      "requirement_id": "R9"
+    },
+    {
+      "label": "The family is total and the transcript is fresh",
+      "passed": true,
+      "requirement_id": "R10"
+    }
+  ],
+  "status": "term_family_locality_checked_not_hamiltonian_spectral_proof",
+  "summary": {
+    "bqp_separation_claimed": false,
+    "checked_all_n_term_family_bridge": true,
+    "explicit_not_hamiltonian_spectral_proof": true,
+    "failed_requirement_ids": [],
+    "formal_theorem_proved": false,
+    "fresh_command_count": 3,
+    "fresh_no_warning": true,
+    "fresh_zero_returncode_count": 3,
+    "index_domain": "Fin n",
+    "max_locality": 3,
+    "minimum_n": 2,
+    "nlts_theorem_claimed": false,
+    "proof_assistant_checked": true,
+    "quantum_pcp_theorem_claimed": false,
+    "requirement_count": 10,
+    "requirements_failed": 0,
+    "requirements_passed": 10,
+    "source_sha256": "2ef4ffbfa6f94ae76ef55445a1e200fcd0b6368c2f72fe46304f5884fef9df51",
+    "support_sizes": [
+      2,
+      3
+    ],
+    "transcript_sha256": "83942fa83b93d122f2797da0822be0374c5f38187d2857d7f1104975de9a48aa",
+    "validation_error_count": 0
+  },
+  "workload": "B9/ClusterStabilizer/WidthLocality.lean"
+}

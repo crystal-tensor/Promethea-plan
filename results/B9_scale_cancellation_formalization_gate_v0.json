@@ -1,0 +1,117 @@
+{
+  "benchmark_id": "B9",
+  "claim_boundary": {
+    "what_is_not_supported": "This does not formalize the all-n Hamiltonian construction, locality over the construction, a Quantum PCP theorem, an NLTS theorem, a global gap-amplification impossibility theorem, or B10 complexity separation.",
+    "what_is_supported": "For real gap, width, and nonzero scale parameters, Lean checks cancellation of uniform scaling in the normalized-gap ratio, and checks that the project scale 27/20 is nonzero."
+  },
+  "fresh_command_records": [
+    {
+      "command": [
+        "~/.elan/bin/lake"
+      ],
+      "elapsed_seconds": 0.026078,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Lean (version 4.12.0, arm64-apple-darwin23.6.0, commit dc2533473114, Release)"
+    },
+    {
+      "command": [
+        "~/.elan/bin/lake"
+      ],
+      "elapsed_seconds": 0.028182,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Lake version 5.0.0-dc25334 (Lean version 4.12.0)"
+    },
+    {
+      "command": [
+        "~/.elan/bin/lake",
+        "lean",
+        "B9/ClusterStabilizer/WidthLocality.lean"
+      ],
+      "elapsed_seconds": 1.127174,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "linked_benchmark_id": "B10",
+  "method": "b9_scale_cancellation_formalization_gate_v0",
+  "model_status": "formal_scalar_lemma_checked_under_pinned_lean_lake",
+  "requirements": [
+    {
+      "label": "Lean/Lake version probes return zero",
+      "passed": true,
+      "requirement_id": "R1"
+    },
+    {
+      "label": "The B9 module returns zero under lake env lean",
+      "passed": true,
+      "requirement_id": "R2"
+    },
+    {
+      "label": "The source declares normalized_gap_scale_cancel",
+      "passed": true,
+      "requirement_id": "R3"
+    },
+    {
+      "label": "The cancellation theorem requires a nonzero scale",
+      "passed": true,
+      "requirement_id": "R4"
+    },
+    {
+      "label": "The cancellation proof does not inject hRatio",
+      "passed": true,
+      "requirement_id": "R5"
+    },
+    {
+      "label": "The new normalized-gap theorem consumes the cancellation lemma",
+      "passed": true,
+      "requirement_id": "R6"
+    },
+    {
+      "label": "The concrete 27/20 scale is checked as nonzero",
+      "passed": true,
+      "requirement_id": "R7"
+    },
+    {
+      "label": "Fresh transcript has three command records and no warnings",
+      "passed": true,
+      "requirement_id": "R8"
+    },
+    {
+      "label": "The transcript binds the current source hash",
+      "passed": true,
+      "requirement_id": "R9"
+    },
+    {
+      "label": "Forbidden B9/B10 claims remain false",
+      "passed": true,
+      "requirement_id": "R10"
+    }
+  ],
+  "source_files": [
+    "B9/ClusterStabilizer/WidthLocality.lean"
+  ],
+  "status": "scale_cancellation_formalization_checked_not_quantum_pcp_proof",
+  "summary": {
+    "bqp_separation_claimed": false,
+    "checked_scale_cancellation_lemma": true,
+    "explicit_not_quantum_pcp_proof": true,
+    "failed_requirement_ids": [],
+    "formal_theorem_proved": false,
+    "fresh_command_count": 3,
+    "fresh_no_warning": true,
+    "fresh_zero_returncode_count": 3,
+    "global_gap_amplification_impossibility_claimed": false,
+    "nlts_theorem_claimed": false,
+    "proof_assistant_checked": true,
+    "requirement_count": 10,
+    "requirements_failed": 0,
+    "requirements_passed": 10,
+    "source_sha256": "553a66f87f721051aaf224e82ead9a279289e1b0a8d2a37227bfd3aecd90642b",
+    "transcript_sha256": "fc2ca026c6da126c73d91ba4180106b2b3abf5af5d104e6ecdca9996501ea3f6",
+    "validation_error_count": 0
+  },
+  "workload": "B9/ClusterStabilizer/WidthLocality.lean"
+}

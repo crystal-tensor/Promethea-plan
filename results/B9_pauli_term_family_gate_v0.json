@@ -1,0 +1,127 @@
+{
+  "benchmark_id": "B9",
+  "claim_boundary": {
+    "what_is_not_supported": "The descriptors are not yet matrices or an operator algebra. This does not define a Hamiltonian sum, prove Hermiticity or spectrum, prove Quantum PCP or NLTS, prove a global impossibility result, or establish BQP separation.",
+    "what_is_supported": "Lean checks an all-n Fin n-indexed family of Pauli-labelled term descriptors: interior terms carry explicit Z-X-Z factors, boundaries carry two factors, factor-list locality matches the source ClusterTerm locality, and the family is total with support at most 3."
+  },
+  "fresh_command_records": [
+    {
+      "command": [
+        "~/.elan/bin/lean",
+        "--version"
+      ],
+      "elapsed_seconds": 0.024935,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Lean (version 4.12.0, arm64-apple-darwin23.6.0, commit dc2533473114, Release)"
+    },
+    {
+      "command": [
+        "~/.elan/bin/lake",
+        "--version"
+      ],
+      "elapsed_seconds": 0.029242,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Lake version 5.0.0-dc25334 (Lean version 4.12.0)"
+    },
+    {
+      "command": [
+        "~/.elan/bin/lake",
+        "env",
+        "lean",
+        "B9/ClusterStabilizer/WidthLocality.lean"
+      ],
+      "elapsed_seconds": 2.346937,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "linked_benchmark_id": "B10",
+  "method": "b9_pauli_term_family_gate_v0",
+  "model_status": "fin_indexed_pauli_labelled_term_family_checked_under_pinned_lean_lake",
+  "requirements": [
+    {
+      "label": "Lean/Lake version probes return zero",
+      "passed": true,
+      "requirement_id": "R1"
+    },
+    {
+      "label": "The B9 module returns zero",
+      "passed": true,
+      "requirement_id": "R2"
+    },
+    {
+      "label": "PauliAxis exposes X and Z labels",
+      "passed": true,
+      "requirement_id": "R3"
+    },
+    {
+      "label": "PauliFactor carries a Fin n site",
+      "passed": true,
+      "requirement_id": "R4"
+    },
+    {
+      "label": "PauliTerm carries an explicit factor list",
+      "passed": true,
+      "requirement_id": "R5"
+    },
+    {
+      "label": "ClusterTerm maps to explicit Z-X-Z or boundary factors",
+      "passed": true,
+      "requirement_id": "R6"
+    },
+    {
+      "label": "The operator term locality equals source term locality",
+      "passed": true,
+      "requirement_id": "R7"
+    },
+    {
+      "label": "HamiltonianTermFamily is Fin n-indexed",
+      "passed": true,
+      "requirement_id": "R8"
+    },
+    {
+      "label": "The canonical operator family has support and max-locality theorems",
+      "passed": true,
+      "requirement_id": "R9"
+    },
+    {
+      "label": "The operator family is total and the transcript is fresh",
+      "passed": true,
+      "requirement_id": "R10"
+    }
+  ],
+  "status": "pauli_term_family_checked_not_hamiltonian_spectral_proof",
+  "summary": {
+    "bqp_separation_claimed": false,
+    "checked_pauli_term_family_bridge": true,
+    "explicit_not_hamiltonian_spectral_proof": true,
+    "factor_alphabet": [
+      "X",
+      "Z"
+    ],
+    "failed_requirement_ids": [],
+    "formal_theorem_proved": false,
+    "fresh_command_count": 3,
+    "fresh_no_warning": true,
+    "fresh_zero_returncode_count": 3,
+    "index_domain": "Fin n",
+    "max_locality": 3,
+    "nlts_theorem_claimed": false,
+    "proof_assistant_checked": true,
+    "quantum_pcp_theorem_claimed": false,
+    "requirement_count": 10,
+    "requirements_failed": 0,
+    "requirements_passed": 10,
+    "source_sha256": "0b93b31c11fd62dd44f30fe5de3aa9a27b40ee16befb0c6c1617d62e8ce26e9c",
+    "support_sizes": [
+      2,
+      3
+    ],
+    "transcript_sha256": "15a0aecf748975bc00a3b09a603985c2e5834e74bb7cb90d26f63055c7e233ca",
+    "validation_error_count": 0
+  },
+  "workload": "B9/ClusterStabilizer/WidthLocality.lean"
+}
